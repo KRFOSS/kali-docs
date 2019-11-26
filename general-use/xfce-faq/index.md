@@ -31,14 +31,20 @@ The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are 
 
 **Q:** I absolutely love the new theme and I desperately want it, but without having to re-install my system. How can I migrate my existing Kali Linux installation?
 
-**A:** Run `apt update && apt install kali-desktop-xfce` in  a terminal session to install the new Kali Linux Xfce environment.  
+**A:** Run `apt update && apt install kali-desktop-xfce` in  a terminal session to install the new Kali Linux Xfce environment. If you would also like to remove the Gnome window manager, which we do not recommend until you are sure you are ready to, run `apt purge --autoremove kali-desktop-gnome`. Be sure to run this *after* installing Xfce.
 
 When asked to select the "*Default display manager*", choose `lightdm`.  
 
 Next time you login you can choose "XFCE" in the session selector in the top right hand corner of the login screen.  
-  
 &nbsp;  
 &nbsp;  
+
+**Q:** I installed Xfce, but it doesn't look like the preview. How can I get it to look the same?
+
+**A:** If you are having issues, it may be that a config file is not set properly. First, backup .cache, .config, and .local. Next, running `rm -r .cache .config .local` and then rebooting will likely fix those issues.
+&nbsp;  
+&nbsp; 
+
 **Q:** How can I get a Kali Linux image with GNOME instead of XFCE?  
 
 **A:**  Just download the Kali GNOME image from https://www.kali.org/downloads/  
