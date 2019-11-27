@@ -20,14 +20,14 @@ The [Gemini PDA](https://planetcom.squarespace.com/device/) is a multi-boot Andr
 Operating systems aren't installed but flashed using the Smart Phone Flash tool provided by Mediatek. To flash a new Gemini PDA with rooted Android and Kali Linux requires only four steps:
 
  1. Download and extract the Kali-Gem firmware archive, which includes everything to setup the Gemini with the following partition table:
-   1. Android (rooted), 16 GB
-   2. Kali Linux, 40 GB
-   3. Empty
- 2. Download, install, and run the SP Flash tool
- 3. Backup the current NVRAM partition
- 4. Flash the Kali-Gem firmware
+ 2. Android (rooted), 16 GB
+ 3. Kali Linux, 40 GB
+ 4. Empty
+ 5. Download, install, and run the SP Flash tool
+ 6. Backup the current NVRAM partition
+ 7. Flash the Kali-Gem firmware
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#1-download-and-extract-the-kali-gem-firmware-folder-available-here)1. Download and Extract the Firmware
+### 1. Download and Extract the Firmware
 
 The Kali Linux Gemini image can be downloaded from the [Offensive Security ARM images](https://www.offensive-security.com/kali-linux-arm-images/) page. The folder contains all files required for a complete re-flash of the Gemini PDA with bootloader, a rooted Android partition and Kali-Linux.
 
@@ -38,7 +38,7 @@ With a linux partition created, you can write the image file **_linux_root.img_*
 
 The rest of the steps in this guide detail a complete re-flash of a Gemini x27 with a Windows PC.
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#2-download-and-install-the-drivers-and-flash-tool)2. Download and Install the Drivers and Flash Tool
+### 2. Download and Install the Drivers and Flash Tool
 
 1. You can find the latest drivers here: [Windows Flash Tool Drivers](http://support.planetcom.co.uk/download/FlashToolDrivers.zip)
 2. Once downloaded, unzip the archive
@@ -48,7 +48,7 @@ The rest of the steps in this guide detail a complete re-flash of a Gemini x27 w
 6. Unzip the downloaded zip file containing the Windows FlashTool directory
 7. Next, run 'flash_tool.exe' in the **_FlashToolWindows_** folder
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#3-back-up-the-current-nvram-partition)3. Backup the Current NVRAM Partition
+### 3. Backup the Current NVRAM Partition
 
 Before flashing the device with a different firmware, it is a good idea to backup the current NVRAM partition. This partition stores key information for your Gemini, including the IMEI number. If it gets lost or damaged, your Gemini will not be able to make or receive calls.
 
@@ -62,7 +62,7 @@ Next go to the "Readback" tab and click on the "Add" button. A row will appear i
 
 To back up the NVRAM partition, click the "Read Back" button, connect your Gemini to your PC, and power on the Gemini by pressing the "Esc" button for about a second or two. The flash tool will detect the unit and back up the partition.
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#4-flashing-the-kali-linux-firmware)4. Flash the Kali Linux Firmware
+### 4. Flash the Kali Linux Firmware
 
 
 * Click on the "Download" tab
@@ -80,7 +80,7 @@ Once booting, the flash tool will detect the unit and will start flashing the de
 
 ![](Gemini-Flashing-Success.png)
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#5-boot-notes)Boot Notes
+### 5. Boot Notes
 
 The multi-boot mechanism works as follows. Starting from a switched off Gemini, press the "Esc" (On) key to start the unit until the Gemini vibrates. Once you feel the vibration, you can choose the boot mode by pressing the following key combination:
 
@@ -89,7 +89,7 @@ The multi-boot mechanism works as follows. Starting from a switched off Gemini, 
 * Boot 2 (Kali Linux): Silver button on the right hand side of the device is pressed
 * Boot 3 (N/A): Both Esc(On) key and silver button on the right hand side of the device are pressed at the same time. Keep the keys/buttons pressed until the screen turns ON
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#6-logging-in-for-the-first-time)Logging in for the First Time
+### 6. Logging in for the First Time
 
 The default usernames/passwords configured for the device are:
 
@@ -111,11 +111,11 @@ After logging in for the first time, we recommend the following steps:
 * Run 'bluetoothctl' on the command line to setup a mouse
 * This image comes with Kali Linux Top10 pre-installed, run 'apt update && apt install kali-linux-full'
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#7-finish-android-rooting-process)Finish Android Rooting Process
+### 7. Finish Android Rooting Process
 
 Run the pre-installed "Magisk Manager" to complete the rooting process.
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#8backing-up-the-kali-linux-root-partition)Backing up the Kali Linux root Partition
+### 8. Backing up the Kali Linux root Partition
 
 To create a backup of your rootfs partition, click on the "Readback" tab in the flash tool and then on the "Add" button. A row will appear in the table as in the following screenshot:
 
@@ -132,7 +132,7 @@ It should look like this screenshot:
 
 Click "OK" and then click "Readback". Connect the Gemini and turn it on by pressing "OK".
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Installation-Guide#thats-all)That's All
+### 9. That's All
 
 Please keep in touch by joining us in the [Kali Forums](https://forums.kali.org/).
 
@@ -150,12 +150,12 @@ Please keep in touch by joining us in the [Kali Forums](https://forums.kali.org
 - IRC Logs: [http://logs.nslu2-linux.org/livelogs/gemini-pda/](http://logs.nslu2-linux.org/livelogs/gemini-pda/)
 - Halium: [https://halium.org](https://halium.org/)
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Links#guides)Guides:
+### Guides:
 
 - [Linux Flashing Guide](http://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)
 - [Android Flashing Guide](http://support.planetcom.co.uk/index.php/Android_Flashing_Guide)
 
-### [](https://github.com/Re4son/kali-gemini-multistrap-config/wiki/Links#downloads)Downloads:
+### Downloads:
 
 - [Windows Flash Tool Drivers](http://support.planetcom.co.uk/download/FlashToolDrivers.zip)
 - [SP-Flashing Tool for Windows](https://forum.hovatek.com/thread-13970.html)
