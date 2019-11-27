@@ -23,6 +23,8 @@ The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are 
 
 [Theme](#theme)
 
+[Terminal not showing up](#no-terminal)
+
 [Feedback](#feedback)
 &nbsp;  
 &nbsp;  
@@ -107,6 +109,27 @@ To switch from "*Light*" to "*Dark*", just select the Dark themes in these setti
 **A:** You can move the buttons from one side to the other in "*Settings -> Window Manager-> Style -> Button Layout*". Just drag and drop them to the other side of the word "Title".   
 &nbsp;  
 &nbsp;  
+
+#### No Terminal Showing Up
+
+**Q:** When I try to launch the terminal, the window shows up, but the contents are empty, what gives?
+
+**A:** There may be an issue with your graphics and the xfwm4 compositor in use.
+To disable the compositor,
+go to "*Settings -> Window Manager Tweaks*" and:
+
+- In the "*Compositor*" tab, uncheck Enable display compositing
+
+If you want a compositor still, and the xfwm4 compositor isn't working for you, you can use an alternative like "*compton*".
+
+- `apt install compton`
+
+Then to have it auto run at login,
+go to "*Settings -> Session and Startup*" and:
+
+- In the "*Application Autostart*" tab, click "*Add*" and enter "*Compton*" for the name, and "*compton*" for the Command, then click "*OK*", log out, and back in.
+&nbsp;
+&nbsp;
 
 #### Feedback
 
