@@ -69,6 +69,10 @@ Next time you login you can choose "GNOME" in the session selector in the top ri
 in a terminal window.
 To increase the scaling of the lightdm login screen, just set "*xft-dpi*" to *200* or higher in the file `/etc/lightdm/lightdm-gtk-greeter.conf`.
 
+**Q:** Even after doing the above, the terminal is still too small.
+
+**A:** In your home directory, add `xrandr --dpi 180` to your `.xsessionrc` file.
+
 &nbsp;
 &nbsp;
 
