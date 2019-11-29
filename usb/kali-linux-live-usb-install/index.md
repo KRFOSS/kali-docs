@@ -23,7 +23,7 @@ In order to do this, we first need to create a bootable USB drive which has bee
 ## What You'll Need
 
 1. A _verified_ copy of the appropriate ISO image of the latest Kali build image for the system you'll be running it on: see the details on [downloading official Kali Linux images](/docs/introduction/download-official-kali-linux-images/).
-2. If you're running under Windows, you'll also need to download the [Rufus USB imager](https://rufus.ie) utility. On Linux and OS X, you can use the **dd** command, which is pre-installed on those platforms.
+2. If you're running under Windows, you'll also need to download the [Etcher](https://www.balena.io/etcher/) imaging tool. On Linux and OS X, you can use the **dd** command, which is pre-installed on those platforms, or use [Etcher](https://www.balena.io/etcher/).
 3. A USB thumb drive, 4GB or larger. (Systems with a direct SD card slot can use an SD card with similar capacity. The procedure is identical.)
 
 ## Kali Linux Live USB Install Procedure
@@ -33,13 +33,13 @@ The specifics of this procedure will vary depending on whether you're doing it o
 #### Creating a Bootable Kali USB Drive on Windows
 
 1. Plug your USB drive into an available USB port on your Windows PC, note which drive designator (e.g. "F:\") it uses once it mounts, and launch Rufus.
-2. Choose the Kali Linux ISO file to be imaged with "SELECT" and verify that the USB drive to be overwritten is the correct one. Click the "START" button.
+2. Choose the Kali Linux ISO file to be imaged with "select image" and verify that the USB drive to be overwritten is the correct one. Click the "Flash!" button once ready.
 ![kali-usb-install-windows](kali-usb-install-windows.png)
-3. Once the bar is completely green and "READY" is shown, the imaging is complete and you can safely eject the USB drive from the Windows machine. You can now use the USB device to boot into Kali Linux.
+3. Once Etcher alerts you that the image has been flashed, you can safely remove the USB drive and proceed to boot into Kali with it.
 
 #### Creating a Bootable Kali USB Drive on Linux
 
-Creating a bootable Kali Linux USB key in a Linux environment is easy. Once you've downloaded and verified your Kali ISO file, you can use the **dd** command to copy it over to your USB stick using the following procedure. Note that you'll need to be running as root, or to execute the **dd** command with sudo. The following example assumes a Linux Mint 17.1 desktop — depending on the distro you're using, a few specifics may vary slightly, but the general idea should be very similar.
+Creating a bootable Kali Linux USB key in a Linux environment is easy. Once you've downloaded and verified your Kali ISO file, you can use the **dd** command to copy it over to your USB stick using the following procedure. Note that you'll need to be running as root, or to execute the **dd** command with sudo. The following example assumes a Linux Mint 17.1 desktop — depending on the distro you're using, a few specifics may vary slightly, but the general idea should be very similar. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/sdb.
 
 {{% notice info %}}
 WARNING: Although the process of imaging Kali Linux onto a USB drive is very easy, you can just as easily overwrite a disk drive you didn't intend to with dd if you do not understand what you are doing, or if you specify an incorrect output path. Double-check what you're doing before you do it, it'll be too late afterwards.
@@ -70,7 +70,7 @@ That's it, really! You can now boot into a Kali Live / Installer environment usi
 
 #### Creating a Bootable Kali USB Drive on OS X
 
-OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an OS X environment is similar to doing it on Linux. Once you’ve downloaded and verified your chosen Kali ISO file, you use **dd** to copy it over to your USB stick.
+OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an OS X environment is similar to doing it on Linux. Once you’ve downloaded and verified your chosen Kali ISO file, you use **dd** to copy it over to your USB stick. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/disk2.
 
 {{% notice info %}}
 WARNING: Although the process of imaging Kali on a USB drive is very easy, you can just as easily overwrite a disk drive you didn't intend to with dd if you do not understand what you are doing, or if you specify an incorrect output path. Double-check what you're doing before you do it, it'll be too late afterwards.
