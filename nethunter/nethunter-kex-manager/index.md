@@ -61,18 +61,18 @@ Optional:
 
 - Open *"ADVANCED SETTINGS"* and set a custom resolution to fit the connected monitor
 
-![](NetHunter-KeX-10s.)
+![](NetHunter-KeX-10s.jpg)
 
 &nbsp;
 
-![](NetHunter-KeX-20s.)
+![](NetHunter-KeX-20s.jpg)
 &nbsp;
 
 
 #### Set-up KeX
 Before starting the KeX server for the first time, click on *"SETUP LOCAL SERVER"* and configure a session password and a read only password.
 
-![](NetHunter-KeX-30s.)
+![](NetHunter-KeX-30s.jpg)
 
 &nbsp;
 
@@ -84,7 +84,7 @@ To start KeX, click on *"START SERVER"*.
 To stop KeX, click on *"STOP SERVER"*.
 To display wether the server is running or not, click the refresh button.
 
-![](NetHunter-KeX-40s.)
+![](NetHunter-KeX-40s.jpg)
 
 &nbsp;
 
@@ -92,20 +92,20 @@ To display wether the server is running or not, click the refresh button.
 #### Launch the KeX Client
 To launch the KeX client, click *"OPEN KEX CLIENT"*
 
-![](NetHunter-KeX-50s.)
+![](NetHunter-KeX-50s.jpg)
 
 &nbsp;
 
 Before connecting for the first time, enter the password (the one you have configured when setting up the server) in the password field
 
-![](NetHunter-KeX-50s.)
+![](NetHunter-KeX-50s.jpg)
 
 &nbsp;
 
 
 Press *"Connect"*
 
-![](NetHunter-KeX-55s.)
+![](NetHunter-KeX-55s.jpg)
 
 &nbsp;
 
@@ -116,11 +116,11 @@ Touching the screen displays the on-screen-display for 2 seconds, which allows y
 
 You can disconnect and re-connect to your session any time.
 
-![](NetHunter-KeX-60s.)
+![](NetHunter-KeX-60s.jpg)
 
 &nbsp;
 
-![](NetHunter-KeX-70s.)
+![](NetHunter-KeX-70s.jpg)
 
 &nbsp;
 
@@ -129,8 +129,8 @@ You can disconnect and re-connect to your session any time.
 
 Open the *"ADVANCED SETTINGS"* menu to tweak the display resolution settings.
 
-![](NetHunter-KeX-80s.)
+![](NetHunter-KeX-80s.jpg)
 
 &nbsp;
 
-![](NetHunter-KeX-90s.)
+![](NetHunter-KeX-90s.jpg)
