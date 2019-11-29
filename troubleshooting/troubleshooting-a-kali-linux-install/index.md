@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Installations
+title: Troubleshooting Installations Failures
 description:
 icon:
 date: 2019-10-26
@@ -10,8 +10,6 @@ tags: ["",]
 keywords: ["",]
 og_description:
 ---
-
-## Kali Linux installation failures
 
 There can be a wide variety of reasons for a Kali Linux installation to fail. This could include issues such as a corrupt or incomplete ISO download, not enough disk space on the target machine, etc. The following article will give you some pointers on what to look for when your Kali Linux installation has failed. The following is an example of the dreaded "Red Screen", indicating the installation encountered a problem.
 

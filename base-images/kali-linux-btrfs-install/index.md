@@ -12,11 +12,10 @@ og_description:
 ---
 
 ## Content:
-[Overview](#overview)
 
-[Installation steps](#kali-linux-btrfs-installation-steps)
-
-[Usage](#usage)
+- [Overview](#overview)
+- [Installation steps](#kali-linux-btrfs-installation-steps)
+- [Usage](#usage)
 
 ## Overview
 
@@ -58,10 +57,7 @@ Mount Point         | Subvolume         | Description
 /.snapshots         | @snapshots        | Snapper's snapshot directory
 ```
 
-
-
 ## Kali Linux Btrfs Installation Steps
-
 
 #### Installation Prerequisites
 
@@ -77,9 +73,7 @@ Mount Point         | Subvolume         | Description
 
 ### Kali Linux Installation Procedure
 
-
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Choose _Live Mode_.
-
 
 2. In live mode, open a terminal window and install additional packages we will require:
 
@@ -90,12 +84,12 @@ Mount Point         | Subvolume         | Description
     `systemctl start ssh`
 
 4. Next we have to disconnect the machine from the network so to not confuse the installer who want full control over the network settings.
-    
+
     ![btrfs-04-stop-net-1](btrfs-04-stop-net-1.png)
     ![btrfs-05-stop-net-2](btrfs-05-stop-net-2.png)
 
 5. Now that we are ready to start the installation, launch the installer by typing:
-    
+
     `debian-installer-launcher`
 
 4. The installation steps are identical to a standard Kali installation except a pause during the step where you choose a domain name as seen below.
@@ -274,13 +268,13 @@ There are more sophisticated ways to delete multiple snapshots, e.g. the followi
 Refer to the help output for all the different features of "apt-btrfs-snapshot"
 
 ### Rollback
-  
-To roll back to a previous snapshot we have to remember two things:  
-- the root "/" of the file system has been installed in a subvolume "/@" and not the root of the btrfs partition "/"  
-- a snapshot is treated like just another subvolume  
 
-thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the curent root ("@") subvolume.  
-E.g.:  
+To roll back to a previous snapshot we have to remember two things:
+- the root "/" of the file system has been installed in a subvolume "/@" and not the root of the btrfs partition "/"
+- a snapshot is treated like just another subvolume
+
+thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the curent root ("@") subvolume.
+E.g.:
 ```markdown
 mount /dev/mmcblk2p2 /mnt                                   # mount your root partition (replace "/dev/mmcblk2p2" with yours)
 mv /mnt/@ /mnt/@_badroot                                    # Move the old root away

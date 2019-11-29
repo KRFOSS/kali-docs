@@ -11,8 +11,6 @@ keywords: ["",]
 og_description:
 ---
 
-## Kali Linux Tools Policy
-
 One of the key tasks in transitioning from Backtrack Linux to Kali was combing through the packages and selecting the "best of breed" from what was available.
 
 We realize that there are many tools or scripts that can do the same job. Some are clearly better than others in some respect, some are more a matter of personal preference. With this in mind, keeping an updated, useful penetration testing tool repository is a challenging task. The Kali Development team uses some of these questions to help decide whether a specific tool should be included in Kali Linux.

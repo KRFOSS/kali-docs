@@ -21,7 +21,7 @@ The Kali Linux distribution has two [repositories](/docs/general-use/kali-linux-
 When using the default hosts listed above, you'll automatically be redirected to a mirror site which is geographically close to you, and which is guaranteed to be up-to-date. If you prefer to manually select a mirror, click on the **_mirrorlist_** link near each hostname above and select a mirror that suits you. You will then need to edit your /etc/apt/sources.list file accordingly with the chosen values.
 
 {{% notice info %}}
-IMPORTANT! Do not add additional repositories to your <a href= /docs/general-use/kali-linux-sources-list-repositories/> /etc/apt/sources.list </a> file.
+IMPORTANT! Do not add additional repositories to your <a href="/docs/general-use/kali-linux-sources-list-repositories"/> /etc/apt/sources.list</a> file.
 
 Doing so will most likely break your Kali installation.
 {{% /notice %}}

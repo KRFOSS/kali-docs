@@ -1,5 +1,5 @@
 ---
-title: Kali Linux USB Encrypted Persistence
+title: USB Persistence & Encrypted Persistence
 description:
 icon:
 date: 2019-10-26
@@ -10,8 +10,6 @@ tags: ["dojo",]
 keywords: ["",]
 og_description:
 ---
-
-## USB Persistence & Encrypted Persistence
 
 In this workshop, we will examine the various features available to us when booting Kali Linux from USB devices. We will explore features such as persistence, creating LUKS encrypted persistence stores, and even dabble in "LUKS Nuking" our USB drive. The default Kali Linux ISOs (from 1.0.7 onwards) support USB encrypted persistence.
 
