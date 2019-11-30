@@ -32,13 +32,13 @@ In our example, we will be installing Kali Linux alongside an installation of Wi
 
 2. Now launch the **gparted** program. We'll use **gparted** to shrink the existing Windows partition to give us enough room to install Kali Linux.
 
-![dual-boot-kali-01](dual-boot-kali-01.png)
+![dual-boot-kali-01](dual-boot-kali-1.png)
 3. Select your Windows partition. Depending on your system, it will usually be the second, larger partition. In our example, there are three partitions; the first is Window's boot partition, then Windows is actually installed in /dev/sda2, and the final is the System Recovery partition. Resize your Windows partition and leave enough space (20 GB minimum) for the Kali installation. It is alright to leave the third partition, and only shrink the actual install.
 
-![dual-boot-kali-03](dual-boot-kali-03.png)
+![dual-boot-kali-03](dual-boot-kali-3.png)
 4. Once you have resized your Windows partition, ensure you "Apply All Operations" on the hard disk. Exit **gparted** and reboot.
 
-![dual-boot-kali-05](dual-boot-kali-05.png)
+![dual-boot-kali-05](dual-boot-kali-5.png)
 
 ### Kali Linux Installation Procedure
 
