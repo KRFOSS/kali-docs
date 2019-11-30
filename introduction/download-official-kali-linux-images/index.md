@@ -12,7 +12,7 @@ og_description:
 ---
 
 {{% notice info %}}
-IMPORTANT! Never download Kali Linux images from anywhere other than the official sources. Always be sure to verify the SHA256 checksums of the file you've downloaded against our <a href="https://www.kali.org/downloads/"> official values. It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially. Downloads are rate limited to 5 concurrent connections.
+IMPORTANT! Never download Kali Linux images from anywhere other than the official sources. Always be sure to verify the SHA256 checksums of the file you've downloaded against our <a href="https://www.kali.org/downloads/"> official values</a>. It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially. Downloads are rate limited to 5 concurrent connections.
 {{% /notice %}}
 
 ## Where to Get Official Kali Linux Images
