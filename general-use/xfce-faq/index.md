@@ -2,7 +2,7 @@
 title: Kali Linux XFCE FAQ
 description:
 icon:
-date: 2019-11-26
+date: 2019-11-30
 type: post
 weight: 15
 author: ["re4son",]
@@ -19,6 +19,7 @@ The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are 
 - [HiDPI](#hidpi)
 - [Theme](#theme)
 - [Terminal not showing up](#no-terminal)
+- [Language Settings](#language-settings)
 - [Feedback](#feedback)
 
 &nbsp;
@@ -52,7 +53,7 @@ Next time you login after a reboot you will have the Xfce theme, if you did not 
 &nbsp;
 &nbsp;
 
-**Q:** I tried XFCE and I really like it but I still would like switch back to GNOME. How can I do that?
+**Q:** I tried XFCE and I really like it but I still would like to switch back to GNOME. How can I do that?
 
 **A:** You can run `apt update && apt install kali-desktop-gnome` in a terminal session.
 Next time you login you can choose "GNOME" in the session selector in the top right hand corner of the login screen.
@@ -64,10 +65,12 @@ Next time you login you can choose "GNOME" in the session selector in the top ri
 
 **Q:** I have a HiDPI screen and everything looks tiny. Is there a way to improve that?
 
-**A:** XFCE supports HiDPI monitors. You can either set the scaling factor to "*x2*" in "*Settings -> Appearance -> Settings -> Windows Scaling*" or run
-`xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2 && xfconf-query -c xfwm4 -p /general/theme -s Default-xhdpi`
-in a terminal window.
-To increase the scaling of the lightdm login screen, just set "*xft-dpi*" to *200* or higher in the file `/etc/lightdm/lightdm-gtk-greeter.conf`.
+**A:** XFCE supports HiDPI monitors. You can either set the scaling factor to "*x2*" in "*Settings -> Appearance -> Settings -> Windows Scaling*" or run  
+`xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2 && xfconf-query -c xfwm4 -p /general/theme -s Default-xhdpi`  
+in a terminal window.  
+To increase the scaling of the lightdm login screen, just set "*xft-dpi*" to *200* or higher in the file `/etc/lightdm/lightdm-gtk-greeter.conf`.  
+
+&nbsp;
 
 **Q:** Even after doing the above, the terminal is still too small.
 
@@ -87,7 +90,7 @@ To increase the scaling of the lightdm login screen, just set "*xft-dpi*" to *20
 
 **Q:** How can I record videos of my screen activity?
 
-**A:** Press `Ctrl` & `Print Screen`on your keyboard will launch the screen recorder. Pressing enter will start recording. Alternatively you can click on the "*Screen-Recorder*" icon in the quick-launch panel (the far right icon in the panel next to the application menu).
+**A:** Pressing `Ctrl` & `Print Screen` on your keyboard will launch the screen recorder. Pressing `Enter` will start recording. Alternatively you can click on the "*Screen-Recorder*" icon in the quick-launch panel (the far right icon in the panel next to the application menu).
 
 &nbsp;
 &nbsp;
@@ -100,12 +103,12 @@ To increase the scaling of the lightdm login screen, just set "*xft-dpi*" to *20
 To switch to the light theme,
 go to "*Settings -> Appearance*" and:
 
-- In the "*Style*" tab, select "*Kali-Light*"
-- In the "Icons" tab, select "Flat-Remix-Blue-Light"
+&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Style*" tab, select "*Kali-Light*"   
+&nbsp;&nbsp;&nbsp;&nbsp;\- In the "Icons" tab, select "Flat-Remix-Blue-Light"
 
 go to "*Settings -> Window Manager*" and:
 
-- In the "*Style*" tab, select "*Kali-Light*"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Style*" tab, select "*Kali-Light*"
 
 To switch from "*Light*" to "*Dark*", just select the Dark themes in these settings.
 
@@ -127,19 +130,48 @@ To switch from "*Light*" to "*Dark*", just select the Dark themes in these setti
 To disable the compositor,
 go to "*Settings -> Window Manager Tweaks*" and:
 
-- In the "*Compositor*" tab, uncheck Enable display compositing
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Compositor*" tab, uncheck Enable display compositing
 
 If you want a compositor still, and the xfwm4 compositor isn't working for you, you can use an alternative like "*compton*".
 
-- `apt install compton`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- `apt install compton`
 
 Then to have it auto run at login,
 go to "*Settings -> Session and Startup*" and:
 
-- In the "*Application Autostart*" tab, click "*Add*" and enter "*Compton*" for the name, and "*compton*" for the Command, then click "*OK*", log out, and back in.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Application Autostart*" tab, click "*Add*" and enter "*Compton*" for the name, and "*compton*" for the Command, then click "*OK*", log out, and back in.
 
 &nbsp;
+
+#### Language Settings
+
+**Q:** How can I change the GUI language?  
+
+**A:** In the LightDM login screen, select the desired language using the language selector on the right hand side of the top panel.  
+
+&nbsp;&nbsp;&nbsp;
+
+**Q:** How can I change my keyboard layout?  
+
+**A:** The keyboard layout can be changed in "*Settings -> Keyboard -> Layout*"  
+
 &nbsp;
+
+**Q:** How can I setup a different input method not available through "*Settings -> Keyboard -> Layout*", e.g. Japanese (Anthy)?  
+
+**A:**  You can install ibus to configure different input methods, for Anthy you also have to install ibus-anthy, i.e.  via  
+
+`apt install ibus ibus-anthy`  
+
+You can now add and configure various input methods through "*Settings -> iBus Preferences*".  
+Once configured, you can use the newly added "iBus" icon on the right hand side of the panel to select the preferred input method.  
+For a list of available input method engines, refer to:  
+
+https://en.wikipedia.org/w/index.php?title=Intelligent_Input_Bus#Available_input_method_plugins_and_engines  
+
+&nbsp;
+
+
 
 #### Feedback
 
