@@ -121,12 +121,12 @@ $ shasum -a 256 kali-linux-2019.4-amd64.iso
 The output should look like this:
 
 ```markdown
-d9bc23ad1ed2af7f0170dc6d15aec58be2f1a0a5be6751ce067654b753ef7020  kali-linux-2019.4-amd64.iso
+bad0d602a531b872575e23cc025b45fee475523b51378a035928b733ca395ac5  kali-linux-2019.4-amd64.iso
 ```
 
-The resulting SHA256 signature, "d9bc23ad1ed2af7f0170dc6d15aec58be2f1a0a5be6751ce067654b753ef7020", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2019.4 ISO image:
+The resulting SHA256 signature, "bad0d602a531b872575e23cc025b45fee475523b51378a035928b733ca395ac5", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2019.4 ISO image:
 
-![Kali Linux Downloads](kali_download-iso-page.png)
+![Kali Linux Downloads](kali_download-iso-page-2019-4.png)
 
 #### Verify the Signature on the ISO Using the Included Signature File (Torrent Download)
 
