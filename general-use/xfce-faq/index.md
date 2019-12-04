@@ -141,6 +141,8 @@ go to "*Settings -> Session and Startup*" and:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Application Autostart*" tab, click "*Add*" and enter "*Compton*" for the name, and "*compton*" for the Command, then click "*OK*", log out, and back in.
 
+Alternatively, if this issue is occurring in a VM disable 3D acceleration in the VM settings.
+
 &nbsp;
 
 #### Language Settings
