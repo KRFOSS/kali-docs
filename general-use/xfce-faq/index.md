@@ -18,7 +18,7 @@ The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are 
 - [Desktop Environments, Switching](#switch-desktop-environments)
 - [HiDPI](#hidpi)
 - [Theme](#theme)
-- [Terminal not showing up](#no-terminal)
+- [Terminal not showing up](#no-terminal-showing-up)
 - [Language Settings](#language-settings)
 - [Feedback](#feedback)
 
