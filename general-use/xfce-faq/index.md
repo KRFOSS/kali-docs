@@ -128,7 +128,7 @@ To switch from "*Light*" to "*Dark*", just select the Dark themes in these setti
 
 **A:** There may be an issue with your graphics and the xfwm4 compositor in use.
 To disable the compositor,
-go to "*Settings -> Window Manager Tweaks*" and:
+go to "*Settings -> Window Manager Tweaks*" from the main menu on the desktop and:
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Compositor*" tab, uncheck Enable display compositing
 
