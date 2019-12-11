@@ -30,7 +30,7 @@ reboot
 Unfortunately, shared folders will not work out of the box. To enable this feature for your current session, you will need to execute the following script after logging in:
 
 ```html
-cat < /usr/local/sbin/mount-shared-folders
+cat <<EOF | sudo tee /usr/local/sbin/mount-shared-folders
 #!/bin/sh
 vmware-hgfsclient | while read folder; do
   vmwpath="/mnt/hgfs/\${folder}"
@@ -56,7 +56,7 @@ gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
 If OVT stops functioning correctly, such as Copy/Paste between host and guest, the following script may help out:
 
 ```html
-cat < /usr/local/sbin/restart-vm-tools
+cat <<EOF | sudo tea /usr/local/sbin/restart-vm-tools
 #!/bin/sh
 systemctl stop run-vmblock\\\\x2dfuse.mount
 sudo killall -q -w vmtoolsd
