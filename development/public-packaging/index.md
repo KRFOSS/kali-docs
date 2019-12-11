@@ -2,7 +2,7 @@
 title: Public Packaging
 description:
 icon:
-date: 2019-10-31
+date: 2019-12-11
 type: post
 weight: 100
 author: ["gamb1t",]
@@ -310,7 +310,7 @@ First we need to generate the base Debian files and remove some of the ones that
 ```markdown
 packaging@kali:~$ dh_make -p phpggc_0.20191028
 packaging@kali:~$ cd debian
-packaging@kali:~$ rm *.ex *.EX README.*
+packaging@kali:~$ rm *.ex *.EX README.* *.doc
 ```
 Next we will need to edit some of the files with the proper information.
 
@@ -333,11 +333,11 @@ Homepage: https://github.com/ambionics/phpggc
 
 Package: phpggc
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, php
+Depends: ${shlibs:Depends}, ${misc:Depends}, php-cli
 Description: A library of unserialize() payloads
- PHPGGC is a library of unserialize() payloads along with a
- tool to generate them, from command line or
- programmatically.
+ PHPGGC is a library of unserialize() payloads
+ along with a tool to generate them, from
+ command line or programmatically.
 ```
 
 There are a number of things to take note of here. Section, priority, maintainer, uploaders, homepage, depends, and description are all changed. Going through them, 'section' will be what type of tool it is. Put in your best guess as to what it may be in the general area (web, net, etc) and we will change it if need be. Priority can be set to optional. Maintainer should always be "Kali Developers <devel@kali.org>" and Uploaders should be your name (it can be account name) and the email associated with the account. The homepage is where the tool is originally from. Depends is whatever needs to be installed to make the tool work, which, in this case php is needed. Description is the combination of the short description and an extended one that explains what the package contains.
@@ -385,7 +385,7 @@ License: GPL-2+
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
 ```
 
-There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debain it can be linked to as above.
+There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debain it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed.
 
 ```markdown
 packaging@kali:~$ cat watch
