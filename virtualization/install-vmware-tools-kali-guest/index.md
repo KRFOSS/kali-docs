@@ -56,7 +56,7 @@ gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
 If OVT stops functioning correctly, such as Copy/Paste between host and guest, the following script may help out:
 
 ```html
-cat <<EOF | sudo tea /usr/local/sbin/restart-vm-tools
+cat <<EOF | sudo tee /usr/local/sbin/restart-vm-tools
 #!/bin/sh
 systemctl stop run-vmblock\\\\x2dfuse.mount
 sudo killall -q -w vmtoolsd
