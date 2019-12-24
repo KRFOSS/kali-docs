@@ -35,17 +35,19 @@ NetHunter can be installed on every Android device under the sun using one of th
 
 The following table illustrates the differences in functionality:
 
-|      Feature      | NetHunter Rootless | NetHunter Lite | NetHunter |
-| :---------------: | :----------------: | :------------: | :-------: |
-|     App Store     |        Yes         |      Yes       |    Yes    |
-|     Kali cli      |        Yes         |      Yes       |    Yes    |
-| All Kali packages |        Yes         |      Yes       |    Yes    |
-|        KeX        |        Yes         |      Yes       |    Yes    |
-|   NetHunter App   |         No         |      Yes       |    Yes    |
-|   Requires TWRP   |         No         |      Yes       |    Yes    |
-|   Requires Root   |         No         |       No       |    Yes    |
-|  WiFi Injection   |         No         |       No       |    Yes    |
-|    HID attacks    |         No         |       No       |    Yes    |
+|      Feature       | NetHunter Rootless | NetHunter Lite | NetHunter |
+| :----------------: | :----------------: | :------------: | :-------: |
+|     App Store      |        Yes         |      Yes       |    Yes    |
+|      Kali cli      |        Yes         |      Yes       |    Yes    |
+| All Kali packages  |        Yes         |      Yes       |    Yes    |
+|        KeX         |        Yes         |      Yes       |    Yes    |
+| Metasploit w/o DB  |        Yes         |      Yes       |    Yes    |
+| Metasploit with DB |         No         |      Yes       |    Yes    |
+|   NetHunter App    |         No         |      Yes       |    Yes    |
+|   Requires TWRP    |         No         |      Yes       |    Yes    |
+|   Requires Root    |         No         |       No       |    Yes    |
+|   WiFi Injection   |         No         |       No       |    Yes    |
+|    HID attacks     |         No         |       No       |    Yes    |
 
 The installation of NetHunter Rootless is documented here:  
 [NetHunter-Rootless](./nethunter-rootless/)  

@@ -65,4 +65,24 @@ Note: The command `nethunter` can be abbreviated to `nh`.
 _Tip: If you run kex in the background (`&`) without having set a password, bring it back to the foreground first when prompted to enter the password, i.e. via `fg <job id>` - you can later send it to the background again via `Ctrl + z` and `bg <job id>`_  
 
 To use KeX, start the KeX client, enter your password and click connect  
-_Tip: For a better viewing experience, enter a custom resolution under "Advanced Settings" in the KeX Client_  
+_Tip: For a better viewing experience, enter a custom resolution under "Advanced Settings" in the KeX Client_   
+
+  
+
+## Tips:  
+
+1. Run `apt update && apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-full` as well.
+2. Firefox won't work on unrooted devices. Just replace it with Chromium via:  
+   `apt remove firefox-esr`  
+   `apt install chromium`  
+   Next:  
+   ~ Find the "Chromium Web Browser" item in the application menu  
+   ~ right click and select "Edit Application"  
+   ~ Change the "Command"  to `/usr/bin/chromium --no-sandbox %U`  
+3. All of the penetration testing tools should work but some might have restrictions, e.g. metasploit works but doesn't have database support. If you discover any tools that don't work, please post it in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums). 
+4. Some utilities like "top" won't run on unrooted phones.
+5. Perform regular backups of your rootfs by stopping all nethunter sessions and typing the following in a termux session:  
+   `tar -cJf kali-arm64.tar.xz kali-arm64 && mv kali-arm64.tar.xz storage/downloads`  
+   That will put the backup in your Android download folder.  
+   _Note: on older devices, change "arm64" to "armhf"_  
+6. Please join us in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums) to exchange tips and ideas and be part of a community that strives to make NetHunter even better.
