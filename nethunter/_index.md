@@ -21,7 +21,24 @@ The included NetHunter Store client provides access to a wide range of additiona
 
 For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](./nethunter-components) page. NetHunter is an open-source project developed by [Offensive Security](https://www.offensive-security.com) and the community.
 
-  
+&nbsp;
+
+## Content:
+
+- [NetHunter Editons](#1-0-nethunter-editions)
+- [NetHunter (Lite) Supported Devices and ROMs](#2-0-nethunter-lite-supported-devices-and-roms)
+- [Downloading NetHunter](#3-0-downloading-nethunter)
+- [Building NetHunter](#4-0-building-nethunter)
+- [Installing NetHunter](#5-0-installing-nethunter-on-top-of-android)
+- [Post Installation Setup](#6-0-post-installation-setup)
+- [Kali NetHunter Attacks and Features](#7-0-kali-nethunter-attacks-and-features)
+- [Porting NetHunter to New Devices](#8-0-porting-nethunter-to-new-devices)
+- [Known Working Hardware](#9-0-known-working-hardware)
+- [NetHunter App](#10-0-nethunter-app)
+
+
+
+&nbsp;
 
 ## 1.0 NetHunter Editions
 
@@ -56,7 +73,7 @@ The NetHunter-App specific chapters are only applicable to the NetHunter & NetHu
 
 The Kernel specific chapters are only applicable to the NetHunter edition.  
 
-  
+ &nbsp; 
 
 ## 2.0 NetHunter (Lite) Supported Devices and ROMs
 
@@ -98,6 +115,8 @@ The following table lays out NetHunter (Lite) supported hardware as well as the 
 | SHIELD tablet (shieldtablet) <br> SHIELD tablet K1 | **6.0.1** <br> **CM 13.0** |      |
 | ZTE Axon 7 (ailsa_ii)    | **6.0.1**               | [@jcadduono](https://github.com/jcadduono)'s preferred device |
 
+&nbsp;
+
 ## 3.0 Downloading NetHunter
 
 Official release NetHunter images for your specific supported device can be download from the Offensive Security NetHunter project page located at the following URL:
@@ -110,10 +129,14 @@ The SHA256 sums for each file can be found in the SHA256SUMS file at the top of 
 
 For a fresh install, you will need a **nethunter-generic-[arch]-kalifs-\*.zip** as well as a **kernel-nethunter-[device]-[os]-\*.zip**. The kernel should be flashed last. The **update-nethunter-generic-[arch]-\*.zip** files are for updating your installation or if you wish to download the Kali rootfs inside the NetHunter app instead.
 
+&nbsp;
+
 ## 4.0 Building NetHunter
 
 Those of you who want to build a NetHunter image from our GitHub repository may do so using our Python build scripts. Check out our [Building NetHunter](./building-nethunter) page for more information.
 You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md) located in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer) git directory.
+
+&nbsp;
 
 ## 5.0 Installing NetHunter on top of Android
 
@@ -124,6 +147,8 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - **installing** [Magisk](https://magiskmanager.com/) to root the device
 - Once you have a custom recovery, all that remains is to flash the NetHunter installer zip file onto your Android device.
 
+&nbsp;
+
 ## 6.0 Post Installation Setup
 
 * Open the NetHunter App and start the Kali Chroot Manager.
@@ -132,6 +157,8 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 * Configure Kali Services, such as SSH.
 * Set up custom commands.
 * Initialize the Exploit Database.
+
+&nbsp;
 
 ## 7.0 Kali NetHunter Attacks and Features
 
@@ -161,7 +188,9 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 * [**Router Keygen**](nh-app-router-keygen)
 * [**cSploit**](nh-app-csploit)
 
-## 8.0 Porting NetHunter to New Devices:
+&nbsp;
+
+## 8.0 Porting NetHunter to New Devices
 
 If you're interested in porting NetHunter to other Android devices, check out the following links. If your port works, make sure to tell us about it so we can include these kernels in our releases!
 
@@ -169,12 +198,16 @@ If you're interested in porting NetHunter to other Android devices, check out th
 2. [Modifying a Kernel](modifying-the-kernel)
 3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md)
 
-## 9.0 Known Working Hardware:
+&nbsp;
+
+## 9.0 Known Working Hardware
 
 1. [Wireless Cards](wireless-cards)
 2. SDR - RTL-SDR (based on RTL2832U)
 
-## 10.1 NetHunter App:
+&nbsp;
+
+## 10.0 NetHunter App
 
 1. The NetHunter App can be found [here](https://store.nethunter.com/packages/com.offsec.nethunter/)
 2. The source code for building the NetHunter App can be found on GitLab [here](https://gitlab.com/kalilinux/nethunter/apps/kali-nethunter-app)

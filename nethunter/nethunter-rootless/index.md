@@ -21,7 +21,7 @@ Install Kali NetHunter on any stock, unrooted Android device without voiding the
 
 [![](images/020-NH-Rootless-KeX_s.jpg)](images/020-NH-Rootless-KeX_s.jpg)
 
-  
+&nbsp;  
 
 Prerequisite:  
 --------------  
@@ -29,7 +29,7 @@ Prerequisite:
 Android Device  
 (Stock unmodified device, no root or custom recovery required)  
 
-  
+&nbsp;  
 
 Installation:  
 --------------  
@@ -49,6 +49,8 @@ Installation:
 
   
 
+&nbsp;
+
 Usage:  
 -------  
 
@@ -67,7 +69,13 @@ _Tip: If you run kex in the background (`&`) without having set a password, brin
 To use KeX, start the KeX client, enter your password and click connect  
 _Tip: For a better viewing experience, enter a custom resolution under "Advanced Settings" in the KeX Client_   
 
-  
+ &nbsp; 
+
+## NetHunter Editions:
+
+Please refer to [this table](../#1-0-nethunter-editions) for a comparison of the different NetHunter editions.  
+
+&nbsp;  
 
 ## Tips:  
 
