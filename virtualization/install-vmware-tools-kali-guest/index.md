@@ -70,21 +70,6 @@ ln -sf /usr/local/sbin/restart-vm-tools ~/Desktop/restart-vm-tools
 gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
 ```
 
-## Installing VMware Tools in Older Kali Versions
+- - -
 
-The latest version of vmware-tools at this date compiles against our kernel, albeit with several warnings. We utilise a set of vmware-tool patches to facilitate the installation.
-
-```markdown
-cd ~/
-apt install -y git gcc make linux-headers-$(uname -r)
-git clone https://github.com/rasa/vmware-tools-patches.git
-cd vmware-tools-patches/
-```
-
-Next, mount the VMware tools ISO by clicking "Install VMware Tools" from the appropriate menu. Once the VMware Tools ISO has been attached to the virtual machine, copy the installer to the _downloads_ directory and then run the installer script :
-
-```markdown
-cd ~/vmware-tools-patches/
-cp /media/cdrom/VMwareTools-9.9.0-2304977.tar.gz downloads/
-./untar-and-patch-and-compile.sh
-```
+For older versions of Kali Linux, here is our [previous guide](https://www.kali.org/docs/virtualization/install-vmware-tools-kali-guest-legacy/).
