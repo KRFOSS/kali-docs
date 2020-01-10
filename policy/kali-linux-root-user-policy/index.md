@@ -3,7 +3,7 @@ title: Kali Linux Root User Policy
 description:
 icon:
 date: 2019-10-26
-type: post
+type: archived
 weight: 100
 author: ["g0tmi1k",]
 tags: ["",]
