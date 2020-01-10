@@ -1,5 +1,5 @@
 ---
-title: Kali Network Service Policies
+title: Kali Linux Network Service Policies
 description:
 icon:
 date: 2019-10-26

@@ -1,5 +1,5 @@
 ---
-title: Default Credentials
+title: Kali's Default Credentials
 description:
 icon:
 date: 2020-01-10
@@ -16,11 +16,14 @@ og_description:
 Kali changed to a [non-root user policy](/docs/policy/kali-linux-user-policy/) by default [since the release of 2020.1](https://www.kali.org/news/kali-default-non-root-user/).
 
 This means:
-- During the installation of i386 and amd64 images, it will prompt you for a standard user account to be created.
+
+- During the installation of amd64 and i386 images, it will prompt you for a standard user account to be created.
+
 - Any default operating system credentials used during Live Boot, or pre-created VMware and ARM images will be:
     - User: `kali`
     - Password: `kali`
-- Vagrant image:
+
+- Vagrant image _(based on their [policy](https://www.vagrantup.com/docs/boxes/base.html))_:
     - Username: `vagrant`
     - Password: `vagrant`
 
@@ -50,4 +53,4 @@ Some tools shipped with Kali, will use their own default hardcoded credentials (
 
 - - -
 
-For versions of Kali Linux older than 2020.1, here is its [previous credential information](/docs/introduction/kali-linux-default-passwords/) and [root policy](](/docs/policy/kali-linux-root-user-policy/)) information.
+For versions of Kali Linux older than 2020.1, here is our [previous credential information](/docs/introduction/kali-linux-default-passwords/) and [root policy](](/docs/policy/kali-linux-root-user-policy/)) information.
