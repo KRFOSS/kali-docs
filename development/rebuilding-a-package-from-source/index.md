@@ -2,7 +2,7 @@
 title: Rebuilding a Source Package
 description:
 icon:
-date: 2019-10-26
+date: 2020-01-13
 type: post
 weight: 100
 author: ["g0tmi1k",]
@@ -27,7 +27,7 @@ Before anything else, ensure that the `deb-src` line in `/etc/apt/sources.list` 
 
 ```html
 # Get the source package
-apt update
+sudo apt update
 apt-get source libfreefare
 cd libfreefare-0.4.0/
 ```
@@ -59,7 +59,7 @@ dpkg-checkbuilddeps: Unmet build dependencies: dh-autoreconf libnfc-dev libssl-d
 Install any build dependencies if needed, as shown in the output of **dpkg-checkbuilddeps**:
 
 ```markdown
-apt install dh-autoreconf libnfc-dev libssl-dev
+sudo apt install dh-autoreconf libnfc-dev libssl-dev
 ```
 
 ## Build the Modified Package
@@ -75,5 +75,5 @@ dpkg-buildpackage
 If the build completes without errors, you'll be able to install your newly-created package with **dpkg**.
 
 ```markdown
-dpkg -i ../libfreefare*.deb
+sudo dpkg -i ../libfreefare*.deb
 ```

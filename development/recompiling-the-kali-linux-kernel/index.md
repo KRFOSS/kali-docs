@@ -2,7 +2,7 @@
 title: Recompiling the Kali Linux Kernel
 description:
 icon:
-date: 2019-10-26
+date: 2020-01-13
 type: post
 weight: 100
 author: ["g0tmi1k",]
@@ -21,7 +21,7 @@ Depending on your requirements, you might want to add drivers, patches, or kerne
 Start by installing all the build dependencies for recompiling the kernel.
 
 ```markdown
-apt install build-essential libncurses5-dev fakeroot unxz
+sudo 	apt install build-essential libncurses5-dev fakeroot unxz
 ```
 
 ### Download the Kali Linux Kernel Source Code
@@ -29,7 +29,7 @@ apt install build-essential libncurses5-dev fakeroot unxz
 The remainder of this section focuses on the 4.9 version of the Linux kernel, but the examples can, of course, be adapted to the particular version of the kernel that you want. We assume that the linux-source-4.9 binary package has been installed. Note that we install a binary package containing the upstream sources, we do not retrieve the Kali source package named linux.
 
 ```markdown
-apt install linux-source-4.9
+sudo apt install linux-source-4.9
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
@@ -91,7 +91,7 @@ ls ../*.deb
 When the build has successfully completed, you can go ahead and install the new custom kernel and reboot your system. Please note that the specific kernel version numbers will vary — in our example, done on a Kali 2016.2 system, it was 4.9.2. Depending on the current kernel version you're building, you will need to adjust your commands accordingly.
 
 ```markdown
-dpkg -i ../linux-image-4.9.0-kali1-custom_4.9.2-1_amd64.deb
+sudo dpkg -i ../linux-image-4.9.0-kali1-custom_4.9.2-1_amd64.deb
 reboot
 ```
 Once your system has rebooted, your new kernel should be running. If things go wrong and your kernel fails to boot successfully, you can still use the GrUB menu to boot from the original stock Kali kernel and fix your issues.

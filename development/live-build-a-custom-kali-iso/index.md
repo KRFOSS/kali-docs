@@ -2,7 +2,7 @@
 title: Live Build a Custom Kali ISO
 description:
 icon:
-date: 2019-11-06
+date: 2020-01-13
 type: post
 weight: 100
 author: ["g0tmi1k",]
@@ -24,7 +24,7 @@ Ideally, you should build your custom Kali ISO from **within a pre-existing Kali
 We first need to prepare the Kali ISO build environment by installing and setting up live-build and its requirements with the following commands:
 
 ```markdown
-apt install -y curl git live-build cdebootstrap
+sudo apt install -y curl git live-build cdebootstrap
 git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 ```
 Now you can simply build an updated Kali ISO by entering the "live-build-config" directory and running our **build.sh** wrapper script, as follows:
@@ -72,7 +72,7 @@ You have the option to include additional files or scripts in your build by over
 The Kali Linux i386 ISO has PAE enabled. If you require a default kernel for older hardware with PAE disabled, you will need to rebuild a Kali Linux ISO. The rebuilding process is much the same as described above, except that the **686-pae** parameter that needs to be changed to **586** in **auto/config** as follows. First, install the prerequisites.
 
 ```markdown
-apt install -y git live-build cdebootstrap debootstrap
+sudo apt install -y git live-build cdebootstrap debootstrap
 git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 ```
 
