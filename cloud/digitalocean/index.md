@@ -1,15 +1,16 @@
---- 
-title: Digitalocean 
-description: 
-icon: 
-date: 2019-11-08 
-type: post 
-weight: 
-author: ["gamb1t",] 
-tags: ["",] 
-keywords: ["",] 
-og_description: 
 ---
+title: Digital Ocean
+description:
+icon:
+date: 2019-11-08
+type: post
+weight:
+author: ["gamb1t",]
+tags: ["",]
+keywords: ["",]
+og_description:
+---
+
 [DigitalOcean](https://www.digitalocean.com/) is a cloud provider similar to AWS, Microsoft Azure, Google Cloud Platform, and many others. They offer instances, called "droplets", with different Linux distributions such as Debian, Ubuntu, FreeBSD, etc. Similar to AWS, DigitalOcean has datacenters around the world and sometimes multiple datacenters in each country.
 
 However, one feature in particular sets them apart them from their competitors. A little while ago, they added support for [custom images](https://blog.digitalocean.com/custom-images/), which allows users to import virtual machine disks and use them as droplets. This is perfect for us as we can use our own version of Kali Linux in their cloud.
@@ -40,7 +41,7 @@ When installation is complete and after rebooting, we login at the console and u
 
 ```
 apt update
-apt -y full-upgrade
+apt full-upgrade -y
 ```
 
 If you don't see it going over a mirror during 'apt update', you may have accidentally forgotten to add a network mirror during the installation. Follow the [instructions on the Kali Docs site](https://docs.kali.org/general-use/kali-linux-sources-list-repositories) to fix it and run both of the commands again.
@@ -50,7 +51,7 @@ If you don't see it going over a mirror during 'apt update', you may have accide
 In order for DigitalOcean to configure the system for us, we need to install the ***cloud-init*** package:
 
 ```
-apt -y install cloud-init
+apt install -y cloud-init
 echo 'datasource_list: [ ConfigDrive, DigitalOcean, NoCloud, None ]' > /etc/cloud/cloud.cfg.d/99_digitalocean.cfg
 systemctl enable cloud-init
 ```
@@ -60,7 +61,7 @@ systemctl enable cloud-init
 Since we will need to use SSH to connect to the system on DigitalOcean, the ***openssh-server*** package needs to be installed (and enabled) as well:
 
 ```
-apt -y install openssh-server
+apt install -y openssh-server
 systemctl enable ssh.service
 ```
 

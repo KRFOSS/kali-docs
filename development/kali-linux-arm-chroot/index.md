@@ -42,7 +42,7 @@ cd ~
 git clone https://gitlab.com/kalilinux/build-scripts/kali-arm.git
 dpkg --add-architecture i386
 apt update
-apt -y install debootstrap qemu-user-static device-tree-compiler lzma lzop u-boot-tools libncurses5:i386 pixz
+apt install -y debootstrap qemu-user-static device-tree-compiler lzma lzop u-boot-tools libncurses5:i386 pixz
 ```
 
 To do an ARM build, you must enable cross-compilation for your current shell session:
@@ -179,12 +179,12 @@ apt install locales-all
 debconf-set-selections /debconf.set
 rm -f /debconf.set
 apt update
-apt -y install git-core binutils ca-certificates initramfs-tools u-boot-tools
-apt -y install locales console-common less nano git
+apt install -y git-core binutils ca-certificates initramfs-tools u-boot-tools
+apt install -y locales console-common less nano git
 echo "root:toor" | chpasswd
 sed -i -e 's/KERNEL\!=\"eth\*|/KERNEL\!=\"/' /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -f /etc/udev/rules.d/70-persistent-net.rules
-apt-get --yes --force-yes install $packages
+apt install -y --force-yes ${packages}
 
 rm -f /usr/sbin/invoke-rc.d
 dpkg-divert --remove --rename /usr/sbin/invoke-rc.d

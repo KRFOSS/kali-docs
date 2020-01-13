@@ -34,7 +34,7 @@ Kali Linux has a large number of tools that it maintains and adds on a regular b
 
 You may be asking at this point 'How does this relate to me getting involved?'. Well that's simple: users can now do most of the work on their own to get the tool added thanks to [our move to GitLab](https://gitlab.com/kalilinux). Keep in mind that we still will not be adding all tools that are requested; perhaps there is a different tool that does the same thing but has been around longer, or maybe the tool is too new and needs time to really get more user's opinion on. There are a few things that those who want to get involved need to do first, which is what we are going to walk you through now.
 
-Related: [MyRepos MR](../git-clone-my-repos), [Getting Started with Kali Development](../getting-started-with-kali-development), [Building packages with sbuild](../building-package-with-sbuild), 
+Related: [MyRepos MR](../git-clone-my-repos), [Getting Started with Kali Development](../getting-started-with-kali-development), [Building packages with sbuild](../building-package-with-sbuild),
 
 - - -
 
@@ -46,7 +46,7 @@ In this walkthrough we will be explaining certain things that are only on a VM. 
 
 #### Setting up the VM
 
-It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 150GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories. 
+It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 150GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories.
 
 #### User accounts and keys
 
@@ -282,7 +282,7 @@ $lintian_opts = ['-I'];
 Before we begin to do any real packaging, we need to install the following:
 
 ```markdown
-packaging@kali:~$ sudo apt -y install packaging-dev apt-file gitk mr
+packaging@kali:~$ sudo apt install -y packaging-dev apt-file gitk mr
 ...SNIP...
 packaging@kali:~$
 ```
@@ -293,7 +293,7 @@ For those of you who want to get involved and maintain your package, you're goin
 
 ## Creating the initial folder
 
-Before we start the "packaging" we need to get the folder prepared properly. Assuming the tool you want to package is already prepared and you are the owner, it is recommended to create a separate branch and add in directly a the "debian" directory. After this is done, skip to "Creating the Debian files" and follow along from there. Otherwise, you need to pull the release if they have one and run a few commands. If they don't have a release, clone the repo and do the following command `git archive --format=tar master | gzip -c > ../$PACKAGE_$VERSION.orig.tar.gz` ensuring to change both package and version to the appropriate names. 
+Before we start the "packaging" we need to get the folder prepared properly. Assuming the tool you want to package is already prepared and you are the owner, it is recommended to create a separate branch and add in directly a the "debian" directory. After this is done, skip to "Creating the Debian files" and follow along from there. Otherwise, you need to pull the release if they have one and run a few commands. If they don't have a release, clone the repo and do the following command `git archive --format=tar master | gzip -c > ../$PACKAGE_$VERSION.orig.tar.gz` ensuring to change both package and version to the appropriate names.
 
 We create an empty git repo and then clone it, then we can import the tool.
 
