@@ -19,7 +19,11 @@ This guide assumes that you have already created a Kali Linux "Live" USB drive a
 
 ![Kali Linux persistence boot options](kali-live-usb-persistence.png)
 
-You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command `sudo su`. In this example, we assume
+{{% notice info %}}
+You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+{{% /notice %}}
+
+In this example, we assume:
 
 * you are running as the **root user**
 * your USB drive is **/dev/sdb**

@@ -15,6 +15,10 @@ In this workshop, we will examine the various features available to us when boot
 
 **0x01 - Start by imaging the Kali ISO onto your USB stick (ours was /dev/sdb)**. Once done, you can inspect the USB partition structure using _parted /dev/sdb print_.
 
+{{% notice info %}}
+For ease of use, please use a root account. This can be done with "sudo su".
+{{% /notice %}}
+
 ```markdown
 dd if=kali-linux-2019.4-amd64.iso of=/dev/sdb bs=1M
 ```

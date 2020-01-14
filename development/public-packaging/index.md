@@ -2,7 +2,7 @@
 title: Public Packaging
 description:
 icon:
-date: 2019-12-11
+date: 2020-01-13
 type: post
 weight: 100
 author: ["gamb1t",]
@@ -300,6 +300,10 @@ We create an empty git repo and then clone it, then we can import the tool.
 ```markdown
 packaging@kali:~$ git clone https://gitlab.com/PackageAllTheThings/phpggc
 packaging@kali:~$ cd phpggc
+packaging@kali:~$ git remote add upstream https://gitlab.com/PackageAllTheThings/phpggc
+packaging@kali:~$ git fetch upstream
+packaging@kali:~$ git checkout master
+packaging@kali:~$ git rebase upstream/master
 packaging@kali:~$ gbp import-orig ../phpggc_0.20191028.orig.tar.gz
 ```
 
@@ -459,6 +463,25 @@ Just one last thing to do; submit it to us! To do this, lets head over to [Kali'
 ```
 
 Once done, simply submit the issue and we will review it.
+
+## Menu icon
+
+If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop`file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one. 
+
+```
+packaging@kali:~$ vi desktop-files/phpggc.desktop
+packaging@kali:~$ cat desktop-files/phpggc.desktop
+[Desktop Entry]
+Name=PHPGGC
+Encoding=UTF-8
+Exec=/usr/share/kali-menu/exec-in-shell phpggc
+Icon=kali-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=08-exploitation-tools;
+X-Kali-Package=phpggc
+```
 
 ## What happens after we accept
 

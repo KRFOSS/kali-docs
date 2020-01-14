@@ -18,7 +18,7 @@ In keeping with the [Kali Linux Network Services Policy](/docs/policy/kali-linux
 Metasploit uses **[PostgreSQL](http://www.postgresql.org/)** as its database so it needs to be launched first.
 
 ```
-service postgresql start
+sudo service postgresql start
 ```
 
 You can verify that **PostgreSQL** is running by checking the output of **ss -ant** and making sure that port 5432 is listening.
@@ -36,7 +36,7 @@ LISTEN 0 128 ::1:5432 :::*
 With **PostgreSQL** up and running, we next need to create and initialize the **msf** database.
 
 ```
-msfdb init
+sudo msfdb init
 ```
 
 ## Launch msfconsole in Kali

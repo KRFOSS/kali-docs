@@ -18,14 +18,14 @@ Should you decide to create your own VMware installation of Kali Linux rather th
 As of Sept 2015, **VMware [recommends](https://blogs.vmware.com/vsphere/2015/09/open-vm-tools-ovt-the-future-of-vmware-tools-for-linux.html) using the distribution-specific open-vm-tools (OVT)** instead of the VMware Tools package for guest machines. To install open-vm-tools in Kali, first make sure you are fully updated:
 
 ```html
-apt update && apt full-upgrade -y
+sudo apt update && apt full-upgrade -y
 [ -f /var/run/reboot-required ] && reboot -f
 ```
 
 Then enter the following:
 
 ```
-apt install -y --reinstall open-vm-tools-desktop fuse
+sudo apt install -y --reinstall open-vm-tools-desktop fuse
 reboot
 ```
 

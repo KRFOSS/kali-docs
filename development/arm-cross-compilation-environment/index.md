@@ -22,16 +22,16 @@ Compiling kernels and generating images usually comes at the cost of disk space.
 Start off by installing the required dependencies for ARM cross-compilation.
 
 ```
-apt install git-core gnupg flex bison gperf libesd0-dev build-essential \
+sudo apt install git-core gnupg flex bison gperf libesd0-dev build-essential \
 zip curl libncurses5-dev zlib1g-dev gcc-multilib g++-multilib
 ```
 
 If you are running a 64 bit Kali Linux system, add i386 architecture support to your development environment as follows.
 
 ```
-dpkg --add-architecture i386
-apt update
-apt install ia32-libs
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install ia32-libs
 ```
 
 ### Download Linaro Toolchain

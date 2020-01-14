@@ -17,7 +17,7 @@ The latest version of vmware-tools at this date compiles against our kernel, alb
 
 ```markdown
 cd ~/
-apt install -y git gcc make linux-headers-$(uname -r)
+sudo apt install -y git gcc make linux-headers-$(uname -r)
 git clone https://github.com/rasa/vmware-tools-patches.git
 cd vmware-tools-patches/
 ```

@@ -21,8 +21,8 @@ The VirtualBox Guest Additions provide proper mouse and screen integration, as w
 Start up your Kali Linux virtual machine, open a terminal window and issue the following commands.
 
 ```markdown
-apt update
-apt install -y virtualbox-guest-x11
+sudo apt update
+sudo apt install -y virtualbox-guest-x11
 reboot
 ```
 
@@ -33,7 +33,7 @@ reboot
 Start up your Kali Linux virtual machine, open a terminal window and issue the following command to install the Linux kernel headers.
 
 ```markdown
-apt update && apt install -y linux-headers-$(uname -r)
+sudo apt update && sudo apt install -y linux-headers-$(uname -r)
 ```
 
 Once this is complete you can now attach the "Guest Additions" CD-ROM image. Select "Devices" from the VirtualBox menu and then select "Install Guest Additions". This will mount the Guest Additions ISO in the virtual CD drive in your Kali Linux virtual machine. When prompted to autorun the CD, click the Cancel button.
