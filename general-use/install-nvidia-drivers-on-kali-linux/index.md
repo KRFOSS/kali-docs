@@ -24,13 +24,13 @@ GPUs with a <a href=https://developer.nvidia.com/cuda-gpus> CUDA compute capabil
 {{% /notice %}}
 
 ```markdown
-apt update && apt dist-upgrade -y && reboot
+sudo apt update && sudo apt dist-upgrade -y && sudo reboot
 ```
 
 Let's determine the exact GPU installed, and check the kernel modules it's using.
 
 ```markdown
-root@kali:~# lspci -v
+kali@kali:~$ lspci -v
 01:00.0 VGA compatible controller: NVIDIA Corporation GM204 [GeForce GTX 970] (rev a1) (prog-if 00 [VGA controller])
   Subsystem: ZOTAC International (MCO) Ltd. GM204 [GeForce GTX 970]
   Region 1: Memory at e0000000 (64-bit, prefetchable) [size=256M]
@@ -47,7 +47,7 @@ root@kali:~# lspci -v
 Once the system has rebooted, we will proceed to install the **OpenCL ICD Loader**, **Drivers**, and the **CUDA toolkit**.
 
 ```markdown
-apt install -y ocl-icd-libopencl1 nvidia-driver nvidia-cuda-toolkit
+sudo apt install -y ocl-icd-libopencl1 nvidia-driver nvidia-cuda-toolkit
 ```
 
 During installation of the drivers the system created new kernel modules, so another reboot is required.
@@ -57,7 +57,7 @@ During installation of the drivers the system created new kernel modules, so ano
 Now that our system should be ready to go, we need to verify the drivers have been loaded correctly. We can quickly verify this by running the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) tool.
 
 ```markdown
-root@kali:~# nvidia-smi
+kali@kali:~$ nvidia-smi
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 375.26                 Driver Version: 375.26                    |
 |-------------------------------+----------------------+----------------------+
@@ -78,7 +78,7 @@ root@kali:~# nvidia-smi
 With the output displaying our driver and GPU correctly, we can now dive into benchmarking. Before we get too far ahead, let's double check to make sure hashcat and CUDA are working together.
 
 ```html
-root@kali:~# hashcat -I
+kali@kali:~$ hashcat -I
 OpenCL Info:
 Platform ID #1
   Vendor  : NVIDIA Corporation
@@ -102,7 +102,7 @@ It appears everything is working, let's go ahead and run a benchmark test.
 #### Benchmarking
 
 ```html
-root@kali:~# hashcat -b
+kali@kali:~$ hashcat -b
 OpenCL Platform #1: NVIDIA Corporation
 ======================================
 * Device #1: Geforce GTX 970, 1009/4095 MB allocatable, 13MCU
@@ -122,7 +122,7 @@ There are a multitude of configurations to improve cracking speed, not mentioned
 In the event setup isn't going as planned, we'll install [clinfo](https://packages.debian.org/jessie/clinfo) for detailed troubleshooting information.
 
 ```markdown
-apt install -y clinfo
+sudo apt install -y clinfo
 ```
 
 ###### OpenCL Loaders
@@ -130,7 +130,7 @@ apt install -y clinfo
 It may be necessary to check for additional packages that may be conflicting with our setup. Let's first check to see what **OpenCL Loader** we have installed. The NVIDIA OpenCL Loader and the generic OpenCL Loader will both work for our system.
 
 ```markdown
-root@kali:~# dpkg -l |grep -i icd
+kali@kali:~$ dpkg -l |grep -i icd
 ii  nvidia-egl-icd:amd64                      375.26-2                             amd64        NVIDIA EGL installable client driver (ICD)
 ii  nvidia-opencl-icd:amd64                   375.26-2                             amd64        NVIDIA OpenCL installable client driver (ICD)
 ii  nvidia-vulkan-icd:amd64                   375.26-2                             amd64        NVIDIA Vulkan installable client driver (ICD)
@@ -140,13 +140,13 @@ ii  ocl-icd-libopencl1:amd64                  2.2.11-1                          
 If **mesa-opencl-icd** is installed run:
 
 ```markdown
-apt remove mesa-opencl-icd
+sudo apt remove mesa-opencl-icd
 ```
 
 Since we have determined that we have a compatible ICD loader installed, we can easily determine which loader is currently being used.
 
 ```markdown
-root@kali:~# clinfo | grep -i "icd loader"
+kali@kali:~$ clinfo | grep -i "icd loader"
 ICD loader properties
   ICD loader Name                                 OpenCL ICD Loader
   ICD loader Vendor                               OCL Icd free software
@@ -161,7 +161,7 @@ As expected, our setup is using the open source loader that was installed earlie
 We'll use nvidia-smi once again, but with a much more verbose output.
 
 ```html
-root@kali:~# nvidia-smi -i 0 -q
+kali@kali:~$ nvidia-smi -i 0 -q
 Driver Version                      : 375.26
 Attached GPUs                       : 1
 GPU 0000:01:00.0
@@ -191,7 +191,7 @@ Temperature
 It looks like our GPU is being recognized correctly, so let's use [glxinfo](https://dri.freedesktop.org/wiki/glxinfo/) to determine if 3D Rendering is enabled.
 
 ```markdown
-root@kali:~# glxinfo | grep -i "direct rendering"
+kali@kali:~$ glxinfo | grep -i "direct rendering"
 direct rendering: Yes
 ```
 

@@ -43,9 +43,9 @@ Once this is complete you can now attach the "Guest Additions" CD-ROM image. Sel
 From a terminal window, copy the VboxLinuxAdditions.run file from the Guest Additions CD-ROM to a path on your local system. Ensure it is executable and run the file to begin the installation.
 
 ```markdown
-cp /media/cd-rom/VBoxLinuxAdditions.run /root/
-chmod 755 /root/VBoxLinuxAdditions.run
-cd /root
+cp /media/cd-rom/VBoxLinuxAdditions.run /$HOME/
+chmod 755 /$HOME/VBoxLinuxAdditions.run
+cd /$HOME
 ./VBoxLinuxAdditions.run
 ```
 

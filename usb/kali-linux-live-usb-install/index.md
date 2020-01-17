@@ -96,7 +96,7 @@ diskutil unmount /dev/disk6
 5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2019.4-amd64.iso":
 
 ```markdown
-sudo dd if=kali-linux-2019.4-amd64.iso of=/dev/disk6 bs=1m
+dd if=kali-linux-2019.4-amd64.iso of=/dev/disk6 bs=1m
 ```
 
 {{% notice info %}}

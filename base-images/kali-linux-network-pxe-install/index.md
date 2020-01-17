@@ -15,6 +15,10 @@ og_description:
 
 Booting and installing Kali over the network ([PXE](http://en.wikipedia.org/wiki/Preboot_Execution_Environment)) can be useful from a single laptop install with no CDROM or USB ports, to enterprise deployments supporting pre-seeding of the Kali installation.
 
+{{% notice info %}}
+You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+{{% /notice %}}
+
 First, we need to install _dnsmasq_ to provide the DHCP/TFTP server and then edit the _dnsmasq.conf_ file.
 
 ```

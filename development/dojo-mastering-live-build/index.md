@@ -18,8 +18,8 @@ One of the most powerful features of Kali Linux is the ability to create your ow
 **0x00 - Begin by updating the repos, installing the prerequisites,** and checking out a fresh version of live-build-config from the Kali Git repositories:
 
 ```markdown
-apt update
-apt install git live-build cdebootstrap devscripts -y
+sudo apt update
+sudo apt install git live-build cdebootstrap devscripts -y
 git clone git://gitlab.com/kalilinux/build-scripts/live-build-config.git
 cd live-build-config
 ```

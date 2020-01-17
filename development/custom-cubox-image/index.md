@@ -13,6 +13,10 @@ og_description:
 
 The following document describes our own method of creating a **custom Kali Linux CuBox ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on CuBox](/docs/arm/kali-linux-cubox/) article.
 
+{{% notice info %}}
+You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+{{% /notice %}}
+
 ### 01. Create a Kali rootfs
 
 Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in **~/arm-stuff/rootfs/kali-armhf**.
