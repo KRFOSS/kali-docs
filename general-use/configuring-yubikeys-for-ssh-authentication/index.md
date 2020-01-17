@@ -18,7 +18,7 @@ This document explains how to configure a Yubikey for SSH authentication
 Install Yubikey Personalization Tool and Smart Card Daemon
 
 ```markdown
-apt install -y yubikey-personalization scdaemon
+sudo apt install -y yubikey-personalization scdaemon
 ```
 
 #### Detect Yubikey
@@ -26,7 +26,7 @@ apt install -y yubikey-personalization scdaemon
 First, you'll need to ensure that your system is fully upgraded.
 
 ```html
-root@kali:~# pcsc_scan
+kali@kali:~$ pcsc_scan
 Scanning present readers...
 Reader 0: Yubico Yubikey 4 OTP+U2F+CCID 00 00
   Card state: Card inserted,
@@ -39,7 +39,7 @@ Possibly identified card (using /usr/share/pcsc/smartcard_list.txt):
 In order for our Yubikey to be detected as a smart card, we'll need to set our Yubikey to CCID mode.
 
 ```markdown
-root@kali:~# ykpersonalize -m 86
+kali@kali:~$ sudo ykpersonalize -m 86
 The USB mode will be set to: 0x86
 
 Commit? (y/n) [n]: y
@@ -48,7 +48,7 @@ Commit? (y/n) [n]: y
 After this modification, GPG should now be able to recognize our Yubikey as a smart card.
 
 ```markdown
-root@kali:~# gpg --card-status
+kali@kali:~$ gpg --card-status
 Reader ...........: Yubico Yubikey 4 OTP U2F CCID 00 00
 Version ..........: 2.1
 Manufacturer .....: Yubico
@@ -64,7 +64,7 @@ The default PIN is 123456 and default admin PIN is 12345678.
 {{% /notice %}}
 
 ```markdown
-root@kali:~# gpg --change-pin
+kali@kali:~$ gpg --change-pin
 gpg: OpenPGP card no. F8482212202010006041587850000 detected
 
 1 - change PIN

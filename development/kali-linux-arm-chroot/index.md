@@ -15,6 +15,10 @@ Although you can [download pre-rolled Kali ARM images](https://www.kali.org/down
 
 The following procedure shows an example of building a fairly generic Kali **armhf** rootfs. If you wish to build for **armel**, use that value rather than "armhf" when you export the **architecture** environment variable.
 
+{{% notice info %}}
+You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+{{% /notice %}}
+
 ### Some Notes on This Procedure
 
 The intention in this article is more to provide a high-level overview of how the build scripts work than an actual manual procedure (although it's completely possible to walk through this example at the command line). The style mimics that used in the build scripts used to create the pre-rolled images. Specifically, you'll see a construct in several places that looks like:

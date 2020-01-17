@@ -13,6 +13,10 @@ og_description:
 
 The following guide will demonstrate how to set up an ARM cross-compilation environment in Kali Linux. This guide is the starting point for many of our contributed "Custom ARM Images" articles.
 
+{{% notice info %}}
+You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+{{% /notice %}}
+
 ### Setting Up Your Development Box
 
 Compiling kernels and generating images usually comes at the cost of disk space. Make sure you have at least 50 GB of disk space available on your Kali development machine as well as ample RAM and CPU juice.

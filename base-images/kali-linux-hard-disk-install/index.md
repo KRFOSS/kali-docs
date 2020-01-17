@@ -43,9 +43,11 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 5. You may optionally provide a default domain name for this system to use.
 
 ![06-domain](kali-default-install-13.png)
-6. Next, provide a password for the root user for the system.
+6. Next, create the user account for the system.
 
-![07-user](kali-default-install-12.png)
+![01-user](kali-user-1.png)
+![01-user](kali-user-2.png)
+![01-user](kali-user-3.png)
 7. Next, set your time zone.
 
 ![09-timezone](kali-default-install-11.png)
@@ -69,10 +71,13 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 {{% /notice %}}
 13. Next, install GRUB.
 
-![15-install-grub](kali-default-install-3.png)
-14. Finally, click Continue to reboot into your new Kali installation.
+![15-packageselection](kali-default-packages.png)
+14. Select which metapackages you would like to install, and then hit continue.
 
-![16-install-complete](kali-default-install-1.png)
+![16-install-grub](kali-default-install-3.png)
+15. Finally, click Continue to reboot into your new Kali installation.
+
+![17-install-complete](kali-default-install-1.png)
 
 ## Post Installation
 

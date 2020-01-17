@@ -39,8 +39,8 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 ![localechooser_languagelist_0](kali-encrypted-install-2.png)
 3. The installer will copy the image to your hard disk, probe your network interfaces, and then prompt you to enter a hostname for your system. In the example below, we've entered "kali" as the hostname.
 
-![netcfg_get_hostname_0](kali-encrypted-install-3.png)
-4. Enter a robust password for the root account.
+![netcfg_get_hostname_0](kali-user-1.png)
+4. Create the user account.
 
 ![kali-linux-install-02](kali-encrypted-install-4.png)
 5. Next, set your time zone.
@@ -62,11 +62,15 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 {{% notice info %}}
 **NOTE!** If you select "NO" in this screen, you will **NOT** be able to install packages from the Kali repositories.
 {{% /notice %}}
+
+![kali-linux-packages-01](kali-default-packages.png)
+11. Select which metapackages you want installed.
+
 ![kali-linux-install-04](kali-encrypted-install-10.png)
-11. Next, install GRUB.
+12. Next, install GRUB.
 
 ![kali-linux-install-05](kali-encrypted-install-11.png)
-12. Finally, click _Continue_ to reboot into your new Kali installation. If you used a USB device as a destination drive, make sure you enable booting from USB devices in your BIOS. You will be asked for the encryption password you set earlier on every boot.
+13. Finally, click _Continue_ to reboot into your new Kali installation. If you used a USB device as a destination drive, make sure you enable booting from USB devices in your BIOS. You will be asked for the encryption password you set earlier on every boot.
 
 ![finish-install_reboot_in_progress_0](kali-encrypted-install-12.png)
 
