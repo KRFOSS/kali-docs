@@ -35,4 +35,4 @@ apt update && apt install -y kali-grant-root
 
 - - -
 
-This policy is since Kali Linux 2020.1. Here is our [previous root policy](](/docs/policy/kali-linux-root-user-policy/).
+This policy is since Kali Linux 2020.1. Here is our [previous root policy](/docs/policy/kali-linux-root-user-policy/).
