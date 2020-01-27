@@ -293,7 +293,7 @@ For those of you who want to get involved and maintain your package, you're goin
 
 ## Creating the initial folder
 
-Before we start the "packaging" we need to get the folder prepared properly. Assuming the tool you want to package is already prepared and you are the owner, it is recommended to create a separate branch and add in directly a the "debian" directory. After this is done, skip to "Creating the Debian files" and follow along from there. Otherwise, you need to pull the release if they have one and run a few commands. If they don't have a release, clone the repo and do the following command `git archive --format=tar master | gzip -c > ../$PACKAGE_$VERSION.orig.tar.gz` ensuring to change both package and version to the appropriate names.
+Before we start the "packaging" we need to get the folder prepared properly. Assuming the tool you want to package is already prepared and you are the owner, it is recommended to create a separate branch and add it directly in the "debian" directory. After this is done, skip to "Creating the Debian files" and follow along from there. Otherwise, you need to pull the release if they have one and run a few commands. If they don't have a release, clone the repo and do the following command `git archive --format=tar master | gzip -c > ../$PACKAGE_$VERSION.orig.tar.gz` ensuring to change both package and version to the appropriate names.
 
 We create an empty git repo and then clone it, then we can import the tool.
 
