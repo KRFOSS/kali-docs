@@ -50,10 +50,10 @@ Consider yourself warned.
 1. First, you'll need to identify the device path to use to write the image to your USB drive. **_Without_** the USB drive inserted into a port, execute the command `sudo fdisk -l` at a command prompt in a terminal window (if you don't use elevated privileges with fdisk, you won't get any output). You'll get output that will look something (_not exactly_) like this, showing a single drive — "/dev/sda" — containing three partitions (/dev/sda1, /dev/sda2, and /dev/sda5):
 ![Parallels DesktopScreenSnapz007](Parallels-DesktopScreenSnapz007.png)
 2. Now, plug your USB drive into an available USB port on your system, and run the same command, "sudo fdisk -l" a second time. Now, the output will look something (again, _not exactly_) like this, showing an additional device which wasn't there previously, in this example "/dev/sdb", a 16GB USB drive:![FinderScreenSnapz002](FinderScreenSnapz002.png)
-3. Proceed to (carefully!) image the Kali ISO file on the USB device. The example command below assumes that the ISO image you're writing is named "kali-linux-2019.4-amd64.iso" and is in your current working directory. The blocksize parameter can be increased, and while it may speed up the operation of the dd command, it can occasionally produce unbootable USB drives, depending on your system and a lot of different factors. The recommended value, "bs=512k", is conservative and reliable.
+3. Proceed to (carefully!) image the Kali ISO file on the USB device. The example command below assumes that the ISO image you're writing is named "kali-linux-2020.1-live-amd64.iso" and is in your current working directory. The blocksize parameter can be increased, and while it may speed up the operation of the dd command, it can occasionally produce unbootable USB drives, depending on your system and a lot of different factors. The recommended value, "bs=512k", is conservative and reliable.
 
 ```markdown
-dd if=kali-linux-2019.4-amd64.iso of=/dev/sdb bs=512k
+dd if=kali-linux-2020.1-live-amd64.iso of=/dev/sdb bs=512k
 ```
 
 Imaging the USB drive can take a good amount of time, over ten minutes or more is not unusual, as the sample output below shows. Be patient!
@@ -93,10 +93,10 @@ Consider yourself warned.
 diskutil unmount /dev/disk6
 ```
 
-5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2019.4-amd64.iso":
+5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2020.1-live-amd64.iso":
 
 ```markdown
-dd if=kali-linux-2019.4-amd64.iso of=/dev/disk6 bs=1m
+dd if=kali-linux-2020.1-live-amd64.iso of=/dev/disk6 bs=1m
 ```
 
 {{% notice info %}}
