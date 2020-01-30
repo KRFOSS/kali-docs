@@ -26,6 +26,10 @@ In our example, we will be installing Kali Linux alongside an installation of Wi
 2. Burn The Kali Linux ISO to DVD or [copy Kali Linux Live to USB](/docs/usb/kali-linux-live-usb-install/).
 3. Ensure that your computer is set to boot from CD / USB in your BIOS.
 
+{{% notice info %}}
+This installation has the potential to go wrong very easily as it involves editing existing partitions. Be aware of what partitions you are modifying and where you are installing Kali to. Having a backup of your Windows system available is a good idea in the event something goes wrong.
+{{% /notice %}}
+
 ###  Dual Boot Installation Procedure
 
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Select _Live_, and you should be booted into the Kali Linux default desktop.
@@ -33,7 +37,7 @@ In our example, we will be installing Kali Linux alongside an installation of Wi
 2. Now launch the **gparted** program. We'll use **gparted** to shrink the existing Windows partition to give us enough room to install Kali Linux.
 
 ![dual-boot-kali-01](dual-boot-kali-1.png)
-3. Select your Windows partition. Depending on your system, it will usually be the second, larger partition. In our example, there are three partitions; the first is Window's boot partition, then Windows is actually installed in /dev/sda2, and the final is the System Recovery partition. Resize your Windows partition and leave enough space (20 GB minimum) for the Kali installation. It is alright to leave the third partition, and only shrink the actual install.
+3. Select your Windows partition. Depending on your system, it will usually be the second, larger partition. In our example, there are three partitions; the first is Window's boot partition, then Windows is actually installed in /dev/sda2, and the final is the System Recovery partition. Resize your Windows partition and leave enough space (20 GB minimum) for the Kali installation. If you are moving past into any non-white in the partition then you are editing a section that is in use. Only remove from the area of the partition that is not in use. It is alright to leave the third partition, and only shrink the actual install.
 
 ![dual-boot-kali-03](dual-boot-kali-3.png)
 4. Once you have resized your Windows partition, ensure you "Apply All Operations" on the hard disk. Exit **gparted** and reboot.
