@@ -149,7 +149,7 @@ The configured nuke password will be stored in the initrd and will be usable wit
 
 ```markdown
 cryptsetup luksHeaderBackup --header-backup-file luksheader.back /dev/sdb3
-openssl enc -d -aes-256-cbc -in luksheader.back.enc -out luksheader.back
+openssl enc -e -aes-256-cbc -in luksheader.back -out luksheader.back.enc
 ```
 
 Now boot into your encrypted store, and give the Nuke password, rather than the real decryption password. This will render any info on the encrypted store useless. Once this is done, verify that the data is indeed inacessible.
