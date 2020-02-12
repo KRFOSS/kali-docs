@@ -76,4 +76,4 @@ gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
 
 - - -
 
-For older versions of Kali Linux, here is our [previous guide](https://www.kali.org/docs/virtualization/install-vmware-tools-kali-guest-legacy/).
+For older versions of Kali Linux, here is our [previous guide](/docs/virtualization/install-vmware-tools-kali-guest-legacy/).

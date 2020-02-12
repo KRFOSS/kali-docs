@@ -21,7 +21,7 @@ If all you want to do is to install Kali on your Galaxy Note 10.1, follow these 
 2. Root your Samsung Galaxy Note 10.1 if you have not already done so.
 3. Download the **Kali Linux Galaxy Note 10.1** image from our [downloads](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) area.
 4. Rename the downloaded Kali image to **linux.img** and copy it to /storage/sdcard0.
-5. Download our recovery.img file from [here](https://www.kali.org/docs/downloads/recovery.img) and copy it to /storage/sdcard0.
+5. Download our recovery.img file from [here](/docs/downloads/recovery.img) and copy it to /storage/sdcard0.
 6. Get root on your Galaxy Note 10.1, change /storage/sdcard0, and backup your recovery partition:
 
 ```

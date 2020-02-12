@@ -21,7 +21,7 @@ With the number of tools out there that users want to see in Kali, there is no w
 
 ## Kali Linux Community
 
-The official [Kali Linux Forums](https://forums.kali.org), [Bug Tracker](https://bugs.kali.org/), and [IRC channel](https://www.kali.org/docs/community/kali-linux-irc-channel/) are all great places to contribute by helping others in the community. We do have doc pages on the [forums](https://www.kali.org/docs/community/kali-linux-community-forums/) and the [bug tracker](https://www.kali.org/docs/community/submitting-issues-kali-bug-tracker/) that we encourage you to check out first.
+The official [Kali Linux Forums](https://forums.kali.org), [Bug Tracker](https://bugs.kali.org/), and [IRC channel](/docs/community/kali-linux-irc-channel/) are all great places to contribute by helping others in the community. We do have doc pages on the [forums](/docs/community/kali-linux-community-forums/) and the [bug tracker](/docs/community/submitting-issues-kali-bug-tracker/) that we encourage you to check out first.
 
 ## Kali Linux Documentation
 

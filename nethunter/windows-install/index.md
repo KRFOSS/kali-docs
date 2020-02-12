@@ -33,7 +33,7 @@ Download and install the NRT/BRT application (as needed) and execute it for the 
 
 ## Flashing Back to Stock
 
-Flashing your device back to stock allows for an installation over a clean slate, reducing the possibility of errors during the installation process. You can "flash to stock" using either NRT or BRT - however make sure to adhere to the compatibility table outlined in the [Supported Devices and ROMs](https://www.kali.org/docs/nethunter/home/#1-0-supported-devices-and-roms) section of this doc.
+Flashing your device back to stock allows for an installation over a clean slate, reducing the possibility of errors during the installation process. You can "flash to stock" using either NRT or BRT - however make sure to adhere to the compatibility table outlined in the [Supported Devices and ROMs](/docs/nethunter/home/#1-0-supported-devices-and-roms) section of this doc.
 
 Depending on the version of NRT / BRT you are using, you may need to manually apply "Over The Air" updates to your device once flashed to stock. This is done by navigating to _Settings_ -> _About_ and tapping on the _System updates_ field. You may need to apply several updates before the device will be at the latest version, rebooting after each update. Once there are no more updates, continue with the installation process described below.
 

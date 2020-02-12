@@ -27,12 +27,12 @@ Blog posts about new tools, features, Kali Linux tips, tricks, and tutorials can
 
 **kali.org/docs/**
 
-Where you are right now. The Kali Linux [documentation](https://www.kali.org/docs/) site contains a basic set of Kali Linux-related documentation and tutorials, which we continually work to update and improve.
+Where you are right now. The Kali Linux [documentation](/docs/) site contains a basic set of Kali Linux-related documentation and tutorials, which we continually work to update and improve.
 For Backtrack users, the changes introduced in Kali are substantial and we have tried to address a broad range of common issues.
 
 **forums.kali.org**
 
-If you run into an issue or situation that isn't directly covered in the [official Kali Linux documentation](https://www.kali.org/docs/), there is a good chance that a member of the [Kali Linux Forums](https://forums.kali.org/) will know the answer. The Kali forum has members from all over the world, covering the entire range of skill levels, and are open and willing to help newcomers who are willing to learn.
+If you run into an issue or situation that isn't directly covered in the [official Kali Linux documentation](/docs/), there is a good chance that a member of the [Kali Linux Forums](https://forums.kali.org/) will know the answer. The Kali forum has members from all over the world, covering the entire range of skill levels, and are open and willing to help newcomers who are willing to learn.
 More information on the Kali Linux Forums can be found in [this article](/docs/community/kali-linux-community-forums/).
 
 **bugs.kali.org**
