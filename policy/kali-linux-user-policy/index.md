@@ -30,7 +30,7 @@ This means:
 If you wish to restore how Kali previous operated, you can install the following package:
 
 ```
-apt update && apt install -y kali-grant-root
+sudo apt update && sudo apt install -y kali-grant-root
 ```
 
 - - -
