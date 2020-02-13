@@ -20,7 +20,7 @@ For ease of use, please use a root account. This can be done with "sudo su".
 {{% /notice %}}
 
 ```markdown
-dd if=kali-linux-2019.4-amd64.iso of=/dev/sdb bs=1M
+dd if=kali-linux-2020.1-live-amd64.iso of=/dev/sdb bs=1M
 ```
 **0x02 - Create and format an additional partition on the USB stick.** In our example, we create a persistent partition of about 7 GB in size:
 
@@ -149,7 +149,7 @@ The configured nuke password will be stored in the initrd and will be usable wit
 
 ```markdown
 cryptsetup luksHeaderBackup --header-backup-file luksheader.back /dev/sdb3
-openssl enc -d -aes-256-cbc -in luksheader.back.enc -out luksheader.back
+openssl enc -e -aes-256-cbc -in luksheader.back -out luksheader.back.enc
 ```
 
 Now boot into your encrypted store, and give the Nuke password, rather than the real decryption password. This will render any info on the encrypted store useless. Once this is done, verify that the data is indeed inacessible.

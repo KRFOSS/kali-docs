@@ -112,34 +112,34 @@ You're now set up to validate your Kali Linux download.
 
 If you downloaded the ISO directly from the downloads page, verify it using the following procedure.
 
-On Linux, or macOS, you can generate the SHA256 checksum from the ISO image you've downloaded with the following command (assuming that the ISO image is named "kali-linux-2019.4-amd64.iso", and is in your current directory):
+On Linux, or macOS, you can generate the SHA256 checksum from the ISO image you've downloaded with the following command (assuming that the ISO image is named "kali-linux-2020.1-live-amd64.iso", and is in your current directory):
 
 ```markdown
-$ shasum -a 256 kali-linux-2019.4-amd64.iso
+$ shasum -a 256 kali-linux-2020.1-live-amd64.iso
 ```
 
 The output should look like this:
 
 ```markdown
-bad0d602a531b872575e23cc025b45fee475523b51378a035928b733ca395ac5  kali-linux-2019.4-amd64.iso
+acf455e6f9ab0720df0abed15799223c2445882b44dfcc3f2216f9464db79152  kali-linux-2020.1-live-amd64.iso
 ```
 
-The resulting SHA256 signature, "bad0d602a531b872575e23cc025b45fee475523b51378a035928b733ca395ac5", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2019.4 ISO image:
+The resulting SHA256 signature, "acf455e6f9ab0720df0abed15799223c2445882b44dfcc3f2216f9464db79152", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2020.1 ISO image:
 
-![Kali Linux Downloads](kali_download-iso-page-2019-4.png)
+![Kali Linux Downloads](kali_download-iso-page-2020-1.png)
 
 #### Verify the Signature on the ISO Using the Included Signature File (Torrent Download)
 
-If you downloaded your copy of the Kali Linux ISO image via the torrents, in addition to the ISO file (e.g. kali-linux-2019.4-amd64.iso), there will be a second file containing the computed SHA256 signature for the ISO, with the extension ".txt.sha256sum" (e.g. kali-linux-2019.4-amd64.txt.sha256sum). You can use this file to verify the authenticity of your download on Linux or macOS with the following command:
+If you downloaded your copy of the Kali Linux ISO image via the torrents, in addition to the ISO file (e.g. kali-linux-2020.1-live-amd64.iso), there will be a second file containing the computed SHA256 signature for the ISO, with the extension ".txt.sha256sum" (e.g. kali-linux-2020.1-live-amd64.txt.sha256sum). You can use this file to verify the authenticity of your download on Linux or macOS with the following command:
 
 ```markdown
-$ grep kali-linux-2019.4-amd64.iso kali-linux-2019.4-amd64.txt.sha256sum | shasum -a 256 -c
+$ grep kali-linux-2020.1-live-amd64.iso kali-linux-2020.1-live-amd64.txt.sha256sum | shasum -a 256 -c
 ```
 
 If the image is successfully authenticated, the response will look like this:
 
 ```markdown
-kali-linux-2019.4-amd64.iso: OK
+kali-linux-2020.1-live-amd64.iso: OK
 ```
 
 {{% notice info %}}
@@ -148,9 +148,9 @@ IMPORTANT! If you are unable to verify the authenticity of the Kali Linux image 
 
 #### Verify the ISO Using the SHA256SUMS File
 
-This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2019.4, as of this writing):
+This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2020.1, as of this writing):
 
-* The ISO image itself (e.g. kali-linux-2019.4-amd64.iso)
+* The ISO image itself (e.g. kali-linux-2020.1-live-amd64.iso)
 * The file containing the calculated SHA256 hash for the ISO, SHA256SUMS
 * The signed version of that file, SHA256SUMS.gpg
 
@@ -201,16 +201,16 @@ gpg: Good signature from "Kali Linux Repository <devel@kali.org>" [unknown]
 If you don't get that "Good signature" message or if the key ID doesn't match, then you should stop and review whether you downloaded the images from a legitimate Kali Linux mirror. The failed verification strongly suggests that the image you have may have been tampered with.
 {{% /notice %}}
 
-If you did get the "Good signature" response, you can now be assured that the checksum in the SHA256SUMS file was actually provided by the Kali Linux development team. All that remains to be done to complete the verification is to validate that the signature you compute from the ISO you've downloaded matches the one in the SHA256SUMS file. You can do that on Linux or macOS with the following command (assuming that the ISO is named "kali-linux-2019.4-amd64.iso" and is in your working directory):
+If you did get the "Good signature" response, you can now be assured that the checksum in the SHA256SUMS file was actually provided by the Kali Linux development team. All that remains to be done to complete the verification is to validate that the signature you compute from the ISO you've downloaded matches the one in the SHA256SUMS file. You can do that on Linux or macOS with the following command (assuming that the ISO is named "kali-linux-2020.1-live-amd64.iso" and is in your working directory):
 
 ```markdown
-$ grep kali-linux-2019.4-amd64.iso SHA256SUMS | shasum -a 256 -c
+$ grep kali-linux-2020.1-live-amd64.iso SHA256SUMS | shasum -a 256 -c
 ```
 
 If the image is successfully authenticated, the response will look like this:
 
 ```markdown
-kali-linux-2019.4-amd64.iso: OK
+kali-linux-2020.1-live-amd64.iso: OK
 ```
 
 {{% notice info %}}

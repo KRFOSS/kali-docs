@@ -2,7 +2,7 @@
 title: NetHunter Rootless
 description:
 icon:
-date: 2019-12-20
+date: 2019-01-28
 type: post
 weight: 100
 author: ["re4son",]
@@ -56,12 +56,19 @@ Usage:
 
 Open Termux and type one of the following:  
 
-| Command                | To                                                      |
-| ---------------------- | ------------------------------------------------------- |
-| `nethunter`            | start Kali NetHunter command line interface             |
-| `nethunter kex passwd` | Configure the KeX password (only needed before 1st use) |
-| `nethunter kex &`      | start Kali NetHunter Desktop Experience                 |
-| `nethunter kex stop`   | stop Kali NetHunter Desktop Experience                  |
+| Command                   | To                                                      |
+| ------------------------- | ------------------------------------------------------- |
+| `nethunter`               | start Kali NetHunter command line interface             |
+| `nethunter kex passwd`    | configure the KeX password (only needed before 1st use) |
+| `nethunter kex &`         | start Kali NetHunter Desktop Experience user sessions   |
+| `nethunter kex stop`      | stop Kali NetHunter Desktop Experience                  |
+| `nethunter <command>`     | run <command> in NetHunter environment                  |
+| `nethunter -r`            | start Kali NetHunter cli as root                        |
+| `nethunter -r kex passwd` | configure the KeX password for root                     |
+| `nethunter -r kex &`      | start Kali NetHunter Desktop Experience as root         |
+| `nethunter -r kex stop`   | stop Kali NetHunter Desktop Experience root sessions    |
+| `nethunter -r kex kill`   | Kill all KeX sessions                                   |
+| `nethunter -r <command>`  | run `<command>` in NetHunter environment as root        |
 
 Note: The command `nethunter` can be abbreviated to `nh`.  
 _Tip: If you run kex in the background (`&`) without having set a password, bring it back to the foreground first when prompted to enter the password, i.e. via `fg <job id>` - you can later send it to the background again via `Ctrl + z` and `bg <job id>`_  
@@ -89,6 +96,8 @@ Please refer to [this table](../#1-0-nethunter-editions) for a comparison of the
    ~ Change the "Command"  to `/usr/bin/chromium --no-sandbox %U`  
 3. All of the penetration testing tools should work but some might have restrictions, e.g. metasploit works but doesn't have database support. If you discover any tools that don't work, please post it in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums). 
 4. Some utilities like "top" won't run on unrooted phones.
+5. Non-root users still have root access in the chroot. That's a proot thing. Just be aware of that.
+6. Galaxy phone's may prevent non-root users from using sudo. Just use "su -c" instead.
 5. Perform regular backups of your rootfs by stopping all nethunter sessions and typing the following in a termux session:  
    `tar -cJf kali-arm64.tar.xz kali-arm64 && mv kali-arm64.tar.xz storage/downloads`  
    That will put the backup in your Android download folder.  
