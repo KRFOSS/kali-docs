@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-We will continue from the [Porting NetHunter page](http://localhost:1414/docs/nethunter/porting-nethunter/) and work on the Galaxy Note 3 kernel as an example. The idea stays the same though: replace the _defconfig_ with one that is used by your kernel.
+We will continue from the [Porting NetHunter page](/docs/nethunter/porting-nethunter/) and work on the Galaxy Note 3 kernel as an example. The idea stays the same though: replace the _defconfig_ with one that is used by your kernel.
 
 Let's start fresh:
 
