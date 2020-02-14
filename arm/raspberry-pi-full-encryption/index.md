@@ -164,7 +164,7 @@ CRYPTSETUP=y
 Now we need to create the initramfs. This is where the kernel versions from before come into play.
 
 ```
-mkinitramfs -o /boot/initramfs.gz 4.19.81-Re4son-v7+
+mkinitramfs -o /boot/initramfs.gz 4.19.93-Re4son-v7+
 ```
 
 Now we want to ensure that we created the initramfs corectly. If there is no result, then something went wrong.
@@ -194,7 +194,10 @@ rsync -avh /mnt/chroot/* /mnt/backup/
 cryptsetup luksClose crypt
 umount /mnt/chroot
 echo -e "d\n2\nw" | fdisk /dev/sdb
+partprobe
+sleep 5
 echo -e "n\np\n2\n\n\nw" | fdisk /dev/sdb
+partprobe
 sync && sync
 cryptsetup -v -y --cipher aes-cbc-essiv:sha256 --key-size 256 luksFormat /dev/sdb2
 cryptsetup -v luksOpen /dev/sdb2 crypt
@@ -213,7 +216,7 @@ mount -t sysfs none /mnt/encrypted/sys
 mount -o bind /dev /mnt/encrypted/dev
 mount -o bind /dev/pts /mnt/encrypted/dev/pts
 LANG=C chroot /mnt/encrypted
-mkinitramfs -o /boot/initramfs.gz 4.19.81-Re4son-v7+
+mkinitramfs -o /boot/initramfs.gz 4.19.93-Re4son-v7+
 ```
 Now we can unmount and close up everything.
 
