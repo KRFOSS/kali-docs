@@ -466,7 +466,7 @@ Once done, simply submit the issue and we will review it.
 
 ## Menu icon
 
-If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop`file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one. 
+If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop`file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one.
 
 ```
 packaging@kali:~$ nano desktop-files/phpggc.desktop

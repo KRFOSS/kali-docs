@@ -30,7 +30,7 @@ The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are 
 
 **Q:** I absolutely love the new theme and I desperately want it, but without having to re-install my system. How can I migrate my existing Kali Linux installation?
 
-**A:** Run `apt update && apt install kali-desktop-xfce` in  a terminal session to install the new Kali Linux Xfce environment. When asked to select the "*Default display manager*", choose `lightdm`. 
+**A:** Run `apt update && apt install kali-desktop-xfce` in a terminal session to install the new Kali Linux Xfce environment. When asked to select the "*Default display manager*", choose `lightdm`.
 
 Next, run `update-alternatives --config x-session-manager` and select Xfce's option. If you would also like to remove the Gnome window manager, which we do not recommend until you are sure you are ready to, run `apt purge --autoremove kali-desktop-gnome`. Be sure to run this *after* setting up Xfce.
 
@@ -103,7 +103,7 @@ To increase the scaling of the lightdm login screen, just set "*xft-dpi*" to *20
 To switch to the light theme,
 go to "*Settings -> Appearance*" and:
 
-&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Style*" tab, select "*Kali-Light*"   
+&nbsp;&nbsp;&nbsp;&nbsp;\- In the "*Style*" tab, select "*Kali-Light*"
 &nbsp;&nbsp;&nbsp;&nbsp;\- In the "Icons" tab, select "Flat-Remix-Blue-Light"
 
 go to "*Settings -> Window Manager*" and:
@@ -147,29 +147,29 @@ Alternatively, if this issue is occurring in a VM disable 3D acceleration in the
 
 #### Language Settings
 
-**Q:** How can I change the GUI language?  
+**Q:** How can I change the GUI language?
 
-**A:** In the LightDM login screen, select the desired language using the language selector on the right hand side of the top panel.  
+**A:** In the LightDM login screen, select the desired language using the language selector on the right hand side of the top panel.
 
 &nbsp;&nbsp;&nbsp;
 
-**Q:** How can I change my keyboard layout?  
+**Q:** How can I change my keyboard layout?
 
-**A:** The keyboard layout can be changed in "*Settings -> Keyboard -> Layout*"  
+**A:** The keyboard layout can be changed in "*Settings -> Keyboard -> Layout*"
 
 &nbsp;
 
-**Q:** How can I setup a different input method not available through "*Settings -> Keyboard -> Layout*", e.g. Japanese (Anthy)?  
+**Q:** How can I setup a different input method not available through "*Settings -> Keyboard -> Layout*", e.g. Japanese (Anthy)?
 
-**A:**  You can install ibus to configure different input methods, for Anthy you also have to install ibus-anthy, i.e.  via  
+**A:**  You can install ibus to configure different input methods, for Anthy you also have to install ibus-anthy, i.e.  via
 
-`apt install ibus ibus-anthy`  
+`apt install ibus ibus-anthy`
 
-You can now add and configure various input methods through "*Settings -> iBus Preferences*".  
-Once configured, you can use the newly added "iBus" icon on the right hand side of the panel to select the preferred input method.  
-For a list of available input method engines, refer to:  
+You can now add and configure various input methods through "*Settings -> iBus Preferences*".
+Once configured, you can use the newly added "iBus" icon on the right hand side of the panel to select the preferred input method.
+For a list of available input method engines, refer to:
 
-https://en.wikipedia.org/w/index.php?title=Intelligent_Input_Bus#Available_input_method_plugins_and_engines  
+https://en.wikipedia.org/w/index.php?title=Intelligent_Input_Bus#Available_input_method_plugins_and_engines
 
 &nbsp;
 

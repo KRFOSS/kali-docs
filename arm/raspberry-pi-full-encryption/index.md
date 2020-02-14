@@ -37,7 +37,7 @@ This might seem like a lot, but its really pretty straightforward. Once complete
 
 # Preparing the system
 
-We first will download and image the latest Kali RPi3 image. If you're following along, be sure to know where you are imaging the file to. 
+We first will download and image the latest Kali RPi3 image. If you're following along, be sure to know where you are imaging the file to.
 
 ```
 wget https://images.offensive-security.com/arm-images/kali-linux-2019.4-rpi3-nexmon.img.xz
@@ -215,7 +215,7 @@ mount -o bind /dev/pts /mnt/encrypted/dev/pts
 LANG=C chroot /mnt/encrypted
 mkinitramfs -o /boot/initramfs.gz 4.19.81-Re4son-v7+
 ```
-Now we can unmount and close up everything. 
+Now we can unmount and close up everything.
 
 ```
 exit
@@ -229,7 +229,7 @@ cryptsetup luksClose /dev/mapper/crypt
 ```
 # LUKS NUKE
 
-Should a user also want [LUKS NUKE](https://www.kali.org/tutorials/nuke-kali-linux-luks/), all they need to do is run the following command. 
+Should a user also want [LUKS NUKE](https://www.kali.org/tutorials/nuke-kali-linux-luks/), all they need to do is run the following command.
 
 ```
 dpkg-reconfigure cryptsetup-nuke-password
@@ -254,7 +254,7 @@ cd config
 cat ~/.ssh/id_rsa.pub >> authorized_keys
 ```
 
-Now we need to edit cryptmypi.conf to change some settings in stage-2. These settings will be personal, but let's just give you all an example. 
+Now we need to edit cryptmypi.conf to change some settings in stage-2. These settings will be personal, but let's just give you all an example.
 
 ```
 cat cryptmypi.conf
@@ -301,6 +301,6 @@ _LUKSPASSWD="toor"
 export _ROOTPASSWD="toor"
 ```
 
-What we changed here is the block device, luks encryption password, and the root password. The image URL can be changed if you would like to use a different image file, so be sure to do that now if need be. 
+What we changed here is the block device, luks encryption password, and the root password. The image URL can be changed if you would like to use a different image file, so be sure to do that now if need be.
 
-Now the only thing left to do is run both stages' scripts and follow the instructions. By the end of it, you'll have a fully encrypted filesystem with dropbear SSH access. 
+Now the only thing left to do is run both stages' scripts and follow the instructions. By the end of it, you'll have a fully encrypted filesystem with dropbear SSH access.
