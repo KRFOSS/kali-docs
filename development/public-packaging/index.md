@@ -271,7 +271,7 @@ Finally, we just need to add our user to the group and do one last change.
 ```markdown
 packaging@kali:~$ sudo sbuild-adduser $USER
 packaging@kali:~$ touch ~/.sbuildrc
-packaging@kali:~$ vi ~/.sbuildrc
+packaging@kali:~$ nano ~/.sbuildrc
 packaging@kali:~$ cat ~/.sbuildrc
 $build_arch_all = 1;
 $build_source = 1;
@@ -319,10 +319,10 @@ packaging@kali:~$ rm *.ex *.EX README.* *.doc
 Next we will need to edit some of the files with the proper information.
 
 ```html
-packaging@kali:~$ vi control
-packaging@kali:~$ vi changelog
-packaging@kali:~$ vi copyright
-packaging@kali:~$ vi watch
+packaging@kali:~$ nano control
+packaging@kali:~$ nano changelog
+packaging@kali:~$ nano copyright
+packaging@kali:~$ nano watch
 packaging@kali:~$ cat control
 Source: phpggc
 Section: net
@@ -413,8 +413,8 @@ If we built the package now, it would not be installed. To fix this, let's creat
 
 ```html
 packaging@kali:~$ mkdir helper-script
-packaging@kali:~$ vi phpggc.install
-packaging@kali:~$ vi helper-script/phpggc
+packaging@kali:~$ nano phpggc.install
+packaging@kali:~$ nano helper-script/phpggc
 packaging@kali:~$ cat phpggc.insstall
 lib usr/share/phpggc/
 phpggc usr/share/phpggc/
@@ -469,7 +469,7 @@ Once done, simply submit the issue and we will review it.
 If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop`file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one. 
 
 ```
-packaging@kali:~$ vi desktop-files/phpggc.desktop
+packaging@kali:~$ nano desktop-files/phpggc.desktop
 packaging@kali:~$ cat desktop-files/phpggc.desktop
 [Desktop Entry]
 Name=PHPGGC

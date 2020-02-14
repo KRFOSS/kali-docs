@@ -196,7 +196,7 @@ UUID=<UUID of btrfs partition> /root           btrfs   defaults,subvol=@root    
 UUID=<UUID of btrfs partition> /.snapshots     btrfs   defaults,subvol=@snapshots    0       0
 ```
 
-     `vi /mnt/root/etc/fstab`
+     `nano /mnt/root/etc/fstab`
 
     e.g. from:
 

@@ -60,7 +60,7 @@ Next, configure the rsync daemon (enable it if needed) to export those directori
 
 ```
 $ sudo sed -i -e "s/RSYNC_ENABLE=false/RSYNC_ENABLE=true/" /etc/default/rsync
-$ sudo vim /etc/rsyncd.conf
+$ sudo nano /etc/rsyncd.conf
 $ cat /etc/rsyncd.conf
 uid = nobody
 gid = nogroup
@@ -96,7 +96,7 @@ Now we need to create a configuration file. We start from a template and we edit
 
 ```
 $ cp etc/ftpsync.conf.sample etc/ftpsync-kali.conf
-$ vim etc/ftpsync-kali.conf
+$ nano etc/ftpsync-kali.conf
 $ grep -E '^[^#]' etc/ftpsync-kali.conf
 MIRRORNAME=`hostname -f`
 TO="/srv/mirrors/kali/"
@@ -131,7 +131,7 @@ The ISO images repository does not use push mirroring so you must schedule a dai
 ```
 $ sudo su - archvsync
 $ cp etc/mirror-kali-images.conf.sample etc/mirror-kali-images.conf
-$ vim etc/mirror-kali-images.conf
+$ nano etc/mirror-kali-images.conf
 $ grep -E '^[^#]' etc/mirror-kali-images.conf
 TO=/srv/mirrors/kali-images/
 $ crontab -e

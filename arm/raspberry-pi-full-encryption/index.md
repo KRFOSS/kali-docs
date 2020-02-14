@@ -125,7 +125,7 @@ LANG=C chroot /mnt/chroot/
 Next we must add the following to /etc/dropbear-initramfs/authorized_keys:
 
 ```
-root@kali:~# vi /etc/dropbear-initramfs/authorized_keys
+root@kali:~# nano /etc/dropbear-initramfs/authorized_keys
 root@kali:~# cat /etc/dropbear-initramfs/authorized_keys
 command="export PATH='/sbin:/bin/:/usr/sbin:/usr/bin'; /scripts/local-top/cryptroot && kill -9 `ps | grep -m 1 'cryptroot' | cut -d ' ' -f 3` && exit"
 ```
