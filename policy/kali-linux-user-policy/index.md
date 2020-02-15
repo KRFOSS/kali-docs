@@ -24,8 +24,8 @@ By default, Nmap performs a SYN Scan, though it substitutes a connect scan if th
 
 This means:
 
-- SYN scan (`-sT`) is the default for a root user. This is quicker as it only sends a SYN packet, but it requires special capabilities in order to perform this, requiring root.
-- Connect scan (`-sS`) is the default for a non-root user. This will complete the 3-way handshake, as a result takes longer and uses more packets than a SYN scan.
+- SYN scan (`-sS`) is the default for a root user. This is quicker as it only sends a SYN packet, but it requires special capabilities in order to perform this, requiring root.
+- Connect scan (`-sT`) is the default for a non-root user. This will complete the 3-way handshake, as a result takes longer and uses more packets than a SYN scan.
 
 If you wish to restore how Kali previous operated, you can install the following package:
 
