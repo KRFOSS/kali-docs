@@ -103,6 +103,7 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
    lxc exec my-kali -- adduser kali
    lxc exec my-kali -- usermod -aG sudo kali
    lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
+   lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
    ```
 
    ![040_Ubuntu-Adduser.png](040_Ubuntu-Adduser.png)
@@ -137,7 +138,7 @@ Installing a Kali container to run GUI applications is similar to the previous e
 
 ------
 
-<!-- New list -->
+
 1 - Install lxd via snap and perform initial setup (if not already done):
 
    ```bash
@@ -170,6 +171,7 @@ Installing a Kali container to run GUI applications is similar to the previous e
    lxc exec my-kali -- usermod -aG sudo kali
    lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
    lxc exec my-kali -- echo "export DISPLAY=:0" >> /home/kali/.bashrc
+   lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
    ```
 
 5 - Start Kali Xfce panel via
