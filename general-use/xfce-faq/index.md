@@ -65,16 +65,7 @@ Next time you login you can choose "GNOME" in the session selector in the top ri
 
 **Q:** I have a HiDPI screen and everything looks tiny. Is there a way to improve that?
 
-**A:** XFCE supports HiDPI monitors. You can either set the scaling factor to "*x2*" in "*Settings -> Appearance -> Settings -> Windows Scaling*" or run  
-`xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2 && xfconf-query -c xfwm4 -p /general/theme -s Default-xhdpi`  
-in a terminal window.  
-To increase the scaling of the lightdm login screen, just set "*xft-dpi*" to *200* or higher in the file `/etc/lightdm/lightdm-gtk-greeter.conf`.  
-
-&nbsp;
-
-**Q:** Even after doing the above, the terminal is still too small.
-
-**A:** In your home directory, add `xrandr --dpi 180` to your `.xsessionrc` file.
+**A:** Please see our [HiDPI page](/docs//general-use/hidpi/)
 
 &nbsp;
 &nbsp;
