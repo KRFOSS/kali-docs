@@ -1,8 +1,8 @@
 ---
 title: Containers
-description: Docker & LXC
+description: Docker & LXC/LXD
 icon: ti-anchor
-date: 2019-10-26
+date: 2020-2-18
 type: toc
 weight: 35
 author: ["",]
