@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-You can install VMware workstation or player on Kali Linux, allowing you to use virtual machines inside of Kali. However if you wish to use Kali as a virtual machine, you want our [Kali Linux Guest VMware]() page.
+You can install VMware workstation or player on Kali Linux, allowing you to use virtual machines inside of Kali. However if you wish to use Kali as a virtual machine, you want our [Kali Linux Guest VMware](/docs/virtualization/install-vmware-workstation-player-kali-guest-vm/) page.
 
 Before trying to install VMware, please make sure your version of Kali is up-to-date, and required, reboot the machine.
 
@@ -45,6 +45,12 @@ When everything is up-to-date, and ready to go, make sure the file is executable
 kali@kali:~$ cd Downloads/
 kali@kali:~/Downloads$ chmod +x VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle
 kali@kali:~/Downloads$ sudo ./VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle
+Extracting VMware Installer...done.
+Installing VMware Workstation 15.5.1
+    Configuring...
+[######################################################################] 100%
+Installation was successful.
+kali@kali:~/Downloads$
 ```
 After the installer is installed, you should be able to just run `vmware` to continue setup.
 
@@ -61,6 +67,8 @@ The first part may be VMware Kernel Modules:
 If `vmware` wasn't called with superuser privileges, you may be prompted for a password:
 
 ![](vmware-02.png)
+
+At this point, it may not install correctly, and get the error message: `Unable to install all modules. See log /tmp/vmware-kali/vmware-*.log for details. (Exit code 1)`. This is often due to Kali's kernel being newer than what VMware is expecting. Looking at the log may help with troubleshooting the issue as well as the guide at the end of this post.
 
 You will need to accept the legal agreement:
 
@@ -100,6 +108,8 @@ The final screen should look like this:
 
 ## When things go wrong
 
+### Packages
+
 From time to time, things may not go right. There could be a number of reasons why VMware may not install. The first thing to check would be you have all the necessary packages installed:
 
 ```
@@ -108,7 +118,10 @@ kali@kali:~$ sudo apt install -y build-essential linux-headers-$( uname -r ) vla
 
 Try running `vmware` again, and see if now setup continues.
 
-If it is still unsuccessful, we can dig a little further by running the following
+
+### vmware-modconfi
+
+If it is still unsuccessful, we can dig a little further by running the following:
 
 ```
 kali@kali:~$ sudo vmware-modconfig --console --install-all
@@ -116,6 +129,9 @@ kali@kali:~$ sudo vmware-modconfig --console --install-all 2>&1 | grep error
 ```
 
 Looking at the output, may either give us the exact issue, or at the very least something to search the Internet for.
+
+
+### vmware-host-modules
 
 A common issue is because the setup file for VMware isn't supporting the latest kernels, which could be an issue as Kali is a rolling distribution and receives frequent updates. If this is the case, we can patch VMware modules to support this.
 
@@ -129,3 +145,37 @@ kali@kali:~$ sudo make install
 ```
 
 Try now to install VMware. If you are still having issues, you may need to restart your Kali before trying one more final time.
+
+- - -
+
+### Powering On
+
+You may also face the following issues, when trying to power on a VM:
+
+- "Failed to initialize monitor device"
+- "Could not open /dev/vmmon: No such file or directory. Please make sure that kernel module 'vmmon' is loaded"
+- "Unable to change virtual machine power state: Transport (VMDB) error -14: Pipe connection has been broken."
+
+![](vmware-error1.png)
+![](vmware-error2.png)
+![](vmware-error3.png)
+
+The quickest solution to fix these would be to reboot Kali and try again.
+
+- - -
+
+### libaio
+
+If you see the following problem, upon trying to run VMware:
+
+```
+kali@kali:~$ vmware
+[AppLoader] Use shipped Linux kernel AIO access library.
+An up-to-date "libaio" or "libaio1" package from your system is preferred.
+```
+
+Try installing the [libaio1](https://packages.debian.org/testing/libaio1) package:
+
+```
+kali@kali:~$ sudo apt install -y libaio1
+```

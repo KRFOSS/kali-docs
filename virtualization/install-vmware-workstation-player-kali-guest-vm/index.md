@@ -13,7 +13,7 @@ og_description:
 
 This guide is for virtualize Kali Linux inside of VMware, allowing you to have a Kali VM. This is a great way to use Kali, as it is completely separate from the host, allows you to interact with other VMs (as well as the host, and other machines on the network), and revert to snapshots.
 
-You may wish to follow our other guide, if you are wanting to install VMware on Kali Linux (as a host)[]().
+You may wish to follow our other guide, if you are wanting to install VMware on Kali Linux (as a [host](/docs/virtualization/install-vmware-workstation-player-kali-host/)).
 
 The guide below is what we use to generate our [pre-made Kali Linux VMware images](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/) which we put out. You may alter this to your needs. We always generate the images using the latest version of VMware workstation, as Player & fusion doesn't have the same level of functionally and controls over settings.
 
@@ -83,7 +83,7 @@ We are happy with whats shown to us, so we then press "Finish". If you try and "
 
 ![](vm-15.png)
 
-If this is the first time using the wizard, you may have the following prompt explaining how installing "[VMware tools]()" will give you a better experience when using the VM.
+If this is the first time using the wizard, you may have the following prompt explaining how installing "[VMware tools](/docs/virtualization/install-vmware-tools-kali-guest/)" will give you a better experience when using the VM.
 
 After reading and understanding the page, you may wish to tick the "Don't show this page again", fore pressing close.
 
