@@ -2,7 +2,7 @@
 title: Raspberry Pi - Full Disk Encryption
 description:
 icon:
-date: 2020-01-27
+date: 2020-02-14
 type: post
 weight: 100
 author: ["gamb1t",]

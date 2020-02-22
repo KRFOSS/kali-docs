@@ -2,7 +2,7 @@
 title: Encrypted Disk Install
 description:
 icon:
-date: 2019-11-06
+date: 2020-01-16
 type: post
 weight: 55
 author: ["gamb1t",]

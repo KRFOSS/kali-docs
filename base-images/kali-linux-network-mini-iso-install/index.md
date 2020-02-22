@@ -2,7 +2,7 @@
 title: Mini ISO Install
 description:
 icon:
-date: 2019-11-06
+date: 2019-11-29
 type: post
 weight: 36
 author: ["gamb1t",]

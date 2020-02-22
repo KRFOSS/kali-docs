@@ -1,6 +1,6 @@
 ---
 title: Cookie Policy
-date: 2019-08-20
+date: 2019-11-25
 type: single
 ---
 

@@ -2,7 +2,7 @@
 title: Installing VMware Workstation/Player on Kali (Host)
 description:
 icon:
-date: 2020-02-14
+date: 2020-02-21
 type: post
 weight: 1
 author: ["g0tmi1k",]

@@ -2,7 +2,7 @@
 title: Kali Linux XFCE FAQ
 description:
 icon:
-date: 2019-12-04
+date: 2020-02-18
 type: post
 weight: 15
 author: ["re4son",]

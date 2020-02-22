@@ -2,7 +2,7 @@
 title: Kali Linux Default Passwords
 description:
 icon:
-date: 2019-10-26
+date: 2020-01-10
 type: archived
 weight: 40
 author: ["g0tmi1k",]

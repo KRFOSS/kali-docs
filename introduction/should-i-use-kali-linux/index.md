@@ -2,7 +2,7 @@
 title: Should I Use Kali Linux?
 description:
 icon:
-date: 2019-10-26
+date: 2019-11-25
 type: post
 weight: 20
 author: ["g0tmi1k",]

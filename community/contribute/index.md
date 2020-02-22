@@ -2,7 +2,7 @@
 title: Contribute to Kali
 description:
 icon:
-date: 2019-12-11
+date: 2020-02-12
 type: post
 weight: 100
 author: ["gamb1t",]

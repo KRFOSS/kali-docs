@@ -2,7 +2,7 @@
 title: Kali Tools
 description:
 icon:
-date: 2020-02-04
+date: 2020-02-18
 type: post
 weight: 
 author: ["gamb1t",]

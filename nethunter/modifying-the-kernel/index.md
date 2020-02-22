@@ -2,7 +2,7 @@
 title: Modifying the Kernel
 description:
 icon:
-date: 2019-10-26
+date: 2020-02-13
 type: post
 weight: 100
 author: ["g0tmi1k",]

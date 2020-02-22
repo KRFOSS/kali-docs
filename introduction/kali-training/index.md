@@ -2,7 +2,7 @@
 title: Kali Training
 description:
 icon:
-date: 2020-01-24
+date: 2020-02-18
 type: post
 weight: 60
 author: ["gamb1t",]

@@ -2,7 +2,7 @@
 title: VirtualBox for a Kali Guest
 description:
 icon:
-date: 2019-10-26
+date: 2020-01-16
 type: post
 weight: 25
 author: ["g0tmi1k",]

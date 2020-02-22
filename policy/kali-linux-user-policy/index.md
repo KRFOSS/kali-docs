@@ -2,7 +2,7 @@
 title: Kali Linux User Policy
 description:
 icon:
-date: 2020-01-10
+date: 2020-02-18
 type: post
 weight: 100
 author: ["g0tmi1k",]

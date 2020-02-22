@@ -2,7 +2,7 @@
 title: NetHunter HID Keyboard Attacks
 description:
 icon:
-date: 2019-10-26
+date: 2019-11-29
 type: post
 weight: 100
 author: ["g0tmi1k",]

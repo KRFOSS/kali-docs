@@ -2,7 +2,7 @@
 title: Digital Ocean
 description:
 icon:
-date: 2019-11-08
+date: 2020-01-13
 type: post
 weight:
 author: ["gamb1t",]

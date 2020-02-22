@@ -2,7 +2,7 @@
 title: Single Boot Kali
 description:
 icon:
-date: 2019-11-06
+date: 2020-01-16
 type: post
 weight: 15
 author: ["gamb1t",]

@@ -2,7 +2,7 @@
 title: Generate an Updated Kali ISO
 description:
 icon:
-date: 2019-11-06
+date: 2020-01-16
 type: post
 weight: 100
 author: ["g0tmi1k",]

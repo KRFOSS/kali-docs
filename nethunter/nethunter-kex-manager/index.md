@@ -2,7 +2,7 @@
 title: NetHunter KeX Manager
 description:
 icon:
-date: 2019-11-22
+date: 2019-11-29
 type: post
 weight: 100
 author: ["re4son",]

@@ -2,7 +2,7 @@
 title: Official Kali Linux Docker Images
 description:
 icon:
-date: 2020-02-12
+date: 2020-02-14
 type: post
 weight: 10
 author: ["rhertzog",]

@@ -2,7 +2,7 @@
 title: NetHunter Rootless
 description:
 icon:
-date: 2019-01-28
+date: 2020-01-28
 type: post
 weight: 100
 author: ["re4son",]

@@ -2,7 +2,7 @@
 title: Kali Linux Forensics Mode
 description:
 icon:
-date: 2019-10-26
+date: 2019-11-25
 type: post
 weight: 45
 author: ["g0tmi1k",]

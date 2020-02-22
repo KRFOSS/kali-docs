@@ -2,7 +2,7 @@
 title: Dual Boot Kali with Windows
 description:
 icon:
-date: 2019-11-06
+date: 2020-01-30
 type: post
 weight: 20
 author: ["g0tmi1k",]
