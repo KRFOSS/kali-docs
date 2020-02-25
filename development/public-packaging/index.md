@@ -2,7 +2,7 @@
 title: Public Packaging
 description:
 icon:
-date: 2020-02-14
+date: 2020-02-24
 type: post
 weight: 100
 author: ["gamb1t",]
@@ -46,14 +46,14 @@ In this walkthrough we will be explaining certain things that are only on a VM. 
 
 #### Setting up the VM
 
-It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 150GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories.
+It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 150GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories. Likely, you will not need all of the packages to be downloaded.
 
 #### User accounts and keys
 
-Kali packaging **cannot** be done as the root user. It is vital to create a standard user account with sudo privileges. However, the name of the account can be whatever the user would like.
+Packaging needs to be done on a user with sudo privileges. The default Kali user is suitable for this. The name of the user can be whatever the user prefers, in this example we will be using the name "packaging".
 
 ```html
-root@kali:~# adduser packaging
+kali@kali:~# sudo adduser packaging
 Adding user `packaging' ...
 Adding new group `packaging' (1000) ...
 Adding new user `packaging' (1000) with group `packaging' ...
@@ -75,12 +75,12 @@ Is the information correct? [Y/n] Y
 Be sure to change `[PASSWORD]` to your own password. Keep in mind you won't see your password or any sort of sign it is being typed out even though it is still being registered.
 
 ```markdown
-root@kali:~# usermod -G sudo packaging
+kali@kali:~# sudo usermod -G sudo packaging
 ```
 
 Next you **must** log out of your account and switch to the new user. This is done as some pieces of the following setup require you to be on that account, `su` will not work.
 
-Next, we need to generate SSH and GPG keys. These are important for packaging as they will allow us to access our files on GitLab easily and ensure the work is ours.
+Next, we should generate SSH and GPG keys. These are important for packaging as they will allow us to access our files on GitLab easily and ensure the work is ours. This step is not always necessary, however it is helpful in certain cases. You will know if you need to do this.
 
 ```html
 packaging@kali:~$ ssh-keygen -t rsa
@@ -155,7 +155,7 @@ packaging@kali:~$ cat ~/.ssh/id_rsa.pub | xclip
 
 #### Setting up files
 
-We now need to set up git-buildpackage/`gbp buildpackage`.
+We now need to set up git-buildpackage/`gbp buildpackage`. Remember to copy from the first line down to the second 'EOF'.
 
 ```markdown
 packaging@kali:~$ cat <<EOF> ~/.gbp.conf
@@ -179,10 +179,11 @@ patch-numbers = False
 multimaint-merge = True
 ignore-branch = True
 EOF
+
 packaging@kali:~$ grep -q DEBEMAIL ~/.bashrc \
   || echo export DEBEMAIL=email@domain.com >> ~/.bashrc
 ```
-**Be sure to replace `email@domain.com` with your email, and ensure it is the same one used with your GPG key.**
+**Be sure to replace `email@domain.com` with your email, and ensure it is the same one used with your GPG key, if that was setup.**
 
 We enable `pristine-tar` by default as we will use this tool to (efficiently) store a copy of the upstream tarball in the Git repository. We also set `export-dir` so that package builds happen outside of the git checkout directory.
 
@@ -199,7 +200,7 @@ DEBUILD_LINTIAN_OPTS="--color always -I"
 DEBCHANGE_AUTO_NMU=no
 DEBSIGN_KEYID=ABC123DE45678F90123G4567HIJK890LM12345N6
 EOF
-packaging@kali:~$
+
 packaging@kali:~$ gpg -k
 
 pub   rsa2048 2019-01-01 [SC] [expires: 2021-12-21]
@@ -214,9 +215,8 @@ You may also want to add the following to your git config:
 
 ```markdown
 packaging@kali:~$ git config --global user.name "First Last"
-packaging@kali:~$
+
 packaging@kali:~$ git config --global user.email email@domain.com
-packaging@kali:~$
 ```
 
 **The `user.name` and `user.email` must match your gpg key details (`gpg -k`) or you will get a "Secret Key Not Available" error later on:**
@@ -227,7 +227,6 @@ packaging@kali:~$ gpg -k
 pub   2048R/A123BC4D 2012-12-07
 uid                  First Last <email@domain.com>
 sub   2048R/12345A6B 2012-12-07
-packaging@kali:~$
 ```
 
 We also want to enable a new git merge driver:
@@ -238,7 +237,6 @@ packaging@kali:~$ cat <<EOF >> ~/.gitconfig
          name = debian/changelog merge driver
          driver = dpkg-mergechangelogs -m %O %A %B %A
 EOF
-packaging@kali:~$
 ```
 
 #### sbuild
@@ -247,6 +245,7 @@ We also will need to set up sbuild. Although this isn't too difficult, it does r
 
 ```markdown
 packaging@kali:~$ sudo mkdir -p /srv/chroots/ && cd /srv/chroots
+
 packaging@kali:~$ sudo sbuild-createchroot --keyring=/usr/share/keyrings/kali-archive-keyring.gpg --arch=amd64 --components=main,contrib,non-free --include=kali-archive-keyring kali-dev kali-dev-amd64-sbuild http://http.kali.org/kali
 ```
 
@@ -254,6 +253,7 @@ Once that is done, we need to edit `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*
 
 ```markdown
 packaging@kali:~$ echo source-root-groups=root,sbuild >> /etc/schroot/chroot.d/kali-dev-amd64-sbuild*
+
 packaging@kali:~$ cat /etc/schroot/chroot.d/kali-dev-amd64-sbuild*
 [kali-dev-amd64-sbuild]
 description=Debian kali-dev/amd64 autobuilder
@@ -268,10 +268,13 @@ source-root-groups=root,sbuild
 
 Finally, we just need to add our user to the group and do one last change.
 
-```markdown
+```html
 packaging@kali:~$ sudo sbuild-adduser $USER
+
 packaging@kali:~$ touch ~/.sbuildrc
+
 packaging@kali:~$ nano ~/.sbuildrc
+
 packaging@kali:~$ cat ~/.sbuildrc
 $build_arch_all = 1;
 $build_source = 1;
@@ -311,7 +314,7 @@ packaging@kali:~$ gbp import-orig ../phpggc_0.20191028.orig.tar.gz
 
 First we need to generate the base Debian files and remove some of the ones that won't be needed.
 
-```markdown
+```html
 packaging@kali:~$ dh_make -p phpggc_0.20191028
 packaging@kali:~$ cd debian
 packaging@kali:~$ rm *.ex *.EX README.* *.doc
