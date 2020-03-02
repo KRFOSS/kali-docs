@@ -2,7 +2,7 @@
 title: Hyper-V for a Kali Guest
 description:
 icon:
-date: 2020-02-11
+date: 2020-02-22
 type: post
 weight: 25
 author: ["mimura1133",]

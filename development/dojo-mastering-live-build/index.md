@@ -2,7 +2,7 @@
 title: Building Custom Kali ISOs
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["g0tmi1k",]
@@ -15,17 +15,16 @@ One of the most powerful features of Kali Linux is the ability to create your ow
 
 ## The Awesomeness of Live Build
 
-**0x00 - Begin by updating the repos, installing the prerequisites,** and checking out a fresh version of live-build-config from the Kali Git repositories:
+**0x00 - Begin by updating the repos, installing the prerequisites,** and checking out a fresh version of `live-build-config` from the Kali Git repositories:
 
 ```markdown
 sudo apt update
-sudo apt install git live-build cdebootstrap devscripts -y
+sudo apt install -y git live-build cdebootstrap devscripts
 git clone git://gitlab.com/kalilinux/build-scripts/live-build-config.git
-cd live-build-config
+cd live-build-config/
 ```
 
 **0x01 - Overwrite the default Kali package list**, including only the packages you want. In the video, we simply edited the list and changed a few package names.
-
 
 ```markdown
 cat << EOF > kali-config/variant-default/package-lists/kali.list.chroot
@@ -53,7 +52,7 @@ label install
 EOF
 ```
 
-**0x03 - Customise the ISO build.** In this example, we’ll have the SSH service start by default. To do this, we can use a chroot hook script which is placed in the "hooks" directory:
+**0x03 - Customise the ISO build**. In this example, we’ll have the SSH service start by default. To do this, we can use a chroot hook script which is placed in the "hooks" directory:
 
 ```markdown
 echo 'systemctl enable ssh' >>  kali-config/common/hooks/01-start-ssh.chroot
@@ -63,21 +62,21 @@ chmod +x kali-config/common/hooks/01-start-ssh.chroot
 **0x04 - Next, we download a wallpaper** and overlay it. Notice how chroot overlayed files are placed in the _includes.chroot_ directory.
 
 ```markdown
-mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images
+mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images/
 wget https://www.kali.org/dojo/blackhat-2015/wp-blue.png
 mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images
 ```
 **0x05 - Add a preseed file** that will run through a default Kali installation with no input (unattended). We can include a ready made preseed configuration and alter it as needed:
 
 ```markdown
-mkdir -p kali-config/common/debian-installer
+mkdir -p kali-config/common/debian-installer/
 wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/blob/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
 ```
 
 **0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64 bit build, we're including a 64 bit Nessus Debian package. [Download](http://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:
 
 ```markdown
-mkdir kali-config/common/packages.chroot
+mkdir kali-config/common/packages.chroot/
 mv Nessus-*amd64.deb kali-config/common/packages.chroot/
 ```
 

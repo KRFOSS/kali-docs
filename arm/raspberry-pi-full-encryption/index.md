@@ -2,7 +2,7 @@
 title: Raspberry Pi - Full Disk Encryption
 description:
 icon:
-date: 2020-02-14
+date: 2020-02-22
 type: post
 weight: 100
 author: ["gamb1t",]
@@ -15,11 +15,9 @@ og_description:
 The following documentation is not yet working. Follow along with the status at the following link: https://gitlab.com/kalilinux/documentation/kali-docs/issues/49
 {{% /notice %}}
 
-
 Last year we made a blog post, [Secure Kali Pi 2018](https://www.kali.org/tutorials/secure-kali-pi-2018/), covering how to encrypt a Kali RPi install. Since then there have been a few developments. One important note is that unixabg has created a script to automate the process. We will touch more on that after going through the manual method, however we recommend reading what is being done still.
 
 As a review, what we are trying to accomplish is to create a stanalone “leave behind” device that, when discovered, does not make it easy to figure out what you were doing. So we use the LUKS full disk encryption along with the LUKS Nuke capability to put this together. If you have a Raspberry Pi 3 Model B+, or really any other model or similar device, feel free to use the instructions below to set up your own secure system. This updated process is based on our previous documentation, and updated with some community suggestions.
-
 
 # Overview of the process
 
@@ -65,8 +63,8 @@ Now that our system is set up we can use chroot to set up the RPi image for encr
 
 ```
 LANG=C chroot /mnt/chroot/
-apt update
-apt install -y cryptsetup lvm2 busybox dropbear
+sudo apt update
+sudo apt install -y cryptsetup lvm2 busybox dropbear
 ```
 
 We will now be listing out five kernel versions and depending on the RPi being used you will need to choose certain versions. The first version, Re4son+, is for armv6 devices IE. RPi1, RPi0, or RPi0w. The next two, Re4son-v7+ and Re4son-v8+, are the 32bit and 64bit versions for armv7 devices, respectfully. The final two will be the ones merged into the armv7 32bit and 64bit versions, and the `l` in the name means they will be for the RPi4. Keep in mind the kernel versions may change, however the name will not.

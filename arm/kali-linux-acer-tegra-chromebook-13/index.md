@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-The Acer Tegra Chromebook is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting a Tegra K1 2.1GHz quad core processor and 4 GB of RAM, the Chromebook is a fast ARM laptop. Kali linux fits on an external SD card on this machine which leaves the internal disk untouched.
+The Acer Tegra Chromebook is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting a Tegra K1 2.1GHz quad core processor and 4 GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external SD card on this machine which leaves the internal disk untouched.
 
 ## Kali on Chromebook - User Instructions
 

@@ -2,7 +2,7 @@
 title: Downloading Kali Linux
 description:
 icon:
-date: 2020-01-28
+date: 2020-02-22
 type: post
 weight: 30
 author: ["g0tmi1k","gamb1t"]

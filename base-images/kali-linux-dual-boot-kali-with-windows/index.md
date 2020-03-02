@@ -2,7 +2,7 @@
 title: Dual Boot Kali with Windows
 description:
 icon:
-date: 2020-01-30
+date: 2020-02-22
 type: post
 weight: 20
 author: ["g0tmi1k",]
@@ -15,7 +15,7 @@ Installing Kali alongside a Windows installation can be quite useful. However, y
 
 In our example, we will be installing Kali Linux alongside an installation of Windows 7, which is currently taking up 100% of the disk space in our computer. We will start by resizing our current Windows partition to occupy less space and then proceed to install Kali Linux in the newly-created empty partition.
 
-[Download Kali Linux](/docs/introduction/download-official-kali-linux-images/) and either burn the ISO to DVD, or[ prepare a USB stick with Kali linux Live](/docs/usb/kali-linux-live-usb-install/) as the installation medium. If you do not have a DVD or USB port on your computer, check out the [Kali Linux Network Install](/docs/base-images/kali-linux-network-pxe-install/). Ensure you have:
+[Download Kali Linux](/docs/introduction/download-official-kali-linux-images/) and either burn the ISO to DVD, or[ prepare a USB stick with Kali Linux Live](/docs/usb/kali-linux-live-usb-install/) as the installation medium. If you do not have a DVD or USB port on your computer, check out the [Kali Linux Network Install](/docs/base-images/kali-linux-network-pxe-install/). Ensure you have:
 
 * Minimum of 20 GB free disk space on Windows
 * CD-DVD / USB boot support
@@ -34,12 +34,14 @@ This installation has the potential to go wrong very easily as it involves editi
 
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Select _Live_, and you should be booted into the Kali Linux default desktop.
 
-2. Now launch the **gparted** program. We'll use **gparted** to shrink the existing Windows partition to give us enough room to install Kali Linux.
+2. Now launch the **[gparted](https://packages.debian.org/testing/gparted)** program. We'll use **gparted** to shrink the existing Windows partition to give us enough room to install Kali Linux.
 
 ![dual-boot-kali-01](dual-boot-kali-1.png)
-3. Select your Windows partition. Depending on your system, it will usually be the second, larger partition. In our example, there are three partitions; the first is Window's boot partition, then Windows is actually installed in /dev/sda2, and the final is the System Recovery partition. Resize your Windows partition and leave enough space (20 GB minimum) for the Kali installation. If you are moving past into any non-white in the partition then you are editing a section that is in use. Only remove from the area of the partition that is not in use. It is alright to leave the third partition, and only shrink the actual install.
+
+3. Select your Windows partition. Depending on your system, it will usually be the second, larger partition. In our example, there are three partitions; the first is Window's boot partition, then Windows is actually installed in `/dev/sda2`, and the final is the System Recovery partition. Resize your Windows partition and leave enough space (20 GB minimum) for the Kali installation. If you are moving past into any non-white in the partition then you are editing a section that is in use. Only remove from the area of the partition that is not in use. It is alright to leave the third partition, and only shrink the actual install.
 
 ![dual-boot-kali-03](dual-boot-kali-3.png)
+
 4. Once you have resized your Windows partition, ensure you "Apply All Operations" on the hard disk. Exit **gparted** and reboot.
 
 ![dual-boot-kali-05](dual-boot-kali-5.png)
@@ -49,6 +51,7 @@ This installation has the potential to go wrong very easily as it involves editi
 1. The installation procedure from this point onwards is similar to a [Kali Linux Hard Disk install](/docs/base-images/kali-linux-hard-disk-install/), until the point of the partitioning, where you need to select "Guided - use the largest continuous free space" that you created earlier with **gparted**.
 
 ![dual-boot-kali-09](dual-boot-kali-09.png)
+
 2. Once the installation is done, reboot. You should be greeted with a GRUB boot menu, which will allow you to boot either into Kali or Windows.
 
 ![dual-boot-kali-11](dual-boot-kali-11.png)

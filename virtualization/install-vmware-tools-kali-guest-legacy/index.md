@@ -2,7 +2,7 @@
 title: VMware Tools for a Kali Guest (Legacy)
 description:
 icon:
-date: 2020-01-13
+date: 2020-02-22
 type: archived
 weight: 15
 author: ["g0tmi1k",]

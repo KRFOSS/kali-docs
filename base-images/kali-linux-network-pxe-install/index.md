@@ -2,7 +2,7 @@
 title: Deploying Kali over Network PXE/iPXE Install
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 45
 author: ["g0tmi1k",]
@@ -19,14 +19,14 @@ Booting and installing Kali over the network ([PXE](http://en.wikipedia.org/wiki
 You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
 {{% /notice %}}
 
-First, we need to install _dnsmasq_ to provide the DHCP/TFTP server and then edit the _dnsmasq.conf_ file.
+First, we need to install **[dnsmasq](https://packages.debian.org/testing/dnsmasq)** to provide the DHCP/TFTP server and then edit the `dnsmasq.conf` file:
 
 ```
 apt install -y dnsmasq
 nano /etc/dnsmasq.conf
 ```
 
-In _dnsmasq.conf_, enable DHCP, TFTP and PXE booting and set the _dhcp-range_ to match your environment. If needed you can also define your gateway and DNS servers with the _dhcp-option_ directive as shown below:
+In `dnsmasq.conf`, enable DHCP, TFTP and PXE booting and set the `dhcp-range` to match your environment. If needed you can also define your gateway and DNS servers with the `dhcp-option` directive as shown below:
 
 ```
 interface=eth0
@@ -41,7 +41,7 @@ dhcp-option=6,8.8.8.8,8.8.4.4
 With the edits in place, the dnsmasq service needs to be restarted in order for the changes to take effect.
 
 ```
-service dnsmasq restart
+systemctl restart dnsmasq
 ```
 
 ### Download Kali PXE Netboot Images
@@ -49,14 +49,16 @@ service dnsmasq restart
 Now, we need to create a directory to hold the Kali Netboot image and download the image we wish to serve from the Kali repos.
 
 ```
-mkdir -p /tftpboot
-cd /tftpboot
+mkdir -p /tftpboot/
+cd /tftpboot/
+
 # for 64 bit systems:
 wget http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/netboot.tar.gz
 # for 32 bit systems:
 wget http://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/netboot.tar.gz
-tar zxpf netboot.tar.gz
-rm netboot.tar.gz
+
+tar -zxpf netboot.tar.gz
+rm -f netboot.tar.gz
 ```
 
 ## Configure Target to Boot From Network

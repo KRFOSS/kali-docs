@@ -2,7 +2,7 @@
 title: ARM Cross-Compilation
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -26,16 +26,15 @@ Compiling kernels and generating images usually comes at the cost of disk space.
 Start off by installing the required dependencies for ARM cross-compilation.
 
 ```
-sudo apt install git-core gnupg flex bison gperf libesd0-dev build-essential \
-zip curl libncurses5-dev zlib1g-dev gcc-multilib g++-multilib
+apt install -y git-core gnupg flex bison gperf libesd0-dev build-essential zip curl libncurses5-dev zlib1g-dev gcc-multilib g++-multilib
 ```
 
 If you are running a 64 bit Kali Linux system, add i386 architecture support to your development environment as follows.
 
 ```
-sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt install ia32-libs
+dpkg --add-architecture i386
+apt update
+apt install ia32-libs
 ```
 
 ### Download Linaro Toolchain
@@ -43,9 +42,9 @@ sudo apt install ia32-libs
 Download the Linaro cross-compiler from our Git repository.
 
 ```
-cd ~
-mkdir -p arm-stuff/kernel/toolchains
-cd arm-stuff/kernel/toolchains
+cd ~/
+mkdir -p arm-stuff/kernel/toolchains/
+cd arm-stuff/kernel/toolchains/
 git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4-6-2.git
 ```
 

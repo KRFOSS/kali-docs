@@ -2,7 +2,7 @@
 title: BTRFS Install
 description:
 icon:
-date: 2019-10-26
+date: 2020-02-22
 type: post
 weight: 60
 author: ["re4son",]
@@ -67,7 +67,7 @@ Mount Point         | Subvolume         | Description
 
 ### Preparing for the Installation
 
-1. [Download Kali linux](/docs/introduction/download-official-kali-linux-images/).
+1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 2. Burn the Kali Linux ISO to DVD or [Image Kali Linux Live to USB](/downloading/kali-linux-live-usb-install).
 3. Ensure that your computer is set to boot from CD / USB in your BIOS.
 

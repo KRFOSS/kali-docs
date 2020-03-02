@@ -2,7 +2,7 @@
 title: Kali Linux LXC/LXD Images
 description:
 icon:
-date: 2020-02-18
+date: 2020-02-22
 type: post
 weight: 60
 author: ["re4son",]
@@ -22,14 +22,12 @@ og_description:
 
 ------
 
-
-
 ## Overview
 
 **Kali Linux containers are the ideal solution to**
 
 - **run Kali Linux within other Linux distributions**
-- **provide isolated environments for development or testing activities**  
+- **provide isolated environments for development or testing activities**
 
 **without the overhead of virtual machines.**
 **Docker is the preferred solution for applications whilst LXC/LXD are preferred for entire systems.**
@@ -53,11 +51,11 @@ LXC is available in more distributions and preferred in Kali as it is supported 
 
 
 
-  
+
 
 ------
 
-&nbsp;&nbsp;  
+&nbsp;&nbsp;
 ### Command line Kali LXD container on Ubuntu host
 
 Installing a Kali Linux container in Ubuntu only requires a few steps:
@@ -81,14 +79,14 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
 
    ![010_Ubuntu-SnapInstallLXD.png](010_Ubuntu-SnapInstallLXD.png)
 
-2 - Launch your first Kali Linux container with  
+2 - Launch your first Kali Linux container with
    ```bash
    lxc launch images:kali/current/amd64 my-kali
    ```
 
    ![020_Ubuntu-CreateKaliContainer.png](020_Ubuntu-CreateKaliContainer.png)
 
-3 - Install additional packages inside the container via 
+3 - Install additional packages inside the container via
 
    ```bash
    lxc exec my-kali -- apt update
@@ -115,16 +113,16 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
 
    ![055_Ubuntu_KaliCliSession_DE.png](055_Ubuntu_KaliCliSession_DE.png)
 
-   Voila! 
+   Voila!
 
 ##### Container management:
-   Start: `lxc start my-kali`  
-   Stop: `lxc stop my-kali`  
-   Remove: `lxc destroy my-kali`  
+   Start: `lxc start my-kali`
+   Stop: `lxc stop my-kali`
+   Remove: `lxc destroy my-kali`
 
 ------
 
-&nbsp;&nbsp;  
+&nbsp;&nbsp;
 ### GUI Kali LXD container on Ubuntu host
 
 Installing a Kali container to run GUI applications is similar to the previous example with a few additional steps:
@@ -145,7 +143,7 @@ Installing a Kali container to run GUI applications is similar to the previous e
    sudo snap install lxd
    lxd init
    ```
-2 - Launch your first Kali Linux container with  
+2 - Launch your first Kali Linux container with
    ```bash
    wget https://blog.simos.info/wp-content/uploads/2018/06/lxdguiprofile.txt
    lxc profile create gui
@@ -157,7 +155,7 @@ Installing a Kali container to run GUI applications is similar to the previous e
 
    ![080_Ubuntu_KaliGuiSetup.png](080_Ubuntu_KaliGuiSetup.png)
 
-3 - Install additional packages inside the container via 
+3 - Install additional packages inside the container via
 
    ```bash
    lxc exec my-kali -- apt update
@@ -181,14 +179,14 @@ Installing a Kali container to run GUI applications is similar to the previous e
    Customise the panel as desired.
 
 ##### Container management:
-   Start: `lxc start my-kali`  
-   Stop: `lxc stop my-kali`  
-   Remove: `lxc destroy my-kali`  
+   Start: `lxc start my-kali`
+   Stop: `lxc stop my-kali`
+   Remove: `lxc destroy my-kali`
 
 ------
 
 
-&nbsp;&nbsp;  
+&nbsp;&nbsp;
 ### Privileged Kali LXC container on Kali host
 
 Privileged containers are containers created by root and running as root. They are quicker to setup than unprivileged  containers but are inherently unsafe.
@@ -205,7 +203,7 @@ Installing a privileged Kali Linux container on a Kali host only requires to
 
    ```bash
    sudo apt-get install -qy lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
-   
+
    sudo cat << EOF > /etc/lxc/default.conf
    lxc.net.0.type = veth
    lxc.net.0.link = virbr0
@@ -213,7 +211,7 @@ Installing a privileged Kali Linux container on a Kali host only requires to
    lxc.apparmor.profile = generated
    lxc.apparmor.allow_nesting = 1
    EOF
-   
+
    sudo virsh net-start default
    sudo virsh net-autostart default
    ```
@@ -248,16 +246,16 @@ Installing a privileged Kali Linux container on a Kali host only requires to
    There you have it. Next you should set a root password and install the "kali-linux-default" metapackage.
 
 ##### Container management:
-   Start: `sudo lxc-start -n my-kali -d`  
-   Stop: `sudo lxc-stop -n my-kali`  
-   List: `sudo lxc-ls -f`  
-   Info: `sudo lxc-info -n my-kali`  
-   Remove: `sudo lxc-destroy -n my-kali`  
+   Start: `sudo lxc-start -n my-kali -d`
+   Stop: `sudo lxc-stop -n my-kali`
+   List: `sudo lxc-ls -f`
+   Info: `sudo lxc-info -n my-kali`
+   Remove: `sudo lxc-destroy -n my-kali`
 
 ------
 
 
-&nbsp;&nbsp;  
+&nbsp;&nbsp;
 ### Unprivileged Kali LXC container on Kali host
 
 Unprivileged containers run in a user context and are considered safer and are preferred over using privileged container.
@@ -288,7 +286,7 @@ The setup it slightly more involved:
    sudo sh -c 'echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/80-lxc-userns.conf'
    sudo sysctl kernel.unprivileged_userns_clone=1
    sudo chmod u+s /usr/libexec/lxc/lxc-user-nic
-   
+
    mkdir -p ~/.config/lxc
    cp /etc/lxc/default.conf ~/.config/lxc/default.conf
    sed -i 's/lxc.apparmor.profile = generated/lxc.apparmor.profile = unconfined/g' ~/.config/lxc/default.conf
@@ -343,7 +341,7 @@ The setup it slightly more involved:
    ```bash
    lxc-attach -n my-kali --clear-env adduser <username>
    lxc-attach -n my-kali --clear-env adduser <username> sudo
-   
+
    ```
 
    ![230_Kali-UnPrivCreateUser.png](230_Kali-UnPrivCreateUser.png)
@@ -361,17 +359,17 @@ The setup it slightly more involved:
    ![230_Kali-UnPrivCreateUser.png](230_Kali-UnPrivCreateUser.png)
 
 ##### Container management:
-   Start: `sudo lxc-start -n my-kali -d`  
-   Stop: `sudo lxc-stop -n my-kali`  
-   List: `sudo lxc-ls -f`  
-   Info: `sudo lxc-info -n my-kali`  
-   Remove: `sudo lxc-destroy -n my-kali`  
+   Start: `sudo lxc-start -n my-kali -d`
+   Stop: `sudo lxc-stop -n my-kali`
+   List: `sudo lxc-ls -f`
+   Info: `sudo lxc-info -n my-kali`
+   Remove: `sudo lxc-destroy -n my-kali`
 
 
 
 ------
 
-&nbsp;&nbsp;  
+&nbsp;&nbsp;
 ## References:
-[Linux Containers](https://linuxcontainers.org/)  
-[How to run GUI apps in LXD containers on your Ubuntu desktop](https://blog.simos.info/how-to-easily-run-graphics-accelerated-gui-apps-in-lxd-containers-on-your-ubuntu-desktop/)  
+[Linux Containers](https://linuxcontainers.org/)
+[How to run GUI apps in LXD containers on your Ubuntu desktop](https://blog.simos.info/how-to-easily-run-graphics-accelerated-gui-apps-in-lxd-containers-on-your-ubuntu-desktop/)

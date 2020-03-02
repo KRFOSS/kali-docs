@@ -2,7 +2,7 @@
 title: Making a Kali Bootable USB Drive
 description:
 icon:
-date: 2020-01-28
+date: 2020-02-22
 type: post
 weight: 10
 author: ["g0tmi1k",]

@@ -2,7 +2,7 @@
 title: Rebuilding a Source Package
 description:
 icon:
-date: 2020-01-12
+date: 2020-02-22
 type: post
 weight: 100
 author: ["g0tmi1k",]

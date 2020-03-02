@@ -2,7 +2,7 @@
 title: Custom MK/SS808 Image
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -19,7 +19,7 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 ### 01. Create a Kali rootfs
 
-Build yourself a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in **~/arm-stuff/rootfs/kali-armhf**.
+Build yourself a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in `~/arm-stuff/rootfs/kali-armhf`.
 
 ### 02. Create the Image File
 
@@ -67,12 +67,11 @@ If you're not using ARM hardware as the development environment, you will need t
 
 ```markdown
 apt install -y xz-utils
-cd ~/arm-stuff
-mkdir -p kernel
-cd kernel
+mkdir -p ~/arm-stuff/kernel/
+cd ~/arm-stuff/kernel/
 
 git clone git://github.com/aloksinha2001/picuntu-3.0.8-alok.git rk3066-kernel
-cd rk3066-kernel
+cd rk3066-kernel/
 sed -i "/vpu_service/d" arch/arm/plat-rk/Makefile
 ```
 
@@ -117,8 +116,7 @@ losetup -d $loopdevice
 
 ### 07. dd the Image to a USB device
 
-Use the **dd** utility to image this file to your SD card. In our example, we assume the storage device is located at /dev/sdb. **Change this as needed.**
-
+Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed.**
 
 ```markdown
 dd if=kali-custom-ss808.img of=/dev/sdb bs=512k

@@ -2,7 +2,7 @@
 title: HiDPI (High Dots Per Inch) Display
 description:
 icon:
-date: 2020-02-14
+date: 2020-02-18
 type: post
 weight: 10
 author: ["g0tmi1k",]
@@ -38,22 +38,23 @@ You have two ways of altering this, either graphical or through the command line
 ![](window-manager.png)
 
 - In a terminal window, run the following commands:
-  - `kali@kali:~$ echo export GDK_SCALE=2 >> .xsessionrc`
-  - `kali@kali:~$ xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI`
+
+```
+kali@kali:~$ echo export GDK_SCALE=2 >> .xsessionrc
+kali@kali:~$ xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
+```
 
 The quickest way to clean up any left over artifacts is to now log out and in again.
 
-Alternatively, you can run the following command to change the window scaling factor immediately. But, it will only work if you have already changed the value before, using the appearance application.  
-`xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2`
+Alternatively, you can run the following command to change the window scaling factor immediately. But, it will only work if you have already changed the value before, using the appearance application.
+
+```
+kali@kali:~$ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2
+```
 
 #### Qt apps
 
-Some apps, such as qterminal, don't use the scale factor explained before, so they need to be configure separately. To do so, you need to set the following environmental variables in the ~/.xsessionrc file:
-
-```
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_FONT_DPI=180
-```
+Some apps, such as [qterminal](https://packages.debian.org/testing/qterminal), don't use the scale factor explained before, so they need to be configure separately. To do so, you need to set the following environmental variables in the `~/.xsessionrc` file:
 
 ```
 kali@kali:~$ nano ~/.xsessionrc
@@ -63,7 +64,7 @@ export QT_FONT_DPI=180
 kali@kali:~$
 ```
 
-#### HiDPI general script
+#### HiDPI General Script
 
 In case you need a more general script to enable HiDPI in your desktop, here you have one that applies the configurations explained before. Remember to log out and in again after running it.
 

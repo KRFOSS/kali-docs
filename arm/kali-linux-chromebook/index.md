@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-The [HP ARM Chromebook](http://www8.hp.com/ca/en/ads/chromebooks/specs.html) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5250 1.7GHz dual core processor and 2 GB of RAM, the Chromebook is a fast ARM laptop. Kali linux fits on an USB stick on this machine which leaves the internal disk untouched.
+The [HP ARM Chromebook](http://www8.hp.com/ca/en/ads/chromebooks/specs.html) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5250 1.7GHz dual core processor and 2 GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an USB stick on this machine which leaves the internal disk untouched.
 
 ## Kali on Chromebook - User Instructions
 

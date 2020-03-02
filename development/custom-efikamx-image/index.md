@@ -2,7 +2,7 @@
 title: Custom EfikaMX Image
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -19,7 +19,7 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 ### 01. Create a Kali rootfs
 
-Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in **~/arm-stuff/rootfs/kali-armhf**.
+Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in `~/arm-stuff/rootfs/kali-armhf`.
 
 ### 02. Create the Image File
 
@@ -27,11 +27,8 @@ Next, we create the physical image file, which will hold our EfikaMX rootfs and 
 
 ```markdown
 apt install -y kpartx xz-utils sharutils
-cd ~
-mkdir -p arm-stuff
-cd arm-stuff/
-mkdir -p images
-cd images
+mkdir -p ~/arm-stuff/images/
+cd ~/arm-stuff/images/
 dd if=/dev/zero of=kali-custom-efikamx.img bs=1MB count=7000
 ```
 
@@ -71,11 +68,10 @@ sed 's/0-1/0//g' root/etc/init.d/udev
 If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following instructions.
 
 ```html
-cd ~/arm-stuff
-mkdir -p kernel
-cd kernel
+mkdir -p ~/arm-stuff/kernel/
+cd ~/arm-stuff/kernel/
 git clone --depth 1 https://github.com/genesi/linux-legacy.git
-cd linux-legacy
+cd linux-legacy/
 export ARCH=arm
 export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-4.6.2/bin/arm-eabi-
 make efikamx_defconfig
@@ -111,7 +107,7 @@ kpartx -dv $loopdevice
 losetup -d $loopdevice
 ```
 
-Use the **dd** utility to image this file to your SD card. In our example, we assume the storage device is located at /dev/sdb. **Change this as needed.**
+Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed.**
 
 ```markdown
 dd if=kali-custom-efikamx.img of=/dev/sdb bs=1M

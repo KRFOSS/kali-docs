@@ -2,7 +2,7 @@
 title: Custom Chromebook Image
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -23,7 +23,7 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 #### 01. Create a Kali rootfs
 
-Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in **~/arm-stuff/rootfs/kali-armhf**.
+Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in `~/arm-stuff/rootfs/kali-armhf`.
 
 #### 02. Create the Image File
 
@@ -31,11 +31,8 @@ Next, we create the physical image file that will hold our Chromebook rootfs and
 
 ```markdown
 apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
-cd ~
-mkdir -p arm-stuff
-cd arm-stuff/
-mkdir -p images
-cd images
+mkdir -p ~/arm-stuff/images/
+cd ~/arm-stuff/images//
 dd if=/dev/zero of=kali-custom-chrome.img bs=1MB count=7000
 ```
 
@@ -82,7 +79,7 @@ mount $rootp root
 
 #### 04. Copy and Modify the Kali rootfs
 
-Copy over the Kali rootfs you bootstrapped earlier using **rsync** to the mounted image.
+Copy over the Kali rootfs you bootstrapped earlier using **[rsync](https://packages.debian.org/testing/rsync)** to the mounted image.
 
 ```markdown
 cd ~/arm-stuff/images/
@@ -113,11 +110,10 @@ If you're not using ARM hardware as the development environment, you will need t
 Fetch the Chromium kernel sources and place them in our development tree structure:
 
 ```markdown
-cd ~/arm-stuff
-mkdir -p kernel
-cd kernel
+mkdir -p ~/arm-stuff/kernel/
+cd ~/arm-stuff/kernel/
 git clone http://git.chromium.org/chromiumos/third_party/kernel.git -b chromeos-3.4 chromeos
-cd chromeos
+cd chromeos/
 ```
 
 ```html
@@ -163,7 +159,7 @@ EOF
 Patch the kernel, in our case, with wireless injection patches.
 
 ```bash
-mkdir -p ../patches
+mkdir -p ../patches/
 wget http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch -O ../patches/mac80211.patch
 wget http://patches.aircrack-ng.org/channel-negative-one-maxim.patch -O ../patches/negative.patch
 patch -p1 < ../patches/negative.patch

@@ -2,7 +2,7 @@
 title: BTRFS Install
 description:
 icon:
-date: 2020-02-13
+date: 2020-02-22
 type: post
 weight: 60
 author: ["re4son",]
@@ -33,7 +33,7 @@ including the installation and usage of snapper in this walkthrough.
 Details about snapper can be found on the following website:
 [http://snapper.io/](http://snapper.io/)
 
-  
+
 
 ### Installation Overview
 
@@ -42,7 +42,7 @@ Installing Kali Linux with snapshotting functionality is very similar to a stand
 2. We pause the installation midway to set up a btrfs partition and btrfs subvolumes on the command line using the tool "partman" before continuing the installation
 3. We adjust the fstab and move some folders to the new subvolumes before we reboot into the newly installed system
 
-  
+
 
 ### Partitioning Scheme
 
@@ -58,9 +58,9 @@ Mount Point         | Subvolume         | Description
 /.snapshots         | @snapshots        | Snapper's snapshot directory
 ```
 
-  
 
-  
+
+
 
 ## Kali Linux Btrfs Installation Steps
 
@@ -72,70 +72,70 @@ Mount Point         | Subvolume         | Description
 
 ### Preparing for the Installation
 
-1. [Download Kali linux](/docs/introduction/download-official-kali-linux-images/).
+1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 2. Burn the Kali Linux ISO to DVD or [Image Kali Linux Live to USB](/downloading/kali-linux-live-usb-install).
 3. Ensure that your computer is set to boot from CD / USB in your BIOS.
 
 ### Kali Linux Installation Procedure
 
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Choose _Graphical Install_.
-   
+
 2. The installation steps are identical to a standard Kali installation except a pause during the step where you choose a domain name as seen below.
 
     ![btrfs-g-08-di.png](btrfs-g-08-di.png)
-    
+
 
 
 3. When prompted, pause the installation and switch to the second VT via "Ctrl + Alt + 2"
 
     ![btrfs-g-09-cli.png](btrfs-g-09-cli.png)
-    
-    
-    
+
+
+
     Press `enter` to activate that console and run `partman` to partition the hard disk.
-    
+
     ![btrfs-g-11-cli.png](btrfs-g-11-cli.png)
 
 
 4. First we create two partitions: swap and root.
    Choose `manual` under "Partitioning method" and press `enter`.
-   
+
     ![btrfs-g-12-partman.png](btrfs-g-12-partman.png)
-   
+
 
 
 5. Choose your hard disk:
-   
+
     ![btrfs-g-13-partman.png](btrfs-g-13-partman.png)
-    
+
 
 
 6. Confirm to create a new partition table
-   
+
     ![btrfs-g-14-partman.png](btrfs-g-14-partman.png)
-    
+
 
 
 7. Next, select the newly defined "free space":
-   
+
     ![btrfs-g-15-partman.png](btrfs-g-15-partman.png)
-    
+
 
 
 8. Select `Create a new partition`:
-   
+
     ![btrfs-g-16-partman.png](btrfs-g-16-partman.png)
-    
+
 
 
 9. Pick the desired size for the swap partition:
-   
+
     ![btrfs-g-17-partman.png](btrfs-g-17-partman.png)
-    
+
 
 
 10. Choose the preferred partition type:
-    
+
     ![btrfs-g-18-partman.png](btrfs-g-18-partman.png)
 
 11. The location of the swap partition is personal preference, we choose "end" here so it's out of the way
@@ -143,29 +143,29 @@ Mount Point         | Subvolume         | Description
     ![btrfs-g-19-partman.png](btrfs-g-19-partman.png)
 
 12. Choose "Done setting up the partition":
-    
+
     ![btrfs-g-20-partman.png](btrfs-g-20-partman.png)
 
 13. Next we repeat the procedure to setup the maim btrfs partition:
-    
+
     ![btrfs-g-21-partman.png](btrfs-g-21-partman.png)
 
 14. Let's create a new partition:
-    
+
     ![btrfs-g-22-partman.png](btrfs-g-22-partman.png)
 
 15. Use the rest of the available space:
-    
-    
+
+
 
     ![btrfs-g-23-partman.png](btrfs-g-23-partman.png)
-    
+
 16. Choose "Primary" as partition type:
-    
+
     ![btrfs-g-24-partman.png](btrfs-g-24-partman.png)
 
 17. Configure the following parameters and select `Done setting up the partition`:
-    
+
      ```markdown
     Use as:          btrfs journaling file system
     Mount point:     /
@@ -173,25 +173,25 @@ Mount Point         | Subvolume         | Description
      ```
     ![btrfs-g-25-partman.png](btrfs-g-25-partman.png)
 
-    
-    
+
+
 18. Finish the partitioning and confirming to write the partition table to disk:
-    
+
     ![btrfs-g-26-partman.png](btrfs-g-26-partman.png)
-    
+
 
     ![btrfs-g-27-partman.png](btrfs-g-27-partman.png)
-    
-    
-    
+
+
+
 19. We return to the command line and can confirm that the new btrfs partition is mounted at /target:
-    
+
     ![btrfs-g-28-postpartman.png](btrfs-g-28-postpartman.png)
 
-    
-    
+
+
 20. Next we create the desired subvolumes:
-    
+
     ```plaintext
     btrfs subvolume create /target/@
     btrfs subvolume create /target/@home
@@ -199,7 +199,7 @@ Mount Point         | Subvolume         | Description
     btrfs subvolume create /target/@root
     btrfs subvolume create /target/@snapshots
     ```
-    
+
     ![btrfs-g-30-postpartman.png](btrfs-g-30-postpartman.png)
 
 
@@ -214,7 +214,7 @@ btrfs subvolume set-default 257 /target
 umount /target
     ````
     ![btrfs-g-33-postpartman.png](btrfs-g-33-postpartman.png)
-    
+
 
 
 22. Now can switch back to the graphical install via Ctrl + Alt + F5 and continue with the installation:
@@ -225,16 +225,16 @@ umount /target
 
     ![btrfs-g-38-di.png](btrfs-g-38-di.png)
 
-    
+
 
     ![btrfs-g-39-di.png](btrfs-g-39-di.png)
-    
+
 24. If you wish you can switch back to VT 2 and confirm that the installer has indeed mounted our "@" subvolume as the temporary root for the installation "/target":
 
     ![btrfs-g-40-cli.png](btrfs-g-40-cli.png)
 
-    
-    
+
+
 25. Returning back to VT 5 we can continue with our installation until we hit the final screen were we pause for one last time:
 
     ![btrfs-g-45-di.png](btrfs-g-45-di.png)
@@ -249,15 +249,15 @@ umount /target
     mkdir /target/mnt/home
     mkdir /target/mnt/log
     mkdir /target/.snapshots
-    
+
     mount -t btrfs -o subvol=@root /dev/sda2 /target/mnt/root
     mount -t btrfs -o subvol=@home /dev/sda2 /target/mnt/home
     mount -t btrfs -o subvol=@log /dev/sda2 /target/mnt/log
-    
+
     mv /target/root/.* /target/mnt/root/
     mv /target/home/* /target/mnt/home/
     mv /target/var/log/* /target/mnt/log/
-    
+
     nano /target/etc/fstab
     ```
 
@@ -271,27 +271,27 @@ umount /target
     UUID=<UUID of btrfs partition> /.snapshots     btrfs   defaults,subvol=@snapshots    0       0
     ```
 
-    e.g.:  
-    
+    e.g.:
+
     ![btrfs-g-48-postinst.png](btrfs-g-48-postinst.png)
 
-    
+
 
 28. Optionally we can configure "locate" to ignore the .snapshot folder used by snapper (if installed later)
     Add `PRUNENAMES = ".snapshots"` to `/mnt/root/etc/updatedb.conf`
-    
+
     ![btrfs-g-49-postinst.png](btrfs-g-49-postinst.png)
-    
-    
+
+
 
 29. As the last step we have to reset the "default-subvolume" to 5, as that is a requirement for "apt-btrfs-snapshot" to work properly:
-    
+
     ![btrfs-g-50-postinst.png](btrfs-g-50-postinst.png)
 
-    
+
 
 30. Installation is finished now and we can switch back to VT5 (`Ctrl + Alt + F5`) and reboot.
-    
+
     ![btrfs-g-52-finish.png](btrfs-g-52-finish.png)
 
 
@@ -301,8 +301,8 @@ umount /target
 
      `sudo apt install btrfs-progs`
 
-    
-    
+
+
 32. Now we can download and install the "apt-btrfs-snapshot" tool from the Ubuntu repository
 
     ```bash
@@ -378,7 +378,7 @@ sudo reboot
 ### Full walkthrough from apt full-upgrade to rollback
 
 #### full-upgrade
-After a new installation we don't have any snapshots yet as we can see via:  
+After a new installation we don't have any snapshots yet as we can see via:
 `sudo apt-btrfs-snapshot list`
 
 ![btrfs-70-Rollback-01.png](btrfs-70-Rollback-01.png)
@@ -429,49 +429,49 @@ Remember that "/" itself is the subvolume "@". To rollback to a snapshot, all we
 
     If we list the content of that partition we can see all the subvolumes, including the snapshots:
 
-    
+
 
     ![btrfs-77-Rollback-08.png](btrfs-77-Rollback-08.png)
 
-    
+
 
 2. Before we replace the current root with our snapshot, let's move "@" away just to be safe:
 
     `sudo mv /mnt/@ /mnt/@_badroot`
 
-    
+
 
     ![btrfs-78-Rollback-09.png](btrfs-78-Rollback-09.png)
 
-    
+
 
 3. Now we can pick the snapshot from before the last upgrade and rename it to "@":
 
     `sudo mv /mnt/@apt-snapshot-2019-10-21_23:50:26 /mnt/@`
 
-    
+
 
     ![btrfs-79-Rollback-10.png](btrfs-79-Rollback-10.png)
 
-    
+
 
     And that's all there is to it, here's the new "@":
 
-    
-    
-    
-    
+
+
+
+
     ![btrfs-80-Rollback-11.png](btrfs-80-Rollback-11.png)
-    
-    
-    
+
+
+
     Let's reboot for the rollback to take effect:
-    
-    
-    
+
+
+
     ![btrfs-81-Rollback-12.png](btrfs-81-Rollback-12.png)
-    
-    
+
+
 
 #### Confirming that the rollback worked
 

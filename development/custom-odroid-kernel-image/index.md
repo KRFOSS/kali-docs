@@ -2,7 +2,7 @@
 title: Custom ODROID X2 U2 Image
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -19,7 +19,7 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 #### 01. Create a Kali rootfs
 
-Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in **~/arm-stuff/rootfs/kali-armhf**.
+Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in `~/arm-stuff/rootfs/kali-armhf`.
 
 #### 02. Create the Image File
 
@@ -27,11 +27,8 @@ Next, we create the physical image file which will hold our ODROID rootfs and bo
 
 ```markdown
 apt install -y kpartx xz-utils uboot-mkimage
-cd ~
-mkdir -p arm-stuff
-cd arm-stuff/
-mkdir -p images
-cd images
+mkdir -p ~/arm-stuff/images/
+cd ~/arm-stuff/images/
 dd if=/dev/zero of=kali-custom-odroid.img bs=1MB count=7000
 ```
 
@@ -138,7 +135,7 @@ EOF
 Link **init** in the root, rootfs directory:
 
 ```markdown
-cd ~/arm-stuff/images/root
+cd ~/arm-stuff/images/root/
 ln -s /sbin/init init
 ```
 
@@ -149,11 +146,10 @@ If you're not using ARM hardware as the development environment, you will need t
 We next need to fetch the ODROID kernel sources and place them in our development tree structure:
 
 ```markdown
-cd ~/arm-stuff
-mkdir -p kernel
-cd kernel
+mkdir -p ~/arm-stuff/kernel/
+cd ~/arm-stuff/kernel/
 git clone --depth 1 https://github.com/hardkernel/linux.git -b odroid-3.8.y odroid
-cd odroid
+cd odroid/
 touch .scmversion
 ```
 
@@ -214,7 +210,7 @@ boot
 EOF
 ```
 
-Generate a **boot.scr** file, which is required to boot the ODROID.
+Generate a `boot.scr` file, which is required to boot the ODROID.
 
 ```markdown
 mkimage -A arm -T script -C none -n "Boot.scr for ODROID" -d ~/arm-stuff/images/boot/boot.txt ~/arm-stuff/images/boot/boot.scr
@@ -229,10 +225,10 @@ umount $rootp
 kpartx -dv $loopdevice
 
 wget http://www.mdrjr.net/odroid/mirror/old-releases/BSPs/Alpha4/unpacked/boot.tar.gz
-tar zxpf boot.tar.gz
-cd boot
+tar -zxpf boot.tar.gz
+cd boot/
 sh sd_fusing.sh $loopdevice
-cd ..
+cd ../
 losetup -d $loopdevice
 ```
 
@@ -277,10 +273,10 @@ chmod +x configure
 
 CFLAGS="-O3 -Wall -W -Wextra -I/usr/include/libdrm -IDX910-SW-99006-r3p2-01rel0/driver/src/ump/include" LDFLAGS="-L/usr/lib -lMali -lUMP -lpthread" ./configure --prefix=/usr --x-includes=/usr/include --x-libraries=/usr/lib
 cp -rf ../../../DX910-SW-99006-r3p2-01rel0/driver/src/ump/include/ump src/
-mkdir -p umplock
-cd umplock
+mkdir -p umplock/
+cd umplock/
 wget http://service.i-onik.de/a10_source_1.5/lichee/linux-3.0/modules/mali/DX910-SW-99002-r3p0-04rel0/driver/src/devicedrv/umplock/umplock_ioctl.h
-cd ..
+cd ../
 
 make
 make install

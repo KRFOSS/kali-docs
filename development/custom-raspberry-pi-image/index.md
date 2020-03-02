@@ -2,7 +2,7 @@
 title: Custom Raspberry Pi Image
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -27,11 +27,8 @@ Next, we create the physical image file, which will hold our Raspberry Pi rootfs
 
 ```markdown
 apt install -y kpartx xz-utils sharutils
-cd ~
-mkdir -p arm-stuff
-cd arm-stuff/
-mkdir -p images
-cd images
+mkdir -p ~/arm-stuff/images/
+cd ~/arm-stuff/images/
 dd if=/dev/zero of=kali-custom-rpi.img bs=1MB count=7000
 ```
 
@@ -45,7 +42,7 @@ parted kali-custom-rpi.img --script -- mkpart primary ext4 64 -1
 
 ```html
 loopdevice=`losetup -f --show kali-custom-rpi.img`
-device=`kpartx -va $loopdevice| sed -E 's/.*(loop[0-9])p.*/\1/g' | head -1`
+device=`kpartx -va $loopdevice | sed -E 's/.*(loop[0-9])p.*/\1/g' | head -1`
 device="/dev/mapper/${device}"
 bootp=${device}p1
 rootp=${device}p2
@@ -70,12 +67,11 @@ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following instructions.
 
 ```html
-cd ~/arm-stuff
-mkdir -p kernel
-cd kernel
+mkdir -p ~/arm-stuff/kernel/
+cd ~/arm-stuff/kernel/
 git clone https://github.com/raspberrypi/tools.git
 git clone https://github.com/raspberrypi/linux.git raspberrypi
-cd raspberrypi
+cd raspberrypi/
 touch .scmversion
 export ARCH=arm
 export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-4.6.2/bin/arm-eabi-
@@ -89,7 +85,7 @@ python imagetool-uncompressed.py ../../raspberrypi/arch/arm/boot/Image
 ```
 
 ```markdown
-cd ~/arm-stuff/images
+cd ~/arm-stuff/images/
 git clone git://github.com/raspberrypi/firmware.git rpi-firmware
 cp -rf rpi-firmware/boot/* boot/
 rm -rf rpi-firmware
@@ -105,7 +101,7 @@ kpartx -dv $loopdevice
 losetup -d $loopdevice
 ```
 
-Use the **dd** utility to image this file to your SD card. In our example, we assume the storage device is located at /dev/sdb. **Change this as needed.**
+Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed.**
 
 ```markdown
 dd if=kali-pi.img of=/dev/sdb bs=1M

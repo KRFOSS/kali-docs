@@ -2,7 +2,7 @@
 title: Preparing a Kali Linux ARM chroot
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-Although you can [download pre-rolled Kali ARM images](https://www.kali.org/downloads/) from our Download area, there may be applications which will require building your own custom bootstrapped Kali rootfs for ARM.
+Although you can [download pre-rolled Kali ARM images](https://www.kali.org/downloads/) from our download area, there may be applications which will require building your own custom bootstrapped Kali rootfs for ARM.
 
 The following procedure shows an example of building a fairly generic Kali **armhf** rootfs. If you wish to build for **armel**, use that value rather than "armhf" when you export the **architecture** environment variable.
 
@@ -26,15 +26,13 @@ The intention in this article is more to provide a high-level overview of how th
 ```html
 cat << EOF > kali-$architecture/etc/apt/sources.list
 deb http://http.kali.org/kali kali-rolling main non-free contrib
-#deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 EOF
 ```
 
-This simply amounts to creating a new file, **~/arm-stuff/rootfs/kali-armhf/etc/apt/sources.list**, with the contents
+This simply amounts to creating a new file, `~/arm-stuff/rootfs/kali-armhf/etc/apt/sources.list`, with the contents:
 
 ```html
 deb http://http.kali.org/kali kali-rolling main non-free contrib
-#deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 ```
 
 ### Real-World Custom Kali Linux Builds for ARM Devices
@@ -42,7 +40,7 @@ deb http://http.kali.org/kali kali-rolling main non-free contrib
 Before we walk through our example, it's probably good to see how a custom ARM build would actually be accomplished. Typically, to do a local build of an image for, e.g., Raspberry Pi, the process would be something like the following. As an initial one-time set-up, clone [the ARM build scripts repository on GitHub](https://gitlab.com/kalilinux/build-scripts/kali-arm) and install the build prerequisites:
 
 ```markdown
-cd ~
+cd ~/
 git clone https://gitlab.com/kalilinux/build-scripts/kali-arm.git
 dpkg --add-architecture i386
 apt update
@@ -53,8 +51,8 @@ To do an ARM build, you must enable cross-compilation for your current shell ses
 
 ```markdown
 export ARCH=arm
-mkdir -p arm-stuff/kernel/toolchains
-cd arm-stuff/kernel/toolchains
+mkdir -p ~/arm-stuff/kernel/toolchains/
+cd ~/arm-stuff/kernel/toolchains
 git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4-6-2.git
 export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-linaro-4.6.2/bin/arm-eabi-
 ```
@@ -62,13 +60,13 @@ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-linaro-4.6.2/bin
 Then simply invoke the build script for the specific platform. So, for a Raspberry Pi build of Kali Linux 2016.2, execute the commands:
 
 ```markdown
-cd ~
+cd ~/
 kali-arm-build-scripts/rpi.sh 2016.2
 ```
 
 The ARM build scripts are all completely self-contained, aside from the initial one-time installation of the build prerequisites. The first time you run one of the ARM build scripts, it is _extremely important_ that you inspect the output for any errors such as missing tools, etc., correct them, and then re-run the script until you get a clean build. Only at that point can you go ahead to make any customizations you want to the basic build script to create the specific "recipe" you're after.
 
-It's possible to speed up your builds by caching the packages you download using **apt-cacher-ng**, as described in [the previous article](/docs/development/arm-cross-compilation-environment/). Note that this can break some of the standard build scripts unless you uncomment certain lines before building — they're noted in the scripts themselves. If you're using **apt-cacher-ng**, make sure you _check your scripts_ for any necessary changes.
+It's possible to speed up your builds by caching the packages you download using **[apt-cacher-ng](https://packages.debian.org/testing/apt-cacher-ng)**, as described in [the previous article](/docs/development/arm-cross-compilation-environment/). Note that this can break some of the standard build scripts unless you uncomment certain lines before building — they're noted in the scripts themselves. If you're using **apt-cacher-ng**, make sure you _check your scripts_ for any necessary changes.
 
 For reliable and predictable results, build your Kali Linix ARM chroot **from within a pre-existing and up-to-date Kali Linux environment**. This guide assumes that you have already [set up your ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/).
 
@@ -81,7 +79,7 @@ The build described here is both minimal and generic. A small number of basic pa
 This is a general set-up task, and should only ever need to be done once.
 
 ```markdown
-apt install debootstrap qemu-user-static
+apt install -y debootstrap qemu-user-static
 ```
 
 ### Enable Cross-Compilation
@@ -109,12 +107,9 @@ export architecture="armhf"
 As our starting point, we'll create a standard directory structure and use **debootstrap** to install a base ARM rootfs from the Kali Linux repositories. We then copy over **qemu-arm-static**, an ARM emulator, from our host machine into the rootfs in order to initiate the 2nd stage chroot.
 
 ```markdown
-cd ~
-mkdir -p arm-stuff # should have already been created when setting up x-compilation
-cd arm-stuff/
-mkdir -p kernel # should have already been created when setting up x-compilation
-mkdir -p rootfs
-cd rootfs
+mkdir -p ~/arm-stuff/kernel # should have already been created when setting up x-compilation
+mkdir -p ~/arm-stuff/rootfs
+cd ~/arm-stuff/rootfs/
 
 debootstrap --foreign --arch $architecture kali-rolling kali-$architecture http://http.kali.org/kali
 cp /usr/bin/qemu-arm-static kali-$architecture/usr/bin/
@@ -122,7 +117,7 @@ cp /usr/bin/qemu-arm-static kali-$architecture/usr/bin/
 
 #### 2nd Stage chroot
 
-First, we'll chroot into our newly-created base rootfs, use **debootstrap** a second time to construct our second-stage rootfs, and configure base image settings such as repositories (in **/etc/apt/sources.list**), host name (in **/etc/hostname**), default network interfaces and behavior (in **/etc/network/interfaces** and **/etc/resolv.conf**), etc. Change these to suit your requirements.
+First, we'll chroot into our newly-created base rootfs, use **debootstrap** a second time to construct our second-stage rootfs, and configure base image settings such as repositories (in `/etc/apt/sources.list`), host name (in `/etc/hostname`), default network interfaces and behavior (in `/etc/network/interfaces` and `/etc/resolv.conf`), etc. Change these to suit your requirements.
 
 ```html
 cd ~/arm-stuff/rootfs
@@ -130,7 +125,6 @@ LANG=C chroot kali-$architecture /debootstrap/debootstrap --second-stage
 
 cat << EOF > kali-$architecture/etc/apt/sources.list
 deb http://http.kali.org/kali kali-rolling main non-free contrib
-# deb-src http://http.kali.org/kali kali-rolling main non-free contrib
 EOF
 
 echo "kali" > kali-$architecture/etc/hostname
@@ -242,4 +236,4 @@ umount kali-$architecture/dev/
 cd ..
 ```
 
-Congratulations! Your custom Kali ARM rootfs is located in the **~/arm-stuff/rootfs/kali-$architecture** directory. You can now tar up this directory or convert it to an image file for further work.
+Congratulations! Your custom Kali ARM rootfs is located in the `~/arm-stuff/rootfs/kali-$architecture` directory. You can now tar up this directory or convert it to an image file for further work.

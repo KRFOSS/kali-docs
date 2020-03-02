@@ -2,7 +2,7 @@
 title: USB Persistence & Encrypted Persistence
 description:
 icon:
-date: 2020-02-01
+date: 2020-02-22
 type: post
 weight: 30
 author: ["g0tmi1k",]

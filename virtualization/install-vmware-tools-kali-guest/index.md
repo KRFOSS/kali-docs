@@ -2,7 +2,7 @@
 title: VMware Tools for a Kali Guest
 description:
 icon:
-date: 2020-02-12
+date: 2020-02-22
 type: post
 weight: 15
 author: ["g0tmi1k",]

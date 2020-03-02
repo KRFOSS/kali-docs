@@ -2,7 +2,7 @@
 title: Kali NetHunter Documentation
 description: Kali on your Android phone
 icon: ti-mobile
-date: 2019-10-26
+date: 2020-02-22
 type: toc
 weight: 45
 author: ["Re4son",]
@@ -66,14 +66,14 @@ The following table illustrates the differences in functionality:
 |   WiFi Injection   |         No         |       No       |    Yes    |
 |    HID attacks     |         No         |       No       |    Yes    |
 
-The installation of NetHunter Rootless is documented here:  
-[NetHunter-Rootless](./nethunter-rootless/)  
+The installation of NetHunter Rootless is documented here:
+[NetHunter-Rootless](./nethunter-rootless/)
 
-The NetHunter-App specific chapters are only applicable to the NetHunter & NetHunter Lite editions.  
+The NetHunter-App specific chapters are only applicable to the NetHunter & NetHunter Lite editions.
 
-The Kernel specific chapters are only applicable to the NetHunter edition.  
+The Kernel specific chapters are only applicable to the NetHunter edition.
 
- &nbsp; 
+ &nbsp;
 
 ## 2.0 NetHunter (Lite) Supported Devices and ROMs
 

@@ -37,7 +37,7 @@ By using using the 3rd party software rEFInd (a fork of [rEFIt](http://refit.sou
 
 #### Preparing for the Installation
 
-1. [Download Kali linux](/docs/introduction/download-official-kali-linux-images/).
+1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 2. Burn the Kali Linux ISO image to a DVD or [copy the image to USB drive](/docs/usb/kali-linux-live-usb-install/).
 3. Backup any important information on the device to external media.
 

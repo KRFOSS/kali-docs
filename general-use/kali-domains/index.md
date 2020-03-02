@@ -2,9 +2,9 @@
 title: Kali's Domains
 description:
 icon:
-date: 2020-02-18
+date: 2020-02-22
 type: post
-weight: 
+weight:
 author: ["gamb1t",]
 tags: ["",]
 keywords: ["",]

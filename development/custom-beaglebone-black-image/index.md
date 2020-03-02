@@ -2,7 +2,7 @@
 title: Custom Beaglebone Black Image
 description:
 icon:
-date: 2020-01-16
+date: 2020-02-22
 type: post
 weight: 100
 author: ["steev",]
@@ -19,7 +19,7 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 ### 01. Create a Kali rootfs
 
-Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in **~/arm-stuff/rootfs/kali-armhf**.
+Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in `~/arm-stuff/rootfs/kali-armhf`.
 
 ### 02. Create the Image File
 
@@ -27,11 +27,9 @@ Next, we create the physical image file, which will hold our Beaglebone Black ro
 
 ```markdown
 apt install -y kpartx xz-utils sharutils
-cd ~
-mkdir -p arm-stuff
-cd arm-stuff/
-mkdir -p images
-cd images
+cd ~/
+mkdir -p arm-stuff/images/
+cd arm-stuff/images/
 dd if=/dev/zero of=kali-custom-bbb.img bs=1MB count=7000
 ```
 
@@ -87,9 +85,9 @@ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following instructions.
 
 ```plaintext
-cd ~/arm-stuff
+cd ~/arm-stuff/
 wget https://launchpad.net/linaro-toolchain-binaries/trunk/2013.03/+download/gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux.tar.bz2
-tar xjf gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux.tar.bz2
+tar -xjf gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux.tar.bz2
 export CC=`pwd`/gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux/bin/arm-linux-gnueabihf-
 
 git clone git://git.denx.de/u-boot.git
@@ -100,21 +98,21 @@ patch -p1 < 0001-am335x_evm-uEnv.txt-bootz-n-fixes.patch
 make ARCH=arm CROSS_COMPILE=${CC} distclean
 make ARCH=arm CROSS_COMPILE=${CC} am335x_evm_config
 make ARCH=arm CROSS_COMPILE=${CC}
-cd ..
+cd ../
 
-mkdir -p kernel
-cd kernel
+mkdir -p kernel/
+cd kernel/
 git clone git://github.com/RobertCNelson/linux-dev.git
 cd linux-dev/
 git checkout origin/am33x-v3.8 -b tmp
 ./build_kernel.sh
-mkdir -p ../patches
+mkdir -p ../patches/
 wget http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch -O ../patches/mac80211.patch
-cd KERNEL
+cd KERNEL/
 patch -p1 --no-backup-if-mismatch < ../../patches/mac80211.patch
-cd ..
+cd ../
 ./tools/rebuild.sh
-cd ..
+cd ../
 
 cat << EOF > boot/uEnv.txt
 mmcroot=/dev/mmcblk0p2 ro
@@ -141,7 +139,7 @@ kpartx -dv $loopdevice
 losetup -d $loopdevice
 ```
 
-Use the **dd** utility to image this file to your SD card. In our example, we assume the storage device is located at /dev/sdb. **Change this as needed.**
+Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed.**
 
 ```markdown
 dd if=kali-custom-bbb.img of=/dev/sdb bs=1M

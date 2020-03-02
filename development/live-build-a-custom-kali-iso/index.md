@@ -2,7 +2,7 @@
 title: Live Build a Custom Kali ISO
 description:
 icon:
-date: 2020-01-12
+date: 2020-02-22
 type: post
 weight: 100
 author: ["g0tmi1k",]
@@ -34,7 +34,7 @@ cd live-build-config/
 ./build.sh --verbose
 ```
 
-The "build.sh" script will take a while to complete, as it downloads all of the required packages needed to create your ISO. Good time for a coffee.
+The `build.sh` script will take a while to complete, as it downloads all of the required packages needed to create your ISO. Good time for a coffee.
 
 ### Configuring the Kali ISO Build (Optional)
 
@@ -57,7 +57,7 @@ Since Kali 2.0, we now support built in configurations for various desktop envir
 ```
 #### Controlling the packages included in your build
 
-The list of packages included in your build will be present in the the respective kali-$variant directory. For example, if you're building a default Gnome ISO, you would use the following package lists file - **kali-config/variant-gnome/package-lists/kali.list.chroot**. By default, this list includes the "kali-linux-full" metapackage, as well as some others. These can be commented out and replaced with a manual list of packages to include in the ISO for greater granularity.
+The list of packages included in your build will be present in the the respective kali-$variant directory. For example, if you're building a default Xfce ISO, you would use the following package lists file - **kali-config/variant-xfce/package-lists/kali.list.chroot**. By default, this list includes the "kali-linux-full" [metapackage](/docs/general-use/metapackages/), as well as some others. These can be commented out and replaced with a manual list of packages to include in the ISO for greater granularity.
 
 #### Build hooks, binary and chroot
 
