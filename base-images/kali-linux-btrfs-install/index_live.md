@@ -87,7 +87,6 @@ Mount Point         | Subvolume         | Description
 
     ![btrfs-04-stop-net-1](btrfs-04-stop-net-1.png)
     ![btrfs-05-stop-net-2](btrfs-05-stop-net-2.png)
-
 5. Now that we are ready to start the installation, launch the installer by typing:
 
     `debian-installer-launcher`
@@ -95,7 +94,6 @@ Mount Point         | Subvolume         | Description
 4. The installation steps are identical to a standard Kali installation except a pause during the step where you choose a domain name as seen below.
 
     ![btrfs-11-installation-05.png](btrfs-11-installation-05.png)
-
 5. When prompted, pause the installation and switch to the terminal window using "Alt + Tab". Open another tab and start `gparted` to create a root partition and a swap partition
 
     ![btrfs-12-gparted-1](btrfs-12-gparted-1.png)
@@ -103,18 +101,14 @@ Mount Point         | Subvolume         | Description
     It is important to have the boot partition before starting and do not remove it when creating the Btrfs partition.
 
     ![btrfs-13-gparted-2](btrfs-13-gparted-2.png)
-
 6. Once done we can use ssh to connect to the machine to more conveniently cut and paste the commands to set up the btrfs subvolumes
 (Please note that all off these steps can also be performed locally):
 
     ![btrfs-14-ssh-tasks-1](btrfs-14-ssh-tasks-1.png)
     ![btrfs-15-ssh-tasks-2](btrfs-15-ssh-tasks-2.png)
-
-
 7. Let's identify the btrfs partition to create the subvolumes in via `fdisk -l`:
 
     ![btrfs-16-ssh-tasks-3](btrfs-16-ssh-tasks-3.png)
-
 8. In our example, the btrfs partition is `/dev/mmcblk2p2` - let's mount it on `/mnt` via:
 
      `mount /dev/mmcblk2p2 /mnt`
@@ -122,7 +116,6 @@ Mount Point         | Subvolume         | Description
      Please note that the partition name is most likely different on your machine.
 
     ![btrfs-17-ssh-tasks-4](btrfs-17-ssh-tasks-4.png)
-
 9. Next, create the subvolumes and mountpoints:
 ```markdown
 btrfs subvolume create /mnt/@
@@ -136,7 +129,6 @@ mkdir /mnt/@/root
 mkdir /mnt/@/.snapshots
 ```
     ![btrfs-18-ssh-tasks-5](btrfs-18-ssh-tasks-5.png)
-
 10. Set the default subvolume to the first subvolume in the list, here 256:
 ```markdown
 btrfs subvol list /mnt
@@ -144,16 +136,13 @@ btrfs subvol set-default 256 /mnt
 ```
 
     ![btrfs-19-ssh-tasks-6](btrfs-19-ssh-tasks-6.png)
-
 11. Lastly unmount /mnt:
 `umount /mnt`
 
     ![btrfs-20-ssh-tasks-7](btrfs-20-ssh-tasks-7.png)
-
 12. Now we can go back to the installer via Alt + Tab and continue with the installation:
 
     ![btrfs-11-installation-05.png](btrfs-11-installation-05.png)
-
 13. At the partitioning stage, select "Manual" and configure the btrfs partition to be used as "/". Make sure that it is kept as is and not being formated.
 
     ![btrfs-23-partitioning-manual](btrfs-23-partitioning-manual.png)
@@ -163,11 +152,9 @@ btrfs subvol set-default 256 /mnt
     ![btrfs-28-partitioning-root-5](btrfs-28-partitioning-root-5.png)
     ![btrfs-29-partitioning-finish](btrfs-29-partitioning-finish.png)
     ![btrfs-30-partitioning-finish-2](btrfs-30-partitioning-finish-2.png)
-
 14. Once the partitioning is done, we can continue with the installation.
 
     ![btrfs-35-completed](btrfs-35-completed.png)
-
 15. After the installation is completed we have to do some post-installation steps.
     First let's mount some volumes:
 ```markdown
@@ -205,13 +192,11 @@ UUID=<UUID of btrfs partition> /.snapshots     btrfs   defaults,subvol=@snapshot
     To:
 
     ![btrfs-40-postinstall-fstab-3](btrfs-40-postinstall-fstab-3.png)
-
 18. Lastly we configure "locate" to ignore the .snapshot folder used by snapper (if installed later)
     Add `PRUNENAMES = ".snapshots"` to `/mnt/root/etc/updatedb.conf`
 
     ![btrfs-41-postinstall-updatedb-1](btrfs-41-postinstall-updatedb-1.png)
     ![btrfs-42-postinstall-updatedb-2](btrfs-42-postinstall-updatedb-2.png)
-
 19. Installation is finished now and we can reboot.
 
 20. After the reboot we can log in as root and install some more tools we need.
@@ -319,13 +304,11 @@ Remember that "/" itself is the subvolume "@". To rollback to a snapshot, all we
     If we list the content of that partition we can see all the subvolumes, including the snapshots:
 
     ![btrfs-77-Rollback-08.png](btrfs-77-Rollback-08.png)
-
 2. Before we replace the current root with our snapshot, let's move "@" away just to be safe:
 
     `mv /mnt/@ /mnt/@_badroot`
 
     ![btrfs-78-Rollback-09.png](btrfs-78-Rollback-09.png)
-
 3. Now we can pick the snapshot from before the last upgrade and rename it to "@":
 
     `mv /mnt/@apt-snapshot-2019-10-21_23:50:26 /mnt/@`

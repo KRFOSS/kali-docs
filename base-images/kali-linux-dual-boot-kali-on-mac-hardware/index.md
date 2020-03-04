@@ -85,7 +85,6 @@ osx:refind-bin-0.8.3 mbp$
 1. Before we can install Kali Linux, there needs to be room on the hard disk. By booting into a live Kali session, we can resize the partition to our desired size. To do so, power on the device and immediately press and hold the **Option** key until you see the rEFInd boot menu.
 
 ![01-rEFInd](01-rEFInd.png)
-
 2. When the boot menu appears, insert your chosen installation medium. If everything works as expected, you will see **two** volumes:
 
 * EFI - EFI\BOOT\syslinux.efi from 61 MiB FAT volume
@@ -99,15 +98,12 @@ Although Kali Linux is based on [Debian](https://www.debian.org/), Apple/rEFInd 
 * If you select the EFI volume, the booting will hang at this point and you will **not** be able to continue.
 
 ![02-rEFInd_boot](02-rEFInd_boot.png)
-
 3. You should be greeted with the Kali Boot screen. Select **Live** and you should be booted into the Kali Linux default desktop.
 
 ![03-live-boot-menu](03-live-boot-menu.png)
-
 4. We can use [GParted](http://gparted.org/) to shrink the existing OSX partition (HFS+), allowing us to install Kali in the free space. You can find GParted in the Kali menu by navigating to: Applications -> System Tools -> GParted Partition Editor
 
 ![04-gparted_menu](04-gparted_menu.png)
-
 5. Once GParted has opened, select your OSX partition. Depending on your system, it will usually be the second, larger partition. In our example, there are three partitions: the EFI upgrade partition (/dev/sda1), OSX (/dev/sda2), and System Recovery (/dev/sda3). Resize your OSX partition and leave enough space (20 GB minimum) for the Kali installation.
 
 ![05-gparted_resize](05-gparted_resize.png)
@@ -117,11 +113,9 @@ Although Kali Linux is based on [Debian](https://www.debian.org/), Apple/rEFInd 
 1. To start the Kali Linux installation, repeat steps 1 and 2 above to boot to the Kali Linux boot screen. Once you can see the the boot screen, choose 'Live', 'Graphical Install' or '(Text-Mode) Install' to begin the setup. In this guide, we chose 'Graphical Install'.
 
 ![03-boot-menu](03-boot-menu.png)
-
 2. Select your preferred language and then your country location. You’ll also be prompted to configure your keyboard with the appropriate keymap.
 
 ![05-lanuage](05-lanuage.png)
-
 3. The installer will copy the image to your hard disk, probe your network interfaces, and then prompt you to enter a hostname then domain name for your system. In the example below, we’ve entered 'kali' as our hostname.
 
 * If the setup detected multiple NICs, it may prompt you which one to use for installation.
@@ -130,15 +124,12 @@ Although Kali Linux is based on [Debian](https://www.debian.org/), Apple/rEFInd 
 * If Kali Linux doesn't detect your NIC, you either need to include the drivers for it when prompted, or generate a [custom Kali Linux ISO](/docs/development/live-build-a-custom-kali-iso/) with them pre-included.
 
 ![06-hostname](06-hostname.png)
-
 4. Enter a robust password for the root account.
 
 ![07-root-password](07-root-password.png)
-
 5. Next, set your time zone.
 
 ![08-time-date](08-time-date.png)
-
 6. The installer will now probe your disks and offer you five choices. In our example, we’re using the spare partition that we made during live mode, so we select 'Guided - use the largest continuous free space'.
 
 * Experienced users can use the 'Manual' option for more granular configuration options. This option will also allow you to set up encrypted LVM, so Kali Linux would be fully encrypted. The screen afterwards will prompt you for the password. You will have to enter the same password every time you start up Kali Linux.
@@ -148,15 +139,12 @@ Kali will automatically securely wipe the hard disk before asking for the passwo
 {{% /notice %}}
 
 ![12-partition](12-partition.png)
-
 7. The next stage is to select the partition structure you want to use. We will go ahead and use the default option and have everything on one partition. Afterwards it will display an overview. If you agree to what it suggests, press the continue button.
 
 ![14_structure](14_structure.png)
-
 8. Next, you’ll have one last chance to review your disk configuration before the installer makes irreversible changes. After you click Continue, the installer will go to work and you’ll have an almost finished installation.
 
 ![15_check](15_check.png)
-
 9. This screen configures the use of our Internet network mirrors. Kali can use our online central repository to distribute applications to keep packages up-to-date and allow for additional programs to be installed more easily. Should you need to enter any appropriate proxy information, the next screen will allow you to enter the required details.
 
 {{% notice info %}}
@@ -164,16 +152,13 @@ If you select 'NO' in this screen, you will NOT be able to install packages from
 {{% /notice %}}
 
 ![13-package-manager](13-package-manager.png)
-
 10. Next, install GRUB bootloader.
 
 ![14-grub](14-grub.png)
-
 11. Finally, click 'Continue' to finish installing Kali Linux. It is highly recommend that you restart your machine at this stage.
 Once complete, repeat the first 2 steps again to boot into 'Live mode' once more.
 
 ![15-finish](15-finish.png)
-
 12. If the [gdisk](http://www.rodsbooks.com/gdisk/) package isn't included in your Kali Linux ISO, you will first need to install it.
 If you enabled the network repository during the setup, this can easily be done:
 

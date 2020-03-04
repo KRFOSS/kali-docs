@@ -82,11 +82,9 @@ Consider yourself warned.
 2. You will get a list of the device paths (looking like **/dev/rdisk0**, **/dev/rdisk1**, etc.) of the disks mounted on your system, along with information on the partitions on each of the disks.
 
 ![TerminalScreenSnapz010](TerminalScreenSnapz010.png)
-
 3. Plug in your USB device to your Apple computer's USB port and run the command **diskutil list** a second time. Your USB drive's path will most likely be the last one. In any case, it will be one which wasn't present before. In this example, you can see that there is now a /dev/disk6 which wasn't previously present.
 
 ![TerminalScreenSnapz011](TerminalScreenSnapz011.png)
-
 4. Unmount the drive (assuming, for this example, the USB stick is **/dev/disk6** — _do **not** simply copy this, verify the correct path on your own system!_):
 
 ```markdown

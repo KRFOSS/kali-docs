@@ -78,14 +78,12 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
    ```
 
    ![010_Ubuntu-SnapInstallLXD.png](010_Ubuntu-SnapInstallLXD.png)
-
 2 - Launch your first Kali Linux container with
    ```bash
    lxc launch images:kali/current/amd64 my-kali
    ```
 
    ![020_Ubuntu-CreateKaliContainer.png](020_Ubuntu-CreateKaliContainer.png)
-
 3 - Install additional packages inside the container via
 
    ```bash
@@ -94,7 +92,6 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
    ```
 
    ![030_Ubuntu-InstallPackages.png](030_Ubuntu-InstallPackages.png)
-
 4 - Create non-root user - "kali" in this example:
 
    ```bash
@@ -105,7 +102,6 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
    ```
 
    ![040_Ubuntu-Adduser.png](040_Ubuntu-Adduser.png)
-
 5 - Login to the new container as user "kali" via
    `lxc console my-kali`
 
@@ -154,7 +150,6 @@ Installing a Kali container to run GUI applications is similar to the previous e
    ```
 
    ![080_Ubuntu_KaliGuiSetup.png](080_Ubuntu_KaliGuiSetup.png)
-
 3 - Install additional packages inside the container via
 
    ```bash
@@ -217,7 +212,6 @@ Installing a privileged Kali Linux container on a Kali host only requires to
    ```
 
    ![110_Kali-VirtNetStart.png](110_Kali-VirtNetStart.png)
-
 2 - Download the Kali Linux image from the image server via
    `lxc-create -t download -n my-kali`
    ![120_Kali-PrivContainerCreate.png](120_Kali-PrivContainerCreate.png)
@@ -232,12 +226,10 @@ Installing a privileged Kali Linux container on a Kali host only requires to
    Architecture: *amd64* (or other as applicable)
 
    ![140_Kali-PrivContainerCreate_3.png](140_Kali-PrivContainerCreate_3.png)
-
 3 - Start the container with
    `sudo lxc-start -n my-kali -d`
 
    ![150_Kali-PrivContainerStart.png](150_Kali-PrivContainerStart.png)
-
 4 - Attach to the container via
    `sudo lxc-attach -n my-kali`
 
@@ -307,7 +299,6 @@ The setup it slightly more involved:
    ```
 
    ![200_Kali-UnPrivPrep.png](200_Kali-UnPrivPrep.png)
-
 3 - Download the Kali Linux image from the image server via
    `lxc-create -t download -n my-kali`
 
@@ -323,7 +314,6 @@ The setup it slightly more involved:
    Architecture: *amd64* (or other as applicable)
 
    ![220_Kali-UnPrivContainerAttach.png](220_Kali-UnPrivContainerAttach.png)
-
 4 - Start the container with
    ```bash
    lxc-start -n my-kali -d
@@ -336,7 +326,6 @@ The setup it slightly more involved:
    lxc-attach -n my-kali apt install kali-linux-default
    ```
    ![220_Kali-UnPrivContainerInstallPackages.png](220_Kali-UnPrivContainerInstallPackages.png)
-
 6 - Create a non-root user:
    ```bash
    lxc-attach -n my-kali --clear-env adduser <username>
@@ -345,7 +334,6 @@ The setup it slightly more involved:
    ```
 
    ![230_Kali-UnPrivCreateUser.png](230_Kali-UnPrivCreateUser.png)
-
 7 - Login as non-root user via
    ```bash
    lxc-console
