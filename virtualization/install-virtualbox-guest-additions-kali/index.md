@@ -1,5 +1,5 @@
 ---
-title: VirtualBox for a Kali Guest
+title: Kali Linux & VirtualBox Guest Addition
 description:
 icon:
 date: 2020-02-22
@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-If you run Kali Linux as a "guest" within VirtualBox, this article will help you to successfully install the  "Guest Addition" tools.
+If you run Kali Linux as a "guest" within VirtualBox, this article will help you to successfully install the "Guest Addition" tools.
 You must use version **4.2.xx or higher** of VirtualBox in order to take advantage of the improvements, including compatibility updates, and enhanced stability of both the core application and the Guest Additions.
 
 ## Installing VirtualBox Guest Additions in Kali Linux
