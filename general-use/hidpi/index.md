@@ -45,6 +45,8 @@ kali@kali:~$ xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
 kali@kali:~$ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
 ```
 
+The quickest way to clean up any left over artifacts is to now log out and in again.
+
 #### Qt apps
 
 Some apps, such as [qterminal](https://packages.debian.org/testing/qterminal), don't use the scale factor explained before, so they need to be configure separately. To do so, you need to set the following environmental variables in the `~/.xsessionrc` file:
