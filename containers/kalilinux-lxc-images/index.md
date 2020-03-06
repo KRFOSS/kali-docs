@@ -88,7 +88,7 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
 
    ```bash
    lxc exec my-kali -- apt update
-   lxc exec my-kali -- apt install kali-linux-default
+   lxc exec my-kali -- apt install kali-linux-default kali-desktop-xfce
    ```
 
    ![030_Ubuntu-InstallPackages.png](030_Ubuntu-InstallPackages.png)
