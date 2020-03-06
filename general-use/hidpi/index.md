@@ -40,16 +40,9 @@ You have two ways of altering this, either graphical or through the command line
 - In a terminal window, run the following commands:
 
 ```
-kali@kali:~$ echo export GDK_SCALE=2 >> .xsessionrc
+kali@kali:~$ echo export GDK_SCALE=2 >> ~/.xsessionrc
 kali@kali:~$ xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
-```
-
-The quickest way to clean up any left over artifacts is to now log out and in again.
-
-Alternatively, you can run the following command to change the window scaling factor immediately. But, it will only work if you have already changed the value before, using the appearance application.
-
-```
-kali@kali:~$ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2
+kali@kali:~$ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
 ```
 
 #### Qt apps
@@ -57,12 +50,18 @@ kali@kali:~$ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -s 2
 Some apps, such as [qterminal](https://packages.debian.org/testing/qterminal), don't use the scale factor explained before, so they need to be configure separately. To do so, you need to set the following environmental variables in the `~/.xsessionrc` file:
 
 ```
-kali@kali:~$ nano ~/.xsessionrc
-kali@kali:~$ cat ~/.xsessionrc
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_FONT_DPI=180
-kali@kali:~$
+kali@kali:~$ echo export QT_SCALE_FACTOR=2 >> ~/.xsessionrc
 ```
+
+#### Cursor size
+
+Enabling HiDPI settings can cause some issues with the mouse size, and you might see how its size varies depending on the application you place it over. To solve this, you can force the cursor size with the following command:
+
+```
+kali@kali:~$ echo export XCURSOR_SIZE=48 >> ~/.xsessionrc
+```
+
+You can try it using different values for `XCURSOR_SIZE`.
 
 #### HiDPI General Script
 
@@ -70,11 +69,11 @@ In case you need a more general script to enable HiDPI in your desktop, here you
 
 ```
 xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
-
-cat <<- EOF >> .xsessionrc
-    export GDK_SCALE=2
-    export QT_AUTO_SCREEN_SCALE_FACTOR=0
-    export QT_FONT_DPI=180
+xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
+cat <<- EOF >> ~/.xsessionrc
+	export QT_SCALE_FACTOR=2
+	export XCURSOR_SIZE=48
+	export GDK_SCALE=2
 EOF
 ```
 
