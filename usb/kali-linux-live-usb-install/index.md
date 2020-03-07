@@ -2,7 +2,7 @@
 title: Making a Kali Bootable USB Drive
 description:
 icon:
-date: 2020-02-22
+date: 2020-03-07
 type: post
 weight: 10
 author: ["g0tmi1k",]
@@ -66,7 +66,16 @@ The dd command provides no feedback until it's completed, but if your drive has 
 3053371392 bytes (3.1 GB) copied, 746.211 s, 4.1 MB/s
 ```
 
-That's it, really! You can now boot into a Kali Live / Installer environment using the USB device.
+That's it, really!
+
+Alternatively, [Etcher](https://www.balena.io/etcher/) can be used.
+
+1. Download and run Etcher.
+2. Choose the Kali Linux ISO file to be imaged with "select image" and verify that the USB drive to be overwritten is the correct one. Click the "Flash!" button once ready.
+![kali-usb-install-windows](kali-usb-install-windows.png)
+3. Once Etcher alerts you that the image has been flashed, you can safely remove the USB drive.
+
+You can now boot into a Kali Live / Installer environment using the USB device.
 
 #### Creating a Bootable Kali USB Drive on OS X
 
@@ -111,7 +120,16 @@ The dd command provides no feedback until it's completed, but if your drive has 
 3053371392 bytes transferred in 2151.132182 secs (1419425 bytes/sec)
 ```
 
-And that's it! You can now boot into a Kali Live / Installer environment using the USB device.
+And that's it!
+
+Alternatively, [Etcher](https://www.balena.io/etcher/) can be used.
+
+1. Download and run Etcher.
+2. Choose the Kali Linux ISO file to be imaged with "select image" and verify that the USB drive to be overwritten is the correct one. Click the "Flash!" button once ready.
+![kali-usb-install-windows](kali-usb-install-windows.png)
+3. Once Etcher alerts you that the image has been flashed, you can safely remove the USB drive.
+
+You can now boot into a Kali Live / Installer environment using the USB device.
 
 To boot from an alternate drive on an OS X system, bring up the boot menu by pressing the **Option** key immediately after powering on the device and select the drive you want to use.
 
