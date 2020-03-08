@@ -31,19 +31,19 @@ Kali has quite a few subdomains that may be useful to know about:
 `https://forums.kali.org/`: A site where users can go to when in need of assistance. Issues related to hardware, software, and general information related to Kali is discussed with the help of other community members.
 
 
-`http://autopkgtest.kali.org/`: Many packages have a test that is associated with it to ensure that they run. This site shows all of those tests and whether they pass or fail.
+`https://autopkgtest.kali.org/`: Many packages have a test that is associated with it to ensure that they run. This site shows all of those tests and whether they pass or fail.
 
 
-`http://pkg.kali.org/`: The counterpart of [tools.kali.org](https://tools.kali.org) and very useful for users to see the history of a package. Along with the history users can see the associated binaries, upstream, the package in Kali's git repo, and more.
+`https://pkg.kali.org/`: The counterpart of [tools.kali.org](https://tools.kali.org) and very useful for users to see the history of a package. Along with the history users can see the associated binaries, upstream, the package in Kali's git repo, and more.
 
 
 `http://old.kali.org/`: If for any reason a user needs an old copy of Kali Linux, then this is the site for them. Images from some of the first Kali releases can be found as well as more recent releases.
 
 
-`http://http.kali.org/`: A redirector url for the mirrors Kali has available. This should point to your closest mirror.
+`https://http.kali.org/`: A redirector url for the mirrors Kali has available. This should point to your closest mirror.
 
 
-`http://cdimage.kali.org/`: A server that hosts the ISO’s for download.
+`https://cdimage.kali.org/`: A server that hosts the ISO’s for download.
 
 
 `https://status.kali.org/`: Should any site be down for you, you can check their status here.
