@@ -65,7 +65,7 @@ Now we can power on the VM, and it should boot to Kali.
 
 If you run into problems, you have a few options. First, power off your VM. Go to “Settings” -> “USB Devices” and leave this settings screen up next to your powered-off VM. (You can also expand your toolbar and look at the USB icon). Now, power on the VM. Immediately, you should see the USB Settings screen update with a check next to your USB device:
 
-![usb-boot-vm-12](usb-boot-vm-12.png)
+![usb-boot-vm-20](usb-boot-vm-20.png)
 
 If you don’t get a check mark, this means that your Mac has grabbed the USB drive. Power off your VM, eject the drive from the Mac, and power on the VM again with the USB settings screen up. You should see the check mark and get the Kali boot screen.
 
