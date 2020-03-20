@@ -2,7 +2,7 @@
 title: VMware Tools for a Kali Guest
 description:
 icon:
-date: 2020-02-22
+date: 2020-03-20
 type: post
 weight: 15
 author: ["g0tmi1k",]
@@ -48,13 +48,6 @@ EOF
 sudo chmod +x /usr/local/sbin/mount-shared-folders
 ```
 
-If you wish to make it a little easier, you can add a shortcut to the desktop (and allow the script to be executed upon double clicking if you are you are using GNOME):
-
-```markdown
-ln -sf /usr/local/sbin/mount-shared-folders ~/Desktop/mount-shared-folders
-gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
-```
-
 ## Restarting OVT
 
 If OVT stops functioning correctly, such as Copy/Paste between host and guest, the following script may help out:
@@ -63,15 +56,19 @@ If OVT stops functioning correctly, such as Copy/Paste between host and guest, t
 cat <<EOF | sudo tee /usr/local/sbin/restart-vm-tools
 #!/bin/sh
 systemctl stop run-vmblock\\\\x2dfuse.mount
-sudo killall -q -w vmtoolsd
+killall -q -w vmtoolsd
 systemctl start run-vmblock\\\\x2dfuse.mount
 systemctl enable run-vmblock\\\\x2dfuse.mount
-sudo vmware-user-suid-wrapper vmtoolsd -n vmusr 2>/dev/null
-sudo vmtoolsd -b /var/run/vmroot 2>/dev/null
+vmware-user-suid-wrapper vmtoolsd -n vmusr 2>/dev/null
+vmtoolsd -b /var/run/vmroot 2>/dev/null
 EOF
 sudo chmod +x /usr/local/sbin/restart-vm-tools
-ln -sf /usr/local/sbin/restart-vm-tools ~/Desktop/restart-vm-tools
-gsettings set org.gnome.nautilus.preferences executable-text-activation 'ask'
+```
+
+Afterwards,
+
+```
+kali@kali:~$ sudo restart-vm-tools
 ```
 
 - - -
