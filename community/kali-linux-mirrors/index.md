@@ -2,7 +2,7 @@
 title: Official Kali Linux Mirrors
 description:
 icon:
-date: 2020-02-14
+date: 2020-03-23
 type: post
 weight: 100
 author: ["g0tmi1k",]
@@ -30,7 +30,7 @@ Doing so will most likely break your Kali installation.
 
 ### Requirements
 
-To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of early 2015, the main package repository is about 450 GB and the ISO images repository is about 50 GB but you can expect those numbers to grow regularly. A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
+To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of early 2020, the main package repository is about 850 GB (in 2015 it was 450 GB) and the ISO images repository is about 110 GB (in 2015 it was 50 GB) but you can expect those numbers to grow regularly. A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
 
 **Note on "Push Mirroring"** — The Kali Linux mirroring infrastructure uses SSH-based triggers to ping the mirrors when they need to be refreshed. This currently takes place 4 times a day.
 
