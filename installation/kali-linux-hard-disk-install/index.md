@@ -78,7 +78,7 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 
 ![13-finish-partitioning](kali-default-install-7.png)  
 
-12. Configure network mirrors. Kali uses a central repository to distribute applications. You'll need to enter any appropriate proxy information as needed.
+12. Kali uses a central repository to distribute applications. You'll need to enter any appropriate proxy information as needed.
 
 ![14-networkmirror](kali-default-install-5.png)  
 
