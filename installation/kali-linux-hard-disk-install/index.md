@@ -73,17 +73,18 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 10. Depending on your needs, you can choose to keep all your files in a single partition — the default — or to have separate partitions for one or more of the top-level directories. If you're not sure which you want, you want "All files in one partition".
 
 ![12-partitioningscheme](kali-default-install-8.png)  
+![12-partitioningscheme2](kali-default-install-7.png)  
 
 11. Next, you'll have one last chance to review your disk configuration before the installer makes irreversible changes. After you click _Continue_, the installer will go to work and you'll have an almost finished installation.
 
-![13-finish-partitioning](kali-default-install-7.png)  
+![13-finish-partitioning](kali-default-install-6.png)  
 
 12. Kali uses a central repository to distribute applications. You'll need to enter any appropriate proxy information as needed.
 
 ![14-networkmirror](kali-default-install-5.png)  
 
 13. Next you can select which metapackages you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.  
-    Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.
+    Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.  
     Note: This menu is not available when [using the Live image](../#which-image-to-choose) for the installation.
 
 ![15-packageselection](kali-default-packages.png)  
