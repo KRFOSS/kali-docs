@@ -50,8 +50,10 @@ This image cannot be used to boot a live system. It is only an installer image.
 
 #### Live  
 
-Image to run Kali Linux without installing it and is perfect for running off a USB stick.
-Although you are able to install Kali from this image, we do not recommend it as that will require a network connection and slow down the installation as all packages have to be downloaded.
+Image to run Kali Linux without installing it and it is perfect for running off a USB stick.  
+You are able to install Kali Linux in its default configuration from this image but you will not be able to choose between desktop environments or to specify additional packages to install. 
+
+&nbsp;&nbsp;
 
 &nbsp;&nbsp;
 
@@ -61,7 +63,7 @@ Although you are able to install Kali from this image, we do not recommend it as
 
 Each Kali Linux image allows the user to select the preferred desktop environment and software collection to be installed with the operating system.
 
-**We recommend to stick with the defaults and add packages after the installation as required.**
+**We recommend sticking with the default selections and add further packages after the installation as required.**
 
 We do however offer the choice for a more efficient installation experience for advanced users but it comes with a few pitfalls to be aware of:
 
