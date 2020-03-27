@@ -13,7 +13,7 @@ og_description:
 
 There are various ways you can interact with Kali, such as sitting down and being direct at the console (more often than not, for a graphic experience), alternatively using Kali remotely via SSH (which gives you command line access). Alternatively, you may have setup VNC which will allow for remote graphical access (please make sure to do this securely by having VNC listen on loopback and port forward via SSH). Another approach would be to interact with Kali in a browser, rather than having to install necessary VNC clients.
 
-This guide covers noVNC, but we also have another guide for [Apache Guacamole](/general-use/guacamole-kali-in-browser/). Each have their pros and cons. NoVNC is a lighter approach, as it has less services required (less overhead), which allows for a quick "one off connection" solution.
+This guide covers noVNC, but we also have another guide for [Apache Guacamole](/docs/general-use/guacamole-kali-in-browser/). Each have their pros and cons. NoVNC is a lighter approach, as it has less services required (less overhead), which allows for a quick "one off connection" solution.
 
 First we update, then install the necessary packages _(we have chosen [x11vnc](https://packages.debian.org/testing/x11vnc) as our VNC solution. You can switch it for any VNC servicer you wish. Support may vary however.)_:
 
