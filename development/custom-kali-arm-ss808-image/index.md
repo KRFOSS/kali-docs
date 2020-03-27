@@ -32,7 +32,7 @@ mkdir -p arm-stuff
 cd arm-stuff/
 mkdir -p images
 cd images
-dd if=/dev/zero of=kali-custom-ss808.img bs=1MB count=7000
+dd if=/dev/zero of=kali-custom-ss808.img bs=4M count=7000
 ```
 
 ### 03. Partition and Mount the Image File
@@ -119,7 +119,7 @@ losetup -d $loopdevice
 Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed.**
 
 ```markdown
-dd if=kali-custom-ss808.img of=/dev/sdb bs=512k
+dd if=kali-custom-ss808.img of=/dev/sdb bs=4M
 ```
 
 Once the dd operation is complete, unmount and eject the SD card and boot your MK/SS808 into Kali Linux

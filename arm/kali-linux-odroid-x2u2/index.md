@@ -30,7 +30,7 @@ This process will wipe out your SD card. If you choose the wrong storage device,
 {{% /notice %}}
 
 ```
-dd if=kali-$vers-odroid.img of=/dev/sdb bs=1M
+dd if=kali-$vers-odroid.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while depending on your USB storage device speed and image size. Once the _dd_ operation is done,boot up the ODROID with the microSD plugged in. You should be welcomed with a Gnome login screen - (**_root_** / **_toor_**). That's it, you're done!

@@ -40,7 +40,7 @@ We first will download and image the latest Kali RPi3 image. If you're following
 ```
 wget https://images.offensive-security.com/arm-images/kali-linux-2019.4-rpi3-nexmon.img.xz
 
-xzcat kali-linux-2019.4-rpi3-nexmon.img.xz | dd of=/dev/sdb bs=512k
+xzcat kali-linux-2019.4-rpi3-nexmon.img.xz | dd of=/dev/sdb bs=4M
 ```
 
 Next we are going to get things ready for chroot. Let's create where we want to mount the SD card then mount it.
@@ -106,7 +106,7 @@ echo -e 'crypt\t/dev/mmcblk0p2\tnone\tluks' > /etc/crypttab
 Now we do a little filesystem trickery. We create a fake LUKS filesystem which forces cryptsetup to be included.
 
 ```
-dd if=/dev/zero of=/tmp/fakeroot.img bs=1M count=20
+dd if=/dev/zero of=/tmp/fakeroot.img bs=4M count=20
 exit
 cryptsetup luksFormat /mnt/chroot/tmp/fakeroot.img
 cryptsetup luksOpen /mnt/chroot/tmp/fakeroot.img crypt

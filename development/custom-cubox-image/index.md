@@ -29,7 +29,7 @@ Next, we create the physical image file, which will hold our CuBox rootfs and bo
 apt install -y kpartx xz-utils sharutils
 mkdir -p ~/arm-stuff/images/
 cd ~/arm-stuff/images/
-dd if=/dev/zero of=kali-custom-cubox.img bs=1MB count=7000
+dd if=/dev/zero of=kali-custom-cubox.img bs=4M count=7000
 ```
 
 ### 03. Partition and Mount the Image File
@@ -122,7 +122,7 @@ losetup -d $loopdevice
 Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed.**
 
 ```markdown
-dd if=kali-custom-cubox.img of=/dev/sdb bs=1M
+dd if=kali-custom-cubox.img of=/dev/sdb bs=4M
 ```
 
 Once the dd operation is complete, unmount and eject the SD card and boot your CuBox into Kali Linux

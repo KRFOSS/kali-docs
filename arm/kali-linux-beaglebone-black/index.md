@@ -32,7 +32,7 @@ This command will wipe out any existing data on your micro-SD card. If you speci
 {{% /notice %}}
 
 ```
-root@kali:~ dd if=kali-2.1.2-bbb.img of=/dev/sdb bs=512k
+root@kali:~ dd if=kali-2.1.2-bbb.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your micro-SD card's speed, and the size of the Kali Linux image. Once the _dd_ operation is complete, insert the micro-SD card into the BeagleBone Black and power it on.

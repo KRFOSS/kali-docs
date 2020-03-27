@@ -27,7 +27,7 @@ This process will wipe out your USB stick. If you choose the wrong storage devic
 {{% /notice %}}
 
 ```
-dd if=kali-chromebook.img of=/dev/sdb bs=512k
+dd if=kali-chromebook.img of=/dev/sdb bs=4M
 ```
 
 This process can take awhile depending on your USB storage device speed and image size.

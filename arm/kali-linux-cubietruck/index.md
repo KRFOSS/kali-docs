@@ -26,7 +26,7 @@ If all you want to do is install Kali on your Cubietruck, follow these instructi
 {{% /notice %}}
 
 ```
-xzcat kali-$version-cubietruck.img.xz | dd of=/dev/sdb bs=512k
+xzcat kali-$version-cubietruck.img.xz | dd of=/dev/sdb bs=4M
 ```
 
 This process can take awhile depending on your device speed and image size.

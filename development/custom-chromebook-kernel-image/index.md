@@ -33,7 +33,7 @@ Next, we create the physical image file that will hold our Chromebook rootfs and
 apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
 mkdir -p ~/arm-stuff/images/
 cd ~/arm-stuff/images//
-dd if=/dev/zero of=kali-custom-chrome.img bs=1MB count=7000
+dd if=/dev/zero of=kali-custom-chrome.img bs=4M count=7000
 ```
 
 #### 03. Partition and Mount the Image File
@@ -214,7 +214,7 @@ losetup -d $loopdevice
 #### 07. dd the Image and Mark the USB Drive Bootable
 
 ```markdown
-dd if=kali-custom-chrome.img of=/dev/sdb bs=512k
+dd if=kali-custom-chrome.img of=/dev/sdb bs=4M
 cgpt repair /dev/sdb
 ```
 

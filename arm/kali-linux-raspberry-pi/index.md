@@ -37,7 +37,7 @@ This command will overwrite any existing data on your SD card. If you specify th
 {{% /notice %}}
 
 ```
-root@kali:~ dd if=kali-2.1.2-rpi.img of=/dev/sdb bs=512k
+root@kali:~ dd if=kali-2.1.2-rpi.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while depending on your SD card's device speed and image size. Once the **dd** operation is complete, insert the SD card into the Raspberry Pi and power it on.

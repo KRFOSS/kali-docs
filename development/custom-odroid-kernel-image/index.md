@@ -29,7 +29,7 @@ Next, we create the physical image file which will hold our ODROID rootfs and bo
 apt install -y kpartx xz-utils uboot-mkimage
 mkdir -p ~/arm-stuff/images/
 cd ~/arm-stuff/images/
-dd if=/dev/zero of=kali-custom-odroid.img bs=1MB count=7000
+dd if=/dev/zero of=kali-custom-odroid.img bs=4M count=7000
 ```
 
 #### 03. Partition and Mount the Image File
@@ -235,7 +235,7 @@ losetup -d $loopdevice
 Now, image the file onto your USB storage device. Our device is **/dev/sdb**. Change this as needed.
 
 ```markdown
-dd if=kali-custom-odroid.img of=/dev/sdb bs=1M
+dd if=kali-custom-odroid.img of=/dev/sdb bs=4M
 ```
 
 Once this operation is complete, connect your UART serial cable to the ODROID and boot it up with the microSD/SD card plugged in. Through the serial console, you will be able to log in to Kali (root / toor) and startx.
