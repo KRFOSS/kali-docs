@@ -89,7 +89,7 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
     
     ![15-packageselection](kali-default-packages.png)
     
-    The current weekly image provide the following software selection screen:
+    The current weekly images provide the following software selection screen:
     
     ![15-packageselection-weekly](kali-default-packages-weekly1.png)
     
