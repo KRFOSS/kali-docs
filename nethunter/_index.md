@@ -11,15 +11,49 @@ keywords: ["",]
 og_description:
 ---
 
-The Kali NetHunter is an Android ROM overlay that includes a robust **Mobile Penetration Testing Platform**.
+##### Kali NetHunter is a free & open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.
 
-The overlay includes a custom kernel, a Kali Linux chroot, and an accompanying Android application, which allows for easier interaction with various security tools and attacks.
+![NetHunter Kex](images/NetHunter-xiaomi-mi-9t.png)
 
-Beyond the [penetration testing tools](http://tools.kali.org) arsenal within Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and much more.
 
-The included NetHunter Store client provides access to a wide range of additional security related apps.
+Kali NetHunter is available for un-rooted devices (NetHunter Rootless), for rooted devices that have a custom recovery (NetHunter Lite), and for rooted devices with custom recovery for which a NetHunter specific kernel is available (NetHunter).
 
-For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](./nethunter-components) page. NetHunter is an open-source project developed by [Offensive Security](https://www.offensive-security.com) and the community.
+The core of Kali NetHunter, which is included in all three editions, comprises of:
+
+- Kali Linux container that includes all the tools and applications that Kali Linux provides
+
+- Kali NetHunter App Store with dozens of purpose-built security apps
+
+- Android client to access the Kali NetHunter App Store
+
+- Kali NetHunter Desktop Experience (KeX) to run full Kali Linux desktop sessions with support for screen mirroring via HDMI or wireless screen casting
+
+  
+
+![NetHunter Kex](images/NetHunter-Kex.jpg)
+Figure 2: Kali NetHunter Desktop Experience (KeX) outputting to an HDMI monitor
+
+&nbsp;
+
+The Kali NetHunter App Store can be accessed through the dedicated client app or via the web interface.
+
+![NetHunter Kex](images/nethunter-store-02.png)
+Figure 3: Kali NetHunter App Store
+
+&nbsp;
+
+**Both rooted editions provide additional tools & services.**  
+A custom kernel can extend that functionality by adding additional network and USB gadget drivers as well as wifi injection support for selected wifi chips.
+
+![NetHunter App](images/NetHunter-App.jpg)
+
+Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter Lite & NetHunter).
+
+&nbsp;
+
+Beyond the [penetration testing tools](http://tools.kali.org) included in Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and many more.
+
+For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](./nethunter-components) page. Kali NetHunter is an open-source project developed by [Offensive Security](https://www.offensive-security.com) and the community.
 
 &nbsp;
 
@@ -42,7 +76,7 @@ For more information about the moving parts that make up NetHunter, check out ou
 
 ## 1.0 NetHunter Editions
 
-NetHunter can be installed on every Android device under the sun using one of the following editions:
+NetHunter can be installed on almost every Android device under the sun using one of the following editions:
 
 | Edition            | Usage                                                        |
 | ------------------ | ------------------------------------------------------------ |
@@ -75,9 +109,12 @@ The Kernel specific chapters are only applicable to the NetHunter edition.
 
  &nbsp;
 
-## 2.0 NetHunter (Lite) Supported Devices and ROMs
+## 2.0 NetHunter Supported Devices and ROMs
 
-The following table lays out NetHunter (Lite) supported hardware as well as the corresponding ROM or Android versions for which NetHunter (Lite) is built:
+NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.
+
+The full NetHunter experince requires a devices specific kernel that has been purpose built for Kali NetHunter.  
+The following table lists the NetHunter supported hardware as well as the corresponding ROM or Android versions for which NetHunter is built:
 
 | Device                   | Android Version         | Notes                             |
 |--------------------------|:-----------------------:|-----------------------------------|
@@ -85,24 +122,24 @@ The following table lays out NetHunter (Lite) supported hardware as well as the 
 | Nexus 5 (hammerhead)     | **5.1.1** or **6.0.1** <br> **CM 13.0** or **CM 14.1** |    |
 | Nexus 5x (bullhead)      | **6.0.1**               |                                   |
 | Nexus 6 (shamu)          | **5.1.1** or **6.0.1** <br> **LOS 16.0** |                      |
-| Nexus 6P (angler)        | **6.0.1** or **7.1.2** <br> **LOS 14.1**  | USB problems with anything newer than 7.1.2 <br> Latest supported LOS image available [here](https://build.nethunter.com/contributors/re4son/angler/)                               |
+| Nexus 6P (angler)        | **8.1** <br> **LOS 17.1** | **Our preferred low end device** |
 | Nexus 7 2013 (flo)       | **5.1.1** or **6.0.1** <br> **CM 13.0** |                   |
 | Nexus 9 (flounder)       | **5.1.1** or **6.0.1**  |                                   |
 | Nexus 10 (manta)         | **5.1.1**               |                                   |
-| OnePlus One (oneplus1)   | **CM 12.1** or **13.0** | Our preferred device              |
+| OnePlus One (oneplus1)   | **CM 12.1** or **13.0** |               |
 | OnePlus 2 (oneplus2)     | **CM 12.1** - **16.0**  |                                   |
 | OnePlus 3 (oneplus3)     | **6.0.1** or **7.0.0**  | Unified build in 7.0.0 (OxygenOS) |
 | OnePlus 3T (oneplus3)    | **6.0.1** or **7.0.0**  | Unified build in 7.0.0 (OxygenOS) |
-| OnePlus 7 (guacamoleb)   | **OOS 9.5.8**           | Important: Install Disable_Dm-Verity_ForceEncrypt |
-| OnePlus 7 Pro (guacamole)| **OOS 9.5.8**           | Important: Install Disable_Dm-Verity_ForceEncrypt |
+| OnePlus 7 (guacamoleb)   | **OOS 9.5.8**<br/>**OOS 10.0.4** | **Our preferred high end device**<br />Important: Install Disable_Dm-Verity_ForceEncrypt |
+| OnePlus 7 Pro (guacamole)| **OOS 9.5.8**<br>**OOS 10.0.4** | Important: Install Disable_Dm-Verity_ForceEncrypt |
 | OnePlus X (oneplusx)     | **CM 13.0**             |                                   |
 | Galaxy Note 3 (hlte)     | **CM 12.1** or **13.0** <br> **TouchWiz 5.0** |             |
 | Galaxy S5 (klte)         | **LineageOS 14.1** <br> **TouchWiz 5.1** or **6.0** |  |
 | Galaxy S7 (herolte)      | **TouchWiz 6.0.1**      | **Warning**: Exynos models only!  |
 | Galaxy S7 edge (hero2lte)| **TouchWiz 6.0.1**      | **Warning**: Exynos models only!  |
-| Galaxy Tab S4 Wifi (830) | **TouchWiz 9.0.1**      | [@re4son](https://twitter.com/re4sonkernel)'s preferred device         |
-| Galaxy Tab S4 LTE (835) | **TouchWiz 9.0.1**      |                                    |
-| Gemini (geminipda)       | **7.0.0**               | [@re4son](https://twitter.com/re4sonkernel)'s other preferred device  |
+| Galaxy Tab S4 Wifi (830) | **TouchWiz 9.0.1**      |          |
+| Galaxy Tab S4 LTE (835) | **TouchWiz 9.0.1**      | **Our preferred tablet** |
+| Gemini (geminipda)       |                        **7.0.0                         |                                                              |
 | LG G5 T-Mobile (h830)    | **7.0.0**               |                                   |
 | LG G5 International (h850)| **7.0.0**              |                                   |
 | LG V20 T-Mobile (h918)   | **7.0.0**               | **Warning**: Requires exploit on v10d firmware to unlock flashing! |
@@ -113,7 +150,8 @@ The following table lays out NetHunter (Lite) supported hardware as well as the 
 | Sony Xperia Z (yuga)     | **CM 13.0**               |                                   |
 | Sony Xperia Z1 (honami)    | **CM 13.0**               |                                   |
 | SHIELD tablet (shieldtablet) <br> SHIELD tablet K1 | **6.0.1** <br> **CM 13.0** |      |
-| ZTE Axon 7 (ailsa_ii)    | **6.0.1**               | [@jcadduono](https://github.com/jcadduono)'s preferred device |
+| Xiaomi Mi 9T | **Miui 11.0.4** | **Our preferred mid range device** |
+| ZTE Axon 7 (ailsa_ii)    | **6.0.1**               |  |
 
 &nbsp;
 
@@ -123,17 +161,15 @@ Official release NetHunter images for your specific supported device can be down
 
 * https://www.offensive-security.com/kali-linux-nethunter-download
 
-Once the zip file has downloaded, verify the SHA1 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA1 sums do not match, do not attempt to continue with the installation procedure.
+Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
 
-The SHA256 sums for each file can be found in the SHA256SUMS file at the top of every download page. You may also enable zip signature verification before flashing and TWRP will verify the entire zip for you before installing.
-
-For a fresh install, you will need a **nethunter-generic-[arch]-kalifs-\*.zip** as well as a **kernel-nethunter-[device]-[os]-\*.zip**. The kernel should be flashed last. The **update-nethunter-generic-[arch]-\*.zip** files are for updating your installation or if you wish to download the Kali rootfs inside the NetHunter app instead.
+You may also enable zip signature verification before flashing and TWRP will verify the entire zip for you before installing.
 
 &nbsp;
 
 ## 4.0 Building NetHunter
 
-Those of you who want to build a NetHunter image from our GitHub repository may do so using our Python build scripts. Check out our [Building NetHunter](./building-nethunter) page for more information.
+Those of you who want to build a NetHunter image from our Gitlab repository may do so using our Python build scripts. Check out our [Building NetHunter](./building-nethunter) page for more information.
 You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md) located in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer) git directory.
 
 &nbsp;
@@ -145,6 +181,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - **unlocking** your device and **updating it to stock** AOSP or LineageOS (CM). (Check point [2.0](#20-supported-devices-and-roms) for supported roms)
 - **installing [Team Win Recovery Project](https://twrp.me/)** as a custom recovery.
 - **installing** [Magisk](https://magiskmanager.com/) to root the device
+- disabling force encryption may be required if TWRP cannot access the data partition
 - Once you have a custom recovery, all that remains is to flash the NetHunter installer zip file onto your Android device.
 
 &nbsp;
@@ -153,7 +190,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 * Open the NetHunter App and start the Kali Chroot Manager.
 * Install the Hacker Keyboard from the NetHunter Store using the NetHunter Store app.
-* Install any other apps from the NetHunter app store as required.
+* Install any other apps from the NetHunter Store as required.
 * Configure Kali Services, such as SSH.
 * Set up custom commands.
 * Initialize the Exploit Database.
@@ -170,6 +207,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 * [**Custom Commands**](nethunter-custom-commands) - Add your own custom commands and functions to the launcher.
 * [**MAC Changer**](nethunter-mac-changer) - Change your Wi-Fi MAC address (only on certain devices)
 * [**KeX Manager**](nethunter-kex-manager) - Set up an instant VNC session with your Kali chroot.
+* USB Arsenal - Control the USB gadget configurations
 * [**HID [Attacks]**](nethunter-hid-attacks) - Various HID attacks, Teensy style.
 * [**DuckHunter HID**](nethunter-duckhunter) - Rubber Ducky style HID attacks
 * [**BadUSB MITM Attack**](nethunter-badusb) - Nuff said.
@@ -207,8 +245,11 @@ If you're interested in porting NetHunter to other Android devices, check out th
 
 &nbsp;
 
-## 10.0 NetHunter App
+## 10.0 NetHunter Apps
 
-1. The NetHunter App can be found [here](https://store.nethunter.com/packages/com.offsec.nethunter/)
-2. The source code for building the NetHunter App can be found on GitLab [here](https://gitlab.com/kalilinux/nethunter/apps/kali-nethunter-app)
+All apps can be installed through the NetHunter Store client.
+
+1. The NetHunter Store App can be downloaded [here](https://store.nethunter.com/NetHunterStore.apk)
+2. The NetHunter Web Store can be found [here](https://store.nethunter.com/)
+3. The source code for building the NetHunter Apps can be found on GitLab [here](https://gitlab.com/kalilinux/nethunter/apps/)
 
