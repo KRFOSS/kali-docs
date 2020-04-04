@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-Installing Kali Linux on your computer is an easy process. First, you'll need compatible computer hardware. Kali is supported on i386, amd64, and ARM (both armel and armhf) platforms. The hardware requirements are minimal as listed below, although better hardware will naturally provide better performance. The i386 images have a default [PAE](http://en.wikipedia.org/wiki/Physical_Address_Extension) kernel, so you can run them on systems with over 4GB of RAM. [Download the Kali Linux Installer image](/docs/introduction/download-official-kali-linux-images/) and either burn the ISO to DVD, or[prepare a USB stick with Kali Linux](/docs/usb/kali-linux-live-usb-install/) as the installation medium. If you do not have a DVD drive or USB port on your computer, check out the [Kali Linux Network Install](/docs/base-images/kali-linux-network-pxe-install/).
+Installing Kali Linux on your computer is an easy process. First, you'll need compatible computer hardware. Kali is supported on i386, amd64, and ARM (both armel and armhf) platforms. The hardware requirements are minimal as listed below, although better hardware will naturally provide better performance. The i386 images have a default [PAE](http://en.wikipedia.org/wiki/Physical_Address_Extension) kernel, so you can run them on systems with over 4GB of RAM. [Download the Kali Linux Installer image](/docs/introduction/download-official-kali-linux-images/) and either burn the ISO to DVD, or [prepare a USB stick with Kali Linux](/docs/usb/kali-linux-live-usb-install/) as the installation medium. If you do not have a DVD drive or USB port on your computer, check out the [Kali Linux Network Install](/docs/base-images/kali-linux-network-pxe-install/).
 
 #### Installation Prerequisites
 
@@ -84,10 +84,15 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 
 14. Next you can select which metapackages you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.  
     Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.  
-    Note: This menu is not available when [using the Live image](../#which-image-to-choose) for the installation.
-
-    ![15-packageselection](kali-default-packages.png)  
-
+    The 2020.1 release images and the current weekly images differ in the selection layout.
+    The 2020.1 release provides the following selection screen:
+    
+    ![15-packageselection](kali-default-packages.png)
+    
+    The current weekly image provide the following software selection screen:
+    
+    ![15-packageselection-weekly](kali-default-packages-weekly1.png)
+    
 15. Next confirm to install the GRUB boot loader...
 
     ![16-install-grub](kali-default-install-3.png)  
