@@ -14,7 +14,24 @@ og_description:
 ##### Kali NetHunter is a free & open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.
 
 ![NetHunter Kex](images/NetHunter-xiaomi-mi-9t.png)
+&nbsp;
 
+## Content:
+
+- [Overview](#Overview)
+- [NetHunter Editons](#1-0-nethunter-editions)
+- [NetHunter (Lite) Supported Devices and ROMs](#2-0-nethunter-lite-supported-devices-and-roms)
+- [Downloading NetHunter](#3-0-downloading-nethunter)
+- [Building NetHunter](#4-0-building-nethunter)
+- [Installing NetHunter](#5-0-installing-nethunter-on-top-of-android)
+- [Post Installation Setup](#6-0-post-installation-setup)
+- [Kali NetHunter Attacks and Features](#7-0-kali-nethunter-attacks-and-features)
+- [Porting NetHunter to New Devices](#8-0-porting-nethunter-to-new-devices)
+- [Known Working Hardware](#9-0-known-working-hardware)
+- [NetHunter App](#10-0-nethunter-app)
+
+&nbsp;
+## Overview
 
 Kali NetHunter is available for un-rooted devices (NetHunter Rootless), for rooted devices that have a custom recovery (NetHunter Lite), and for rooted devices with custom recovery for which a NetHunter specific kernel is available (NetHunter).
 
@@ -30,14 +47,14 @@ The core of Kali NetHunter, which is included in all three editions, comprises o
 
   
 
-![NetHunter Kex](images/NetHunter-Kex.jpg)
+![NetHunter Kex](images/NetHunter-Kex.jpg)  
 Figure 2: Kali NetHunter Desktop Experience (KeX) outputting to an HDMI monitor
 
 &nbsp;
 
 The Kali NetHunter App Store can be accessed through the dedicated client app or via the web interface.
 
-![NetHunter Kex](images/nethunter-store-02.png)
+![NetHunter Kex](images/nethunter-store-02.png)  
 Figure 3: Kali NetHunter App Store
 
 &nbsp;
@@ -45,8 +62,7 @@ Figure 3: Kali NetHunter App Store
 **Both rooted editions provide additional tools & services.**  
 A custom kernel can extend that functionality by adding additional network and USB gadget drivers as well as wifi injection support for selected wifi chips.
 
-![NetHunter App](images/NetHunter-App.jpg)
-
+![NetHunter App](images/NetHunter-App.jpg)  
 Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter Lite & NetHunter).
 
 &nbsp;
@@ -57,22 +73,6 @@ For more information about the moving parts that make up NetHunter, check out ou
 
 &nbsp;
 
-## Content:
-
-- [NetHunter Editons](#1-0-nethunter-editions)
-- [NetHunter (Lite) Supported Devices and ROMs](#2-0-nethunter-lite-supported-devices-and-roms)
-- [Downloading NetHunter](#3-0-downloading-nethunter)
-- [Building NetHunter](#4-0-building-nethunter)
-- [Installing NetHunter](#5-0-installing-nethunter-on-top-of-android)
-- [Post Installation Setup](#6-0-post-installation-setup)
-- [Kali NetHunter Attacks and Features](#7-0-kali-nethunter-attacks-and-features)
-- [Porting NetHunter to New Devices](#8-0-porting-nethunter-to-new-devices)
-- [Known Working Hardware](#9-0-known-working-hardware)
-- [NetHunter App](#10-0-nethunter-app)
-
-
-
-&nbsp;
 
 ## 1.0 NetHunter Editions
 
