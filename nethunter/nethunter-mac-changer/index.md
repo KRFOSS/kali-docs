@@ -4,8 +4,8 @@ description:
 icon:
 date: 2019-11-29
 type: post
-weight: 100
-author: ["g0tmi1k",]
+weight: 270
+author: ["re4son",]
 tags: ["",]
 keywords: ["",]
 og_description:
@@ -13,4 +13,4 @@ og_description:
 
 The MAC Changer pane allows you to change the MAC address of your NetHunter device network interfaces. You can choose to have the MAC address set to a random value or you can enter it manually using the standard 6-pair notation like _00:11:22:AA:BB:CC_.
 
-![](/docs/nethunter/images/nethunter-macchanger.png)
+![](./nethunter-macchanger.png)

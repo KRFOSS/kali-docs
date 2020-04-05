@@ -4,8 +4,8 @@ description:
 icon:
 date: 2019-11-29
 type: post
-weight: 100
-author: ["g0tmi1k",]
+weight: 280
+author: ["re4son",]
 tags: ["",]
 keywords: ["",]
 og_description:
@@ -17,4 +17,4 @@ The default MANA configuration should work as-is however, you can tweak any of t
 
 Once everything is configured to your satisfaction, tap the **Update** button to save the configuration.
 
-![](/docs/nethunter/images/nethunter-mana.png)
+![](./nethunter-mana.png)

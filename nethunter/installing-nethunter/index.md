@@ -1,11 +1,11 @@
 ---
-title: Installing NetHunter from Windows
+title: Installing NetHunter
 description:
 icon:
 date: 2020-02-12
 type: post
-weight: 100
-author: ["g0tmi1k",]
+weight: 060
+author: ["re4son",]
 tags: ["",]
 keywords: ["",]
 og_description:
