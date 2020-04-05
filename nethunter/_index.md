@@ -20,7 +20,7 @@ og_description:
 
 - [Overview](#Overview)
 - [NetHunter Editons](#1-0-nethunter-editions)
-- [NetHunter (Lite) Supported Devices and ROMs](#2-0-nethunter-lite-supported-devices-and-roms)
+- [NetHunter Supported Devices and ROMs](#2-0-nethunter-supported-devices-and-roms)
 - [Downloading NetHunter](#3-0-downloading-nethunter)
 - [Building NetHunter](#4-0-building-nethunter)
 - [Installing NetHunter](#5-0-installing-nethunter-on-top-of-android)
