@@ -64,10 +64,10 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 **NOTE!** If you select "NO" in this screen, you will **NOT** be able to install packages from the Kali repositories.
 {{% /notice %}}
 
-![kali-linux-packages-01](kali-default-packages.png)
+![kali-linux-install-04](kali-encrypted-install-10.png)
 11. Select which metapackages you want installed.
 
-![kali-linux-install-04](kali-encrypted-install-10.png)
+![kali-linux-packages-01](kali-default-packages.png)
 12. Next, install GRUB.
 
 ![kali-linux-install-05](kali-encrypted-install-11.png)
