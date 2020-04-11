@@ -34,14 +34,11 @@ Realtek
 * RTL8821AU  
 
 Qualcomm internal wifi chipsets (wlan0)  
-
 * QCACLD-2.0  
 * QCACLD-3.0  
 
 **The following devices are confirmed to be working with a NetHunter build:**  
-
 * TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets)  
-
 * TP-Link TL-WN822N v1 - v3  
 * Alfa Networks AWUS036ACH  
 * Alfa Networks AWUS036NEH (recommended by @jcadduono)  
@@ -50,11 +47,9 @@ Qualcomm internal wifi chipsets (wlan0)
 * Panda PAU05 Nano  
 
 **The following devices are confirmed to be partially working with a NetHunter build:**  
-
 * Alfa Networks AWUS051NH (dual band 5 GHz support may be unreliable)  
 
 **The following devices are confirmed to NOT be working with a NetHunter build:**  
-
 * TP-Link TL-WN822N v4  
 
 &nbsp;
