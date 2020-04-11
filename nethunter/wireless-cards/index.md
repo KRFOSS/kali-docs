@@ -35,12 +35,13 @@ Realtek
 
 Qualcomm internal wifi chipsets (wlan0)  
 
-- QCACLD-2.0  
-- QCACLD-3.0  
+* QCACLD-2.0  
+* QCACLD-3.0  
 
 **The following devices are confirmed to be working with a NetHunter build:**  
 
 * TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets)  
+
 * TP-Link TL-WN822N v1 - v3  
 * Alfa Networks AWUS036ACH  
 * Alfa Networks AWUS036NEH (recommended by @jcadduono)  
