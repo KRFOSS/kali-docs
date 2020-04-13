@@ -418,7 +418,7 @@ If we built the package now, it would not be installed. To fix this, let's creat
 packaging@kali:~$ mkdir helper-script
 packaging@kali:~$ nano phpggc.install
 packaging@kali:~$ nano helper-script/phpggc
-packaging@kali:~$ cat phpggc.insstall
+packaging@kali:~$ cat phpggc.install
 lib usr/share/phpggc/
 phpggc usr/share/phpggc/
 templates usr/share/phpggc/
