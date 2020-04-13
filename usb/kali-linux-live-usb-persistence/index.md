@@ -25,7 +25,7 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 In this example, we assume:
 
-* you are running as the **root user**
+* you are running as the **root user**. Latest Kali 2020.1 does not has root user by default. You can switch to root using the command "sudo bash".
 * your USB drive is `/dev/sdb`
 * your USB drive has a capacity of **at least 8GB** — the Kali Linux image takes over 3GB, and for this guide, we'll be creating a new partition of about 4GB to store our persistent data in.
 * you are running on a separate Linux system (cannot be Live Boot Kali)
