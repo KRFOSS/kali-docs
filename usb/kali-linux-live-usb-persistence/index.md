@@ -39,7 +39,7 @@ First, let's create the new partition in the empty space above our Kali Live par
 
 ```plaintext
 end=7gb
-read start _ < <(du -bcm kali-linux-2020.1-live-amd64.iso | tail -1); echo $start
+read start _ < <(du -bcm kali-linux-2020.1b-live-amd64.iso | tail -1); echo $start
 parted /dev/sdb mkpart primary $start $end
 ```
 
