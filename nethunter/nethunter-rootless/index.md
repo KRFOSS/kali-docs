@@ -86,7 +86,7 @@ Please refer to [this table](../#1-0-nethunter-editions) for a comparison of the
 
 ## Tips:
 
-1. Run `apt update && apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-full` as well.
+1. Run `apt update && apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
 2. Firefox won't work on unrooted devices. Just replace it with Chromium via:
    `apt remove firefox-esr`
    `apt install chromium`

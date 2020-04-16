@@ -15,7 +15,7 @@ The [BeagleBone Black](http://beagleboard.org/BLACK) is a low-cost, community-su
 
 The BeagleBone Black provides a micro-SD card slot for mass storage and if that device is bootable, will use it in preference to the board's "burned-in" Angstrom or Debian operating system.
 
-By default, the Kali Linux BeagleBone Black image contains a minimum toolset, similar to all the other ARM images. If you wish to upgrade the installation to a standard desktop installation, you can include the extra tools by installing the **kali-linux-full** metapackage. For more information on metapackages, please refer to our [tools site](http://tools.kali.org/kali-metapackages).
+By default, the Kali Linux BeagleBone Black image contains a minimum toolset, similar to all the other ARM images. If you wish to upgrade the installation to a standard desktop installation, you can include the extra tools by installing the **kali-linux-default** metapackage. For more information on metapackages, please refer to our [tools site](http://tools.kali.org/kali-metapackages).
 
 ## Kali Linux on BeagleBone Black - Pre-built Version
 

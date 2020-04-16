@@ -20,7 +20,7 @@ The [Raspberry Pi](http://raspberrypi.org) is a low-cost, credit-card-sized ARM 
 
 The Raspberry Pi provides a SD card slot for mass storage and will attempt to boot off that device when the board is powered on.
 
-By default, the Kali Linux Raspberry Pi image has been streamlined with the minimum tools, similar to all the other ARM images. If you wish to upgrade the installation to a standard desktop installation, you can include the extra tools by installing the **kali-linux-full** metapackage. For more information on metapackages, please refer to our [tools page](http://tools.kali.org/kali-metapackages).
+By default, the Kali Linux Raspberry Pi image has been streamlined with the minimum tools, similar to all the other ARM images. If you wish to upgrade the installation to a standard desktop installation, you can include the extra tools by installing the **kali-linux-default** metapackage. For more information on metapackages, please refer to our [tools page](http://tools.kali.org/kali-metapackages).
 
 ## Kali Linux on Raspberry Pi — Pre-built Version
 
