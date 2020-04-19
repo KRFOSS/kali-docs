@@ -83,7 +83,7 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
     ![14-networkmirror](kali-default-install-5.png)  
 
 14. Next you can select which metapackages you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.  
-    Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.  
+Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.  
     The 2020.1 release images and the current weekly images differ in the selection layout.
     The 2020.1 release provides the following selection screen:
     
@@ -92,6 +92,12 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
     The current weekly images provide the following software selection screen:
     
     ![15-packageselection-weekly](kali-default-packages-weekly1.png)
+    
+    If there is no working Internet connection during the installation and unless you are using the most recent weekly image, the selection screen may only contain a subset of the above, e.g.:
+    
+    ![15-packageselection-nonet](kali-default-packages-nonet.png)
+    The software selection will only list what is available to the installer during the installation. I.e. it will only contain the packages that are available in the image if there is no working Internet connection.  
+
     
 15. Next confirm to install the GRUB boot loader...
 
