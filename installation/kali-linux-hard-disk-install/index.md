@@ -96,9 +96,9 @@ Please [refer to this guide](../#which-desktop-environment-and-software-collecti
     If there is no working Internet connection during the installation and unless you are using the most recent weekly image, the selection screen may only contain a subset of the above, e.g.:
     
     ![15-packageselection-nonet](kali-default-packages-nonet.png)
+
     The software selection will only list what is available to the installer during the installation. I.e. it will only contain the packages that are available in the image if there is no working Internet connection.  
 
-    
 15. Next confirm to install the GRUB boot loader...
 
     ![16-install-grub](kali-default-install-3.png)  
