@@ -29,41 +29,41 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Choose either _Graphical_ or _Text-Mode_ install. In this example, we chose a graphical install.
 
-   ![01-install-select](kali-default-install-18.png)  
+    ![01-install-select](kali-default-install-18.png)  
 
 2. Select your preferred language. 
 
-   ![02-language-select](kali-default-install-17.png)  
+    ![02-language-select](kali-default-install-17.png)  
 
 3. Specify your geographic location.
 
-   ![03-location](kali-default-install-16.png)  
+    ![03-location](kali-default-install-16.png)  
 
 4. Select your keyboard layout.
 
-   ![03-location](kali-default-install-15.png)  
+    ![03-location](kali-default-install-15.png)  
 
 5. The installer will copy the image to your hard disk, probe your network interfaces, and then prompt you to enter a hostname for your system. In the example below, we've entered "kali" as our hostname.
 
-   ![05-hostname](kali-default-install-14.png)  
+    ![05-hostname](kali-default-install-14.png)  
 
 6. You may optionally provide a default domain name for this system to use.
 
-   ![06-domain](kali-default-install-13.png)  
+    ![06-domain](kali-default-install-13.png)  
 
 7. Next, create the user account for the system.
 
-   ![01-user](kali-user-1.png)  
-   ![02-user](kali-user-2.png)  
-   ![03-user](kali-user-3.png)  
+    ![01-user](kali-user-1.png)  
+    ![02-user](kali-user-2.png)  
+    ![03-user](kali-user-3.png)  
 
 8. Next, set your time zone.
 
-   ![09-timezone](kali-default-install-11.png)  
+    ![09-timezone](kali-default-install-11.png)  
 
 9. The installer will now probe your disks and offer you four choices. In our example, we're using the entire disk on our computer and not configuring LVM (logical volume manager). Experienced users can use the "Manual" partitioning method for more granular configuration options.
 
-   ![10-partitionmethod](kali-default-install-10.png)  
+    ![10-partitionmethod](kali-default-install-10.png)  
 
 10. Select the disk to be partitioned.
 
