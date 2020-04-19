@@ -93,6 +93,12 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
     
     ![15-packageselection-weekly](kali-default-packages-weekly1.png)
     
+    Note: A working Internet connection may be required to obtain the full list of options as displayed above. The installer will only display packages that are available during installation so you may see a condensed version as shown below if no Internet connection is detected:
+    
+    ![15-packageselection-nonet](kali-default-packages-nonet.png)
+    
+    The actual list may differ based on the image chosen for the installation, as thay mey contain different sets of packages.
+    
 15. Next confirm to install the GRUB boot loader...
 
     ![16-install-grub](kali-default-install-3.png)  
