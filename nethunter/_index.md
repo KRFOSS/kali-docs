@@ -180,7 +180,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 - **unlocking** your device and **updating it to stock** AOSP or LineageOS (CM). (Check point [2.0](#20-supported-devices-and-roms) for supported roms)
 - **installing [Team Win Recovery Project](https://twrp.me/)** as a custom recovery.
-- **installing** [Magisk](https://magiskmanager.com/) to root the device
+- **installing [Magisk](https://github.com/topjohnwu/Magisk)** to root the device
 - disabling force encryption may be required if TWRP cannot access the data partition
 - Once you have a custom recovery, all that remains is to flash the NetHunter installer zip file onto your Android device.
 
