@@ -2,7 +2,7 @@
 title: Installing Kali inside VMware (Guest VM)
 description:
 icon:
-date: 2020-02-21
+date: 2020-05-08
 type: post
 weight: 1
 author: ["g0tmi1k",]
@@ -37,7 +37,7 @@ When you see the "Guest Operating System" screen, select "Linux", and then the l
 
 ![](vm-05.png)
 
-The next screen is "Virtual Machine Name", which is where you name the VM. This is also used for the filename too (such a the configuration, hard disk and snapshot - which isn't changed from this point). We are keeping it generic in this guide (as Kali is a rolling distribution, and we update it) , however for our releases, we use the version as its a fixed release.
+The next screen is "Virtual Machine Name", which is where you name the VM. This is also used for the filename too (such a the configuration, hard disk and snapshot - which isn't changed from this point). We are keeping it generic in this guide (as Kali is a rolling distribution, and we update it) , however for our releases, we use the version as its a fixed release _(`Kali-Linux-YYYY.N-vmware-ARCH`. Example: `Kali-Linux-2020.2-vmware-amd64`)_.
 
 ![](vm-06.png)
 
@@ -114,5 +114,7 @@ We then move over to the "Options" tab, and move down to "Power". We choose to e
 ![](vm-20.png)
 
 The final option we alter is "VMware Tool", where we enable "Synchronize guest time with host".
+
+![](vm-21.png)
 
 After all this is done, we Save, start up the VM, and then continue installing Kali as we normally would on bare metal install.
