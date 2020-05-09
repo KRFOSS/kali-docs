@@ -2,7 +2,7 @@
 title: Kali NetHunter Documentation
 description: Kali on your Android phone
 icon: ti-mobile
-date: 2020-02-22
+date: 2020-05-09
 type: toc
 weight: 45
 author: ["Re4son",]
@@ -111,47 +111,16 @@ The Kernel specific chapters are only applicable to the NetHunter edition.
 
 ## 2.0 NetHunter Supported Devices and ROMs
 
-NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.
+NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.  
+The full NetHunter experience requires a devices specific kernel that has been purpose built for Kali NetHunter.  
+The [NetHunter gitlab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Offensive Security publishes over 25 images for the most popular devices on the [NetHunter download page](https://nethunter.com).   
+The following live reports are generated automatically by gitlab CI:  
 
-The full NetHunter experince requires a devices specific kernel that has been purpose built for Kali NetHunter.  
-The following table lists the NetHunter supported hardware as well as the corresponding ROM or Android versions for which NetHunter is built:
+[List of quarterly published NetHunter images](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-images.html)  
+[NetHunter kernel statistics](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernelstats.html)  
+[NetHunter kernel table with](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernels.html)
 
-| Device                   | Android Version         | Notes                             |
-|--------------------------|:-----------------------:|-----------------------------------|
-| Nexus 4 (mako)           | **5.1.1** <br> **CM 13.0** |                                |
-| Nexus 5 (hammerhead)     | **5.1.1** or **6.0.1** <br> **CM 13.0** or **CM 14.1** |    |
-| Nexus 5x (bullhead)      | **6.0.1**               |                                   |
-| Nexus 6 (shamu)          | **5.1.1** or **6.0.1** <br> **LOS 16.0** |                      |
-| Nexus 6P (angler)        | **8.1** <br> **LOS 17.1** | **Our preferred low end device** |
-| Nexus 7 2013 (flo)       | **5.1.1** or **6.0.1** <br> **CM 13.0** |                   |
-| Nexus 9 (flounder)       | **5.1.1** or **6.0.1**  |                                   |
-| Nexus 10 (manta)         | **5.1.1**               |                                   |
-| OnePlus One (oneplus1)   | **CM 12.1** or **13.0** |               |
-| OnePlus 2 (oneplus2)     | **CM 12.1** - **16.0**  |                                   |
-| OnePlus 3 (oneplus3)     | **6.0.1** or **7.0.0**  | Unified build in 7.0.0 (OxygenOS) |
-| OnePlus 3T (oneplus3)    | **6.0.1** or **7.0.0**  | Unified build in 7.0.0 (OxygenOS) |
-| OnePlus 7 (guacamoleb)   | **OOS 9.5.8**<br/>**OOS 10.0.4** | **Our preferred high end device**<br />Important: Install Disable_Dm-Verity_ForceEncrypt |
-| OnePlus 7 Pro (guacamole)| **OOS 9.5.8**<br>**OOS 10.0.4** | Important: Install Disable_Dm-Verity_ForceEncrypt |
-| OnePlus X (oneplusx)     | **CM 13.0**             |                                   |
-| Galaxy Note 3 (hlte)     | **CM 12.1** or **13.0** <br> **TouchWiz 5.0** |             |
-| Galaxy S5 (klte)         | **LineageOS 14.1** <br> **TouchWiz 5.1** or **6.0** |  |
-| Galaxy S7 (herolte)      | **TouchWiz 6.0.1**      | **Warning**: Exynos models only!  |
-| Galaxy S7 edge (hero2lte)| **TouchWiz 6.0.1**      | **Warning**: Exynos models only!  |
-| Galaxy Tab S4 Wifi (830) | **TouchWiz 9.0.1**      |          |
-| Galaxy Tab S4 LTE (835) | **TouchWiz 9.0.1**      | **Our preferred tablet** |
-| Gemini (geminipda)       |                        **7.0.0                         |                                                              |
-| LG G5 T-Mobile (h830)    | **7.0.0**               |                                   |
-| LG G5 International (h850)| **7.0.0**              |                                   |
-| LG V20 T-Mobile (h918)   | **7.0.0**               | **Warning**: Requires exploit on v10d firmware to unlock flashing! |
-| LG V20 International (990DS)| **7.0.0**              |                                   |
-| HTC One M7 GPE (onem7gpe)| **5.1.1**               | Google Play Edition               |
-| HTC 10 (htc_pmewl)       | **6.0.1**               |                                   |
-| Sony Xperia ZR (dogo)    | **CM 13.0**               |                                   |
-| Sony Xperia Z (yuga)     | **CM 13.0**               |                                   |
-| Sony Xperia Z1 (honami)    | **CM 13.0**               |                                   |
-| SHIELD tablet (shieldtablet) <br> SHIELD tablet K1 | **6.0.1** <br> **CM 13.0** |      |
-| Xiaomi Mi 9T | **Miui 11.0.4** | **Our preferred mid range device** |
-| ZTE Axon 7 (ailsa_ii)    | **6.0.1**               |  |
+
 
 &nbsp;
 
@@ -162,8 +131,6 @@ Official release NetHunter images for your specific supported device can be down
 * https://www.offensive-security.com/kali-linux-nethunter-download
 
 Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
-
-You may also enable zip signature verification before flashing and TWRP will verify the entire zip for you before installing.
 
 &nbsp;
 
