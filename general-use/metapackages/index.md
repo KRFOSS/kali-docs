@@ -2,10 +2,10 @@
 title: Kali Linux Metapackages
 description:
 icon:
-date: 2020-02-22
+date: 2020-05-11
 type: post
 weight: 50
-author: ["gamb1t",]
+author: ["gamb1t","g0tmi1k",]
 tags: ["",]
 keywords: ["",]
 og_description:
@@ -13,7 +13,7 @@ og_description:
 
 # What are metapackages
 
-Metapackages are used to install many packages at one time, created as a list of dependencies on other packages. Kali Linux uses these in a few ways. One way is allowing users to decide how many packages out of the total Kali list they would like to install. Need just enough to use Linux? Want enough to conduct Pentests? Perhaps nearly every package available in Kali?
+[Metapackages](https://tools.kali.org/kali-metapackages) are used to install many packages at one time, created as a list of dependencies on other packages. Kali Linux uses these in a few ways. One way is allowing users to decide how many packages out of the total Kali list they would like to install. Need just enough to use Linux? Want enough to conduct Pentests? Perhaps nearly every package available in Kali?
 
 ## System
 
