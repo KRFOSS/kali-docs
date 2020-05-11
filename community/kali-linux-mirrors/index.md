@@ -2,7 +2,7 @@
 title: Official Kali Linux Mirrors
 description:
 icon:
-date: 2020-03-23
+date: 2020-05-11
 type: post
 weight: 100
 author: ["g0tmi1k",]
@@ -21,12 +21,16 @@ The Kali Linux distribution has two [repositories](/docs/general-use/kali-linux-
 When using the default hosts listed above, you'll automatically be redirected to a mirror site which is geographically close to you, and which is guaranteed to be up-to-date. If you prefer to manually select a mirror, click on the **_mirrorlist_** link near each hostname above and select a mirror that suits you. You will then need to edit your /etc/apt/sources.list file accordingly with the chosen values.
 
 {{% notice info %}}
-IMPORTANT! Do not add additional repositories to your <a href="/docs/general-use/kali-linux-sources-list-repositories"/> /etc/apt/sources.list</a> file.
+IMPORTANT! Do not add additional repositories to your <a href="/docs/general-use/kali-linux-sources-list-repositories"/>/etc/apt/sources.list</a> file.
 
 Doing so will most likely break your Kali installation.
 {{% /notice %}}
 
-## How to Set Up a Kali Linux Mirror
+## How to Set Up a Public Kali Linux Mirror
+
+The explanations below are of interest to you if you want to contribute a publicly accessible mirror and if you want to integrate it in one of the mirror redirectors (http.kali.org and cdimage.kali.org).
+
+If you want run a private a mirror, see the dedicated section at the end.
 
 ### Requirements
 
@@ -106,22 +110,22 @@ RSYNC_HOST=archive.kali.org
 
 ### Set Up the SSH Keys
 
-The last step is to setup the .ssh/authorized_keys file so that archive.kali.org can trigger your mirror:
+The last step is to setup the `.ssh/authorized_keys` file so that archive.kali.org can trigger your mirror:
 
 ```
 $ mkdir -p .ssh
 $ wget -O - -q http://archive.kali.org/pushmirror.pub >> .ssh/authorized_keys
 ```
 
-If you have not unpacked the ftpsync.tar.gz in the home directory, then you must adjust accordingly the "~/bin/ftpsync" path, which is hard-coded in .ssh/authorized_keys.
+If you have not unpacked the ftpsync.tar.gz in the home directory, then you must adjust accordingly the `~/bin/ftpsync` path, which is hard-coded in `.ssh/authorized_keys`.
 
-Now you must send an email to [devel@kali.org](mailto:devel@kali.org) with all the URLs of your mirrors so that you can be added in the main mirror list and to open up your rsync access on archive.kali.org. Please indicate clearly who should be contacted in case of problems (or if changes must be made/coordinated to the mirror setup).
+Now you must send an email to [devel@kali.org](mailto:devel@kali.org) with all the details concerning your mirrors (including user/port to use for SSH push access, public hostname, etc.) so that you can be added in the main mirror list and so that we can open up your rsync access on archive.kali.org. Please indicate clearly who should be contacted in case of problems (or if changes must be made/coordinated to the mirror setup).
 
-Instead of waiting for the first push from archive.kali.org, you should run an initial rsync with a mirror close to you, using the mirror list linked above to select one. Assuming that you picked archive-4.kali.org, here's what you can run as your dedicated mirror user:
+Instead of waiting for the first push from archive.kali.org, you should run an initial rsync with a mirror close to you, using the mirror list linked above to select one. Assuming that you picked ftp.halifax.rwth-aachen.de, here's what you can run as your dedicated mirror user:
 
 ```
-$ rsync -qaH archive-4.kali.org::kali /srv/mirrors/kali/ &
-$ rsync -qaH archive-4.kali.org::kali-images /srv/mirrors/kali-images/ &
+$ rsync -qaH ftp.halifax.rwth-aachen.de::kali /srv/mirrors/kali/ &
+$ rsync -qaH ftp.halifax.rwth-aachen.de::kali-images /srv/mirrors/kali-images/ &
 ```
 
 ### Set Up cron to Manually Mirror ISO Images
@@ -141,3 +145,11 @@ $ crontab -l
 ```
 
 Please adjust the precise time so that archive.kali.org doesn't get overloaded by too many mirrors at the same time.
+
+## How to Set Up a Private Kali Linux Mirror
+
+If you want to setup a private mirror, you can use the same tools as for
+the public mirror with the following differences:
+
+* you will not be able to use SSH push mirroring for the package repository, instead of you have to put `~/bin/ftpsync sync:archive:kali` in the crontab of the user owning the mirror (`archvsync` in the above explanation).
+* you must use a non-kali.org mirror as the source mirror, almost all of them offer public rsync access (kali.org servers are restricted)
