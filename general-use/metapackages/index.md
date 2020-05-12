@@ -96,7 +96,7 @@ og_description:
 
 `kali-tools-forensics`: Forensic tools – Live & Offline
 
-`kali-tools-reporting`: Reporting tools
+`kali-tools-reporting`: Reporting tools.
 
 <h1 style="background-color:Orange;">Orange</h1>
 
