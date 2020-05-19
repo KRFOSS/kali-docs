@@ -145,7 +145,7 @@ Now, we're ready to assemble our third-stage chroot.
 
 #### 3rd Stage chroot
 
-This is where your specific customizations come in. Your **$packages** list is installed, as are keymaps, a default root password of "toor" is set, and other configuration changes and fixes are applied.
+This is where your specific customizations come in. Your **$packages** list is installed, as are keymaps, a default kali user password of "kali" is set, and other configuration changes and fixes are applied.
 
 ```markdown
 export MALLOC_CHECK_=0 # workaround for LP: #520465
@@ -179,7 +179,7 @@ rm -f /debconf.set
 apt update
 apt install -y git-core binutils ca-certificates initramfs-tools u-boot-tools
 apt install -y locales console-common less nano git
-echo "root:toor" | chpasswd
+echo "kali:kali" | chpasswd
 sed -i -e 's/KERNEL\!=\"eth\*|/KERNEL\!=\"/' /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -f /etc/udev/rules.d/70-persistent-net.rules
 apt install -y --force-yes ${packages}
