@@ -29,7 +29,7 @@ xzcat kali-$version-nanopi2.img.xz | dd of=/dev/sdb bs=4M
 ```
 
 This process can take awhile depending on your device speed and image size.
-Once the _dd_ operation is complete, boot up the NanoPi2 with the microSD  plugged in. Log in to Kali (**_root_** / **_toor_**), that's it, you're done!
+Once the _dd_ operation is complete, boot up the NanoPi2 with the microSD  plugged in. Log in to Kali (**_kali_** / **_kali_**), that's it, you're done!
 
 ## Kali on NanoPi2 - Developer Instructions
 

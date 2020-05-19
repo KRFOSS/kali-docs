@@ -32,7 +32,7 @@ xzcat kali-$version-veyron.img.xz | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your device speed and image size.
 
-Once the _dd_ operation is complete, boot up the ASUS Chromebook Flip with the microSD/USB key plugged in. Log in to Kali (_**root**_ / _**toor**_), that's it, you're done!
+Once the _dd_ operation is complete, boot up the ASUS Chromebook Flip with the microSD/USB key plugged in. Log in to Kali (_**kali**_ / _**kali**_), that's it, you're done!
 
 ## Kali on ASUS Chromebook Flip - Developer Instructions
 

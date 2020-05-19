@@ -32,22 +32,22 @@ This command will wipe out any existing data on your micro-SD card. If you speci
 {{% /notice %}}
 
 ```
-root@kali:~ dd if=kali-2.1.2-bbb.img of=/dev/sdb bs=4M
+root@kali:~ dd if=kali-$version-bbb.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your micro-SD card's speed, and the size of the Kali Linux image. Once the _dd_ operation is complete, insert the micro-SD card into the BeagleBone Black and power it on.
-You should be able to log into Kali (as user **_root_**, using the password **_toor_**) and execute the **startx** command at the shell prompt to start up the XFCE desktop environment.
+You should be able to log into Kali (as user **_kali_**, using the password **_kali_**) and execute the **startx** command at the shell prompt to start up the XFCE desktop environment.
 
 {{% notice info %}}
-**IMPORTANT!** Please change your SSH host keys as soon as possible as **_all_** ARM images are pre-configured the same keys. You should also change the root password to something more secure, _**especially** if this machine will be publicly accessible!_
+**IMPORTANT!** Please change your SSH host keys as soon as possible as **_all_** ARM images are pre-configured the same keys. You should also change the kali password to something more secure, _**especially** if this machine will be publicly accessible!_
 {{% /notice %}}
 
 Changing the SSH host keys can be accomplished by doing the following:
 
 ```
-root@kali:~ rm /etc/ssh/ssh_host_*
-root@kali:~ dpkg-reconfigure openssh-server
-root@kali:~ service ssh restart
+kali@kali:~ sudo rm /etc/ssh/ssh_host_*
+kali@kali:~ sudo dpkg-reconfigure openssh-server
+kali@kali:~ sudo service ssh restart
 ```
 
 ## Kali Linux on BeagleBone Black - Custom Build
