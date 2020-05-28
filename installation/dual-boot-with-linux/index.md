@@ -1,10 +1,10 @@
 ---
-title: Kali Linux Dual Boot with Linux
+title: Dual Boot Kali with Linux
 description:
 icon:
 date: 2020-03-07
 type: post
-weight:
+weight: 30
 author: ["gamb1t",]
 tags: ["",]
 keywords: ["",]

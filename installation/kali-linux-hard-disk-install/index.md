@@ -4,7 +4,7 @@ description:
 icon:
 date: 2020-03-24
 type: post
-weight: 15
+weight: 10
 author: ["gamb1t",]
 tags: ["",]
 keywords: ["",]
@@ -29,87 +29,87 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
 
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Choose either _Graphical_ or _Text-Mode_ install. In this example, we chose a graphical install.
 
-    ![01-install-select](kali-default-install-18.png)  
+    ![01-install-select](kali-default-install-18.png)
 
-2. Select your preferred language. 
+2. Select your preferred language.
 
-    ![02-language-select](kali-default-install-17.png)  
+    ![02-language-select](kali-default-install-17.png)
 
 3. Specify your geographic location.
 
-    ![03-location](kali-default-install-16.png)  
+    ![03-location](kali-default-install-16.png)
 
 4. Select your keyboard layout.
 
-    ![03-location](kali-default-install-15.png)  
+    ![03-location](kali-default-install-15.png)
 
 5. The installer will copy the image to your hard disk, probe your network interfaces, and then prompt you to enter a hostname for your system. In the example below, we've entered "kali" as our hostname.
 
-    ![05-hostname](kali-default-install-14.png)  
+    ![05-hostname](kali-default-install-14.png)
 
 6. You may optionally provide a default domain name for this system to use.
 
-    ![06-domain](kali-default-install-13.png)  
+    ![06-domain](kali-default-install-13.png)
 
 7. Next, create the user account for the system.
 
-    ![01-user](kali-user-1.png)  
-    ![02-user](kali-user-2.png)  
-    ![03-user](kali-user-3.png)  
+    ![01-user](kali-user-1.png)
+    ![02-user](kali-user-2.png)
+    ![03-user](kali-user-3.png)
 
 8. Next, set your time zone.
 
-    ![09-timezone](kali-default-install-11.png)  
+    ![09-timezone](kali-default-install-11.png)
 
 9. The installer will now probe your disks and offer you four choices. In our example, we're using the entire disk on our computer and not configuring LVM (logical volume manager). Experienced users can use the "Manual" partitioning method for more granular configuration options.
 
-    ![10-partitionmethod](kali-default-install-10.png)  
+    ![10-partitionmethod](kali-default-install-10.png)
 
 10. Select the disk to be partitioned.
 
-    ![11-selectdisk](kali-default-install-9.png)  
+    ![11-selectdisk](kali-default-install-9.png)
 
 11. Depending on your needs, you can choose to keep all your files in a single partition — the default — or to have separate partitions for one or more of the top-level directories. If you're not sure which you want, you want "All files in one partition".
 
-    ![12-partitioningscheme](kali-default-install-8.png)  
-    ![12-partitioningscheme2](kali-default-install-7.png)  
+    ![12-partitioningscheme](kali-default-install-8.png)
+    ![12-partitioningscheme2](kali-default-install-7.png)
 
 12. Next, you'll have one last chance to review your disk configuration before the installer makes irreversible changes. After you click _Continue_, the installer will go to work and you'll have an almost finished installation.
 
-    ![13-finish-partitioning](kali-default-install-6.png)  
+    ![13-finish-partitioning](kali-default-install-6.png)
 
 13. Kali uses a central repository to distribute applications. You'll need to enter any appropriate proxy information as needed.
 
-    ![14-networkmirror](kali-default-install-5.png)  
+    ![14-networkmirror](kali-default-install-5.png)
 
-14. Next you can select which metapackages you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.  
-    Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.  
+14. Next you can select which metapackages you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.
+    Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.
     The 2020.1 release images and the current weekly images differ in the selection layout.
     The 2020.1 release provides the following selection screen:
-    
+
     ![15-packageselection](kali-default-packages.png)
-    
+
     The current weekly images provide the following software selection screen:
-    
+
     ![15-packageselection-weekly](kali-default-packages-weekly1.png)
-    
+
     Note: A working Internet connection may be required to obtain the full list of options as displayed above. The installer will only display packages that are available during installation so you may see a condensed version as shown below if no Internet connection is detected:
-    
+
     ![15-packageselection-nonet](kali-default-packages-nonet.png)
-    
+
     The actual list may differ based on the image chosen for the installation, as thay mey contain different sets of packages.
-    
+
 15. Next confirm to install the GRUB boot loader...
 
-    ![16-install-grub](kali-default-install-3.png)  
+    ![16-install-grub](kali-default-install-3.png)
 
 16. ... and select the hard drive to install the GRUB bootloader in.
 
-    ![16b-install-grub](kali-default-install-2.png)  
+    ![16b-install-grub](kali-default-install-2.png)
 
 17. Finally, click Continue to reboot into your new Kali installation.
 
-    ![17-install-complete](kali-default-install-1.png)  
+    ![17-install-complete](kali-default-install-1.png)
 
 ## Post Installation
 
