@@ -3,7 +3,7 @@ title: Galaxy Note 10.1
 description:
 icon:
 date: 2020-02-12
-type: post
+type: archived
 weight: 100
 author: ["steev",]
 tags: ["",]
