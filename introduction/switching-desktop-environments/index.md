@@ -18,7 +18,7 @@ To get started we will first update the system and install the kali-desktop meta
 ```
 kali@kali:~$ sudo apt update
 kali@kali:~$
-kali@kali:~$ sudo apt install kali-desktop-kde
+kali@kali:~$ sudo apt install -y kali-desktop-kde
 kali@kali:~$
 kali@kali:~$ sudo update-alternatives --config x-session-manager
 kali@kali:~$
