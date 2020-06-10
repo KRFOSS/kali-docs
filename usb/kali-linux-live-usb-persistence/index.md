@@ -38,9 +38,9 @@ In this example, we'll create a new partition to store our persistent data into,
 First, let's create the new partition in the empty space above our Kali Live partitions. We have to do this from the command line as gparted will read the imaged ISO as a large block. The following command will, as a short explanation, shrink that block to only be the Kali Live partition.
 
 ```plaintext
-end=7gb
+end=7GiB
 read start _ < <(du -bcm kali-linux-2020.2-live-amd64.iso | tail -1); echo $start
-parted /dev/sdb mkpart primary $start $end
+parted /dev/sdb mkpart primary ${start}MiB $end
 ```
 
 The **[parted](https://packages.debian.org/testing/parted)** command may advise you that it can't use the exact start values you specified; if so, accept the suggested value instead. If advised that the partition isn't placed at an optimal location, "ignore" it. When parted completes, the new partition should have been created at `/dev/sdb3`; again, this can be verified with the command `fdisk -l`.
@@ -69,9 +69,9 @@ Alternatively, you can create a LUKS-encrypted persistent storage area. This add
 2. Create the new partition in the empty space above our Kali Live partitions.
 
 ```plaintext
-end=7gb
+end=7GiB
 read start _ < <(du -bcm kali-linux-2020.2-live-amd64.iso | tail -1); echo $start
-parted /dev/sdb mkpart primary $start $end
+parted /dev/sdb mkpart primary ${start}MiB $end
 ```
 
 The parted command may advise you that it can't use the exact start value you specified; if so, accept the suggested value instead. If advised that the partition isn't placed at an optimal location, "ignore" it. When parted completes, the new partition should have been created at `/dev/sdb3`; again, this can be verified with the command `fdisk -l`.
