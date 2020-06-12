@@ -14,15 +14,15 @@ og_description:
 ## Overview
   
 Installing NetHunter requires the following steps:  
-1. [Download a pre-built image or build your own image](#1-nethunter-support-and-pre-built-images)
-2. [Put your device in developer mode](#2-putting-your-device-in-developer-mode)
-3. [Unlock your device](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)
-4. [Install TWRP](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)
-5. [Flash Magisk](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)
-6. [Android 9 and above: Format "data" and flash Universal DM-Verity & ForceEncrypt Disabler](#6-flashing-universal-dm-verity-forceencrypt-disabler)
-7. [Install NetHunter](#7-9-installing-the-nethunter-image)
-8. [Android 10 and above: Update NetHunter App from the NetHunter Store](#7-9-installing-the-nethunter-image)
-9. [Run the NetHunter App to finish the installation](#7-9-installing-the-nethunter-image)
+1. [Download a pre-built image or build your own image](#1-nethunter-support-and-pre-built-images)  
+2. [Put your device in developer mode](#2-putting-your-device-in-developer-mode)  
+3. [Unlock your device](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)  
+4. [Install TWRP](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)  
+5. [Flash Magisk](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)  
+6. [Android 9 and above: Format "data" and flash Universal DM-Verity & ForceEncrypt Disabler](#6-flashing-universal-dm-verity-forceencrypt-disabler)  
+7. [Install NetHunter](#7-9-installing-the-nethunter-image)  
+8. [Android 10 and above: Update NetHunter App from the NetHunter Store](#7-9-installing-the-nethunter-image)  
+9. [Run the NetHunter App to finish the installation](#7-9-installing-the-nethunter-image)  
   
 &nbsp;
 ## 1. NetHunter support and pre-built images
