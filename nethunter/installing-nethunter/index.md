@@ -2,7 +2,7 @@
 title: Installing NetHunter
 description:
 icon:
-date: 2020-02-12
+date: 2020-06-12
 type: post
 weight: 060
 author: ["re4son",]
@@ -11,36 +11,54 @@ keywords: ["",]
 og_description:
 ---
 
-## Installation Caveats
+## Overview
+  
+Installing NetHunter requires the following steps:  
+1. [Download a pre-built image or build your own image](#1-nethunter-support-and-pre-built-images)
+2. [Put your device in developer mode](#2-putting-your-device-in-developer-mode)
+3. [Unlock your device](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)
+4. [Install TWRP](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)
+5. [Flash Magisk](#3-5-unlocking-rooting-and-installing-a-custom-recovery-on-your-android-device)
+6. [Android 9 and above: Format "data" and flash Universal DM-Verity & ForceEncrypt Disabler](#6-flashing-universal-dm-verity-forceencrypt-disabler)
+7. [Install NetHunter](#7-9-installing-the-nethunter-image)
+8. [Android 10 and above: Update NetHunter App from the NetHunter Store](#7-9-installing-the-nethunter-image)
+9. [Run the NetHunter App to finish the installation](#7-9-installing-the-nethunter-image)
+  
+&nbsp;
+## 1. NetHunter support and pre-built images
 
-**IMPORTANT NOTE**: The initial installation of NetHunter can be a frustrating experience if the installation requirements are not met. Most of the installation issues arise from misconfigured Android drivers on your Windows system. It is therefore extremely important to make sure the Android drivers are installed properly before proceeding with the installation. Make sure you carefully follow the **"Installing BRT/ NRT and Google / Android Windows drivers"** process described below in the "Installing from Windows" section.
+You can confirm that your device and Android version is supported via our gitlab live reports:  
+[List of quarterly published NetHunter images](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-images.html)  
+[NetHunter kernel statistics](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernelstats.html)  
+[NetHunter kernel table with](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernels.html)
 
-**IMPORTANT NOTE**: To ensure a hassle free installation, use USB 2.0 ports during the installation. When installations fail inexplicably, it's most likely a USB version standard issue. We use a powered USB 2.0 hub to connect our OPO to a computer during installation.
-
-## Putting Your Device in "Developer Mode"
-
+The NetHunter team builds and publishes images for a selected list of devices, on the [official NetHunter download page](https://nethunter.com).  
+  
+If you devices is supported by NetHunter but not available as a pre-build image, you can easily build your own image by following the steps in our ["Building NetHunter" documentation](../building-nethunter/)
+  
+&nbsp;
+## 2. Putting your device in "Developer Mode"
+  
 Before the installation begins, you must enable _Developer mode_ on your device. This is done by navigating to _Settings_ -> _About_ and tapping on the _Build number_ field 7 times until you receive the notification that developer mode has been enabled. Go back to the main settings page and you will have a new section titled _Developer options_. Tap on the new _Developer options_ section and enable both the _Advanced Reboot_ and _Android Debugging_ options.
-
-## Unlocking and Rooting Your Android Device
-For first time installations, it is usually best to completely flash your device "to stock" and bring it to a known-good state. This will ensure as painless an installation as possible, removing many of the variables that would cause an incomplete or failed installation. While there are many ways to unlock and root your Android devices, we chose to use the Windows based "Boot Rootkit" by WugFresh. Depending on which type of device you’re setting up, choose the correct Boot Rootkit installer:
-
-* Nexus devices -  Nexus Boot Rootkit -  http://www.wugfresh.com/nrt/
-* OnePlus devices - Bacon Boot Rootkit -  http://www.wugfresh.com/brt/
-
-## Installing BRT/ NRT and Android Windows Drivers
-
-Download and install the NRT/BRT application (as needed) and execute it for the first time. Once loaded, click the _Full Driver Installation Guide_ button. A Window with installation instructions will pop up – **it is vital you read these instructions very carefully and follow them slowly**. Once you have successfully completed a _Full Driver Test_ in Step 4, proceed with the NetHunter installation process described below.
-
-## Flashing Back to Stock
-
-Flashing your device back to stock allows for an installation over a clean slate, reducing the possibility of errors during the installation process. You can "flash to stock" using either NRT or BRT - however make sure to adhere to the compatibility table outlined in the [Supported Devices and ROMs](/docs/nethunter/home/#1-0-supported-devices-and-roms) section of this doc.
-
-Depending on the version of NRT / BRT you are using, you may need to manually apply "Over The Air" updates to your device once flashed to stock. This is done by navigating to _Settings_ -> _About_ and tapping on the _System updates_ field. You may need to apply several updates before the device will be at the latest version, rebooting after each update. Once there are no more updates, continue with the installation process described below.
-
-## Rooting Your Device
-
-Once flashed, click on the _Root_ button in the NRT / BRT application. From our experience, it is better if _Custom Recovery_ is **unchecked** in this initial process. Once rooted, re-check _Custom Recovery_ and hit the _Root_ button again. This will install the TWRP custom recovery image on your Android device.
-
-## Installing the NetHunter Image
-
-Now that your Android phone is ready, transfer the NetHunter image to it, reboot in recovery mode, and flash the zip on your phone. Once done, reboot and bask in the glory of NetHunter!
+  
+&nbsp;
+## 3. - 5. Unlocking, rooting, and installing a custom recovery on your android device
+  
+NetHunter supports over 60 different devices running Android versions from Kitkat though to Android Q.  
+Whilst we have standardised the NetHunter installation procedure, the steps to unlock, root, and install a custom recovery varies from device to device and even differs between Android versions.  
+The preferred custom recovery for NetHunter is [TWRP](https://twrp.me/Devices/).  
+The preferred software to root the device for NetHunter is [Magisk](https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445).  
+Please refer to the appropriate guide to unlock, root, and install a custom recovery on your device from your preferred internet resource, such as the [XDA Developers Forum](https://forum.xda-developers.com/)
+  
+&nbsp;
+## 6. Flashing Universal DM-Verity & ForceEncrypt Disabler
+  
+**IMPORTANT NOTE** for Android 9, 10, & 11 users: Please ensure that you flash the [Universal DM-Verity, ForceEncrypt Disabler](https://forum.xda-developers.com/android/software/universal-dm-verity-forceencrypt-t3817389) and format the data partition prior to installing NetHunter.  
+Magisk does not support user context changes on encrypted data partitions, which leads to errors when connecting to the Kali rootfs via ssh (i.e. "Required key not available") if the data partition is encrypted.
+  
+&nbsp;
+## 7. - 9. Installing the NetHunter Image
+  
+Now that your Android phone is ready, transfer the NetHunter image to it, reboot in recovery mode, and flash the zip on your phone. Once done, reboot and launch the NetHunter app to complete the setup!  
+  
+**IMPORTANT NOTE** for Android 10 & 11 users: Please update the NetHunter app from the NetHunter store after flashing NetHunter. Android 10 introduced "scoped storage" restrictions which prevents NetHunter from using the storage location we traditionally used to save configuration files. We are in the process of moving the location and implementing an import/export function but updating the app after flashing NetHunter provides a workaround that allows us to continue accessing the current storage location until the new features are implemented.
