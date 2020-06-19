@@ -55,4 +55,16 @@ This installation has the potential to go wrong very easily as it involves editi
 
 ## Post Installation
 
-Now that you've completed installing Kali Linux, it's time to customize your system. The Kali General Use section of our site has more information and you can also find tips on how to get the most out of Kali in our [User Forums](https://forums.kali.org/).
+Now that you've completed installing Kali Linux, it's time to customize your system. The Kali General Use section of our site has more information and you can also find tips on how to get the most out of Kali in our [User Forums](https://forums.kali.org/). One thing that may be worth knowing about is that occasionally the time will get changed between the Windows and the Linux system. To fix this, we can do the following:
+
+```
+kali@kali:~$ timedatectl set-local-rtc 1 --adjust-system-clock
+kali@kali:~$
+```
+
+To undo this we can simply do:
+
+```
+kali@kali:~$ timedatectl set-local-rtc 0 --adjust-system-clock
+kali@kali:~$
+```
