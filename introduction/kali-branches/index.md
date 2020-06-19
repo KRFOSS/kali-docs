@@ -66,7 +66,7 @@ kali-rolling-only --------------------------------------------------------|
 - [Testing](https://www.debian.org/releases/testing/)
 - [Unstable](https://www.debian.org/releases/unstable/)
 
-**Stable** is the "safe" Debian branch. Around every two months, it is updated with a "[Point Release](https://wiki.debian.org/DebianReleases/PointReleases)", which is often just security updates. Packages don't generally get a version upgrade during this time, due to potential incompatibility and thus instability. This is the Debian equivalent of **kali-last-snopshot**.
+**Stable** is the "safe" Debian branch. Around every two months, it is updated with a "[Point Release](https://wiki.debian.org/DebianReleases/PointReleases)", which is often just security updates. Packages don't generally get a version upgrade during this time, due to potential incompatibility and thus instability. This is the Debian equivalent of **kali-last-snapshot**.
 
 **Testing** is the closest thing there is to a Debian "rolling" distribution, where "rolling" means that as soon as a package update is available, it's pushed out. Kali has used this branch as a starter for **kali-rolling** since January 2016.
 
