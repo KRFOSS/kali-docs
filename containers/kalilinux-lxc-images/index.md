@@ -20,7 +20,7 @@ og_description:
 - [Unprivileged Kali LXC container on Kali host](#unprivileged-kali-lxc-container-on-kali-host)
 - [References](#references)
 
-------
+- - -
 
 ## Overview
 
@@ -47,9 +47,8 @@ LXD is the more convenient of the two but is only available in Ubuntu or other d
 
 LXC is available in more distributions and preferred in Kali as it is supported natively and does not required snapd to be running.
 
-------
+- - -
 
-&nbsp;&nbsp;
 ### Command line Kali LXD container on Ubuntu host
 
 Installing a Kali Linux container in Ubuntu only requires a few steps:
@@ -60,9 +59,7 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
 4. Create non-root user
 5. Login
 
-------
-
-<!-- New list -->
+- - -
 
 1 - Install lxd via snap and perform initial setup:
 
@@ -98,6 +95,7 @@ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 
 ![040_Ubuntu-Adduser.png](040_Ubuntu-Adduser.png)
 5 - Login to the new container as user "kali" via
+
 `lxc console my-kali`
 
 ![050_Ubuntu-KaliCliSession.png](050_Ubuntu-KaliCliSession.png)
@@ -107,13 +105,13 @@ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 Voila!
 
 ##### Container management:
-Start: `lxc start my-kali`
-Stop: `lxc stop my-kali`
-Remove: `lxc destroy my-kali`
 
-------
+- Start: `lxc start my-kali`
+- Stop: `lxc stop my-kali`
+- Remove: `lxc destroy my-kali`
 
-&nbsp;&nbsp;
+- - -
+
 ### GUI Kali LXD container on Ubuntu host
 
 Installing a Kali container to run GUI applications is similar to the previous example with a few additional steps:
@@ -125,7 +123,7 @@ Installing a Kali container to run GUI applications is similar to the previous e
 5. Start Kali Xfce panel
 6. Customise Kali Xfce panel
 
-------
+- - -
 
 1 - Install lxd via snap and perform initial setup (if not already done):
 
@@ -133,7 +131,9 @@ Installing a Kali container to run GUI applications is similar to the previous e
 sudo snap install lxd
 lxd init
 ```
+
 2 - Launch your first Kali Linux container with
+
 ```bash
 wget https://blog.simos.info/wp-content/uploads/2018/06/lxdguiprofile.txt
 lxc profile create gui
@@ -166,30 +166,31 @@ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 ```
 lxc exec gui-kali -- sudo -u kali xfce4-panel
 ```
+
 ![090_Ubuntu_KaliGuiSession.png](090_Ubuntu_KaliGuiSession.png)
 
 Customise the panel as desired.
 
 ##### Container management:
-Start: `lxc start my-kali`
-Stop: `lxc stop my-kali`
-Remove: `lxc destroy my-kali`
 
-------
+- Start: `lxc start my-kali`
+- Stop: `lxc stop my-kali`
+- Remove: `lxc destroy my-kali`
 
-&nbsp;&nbsp;
+- - -
+
 ### Privileged Kali LXC container on Kali host
 
 Privileged containers are containers created by root and running as root. They are quicker to setup than unprivileged  containers but are inherently unsafe.
-Installing a privileged Kali Linux container on a Kali host only requires to
+Installing a privileged Kali Linux container on a Kali host only requires to:
+
 1. Install and setup lxc
 2. Download the kali image from the image server
 3. Start the container
 4. Attach to the container
 
-------
+- - -
 
-<!-- New list -->
 1 - Install lxc and setup the network:
 
 ```bash
@@ -249,9 +250,8 @@ There you have it. Next you should set a root password and install the "kali-lin
 - Info: `sudo lxc-info -n my-kali`
 - Remove: `sudo lxc-destroy -n my-kali`
 
-------
+- - -
 
-&nbsp;&nbsp;
 ### Unprivileged Kali LXC container on Kali host
 
 Unprivileged containers run in a user context and are considered safer and are preferred over using privileged container.
@@ -265,9 +265,7 @@ The setup it slightly more involved:
 6. Create non-root user
 7. Login
 
-------
-
-<!-- New list -->
+- - -
 
 1 - Install lxc (if required):
 
@@ -328,28 +326,32 @@ When prompted, enter:
 ```bash
 lxc-start -n my-kali -d
 ```
-but before we login, we perform some post-installation setup tasks
+
+But before we login, we perform some post-installation setup tasks
 
 5 - Install default packages:
 ```bash
 lxc-attach -n my-kali apt update
 lxc-attach -n my-kali apt install kali-linux-default
 ```
+
 ![220_Kali-UnPrivContainerInstallPackages.png](220_Kali-UnPrivContainerInstallPackages.png)
 6 - Create a non-root user:
 
 ```bash
 lxc-attach -n my-kali --clear-env adduser <username>
 lxc-attach -n my-kali --clear-env adduser <username> sudo
-
 ```
 
 ![230_Kali-UnPrivCreateUser.png](230_Kali-UnPrivCreateUser.png)
 7 - Login as non-root user via
+
 ```bash
 lxc-console
 ```
-and perform the following on initial login to get some colors in the console:
+
+And perform the following on initial login to get some colors in the console:
+
 ```bash
 sed -i '1 i\TERM=xterm-256color' ~/.bashrc
 . ~/.bashrc
@@ -365,9 +367,9 @@ sed -i '1 i\TERM=xterm-256color' ~/.bashrc
 - Info: `sudo lxc-info -n my-kali`
 - Remove: `sudo lxc-destroy -n my-kali`
 
-------
+- - -
 
-&nbsp;&nbsp;
 ## References:
-[Linux Containers](https://linuxcontainers.org/)
-[How to run GUI apps in LXD containers on your Ubuntu desktop](https://blog.simos.info/how-to-easily-run-graphics-accelerated-gui-apps-in-lxd-containers-on-your-ubuntu-desktop/)
+
+- [Linux Containers](https://linuxcontainers.org/)
+- [How to run GUI apps in LXD containers on your Ubuntu desktop](https://blog.simos.info/how-to-easily-run-graphics-accelerated-gui-apps-in-lxd-containers-on-your-ubuntu-desktop/)
