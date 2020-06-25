@@ -31,7 +31,7 @@ This means:
 
 Some tools shipped with Kali, will use their own default hardcoded credentials (others will generate a new password the first time its used). The following tools have the default values:
 
-- BeEF-XSS
+- [BeEF-XSS](https://tools.kali.org/exploitation-tools/beef-xss)
     - Username: `beef`
     - Password: `beef`
     - Configuration File: `/etc/beef-xss/config.yaml`
@@ -41,12 +41,12 @@ Some tools shipped with Kali, will use their own default hardcoded credentials (
     - Password: ` ` _(blank)_
     - Setup Program: `mysql_secure_installation`
 
-- OpenVAS
+- [OpenVAS](https://tools.kali.org/vulnerability-analysis/openvas)
     - Username: `admin`
     - Password: `<Generated during setup>`
     - Setup Program: `openvas-setup`
 
-- Metasploit-Framework
+- [[Metasploit-Framework](https://tools.kali.org/exploitation-tools/metasploit-framework)
     - Username: `postgres`
     - Password: `postgres`
     - Configuration File: `/usr/share/metasploit-framework/config/database.yml`

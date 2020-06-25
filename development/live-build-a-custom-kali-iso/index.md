@@ -24,6 +24,7 @@ Ideally, you should build your custom Kali ISO from **within a pre-existing Kali
 We first need to prepare the Kali ISO build environment by installing and setting up live-build and its requirements with the following commands:
 
 ```markdown
+sudo apt update
 sudo apt install -y curl git live-build cdebootstrap
 git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 ```
@@ -55,6 +56,7 @@ Since Kali 2.0, we now support built in configurations for various desktop envir
 
 #...and so on.
 ```
+
 #### Controlling the packages included in your build
 
 The list of packages included in your build will be present in the the respective kali-$variant directory. For example, if you're building a default Xfce ISO, you would use the following package lists file - **kali-config/variant-xfce/package-lists/kali.list.chroot**. By default, this list includes the "kali-linux-default" [metapackage](/docs/general-use/metapackages/), as well as some others. These can be commented out and replaced with a manual list of packages to include in the ISO for greater granularity.

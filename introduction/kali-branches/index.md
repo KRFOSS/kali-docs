@@ -5,7 +5,7 @@ icon:
 date: 2020-01-13
 type: post
 weight:
-author: ["gamb1t", "g0tmi1k","LindirQuenya",]
+author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
 tags: ["",]
 keywords: ["",]
 og_description:
