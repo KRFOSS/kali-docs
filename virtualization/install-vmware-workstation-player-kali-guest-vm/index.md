@@ -4,7 +4,7 @@ description:
 icon:
 date: 2020-05-08
 type: post
-weight: 1
+weight:
 author: ["g0tmi1k",]
 tags: ["",]
 keywords: ["",]

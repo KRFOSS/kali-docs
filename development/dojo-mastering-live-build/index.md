@@ -4,7 +4,7 @@ description:
 icon:
 date: 2020-02-22
 type: post
-weight: 100
+weight: 20
 author: ["g0tmi1k",]
 tags: ["dojo",]
 keywords: ["",]
