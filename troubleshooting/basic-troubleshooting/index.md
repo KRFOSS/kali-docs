@@ -24,6 +24,7 @@ Troubleshooting Linux can be very confusing due to all of the moving parts. This
 - `/var/log/Xorg.0.log` - Contains log messages from X
 - `/var/log/lightdm/lightdm.log` - Contains events from lightdm
 - `/var/log/kern.log` - Contains kernel messages only
+- `~/.xsession-errors` - Contains errors that occur within the Linux graphical environment from the X window session
 
 Different programs may have log files in their own locations as well. Checking the man pages (`man package`) will likely provide the information needed to either find the file or find a different location that will contain the information you need.
 
