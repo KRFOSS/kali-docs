@@ -35,5 +35,5 @@ In addition, misuse of security and penetration testing tools within a network,
 However, if you're a professional penetration tester or are studying penetration testing with a goal of becoming a certified professional, there's no better toolkit — at any price — than Kali Linux.
 
 {{% notice info %}}
-If you are looking for a Linux distribution to learn the basics of Linux and need a good starting point, Kali Linux is not the ideal distribution for you. You may want to begin with [Ubuntu](https://www.ubuntu.com), [Mint](https://www.linuxmint.com), or [Debian](https://www.debian.org/) instead. If you're interested in getting hands-on with the internals of Linux, take a look the ["Linux From Scratch"](http://www.linuxfromscratch.org/) project.
+If you are looking for a Linux distribution to learn the basics of Linux and need a good starting point, Kali Linux is not the ideal distribution for you. You may want to begin with <a href="https://www.ubuntu.com" >Ubuntu</a>, <a href="https://www.linuxmint.com">Mint</a>, or <a href="https://www.debian.org/" >Debian</a> instead. If you're interested in getting hands-on with the internals of Linux, take a look the <a href="http://www.linuxfromscratch.org/" >Linux From Scratch</a> project.
 {{% /notice %}}
