@@ -37,3 +37,19 @@ However, if you're a professional penetration tester or are studying penetration
 {{% notice info %}}
 If you are looking for a Linux distribution to learn the basics of Linux and need a good starting point, Kali Linux is not the ideal distribution for you. You may want to begin with <a href="https://www.ubuntu.com" >Ubuntu</a>, <a href="https://www.linuxmint.com">Mint</a>, or <a href="https://www.debian.org/" >Debian</a> instead. If you're interested in getting hands-on with the internals of Linux, take a look the <a href="http://www.linuxfromscratch.org/" >Linux From Scratch</a> project.
 {{% /notice %}}
+
+## Summary
+
+So, after having read this you should have figured out if **Kali Linux** is the distribution you were looking for or at least got an idea about your choice.
+
+If still you haven't figured it out, here is a summary that  will hopefully remove your remaining doubts:
+
+- Kali Linux is made with **pentesters** and **pentesting** in mind so, expecting it to fit with your necessity *might* not be as simple even though it's completely possible.
+- If you are new to **Linux** or have less experience with **command line** you might find Kali Linux to be not so user-friendly, even though our developers try to make it as user-friendly as possible some things might be intimidating to you if you are new.
+- The developers always try to make Kali Linux as much hardware compatible as possible but, still some hardware/s *might not work* as *expected* or *not work at all*. So, its better to **research hardware compatibility** beforehand rather than breaking your computer later.
+- If you are installing Kali Linux for the first time, it is recommended to install first in Virtual Machine then, after getting familiar with it then, you can install it in your hardware.
+
+
+Hopefully, now you know if you need to install **Kali Linux** or not. If you have decided to install **Kali Linux** then, we welcome you to our community. 
+
+If not, then see you later, and remember always **"Try Harder"**.
