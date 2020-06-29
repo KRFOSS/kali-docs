@@ -47,7 +47,7 @@ If still you haven't figured it out, here is a summary that  will hopefully remo
 - Kali Linux is made with **pentesters** and **pentesting** in mind so, expecting it to fit with your necessity *might* not be as simple even though it's completely possible.
 - If you are new to **Linux** or have less experience with **command line** you might find Kali Linux to be not so user-friendly, even though our developers try to make it as user-friendly as possible some things might be intimidating to you if you are new.
 - The developers always try to make Kali Linux as much hardware compatible as possible but, still some hardware/s *might not work* as *expected* or *not work at all*. So, its better to **research hardware compatibility** beforehand rather than breaking your computer later.
-- If you are installing Kali Linux for the first time, it is recommended to install first in Virtual Machine then, after getting familiar with it then, you can install it in your hardware.
+- If you are installing Kali Linux for the first time, it is recommended to install first in Virtual Machine then, after getting familiar with it, you can install it in your own hardware.
 
 
 Hopefully, now you know if you need to install **Kali Linux** or not. If you have decided to install **Kali Linux** then, we welcome you to our community. 
