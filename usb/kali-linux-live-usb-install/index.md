@@ -111,7 +111,7 @@ Consider yourself warned.
 4. Unmount the drive (assuming, for this example, the USB stick is **/dev/disk6** — _do **not** simply copy this, verify the correct path on your own system!_):
 
 ```markdown
-diskutil unmount /dev/disk6
+diskutil unmountDisk /dev/disk6
 ```
 
 5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2020.2-live-amd64.iso":
