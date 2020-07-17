@@ -42,24 +42,24 @@ WARNING: Although the process of imaging Kali on a USB drive is very easy, you c
 Consider yourself warned.
 {{% /notice %}}
 
-1. **_Without_** the USB drive plugged into the system, open a Terminal window, and type the command **diskutil list** at the command prompt.
+1. **_Without_** the USB drive plugged into the system, open a Terminal window, and type the command `diskutil list` at the command prompt.
 
-2. You will get a list of the device paths (looking like **/dev/rdisk0**, **/dev/rdisk1**, etc.) of the disks mounted on your system, along with information on the partitions on each of the disks.
+2. You will get a list of the device paths (looking like **/dev/disk0**, **/dev/disk1**, etc.) of the disks mounted on your system, along with information on the partitions on each of the disks.
 
 ![TerminalScreenSnapz010](TerminalScreenSnapz010.png)
-3. Plug in your USB device to your Apple computer's USB port and run the command **diskutil list** a second time. Your USB drive's path will most likely be the last one. In any case, it will be one which wasn't present before. In this example, you can see that there is now a /dev/disk6 which wasn't previously present.
+3. Plug in your USB device to your Apple computer's USB port and run the command `diskutil list` a second time. Your USB drive's path will most likely be the last one. In any case, it will be one which wasn't present before. In this example, you can see that there is now a **/dev/disk6** which wasn't previously present.
 
 ![TerminalScreenSnapz011](TerminalScreenSnapz011.png)
 4. Unmount the drive (assuming, for this example, the USB stick is **/dev/disk6** — _do **not** simply copy this, verify the correct path on your own system!_):
 
 ```markdown
-diskutil unmountDisk /dev/disk6
+% diskutil unmountDisk /dev/disk6
 ```
 
 5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2020.2-live-amd64.iso":
 
 ```markdown
-dd if=kali-linux-2020.2-live-amd64.iso of=/dev/disk6 bs=4M
+% sudo dd if=kali-linux-2020.2-live-amd64.iso of=/dev/disk6 bs=4m
 ```
 
 {{% notice info %}}
