@@ -1,5 +1,5 @@
 ---
-title: Making a Kali Bootable USB Drive
+title: Making a Kali Bootable USB Drive (Windows)
 description:
 icon:
 date: 2020-03-07
