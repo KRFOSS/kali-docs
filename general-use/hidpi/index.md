@@ -29,6 +29,16 @@ After logging into Kali, the wallpaper may look "normal", but everything else mi
 
 You have two ways of altering this, either graphical or through the command line. To alter the scaling factor to "*x2*":
 
+- In a terminal window, run the following commands:
+```
+kali@kali:~$ echo export GDK_SCALE=2 >> ~/.xsessionrc
+kali@kali:~$
+kali@kali:~$ xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
+kali@kali:~$
+kali@kali:~$ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
+kali@kali:~$
+```
+
 - Graphical:
   - "*Kali -> Settings -> Appearance -> Settings -> Windows Scaling*"
   - "*Kali -> Settings -> Appearance -> Window Manager -> Theme: Kali-Dark-xHiDPI"
@@ -36,14 +46,6 @@ You have two ways of altering this, either graphical or through the command line
 ![](kali-menu-setting-manager.png)
 ![](appearance-settings.png)
 ![](window-manager.png)
-
-- In a terminal window, run the following commands:
-
-```
-kali@kali:~$ echo export GDK_SCALE=2 >> ~/.xsessionrc
-kali@kali:~$ xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
-kali@kali:~$ xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
-```
 
 The quickest way to clean up any left over artifacts is to now log out and in again.
 
@@ -53,6 +55,7 @@ Some apps, such as [qterminal](https://packages.debian.org/testing/qterminal), d
 
 ```
 kali@kali:~$ echo export QT_SCALE_FACTOR=2 >> ~/.xsessionrc
+kali@kali:~$
 ```
 
 #### Cursor size
@@ -101,7 +104,8 @@ You have two ways of altering this, either graphical or through the command line
 
 - In a terminal window, run the following commands:
 ```
-kali@kali:~$ nano ~/.xsessionrc
+kali@kali:~$ vim ~/.xsessionrc
+kali@kali:~$
 kali@kali:~$ cat ~/.xsessionrc
 xrandr --dpi 200
 kali@kali:~$

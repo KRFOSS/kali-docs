@@ -308,7 +308,7 @@ sudo mv /mnt/@ /mnt/@_badroot
 # Roll back to a previous snapshot:
 sudo mv /mnt/@ /mnt/@apt-snapshot-2019-10-13_18:07:40 /mnt/@
 
-sudo reboot
+sudo reboot -f
 ```
 
 

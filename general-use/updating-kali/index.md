@@ -30,5 +30,8 @@ deb-src http://http.kali.org/kali kali-rolling main contrib non-free
 After that we can run the following commands which will upgrade us to the latest Kali versions.
 
 ```markdown
-kali@kali:~$ sudo apt update && sudo apt full-upgrade -y
+kali@kali:~$ sudo apt update
+kali@kali:~$
+kali@kali:~$ sudo apt full-upgrade -y
+kali@kali:~$
 ```

@@ -40,12 +40,12 @@ Installation:
        _The button "install" may not change to "installed" in the store client after installation - just ignore it._
       _Starting termux for the first time may seem stuck while displaying "installing" on some devices - just hit enter._
 
-* Open Termux and type:  
-  ```termux-setup-storage 
+* Open Termux and type:
+  ```termux-setup-storage
   pkg install wget
   wget -O install-nethunter-termux https://offs.ec/2MceZWr
   chmod +x install-nethunter-termux
-  ./install-nethunter-termux  
+  ./install-nethunter-termux
   ```
 
 
@@ -86,7 +86,7 @@ Please refer to [this table](../#1-0-nethunter-editions) for a comparison of the
 
 ## Tips:
 
-1. Run `apt update && apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
+1. Run `sudo apt update && sudo apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
 2. Firefox won't work on unrooted devices. Just replace it with Chromium via:
    `apt remove firefox-esr`
    `apt install chromium`

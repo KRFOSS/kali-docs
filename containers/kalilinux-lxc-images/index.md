@@ -194,7 +194,7 @@ Installing a privileged Kali Linux container on a Kali host only requires to:
 1 - Install lxc and setup the network:
 
 ```bash
-sudo apt-get install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
+sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
 
 sudo cat << EOF > /etc/lxc/default.conf
 lxc.net.0.type = veth
@@ -270,7 +270,7 @@ The setup it slightly more involved:
 1 - Install lxc (if required):
 
 ```bash
-sudo apt-get install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
+sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
 ```
 2 - Setup LXC for unprivileged containers
 

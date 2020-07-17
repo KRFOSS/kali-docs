@@ -21,9 +21,12 @@ The VirtualBox Guest Additions provide proper mouse and screen integration, as w
 Start up your Kali Linux virtual machine, open a terminal window and issue the following commands.
 
 ```markdown
-sudo apt update
-sudo apt install -y virtualbox-guest-x11
-reboot
+kali@kali:~$ sudo apt update
+kali@kali:~$
+kali@kali:~$ sudo apt install -y virtualbox-guest-x11
+kali@kali:~$
+kali@kali:~$ sudo reboot -f
+kali@kali:~$
 ```
 
 ![virtualbox-tools](virtualbox-tools.png)
@@ -33,7 +36,10 @@ reboot
 Start up your Kali Linux virtual machine, open a terminal window and issue the following command to install the Linux kernel headers.
 
 ```markdown
-sudo apt update && sudo apt install -y linux-headers-$(uname -r)
+kali@kali:~$ sudo apt update
+kali@kali:~$
+kali@kali:~$ sudo apt install -y linux-headers-$( uname -r )
+kali@kali:~$
 ```
 
 Once this is complete you can now attach the "Guest Additions" CD-ROM image. Select "Devices" from the VirtualBox menu and then select "Install Guest Additions". This will mount the Guest Additions ISO in the virtual CD drive in your Kali Linux virtual machine. When prompted to autorun the CD, click the Cancel button.
@@ -43,10 +49,13 @@ Once this is complete you can now attach the "Guest Additions" CD-ROM image. Sel
 From a terminal window, copy the VboxLinuxAdditions.run file from the Guest Additions CD-ROM to a path on your local system. Ensure it is executable and run the file to begin the installation.
 
 ```markdown
-cp /media/cd-rom/VBoxLinuxAdditions.run /$HOME/
-chmod 755 /$HOME/VBoxLinuxAdditions.run
-cd /$HOME
-./VBoxLinuxAdditions.run
+kali@kali:~$ cp /media/cd-rom/VBoxLinuxAdditions.run /$HOME/
+kali@kali:~$
+kali@kali:~$ chmod 0755 /$HOME/VBoxLinuxAdditions.run
+kali@kali:~$ cd /$HOME/
+kali@kali:~$
+kali@kali:~$ ./VBoxLinuxAdditions.run
+kali@kali:~$
 ```
 
 ![VirtualBox-VBox-Additions-Install](Figure-19-VBox-Additions-Install.png)

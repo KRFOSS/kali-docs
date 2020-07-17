@@ -15,10 +15,12 @@ Kali Linux is supported on many different devices and systems. On some of those 
 
 ```
 #!/bin/sh
+
 echo "[+] Installing Xfce, this will take a while"
 apt-get update
 apt-get dist-ugrade -y --force-yes
 apt-get install --yes --force-yes kali-desktop-xfce xorg xrdp
+
 echo "[+] Configuring XRDP to listen to port 3390 (but not starting the service)..."
 sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
 ```

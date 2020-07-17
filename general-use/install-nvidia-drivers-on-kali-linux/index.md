@@ -15,7 +15,7 @@ Do not attempt this in a VM. It is [possible in theory](https://mathiashueber.co
 
 This document explains how to install NVIDIA GPU drivers and CUDA support, allowing integration with popular penetration testing tools.
 
-This guide is also for a dedicated card (desktops users), not Optimus (notebook users). We do not have the hardware in order to write up the guide. So we are looking for [community contribution](https://www.kali.org/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/install-nvidia-drivers-on-kali-linux/index.md)!
+**This guide is also for a dedicated card (desktops users), not Optimus (notebook users). We do not have the hardware in order to write up the guide. So we are looking for [community contribution](https://www.kali.org/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/install-nvidia-drivers-on-kali-linux/index.md)!**
 
 ## Prerequisites
 
@@ -28,7 +28,12 @@ GPUs with a <a href=https://developer.nvidia.com/cuda-gpus> CUDA compute capabil
 Afterwards, make sure you have [`contrib` & `non-free` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is fully upgraded:
 
 ```markdown
-kali@kali:~$ sudo apt update && sudo apt -y full-upgrade -y && sudo reboot
+kali@kali:~$ sudo apt update
+kali@kali:~$
+kali@kali:~$ sudo apt -y full-upgrade -y
+kali@kali:~$
+kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
+kali@kali:~$
 ```
 
 Let's determine the exact GPU installed, and check the kernel modules it's using:
@@ -53,21 +58,21 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 
+Notice how `Kernel driver in use` & `Kernel modules` are using nouveau? This is the open source driver for nVidia. This guide covers installing the close source.
+
 {{% notice info %}}
 There is a package called `nvidia-detect` which will fail to detect the driver due to Kali being a Rolling distribution and requires a stable release.
 {{% /notice %}}
 
 ## Installation
 
-Once the system has rebooted, we will proceed to install the **Drivers**, and the **CUDA toolkit**:
-
-```markdown
-kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
-```
+Once the system has rebooted from doing an OS upgrade, we will proceed to install the **Drivers**, and the **CUDA toolkit**.
 
 During installation of the drivers the system created new kernel modules, so another reboot is required:
 
 ```markdown
+kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+
 ┌─────────────────────────────────┤ Configuring xserver-xorg-video-nvidia ├─────────────────────────────────┐
 │                                                                                                           │
 │ Conflicting nouveau kernel module loaded                                                                  │
@@ -80,10 +85,14 @@ During installation of the drivers the system created new kernel modules, so ano
 │                                                                                                           │
 └───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 
-
-
-kali@kali:~$ sudo reboot
+kali@kali:~$
+kali@kali:~$ sudo reboot -f
+kali@kali:~$
 ```
+
+## High DPI (HiDPI - High Dots Per Inch)
+
+Upon Kali starting back up, certain things may appear smaller/larger than expected. This could be because [HiDPI](/docs/general-use/hidpi/).
 
 ## Verify Driver Installation
 
@@ -110,8 +119,10 @@ Tue Jan 28 11:37:47 2020
 |    0       979      G   xfwm4                                          2MiB |
 +-----------------------------------------------------------------------------+
 kali@kali:~$
+kali@kali:~$ lspci | grep -i vga
+07:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
+kali@kali:~$
 kali@kali:~$ lspci -s 07:00.0 -v
-07:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1) (prog-if 00 [VGA controller])
 ...SNIP...
         Kernel driver in use: nvidia
         Kernel modules: nvidia
@@ -119,16 +130,13 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 
-## High DPI (HiDPI - High Dots Per Inch)
-
-Upon Kali starting back up, certain things may appear smaller/larger than expected. This could be because [HiDPI](/docs//general-use/hidpi/).
-
 ## Hashcat
 
 With the output displaying our driver and GPU correctly, we can now dive into benchmarking. Before we get too far ahead, let's double check to make sure [hashcat](https://tools.kali.org/password-attacks/hashcat) and CUDA are working together.
 
 ```html
 kali@kali:~$ sudo apt install -y hashcat
+kali@kali:~$
 kali@kali:~$ hashcat -I
 hashcat (v5.1.0) starting...
 
@@ -197,6 +205,7 @@ In the event setup isn't going as planned, we'll install [clinfo](https://packag
 
 ```markdown
 kali@kali:~$ sudo apt install -y clinfo
+kali@kali:~$
 kali@kali:~$ clinfo
 Number of platforms                               1
   Platform Name                                   NVIDIA CUDA
@@ -208,6 +217,7 @@ Number of platforms                               1
 
   Platform Name                                   NVIDIA CUDA
 ...SNIP...
+kali@kali:~$
 kali@kali:~$ clinfo | wc -l
 116
 kali@kali:~$
@@ -232,6 +242,7 @@ If **mesa-opencl-icd** is installed, we should remove it:
 ```markdown
 kali@kali:~$ dpkg -l |  grep -i mesa-opencl-icd
 ii  mesa-opencl-icd:amd64                19.3.2-1                        amd64        free implementation of the OpenCL API -- ICD runtime
+kali@kali:~$
 kali@kali:~$ sudo apt remove mesa-opencl-icd
 kali@kali:~$
 ```
@@ -300,6 +311,7 @@ It looks like our GPU is being recognized correctly, so let's use [glxinfo](http
 
 ```markdown
 kali@kali:~$ sudo apt install -y mesa-utils
+kali@kali:~$
 kali@kali:~$ glxinfo | grep -i "direct rendering"
 direct rendering: Yes
 kali@kali:~$
