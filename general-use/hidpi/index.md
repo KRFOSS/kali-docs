@@ -86,7 +86,7 @@ kali@kali:~$ echo export XCURSOR_SIZE=48 >> ~/.xsessionrc
 kali@kali:~$
 ```
 
-{{% notice info %}
+{{% notice info %}}
 You may need to try increasing the value from `48`.
 {{% /notice %}}
 
@@ -120,11 +120,11 @@ kali@kali:~$
 ![](kali-menu-setting-manager.png)
 ![](appearance-fonts.png)
 
-{{% notice info %}
+{{% notice info %}}
 Due to a bug, you will need to either toggle `Custom DPI Settings` or increase/decrease the value then restore it back to the value previously.
 {{% /notice %}}
 
-{{% notice info %}
+{{% notice info %}}
 You may need to try increasing the value from `180`.
 {{% /notice %}}
 
@@ -152,6 +152,6 @@ xft-dpi = 180
 kali@kali:~$
 ```
 
-{{% notice info %}
+{{% notice info %}}
 You may need to try increasing the value from `180`.
 {{% /notice %}}
