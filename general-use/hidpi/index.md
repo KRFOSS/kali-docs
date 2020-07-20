@@ -25,13 +25,11 @@ In case you need a more general script to enable HiDPI in your desktop, here you
 **Remember to log out and in again after running it**.
 
 ```
-xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
+grep -q '^GDK_SCALE=' ~/.xsessionrc || echo export GDK_SCALE=2 >> ~/.xsessionrc
+grep -q '^QT_SCALE_FACTOR=' ~/.xsessionrc || echo export QT_SCALE_FACTOR=2 >> ~/.xsessionrc
+grep -q '^XCURSOR_SIZE=' ~/.xsessionrc || echo export XCURSOR_SIZE=48 >> ~/.xsessionrc
 xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
-cat <<EOF >> ~/.xsessionrc
-  export QT_SCALE_FACTOR=2
-  export XCURSOR_SIZE=48
-  export GDK_SCALE=2
-EOF
+xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
 ```
 
 Below is more of an explanation of the actions.
@@ -45,7 +43,8 @@ After logging into Kali, the wallpaper may look "normal", but everything else mi
 ![](scaling-factor.png)
 
 Increasing the "Scaling Factor" from "x1" to "x2" should address this problem.
-You have two ways of altering this, either graphical or through the command line. To alter the scaling factor to "*x2*":
+
+To alter the **scaling factor** to "**x2**", You have two ways, either through the command line or graphical:
 
 - In a terminal window, run the following commands:
 
@@ -66,11 +65,13 @@ kali@kali:~$
 ![](appearance-settings.png)
 ![](window-manager.png)
 
-**The quickest way to clean up any left over artifacts is to now log out and in again**.
+The quickest way to clean up any left over artifacts is to **log out and in again**.
 
 #### Qt
 
-Some apps, such as [qTerminal](https://packages.debian.org/testing/qterminal), don't use the scale factor explained before, so they need to be configure separately. To do so, you need to set the following environmental variables in the `~/.xsessionrc` file:
+Some apps, such as [qTerminal](https://packages.debian.org/testing/qterminal), don't use the scale factor explained before, so they need to be configure separately.
+
+To do so, you need to set the following environmental variables in the `~/.xsessionrc` file:
 
 ```
 kali@kali:~$ echo export QT_SCALE_FACTOR=2 >> ~/.xsessionrc
@@ -79,7 +80,9 @@ kali@kali:~$
 
 ### Cursor size
 
-Enabling HiDPI settings can cause some issues with the mouse size, and you might see how its size varies depending on the application you place it over. To solve this, you can force the cursor size with the following command:
+Enabling HiDPI settings can cause some issues with the mouse size, and you might see how its size varies depending on the application you place it over.
+
+To solve this, you can force the cursor size with the following command:
 
 ```
 kali@kali:~$ echo export XCURSOR_SIZE=48 >> ~/.xsessionrc
