@@ -82,7 +82,7 @@ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root
 make uImage
 cp arch/arm/boot/uImage ~/arm-stuff/images/boot
 
-cat << EOF > ~/arm-stuff/images/boot/boot.script
+cat <<EOF > ~/arm-stuff/images/boot/boot.script
 setenv ramdisk uInitrd;
 setenv kernel uImage;
 setenv bootargs console=tty1 root=/dev/mmcblk0p2 rootwait rootfstype=ext4 rw quiet;

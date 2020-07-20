@@ -96,7 +96,7 @@ M ttySAC1 c 5 1
 Add _ttySAC_ entries in the **~/arm-stuff/images/root/etc/udev/links.conf** file.
 
 ```markdown
-cat << EOF >> root/etc/securetty
+cat <<EOF >> root/etc/securetty
 ttySAC0
 ttySAC1
 ttySAC2
@@ -106,7 +106,7 @@ EOF
 Place a basic xorg.conf file in the rootfs.
 
 ```html
-cat << EOF > root/etc/X11/xorg.conf
+cat <<EOF > root/etc/X11/xorg.conf
 # X.Org X server configuration file for xfree86-video-mali
 
 Section "Device"
@@ -201,7 +201,7 @@ cp arch/arm/boot/zImage ~/arm-stuff/images/boot/
 Dump a **boot.txt** file, which contains required boot parameters for the ODROID in the boot partition.
 
 ```markdown
-cat << EOF > ~/arm-stuff/images/boot/boot.txt
+cat <<EOF > ~/arm-stuff/images/boot/boot.txt
 setenv initrd_high "0xffffffff"
 setenv fdt_high "0xffffffff"
 setenv bootcmd "fatload mmc 0:1 0x40008000 zImage; fatload mmc 0:1 0x42000000 uInitrd; bootm 0x40008000 0x42000000"
@@ -244,7 +244,7 @@ If everything works and you want the ODROID to start on boot, make sure to use t
 
 ```html
 # If you don't have a .bash_profile, copy it from /etc/skel/.profile first
-cat << EOF >> ~/.bash_profile
+cat <<EOF >> ~/.bash_profile
 if [ -z "$DISPLAY" ] && [ $(tty) = /dev/ttySAC1 ]; then
 startx
 fi

@@ -114,7 +114,7 @@ cd ../
 ./tools/rebuild.sh
 cd ../
 
-cat << EOF > boot/uEnv.txt
+cat <<EOF > boot/uEnv.txt
 mmcroot=/dev/mmcblk0p2 ro
 mmcrootfstype=ext4 rootwait fixrtc
 uenvcmd=run loaduimage; run loadfdt; run mmcargs; bootz 0x80200000 - 0x80F80000
@@ -127,7 +127,7 @@ tar -xovf kernel/linux-dev/deploy/3.8.13-bone20-dtbs.tar.gz -C boot/dtbs/
 tar -xovf kernel/linux-dev/deploy/3.8.13-bone20-modules.tar.gz -C root/
 tar -xovf kernel/linux-dev/deploy/3.8.13-bone20-firmware.tar.gz -C root/lib/firmware/
 
-cat << EOF > root/etc/fstab
+cat <<EOF > root/etc/fstab
 /dev/mmcblk0p2 / auto errors=remount-ro 0 1
 /dev/mmcblk0p1 /boot/uboot auto defaults 0 0
 EOF

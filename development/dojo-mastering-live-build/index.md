@@ -27,7 +27,7 @@ cd live-build-config/
 **0x01 - Overwrite the default Kali package list**, including only the packages you want. In the video, we simply edited the list and changed a few package names.
 
 ```markdown
-cat << EOF > kali-config/variant-default/package-lists/kali.list.chroot
+cat <<EOF > kali-config/variant-default/package-lists/kali.list.chroot
 kali-root-login
 kali-defaults
 kali-menu
@@ -43,7 +43,7 @@ EOF
 **0x02 - Add a customised syslinux boot entry** which includes a boot parameter for a custom preseed file.
 
 ```html
-cat << EOF > kali-config/common/includes.binary/isolinux/install.cfg
+cat <<EOF > kali-config/common/includes.binary/isolinux/install.cfg
 label install
     menu label ^Install Automated
     linux /install/vmlinuz

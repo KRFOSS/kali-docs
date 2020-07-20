@@ -196,7 +196,7 @@ Installing a privileged Kali Linux container on a Kali host only requires to:
 ```bash
 sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
 
-sudo cat << EOF > /etc/lxc/default.conf
+sudo cat <<EOF > /etc/lxc/default.conf
 lxc.net.0.type = veth
 lxc.net.0.link = virbr0
 lxc.net.0.flags = up

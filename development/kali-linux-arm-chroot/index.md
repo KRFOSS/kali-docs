@@ -24,7 +24,7 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 The intention in this article is more to provide a high-level overview of how the build scripts work than an actual manual procedure (although it's completely possible to walk through this example at the command line). The style mimics that used in the build scripts used to create the pre-rolled images. Specifically, you'll see a construct in several places that looks like:
 
 ```html
-cat << EOF > kali-$architecture/etc/apt/sources.list
+cat <<EOF > kali-$architecture/etc/apt/sources.list
 deb http://http.kali.org/kali kali-rolling main non-free contrib
 EOF
 ```
@@ -123,20 +123,20 @@ First, we'll chroot into our newly-created base rootfs, use **debootstrap** a se
 cd ~/arm-stuff/rootfs
 LANG=C chroot kali-$architecture /debootstrap/debootstrap --second-stage
 
-cat << EOF > kali-$architecture/etc/apt/sources.list
+cat <<EOF > kali-$architecture/etc/apt/sources.list
 deb http://http.kali.org/kali kali-rolling main non-free contrib
 EOF
 
 echo "kali" > kali-$architecture/etc/hostname
 
-cat << EOF > kali-$architecture/etc/network/interfaces
+cat <<EOF > kali-$architecture/etc/network/interfaces
 auto lo
 iface lo inet loopback
 auto eth0
 iface eth0 inet dhcp
 EOF
 
-cat << EOF > kali-$architecture/etc/resolv.conf
+cat <<EOF > kali-$architecture/etc/resolv.conf
 nameserver 8.8.8.8
 EOF
 ```
@@ -156,7 +156,7 @@ mount -t proc proc kali-$architecture/proc
 mount -o bind /dev/ kali-$architecture/dev/
 mount -o bind /dev/pts kali-$architecture/dev/pts
 
-cat << EOF > kali-$architecture/debconf.set
+cat <<EOF > kali-$architecture/debconf.set
 console-common console-data/keymap/policy select Select keymap from full list
 console-common console-data/keymap/full select en-latin1-nodeadkeys
 EOF
@@ -165,7 +165,7 @@ EOF
 Here, we'll create the script to do the third-stage chroot
 
 ```html
-cat << EOF > kali-$architecture/third-stage
+cat <<EOF > kali-$architecture/third-stage
 #!/bin/bash
 dpkg-divert --add --local --divert /usr/sbin/invoke-rc.d.chroot --rename /usr/sbin/invoke-rc.d
 cp /bin/true /usr/sbin/invoke-rc.d
@@ -218,7 +218,7 @@ exit
 Lastly, we create and run a cleanup script in our chroot to free up space used by cached files and run any other cleanup jobs we may require, and unmount the directories we were using in our rootfs.
 
 ```html
-cat << EOF > kali-$architecture/cleanup
+cat <<EOF > kali-$architecture/cleanup
 #!/bin/bash
 rm -rf /root/.bash_history
 apt update

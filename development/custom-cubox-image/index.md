@@ -80,7 +80,7 @@ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root
 make uImage
 cp arch/arm/boot/uImage ~/arm-stuff/images/root/boot
 
-cat << EOF > ~/arm-stuff/images/root/boot/boot.txt
+cat <<EOF > ~/arm-stuff/images/root/boot/boot.txt
 echo "== Executing ${directory}${bootscript} on ${device_name} partition ${partition} =="
 setenv unit_no 0
 setenv root_device ?
