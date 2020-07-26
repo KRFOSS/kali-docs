@@ -46,7 +46,7 @@ Some tools shipped with Kali, will use their own default hardcoded credentials (
     - Password: `<Generated during setup>`
     - Setup Program: `openvas-setup`
 
-- [[Metasploit-Framework](https://tools.kali.org/exploitation-tools/metasploit-framework)
+- [Metasploit-Framework](https://tools.kali.org/exploitation-tools/metasploit-framework)
     - Username: `postgres`
     - Password: `postgres`
     - Configuration File: `/usr/share/metasploit-framework/config/database.yml`
