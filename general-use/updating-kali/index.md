@@ -19,7 +19,7 @@ If you are using [last-snapshot](https://www.kali.org/docs/introduction/kali-bra
 
 # How to update Kali?
 
-To update Kali, first ensure that `etc/apt/sources.list` is properly populated.
+To update Kali, first ensure that `/etc/apt/sources.list` is properly populated.
 
 ```markdown
 kali@kali:~$ cat /etc/apt/sources.list
