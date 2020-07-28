@@ -1,5 +1,5 @@
 ---
-title: WSL2 with Win-Kex
+title: WSL2 with Win-KeX
 description: Windows Subsystem for Linux
 icon: ti-pin
 date: 2020-07-28
@@ -25,7 +25,7 @@ og_description:
 
 ## Overview
 
-#### We are going to install Kali Linux in Windows Subsystem for Linux (Version 2) with win-kex (Kali Desktop Environment for Windows) in under 2 minutes.
+#### We are going to install Kali Linux in Windows Subsystem for Linux (Version 2) with win-kex (Kali Desktop Experience for Windows) in under 2 minutes.
 
 ![win-kex-full](./win-kex-full.png)
 
@@ -78,19 +78,19 @@ Note: You can skip the installation of xrdp and follow the last steps of this gu
 
 &nbsp;
 
-### Install Win-Kex
+### Install Win-KeX
 
 - Install win-kex via:  
   `sudo apt update && sudo apt install kali-win-kex`
 
 &nbsp;
 
-## Run Win-Kex
+## Run Win-KeX
 
 - Run win-kex via:  
 `win-kex`
 
-![Win-Kex](./win-kex.png)
+  ![Win-Kex](./win-kex.png)
 
 &nbsp;
 
@@ -99,7 +99,7 @@ Note: You can skip the installation of xrdp and follow the last steps of this gu
 - If you have the space, why not install "Kali with the lot"?:  
 `sudo apt install kali-linux-large`
 
-![Win-Kex with the Lot](./win-kex-thelot.png)
+  ![Win-Kex with the Lot](./win-kex-thelot.png)
 
 
 - Create a Windows Terminal Shortcut
@@ -140,15 +140,13 @@ Note: You can skip the installation of xrdp and follow the last steps of this gu
 
   ![Win-Kex in WTS](./win-kex-wt1.png)
 
-![Win-Kex in wts](./win-kex-wt2.png)
+  ![Win-Kex in wts](./win-kex-wt2.png)
 
+  Tip: If you are running different linux distributions in WSL, you can force to run win-kex in Kali by changing the command line to:  
+  `"commandline": "wsl -d kali-linux kex wtstart",`
 
-
-Tip: If you are running different linux distributions in WSL, you can force to run win-kex in Kali by changing the command line to:  
-`"commandline": "wsl -d kali-linux kex wtstart",`
-
-![win-kex-full](./win-kex-full.png)
+  ![win-kex-full](./win-kex-full.png)
 
 &nbsp;
 
-#### Enjoy Win-Kex!
+#### Enjoy Win-KeX!
