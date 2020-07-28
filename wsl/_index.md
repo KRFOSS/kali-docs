@@ -27,9 +27,9 @@ og_description:
 
 #### We are going to install Kali Linux in Windows Subsystem for Linux (Version 2) with win-kex (Kali Desktop Environment for Windows) in under 2 minutes.
 
-![win-kex-full](/home/re4son/devel/kali-docs/content/wsl/win-kex-full.png)
+![win-kex-full](./win-kex-full.png)
 
-
+&nbsp;
 
 ## Installation
 
@@ -39,51 +39,55 @@ All installation steps, up to the point were we install Win-Kex, are also explai
 
 Note: You can skip the installation of xrdp and follow the last steps of this guide to install Win-Kex instead.
 
+&nbsp;
+
 ### Prerequisites
 
 - Running Windows 10 version 2004 or higher
 
 ### Install Kali Linux in WSL2
 
-- Open PowerShell as administrator and run:
+- Open PowerShell as administrator and run:  
 
   ```
   Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
   ```
 
-- Restart
+- Restart  
 
-- Open PowerShell as administrator and run:
+- Open PowerShell as administrator and run:  
 
   ```
   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
   dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
   ```
 
-- Restart
+- Restart  
 
-- Download and install the WSL2 Linux Kernel from here: https://aka.ms/wsl2kernel
+- Download and install the WSL2 Linux Kernel from here: https://aka.ms/wsl2kernel  
 
-- Open PowerShell as administrator and run:
-wsl --set-default-version 2
+- Open PowerShell as administrator and run:  
+`wsl --set-default-version 2`
 
-- Install Kali Linux from the Microsoft Store
+- Install Kali Linux from the Microsoft Store  
 
-  Note: to upgrade an existing WSL1 kali-linux installation, type:
-  `wsl --set-version kali-linux 2`
+  Note: to upgrade an existing WSL1 kali-linux installation, type:  
+  `wsl --set-version kali-linux 2`  
 
-- Run Kali and finish the initial setup
+- Run Kali and finish the initial setup  
+
+&nbsp;
 
 ### Install Win-Kex
 
-- Install win-kex via:
+- Install win-kex via:  
   `sudo apt update && sudo apt install kali-win-kex`
 
 &nbsp;
 
 ## Run Win-Kex
 
-- Run win-kex via:
+- Run win-kex via:  
 `win-kex`
 
 ![Win-Kex](./win-kex.png)
@@ -92,7 +96,7 @@ wsl --set-default-version 2
 
 ## Optional Steps:
 
-- If you have the space, why not install "Kali with the lot"?:
+- If you have the space, why not install "Kali with the lot"?:  
 `sudo apt install kali-linux-large`
 
 ![Win-Kex with the Lot](./win-kex-thelot.png)
@@ -106,7 +110,7 @@ wsl --set-default-version 2
 
   choose one of these options:
 
-  ###### Basic:
+  **Basic:**  
 
   ```
   {
@@ -119,9 +123,9 @@ wsl --set-default-version 2
 
   
 
-  ###### Advanced - Kali icon and start in kali home directory:
+  **Advanced - Kali icon and start in kali home directory:**  
 
-  copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
+  Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
 
   ```
   {
@@ -140,10 +144,10 @@ wsl --set-default-version 2
 
 
 
-Tip: If you are running different linux distributions in WSL, you can force to run win-kex in Kali by changing the command line to:
+Tip: If you are running different linux distributions in WSL, you can force to run win-kex in Kali by changing the command line to:  
 `"commandline": "wsl -d kali-linux kex wtstart",`
 
-![win-kex-full](/home/re4son/devel/kali-docs/content/wsl/win-kex-full.png)
+![win-kex-full](./win-kex-full.png)
 
 &nbsp;
 
