@@ -32,7 +32,7 @@ xzcat kali-$version-acer.img | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your storage device speed and image size.
 
-Once the _dd_ operation is complete, boot up the Chromebook with the SD card plugged in. At the developer boot prompt, hit CTRL+U, which should boot you into Kali Linux. Log in to Kali (**_root_** / **_toor_**). That's it, you're done!
+Once the _dd_ operation is complete, boot up the Chromebook with the SD card plugged in. At the developer boot prompt, hit CTRL+U, which should boot you into Kali Linux. Log in to Kali (**_kali_** / **_kali_**). That's it, you're done!
 
 ## Kali on Acer Tegra Chromebook - Developer Instructions
 

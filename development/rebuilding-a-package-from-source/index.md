@@ -28,7 +28,7 @@ Before anything else, ensure that the `deb-src` line in `/etc/apt/sources.list` 
 ```html
 # Get the source package
 sudo apt update
-apt-get source libfreefare
+apt source libfreefare
 cd libfreefare-0.4.0/
 ```
 

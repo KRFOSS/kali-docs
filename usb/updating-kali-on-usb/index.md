@@ -25,12 +25,16 @@ First ensure that `etc/apt/sources.list` is properly populated.
 kali@kali:~$ cat /etc/apt/sources.list
 deb http://http.kali.org/kali kali-rolling main contrib non-free
 deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+kali@kali:~$
 ```
 
 After that we can run the following commands which will upgrade us to the latest Kali versions.
 
 ```markdown
-kali@kali:~$ sudo apt update && sudo apt full-upgrade -y
+kali@kali:~$ sudo apt update
+kali@kali:~$
+kali@kali:~$ sudo apt full-upgrade -y
+kali@kali:~$
 ```
 
 Using this, the kernel will not be updated however. If the kernel is needed to be upgraded, perhaps there is a security vulnerability patched, a re-write would be needed with the latest ISO. If there is data that is needed to be saved, an rsync to a separate storage device would be a good way to backup that data.

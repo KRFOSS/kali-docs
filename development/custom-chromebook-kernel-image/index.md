@@ -41,7 +41,7 @@ dd if=/dev/zero of=kali-custom-chrome.img bs=4M count=7000
 ```plaintext
 parted kali-custom-chrome.img --script -- mklabel msdos
 parted kali-custom-chrome.img --script -- mktable gpt
-gdisk kali-custom-chrome.img << EOF
+gdisk kali-custom-chrome.img <<EOF
 x
 l
 8192
@@ -88,7 +88,7 @@ rsync -HPavz ~/arm-stuff/rootfs/kali-armhf/ root
 echo nameserver 8.8.8.8 > root/etc/resolv.conf
 
 mkdir -p root/etc/X11/xorg.conf.d/
-cat << EOF > root/etc/X11/xorg.conf.d/50-touchpad.conf
+cat <<EOF > root/etc/X11/xorg.conf.d/50-touchpad.conf
 Section "InputClass"
 Identifier "touchpad"
 MatchIsTouchpad "on"
@@ -117,7 +117,7 @@ cd chromeos/
 ```
 
 ```html
-cat << EOF > kernel.its
+cat <<EOF > kernel.its
 /dts-v1/;
 
 / {

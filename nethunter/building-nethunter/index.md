@@ -22,37 +22,45 @@ Before you can build for a device, you will need to enter the **nethunter-instal
 The main build script is also located in the **nethunter-installer** directory and can be used to build images for multiple devices and Android OS versions as shown below:
 
 ```html
-root@kali:~/kali-nethunter/nethunter-installer# python build.py -h
-usage: build.py [-h] [--device DEVICE] [--kitkat] [--lollipop] [--marshmallow]
-                [--nougat] [--forcedown] [--uninstaller] [--kernel]
-                [--nokernel] [--nosu] [--generic ARCH] [--rootfs SIZE]
-                [--release VERSION]
+root@kali:~/kali-nethunter/nethunter-installer# python3 build.py -h
+usage: build.py [-h] [--device DEVICE] [--kitkat] [--lollipop] [--marshmallow] [--nougat] [--oreo] [--pie]
+                [--ten] [--forcedown] [--uninstaller] [--kernel] [--nokernel] [--nobrand] [--nofreespace]
+                [--supersu] [--nightly] [--generic ARCH] [--rootfs SIZE] [--release VERSION]
 
 Kali NetHunter recovery flashable zip builder
 
 optional arguments:
   -h, --help            show this help message and exit
   --device DEVICE, -d DEVICE
-                        Allowed device names: htc_pmewl manta flounder flocm
-                        flo grouper angler shamu shamucm bullhead
-                        hammerheadmon hammerheadcm hammerhead makocm mako
-                        shieldtablet oneplusxcm oneplus2cm oneplus2 oneplus3
-                        oneplus1 h830 h850 hlteeur hltecan hltespr hltekor
-                        hlteeur-touchwiz hltecan-touchwiz hltespr-touchwiz
-                        hltekor-touchwiz hltedcm-touchwiz hltekdi-touchwiz
-                        jfltexx klte kltekdi kltespr kltevzw kltechn klte-
-                        touchwiz klteduos-touchwiz kltespr-touchwiz klteusc-
-                        touchwiz kltevzw-touchwiz klteskt-touchwiz kltekdi-
-                        touchwiz cancrocm a5ulte a5ulte-touchwiz
+                        Allowed device names: a5ulte a5ulte-touchwiz a5xelte ailsa_ii angler angler-los armani
+                        bullhead cancrocm cedric davinci-miui dogo dragon flo flocm flounder gemini4g_p1
+                        gemini4g_p2 gemini4g_p3 gracelte graceltekor gts4llte gts4lwifi grouper h830 h850 h918
+                        h990 hammerhead hammerheadcafcm herolte heroltekor herolte-cm hero2lte hero2ltekor
+                        hero2lte-cm hltecan hltecan-touchwiz hltedcm-touchwiz hlteeur hlteeur-touchwiz hlteeur-
+                        cm hltekdi-touchwiz hltekor hltekor-touchwiz hltespr hltespr-touchwiz hltevzw-touchwiz
+                        honami htc_pmewl ido j7y17lte jalebi jfltexx jiayus3a kiwi klte kltechn kltechnduo
+                        klteduos kltekdi kltekor kltespr klte-touchwiz klteduos-touchwiz kltekdi-touchwiz
+                        klteskt-touchwiz kltespr-touchwiz klteusc-touchwiz kltevzw-touchwiz kminilte mako makocm
+                        manning manta markw mocha on7xlte onem7gpe onem8gpe oneplus1 oneplus2cm oneplus2oos
+                        oneplus3-any oneplus3 oneplus3-cm oneplus3T-cm oneplus3-oos oneplus3T-oos oneplus3T-los
+                        oneplus5-oos oneplus5-cm oneplus6-oos oneplus7-oos oneplusxcm osprey potter s2 santoni-
+                        miui shamu shamucm shieldtablet suzuran us996 victara yuga vienna Z00E zeroflte
+                        zeroflte-tw zerolte zerolte-tw
   --kitkat, -kk         Android 4.4.4
   --lollipop, -l        Android 5
   --marshmallow, -m     Android 6
   --nougat, -n          Android 7
+  --oreo, -o            Android 8
+  --pie, -p             Android 9
+  --ten, -q             Android 10
   --forcedown, -f       Force redownloading
   --uninstaller, -u     Create an uninstaller
   --kernel, -k          Build kernel installer only
   --nokernel, -nk       Build without the kernel installer
-  --nosu, -ns           Build without SuperSU installer
+  --nobrand, -nb        Build without wallpaper or boot animation
+  --nofreespace, -nf    Build without free space check
+  --supersu, -su        Build with SuperSU installer included
+  --nightly, -ni        Use nightly mirror for Kali rootfs download (experimental)
   --generic ARCH, -g ARCH
                         Build a generic installer (modify ramdisk only)
   --rootfs SIZE, -fs SIZE
@@ -62,10 +70,10 @@ optional arguments:
 root@kali:~/kali-nethunter/nethunter-installer#
 ```
 
-To build a Lollipop image for a OnePlus One device, we would run **build.py** as follows:
+To build a Lollipop image for a OnePlus 7 device, we would run **build.py** as follows:
 
 ```markdown
-root@kali:~/kali-nethunter/nethunter-installer# python build.py -d oneplus1 --lollipop
+root@kali:~/kali-nethunter/nethunter-installer# python3 build.py -d oneplus7-oos --ten
 ```
 
 The resulting zip file image will be created in the **nethunter-installer** directory – this is the zip file you will need to flash on your device later on.

@@ -21,7 +21,7 @@ Depending on your requirements, you might want to add drivers, patches, or kerne
 Start by installing all the build dependencies for recompiling the kernel.
 
 ```markdown
-sudo apt install build-essential libncurses5-dev fakeroot unxz
+sudo apt install build-essential libncurses5-dev fakeroot xz-utils	
 ```
 
 ### Download the Kali Linux Kernel Source Code

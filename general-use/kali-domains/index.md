@@ -34,7 +34,7 @@ Kali has quite a few subdomains that may be useful to know about:
 `https://autopkgtest.kali.org/`: Many packages have a test that is associated with it to ensure that they run. This site shows all of those tests and whether they pass or fail.
 
 
-`https://pkg.kali.org/`: The counterpart of [tools.kali.org](https://tools.kali.org) and very useful for users to see the history of a package. Along with the history users can see the associated binaries, upstream, the package in Kali's git repo, and more.
+`https://pkg.kali.org/`: The counterpart of [tools.kali.org](https://tools.kali.org) and very useful for users to see the history of a package. Along with the history users can see the associated binaries, upstream, the package in Kali's git repo, and more. Another useful feature to know about is the ability to track package versions, which can be done via email or RSS feed. This is well explained [at Debian's documentation on the software](https://qa.pages.debian.net/distro-tracker/usage/follow-packages.html).
 
 
 `http://old.kali.org/`: If for any reason a user needs an old copy of Kali Linux, then this is the site for them. Images from some of the first Kali releases can be found as well as more recent releases.

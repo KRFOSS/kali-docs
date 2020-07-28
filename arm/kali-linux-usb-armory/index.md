@@ -31,7 +31,7 @@ xzcat kali-$version-usbarmory.img.xz | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your device speed and image size.
 
-Once the _dd_ operation is complete, boot up a computer with the USB armory plugged in. Log in to Kali (**_root_** / **_toor_**), that's it, you're done!
+Once the _dd_ operation is complete, boot up a computer with the USB armory plugged in. Log in to Kali (**_kali_** / **_kali_**), that's it, you're done!
 
 ## Kali on USB armory - Developer Instructions
 

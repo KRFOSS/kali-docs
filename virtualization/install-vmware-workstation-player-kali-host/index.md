@@ -4,7 +4,7 @@ description:
 icon:
 date: 2020-02-21
 type: post
-weight: 1
+weight:
 author: ["g0tmi1k",]
 tags: ["",]
 keywords: ["",]
@@ -17,8 +17,11 @@ Before trying to install VMware, please make sure your version of Kali is up-to-
 
 ```
 kali@kali:~$ sudo apt update
-kali@kali:~$ sudo apt dist-upgrade -y
+kali@kali:~$
+kali@kali:~$ sudo apt full-upgrade -y
+kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
+kali@kali:~$
 ```
 
 To start with, you will need to download VMware. You can do this by going to [VMware's download page](https://www.vmware.com/uk/products/workstation-pro/). At the time of writing, the latest version is `15.5.1-15018445`.
@@ -43,7 +46,9 @@ When everything is up-to-date, and ready to go, make sure the file is executable
 
 ```
 kali@kali:~$ cd Downloads/
+kali@kali:~/Downloads$
 kali@kali:~/Downloads$ chmod +x VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle
+kali@kali:~/Downloads$
 kali@kali:~/Downloads$ sudo ./VMware-Workstation-Full-15.5.1-15018445.x86_64.bundle
 Extracting VMware Installer...done.
 Installing VMware Workstation 15.5.1
@@ -56,6 +61,7 @@ After the installer is installed, you should be able to just run `vmware` to con
 
 ```
 kali@kali:~/Downloads$ vmware
+kali@kali:~/Downloads$
 ```
 
 At this point, you should be be straight forward, often just clicking through.
@@ -125,7 +131,9 @@ If it is still unsuccessful, we can dig a little further by running the followin
 
 ```
 kali@kali:~$ sudo vmware-modconfig --console --install-all
+kali@kali:~$
 kali@kali:~$ sudo vmware-modconfig --console --install-all 2>&1 | grep error
+kali@kali:~$
 ```
 
 Looking at the output, may either give us the exact issue, or at the very least something to search the Internet for.
@@ -137,11 +145,16 @@ A common issue is because the setup file for VMware isn't supporting the latest 
 
 ```
 kali@kali:~$ sudo apt install -y git
+kali@kali:~$
 kali@kali:~$ git clone https://github.com/mkubecek/vmware-host-modules.git
+kali@kali:~$
 kali@kali:~$ cd vmware-host-modules/
-kali@kali:~$ git checkout workstation-15.5.1
-kali@kali:~$ make
-kali@kali:~$ sudo make install
+kali@kali:~/vmware-host-modules$ git checkout workstation-15.5.1
+kali@kali:~/vmware-host-modules$
+kali@kali:~/vmware-host-modules$ make
+kali@kali:~/vmware-host-modules$
+kali@kali:~/vmware-host-modules$ sudo make install
+kali@kali:~/vmware-host-modules$
 ```
 
 Try now to install VMware. If you are still having issues, you may need to restart your Kali before trying one more final time.
@@ -172,6 +185,7 @@ If you see the following problem, upon trying to run VMware:
 kali@kali:~$ vmware
 [AppLoader] Use shipped Linux kernel AIO access library.
 An up-to-date "libaio" or "libaio1" package from your system is preferred.
+kali@kali:~$
 ```
 
 Try installing the [libaio1](https://packages.debian.org/testing/libaio1) package:

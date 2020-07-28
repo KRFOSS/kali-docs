@@ -53,7 +53,7 @@ Now we are building the kernel. We `make clean` to start fresh then use the conf
 ```bash
 # Attach kernel builder to updater-script
 echo "#KERNEL_SCRIPT_START" >> ${basedir}/flashkernel/META-INF/com/google/android/updater-script
-cat << EOF > ${basedir}/flashkernel/META-INF/com/google/android/updater-script
+cat <<EOF > ${basedir}/flashkernel/META-INF/com/google/android/updater-script
 # <-- This is where the kernel installer will go
 EOF
 ```

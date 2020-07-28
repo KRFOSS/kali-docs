@@ -4,7 +4,7 @@ description:
 icon:
 date: 2020-02-22
 type: post
-weight: 100
+weight: 20
 author: ["g0tmi1k",]
 tags: ["",]
 keywords: ["",]
@@ -15,6 +15,7 @@ Kali Linux allows you to generate updated ISOs of Kali using Debian [live-build]
 You will first need to install the `live-build` and `cdebootstrap` packages:
 
 ```markdown
+sudo apt update
 sudo apt install -y git live-build cdebootstrap
 ```
 
