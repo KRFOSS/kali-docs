@@ -1,6 +1,6 @@
 ---
-title: WSL2 with Win-KeX
-description: Windows Subsystem for Linux
+title: WSL
+description: Windows Subsystem for Linux & Win-KeX
 icon: ti-pin
 date: 2020-07-28
 type: toc
@@ -18,7 +18,7 @@ og_description:
   - [Prerequisites](#prerequisites)
   - [Install Kali Linux in WSL2](#install-kali-linux-in-wsl2)
   - [Install Win-Kex](#install-win-kex)
-- [Run Win-Kex](#run-win-kex)
+- [Run Win-KeX](#run-win-kex)
 - [Optional steps](#optional-steps)
 
 &nbsp;
