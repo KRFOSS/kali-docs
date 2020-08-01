@@ -1,6 +1,6 @@
 ---
-title: WSL
-description: Windows Subsystem for Linux & Win-KeX
+title: Win-KeX
+description: Windows Subsystem for Linux 2 & Win-KeX
 icon: ti-pin
 date: 2020-07-28
 type: toc
