@@ -2,7 +2,7 @@
 title: Install NVIDIA GPU Drivers
 description:
 icon:
-date: 2020-01-28
+date: 2020-07-21
 type: post
 weight: 10
 author: ["g0tmi1k",]
@@ -58,7 +58,7 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 
-Notice how `Kernel driver in use` & `Kernel modules` are using nouveau? This is the open source driver for nVidia. This guide covers installing the close source.
+Notice how `Kernel driver in use` & `Kernel modules` are using **nouveau**? This is the open source driver for nVidia. This guide covers installing the close source, from NVIDIA.
 
 {{% notice info %}}
 There is a package called `nvidia-detect` which will fail to detect the driver due to Kali being a Rolling distribution and requires a stable release.
@@ -66,9 +66,9 @@ There is a package called `nvidia-detect` which will fail to detect the driver d
 
 ## Installation
 
-Once the system has rebooted from doing an OS upgrade, we will proceed to install the **Drivers**, and the **CUDA toolkit**.
+Once the system has rebooted from doing an OS upgrade, we will proceed to install the **Drivers**, and the **CUDA toolkit** _(allowing for tool to take advantage of the GPU)_.
 
-During installation of the drivers the system created new kernel modules, so another reboot is required:
+During installation of the drivers the system created new kernel modules, so a reboot is required:
 
 ```markdown
 kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
@@ -90,9 +90,12 @@ kali@kali:~$ sudo reboot -f
 kali@kali:~$
 ```
 
-## High DPI (HiDPI - High Dots Per Inch)
+## DPI/PPI
 
-Upon Kali starting back up, certain things may appear smaller/larger than expected. This could be because [HiDPI](/docs/general-use/hidpi/).
+Upon Kali starting back up, certain things may appear different than what is expected.
+
+- If certain things are **smaller**, this could because of [HiDPI](/docs/general-use/hidpi/).
+- However, if certain things are **larger**, this could because the [DPI](/docs/general-use/fixing-dpi/) is incorrect.
 
 ## Verify Driver Installation
 
@@ -130,34 +133,50 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 
+You can see our hardware has been detected we are using **nvidia** rather than **nouveau** drive now.
+
 ## Hashcat
 
-With the output displaying our driver and GPU correctly, we can now dive into benchmarking. Before we get too far ahead, let's double check to make sure [hashcat](https://tools.kali.org/password-attacks/hashcat) and CUDA are working together.
+With the output displaying our driver and GPU correctly, we can now dive into benchmarking (using the CUDA toolkit). Before we get too far ahead, let's double check to make sure [hashcat](https://tools.kali.org/password-attacks/hashcat) and CUDA are working together.
 
 ```html
 kali@kali:~$ sudo apt install -y hashcat
 kali@kali:~$
 kali@kali:~$ hashcat -I
-hashcat (v5.1.0) starting...
+hashcat (v6.0.0) starting...
+
+CUDA Info:
+==========
+
+CUDA.Version.: 10.2
+
+Backend Device ID #1 (Alias: #2)
+  Name...........: GeForce GTX 1060 6GB
+  Processor(s)...: 10
+  Clock..........: 1771
+  Memory.Total...: 6075 MB
+  Memory.Free....: 5908 MB
 
 OpenCL Info:
+============
 
-Platform ID #1
-  Vendor  : NVIDIA Corporation
-  Name    : NVIDIA CUDA
-  Version : OpenCL 1.2 CUDA 10.1.120
+OpenCL Platform ID #1
+  Vendor..: NVIDIA Corporation
+  Name....: NVIDIA CUDA
+  Version.: OpenCL 1.2 CUDA 10.2.185
 
-  Device ID #1
-    Type           : GPU
-    Vendor ID      : 32
-    Vendor         : NVIDIA Corporation
-    Name           : GeForce GTX 1060 6GB
-    Version        : OpenCL 1.2 CUDA
-    Processor(s)   : 10
-    Clock          : 1771
-    Memory         : 1518/6075 MB allocatable
-    OpenCL Version : OpenCL C 1.2
-    Driver Version : 430.64
+  Backend Device ID #2 (Alias: #1)
+    Type...........: GPU
+    Vendor.ID......: 32
+    Vendor.........: NVIDIA Corporation
+    Name...........: GeForce GTX 1060 6GB
+    Version........: OpenCL 1.2 CUDA
+    Processor(s)...: 10
+    Clock..........: 1771
+    Memory.Total...: 6075 MB (limited to 1518 MB allocatable in one block)
+    Memory.Free....: 5888 MB
+    OpenCL.Version.: OpenCL C 1.2
+    Driver.Version.: 440.100
 
 kali@kali:~$
 ```
@@ -166,9 +185,9 @@ It appears everything is working, let's go ahead and run hashcat's inbuilt bench
 
 #### Benchmarking
 
-```html
+```
 kali@kali:~$ hashcat -b | uniq
-hashcat (v5.1.0) starting in benchmark mode...
+hashcat (v6.0.0) starting in benchmark mode...
 
 Benchmarking uses hand-optimized kernel code by default.
 You can use it in your cracking session by setting the -O option.
@@ -178,22 +197,29 @@ To disable the optimized kernel code in benchmark mode, use the -w option.
 * Device #1: WARNING! Kernel exec timeout is not disabled.
              This may cause "CL_OUT_OF_RESOURCES" or related errors.
              To disable the timeout, see: https://hashcat.net/q/timeoutpatch
-OpenCL Platform #1: NVIDIA Corporation
-======================================
-* Device #1: GeForce GTX 1060 6GB, 1518/6075 MB allocatable, 10MCU
+* Device #2: WARNING! Kernel exec timeout is not disabled.
+             This may cause "CL_OUT_OF_RESOURCES" or related errors.
+             To disable the timeout, see: https://hashcat.net/q/timeoutpatch
+CUDA API (CUDA 10.2)
+====================
+* Device #1: GeForce GTX 1060 6GB, 5908/6075 MB, 10MCU
+
+OpenCL API (OpenCL 1.2 CUDA 10.2.185) - Platform #1 [NVIDIA Corporation]
+========================================================================
+* Device #2: GeForce GTX 1060 6GB, skipped
 
 Benchmark relevant options:
 ===========================
 * --optimized-kernel-enable
 
 Hashmode: 0 - MD5
-Speed.#1.........: 11855.4 MH/s (56.12ms) @ Accel:256 Loops:256 Thr:1024 Vec:1
+Speed.#1.........: 14350.4 MH/s (46.67ms) @ Accel:64 Loops:1024 Thr:1024 Vec:8
 
 Hashmode: 100 - SHA1
-Speed.#1.........:  4644.4 MH/s (89.43ms) @ Accel:512 Loops:128 Thr:640 Vec:1
+Speed.#1.........:  4800.5 MH/s (69.83ms) @ Accel:32 Loops:1024 Thr:1024 Vec:1
 ...SNIP...
-Started: Fri Feb 14 13:09:56 2020
-Stopped: Fri Feb 14 13:14:08 2020
+Started: Tue Jul 21 17:12:39 2020
+Stopped: Tue Jul 21 17:16:10 2020
 kali@kali:~$
 ```
 
@@ -223,7 +249,7 @@ kali@kali:~$ clinfo | wc -l
 kali@kali:~$
 ```
 
-### OpenCL Loaders
+#### OpenCL Loaders
 
 It may be necessary to check for additional packages that may be conflicting with our setup. Let's first check to see what **OpenCL Loader** we have installed. The NVIDIA OpenCL Loader and the generic OpenCL Loader will both work for our system.
 
@@ -261,7 +287,7 @@ kali@kali:~$
 
 As expected, our setup is using the open source loader that was installed earlier. Now, let's get some detailed information about the system.
 
-### Querying GPU Information
+#### Querying GPU Information
 
 We'll use [nvidia-smi](https://packages.debian.org/testing/nvidia-smi) once again, but with a much more verbose output.
 

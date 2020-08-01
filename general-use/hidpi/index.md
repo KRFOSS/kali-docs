@@ -2,7 +2,7 @@
 title: HiDPI (High Dots Per Inch) Display
 description:
 icon:
-date: 2020-02-18
+date: 2020-07-21
 type: post
 weight: 10
 author: ["g0tmi1k",]
@@ -11,18 +11,17 @@ keywords: ["",]
 og_description:
 ---
 
-Upon starting Kali Linux back up, certain things may appear smaller or larger than expected. This could be because of **HiDPI** (aka **High DPI**). It all depends on the software in question, with how it was made, (e.g. GTK2, GTK3, Qt5 etc).
+Upon starting Kali Linux up, certain things (**Windows/buttons** or **text/font**) may appear **smaller than expected**. This could be because of **HiDPI** (aka **High DPI**). It all depends on the software in question, with how it was made, (e.g. GTK2, GTK3, Qt5 etc). This could be happening for various reasons, such as the graphic card drivers and/or the monitor profile.
 
-This could be happening for various reasons, such as the graphic card drivers and/or the monitor profile.
+If things are looking **larger** than what you would believe to be "normal", please see our [Fixing DPI guide](???).
 
 This guide will cover single screen setups. **We do not have the hardware in order to test multiple display outputs to write up the guide. So we are looking for [community contribution](https://www.kali.org/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/hidpi/index.md)!**
 
-## Xfce
+## Desktop Environments - Xfce
 
 Xfce does support HiDPI monitors. Though you may need to alter a few places, depending on your hardware, versions and issues to get it working.
 
 In case you need a more general script to enable HiDPI in your desktop, here you have one that applies the configurations explained after ("**Scaling Factor**" & "**Cursor size**").
-**Remember to log out and in again after running it**.
 
 ```
 grep -q '^GDK_SCALE=' ~/.xsessionrc || echo export GDK_SCALE=2 >> ~/.xsessionrc
@@ -30,9 +29,10 @@ grep -q '^QT_SCALE_FACTOR=' ~/.xsessionrc || echo export QT_SCALE_FACTOR=2 >> ~/
 grep -q '^XCURSOR_SIZE=' ~/.xsessionrc || echo export XCURSOR_SIZE=48 >> ~/.xsessionrc
 xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
 xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
+xfce4-session-logout --logout
 ```
 
-Below is more of an explanation of the actions.
+Below is more of an explanation of the commands above.
 
 ### Scaling Factor
 
@@ -42,9 +42,7 @@ After logging into Kali, the wallpaper may look "normal", but everything else mi
 
 ![](scaling-factor.png)
 
-Increasing the "Scaling Factor" from "x1" to "x2" should address this problem.
-
-To alter the **scaling factor** to "**x2**", You have two ways, either through the command line or graphical:
+Increasing the "**Scaling Factor**" from "**x1**" to "**x2**" should address this problem. You have two ways todo this, either through the command line or graphical:
 
 - In a terminal window, run the following commands:
 
@@ -95,45 +93,7 @@ You may need to try increasing the value from `48`.
 
 - - -
 
-## Small/Large Font
-
-Upon opening some applications, the font may appear smaller/larger than expected.
-
-In the example below, you can see two different terminal software, one on the left is using Qt (`QTerminal`) and the one on the right is using GTK (`xfce4-terminal`).
-
-![](large-font.png)
-
-You have two ways of altering this, either graphical or through the command line. To alter the DPI:
-
-- In a terminal window, run the following commands:
-
-```
-kali@kali:~$ vim ~/.xsessionrc
-kali@kali:~$
-kali@kali:~$ cat ~/.xsessionrc
-xrandr --dpi 180
-kali@kali:~$
-```
-
-- Graphical:
-  - Kali -> Settings -> Appearance -> Fonts -> DPI
-    - Enable: `Custom DPI Settings`
-    - Value: `180`
-
-![](kali-menu-setting-manager.png)
-![](appearance-fonts.png)
-
-{{% notice info %}}
-Due to a bug, you will need to either toggle `Custom DPI Settings` or increase/decrease the value then restore it back to the value previously.
-{{% /notice %}}
-
-{{% notice info %}}
-You may need to try increasing the value from `180`.
-{{% /notice %}}
-
-The next time you open a programmatic program back up, the font should now be "normal".
-
-## Login Screen
+## Login Screen - LightDM
 
 Are you experiencing an issue with the login screen (`lightdm`), with the login box being smaller than "normal"?
 
