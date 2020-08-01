@@ -13,7 +13,7 @@ og_description:
 
 ## Kali Linux Mirror Contributions
 
-Mirrors are always good to have. The more we have, and the faster they are, the better. For more information about becoming an official Kali Linux mirror, check out our [Mirror Policy Page](/docs/community/kali-linux-mirrors/).
+Mirrors are always good to have. The more we have, and the faster they are, the better. For more information about becoming an official Kali Linux mirror, check out our [Mirror Policy Page](/docs/community/setting-up-a-kali-linux-mirror/).
 
 ## Kali Linux Packaging
 

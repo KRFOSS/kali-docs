@@ -130,7 +130,7 @@ If any guides are telling you to do anything else than the above, this is unoffi
 ​
 ## Mirrors
 ​
-We have a list of [official Kali Linux mirrors](/docs/community/kali-linux-mirrors/), as well as a guide on how to setup your own. This may be kept as a local repository which is only accessible on a LAN, or a remote private one, or if you have the ability to, you may wish to [share back to the community](/docs/community/contribute/) and make it public allowing for anyone else in your geographical area to benefit from it.
+We have a list of [official Kali Linux mirrors](/docs/community/kali-linux-mirrors/), as well as a [guide on how to setup your own](/docs/community/setting-up-a-kali-linux-mirror/). This may be kept as a local repository which is only accessible on a LAN, or a remote private one, or if you have the ability to, you may wish to [share back to the community](/docs/community/contribute/) and make it public allowing for anyone else in your geographical area to benefit from it.
 ​
 ​
 ​
