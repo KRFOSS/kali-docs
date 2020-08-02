@@ -88,7 +88,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 ## Run Win-KeX
 
 - Run win-kex via:
-`win-kex`
+`kex`
 
   ![Win-Kex](win-kex.png)
 
