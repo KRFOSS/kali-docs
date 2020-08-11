@@ -87,13 +87,8 @@ Please refer to [this table](../#1-0-nethunter-editions) for a comparison of the
 ## Tips:
 
 1. Run `sudo apt update && sudo apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
-2. Firefox won't work on unrooted devices. Just replace it with Chromium via:
-   `apt remove firefox-esr`
-   `apt install chromium`
-   Next:
-   ~ Find the "Chromium Web Browser" item in the application menu
-   ~ right click and select "Edit Application"
-   ~ Change the "Command"  to `/usr/bin/chromium --no-sandbox %U`
+2. Run `firefox-esr` to run firefox browser
+firefox can runs on unrooted devices
 3. All of the penetration testing tools should work but some might have restrictions, e.g. metasploit works but doesn't have database support. If you discover any tools that don't work, please post it in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums).
 4. Some utilities like "top" won't run on unrooted phones.
 5. Non-root users still have root access in the chroot. That's a proot thing. Just be aware of that.
