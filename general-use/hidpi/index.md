@@ -21,18 +21,15 @@ This guide will cover single screen setups. **We do not have the hardware in ord
 
 Xfce does support HiDPI monitors. Though you may need to alter a few places, depending on your hardware, versions and issues to get it working.
 
-In case you need a more general script to enable HiDPI in your desktop, here you have one that applies the configurations explained after ("**Scaling Factor**" & "**Cursor size**").
+![](kali-hidpi-mode-menu.png)
 
-```
-grep -q '^GDK_SCALE=' ~/.xsessionrc || echo export GDK_SCALE=2 >> ~/.xsessionrc
-grep -q '^QT_SCALE_FACTOR=' ~/.xsessionrc || echo export QT_SCALE_FACTOR=2 >> ~/.xsessionrc
-grep -q '^XCURSOR_SIZE=' ~/.xsessionrc || echo export XCURSOR_SIZE=48 >> ~/.xsessionrc
-xfconf-query -c xsettings -p /Gdk/WindowScalingFactor -n -t 'int' -s 2
-xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
-xfce4-session-logout --logout
-```
+In order to make this process easier, Kali now provides a HiDPI mode. This mode adjusts the scaling-factor for GTK, QT and even Java based interfaces, so that the user doesn't need to modify each one of them manually. You can toggle it by opening 'Kali HiDPI mode' from the applications menu or by running `kali-hidpi-mode` from the terminal.
 
-Below is more of an explanation of the commands above.
+![](kali-hidpi-mode.gif)
+
+Even though kali-hidpi-mode is able to alter the scaling-factor without the need of restarting, it is recommended to close the session and login again to ensure all changes are properly applied.
+
+Below is more of an explanation for a manual setting.
 
 ### Scaling Factor
 
