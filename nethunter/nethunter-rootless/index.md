@@ -87,14 +87,12 @@ Please refer to [this table](../#1-0-nethunter-editions) for a comparison of the
 ## Tips:
 
 1. Run `sudo apt update && sudo apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
-2. Run `firefox-esr` to run firefox browser
-firefox can runs on unrooted devices
-3. All of the penetration testing tools should work but some might have restrictions, e.g. metasploit works but doesn't have database support. If you discover any tools that don't work, please post it in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums).
-4. Some utilities like "top" won't run on unrooted phones.
-5. Non-root users still have root access in the chroot. That's a proot thing. Just be aware of that.
-6. Galaxy phone's may prevent non-root users from using sudo. Just use "su -c" instead.
-5. Perform regular backups of your rootfs by stopping all nethunter sessions and typing the following in a termux session:
+2. All of the penetration testing tools should work but some might have restrictions, e.g. metasploit works but doesn't have database support. If you discover any tools that don't work, please post it in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums).
+3. Some utilities like "top" won't run on unrooted phones.
+4. Non-root users still have root access in the chroot. That's a proot thing. Just be aware of that.
+5. Galaxy phone's may prevent non-root users from using sudo. Just use "su -c" instead.
+6. Perform regular backups of your rootfs by stopping all nethunter sessions and typing the following in a termux session:
    `tar -cJf kali-arm64.tar.xz kali-arm64 && mv kali-arm64.tar.xz storage/downloads`
    That will put the backup in your Android download folder.
    _Note: on older devices, change "arm64" to "armhf"_
-6. Please join us in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums) to exchange tips and ideas and be part of a community that strives to make NetHunter even better.
+7. Please join us in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums) to exchange tips and ideas and be part of a community that strives to make NetHunter even better.
