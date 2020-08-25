@@ -45,7 +45,7 @@ export CROSS_COMPILE=`pwd`/toolchain/bin/arm-eabi-
 For 64 bit devices, use the appropriate toolchain:
 
 ```html
-git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b  marshmallow-release toolchain64
+git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b  android10-release toolchain64
 export ARCH=arm64
 export SUBARCH=arm64
 export CROSS_COMPILE=`pwd`/toolchain64/bin/aarch64-linux-android-
