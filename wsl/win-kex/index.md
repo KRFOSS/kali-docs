@@ -3,7 +3,7 @@ title: Win-KeX
 description: Windows Subsystem for Linux 2 & Win-KeX
 icon: ti-pin
 date: 2020-07-28
-type: toc
+type: post
 weight: 37
 author: ["Re4son",]
 tags: ["",]
@@ -21,7 +21,7 @@ og_description:
 - [Run Win-KeX](#run-win-kex)
 - [Optional steps](#optional-steps)
 
-&nbsp;
+
 
 ## Overview
 
@@ -29,7 +29,7 @@ og_description:
 
 ![win-kex-full](win-kex-full.png)
 
-&nbsp;
+
 
 ## Installation
 
@@ -39,7 +39,7 @@ All installation steps, up to the point where we install Win-Kex, are also expla
 
 Note: You can skip the installation of xrdp and follow [the last step of this guide](#install-win-kex) to install Win-Kex instead.
 
-&nbsp;
+
 
 ### Prerequisites
 
@@ -76,14 +76,14 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
 - Run Kali and finish the initial setup
 
-&nbsp;
+
 
 ### Install Win-KeX
 
 - Install win-kex via:
   `sudo apt update && sudo apt install kali-win-kex`
 
-&nbsp;
+
 
 ## Run Win-KeX
 
@@ -92,7 +92,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
   ![Win-Kex](win-kex.png)
 
-&nbsp;
+
 
 ## Optional Steps:
 
@@ -147,6 +147,6 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
   ![win-kex-full](win-kex-full.png)
 
-&nbsp;
+
 
 #### Enjoy Win-KeX!
