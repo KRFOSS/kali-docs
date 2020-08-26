@@ -37,7 +37,7 @@ When you see the "Guest Operating System" screen, select "Linux," and then the l
 
 ![](vm-05.png)
 
-The next screen is "Virtual Machine Name," which is where you name the VM. This name is also used as the filename (such as the configuration, hard disk and snapshot - which isn't changed from this point). We are keeping it generic in this guide (as Kali is a rolling distribution, and we update it), however for our releases, we use the version number in the name as it is a fixed release _(`Kali-Linux-YYYY.N-vmware-ARCH`. Example: `Kali-Linux-2020.2-vmware-amd64`)_.
+The next screen is "Virtual Machine Name," which is where you name the VM. This name is also used as the filename (such as the configuration, hard disk and snapshot - which isn't changed from this point). We are keeping it generic in this guide (as Kali is a rolling distribution, and we update it), however for our releases, we use the version number in the name as it is a fixed release _(`Kali-Linux-YYYY.N-vmware-ARCH`. Example: `Kali-Linux-2020.3-vmware-amd64`)_.
 
 ![](vm-06.png)
 
