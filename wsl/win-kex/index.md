@@ -44,6 +44,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 ### Prerequisites
 
 - Running Windows 10 version 2004 or higher
+- Using [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
 
 ### Install Kali Linux in WSL2
 
@@ -102,7 +103,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
   ![Win-Kex with the Lot](win-kex-thelot.png)
 
 
-- Create a Windows Terminal Shortcut
+- Create a [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) Shortcut
 
   ![Win-Kex in WTS](win-kex-wt1.png)
 
