@@ -3,7 +3,7 @@ title: Public Packaging
 description:
 icon:
 date: 2020-06-23
-type: post
+type: archived
 weight: 100
 author: ["gamb1t",]
 tags: ["",]
