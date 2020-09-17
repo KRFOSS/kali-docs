@@ -16,18 +16,19 @@ You can install VirtualBox on Kali Linux, allowing you to use virtual machines (
 The first thing we are going to do is import VirtualBox's repository key:
 
 ```
-kali@kali:~$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-OK
+kali@kali:~$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- \
+  | sudo apt-key add -
 kali@kali:~$
 ```
 
 We then move onto adding VirtualBox's repository.
 We add this to a separate file, so it does not interfere with [Kali Linux's main repository](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/).
 
-One thing to bare in mind, [Kali Linux is based on Debian](https://www.kali.org/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/). At the time of writing, its "buster":
+One thing to bare in mind, [Kali Linux is based on Debian](https://www.kali.org/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/):
 
 ```
-kali@kali:~$ echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian buster contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+kali@kali:~$ echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $( lsb_release -cs ) contrib" \
+  | sudo tee /etc/apt/sources.list.d/virtualbox.list
 kali@kali:~$
 ```
 
