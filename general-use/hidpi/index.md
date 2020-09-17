@@ -13,7 +13,7 @@ og_description:
 
 Upon starting Kali Linux up, certain things (**Windows/buttons** or **text/font**) may appear **smaller than expected**. This could be because of **HiDPI** (aka **High DPI**). It all depends on the software in question, with how it was made, (e.g. GTK2, GTK3, Qt5 etc). This could be happening for various reasons, such as the graphic card drivers and/or the monitor profile.
 
-If things are looking **larger** than what you would believe to be "normal", please see our [Fixing DPI guide](???).
+If things are looking **larger** than what you would believe to be "normal", please see our [Fixing DPI guide](/docs/general-use/fixing-dpi/).
 
 This guide will cover single screen setups. **We do not have the hardware in order to test multiple display outputs to write up the guide. So we are looking for [community contribution](https://www.kali.org/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/hidpi/index.md)!**
 
