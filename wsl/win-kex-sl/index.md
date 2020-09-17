@@ -79,7 +79,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
   when asked for authorisation to allow traffic through the Windows Defender firewall  
 
-  ![PulseAudit-Firewall](/home/re4son/devel/kali-docs/content/wsl/win-kex-win/win-kex-pulseaudio_firewall.png)    
+  ![PulseAudit-Firewall](win-kex-pulseaudio_firewall.png)    
 
   &nbsp;  
 
