@@ -61,16 +61,15 @@ or simply via
 
 ### Start Root Session
 
-- Start Win-KeX as root in window mode via:
+- Start Win-KeX as root in window mode via:  
   `sudo kex --win`
 
-- You will be prompted to set a vnc server password during first launch. The password can be changed later via
+- You will be prompted to set a vnc server password during first launch. The password can be changed later via  
 
   `sudo kex --passwd` 
 
-
-  This will start the Win-KeX server as root and launch the Win-KeX client in full screen mode.
-  **Note:** The Win-KeX client always prompts for the vnc server password when connecting to a root session.
+  This will start the Win-KeX server as root and launch the Win-KeX client in full screen mode.  
+  **Note:** The Win-KeX client always prompts for the vnc server password when connecting to a root session.  
 
 &nbsp;
 
