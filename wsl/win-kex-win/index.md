@@ -19,6 +19,7 @@ og_description:
   - [Start Root Session](#start-root-session)
   - [Session Management](#session-management)
   - [Sound Support](#sound-support)
+  - [Multiscreen Support](#multiscreen-support)
   - [Stop](#stop)
 
 
@@ -98,6 +99,12 @@ or simply via
   ![PulseAudit-Firewall](win-kex-pulseaudio_firewall.png)  
   
   &nbsp;  
+
+### Multiscreen Support
+
+- Win-KeX supports mutiscreen setups:  
+  Press "F8" an go to "Options" -> "Screen" then untick "Enable full-screen mode over all monitors" & "Full screen mode", move Win-KeX to the desired screen and re-enable full-screen mode  
+  ![Multiscreen](win-kex-multiscreen.png)
 
 ### Stop
 

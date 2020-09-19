@@ -17,6 +17,7 @@ og_description:
 - [Usage](#Usage)
   - [Start](#start)
   - [Sound Support](#sound-support)
+  - [Multiscreen Support](#multiscreen-support)
   - [Stop](#stop)
 
 
@@ -41,7 +42,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
 ### Start  
 
-- Start Win-KeX as normal user in seamless mode via:
+- Start Win-KeX as normal user in seamless mode via:  
 `kex --sl  
 
   When starting Win-KeX SL for the first time, ensure to select  
@@ -50,20 +51,20 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
   
   when asked for authorisation to allow traffic through the Windows Defender firewall  
   
-  ![Firewall](firewall.png)  
+  <img src="firewall.png" alt="Firewall" style="zoom:67%;" />  
   
-  &nbsp;  
+  &nbsp;  &nbsp;
   
   This will start Win-KeX in seamless mode:   
   ![Win-Kex SL](win-kex-sl.png)  
   
   The Kali panel is placed at the top of the screen and the Windows Start menu at the bottom.  
   
-  
+    
   
 - **Tip:** The Kali panel might cover the title bar of maximised windows. To prevent it getting in the way you may prefer to set it to "Automatically hide" in the panel preferences.  
 
-  &nbsp;  
+  &nbsp;  &nbsp;
 
 ### Sound Support  
 
@@ -81,7 +82,15 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
   ![PulseAudit-Firewall](win-kex-pulseaudio_firewall.png)    
 
-  &nbsp;  
+  &nbsp;  &nbsp;
+
+### Multiscreen Support
+
+- Win-KeX supports mutiscreen setups: 
+
+  Open "Panel Preference" to reduce the panel length, untick "Lock panel" and move the panel to the desired screen.  
+
+  &nbsp;
 
 ### Stop  
 
