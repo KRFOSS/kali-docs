@@ -43,7 +43,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 ### Start  
 
 - Start Win-KeX as normal user in seamless mode via:  
-`kex --sl  
+`kex --sl`  
 
   When starting Win-KeX SL for the first time, ensure to select  
   
@@ -51,7 +51,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
   
   when asked for authorisation to allow traffic through the Windows Defender firewall  
   
-  <img src="firewall.png" alt="Firewall" style="zoom:67%;" />  
+  <img src="firewall.png" alt="Firewall" style="zoom: 50%;" />  
   
   &nbsp;  &nbsp;
   
