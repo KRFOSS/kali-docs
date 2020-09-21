@@ -31,7 +31,7 @@ This process will wipe out your SD card. If you choose the wrong storage device,
 dd if=kali-linux-$version-cubox.img of=/dev/sdb bs=4M
 ```
 
-This process can take a while depending on your USB storage device speed and image size. Once the _dd_ operation is complete, boot up your CuBox with the SD card plugged in. You will be able to log in to Kali (**_kali_** / **_kali_**) and **startx**. That's it, you're done!
+This process can take a while depending on your USB storage device speed and image size. Once the _dd_ operation is complete, boot up your CuBox with the SD card plugged in. You will be able to [Log in to Kali](/docs/introduction/default-credentials/) and **startx**. That's it, you're done!
 
 {{% notice info %}}
 If the image does not boot, please connect via serial and make sure that your u-boot version is listed as 5.4.4 NQ SR1. If it is just 5.4.4 NQ, you will need to upgrade it via the CuBox installer. Instructions can be found at the [CuBox Wiki](http://wiki.solid-run.com/doku.php?id=products:imx6:cubox-i)

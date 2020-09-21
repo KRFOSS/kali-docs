@@ -31,8 +31,8 @@ xzcat kali-linux-$version-cubietruck.img.xz | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your device speed and image size.
 
-Once the _dd_ operation is complete, boot up the Cubietruck with the microSD  plugged in. Log in to Kali (**_root_** / **_toor_**), that's it, you're done!
+Once the _dd_ operation is complete, boot up the Cubietruck with the microSD plugged in. [Log in to Kali](/docs/introduction/default-credentials/), that's it, you're done!
 
 ## Kali on Cubietruck - Developer Instructions
 
-If you are a developer and want to tinker with the Kali Cubietruck image, including changing the kernel configuration and generally being adventurous, check out the [kali-arm-build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitHub, and follow the _README.md_ file's instructions.  The script to use is **cubietruck.sh**
+If you are a developer and want to tinker with the Kali Cubietruck image, including changing the kernel configuration and generally being adventurous, check out the [kali-arm-build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitHub, and follow the _README.md_ file's instructions. The script to use is **cubietruck.sh**

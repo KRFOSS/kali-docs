@@ -1,5 +1,5 @@
 ---
-title: Kali Linux XFCE FAQ
+title: Kali Linux Xfce FAQ
 description:
 icon:
 date: 2020-02-22
@@ -34,7 +34,7 @@ The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are 
 
 Next, run `update-alternatives --config x-session-manager` and select Xfce's option. If you would also like to remove the Gnome window manager, which we do not recommend until you are sure you are ready to, run `apt purge --autoremove kali-desktop-gnome`. Be sure to run this *after* setting up Xfce.
 
-Next time you login after a reboot you will have the Xfce theme, if you did not run the `update-alternatives` command you can choose "XFCE" in the session selector in the top right hand corner of the login screen.
+Next time you login after a reboot you will have the Xfce theme, if you did not run the `update-alternatives` command you can choose "Xfce" in the session selector in the top right hand corner of the login screen.
 
 &nbsp;
 &nbsp;
@@ -46,14 +46,14 @@ Next time you login after a reboot you will have the Xfce theme, if you did not 
 &nbsp;
 &nbsp;
 
-**Q:** How can I get a Kali Linux image with GNOME instead of XFCE?
+**Q:** How can I get a Kali Linux image with GNOME instead of Xfce?
 
 **A:**  Just download the Kali GNOME image from https://www.kali.org/downloads/
 
 &nbsp;
 &nbsp;
 
-**Q:** I tried XFCE and I really like it but I still would like to switch back to GNOME. How can I do that?
+**Q:** I tried Xfce and I really like it but I still would like to switch back to GNOME. How can I do that?
 
 **A:** You can run `sudo apt update && sudo apt install kali-desktop-gnome` in a terminal session.
 Next time you login you can choose "GNOME" in the session selector in the top right hand corner of the login screen.

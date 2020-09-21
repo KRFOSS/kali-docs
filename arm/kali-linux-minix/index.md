@@ -31,7 +31,7 @@ xzcat kali-linux-$version-mini-x.img.xz | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your device speed and image size.
 
-Once the _dd_ operation is complete, boot up the Mini-X with the microSD plugged in. Log in to Kali (**_root_** / **_toor_**), that's it, you're done!
+Once the _dd_ operation is complete, boot up the Mini-X with the microSD plugged in. [Log in to Kali](/docs/introduction/default-credentials/), that's it, you're done!
 
 ## Kali on Mini-X - Developer Instructions
 

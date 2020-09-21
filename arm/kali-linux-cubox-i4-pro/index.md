@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-The [SolidRun CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the "world's smallest computer".  The specifications are Quad core i.MX6 1GHZ processor, 2GB RAM, Gbit ethernet, eSata port, and MicroSD slot.
+The [SolidRun CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the "world's smallest computer". The specifications are Quad core i.MX6 1GHZ processor, 2GB RAM, Gbit ethernet, eSata port, and MicroSD slot.
 
 ## Kali on Cubox-i4 Pro - User Instructions
 
@@ -31,7 +31,7 @@ xzcat kali-linux-$version-cuboxi.img.xz | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your device speed and image size.
 
-Once the _dd_ operation is complete, boot up the CuBox-i4Pro with the MicroSD plugged in. Log in to Kali (**_kali_** / **_kali_**), that's it, you're done!
+Once the _dd_ operation is complete, boot up the CuBox-i4Pro with the MicroSD plugged in. [Log in to Kali](/docs/introduction/default-credentials/), that's it, you're done!
 
 ## Kali on SolidRun Cubox-i4pro - Developer Instructions
 

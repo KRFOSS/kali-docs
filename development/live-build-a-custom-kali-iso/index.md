@@ -43,7 +43,7 @@ If you want to customize your Kali Linux ISO, this section will explain some of 
 
 #### Building Kali with Different Desktop Environments
 
-Since Kali 2.0, we now support built in configurations for various desktop environments, including KDE, Gnome, E17, I3WM, LXDE, MATE and XFCE. To build any of these, you would use syntax similar to the following:
+Since Kali 2.0, we now support built in configurations for various desktop environments, including KDE, Gnome, E17, I3WM, LXDE, MATE and Xfce. To build any of these, you would use syntax similar to the following:
 
 ```bash
 # These are the different Desktop Environment build options:

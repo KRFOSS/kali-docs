@@ -13,7 +13,7 @@ og_description:
 
 During install a user may select whichever desktop environment that they prefer. However, when using the official VM this is not a possibility. In these cases, and many others, a user may wish to change their desktop environment.
 
-To get started we will first update the system and install the kali-desktop meta-package for the given DE and update the default x-session-manager to be the one we will be using from now on. When we install KDE we will be asked which login manager to use. We will select "sddm" as we will have to replace KDE due to how it interacts with Xfce.
+To get started we will first update the system and install the `kali-desktop-*` [metapackage](/docs/general-use/metapackages/) for the given DE and update the default x-session-manager to be the one we will be using from now on. When we install KDE we will be asked which login manager to use. We will select "sddm" as we will have to replace KDE due to how it interacts with Xfce.
 
 ```
 kali@kali:~$ sudo apt update

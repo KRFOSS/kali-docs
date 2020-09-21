@@ -63,7 +63,7 @@ Now we can power on the VM, and it should boot to Kali.
 
 ### Troubleshooting USB Connections
 
-If you run into problems, you have a few options. First, power off your VM. Go to “Settings” -> “USB Devices” and leave this settings screen up next to your powered-off VM. (You can also expand your toolbar and look at the USB icon). Now, power on the VM. Immediately, you should see the USB Settings screen update with a check next to your USB device:
+If you run into problems, you have a few options. First, power off your VM. Go to "Settings" -> "USB Devices" and leave this settings screen up next to your powered-off VM. (You can also expand your toolbar and look at the USB icon). Now, power on the VM. Immediately, you should see the USB Settings screen update with a check next to your USB device:
 
 ![usb-boot-vm-20](usb-boot-vm-20.png)
 
@@ -83,9 +83,9 @@ To access the Boot Manager, you can click on "Virtual Machine" on the Apple wind
 
 ![usb-boot-vm-15](usb-boot-vm-15.png)
 
-From here, you can select “EFI Internal Shell” to get into the shell. If you get something like this, missing an fs0 map, then EFI doesn’t see your USB drive. If this is the case, power off the virtual machine, unplug the USB, start the VM, and immediately after pressing start, insert the drive, looking for the checkmark in settings.
+From here, you can select "EFI Internal Shell" to get into the shell. If you get something like this, missing an fs0 map, then EFI doesn’t see your USB drive. If this is the case, power off the virtual machine, unplug the USB, start the VM, and immediately after pressing start, insert the drive, looking for the checkmark in settings.
 
-If everything goes well, you’re booted into Kali. Otherwise, you can get to an EFI shell with ESC, “EFI Internal Shell”. A “happy” EFI shell looks like this:
+If everything goes well, you’re booted into Kali. Otherwise, you can get to an EFI shell with ESC, "EFI Internal Shell". A "happy" EFI shell looks like this:
 
 ![usb-boot-vm-16](usb-boot-vm-16.png)
 

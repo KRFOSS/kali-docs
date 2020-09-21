@@ -34,4 +34,4 @@ If all you want to do is to install Kali on your SS808, follow instructions belo
 ```
 dd if=kali-linux-$version-SS808.img of=/dev/sdb bs=4M
 ```
-This process can take a while depending on your USB storage device speed and image size. Once the dd operation is done, boot up your SS808, with the microSD card plugged in. Log in to Kali (root / toor) and **startx**. That's it, you're done!
+This process can take a while depending on your USB storage device speed and image size. Once the dd operation is done, boot up your SS808, with the microSD card plugged in. [Log in to Kali](/docs/introduction/default-credentials/) and **startx**. That's it, you're done!

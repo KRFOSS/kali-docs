@@ -18,7 +18,7 @@ og_description:
 ## System
 
 - `kali-linux-core`: Base Kali Linux System – core items that are always included
-- `kali-linux-default`: “Default” desktop (AMD64/i386) images include these tools
+- `kali-linux-default`: "Default" desktop (AMD64/i386) images include these tools
 - `kali-linux-light`: Kali-Light images use this to be generated
 - `kali-linux-arm`: All tools suitable for ARM devices
 - `kali-linux-nethunter`: Tools used as part of Kali NetHunter
@@ -32,7 +32,7 @@ og_description:
 - `kali-desktop-kde`: KDE (DE)
 - `kali-desktop-lxde`: LXDE (WM)
 - `kali-desktop-mate`: MATE (DE)
-- `kali-desktop-xfce`: XFCE (WM
+- `kali-desktop-xfce`: Xfce (WM)
 
 ## Tools
 
@@ -40,7 +40,7 @@ og_description:
 - `kali-tools-hardware`: Hardware hacking tools
 - `kali-tools-crypto-stego`: Tools based around Cryptography & Steganography
 - `kali-tools-fuzzing`: For fuzzing protocols
-- `kali-tools-802-11`: 802.11 (Commonly known as “Wi-Fi”)
+- `kali-tools-802-11`: 802.11 (Commonly known as "Wi-Fi")
 - `kali-tools-bluetooth`: For targeting Bluetooth devices
 - `kali-tools-rfid`: Radio-Frequency IDentification tools
 - `kali-tools-sdr`: Software-Defined Radio tools

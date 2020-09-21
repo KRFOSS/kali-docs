@@ -43,7 +43,7 @@ dd if=kali-linux-$vesion-rpi.img of=/dev/sdb bs=4M
 
 This process can take a while depending on your SD card's device speed and image size. Once the **dd** operation is complete, insert the SD card into the Raspberry Pi and power it on.
 
-You should be able to log into Kali (as user **_kali_**, using the password **_kali_**) and execute the **startx** command at the shell prompt to start up the XFCE desktop environment.
+You should be able to log into Kali (as user **_kali_**, using the password **_kali_**) and execute the **startx** command at the shell prompt to start up the Xfce desktop environment.
 
 {{% notice info %}}
 **IMPORTANT!** Please change your SSH host keys as soon as possible as **_all_** ARM images are pre-configured with the same keys. You should also change the kali password to something more secure, _**especially** if this machine will be publicly accessible!_

@@ -24,7 +24,7 @@ If you're unfamiliar with the details of [downloading and validating a Kali Linu
 To install a prebuilt image of the standard build of Kali Linux on your BeagleBone Black, follow these instructions:
 
 1. Get a fast micro-SD card with at least 8 GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the Kali Linux BeagleBone Black image from the Offensive Security [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on  ["Downloading Kali Linux"](/docs/introduction/download-official-kali-linux-images/).
+2. Download _and validate_ the Kali Linux BeagleBone Black image from the Offensive Security [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on ["Downloading Kali Linux"](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/kali-linux-live-usb-install/).
 In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to [the correct drive path](/docs/faq/how-do-i-tell-what-drive-path-my-usb-drive-is-on).**
 
@@ -37,10 +37,10 @@ dd if=kali-linux-$version-bbb.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your micro-SD card's speed, and the size of the Kali Linux image. Once the _dd_ operation is complete, insert the micro-SD card into the BeagleBone Black and power it on.
-You should be able to log into Kali (as user **_kali_**, using the password **_kali_**) and execute the **startx** command at the shell prompt to start up the XFCE desktop environment.
+You should be able to [Log in to Kali](/docs/introduction/default-credentials/) and execute the **startx** command at the shell prompt to start up the Xfce desktop environment.
 
 {{% notice info %}}
-**IMPORTANT!** Please change your SSH host keys as soon as possible as **_all_** ARM images are pre-configured the same keys. You should also change the kali password to something more secure, _**especially** if this machine will be publicly accessible!_
+**IMPORTANT!** Please change your SSH host keys as soon as possible as **_all_** ARM images are pre-configured the same keys. You should also change the Kali password to something more secure, _**especially** if this machine will be publicly accessible!_
 {{% /notice %}}
 
 Changing the SSH host keys can be accomplished by doing the following:

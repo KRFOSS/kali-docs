@@ -11,7 +11,7 @@ keywords: ["",]
 og_description:
 ---
 
-One of the most powerful features of Kali Linux is the ability to create your own flavours of the distribution containing customized tools, desktop managers, and services. This workshop will show you how to create your own personalized Kali Linux ISO, customizing virtually every aspect using the live-build utility and making efficient use of the various meta-packages available in Kali.
+One of the most powerful features of Kali Linux is the ability to create your own flavours of the distribution containing customized tools, desktop managers, and services. This workshop will show you how to create your own personalized Kali Linux ISO, customizing virtually every aspect using the live-build utility and making efficient use of the various [metapackages](/docs/general-use/metapackages/) available in Kali.
 
 ## The Awesomeness of Live Build
 

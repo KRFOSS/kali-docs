@@ -32,7 +32,7 @@ dd if=kali-linux-$version-chromebook.img of=/dev/sdb bs=4M
 
 This process can take awhile depending on your USB storage device speed and image size.
 
-Once the _dd_ operation is complete, boot up the Chromebook with the USB stick plugged in. At the developer boot prompt, hit CTRL+U, which should boot you into Kali Linux. Log in to Kali (**_root_** / **_toor_**) and **startx**. That's it, you're done!
+Once the _dd_ operation is complete, boot up the Chromebook with the USB stick plugged in. At the developer boot prompt, hit CTRL+U, which should boot you into Kali Linux. [Log in to Kali](/docs/introduction/default-credentials/) and **startx**. That's it, you're done!
 
 ## Kali on HP ARM Chromebook - Developer Instructions
 

@@ -31,8 +31,8 @@ xzcat kali-linux-$version-odroidc.img.xz | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your device speed and image size.
 
-Once the _dd_ operation is complete, boot up the ODROID-C1 with the SD / eMMC plugged in. Log in to Kali (**_kali_** / **_kali_**), that's it, you're done!
+Once the _dd_ operation is complete, boot up the ODROID-C1 with the SD / eMMC plugged in. [Log in to Kali](/docs/introduction/default-credentials/), that's it, you're done!
 
 ## Kali on ODROID-C1 - Developer Instructions
 
-If you are a developer and want to tinker with the Kali ODROID-C1 image, including changing the kernel configuration and generally being adventurous, check out the [kali-arm-build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitHub, and follow the _README.md_ file's instructions.  The script to use is **odroid-c.sh**
+If you are a developer and want to tinker with the Kali ODROID-C1 image, including changing the kernel configuration and generally being adventurous, check out the [kali-arm-build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitHub, and follow the _README.md_ file's instructions. The script to use is **odroid-c.sh**

@@ -32,7 +32,7 @@ xzcat kali-$ver-chromebook.img.xz | dd of=/dev/sdb bs=4M
 
 This process can take awhile depending on your USB storage device speed and image size.
 
-Once the dd operation is complete, boot up the Chromebook with the SD / USB plugged in (NOT IN THE BLUE USB PORT!). At the developer boot prompt, hit CTRL+U, which should boot you into Kali Linux. Log in to Kali (root / toor) and **startx**. That's it, you're done!
+Once the dd operation is complete, boot up the Chromebook with the SD / USB plugged in (NOT IN THE BLUE USB PORT!). At the developer boot prompt, hit CTRL+U, which should boot you into Kali Linux. [Log in to Kali](/docs/introduction/default-credentials/) and **startx**. That's it, you're done!
 
 ## Kali on Samsung Chromebook - Developer Instructions
 
