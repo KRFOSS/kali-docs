@@ -31,7 +31,7 @@ We'll be digging into each of these more later, for now it is just information t
 
 ## Setting Up The Environment
 
-We will assume that we have already followed our [documentation on setting up a packing environment](https://www.kali.org/docs/development/setting-up-packaging-system/).
+We will assume that we have already followed our [documentation on setting up a packing environment](/docs/development/setting-up-packaging-system/).
 
 Let's set up our directories now for this package:
 
@@ -443,7 +443,7 @@ More information on the subject can be found on the [Debian documentation](https
 
 ### Changelog
 
-If we followed the documentation on [setting up a packaging environment](https://www.kali.org/docs/development/setting-up-packaging-system/), the only values we will need to alter would be **distribution** (from `unstable` to `kali-dev`), **version** (from `4.4.4-1` to `4.4.4-0kali1`) and the **log entry**:
+If we followed the documentation on [setting up a packaging environment](/docs/development/setting-up-packaging-system/), the only values we will need to alter would be **distribution** (from `unstable` to `kali-dev`), **version** (from `4.4.4-1` to `4.4.4-0kali1`) and the **log entry**:
 
 ```
 kali@kali:~/kali/packages/instaloader$ cat debian/changelog

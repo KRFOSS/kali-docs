@@ -30,7 +30,7 @@ In order to do this, we first need to create a bootable USB drive which has bee
 
 ## Kali Linux Live USB Install Procedure
 
-The specifics of this procedure will vary depending on whether you're doing it on a [Windows](https://www.kali.org/docs/usb/kali-linux-live-usb-install/), [Linux](https://www.kali.org/docs/usb/kali-linux-live-usb-install-linux/), or [macOS/OS X](https://www.kali.org/docs/usb/kali-linux-live-usb-install-macos/) system.
+The specifics of this procedure will vary depending on whether you're doing it on a [Windows](/docs/usb/kali-linux-live-usb-install/), [Linux](https://www.kali.org/docs/usb/kali-linux-live-usb-install-linux/), or [macOS/OS X](https://www.kali.org/docs/usb/kali-linux-live-usb-install-macos/) system.
 
 #### Creating a Bootable Kali USB Drive on Linux (DD)
 

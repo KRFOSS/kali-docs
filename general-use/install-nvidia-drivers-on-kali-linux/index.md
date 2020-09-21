@@ -15,7 +15,7 @@ Do not attempt this in a VM. It is [possible in theory](https://mathiashueber.co
 
 This document explains how to install NVIDIA GPU drivers and CUDA support, allowing integration with popular penetration testing tools.
 
-**This guide is also for a dedicated card (desktops users), not Optimus (notebook users). We do not have the hardware in order to write up the guide. So we are looking for [community contribution](https://www.kali.org/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/install-nvidia-drivers-on-kali-linux/index.md)!**
+**This guide is also for a dedicated card (desktops users), not Optimus (notebook users). We do not have the hardware in order to write up the guide. So we are looking for [community contribution](/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/install-nvidia-drivers-on-kali-linux/index.md)!**
 
 ## Prerequisites
 

@@ -22,9 +22,9 @@ kali@kali:~$
 ```
 
 We then move onto adding VirtualBox's repository.
-We add this to a separate file, so it does not interfere with [Kali Linux's main repository](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/).
+We add this to a separate file, so it does not interfere with [Kali Linux's main repository](/docs/general-use/kali-linux-sources-list-repositories/).
 
-One thing to bare in mind, [Kali Linux is based on Debian](https://www.kali.org/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/):
+One thing to bare in mind, [Kali Linux is based on Debian](/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/):
 
 ```
 kali@kali:~$ echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $( lsb_release -cs ) contrib" \

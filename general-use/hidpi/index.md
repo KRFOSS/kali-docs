@@ -15,7 +15,7 @@ Upon starting Kali Linux up, certain things (**Windows/buttons** or **text/font*
 
 If things are looking **larger** than what you would believe to be "normal", please see our [Fixing DPI guide](/docs/general-use/fixing-dpi/).
 
-This guide will cover single screen setups. **We do not have the hardware in order to test multiple display outputs to write up the guide. So we are looking for [community contribution](https://www.kali.org/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/hidpi/index.md)!**
+This guide will cover single screen setups. **We do not have the hardware in order to test multiple display outputs to write up the guide. So we are looking for [community contribution](/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/hidpi/index.md)!**
 
 ## Desktop Environments - Xfce
 

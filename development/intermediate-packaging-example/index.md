@@ -27,7 +27,7 @@ Because there is no `setup.py` file we will have to do more work during the pack
 
 ## Setting Up Environment
 
-We assume we have already followed our [documentation on setting up a packing environment](https://www.kali.org/docs/development/setting-up-packaging-system/).
+We assume we have already followed our [documentation on setting up a packing environment](/docs/development/setting-up-packaging-system/).
 
 Let's set up our directories now for this package:
 
@@ -466,7 +466,7 @@ kali@kali:~/kali/packages/photon$
 Now we can leave this package here. It is a **working package**, and everything appears to be correct when we build it: `gbp buildpackage --git-builder=sbuild --git-export=WC`
 
 However, we want this package to be the best possible package it can be!
-If we take a look at the `photon.py` file we can see that it has the ability to update built in. This is something that we should **patch out** [using gbp pq](https://manpages.debian.org/unstable/git-buildpackage/gbp-pq.1.en.html). Additionally, due to the helpfulness of [autopkgtests](https://www.kali.org/docs/development/contributing-runtime-tests/) we should contribute a **minimal test**.
+If we take a look at the `photon.py` file we can see that it has the ability to update built in. This is something that we should **patch out** [using gbp pq](https://manpages.debian.org/unstable/git-buildpackage/gbp-pq.1.en.html). Additionally, due to the helpfulness of [autopkgtests](/docs/development/contributing-runtime-tests/) we should contribute a **minimal test**.
 
 ### Patches
 
@@ -532,7 +532,7 @@ Restrictions: superficial
 kali@kali:~/kali/packages/photon$
 ```
 
-More information on runtime tests can be found on [our docs](https://www.kali.org/docs/development/contributing-runtime-tests/) which has many other helpful resources that explain in detail runtime tests.
+More information on runtime tests can be found on [our docs](/docs/development/contributing-runtime-tests/) which has many other helpful resources that explain in detail runtime tests.
 
 
 ## Packing Up
