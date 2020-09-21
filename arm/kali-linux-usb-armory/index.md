@@ -26,7 +26,7 @@ This process will wipe out your SD card. If you choose the wrong storage device,
 {{% /notice %}}
 
 ```
-xzcat kali-$version-usbarmory.img.xz | dd of=/dev/sdb bs=4M
+xzcat kali-linux-$version-usbarmory.img.xz | dd of=/dev/sdb bs=4M
 ```
 
 This process can take awhile depending on your device speed and image size.

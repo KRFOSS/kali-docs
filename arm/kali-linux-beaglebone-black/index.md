@@ -25,14 +25,15 @@ To install a prebuilt image of the standard build of Kali Linux on your BeagleBo
 
 1. Get a fast micro-SD card with at least 8 GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ the Kali Linux BeagleBone Black image from the Offensive Security [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on  ["Downloading Kali Linux"](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **dd** utility to image this file to your SD card. The general process is identical to the description in the article on ["Making a Kali Live USB Drive"](/docs/usb/kali-linux-live-usb-install/). In the following example, we assume that the image is named "kali-2.1.2-bbb.img", that it's is in your current working directory, and that the micro-SD device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **_change this to the correct drive path corresponding to your micro-SD card._**
+3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/kali-linux-live-usb-install/).
+In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to [the correct drive path](/docs/faq/how-do-i-tell-what-drive-path-my-usb-drive-is-on).**
 
 {{% notice info %}}
 This command will wipe out any existing data on your micro-SD card. If you specify the _wrong device path_, you could wipe out your computer's hard disk!
 {{% /notice %}}
 
 ```
-root@kali:~ dd if=kali-$version-bbb.img of=/dev/sdb bs=4M
+dd if=kali-linux-$version-bbb.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your micro-SD card's speed, and the size of the Kali Linux image. Once the _dd_ operation is complete, insert the micro-SD card into the BeagleBone Black and power it on.
@@ -45,9 +46,9 @@ You should be able to log into Kali (as user **_kali_**, using the password **_k
 Changing the SSH host keys can be accomplished by doing the following:
 
 ```
-kali@kali:~ sudo rm /etc/ssh/ssh_host_*
-kali@kali:~ sudo dpkg-reconfigure openssh-server
-kali@kali:~ sudo service ssh restart
+kali@kali:~# sudo rm /etc/ssh/ssh_host_*
+kali@kali:~# sudo dpkg-reconfigure openssh-server
+kali@kali:~# sudo service ssh restart
 ```
 
 ## Kali Linux on BeagleBone Black - Custom Build

@@ -38,9 +38,9 @@ This might seem like a lot, but its really pretty straightforward. Once complete
 We first will download and image the latest Kali RPi3 image. If you're following along, be sure to know where you are imaging the file to.
 
 ```
-wget https://images.offensive-security.com/arm-images/kali-linux-2019.4-rpi3-nexmon.img.xz
+wget https://images.offensive-security.com/arm-images/kali-linux-$version-rpi3-nexmon.img.xz
 
-xzcat kali-linux-2019.4-rpi3-nexmon.img.xz | dd of=/dev/sdb bs=4M
+xzcat kali-linux-$version-rpi3-nexmon.img.xz | dd of=/dev/sdb bs=4M
 ```
 
 Next we are going to get things ready for chroot. Let's create where we want to mount the SD card then mount it.
@@ -272,7 +272,7 @@ export _BUILDDIR=${_BASEDIR}/cryptmypi-build
 ##################
 ## Stage-1
 ##################
-_IMAGEURL=https://images.offensive-security.com/arm-images/kali-linux-2019.4-rpi3-nexmon-64.img.xz
+_IMAGEURL=https://images.offensive-security.com/arm-images/kali-linux-$version-rpi3-nexmon-64.img.xz
 
 # compose package actions
 export _PKGSPURGE=""

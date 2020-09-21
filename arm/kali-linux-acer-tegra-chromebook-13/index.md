@@ -27,7 +27,7 @@ If all you want to do is install Kali on your Acer Tegra Chromebook, follow thes
 {{% /notice %}}
 
 ```
-xzcat kali-$version-acer.img | dd of=/dev/sdb bs=4M
+dd if=kali-linux-$version-acer.img of=/dev/sdb bs=4M
 ```
 
 This process can take awhile depending on your storage device speed and image size.

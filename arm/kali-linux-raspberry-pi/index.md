@@ -30,14 +30,15 @@ To install a prebuilt image of the standard build of Kali Linux on your Raspberr
 
 1. Get a fast SD card with at least 8 GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ the Kali Linux Raspberry Pi image from the Offensive Security [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on  ["Downloading Kali Linux"](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **dd** utility to image this file to your SD card. The full process for creating a bootable USB or SD device is described in the article on ["Making a Kali Live USB Drive"](/docs/usb/kali-linux-live-usb-install/). In the following example, we assume that the image is named "kali-2.1.2-rpi.img", that it's is in your current working directory, and that the SD card is located at **/dev/sdb**. Do _not_ simply copy these value, **change this to [the correct drive path](/docs/faq/how-do-i-tell-what-drive-path-my-usb-drive-is-on) corresponding to your SD card.**
+3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/kali-linux-live-usb-install/).
+In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to [the correct drive path](/docs/faq/how-do-i-tell-what-drive-path-my-usb-drive-is-on).**
 
 {{% notice info %}}
 This command will overwrite any existing data on your SD card. If you specify the _wrong device path_, you could wipe out your computer's hard disk!
 {{% /notice %}}
 
 ```
-root@kali:~ dd if=kali-$vesion-rpi.img of=/dev/sdb bs=4M
+dd if=kali-linux-$vesion-rpi.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while depending on your SD card's device speed and image size. Once the **dd** operation is complete, insert the SD card into the Raspberry Pi and power it on.
@@ -51,9 +52,9 @@ You should be able to log into Kali (as user **_kali_**, using the password **_k
 Changing the SSH host keys can be accomplished by doing the following:
 
 ```
-kali@kali:~ sudo rm /etc/ssh/ssh_host_*
-kali@kali:~ sudo dpkg-reconfigure openssh-server
-kali@kali:~ sudo service ssh restart
+kali@kali:~# sudo rm /etc/ssh/ssh_host_*
+kali@kali:~# sudo dpkg-reconfigure openssh-server
+kali@kali:~# sudo service ssh restart
 ```
 
 ## Kali Linux on Raspberry Pi — Custom Build
