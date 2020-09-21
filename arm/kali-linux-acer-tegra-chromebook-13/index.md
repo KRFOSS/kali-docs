@@ -3,7 +3,7 @@ title: Acer Tegra Chromebook 13"
 description:
 icon:
 date: 2019-11-25
-type: post
+type: archived
 weight: 100
 author: ["steev",]
 tags: ["",]

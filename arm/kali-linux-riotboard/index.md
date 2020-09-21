@@ -3,7 +3,7 @@ title: RIoTboard
 description:
 icon:
 date: 2019-11-25
-type: post
+type: archived
 weight: 100
 author: ["steev",]
 tags: ["",]
