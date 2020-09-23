@@ -2,9 +2,8 @@
 title: Downloading Kali Linux
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 30
+weight: 40
 author: ["g0tmi1k","gamb1t"]
 tags: ["",]
 keywords: ["",]
@@ -12,14 +11,16 @@ og_description:
 ---
 
 {{% notice info %}}
-IMPORTANT! Never download Kali Linux images from anywhere other than the official sources. Always be sure to verify the SHA256 checksums of the file you've downloaded against our <a href="https://www.kali.org/downloads/"> official values</a>. It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially. Downloads are rate limited to 5 concurrent connections.
+IMPORTANT! Never download Kali Linux images from anywhere other than the official sources. <br />
+Always be sure to verify the SHA256 checksums of the file you've downloaded against our <a href="https://www.kali.org/downloads/"> official values</a>.<br />
+It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially.
 {{% /notice %}}
 
-## Where to Get Official Kali Linux Images
+#### Where to Get Official Kali Linux Images
 
-### ISO Files for Intel-based PCs
+##### ISO Files for Intel-based PCs
 
-In order to run Kali "Live" from a USB drive on standard Windows and Apple PCs, you'll need a Kali Linux bootable ISO image, in either 32-bit or 64-bit format.
+In order to run Kali "Live" from a [USB drive](/docs/usb/) on standard Windows and Apple PCs, you'll need a Kali Linux [bootable ISO image](/docs/installation/), in either 32-bit or 64-bit format.
 
 If you're not sure of the architecture of the system you want to run Kali on, on Linux or macOS, you can run the command `uname -m` at the command line. If you get the response, "x86_64", use the 64-bit ISO image (the one containing "amd64" in the file name); if you get "i386", use the 32-bit image (the one containing "i386" in the file name). If you're on a Windows system, the procedure for determining whether your architecture is [detailed on Microsoft's website](http://windows.microsoft.com/en-us/windows7/find-out-32-or-64-bit).
 
@@ -29,21 +30,21 @@ The Kali Linux images are available both as directly downloadable ".iso/.img" fi
 
 Building your own Kali Linux ISO, standard or customized, is [a very simple process](/docs/development/live-build-a-custom-kali-iso/).
 
-### VMware Images
+##### Virtual Machines Images
 
-If you want to run Kali Linux as a "guest" under VMware, Kali is available as a pre-built VMware virtual machine with VMware Tools already installed. The VMware image is available in a 64-bit (amd64), 32-bit (i686), and 32-bit PAE (i486) formats.
+If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed. These image are available in a 64-bit (amd64), and 32-bit PAE (i\*86) formats.
 
 * [Official Kali Linux VMware Images](https://www.offensive-security.com/kali-linux-vmware-virtualbox-image-download/)
 
-### ARM Images
+##### ARM Images
 
-The hardware architectures of ARM-based devices vary considerably, so it is not possible to have a single image that will work across all of them. Pre-built Kali Linux images for the [ARM architecture](https://www.offensive-security.com/kali-linux-arm-images/) are available for a wide range of devices.
+The hardware architectures of [ARM-based devices](/docs/arm/) vary considerably, so it is not possible to have a single image that will work across all of them. Pre-built Kali Linux images for the [ARM architecture](https://www.offensive-security.com/kali-linux-arm-images/) are available for a wide range of devices.
 
 Scripts for building your own ARM images locally are also [available on GitLab](https://gitlab.com/kalilinux/build-scripts/kali-arm). For more details, see the articles on [setting up an ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) and [building a custom Kali Linux ARM chroot](/docs/development/kali-linux-arm-chroot/).
 
-### Verifying Your Downloaded Kali Image
+#### Verifying Your Downloaded Kali Image
 
-#### Why do I need to do this?
+##### Why do I need to do this?
 
 Before you run Kali Linux Live, or install it to your hard disk, you want to be very sure that what you've got actually _is_ Kali Linux, and not an imposter. Kali Linux is a professional penetration testing and forensics toolkit. As a professional penetration tester, having absolute confidence in the integrity of your tools is critical: if your tools aren't trustworthy, your investigations won't be trustworthy, either.
 
@@ -62,7 +63,7 @@ There are several methods for verifying your download. Each provides a certain l
 
 If you use this more complicated process and successfully validate your downloaded ISO, you can proceed with pretty complete assurance that what you've got is the official image and that it has not been tampered with in any way. This method, while the most complex, has the advantage of providing independent assurance of the integrity of the image. The only way this method can fail is if the official Kali Linux private key is not only subverted by an attacker, but also not subsequently revoked by the Kali Linux development team. For this method, see the section on verification using the SHA256SUMS file.
 
-#### _What_ do I need to do this?
+##### _What_ do I need to do this?
 
 If you're running on Linux, you probably already have [GPG](https://www.gnupg.org/) (GNU Privacy Guard) installed. If you're on Windows or macOS, you'll need to install the appropriate version for your platform.
 
@@ -106,9 +107,9 @@ sub   rsa4096 2012-03-05 [E] [expires: 2023-01-16]
 
 You're now set up to validate your Kali Linux download.
 
-### How Do I Verify My Downloaded Image?
+#### How Do I Verify My Downloaded Image?
 
-#### Manually Verify the Signature on the ISO (Direct Download)
+##### Manually Verify the Signature on the ISO (Direct Download)
 
 If you downloaded the ISO directly from the downloads page, verify it using the following procedure.
 
@@ -128,7 +129,7 @@ The resulting SHA256 signature, "1a0b2ea83f48861dd3f3babd5a2892a14b30a7234c8c9b5
 
 ![Kali Linux Downloads](kali_download-iso-page-2020-3.png)
 
-#### Verify the Signature on the ISO Using the Included Signature File (Torrent Download)
+##### Verify the Signature on the ISO Using the Included Signature File (Torrent Download)
 
 If you downloaded your copy of the Kali Linux ISO image via the torrents, in addition to the ISO file (e.g. kali-linux-2020.3-live-amd64.iso), there will be a second file containing the computed SHA256 signature for the ISO, with the extension ".txt.sha256sum" (e.g. kali-linux-2020.3-live-amd64.txt.sha256sum). You can use this file to verify the authenticity of your download on Linux or macOS with the following command:
 
@@ -146,7 +147,7 @@ kali-linux-2020.3-live-amd64.iso: OK
 IMPORTANT! If you are unable to verify the authenticity of the Kali Linux image you have downloaded as described in the preceding section, do NOT use it! Using it could endanger not only your own system, but any network you connect to as well as the other systems on that network. Stop, and ensure that you have downloaded the images from a legitimate Kali Linux mirror.
 {{% /notice %}}
 
-#### Verify the ISO Using the SHA256SUMS File
+##### Verify the ISO Using the SHA256SUMS File
 
 This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2020.3, as of this writing):
 

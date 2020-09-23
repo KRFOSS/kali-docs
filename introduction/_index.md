@@ -1,8 +1,7 @@
 ---
 title: Introduction
-description: What is Kali Linux
+description: What is Kali Linux & Kali's features
 icon: ti-info
-date: 2019-10-26
 type: toc
 weight: 10
 author: ["",]
