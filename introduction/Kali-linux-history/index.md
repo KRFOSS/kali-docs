@@ -28,18 +28,18 @@ Using the experience gained from all of this, **Kali Linux** came after BackTrac
 ​
 Below is a rough overview of how Kali Linux came to be:
 ​
-| Date         | Project Released    | Base OS                  |
-|--------------|---------------------|--------------------------|
-| 2004-August  | Whoppix v2          | Knoppix                  |
-| 2005-July    | WHAX v3             | Slax                     |
-| 2006-May     | BackTrack v1        | Slackware Live CD 10.2.0 |
-| 2007-March   | BackTrack v2        | Slackware Live CD 11.0.0 |
-| 2008-June    | BackTrack v3        | Slackware Live CD 12.0.0 |
-| 2010-January | BackTrack v4        | Ubuntu 8.10              |
-| 2011-May     | BackTrack v5        | Ubuntu 10.04             |
-| 2013-March   | Kali Linux v1       | Debian 7                 |
-| 2015-Aug     | Kali v2             | Debian 8                 |
-| 2016-Jan     | Kali Rolling 2016.1 | Debian Testing           |
+| Date         | Project Released          | Base OS                  |
+|--------------|---------------------------|--------------------------|
+| 2004-August  | Whoppix v2                | Knoppix                  |
+| 2005-July    | WHAX v3                   | Slax                     |
+| 2006-May     | BackTrack v1              | Slackware Live CD 10.2.0 |
+| 2007-March   | BackTrack v2              | Slackware Live CD 11.0.0 |
+| 2008-June    | BackTrack v3              | Slackware Live CD 12.0.0 |
+| 2010-January | BackTrack v4              | Ubuntu 8.10              |
+| 2011-May     | BackTrack v5              | Ubuntu 10.04             |
+| 2013-March   | Kali Linux v1             | Debian 7                 |
+| 2015-Aug     | Kali Linux v2             | Debian 8                 |
+| 2016-January | Kali Linux Rolling 2016.1 | Debian Testing           |
 
 {{% notice info %}}
 This is only the major releases, there were minor ones to address bug fixes, releases, and tools updates.
