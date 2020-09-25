@@ -25,7 +25,7 @@ As the distribution's developers, you might expect us to recommend that everyon
 
 Even for experienced Linux users, Kali can pose some challenges. Although Kali is an [open source project](/docs/policy/kali-linux-open-source-policy/), it's not a _wide_-open source project, for reasons of security. The [development team](https://www.kali.org/about-us/) is small and trusted, packages in the repositories are signed both by the individual committer and the team, and — importantly — the set of upstream repositories from which updates and new packages are drawn is very small. Adding repositories to your software sources which have not been tested by the Kali Linux development team is a good way to cause problems on your system.
 
-While Kali Linux is architected to be [highly customizable](/docs/development/live-build-a-custom-kali-iso/), don't expect to be able to add random unrelated packages and repositories that are "out of band" of the regular Kali software sources and have it Just Work. In particular, there is absolutely no support whatsoever for the apt-add-repository command, LaunchPad, or PPAs. Trying to install _**Steam**_ on your Kali Linux desktop is an experiment that will not end well. Even getting a package as mainstream as NodeJS onto a Kali Linux installation can take [a little extra effort and tinkering](http://www.acme-dot.com/stupid-problems-deserve-stupid-solutions/).
+While Kali Linux is architected to be [highly customizable](/docs/development/live-build-a-custom-kali-iso/), do not expect to be able to add random unrelated packages and repositories that are "out of band" of the regular Kali software sources and have it Just Work. In particular, there is absolutely no support whatsoever for the apt-add-repository command, LaunchPad, or PPAs. Trying to install _**Steam**_ on your Kali Linux desktop is an experiment that will not end well. Even getting a package as mainstream as NodeJS onto a Kali Linux installation can take [a little extra effort and tinkering](http://www.acme-dot.com/stupid-problems-deserve-stupid-solutions/).
 
 If you are unfamiliar with Linux generally, if you do not have at least a basic level of competence in administering a system, if you are looking for a Linux distribution to use as a learning tool to get to know your way around Linux, or if you want a distro that you can use as a general purpose desktop installation, _Kali Linux is probably not what you are looking for_.
 
@@ -41,7 +41,7 @@ If you are looking for a Linux distribution to learn the basics of Linux and nee
 
 So, after having read this you should have figured out if **Kali Linux** is the distribution you were looking for or at least got an idea about your choice.
 
-If still you haven't figured it out, here is a summary that  will hopefully remove your remaining doubts:
+If still you have not figured it out, here is a summary that will hopefully remove your remaining doubts:
 
 - Kali Linux is made with **pentesters** and **pentesting** in mind so, expecting it to fit with your necessity *might* not be as simple even though it's completely possible.
 - If you are new to **Linux** or have less experience with **command line** you might find Kali Linux to be not so user-friendly, even though our developers try to make it as user-friendly as possible some things might be intimidating to you if you are new.
