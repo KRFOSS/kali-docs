@@ -38,7 +38,7 @@ Below is a rough overview of how Kali Linux came to be:
 | 2010-January | BackTrack v4              | Ubuntu 8.10              |
 | 2011-May     | BackTrack v5              | Ubuntu 10.04             |
 | 2013-March   | Kali Linux v1             | Debian 7                 |
-| 2015-Aug     | Kali Linux v2             | Debian 8                 |
+| 2015-August  | Kali Linux v2             | Debian 8                 |
 | 2016-January | Kali Linux Rolling 2016.1 | Debian Testing           |
 
 {{% notice info %}}
