@@ -1,27 +1,29 @@
 ---
-title: Single Boot Kali
+title: Single Boot Kali Linux
 description:
 icon:
-date: 2020-03-24
 type: post
-weight: 10
+weight: 120
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
-Installing Kali Linux on your computer is an easy process. First, you'll need compatible computer hardware. Kali is supported on i386, amd64, and ARM (both armel and armhf) platforms. The hardware requirements are minimal as listed below, although better hardware will naturally provide better performance. The i386 images have a default [PAE](http://en.wikipedia.org/wiki/Physical_Address_Extension) kernel, so you can run them on systems with over 4GB of RAM. [Download the Kali Linux Installer image](/docs/introduction/download-official-kali-linux-images/) and either burn the ISO to DVD, or [prepare a USB stick with Kali Linux](/docs/usb/kali-linux-live-usb-install/) as the installation medium. If you do not have a DVD drive or USB port on your computer, check out the [Kali Linux Network Install](/docs/base-images/kali-linux-network-pxe-install/).
+Installing Kali Linux on your computer is an easy process. First, you'll need compatible computer hardware. Kali Linux is supported on **i386**, **amd64**, and **ARM** (both armel and armhf) platforms. The hardware requirements are minimal as listed below, although better hardware will naturally provide better performance.
+
+The i386 images have a default [PAE](http://en.wikipedia.org/wiki/Physical_Address_Extension) kernel, so you can run them on systems with over 4GB of RAM. 
+
+Download the [Kali Linux Installer image](/docs/introduction/download-official-kali-linux-images/) and either burn the ISO to DVD, or [prepare a USB stick with Kali Linux](/docs/usb/kali-linux-live-usb-install/) as the installation medium. If you do not have a DVD drive or USB port on your computer, check out the [Kali Linux Network Install](/docs/installation/kali-linux-network-pxe-install/).
 
 #### Installation Prerequisites
 
-* A minimum of 20 GB disk space for the Kali Linux install.
-* RAM for i386 and amd64 architectures, minimum: 1GB, recommended: 2GB or more.
-* CD-DVD Drive / USB boot support
+The installation requirements for Kali Linux vary depending on what you would like to install.
+
+- On the low end, you can set up Kali as a basic Secure Shell (SSH) server with no desktop, using **as little as 128 MB of RAM (512 MB recommended)** and **2 GB of disk space**.
+- On the higher end, if you opt to install the default Xfce4 desktop and the `kali-linux-default` [metapackage](/docs/general-use/metapackages/), you should really aim for **at least 2048 MB of RAM** and **20 GB of disk space**.
+- CD-DVD Drive / USB boot support
 
 ### Preparing for the Installation
 
-1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/) (We recommend the image marked (Installer)[*](../#which-image-to-choose) .
+1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/) (We recommend the image marked (Installer)[*](/docs/introduction/what-image-to-download/#which-image-to-choose) .
 2. Burn The Kali Linux ISO to DVD or [Image Kali Linux Live to USB](/docs/usb/kali-linux-live-usb-install/).
 3. Ensure that your computer is set to boot from CD / USB in your BIOS.
 
@@ -83,7 +85,7 @@ Installing Kali Linux on your computer is an easy process. First, you'll need co
     ![14-networkmirror](kali-default-install-5.png)
 
 14. Next you can select which metapackages you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.
-    Please [refer to this guide](../#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.
+    Please [refer to this guide](/docs/introduction/what-image-to-download/#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.
     The 2020.1 release images and the current weekly images differ in the selection layout.
     The 2020.1 release provides the following selection screen:
 
