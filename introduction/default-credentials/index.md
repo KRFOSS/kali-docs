@@ -3,7 +3,7 @@ title: Kali's Default Credentials
 description: What is Kali's password
 icon:
 type: post
-weight: 50
+weight: 60
 author: ["g0tmi1k",]
 tags: ["",]
 keywords: [""]
@@ -54,4 +54,4 @@ Some tools shipped with Kali, will use their own default hardcoded credentials (
 
 - - -
 
-For versions of Kali Linux older than 2020.1, here is our [previous credential information](/docs/introduction/kali-linux-default-passwords/) and [root policy](](/docs/policy/kali-linux-root-user-policy/)) information.
+For versions of Kali Linux older than 2020.1, here is our [previous credential information](/docs/introduction/kali-linux-default-passwords/) and [root policy](/docs/policy/kali-linux-root-user-policy/) information.

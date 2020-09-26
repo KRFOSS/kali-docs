@@ -3,11 +3,8 @@ title: Downloading Kali Linux
 description:
 icon:
 type: post
-weight: 40
-author: ["g0tmi1k","gamb1t"]
-tags: ["",]
-keywords: ["",]
-og_description:
+weight: 50
+author: ["g0tmi1k","gamb1t",]
 ---
 
 {{% notice info %}}

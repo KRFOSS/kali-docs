@@ -5,7 +5,4 @@ icon: ti-info
 type: toc
 weight: 10
 author: ["",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
