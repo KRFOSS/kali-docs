@@ -2,13 +2,9 @@
 title: Kali Network Repositories (/etc/apt/sources.list)
 description:
 icon:
-date: 2020-02-21
 type: post
-weight: 1
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 ​
 The topic of repositories is always a large one, and comes up frequently. It is an item which people often get wrong and confused with. Please take the time to read the information below and any references which is linked to before acting on anything.
@@ -30,7 +26,7 @@ If the output doesn't exactly match up to the above output, you may not be able 
 This may happen for any number of reasons, such as:
 ​
 - You did an off-line install (such as missing a network connection during installation).
-- You have switched your [branch](/docs/introduction/kali-branches/).
+- You have switched your [branch](/docs/general-use/kali-branches/).
 - Using a different (hardcoded) [mirror](/docs/community/kali-linux-mirrors/)].
 ​
 You will probably want to read the "switching branches" section to alter this.
@@ -39,7 +35,7 @@ You will probably want to read the "switching branches" section to alter this.
 ​
 ## Switching Branches/Regular Repositories
 ​
-Kali has various [different branches](/docs/introduction/kali-branches/) to choose from (please take the time to read which one would be the best option for your setup), and you may be able to switch or include additional repositories.
+Kali has various [different branches](/docs/general-use/kali-branches/) to choose from (please take the time to read which one would be the best option for your setup), and you may be able to switch or include additional repositories.
 ​
 **kali-rolling** (Default & frequently updated)
 ​
@@ -70,7 +66,7 @@ deb   http://http.kali.org/kali   kali-rolling   main non-free contrib
 ​
 - **Archive** is going to be `deb` (Regular Binary) or `deb-src` (Source), depending if you want a package or the source of the package.
 - **Mirror** should be `http.kali.org/kali` as this is our load balancer, which will direct you to best [mirror](/docs/community/kali-linux-mirrors/).
-- **Branch** is what [version of Kali](/docs/introduction/kali-branches/) you wish to use.
+- **Branch** is what [version of Kali](/docs/general-use/kali-branches/) you wish to use.
 - **Component** is what packages you wish to use, based on the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract#guidelines). Kali defaults to everything.
 ​
 ​
@@ -142,4 +138,4 @@ By using a `deb` in the repositories, it will allow for binary packages to be do
 kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee -a /etc/apt/sources.list
 ```
 ​
-We used `kali-rolling` for the [branch](/docs/introduction/kali-branches/) above, but you can select any value you wish.
+We used `kali-rolling` for the [branch](/docs/general-use/kali-branches/) above, but you can select any value you wish.

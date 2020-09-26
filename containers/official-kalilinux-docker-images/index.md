@@ -2,18 +2,17 @@
 title: Official Kali Linux Docker Images
 description:
 icon:
-date: 2020-02-14
 type: post
-weight: 10
+weight:
 author: ["rhertzog",]
 tags: ["",]
 keywords: ["",]
 og_description:
 ------
 
-Kali provides official Kali Docker images that are updated once a week on [Docker Hub](https://hub.docker.com/u/kalilinux/). You can thus easily build your own Kali containers on top of those that we provide. We offer various images to try and suit your needs, all with a different variation of Kali Linux as they use unique [branches for the source](/docs/introduction/kali-branches/).
+Kali provides official Kali Docker images that are updated once a week on [Docker Hub](https://hub.docker.com/u/kalilinux/). You can thus easily build your own Kali containers on top of those that we provide. We offer various images to try and suit your needs, all with a different variation of Kali Linux as they use unique [branches for the source](/docs/general-use/kali-branches/).
 
-Here's a quick review of the various images available (for more detailed information, see our [branch](/docs/introduction/kali-branches/) page). First those that you might reasonably want to use:
+Here's a quick review of the various images available (for more detailed information, see our [branch](/docs/general-use/kali-branches/) page). First those that you might reasonably want to use:
 
 - [kalilinux/kali-rolling](https://hub.docker.com/r/kalilinux/kali-rolling) is the main image that you should likely use, tracking the continuously-updated `kali-rolling` package repository, just like the default images.
 - [kalilinux/kali](https://hub.docker.com/r/kalilinux/kali) is built from the `kali-last-snapshot` repository, it is tracking the last versioned release (e.g. 2019.4, 2020.1, etc.) and will not get any update until the [next release](https://www.kali.org/kali-linux-releases/).

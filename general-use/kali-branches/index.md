@@ -2,13 +2,9 @@
 title: Kali Branches
 description:
 icon:
-date: 2020-01-13
 type: post
-weight:
+weight: 60
 author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## What is a branch?
@@ -24,7 +20,7 @@ Please see the [network sources](/docs/general-use/kali-linux-sources-list-repos
 First are the main branches, which are the most frequently used, and the most stable. These are often seen as "safe".
 
 - **kali-rolling** is the main default branch that most should be using. It is being continuously updated, as it pulls from `kali-dev` after ensuring questionable packages are stable and combining them with packages from `kali-rolling-only`. From time to time, a package bug may slip into here, due to bugs in `debian-testing`.
-- **kali-last-snapshot** is a branch of Kali that can be used if users want a more standard feeling of software control. For every new release, we freeze the code and merge `kali-rolling` into `kali-last-snapshot`, at which point users will get all of the updates between [versioned releases]((https://www.kali.org/kali-linux-releases/)) (i.e. 2019.3 -> 2019.4). This often is more stable, as packages are not updated (until the next release as it's a "Point Release") and go thought our release testing. This is the "safest" option.
+- **kali-last-snapshot** is a branch of Kali that can be used if users want a more standard feeling of software control. For every new release, we freeze the code and merge `kali-rolling` into `kali-last-snapshot`, at which point users will get all of the updates between [versioned releases](https://www.kali.org/kali-linux-releases/) (i.e. 2019.3 -> 2019.4). This often is more stable, as packages are not updated (until the next release as it's a "Point Release") and go thought our release testing. This is the "safest" option.
 
 Next are those that you will likely not need except in very special cases:
 
@@ -41,7 +37,7 @@ Next are those that you will likely not need except in very special cases:
 
 - **kali-debian-picks** contains packages cherry-picked from `debian-experimental` and `debian-unstable`. It is auto-merged into `kali-dev`.
 - **[debian-testing](https://wiki.debian.org/DebianTesting)** is a mirror of Debian's testing distribution. This is used to build `kali-dev`.
-- **[debian-experimental]([https://wiki.debian.org/DebianExperimental])** and **[debian-unstable](https://wiki.debian.org/DebianUnstable)** are partial mirrors for specific packages that we want to cherry-pick.
+- **[debian-experimental](https://wiki.debian.org/DebianExperimental)** and **[debian-unstable](https://wiki.debian.org/DebianUnstable)** are partial mirrors for specific packages that we want to cherry-pick.
 
 ## Mapping
 
@@ -72,4 +68,4 @@ kali-rolling-only --------------------------------------------------------|
 
 **Unstable** is just after Debian's package development happens. The packages have been created, but not fully tested. Kali doesn't have an equivalent, as it is a rolling distribution.
 
-For more information about how Kali relates to Debian, please see our [policy page](https://www.kali.org/docs/policy/kali-linux-relationship-with-debian/) on the matter.
+For more information about how Kali relates to Debian, please see our [policy page](/docs/policy/kali-linux-relationship-with-debian/) on the matter.
