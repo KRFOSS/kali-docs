@@ -13,7 +13,7 @@ og_description:
 
 A cloud image is designed to be lightweight while having the core tools to get the job done. If the base install is lacking something that may be needed, then the following should cover most questions.
 
-- [Metapackges](https://www.kali.org/docs/general-use/metapackages/) are helpful to quickly and easily install many tools at once. This is good to easily get access to specialized tools, such as information gathering tools.
+- [Metapackages](https://www.kali.org/docs/general-use/metapackages/) are helpful to quickly and easily install many tools at once. This is good to easily get access to specialized tools, such as information gathering tools.
 - [Kali Network Repositories](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/) and [Kali Branches](https://www.kali.org/docs/introduction/kali-branches/) are useful to know about in case a user may want to have a more static install or not.
 
 Due to the EOL of Python 2, there may be some confusion on certain topics involving it.

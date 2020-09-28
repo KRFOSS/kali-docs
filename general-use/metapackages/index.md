@@ -15,9 +15,19 @@ og_description:
 
 [Metapackages](https://tools.kali.org/kali-metapackages) are used to install many packages at one time, created as a list of dependencies on other packages. Kali Linux uses these in a few ways. One way is allowing users to decide how many packages out of the total Kali list they would like to install. Need just enough to use Linux? Want enough to conduct Pentests? Perhaps nearly every package available in Kali?
 
+To install a metapackage we first need to update and then install the desired package:
+
+```
+kali@kali:~$ apt update
+kali@kali:~$
+kali@kali:~$ apt install kali-linux-default
+kali@kali:~$
+```
+
 ## System
 
 - `kali-linux-core`: Base Kali Linux System – core items that are always included
+- `kali-linux-headless`: Default install that doesn't require GUI
 - `kali-linux-default`: "Default" desktop (AMD64/i386) images include these tools
 - `kali-linux-light`: Kali-Light images use this to be generated
 - `kali-linux-arm`: All tools suitable for ARM devices
