@@ -184,7 +184,7 @@ The output will look like this:
 pub   rsa4096 2012-03-05 [SC] [expires: 2023-01-16]
       44C6 513A 8E4F B3D3 0875  F758 ED44 4FF0 7D8D 0BF6
 uid           [ full] Kali Linux Repository <devel@kali.org>
-sub   rsa4096 2012-03-05 [E] [expires: 2023-01-16]```
+sub   rsa4096 2012-03-05 [E] [expires: 2023-01-16]
 ```
 
 Once you have downloaded both SHA256SUMS and SHA256SUMS.gpg, you can verify the signature as follows:
@@ -195,6 +195,7 @@ gpg: Signature made Mon Sep  2 06:42:05 2019 EDT
 gpg:                using RSA key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 gpg: Good signature from "Kali Linux Repository <devel@kali.org>" [full]
 ```
+
 {{% notice info %}}
 If you do not get that "Good signature" message or if the key ID does not match, then you should stop and review whether you downloaded the images from a legitimate Kali Linux mirror. The failed verification strongly suggests that the image you have may have been tampered with.
 {{% /notice %}}
