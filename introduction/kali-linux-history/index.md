@@ -44,3 +44,5 @@ Below is a rough overview of how Kali Linux came to be:
 {{% notice info %}}
 This is only the major releases, there were minor ones to address bug fixes, releases, and tools updates.
 {{% /notice %}}
+
+For more details about [Kali's history, see this page](https://kali.training/topic/a-bit-of-history/). And for more information about [Kali's releases, see this page](https://www.kali.org/kali-linux-releases/).
