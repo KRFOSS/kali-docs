@@ -13,19 +13,19 @@ In our example, we will be installing Kali Linux alongside an installation of Wi
 
 ### Installation Prerequisites
 
-This guide will make the following assumptions when following:
+This guide will make the following assumptions:
 
 - You have read our [single boot Kali Linux install guide](/docs/installation/kali-linux-hard-disk-install/), as this has the same Installation Prerequisites (system requirements & setup assumptions)
 - When [downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/), [pick the **live** image](/docs/introduction/what-image-to-download/#which-image-to-choose), rather than the installer option.
-- A single disk to install to _(rather than a dedicate disk per operating system)_
+- A single disk to install to _(rather than a dedicated disk per operating system)_
 
 We need to use a different image from the [single boot Kali Linux install guide](/docs/installation/kali-linux-hard-disk-install/), as we need the **live** image. This is because we need to edit the disk structure without mounting any partitions, otherwise it would be in-use. After we have finished altering the disk, we can install Kali Linux with either:
-- The same live image, and post installation after the setup is complete, switch (or remove) the [desktop environment](/docs/general-use/switching-desktop-environments/), and/or change any [metapackages](/docs/general-use/metapackages/). Else,
+- The same live image, and after installation and the setup is complete, switch (or remove) the [desktop environment](/docs/general-use/switching-desktop-environments/), and/or change any [metapackages](/docs/general-use/metapackages/).
 - Switch to the installer image (by using multiple CD/DVD/USBs or re-image on the same medium), and then continue the [single boot guide](/docs/installation/kali-linux-hard-disk-install/) as exactly as before
 
 {{% notice info %}}
 This installation has the potential to go wrong very easily as it involves editing existing partitions. Be aware of what partitions you are modifying and where you are installing Kali Linux to.<br />
-Having a backup of your Linux files available is a good idea in the event something goes wrong.
+Having a backup of your Windows files available is a good idea in the event something goes wrong.
 {{% /notice %}}
 
 ### Resize Windows Procedure
@@ -46,11 +46,11 @@ Depending on your setup, it is often the second, larger partition. In our exampl
 {{% notice info %}}
 If you are moving past into any non-white in the partition then you are editing a section that is in use.<br />
 Only remove from the area of the partition that is not in use.<br />
-It is alright to leave the third partition (`/dev/sda3`), and only shrink the actual install (`/dev/sda2`).<br />
+It is alright to leave the third partition (`/dev/sda3`), and only shrink the actual install (`/dev/sda2`).
 {{% /notice %}}
 
 {{% notice info %}}
-If you wish to organize the partition, so to group all the Windows partition together placing the free space is at the end you may do so.
+If you wish to organize the partition to group all the Windows partitions together, placing the free space at the end, you may do so.
 {{% /notice %}}
 
 ![before-resize](dual-boot-kali-3.png)
