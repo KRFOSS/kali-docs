@@ -18,7 +18,7 @@ Kali Linux is supported on many different devices and systems. On some of those 
 
 echo "[+] Installing Xfce, this will take a while"
 apt-get update
-apt-get dist-ugrade -y --force-yes
+apt-get dist-upgrade -y --force-yes
 apt-get install --yes --force-yes kali-desktop-xfce xorg xrdp
 
 echo "[+] Configuring XRDP to listen to port 3390 (but not starting the service)..."
