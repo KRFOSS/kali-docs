@@ -25,7 +25,7 @@ Kali NetHunter then joined the **rolling release** with 2019.2 release in May 20
 
 - - -
 
-In July 2019, the **Kali NetHunter store**, went public, allowing for a place of dedicated infomation secuirty focused apps to be located.
+In July 2019, the **Kali NetHunter store**, went public, allowing for a place of dedicated information security focused apps to be located.
 
 With the release of Kali NetHunter 2019.4, **NetHunter KeX** was launched, giving a "full Kali desktop on Android phones".
 
