@@ -1,0 +1,80 @@
+---
+title: Single Boot Kali on Mac Hardware
+description:
+icon:
+type: post
+weight: 110
+author: ["g0tmi1k",]
+---
+
+{{% notice info %}}
+IMPORTANT! Newer Mac hardware do not run Linux well, or at all.<br />
+The model & year of the device will determine how successful your experience will be.<br />
+{{% /notice %}}
+
+Installing Kali Linux on Apple Mac hardware (such as MacBook/MacBook Pro/MacBook Airs/iMacs/iMacs Pros/Mac Pro/Mac Minis), can be a straight forward, if the hardware is supported. Most of the time, there are a few issues that come up, so there is a bit of trial and error.
+
+This guide will show you to replace macOS/OS X with Kali Linux. However, if you wish to keep macOS/OS X, you will want to refer to our [dual-boot](/docs/installation/dual-boot-kali-with-mac/) guide instead.
+
+In our example, we will be installing Kali Linux on a Mac Mini (Mid 2011) using macOS High Sierra (10.13). The same procedure has also been tested on a Mac Book Air (Early 2014) using macOS Catalina (10.15).
+
+### Installation Prerequisites
+
+This guide will make the following assumptions when following:
+
+- You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements, setup assumptions and install media).
+- Currently running macOS/OS X 10.7 or higher _(later versions are more preferred)_ as this means the hardware is Intel (and not a PowerPC CPU).
+- Depending on the Mac hardware model & year, you may find:
+  - **Different results** when trying to boot by using either a CD/DVD **or** a USB drive.
+    - You may be able to increase the chances of booting _(especially older hardware and non-EFI)_ from a **USB drive** by having **rEFInd** pre-installed.
+  - When using the graphical installer, you may notice the tracepad does not function (but will after Kali Linux is installed).
+  - In-built wireless may not work, as `firmware-b43-installer` is [not included in the default images](https://gitlab.com/kalilinux/packages/kali-meta/-/commit/bdd4daa7be16e5114e21ade252638211e7d54813).
+
+{{% notice info %}}
+We will be wiping any existing data on the hard disk, so please backup any important information on the device to an external media.
+{{% /notice %}}
+
+### Kali Linux Installation Procedure
+
+1. To start your installation, make sure you **insert your Kali Linux installation medium** and **power on the device**. Immediately press and hold the [**Option (or Alt) ⌥** key until you see the boot menu](https://support.apple.com/en-us/HT201255) (rEFInd if installed, else the default macOS/OS X).
+You may or may not have a **Recovery HD** depending on your macOS/OS X setup.
+
+![boot-mac](boot-mac.png)
+
+- - -
+
+2. When the boot menu appears, if everything works as expected, you should see **two** volumes:
+
+- **EFI Boot** - **Newer hardware** which support **UEFI**. It is common for **GUID Partition Table (GPT)** partitions to be used.
+- **Windows** - "Non-EFI" boot. This use on **older hardware** which uses **BIOS**. You often see **Master Boot Record (MBR)** partition tables here.
+
+{{% notice info %}}
+If you only see **one volume** (EFI Boot), then the installation media **is not supported** for this device. This could be because the age of the firmware on the device.<br />
+You may wish to install **rEFInd**, as it is a boot manager, and try again.
+{{% /notice %}}
+
+Even though Kali Linux is [based on Debian](/docs/policy/kali-linux-relationship-with-debian/), macOS/OS X always detects non-EFI boot media as Windows. We suggest that you select the **EFI Boot** volume to continue. However, if the installation hangs at this point, power cycle and select Windows (Being Kali Linux non-EFI/BIOS). The success depends on the Mac hardware's model & year.
+
+![boot-mac-usb-efi](boot-mac-usb-efi.png)
+
+### Kali Linux Installation Procedure
+
+1. The installation procedure from this point onwards is the same as our [Kali Linux Hard Disk install](/docs/installation/hard-disk-install/) guide.
+
+2. After that is complete, all that is left is to reboot, take out the installation media, and enjoy Kali Linux.
+
+### Troubleshooting macOS/OS X
+
+If you have issues installing Kali Linux on macOS/OS X, there are a few options you can try:
+
+- Install the latest version of macOS/OS X ([App store](https://support.apple.com/en-gb/HT201541), [Recovery](https://support.apple.com/en-gb/HT204904) or [USB](https://support.apple.com/en-gb/HT201372)) and applying any updates as this may upgrade the firmware.
+- Install **rEFInd** boot manager to replace the default boot manager.
+- If you're using a DVD, **refresh rEFInd** once the drive has stop spinning by pressing `ESC`.
+- Switch from **EFI** to **BIOS boot** when trying to boot Kali Linux.
+- Switch from **GPT** drive to **Hybrid MRB** drive _(using the Live image may help)_.
+
+### Post Installation
+
+Now that you've completed installing Kali Linux, it's time to customize your system.
+
+The [General Use section](/docs/general-use/) has more information and you can also find tips on how to get the most out of Kali Linux in our [User Forums](https://forums.kali.org/).
