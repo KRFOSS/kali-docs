@@ -151,7 +151,7 @@ If you're not sure which you want, you want "**All files in one partition**".
 
 #### Encrypted LVM
 
-If enabled in the precious step, Kali Linux will now start to perform a secure wipe of the hard disk, before asking you for a LVM password.
+If enabled in the previous step, Kali Linux will now start to perform a secure wipe of the hard disk, before asking you for a LVM password.
 
 Please sure a strong password, else you will have to agree to the warning about a weak passphrase.
 
