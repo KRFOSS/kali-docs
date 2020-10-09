@@ -13,11 +13,11 @@ In our example, we will be installing Kali Linux alongside an installation of Ub
 
 ### Installation Prerequisites
 
-This guide will make the following assumptions when following:
+This guide will make the following assumptions:
 
 - You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements & setup assumptions).
 - When [downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/), [pick the **live** image](/docs/introduction/what-image-to-download/#which-image-to-choose), rather than the installer option.
-- A single disk to install to _(rather than a dedicate disk per operating system)_.
+- A single disk to install to _(rather than a dedicated disk per operating system)_.
 
 - - -
 
@@ -37,7 +37,7 @@ Having a backup of your Linux files available is a good idea in the event someth
 
 Before we can install Kali Linux, there needs to be room on the hard disk. By **booting into a live Kali Linux session** with your chosen installation medium, we can resize the partition to our desired size, as the disk will not be in use because Kali Linux will all be in memory.
 
-1. To start resizing, make sure your Kali Linux installation medium is inserted and **power on the device**. If needed, press any keyboard shortcuts for a "boot order menu" (depends on each manufacture) or boot into BIOS/UEFI and change the boot order to point to the installation medium first.
+1. To start resizing, make sure you **insert your Kali Linux installation medium** and **power on the device**. If needed, press any keyboard shortcuts for a "boot order menu" (depends on each manufacture) or boot into BIOS/UEFI and change the boot order to point to the installation medium first.
 
 2. When the boot menu/options appears, you should see at least one new option. Depending on the manufacture, hardware, how the system is configured and install medium, you may see more options _(e.g. Can you boot into non-UEFI?)_.
 
@@ -70,7 +70,7 @@ Only remove from the area of the partition that is not in use.
 {{% /notice %}}
 
 {{% notice info %}}
-If you wish to organize the partition, so to group all the Linux partition together placing the free space is at the end you may do so.
+If you wish to organize the partition to group all the Linux partitions together, placing the free space at the end, you may do so.
 {{% /notice %}}
 
 ![gparted-2-linux](gparted-2-linux.png)

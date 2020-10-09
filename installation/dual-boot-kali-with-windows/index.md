@@ -13,11 +13,11 @@ In our example, we will be installing Kali Linux alongside an installation of Wi
 
 ### Installation Prerequisites
 
-This guide will make the following assumptions when following:
+This guide will make the following assumptions:
 
 - You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements & setup assumptions).
 - When [downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/), [pick the **live** image](/docs/introduction/what-image-to-download/#which-image-to-choose), rather than the installer option.
-- A single disk to install to _(rather than a dedicate disk per operating system)_.
+- A single disk to install to _(rather than a dedicated disk per operating system)_.
 
 - - -
 
@@ -74,7 +74,7 @@ It is normal to leave the third partition (`/dev/sda3`), and only shrink the act
 {{% /notice %}}
 
 {{% notice info %}}
-If you wish to organize the partition, so to group all the Windows partitions together placing the free space is at the end you may do so.
+If you wish to organize the partition to group all the Windows partitions together, placing the free space at the end, you may do so.
 {{% /notice %}}
 
 ![gparted-2-windows](gparted-2-windows.png)

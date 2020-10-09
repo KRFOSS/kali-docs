@@ -20,7 +20,7 @@ In our example, we will be installing Kali Linux on a Mac Mini (Mid 2011) using 
 
 ### Installation Prerequisites
 
-This guide will make the following assumptions when following:
+This guide will make the following assumptions:
 
 - You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements, setup assumptions and install media).
 - Currently running macOS/OS X 10.7 or higher _(later versions are more preferred)_ as this means the hardware is Intel (and not a PowerPC CPU).

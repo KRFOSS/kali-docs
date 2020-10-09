@@ -19,7 +19,7 @@ The Kali Linux "Mini ISO" is a convenient way to install a Kali Linux system whi
 
 ### Installation Prerequisites
 
-This guide will make the following assumptions when following:
+This guide will make the following assumptions:
 
 - You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements, setup assumptions and install media).
 - Downloaded the Kali Linux Mini ISO
