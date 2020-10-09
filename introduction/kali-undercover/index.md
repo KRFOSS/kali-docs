@@ -22,6 +22,7 @@ Switching to undercover mode is pretty straight-forward, just run the following 
 
 ```markdown
 kali@kali:~$ kali-undercover
+kali@kali:~$
 ```
 
 or, you can also look for **"Kali Undercover Mode"** from menu of your desktop and launch it.
@@ -34,6 +35,7 @@ Now, to **revert** back into your previous desktop settings just re-enter the pr
 
 ```markdown
 kali@kali:~$ kali-undercover
+kali@kali:~$
 ```
 
 **Ta-da!** Welcome back! Now, all your desktop settings should be restored to.

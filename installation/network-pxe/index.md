@@ -53,7 +53,7 @@ kali@kali:~$
 
 # 64-bit:
 kali@kali:~$ sudo wget http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/netboot.tar.gz -P /tftpboot/
-# 32-bit :
+# 32-bit:
 kali@kali:~$ sudo wget http://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/netboot.tar.gz -P /tftpboot/
 
 kali@kali:~$ sudo tar -zxpf /tftpboot/netboot.tar.gz -C /tftpboot
