@@ -19,7 +19,7 @@ The first project was called **Whoppix**, which stood for **WhiteHat Knoppix**. 
 This made way for the next project, **WHAX** _(or the long hand, **WhiteHat Slax**)._ The name change was because the base OS changed from Knoppix to Slax. WHAX started at v3, as a nod towards it carrying on from Whoppix.
 ​
 
-There was a similar OS being produced at the same time, **Auditor Security Collection** _(often getting shorted to just **Auditor**)_, once again using Knoppix, and efforts were combined (with WHAX) to produce **[BackTrack](https://www,backtrack-linux.org/)**. BackTrack was based on Slackware from v1 to v3, but switched to Ubutnu later on with v4 to v5.
+There was a similar OS being produced at the same time, **Auditor Security Collection** _(often getting shorted to just **Auditor**)_, once again using Knoppix, and efforts were combined (with WHAX) to produce **[BackTrack](https://www.backtrack-linux.org/)**. BackTrack was based on Slackware from v1 to v3, but switched to Ubutnu later on with v4 to v5.
 ​
 
 Using the experience gained from all of this, **Kali Linux** came after BackTrack. Kali started off using Debian stable as the engine under the hood before moving to Debian testing when Kali became a rolling OS.
