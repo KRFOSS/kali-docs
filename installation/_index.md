@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Installing Kali Linux on desktops & laptops using ".ISO" files (amd64/x86)
+description: Installing Kali Linux on desktops & laptops using ".ISO" files (x64/x86)
 icon: ti-desktop
 type: toc
 weight: 15
