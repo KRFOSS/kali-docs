@@ -55,7 +55,7 @@ Qualcomm internal wifi chipsets (wlan0)
 * TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets)
   but v2 and v3 may be supported using RTL8812AU drivers.)
 
-* TP-Link TL-WN822N v1 - v3  
+* TP-Link TL-WN822N v1 - v4  
 * Alfa Networks AWUS036ACH  
 * Alfa Networks AWUS036NEH (recommended by @jcadduono)  
 * Alfa Networks AWUS036NHA  
@@ -66,7 +66,6 @@ Qualcomm internal wifi chipsets (wlan0)
 * Alfa Networks AWUS051NH (dual band 5 GHz support may be unreliable)  
 
 **The following devices are confirmed to NOT be working with a NetHunter build:**  
-* TP-Link TL-WN822N v4  
 
 &nbsp;
 
