@@ -22,23 +22,33 @@ There is also the possibility that your device may only provide 450 or less mA o
 **The following chipsets are supported by default in most, if not all, NetHunter kernels:**  
 
 Atheros  
-* ATH9KHTC (AR9271, AR7010)  
+* ATH9K_HTC (AR9271, AR7010)  
+* ATH10K
 
 Ralink  
 * RT3070  
 
-Realtek  
-* RTL8192CU  
+Realtek
+* RTL8188EUS
+* RTL8188CU
+* RTL8188RU  
+* RTL8192CU
+* RTL8192EU
+* RTL8723AU
+* RTL8811AU  
 * RTL8812AU  
 * RTL8814AU  
 * RTL8821AU  
+* RTW88-USB
 
 Qualcomm internal wifi chipsets (wlan0)  
 * QCACLD-2.0  
 * QCACLD-3.0  
 
 **The following devices are confirmed to be working with a NetHunter build:**  
-* TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets)  
+* TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets)
+  but v2 and v3 may be supported using RTL8812AU drivers.)
+
 * TP-Link TL-WN822N v1 - v3  
 * Alfa Networks AWUS036ACH  
 * Alfa Networks AWUS036NEH (recommended by @jcadduono)  
