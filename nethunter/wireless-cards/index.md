@@ -25,7 +25,9 @@ Atheros
 * ATH9K_HTC (AR9271, AR7010)  
 * ATH10K
 
-Ralink  
+Ralink
+* RT73
+* RT2800USB  
 * RT3070  
 
 Realtek
@@ -40,6 +42,10 @@ Realtek
 * RTL8814AU  
 * RTL8821AU  
 * RTW88-USB
+
+MediaTek
+* MT7610U
+* MT7612U
 
 Qualcomm internal wifi chipsets (wlan0)  
 * QCACLD-2.0  
