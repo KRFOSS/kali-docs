@@ -128,9 +128,64 @@ components:
         target: /data
 ```
 
+For applications that need interaction, it will often be necessary to
+also allow the app to be accessed from outside the container.  In many
+cases, it will just be a matter of exposing one port.  For instance,
+the following exposes port 8123 from the container (but no other: if
+the app itself uses several ports internally, only the published ports
+will be accessible from outside the container):
+
+```
+components:
+  default:
+    [...]
+    publish_ports:
+      - 8123
+```
 
 ## Multi-component applications
 
 Kaboxer also allows packaging applications that have different
-components; they can either be run in isolation or in a shared
-container, depending on the needs.
+components, for instance a server part and a client part; they can
+either be run in isolation or in a shared container, depending on the
+needs.
+
+The simple, "shared container" scenario is illustrated by
+``kbx-hello-allinone``; the ``kbx-hello`` application has all three
+components in the same kaboxer app, and they run in the same
+container.  For that, once the server part is running in its
+container, the other parts need to be started within that running
+container.  Kaboxer automates that when the client components declare
+the following:
+
+```
+components:
+  [...]
+  gui:
+    [...]
+    reuse_container: true
+```
+
+In more complex scenarios, application may need to isolate the
+components from one another, but still allow them to communicate
+through the network.  It would of course be possible to publish ports
+to the outside of the server container, but that would leave them open
+to the world; in that case, it's simpler to just define a private
+network and plug the containers into this network.  For instance, both
+``kbx-hello-cli`` and ``kbx-hello-server`` define the following
+network:
+
+```
+components:
+  default:
+    [...]
+    networks:
+      - kbx-hello
+```
+
+This means that even though the server part is not accessible from the
+host outside the server container, it is accessible from the cli
+container: the cli can connect to the ``kbx-hello-server`` host and
+the connection will be automatically routed through the private
+network to the other container.
+
