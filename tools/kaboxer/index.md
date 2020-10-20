@@ -102,3 +102,35 @@ kaboxer run kbx-hello-cli
 
 Voilà, ``kbx-hello-cli`` is now running in isolation!
 
+## Sharing resources (network or file system)
+
+Many times, even though the app runs in its isolated container, you'll
+want to let it interact with the outside world in some way, either by
+sharing some part of the file system or by letting it access the
+network.
+
+Sharing a part of the file system is a simple matter of defining a
+"mount" for the component.  A "mount" makes a source directory (on the
+host) available inside the container as the target directory.  This
+allows persisting data across runs, since even if the container is
+stopped and removed, the data that is stored in the source directory
+is not touched.  It also allows sharing parts of the file system
+across containers.  For instance, assuming we want to make the
+``/var/lib/kbx-hello`` directory available to the container as
+``/data``, we'd add the following section to our component definition:
+
+```
+components:
+  default:
+    [...]
+    mounts:
+      - source: /var/lib/kbx-hello
+        target: /data
+```
+
+
+## Multi-component applications
+
+Kaboxer also allows packaging applications that have different
+components; they can either be run in isolation or in a shared
+container, depending on the needs.
