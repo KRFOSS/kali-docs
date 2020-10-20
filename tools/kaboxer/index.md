@@ -152,7 +152,7 @@ needs.
 
 The simple, "shared container" scenario is illustrated by
 ``kbx-hello-allinone``; the ``kbx-hello`` application has all three
-components in the same kaboxer app, and they run in the same
+components in the same Kaboxer app, and they run in the same
 container.  For that, once the server part is running in its
 container, the other parts need to be started within that running
 container.  Kaboxer automates that when the client components declare
@@ -189,3 +189,11 @@ container: the cli can connect to the ``kbx-hello-server`` host and
 the connection will be automatically routed through the private
 network to the other container.
 
+## Going further
+
+This tutorial is only about getting started with Kaboxer; all the
+options are described in more details in the appropriate manual pages,
+namely ``kaboxer(1)`` and ``kaboxer.yaml(5)``.  The ``kaboxer``
+package also provides a rather comprehensive sample ``kbx-hello``
+application that illustrates the settings and the operation; have a
+look in ``/usr/share/doc/kaboxer/examples/kbx-hello``.
