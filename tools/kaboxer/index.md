@@ -12,9 +12,26 @@ og_description:
 ---
 
 ## Kaboxer
+
 Kaboxer is a framework to manage applications in containers on Kali Linux (and other Debian-based) systems. It allows shipping applications that are hard to package properly or that need to run in isolation from the rest of the system.
 
 The framework has two parts; the ``kaboxer`` tool is the main UI for starting, stopping, creating and managing containers and the relevant images. There's also ``dh_kaboxer``, a helper that can be used in source packages and that partially automates the process of creating a package for an app that uses Kaboxer.
+
+The idea of Kaboxer is to prepare ready-to-run application images, and
+then to run these images.  This means that the images can be
+distributed on their own, independently of their build process.  We'll
+describe how to build the images below; running the image is handled
+by Kaboxer itself: it can either fetch the image from a Docker
+registry or import it from a tarball, depending on the image's
+configuration.  The whole process can be integrated within a CI setup.
+For instance, it's possible to have Gitlab CI build the image and
+store it in its registry; since the Kaboxer configuration file
+(``kaboxer.yaml``, see below) contains the path of the image in the
+registry, the package can contain the metadata of the image only, and
+the image itself is fetched from the registry at package installation
+time or when the app is first run.  The ``kaboxer`` source package
+includes a sample Gitlab CI configuration file documenting this
+workflow.
 
 ## Packaging a simple application with Kaboxer
 
