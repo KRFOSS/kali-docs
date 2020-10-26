@@ -8,7 +8,7 @@ author: ["g0tmi1k",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Newer Mac hardware do not run Linux well, or at all.<br />
+IMPORTANT! Newer Mac hardware (e.g. T2 chips) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
 The model & year of the device will determine how successful your experience will be.<br />
 {{% /notice %}}
 
@@ -405,7 +405,7 @@ If you wish, you can alter rEFInd in various ways now, including:
 
 - The default OS selection
 - Timeout for menu selection
-- Direct boot into the default OS (Note, by pressing **Options** during boot, you will have a one-time boot menu).
+- Direct boot into the default OS (Note, by pressing **Option (or Alt) ⌥** key during boot, you will have a one-time boot menu).
 - Adding custom icons/themes.
 
 #### refind.conf

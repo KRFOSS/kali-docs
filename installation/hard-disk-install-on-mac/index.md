@@ -1,5 +1,5 @@
 ---
-title: Single Boot Kali on Mac Hardware
+title: Install Kali on Mac Hardware
 description:
 icon:
 type: post
@@ -8,11 +8,11 @@ author: ["g0tmi1k",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Newer Mac hardware do not run Linux well, or at all.<br />
+IMPORTANT! Newer Mac hardware (e.g. T2 chips) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
 The model & year of the device will determine how successful your experience will be.<br />
 {{% /notice %}}
 
-Installing Kali Linux on Apple Mac hardware (such as MacBook/MacBook Pro/MacBook Airs/iMacs/iMacs Pros/Mac Pro/Mac Minis), can be a straight forward, if the hardware is supported. Most of the time, there are a few issues that come up, so there is a bit of trial and error.
+Installing Kali Linux (Single boot) on Apple Mac hardware (such as MacBook/MacBook Pro/MacBook Airs/iMacs/iMacs Pros/Mac Pro/Mac Minis), can be a straight forward, if the hardware is supported. Most of the time, there are a few issues that come up, so there is a bit of trial and error.
 
 This guide will show you to replace macOS/OS X with Kali Linux. However, if you wish to keep macOS/OS X, you will want to refer to our [dual-boot](/docs/installation/dual-boot-kali-with-mac/) guide instead.
 
