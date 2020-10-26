@@ -1,5 +1,5 @@
 ---
-title: Single Boot Kali Linux
+title: Install Kali Linux
 description:
 icon:
 type: post
@@ -7,7 +7,7 @@ weight: 100
 author: ["gamb1t",]
 ---
 
-Installing Kali Linux on your computer is an easy process. This guide will cover the basic install (which can be done on bare metal or guest VM), with the option of encrypting the partition. At times, you may have sensitive data you would prefer to encrypt using Full Disk Encryption (FDE). During the setup process you can initiate an LVM encrypted install on either Hard Disk or USB drives.
+Installing Kali Linux (Single boot) on your computer is an easy process. This guide will cover the basic install (which can be done on bare metal or guest VM), with the option of encrypting the partition. At times, you may have sensitive data you would prefer to encrypt using Full Disk Encryption (FDE). During the setup process you can initiate an LVM encrypted install on either Hard Disk or USB drives.
 
 First, you'll need compatible computer hardware. Kali Linux is supported on amd64 (x86_64/64-Bit) and i386 (x86/32-Bit) platforms. Where possible, we would **recommend using the amd64 images**. The hardware requirements are minimal as listed in the section below, although better hardware will naturally provide better performance. You should be able to use Kali Linux on newer hardware with UEFI and older systems with BIOS.
 
@@ -39,7 +39,7 @@ We will be wiping any existing data on the hard disk, so please backup any impor
 
 1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/) _(We [recommend](/docs/introduction/what-image-to-download/#which-image-to-choose) the image marked **Installer**)._
 
-2. Burn The Kali Linux ISO to DVD or [image Kali Linux Live to USB drive](/docs/usb/kali-linux-live-usb-install/). _(If you cannot, check out the [Kali Linux Network Install](/docs/installation/network-pxe/).)_
+2. Burn The Kali Linux ISO to DVD or [image Kali Linux Live to USB drive](/docs/usb/kali-linux-live-usb-install/). _(If you cannot, check out the [Kali Linux Network Install](/docs/installation/network-pxe/))._
 
 3. Backup any important information on the device to an external media.
 

@@ -15,7 +15,7 @@ The NetInstaller image has as it has the kernel pre-loaded, meaning the image do
 
 - - -
 
-The Kali Linux "Mini ISO" is a convenient way to install a Kali Linux system which is always up-to-date. The mini install ISO will download all required packages from our repositories every time you install Kali Linux. This means you will always get the latest version of each package straight after installing. However, you will need to have a fast Internet connection to use this installation method.
+The Kali Linux "Mini ISO" is a convenient way to install a Kali Linux system which is always [up-to-date](/docs/general-use/updating-kali/) after the setup is over. The mini install ISO will download all required packages from our repositories every time you install Kali Linux. This means you will always get the latest version of each package straight after installing. However, you will need to have a fast Internet connection to use this installation method.
 
 ### Installation Prerequisites
 
