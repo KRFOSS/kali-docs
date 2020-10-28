@@ -394,7 +394,7 @@ After a new installation we don't have any snapshots yet as we can see via:
 
 ![btrfs-70-Rollback-01.png](btrfs-70-Rollback-01.png)
 
-Let's do a full system upgrade:
+Let's do a [full system upgrade](/docs/general-use/updating-kali/):
 
 ```markdown
 apt update
