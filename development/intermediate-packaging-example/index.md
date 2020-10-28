@@ -252,8 +252,6 @@ Here we will need to alter:
 - The **log entry** - We keep it simple with `Initial release`
 
 ```
-kali@kali:~/kali/packages/photon$ cd debian/
-kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ vim debian/changelog
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/changelog
