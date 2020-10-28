@@ -13,11 +13,11 @@ og_description:
 
 This guide is about virtualizing Kali Linux inside of [VirtualBox](https://www.virtualbox.org/), allowing you to have a Kali VM. This is a great way to use Kali, as it is completely separate from the host, allows you to interact with other VMs (as well as the host machine and other machines on the network), and allows you to revert to snapshots.
 
-You may wish to follow our other guide if you are trying to install VitualBox on Kali Linux (as a [host](/docs/virtualization/install-virtualbox-kali-host/)).
+You may wish to follow our other guide if you are trying to install VirtualBox on Kali Linux (as a [host](/docs/virtualization/install-virtualbox-kali-host/)).
 
-The guide below is what we use to generate our [pre-made Kali Linux VitualBox images](https://www.offensive-security.com/kali-linux-vm-virtualbox-virtualbox-image-download/). You may alter this to your needs. We always generate the images using the [latest version of VitualBox](https://www.virtualbox.org/wiki/Downloads).
+The guide below is what we use to generate our [pre-made Kali Linux VirtualBox images](https://www.offensive-security.com/kali-linux-vm-virtualbox-virtualbox-image-download/). You may alter this to your needs. We always generate the images using the [latest version of VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
-Upon starting up VitualBox, select "New" (Machine -> New).
+Upon starting up VirtualBox, select "New" (Machine -> New).
 
 ![](vb-01.png)
 
