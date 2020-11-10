@@ -4,7 +4,7 @@ description:
 icon:
 date: 2020-11-10
 type: post
-weight: 
+weight: 15
 author: ["rhertzog",]
 tags: ["python",]
 keywords: ["",]
