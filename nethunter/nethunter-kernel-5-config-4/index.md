@@ -58,7 +58,7 @@ You can reduce the selection to the following few from the section ***"DVB-T (te
 - select ***"Realtek RTL2832 SDR"***
   (CONFIG_DVB_RTL2832_SDR=y)
 - select ***"Silicon Labs Si2168"***
-  (ONFIG_DVB_SI2168=y)
+  (CONFIG_DVB_SI2168=y)
 - select ***"ZyDAS ZD1301"***
   (CONFIG_DVB_ZD1301_DEMOD=y)
 
