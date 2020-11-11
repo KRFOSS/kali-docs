@@ -2,13 +2,9 @@
 title: USB boot in a VM
 description:
 icon:
-date: 2020-03-07
 type: post
-weight:
+weight: 500
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 A few years ago we released a blog post on [VMware Fusion Kali USB Boot](https://www.kali.org/news/vmware-fusion-kali-usb-boot/). This can come in handy if a USB is not working how it should, as it can reduce time from needing to reboot or transfer it to another machine. Since then there have been some updates to VMware Fusion that make this process a bit easier.
@@ -67,7 +63,7 @@ If you run into problems, you have a few options. First, power off your VM. Go t
 
 ![usb-boot-vm-20](usb-boot-vm-20.png)
 
-If you don’t get a check mark, this means that your Mac has grabbed the USB drive. Power off your VM, eject the drive from the Mac, and power on the VM again with the USB settings screen up. You should see the check mark and get the Kali boot screen.
+If you don't get a check mark, this means that your Mac has grabbed the USB drive. Power off your VM, eject the drive from the Mac, and power on the VM again with the USB settings screen up. You should see the check mark and get the Kali boot screen.
 
 ![usb-boot-vm-13](usb-boot-vm-13.png)
 
@@ -77,23 +73,23 @@ When booting with EFI, your boot screen should look like this:
 
 ![usb-boot-vm-14](usb-boot-vm-14.png)
 
-This indicates that EFI is enabled. If it’s not, triple-check that you entered the firmware line correctly in the "Advanced" section of settings. Note that in some cases, this EFI Network check may hang. Simply pressing ESC within the VM nudges the process along.
+This indicates that EFI is enabled. If it's not, triple-check that you entered the firmware line correctly in the "Advanced" section of settings. Note that in some cases, this EFI Network check may hang. Simply pressing ESC within the VM nudges the process along.
 
 To access the Boot Manager, you can click on "Virtual Machine" on the Apple window bar at the top, and then click "Power on to firmware".
 
 ![usb-boot-vm-15](usb-boot-vm-15.png)
 
-From here, you can select "EFI Internal Shell" to get into the shell. If you get something like this, missing an fs0 map, then EFI doesn’t see your USB drive. If this is the case, power off the virtual machine, unplug the USB, start the VM, and immediately after pressing start, insert the drive, looking for the checkmark in settings.
+From here, you can select "EFI Internal Shell" to get into the shell. If you get something like this, missing an fs0 map, then EFI doesn't see your USB drive. If this is the case, power off the virtual machine, unplug the USB, start the VM, and immediately after pressing start, insert the drive, looking for the checkmark in settings.
 
-If everything goes well, you’re booted into Kali. Otherwise, you can get to an EFI shell with ESC, "EFI Internal Shell". A "happy" EFI shell looks like this:
+If everything goes well, you're booted into Kali Linux. Otherwise, you can get to an EFI shell with ESC, "EFI Internal Shell". A "happy" EFI shell looks like this:
 
 ![usb-boot-vm-16](usb-boot-vm-16.png)
 
-Note the fs0 map. Next, you can enter ‘fs0:’ and ‘ls’ to look around.
+Note the fs0 map. Next, you can enter ‘fs0:' and ‘ls' to look around.
 
 ![usb-boot-vm-17](usb-boot-vm-17.png)
 
-You can enter ‘cd efi\boot’ (notice the backslash, not a forward slash!) and boot the device manually with ‘bootx64.efi’
+You can enter ‘cd efi\boot' (notice the backslash, not a forward slash!) and boot the device manually with ‘bootx64.efi'
 
 ![usb-boot-vm-18](usb-boot-vm-18.png)
 
@@ -105,7 +101,7 @@ Note that on some installations, the shutdown, followed by removing the drive, p
 
 ### Final option
 
-If neither of the above worked to fix you booting directly into Kali, but you _can_ boot as seen by troubleshooting EFI, you can always use the boot manager to boot into Kali. Access the Boot Manager by clicking on "Virtual Machine" on the Apple window bar at the top, and then click "Power on to firmware". Select the option "EFI USB Device" and hit enter.
+If neither of the above worked to fix you booting directly into Kali, but you _can_ boot as seen by troubleshooting EFI, you can always use the boot manager to boot into Kali Linux. Access the Boot Manager by clicking on "Virtual Machine" on the Apple window bar at the top, and then click "Power on to firmware". Select the option "EFI USB Device" and hit enter.
 
 ![usb-boot-vm-19](usb-boot-vm-19.png)
 
