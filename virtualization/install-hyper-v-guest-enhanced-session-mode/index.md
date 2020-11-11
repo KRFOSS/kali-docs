@@ -13,7 +13,7 @@ This article will help you to enable the **[Enhanced Session Mode](https://techc
 
 ![kali-hyper-v-enhancedmode](kali-hyper-v-enhancedmode.png)
 
-## Execute the install script on Kali Linux.
+## Install
 
 Start up your Kali Linux virtual machine, open a terminal window and issue the following commands.
 
@@ -36,7 +36,7 @@ The script will install [xrdp](https://packages.debian.org/testing/xrdp) and mod
 
 If the [script](https://github.com/mimura1133/linux-vm-tools/blob/master/kali/2020.x/install.sh) says "**Reboot your machine to begin using XRDP**", please **shutdown the VM and close the window** of "Virtual Machine Connection".
 
-## Changing the Setting of the Virtual Machine.
+## Changing the Setting of the Virtual Machine
 
 You now need to change the **transport type** from VMBus to **HVSocket**.
 
