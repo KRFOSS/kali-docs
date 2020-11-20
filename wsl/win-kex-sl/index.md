@@ -86,7 +86,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
 ### Multiscreen Support
 
-- Win-KeX supports mutiscreen setups: 
+- Win-KeX supports multiscreen setups: 
 
   Open "Panel Preference" to reduce the panel length, untick "Lock panel" and move the panel to the desired screen.  
 
