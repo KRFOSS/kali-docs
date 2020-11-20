@@ -44,7 +44,7 @@ apt update
 apt full-upgrade -y
 ```
 
-If you don't see it going over a mirror during 'apt update', you may have accidentally forgotten to add a network mirror during the installation. Follow the [instructions on the Kali Docs site](https://docs.kali.org/general-use/kali-linux-sources-list-repositories) to fix it and run both of the commands again.
+If you don't see it going over a mirror during 'apt update', you may have accidentally forgotten to add a network mirror during the installation. Follow the [instructions on the Kali Docs site](https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/) to fix it and run both of the commands again.
 
 ### Install Required Packages
 
