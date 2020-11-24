@@ -26,7 +26,7 @@ Looks interesting? Let's see how you can package an application
 with this new framework. First install the tool itself:
 
 ```
-$ apt install kaboxer
+$ sudo apt install kaboxer
 ```
 
 
@@ -134,8 +134,18 @@ This command will run Docker stuff, so it requires some
 privileges: at least membership in the `docker` or `kaboxer`
 groups.
 
-Once it is completed, run the app in its container with the following
-command:
+Note that if the build fails, kaboxer will not provide much information to
+figure out what's going wrong. In that case, you should try to build your
+docker image directly with `docker build` so that you can see the precise
+error message. Here's how you would do that (you need membership in the
+`docker` group, or root rights):
+
+```
+$ docker build -f Dockerfile . -t kaboxer/kbx-hello-cli
+```
+
+Once `kaboxer build` ran successfully, run the app in its container with
+the following command:
 
 ```
 $ kaboxer run kbx-hello-cli
@@ -151,7 +161,7 @@ a few files to enable the integration with Kaboxer:
 
 1. we add `kaboxer` to `Build-Depends` in `debian/control` so that
    the debhelper integration offered by Kaboxer is available at build-time
-1. we ensure that we have `${misc:Depends}` in the `Depends` fiels in `debian/control`
+1. we ensure that we have `${misc:Depends}` in the `Depends` fields in `debian/control`
    so that `dh_kaboxer` can inject the appropriate dependency
    (mainly on docker and kaboxer currently)
 1. we modify `debian/rules` to enable the debhelper integrations by
