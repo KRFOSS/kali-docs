@@ -307,6 +307,27 @@ container: the cli can connect to the ``kbx-hello-server`` host and
 the connection will be automatically routed through the private
 network to the other container.
 
+### Integrating the application in the Kali menu
+
+When applications are packaged for Kali, they are integrated in the Kali
+menu for easy discovery. Applications packaged with the help of Kaboxer
+should make no exception. Kaboxer is already generating a `.desktop` file,
+so the only thing that is left to do is to ensure that the `Categories` entry
+is populated with values used by the Kali menu. You can find a list of the
+categories [in this
+file](https://gitlab.com/kalilinux/packages/kali-menu/-/blob/kali/master/menus/kali-applications.menu).
+
+Adding a category to the desktop file can be easily done through
+the kaboxer.yaml file (with the `categories` field below `application`).
+Here's for example how you would put an application in the "Bluetooth
+tools" and "Wireless Attacks" categories:
+
+```
+application:
+    [...]
+    categories: Utility;06-02-bluetooth-tools;06-wireless-attacks
+```
+
 ## Automating the build with GitLab CI
 
 To make it super easy to maintain Kaboxer applications, we are
