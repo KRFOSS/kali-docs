@@ -97,7 +97,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
 ## Run Win-KeX
 
-#### Win-KeX supports two modes:
+#### Win-KeX supports three modes:
 
   - Window Mode:
     ![Win-Kex](win-kex.png)
@@ -109,15 +109,26 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
     Refer to the [Win-KeX Win usage documentation](../win-kex-win/) for further information.
 
 
+  - Enhanced Session Mode:
+![Win-Kex-2](win-kex-2.png)
+    
+  - To start Win-KeX in Enhanced Session Mode with sound support and arm workaround, run  
+
+    `win-kex --esm --ip -s`  
+
+    Refer to the [Win-KeX ESM usage documentation](../win-kex-esm/) for further information.  
+
   - Seamless mode:
 
     ![Win-Kex](win-kex-sl.png)
 
-    To start Win-KeX in Seamless mode with sound support, run
+    To start Win-KeX in Seamless mode with sound support, run  
 
-    `win-kex --sl -s`
+    `win-kex --sl -s`  
 
-    Refer to the [Win-KeX SL usage documentation](../win-kex-sl/) for further information.
+    Refer to the [Win-KeX SL usage documentation](../win-kex-sl/) for further information.  
+    
+      
 
 ## Optional Steps:
 
@@ -190,7 +201,34 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
   },
   ```
 
-  ![Win-Kex in WTS](win-kex-wt1.png)
+  **Basic Win-KeX in ESM mode with sound:**
+
+  ```
+  {
+        "guid": "{55ca431a-3a87-5fb3-83cd-11ecedc031d2}",
+        "hidden": false,
+        "name": "Win-KeX",
+        "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
+  },
+  ```
+
+
+  **Advanced Win-KeX in ESM mode with sound - Kali icon and start in kali home directory:**
+
+  Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
+
+  ```
+  {
+          "guid": "{55ca431a-3a87-5fb3-83cd-11ecedd031d2}",
+          "hidden": false,
+  		"icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
+          "name": "Win-KeX",
+          "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
+  		"startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
+  },
+  ```
+
+![Win-Kex in WTS](win-kex-wt1.png)
 
   ![Win-Kex in wts](win-kex-wt2.png)
 
