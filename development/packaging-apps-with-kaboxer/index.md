@@ -47,6 +47,28 @@ image to run it.
 
 ## Packaging a simple application with Kaboxer
 
+### Prerequisites
+
+Kaboxer needs access to the docker daemon so you must ensure that your
+user has the required rights: it needs to be part either of the docker
+group (which has direct write access to the docker socket) or of the
+kaboxer group (which can get the required permissions with `sudo`).
+
+If you installed Kali 2020.4 or newer, the initial user created during
+installation should already be part of the kaboxer group and have the
+required privileges (you can check with `id`).
+
+If your current user is not part of the `kaboxer` group, then you should
+grant the group membership with the following command:
+
+```
+$ sudo adduser $USER kaboxer
+```
+
+Note that the new group membership will only be visible after having
+restarted your user session (or after having created a new sub-session
+with a command like `sg`, `newgrp` or `su`).
+
 ### Creating a Docker image
 
 Kaboxer currently only supports Docker as the isolation/container
