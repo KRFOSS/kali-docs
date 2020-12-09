@@ -115,10 +115,10 @@ like the following:
 
 ```plaintext
 application:
-    id: hello-cli
-    name: Hello World for Kaboxer (CLI)
-    description: >
-        hello-kbx is the hello-world application demonstrator for Kaboxer
+  id: hello-cli
+  name: Hello World for Kaboxer (CLI)
+  description: >
+    hello-kbx is the hello-world application demonstrator for Kaboxer
 packaging:
   revision: 1
 components:
@@ -341,8 +341,8 @@ tools" and "Wireless Attacks" categories:
 
 ```plaintext
 application:
-    [...]
-    categories: Utility;06-02-bluetooth-tools;06-wireless-attacks
+  [...]
+  categories: Utility;06-02-bluetooth-tools;06-wireless-attacks
 ```
 
 ## Automating the build with GitLab CI
