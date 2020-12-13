@@ -31,7 +31,7 @@ LISTEN 0 128 127.0.0.1:5432 *:*
 LISTEN 0 128 ::1:5432 :::*
 ```
 
-## Initialise the Metasploit PostgreSQL Database
+## Initialize the Metasploit PostgreSQL Database
 
 With **PostgreSQL** up and running, we next need to create and initialize the **msf** database.
 
