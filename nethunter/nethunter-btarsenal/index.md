@@ -1,5 +1,5 @@
 ---
-title: NetHunter Blutooth-Arsenal
+title: NetHunter Bluetooth-Arsenal
 description:
 icon:
 date: 2020-12-12
