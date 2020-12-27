@@ -136,5 +136,5 @@ Please adjust the precise time so that archive.kali.org doesn't get overloaded b
 If you want to setup a private mirror, you can use the same tools as for
 the public mirror with the following differences:
 
-- you will not be able to use SSH push mirroring for the package repository, instead of you have to put `~/bin/ftpsync sync:archive:kali` in the crontab of the user owning the mirror (`archvsync` in the above explanation).
+- you will not be able to use SSH push mirroring for the package repository, instead you have to put `~/bin/ftpsync sync:archive:kali` in the crontab of the user owning the mirror (`archvsync` in the above explanation).
 - you must use a non-kali.org mirror as the source mirror, almost all of them offer public rsync access (kali.org servers are restricted)
