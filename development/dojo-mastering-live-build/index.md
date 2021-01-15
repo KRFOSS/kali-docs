@@ -20,7 +20,7 @@ One of the most powerful features of Kali Linux is the ability to create your ow
 ```markdown
 sudo apt update
 sudo apt install -y git live-build cdebootstrap devscripts
-git clone git://gitlab.com/kalilinux/build-scripts/live-build-config.git
+git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 cd live-build-config/
 ```
 
@@ -70,7 +70,7 @@ mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpapers/kali/cont
 
 ```markdown
 mkdir -p kali-config/common/debian-installer/
-wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/blob/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
+wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/-/raw/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
 ```
 
 **0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64 bit build, we're including a 64 bit Nessus Debian package. [Download](http://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:
