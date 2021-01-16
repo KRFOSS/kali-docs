@@ -41,10 +41,10 @@ This will mount the Guest Additions ISO in the virtual CD drive in your Kali Lin
 From a terminal window, copy the `VboxLinuxAdditions.run` file from the Guest Additions CD-ROM to a path on your local system. Ensure it is **executable and run** the file to begin the installation.
 
 ```markdown
-kali@kali:~$ cp /media/cdrom/VBoxLinuxAdditions.run ~/Downoads/
-kali@kali:~$ chmod 0755 ~/Downoads/VBoxLinuxAdditions.run
-kali@kali:~$ cd ~/Downoads/
-kali@kali:~/Downoads$ ./VBoxLinuxAdditions.run
+kali@kali:~$ cp /media/cdrom/VBoxLinuxAdditions.run ~/Downloads/
+kali@kali:~$ chmod 0755 ~/Downloads/VBoxLinuxAdditions.run
+kali@kali:~$ cd ~/Downloads/
+kali@kali:~/Downloads$ ./VBoxLinuxAdditions.run
 ```
 
 Reboot the Kali Linux VM to complete the Guest Additions installation. You should now have full mouse and screen integration as well as the ability to share folders with the host system.
