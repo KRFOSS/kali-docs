@@ -14,6 +14,7 @@ og_description:
 ## Content:
 
 - [Overview](#overview)
+- [Prerequisites](#Prerequisites)
 - [Usage](#Usage)
   - [Start](#start)
   - [Sound Support](#sound-support)
@@ -36,7 +37,9 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
 &nbsp;
 
+## Prerequisites
 
+- VcXsrv requires [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-US/download/details.aspx?id=48145) (vcredist140)
 
 ## Usage  
 

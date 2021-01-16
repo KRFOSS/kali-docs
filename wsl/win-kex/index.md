@@ -104,7 +104,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
     To start Win-KeX in Window mode with sound support, run
 
-    `win-kex --win -s`
+    `kex --win -s`
 
     Refer to the [Win-KeX Win usage documentation](../win-kex-win/) for further information.
 
@@ -114,7 +114,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
     
   - To start Win-KeX in Enhanced Session Mode with sound support and arm workaround, run  
 
-    `win-kex --esm --ip -s`  
+    `kex --esm --ip -s`  
 
     Refer to the [Win-KeX ESM usage documentation](../win-kex-esm/) for further information.  
 
@@ -124,7 +124,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
     To start Win-KeX in Seamless mode with sound support, run  
 
-    `win-kex --sl -s`  
+    `kex --sl -s`  
 
     Refer to the [Win-KeX SL usage documentation](../win-kex-sl/) for further information.  
     
