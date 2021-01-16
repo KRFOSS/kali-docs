@@ -39,7 +39,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
 ## Prerequisites
 
-- VcXsrv requires [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-US/download/details.aspx?id=48145) (vcredist140)
+- VcXsrv requires [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-US/download/details.aspx?id=48145) (vcredist140). It should be included in standard Windows installations but if you receive an error complaining that it is missing, just download and install it.
 
 ## Usage  
 
