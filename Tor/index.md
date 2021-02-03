@@ -1,7 +1,5 @@
 ---
 title: Installing Tor Browser on Kali Linux
-description:
-icon:
 date: 2021-02-03
 type: post
 weight: 110
