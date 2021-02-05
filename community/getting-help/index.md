@@ -2,13 +2,9 @@
 title: How And Where To Get Help
 description:
 icon:
-date: 2020-06-19
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 This doc shares some of the same information as our [basics of troubleshooting doc](/docs/troubleshooting/basic-troubleshooting/). If you feel like you do not need a lot of extra information or explanation, basics of troubleshooting may be the doc for you.
@@ -39,7 +35,7 @@ Packages also typically have specific documentation that they put out along with
 
 Should you need access to a command and you cannot remember the name of that command, `apropos` will help you find it. It returns the command name and man page section. It searches through the summary of man pages looking for the key words that you supply, which is also what is presented.
 
-```
+```console
 kali@kali:~$ apropos "copy file"
 cp (1)               - copy files and directories
 cpio (1)             - copy files to and from archives

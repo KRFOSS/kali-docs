@@ -2,13 +2,9 @@
 title: Setting Up a Kali Linux Mirror
 description:
 icon:
-date: 2020-05-11
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## How to Set Up a Public Kali Linux Mirror
@@ -30,7 +26,7 @@ If you don't have yet an account dedicated for the mirrors, create such an accou
 ```
 $ sudo adduser --disabled-password archvsync
 Adding user 'archvsync' ...
-...SNIP...
+...
 Is the information correct? [Y/n]
 ```
 
@@ -49,7 +45,7 @@ Next, configure the rsync daemon (enable it if needed) to export those directori
 
 ```
 $ sudo sed -i -e "s/RSYNC_ENABLE=false/RSYNC_ENABLE=true/" /etc/default/rsync
-$ sudo nano /etc/rsyncd.conf
+$ sudo vim /etc/rsyncd.conf
 $ cat /etc/rsyncd.conf
 uid = nobody
 gid = nogroup
@@ -85,7 +81,7 @@ Now we need to create a configuration file. We start from a template and we edit
 
 ```
 $ cp etc/ftpsync.conf.sample etc/ftpsync-kali.conf
-$ nano etc/ftpsync-kali.conf
+$ vim etc/ftpsync-kali.conf
 $ grep -E '^[^#]' etc/ftpsync-kali.conf
 MIRRORNAME=`hostname -f`
 TO="/srv/mirrors/kali/"
@@ -99,7 +95,9 @@ The last step is to setup the `.ssh/authorized_keys` file so that archive.kali.o
 
 ```
 $ mkdir -p .ssh
+$ chown 0700 .ssh
 $ wget -O - -q http://archive.kali.org/pushmirror.pub >> .ssh/authorized_keys
+$ chown 0644 .ssh/authorized_keys
 ```
 
 If you have not unpacked the ftpsync.tar.gz in the home directory, then you must adjust accordingly the `~/bin/ftpsync` path, which is hard-coded in `.ssh/authorized_keys`.
@@ -120,7 +118,7 @@ The ISO images repository does not use push mirroring so you must schedule a dai
 ```
 $ sudo su - archvsync
 $ cp etc/mirror-kali-images.conf.sample etc/mirror-kali-images.conf
-$ nano etc/mirror-kali-images.conf
+$ vim etc/mirror-kali-images.conf
 $ grep -E '^[^#]' etc/mirror-kali-images.conf
 TO=/srv/mirrors/kali-images/
 $ crontab -e

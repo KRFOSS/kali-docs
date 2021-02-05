@@ -2,13 +2,9 @@
 title: Submitting Bugs for Kali Linux
 description:
 icon:
-date: 2020-02-12
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Introduction
@@ -40,17 +36,17 @@ The Kali Linux Bug Tracker can be found at [https://bugs.kali.org](https://bugs
 You'll have to create an account before the Bug Tracker will allow you to submit reports or comment on existing ones.
 On the bug tracker website, click **Signup for new account**.
 
-![Kali Bug Tracker Signup](kali-bugtracker-signup-2.png)
+![](kali-bugtracker-signup-2.png)
 
 Provide a username, e-mail address, and respond to the CAPTCHA challenge. Click the **Signup** button to proceed.
 
-![kali-bugtacker-signup-2](kali-bugtracker-signup-3.png)
+![](kali-bugtracker-signup-3.png)
 
 If successful, the next page will notify you that the account registration has been processed and the bug tracker system will send a confirmation email to the address you provided. You will need to visit the link in the email in order to activate your account.
 
 Once your account has been activated, click **Proceed** to continue to the Bug Tracker login page.
 
-![kali-bugtacker-signup-3](kali-bugtracker-signup-1.png)
+![](kali-bugtracker-signup-1.png)
 
 ### Be Sure You Are Not Duplicating a Previous Report
 
@@ -93,11 +89,11 @@ Do not request support or ask questions within the bug tracker. Kali Linux offer
 
 #### Providing a Descriptive Summary
 
-The summary field is essentially the 'title’ of the bug report and it will be the first thing Kali developers and other visitors see. Provide a short, yet descriptive, summary that describes the issue or request.
+The summary field is essentially the 'title' of the bug report and it will be the first thing Kali developers and other visitors see. Provide a short, yet descriptive, summary that describes the issue or request.
 
 A good summary: Chromium Package installed from repo will not run as root user
 
-A bad summary: Chromium doesn’t work
+A bad summary: Chromium doesn't work
 
 The summary does not need to include everything, but it should convey your reason for submitting the report.
 
@@ -111,25 +107,25 @@ You can find which package is installed using a combination of dpkg flags. It is
 
 Sample Output
 
-```
-root@kali:~# which chromium
+```console
+kali@kali:~$ which chromium
 /usr/bin/chromium
-root@kali:~#
-root@kali:~# type chromium
+kali@kali:~$
+kali@kali:~$ type chromium
 chromium is /usr/bin/chromium
-root@kali:~#
-root@kali:~# dpkg --search /usr/bin/chromium
+kali@kali:~$
+kali@kali:~$ dpkg --search /usr/bin/chromium
 chromium: /usr/bin/chromium
-root@kali:~#
-root@kali:~# dpkg --list chromium
+kali@kali:~$
+kali@kali:~$ dpkg --list chromium
 Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
 |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
 ||/ Name           Version      Architecture Description
 +++-==============-============-============-=================================
 ii  chromium       76.0.3809.100-1 amd64       web browser
-root@kali:~#
-root@kali:~# dpkg --status chromium
+kali@kali:~$
+kali@kali:~$ dpkg --status chromium
 Package: chromium
 Status: install ok installed
 Priority: optional
@@ -139,8 +135,8 @@ Maintainer: Debian Chromium Team <chromium@packages.debian.org>
 Architecture: amd64
 Source: chromium-browser
 Version: 76.0.3809.100-1
-...SNIP...
-root@kali:~#
+...
+kali@kali:~$
 ```
 
 
@@ -172,7 +168,7 @@ Here's an example of a good bug report, providing information that the developme
 **Maintainer**: Debian Chromium Maintainers
 **Source**: chromium-browser
 **Version**: 76.0.3809.100-1
-I installed the chromium web browser from the Kali Linux repos, using the command 'apt install chromium’. I launched the program from the Kali menu by selecting Applications/Internet/Chromium Web Browser. Chromium did not launch as expected, instead it provided an error pop-up window.
+I installed the chromium web browser from the Kali Linux repos, using the command 'apt install chromium'. I launched the program from the Kali menu by selecting Applications/Internet/Chromium Web Browser. Chromium did not launch as expected, instead it provided an error pop-up window.
 The error message stated, "Chromium cannot be run as root. Please start Chromium as a normal user. To run as root, you must specify an alternate --user-data-dir for storage of profile information".
 I clicked the Close button to close the pop up window.
 **uname -a output**: Linux kali 5.2.0-kali1-amd64 #1 SMP Debian 5.2.9-2kali1 (2019-08-22) x86_64 GNU/Linux
@@ -184,7 +180,7 @@ I clicked the Close button to close the pop up window.
 
 The Kali Linux bug tracker allows you to provide the frequency of the issue being reported. If you are submitting a request for a new tool or an upgrade to an existing tool, simply select **N/A** from the drop down options. If submitting a bug, please provide the appropriate response.
 
-Continuing the example above, by design, Chromium will not launch as root, so you would select 'always’ from the drop-down menu.
+Continuing the example above, by design, Chromium will not launch as root, so you would select 'always' from the drop-down menu.
 
 It is extremely important you provide an accurate response. If the Kali developers attempt to reproduce the issue, they need to know the frequency. If the issue happens occasionally but you have marked 'always', the issue may be closed prematurely as the developer doing the testing may not experience the issue.
 
@@ -197,7 +193,7 @@ Here's an example of a good set of steps for reproducing our example Chromium bu
 - - -
 
 1. Opened a terminal window by selecting Applications/Accessories/Terminal
-2. Typed 'apt install chromium’ in the terminal and hit enter to run the command
+2. Typed 'apt install chromium' in the terminal and hit enter to run the command
 3. Attempted to run Chromium web browser by selecting Applications/Internet/Chromium Web Browser
 
 - - -
@@ -222,7 +218,7 @@ Can this be patched within the repo version of Chromium so adding this flag is n
 
 #### Uploading Relevant Files
 
-Sometimes it is important to provide information to the development team that can’t easily be typed in as text. This section of the report allows you to add screenshots and log files. Be mindful of the size limitation in place.
+Sometimes it is important to provide information to the development team that can't easily be typed in as text. This section of the report allows you to add screenshots and log files. Be mindful of the size limitation in place.
 
 You can add a file by clicking the 'Choose File' button. This will open the file manager for your system and allow you to select the file you want to attach to your report. Once you have selected the file, click the 'Open' button to return to your report and click the 'Upload File' button.
 
@@ -240,6 +236,6 @@ Attempt to find an issue or fix through research, if at all possible — remembe
 
 Write accurately, be clear, precise, and concise to ensure the developers cannot misinterpret what you are trying to convey.
 
-Be prepared to provide additional information; the developers will not ask if they don’t need the information.
+Be prepared to provide additional information; the developers will not ask if they don't need the information.
 
 Please be patient with your request, the developers want to fix your issue as much as you do. We love what we do and are proud to continue making Kali Linux the most advanced penetration testing distribution ever, and grateful for the assistance we get from you, our community of users, in doing so.

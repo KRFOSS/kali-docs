@@ -2,16 +2,12 @@
 title: Kali Linux Community Forums
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
-The official community forums for the Kali Linux project are located at [forums.kali.org](https://forums.kali.org).
+The official community forums for the Kali Linux project are located at [forums.kali.org](https://forums.kali.org/).
 
 It's our goal that everyone feel welcome in the Kali Linux community, and to ensure that everyone understands the expectations, we have outlined some simple rules below. Please take a few moments to review them before joining the forums.
 
@@ -24,7 +20,7 @@ By registering with our forums you agree to be bound by the following rules.
 * New registrants' posts will be moderated at first, causing a slight delay in the post appearing - please _**do not**_ report problems with your post not appearing instantly during your first three days of membership.
 * Please use sensible and descriptive titles for your posts - titles like "Please Help Me!!" or "Need Assistance" or "What Am I Doing Wrong?" etc., don't give forum members any idea what the issue might be and are unlikely to draw either interest or assistance.
 * Do _not_ cross-post across sub-forums, please - one post in the relevant area is enough!
-* Before creating a new thread, please search the forums for similar or related previous postings. If you _do_ create a new thread asking a question that has already been asked, don’t be surprised if your thread gets deleted without notice.
+* Before creating a new thread, please search the forums for similar or related previous postings. If you _do_ create a new thread asking a question that has already been asked, don't be surprised if your thread gets deleted without notice.
 * **_Do not post_** about breaking into networks that do not belong to you and for which you have no permissions. _**Do not post**_ about illegal activities.
 * Religious, political, or pornographic references will _not_ be tolerated. Stay on topic.
 * Posts about your success in "hacking" into your neighbours WiFi or queries about how to break into a network, etc., are not welcome and will vanish (quite possibly along with your user ID).

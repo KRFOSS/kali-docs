@@ -2,13 +2,9 @@
 title: Contribute to Kali
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Kali Linux Mirror Contributions
