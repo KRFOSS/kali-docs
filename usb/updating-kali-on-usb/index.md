@@ -9,7 +9,7 @@ author: ["gamb1t",]
 
 ### Requirements
 
-In order to properly [update Kali Linux](/docs/general-use/updating-kali/) on a USB, [persistence](/docs/usb/kali-linux-live-usb-persistence/) must be setup. If persistence is not setup, re-imaging the USB with an ISO from the [weekly](https://cdimage.kali.org/kali-images/kali-weekly/) build will be a suitable update.
+In order to properly [update Kali Linux](/docs/general-use/updating-kali/) on a USB, [persistence](/docs/usb/usb-persistence/) must be setup. If persistence is not setup, re-imaging the USB with an ISO from the [weekly](https://cdimage.kali.org/kali-images/kali-weekly/) build will be a suitable update.
 
 ### Process
 

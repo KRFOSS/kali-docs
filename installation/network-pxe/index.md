@@ -7,7 +7,7 @@ weight: 400
 author: ["g0tmi1k",]
 ---
 
-Booting and installing Kali Linux over the network ([PXE](http://en.wikipedia.org/wiki/Preboot_Execution_Environment)) can be useful from a single laptop install with no CDROM or [USB](/docs/usb/) ports, to enterprise deployments supporting pre-seeding of the Kali Linux installation.
+Booting and installing Kali Linux over the network ([PXE](https://en.wikipedia.org/wiki/Preboot_Execution_Environment)) can be useful from a single laptop install with no CDROM or [USB](/docs/usb/) ports, to enterprise deployments supporting pre-seeding of the Kali Linux installation.
 
 ### Setup a PXE Server
 

@@ -172,7 +172,7 @@ kali@kali:~$ make -j $(cat /proc/cpuinfo|grep processor|wc -l)
 kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root/
 ```
 
-Chroot into the rootfs and create an [initrd](http://en.wikipedia.org/wiki/Initrd). Make sure to use the correct kernel version/extraversion for the **mkinitramfs** command. In our case, it was "3.8.13".
+Chroot into the rootfs and create an [initrd](https://en.wikipedia.org/wiki/Initrd). Make sure to use the correct kernel version/extraversion for the **mkinitramfs** command. In our case, it was "3.8.13".
 
 ```console
 kali@kali:~$ LANG=C chroot ~/arm-stuff/images/root/

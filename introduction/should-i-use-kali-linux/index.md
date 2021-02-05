@@ -5,8 +5,6 @@ icon:
 type: post
 weight: 20
 author: ["g0tmi1k",]
-keywords: [""]
-og_description:
 ---
 
 #### What's Different About Kali Linux?

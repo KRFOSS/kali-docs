@@ -5,9 +5,6 @@ icon:
 type: post
 weight: 60
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: [""]
-og_description:
 ---
 
 Kali changed to a [non-root user policy](/docs/policy/kali-linux-user-policy/) by default [since the release of **2020.1**](https://www.kali.org/news/kali-default-non-root-user/).

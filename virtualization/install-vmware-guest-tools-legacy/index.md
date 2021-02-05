@@ -7,7 +7,7 @@ weight: 300
 author: ["g0tmi1k",]
 ---
 
-**This page is dated**. You can find the **latest version** here: [https://www.kali.org/docs/virtualization/install-vmware-tools-kali-guest/](/docs/virtualization/install-vmware-guest-tools/).
+**This page is dated**. You can find the **latest version** here: [https://www.kali.org/docs/virtualization/install-vmware-guest-tools/](/docs/virtualization/install-vmware-guest-tools/).
 
 - - -
 

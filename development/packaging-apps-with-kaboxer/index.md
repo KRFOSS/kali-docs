@@ -2,13 +2,9 @@
 title: Packaging Applications with Kaboxer
 description:
 icon:
-date: 2020-10-09
 type: post
 weight: 100
-author: ["lolando","rhertzog"]
-tags: ["",]
-keywords: ["",]
-og_description:
+author: ["lolando", "rhertzog",]
 draft: true
 ---
 

@@ -5,8 +5,6 @@ icon:
 type: post
 weight: 450
 author: ["g0tmi1k",]
-keywords: [""]
-og_description:
 ---
 ​
 Kali Linux is based on years of knowledge and experience of building a pentestion testing Operating Systems, which has spanned over multiple previous projects.

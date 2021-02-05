@@ -2,13 +2,9 @@
 title: Everything you need to know about the switch to Python 3
 description:
 icon:
-date: 2020-11-10
 type: post
 weight: 15
 author: ["rhertzog",]
-tags: ["python",]
-keywords: ["",]
-og_description:
 ---
 
 ### About the transition
@@ -136,12 +132,12 @@ in the `offsec-awae-python2` compatibility package (see [list
 here](https://gitlab.com/kalilinux/packages/offsec-courses/-/tree/kali/master/python2-wheels)),
 then you can try `pyenv` to setup a fully isolated Python 2 environment
 where you can use pip to install supplementary modules. See our [Using EoL
-Python versions on Kali](../using-eol-python-versions/) article.
+Python versions on Kali](/docs/general-use/using-eol-python-versions/) article.
 
 #### I want pip for Python 2, how can I get it back?
 
 Try `pyenv`. See our [Using EoL Python versions on
-Kali](../using-eol-python-versions/) article.
+Kali](/docs/general-use/using-eol-python-versions/) article.
 
 #### I wrote a Python script, what should I do?
 

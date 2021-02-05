@@ -6,8 +6,6 @@ type: post
 weight:
 author: ["steev",]
 tags: ["dojo",]
-keywords: ["",]
-og_description:
 ---
 
 With the advent of smaller, faster ARM hardware such as the new **Raspberry Pi 2 (or even 3!)** (which now has a Kali image built for it), we've been seeing more and more use of these small devices as "**throw-away hackboxes**". While this might be a new and novel technology, **there's one major drawback** to this concept - and that is the **confidentiality of the data** stored on the device itself. Most of the setups we've seen do little to protect the sensitive information saved on the SD cards of these little computers. This fact, together with a nudge from friends is what prompted us to create a LUKS encrypted, NUKE capable Kali Linux image for our Raspberry Pi devices. The following article describes the process, so you can repeat it and make your own shiny shiny.
@@ -261,4 +259,4 @@ Setting up LUKS disk encryption on a Raspberry Pi running Kali Linux. Also suppo
 We came up with this procedure by cannibalising ideas and instructions from various sources on the net, most notably, the two below. Big thanks to the Raspberry Pi community!
 
 1. [https://www.ofthedeed.org/posts/Encrypted_Raspberry_Pi/](https://www.ofthedeed.org/posts/Encrypted_Raspberry_Pi/)
-2. [http://www.raspberrypi.org/forums/viewtopic.php?f=28&t=7626](http://www.raspberrypi.org/forums/viewtopic.php?f=28&t=7626)
+2. [https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=7626](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=7626)

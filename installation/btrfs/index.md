@@ -57,7 +57,7 @@ Mount Point         | Subvolume         | Description
 ##### Preparing for the Installation
 
 1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-2. Burn the Kali Linux ISO to DVD or [Image Kali Linux Live to USB](/docs/usb/kali-linux-live-usb-install/).
+2. Burn the Kali Linux ISO to DVD or [Image Kali Linux Live to USB](/docs/usb/live-usb-install-with-windows/).
 3. Ensure that your computer is set to boot from CD/DVD/USB in your BIOS.
 
 ##### Kali Linux Installation Procedure

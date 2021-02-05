@@ -729,7 +729,7 @@ NOTE: It uses TAB for indentation, as its a Makefile.
 An additional file which we highly recommend to include is a `watch` file. This points to upstream, and is then used to detect if there is a more recent version of the application than what is packaged. This is useful when doing updates to packages.
 
 For more information, and example formats, please see the [Debian wiki](https://wiki.debian.org/debian/watch).
-Using this wiki, we can see there is an example for GitHub which is where our project is stored - https://github.com/instaloader/instaloader/:
+Using this wiki, we can see there is an example for GitHub which is where our project is stored - [github.com/instaloader/instaloader/](https://github.com/instaloader/instaloader/):
 
 ```
 version=4

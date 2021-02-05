@@ -19,13 +19,13 @@ Please note, submissions are best read by our team in **English**.
 
 Help us help you! To give us the best start in getting your issue resolved:
 
-* Supply all the information you can. Try to stick to what's relevant, but if you're uncertain, too much is better than too little.
-* Keep your bug report objective and try to stick to the facts at hand.
-* Be very clear about what _is_ a fact — document these whenever possible, via logs, scrollback captures, etc. — and what is a hypothesis on your part.
-* Do not quote Wikipedia and other non-primary resources as "facts" in your submission. What's happening on your system is what's at issue, not what Wikipedia claims
-* Do not stack multiple issues into a single report; submit additional reports as needed. One person should submit one report, for one bug, on one particular hardware combination. Trying to stack multiple variations into a single report makes any specific issue in there very difficult to tease out. What seem like similar bugs to you may in fact turn out to be unrelated.
-* If one of the developers asks for additional information, please do your best to understand what's being asked for and provide it in a reasonable time. If you're not sure you understand what you're being asked for, ask for clarification, we'll do our best to provide more guidance. Do not post comments that are unhelpful such as "Me too!" or "+1".
-* Do not complain about how long it takes to fix a bug. Remember: the developers are volunteers with day jobs, which are not fixing your bugs for you.
+- Supply all the information you can. Try to stick to what's relevant, but if you're uncertain, too much is better than too little.
+- Keep your bug report objective and try to stick to the facts at hand.
+- Be very clear about what _is_ a fact — document these whenever possible, via logs, scrollback captures, etc. — and what is a hypothesis on your part.
+- Do not quote Wikipedia and other non-primary resources as "facts" in your submission. What's happening on your system is what's at issue, not what Wikipedia claims
+- Do not stack multiple issues into a single report; submit additional reports as needed. One person should submit one report, for one bug, on one particular hardware combination. Trying to stack multiple variations into a single report makes any specific issue in there very difficult to tease out. What seem like similar bugs to you may in fact turn out to be unrelated.
+- If one of the developers asks for additional information, please do your best to understand what's being asked for and provide it in a reasonable time. If you're not sure you understand what you're being asked for, ask for clarification, we'll do our best to provide more guidance. Do not post comments that are unhelpful such as "Me too!" or "+1".
+- Do not complain about how long it takes to fix a bug. Remember: the developers are volunteers with day jobs, which are not fixing your bugs for you.
 
 ## How to Report a Bug
 
@@ -60,30 +60,30 @@ To begin your report, log into your account and click the **Report Issue** link 
 
 The following fields are _mandatory_ within the report:
 
-* Category
-* Summary
-* Description
+- Category
+- Summary
+- Description
 
 Even though the other fields are not mandatory, we recommend you try to include as much information as possible within each option while paying special attention to the following fields:
 
-* Reproducibility — How reproducible is this bug? Always? Only sometimes? Only under specific circumstances?
-* Select Profile — We need to know what you're running, and what you're running it _on._
-* Steps to Reproduce — Be very clear here, and provide as much concrete detail as you can.
-* Additional Information
-* Upload File (error logs, screenshot)
+- Reproducibility — How reproducible is this bug? Always? Only sometimes? Only under specific circumstances?
+- Select Profile — We need to know what you're running, and what you're running it _on._
+- Steps to Reproduce — Be very clear here, and provide as much concrete detail as you can.
+- Additional Information
+- Upload File (error logs, screenshot)
 
 #### Decide the Proper Category
 
 There are currently eight (8) categories available in the Kali bug tracker. Before you begin your request, ensure it is properly designated for one of the following:
 
-* Feature Requests
-* General Bug
-* Kali Package Bug
-* Kali Package Improvement
-* Kali Websites & Docs
-* New Tool Requests
-* Queued Tool Addition
-* Tool Upgrade
+- Feature Requests
+- General Bug
+- Kali Package Bug
+- Kali Package Improvement
+- Kali Websites & Docs
+- New Tool Requests
+- Queued Tool Addition
+- Tool Upgrade
 
 Do not request support or ask questions within the bug tracker. Kali Linux offers several options for support including [Kali Docs](/docs/), [Kali forums](https://forums.kali.org/), and our IRC chat room (**_#kali-linux_** on freenode)
 
@@ -101,9 +101,9 @@ The summary does not need to include everything, but it should convey your reaso
 
 You can find which package is installed using a combination of dpkg flags. It is important to include relevant information from the output of these commands in your report. The output can also be placed in a text file and uploaded. (Discussed later within this document.)
 
-* dpkg --search
-* dpkg --list
-* dpkg --status
+- dpkg --search
+- dpkg --list
+- dpkg --status
 
 Sample Output
 
@@ -146,18 +146,18 @@ This is your opportunity to to help us out and provide a well thought-out descr
 
 Please ensure you include the following where applicable:
 
-* _Exact and complete text_ of any error messages (screen output or log files)
-* _Exactly_ what you typed or what actions you took to produce the issue
-* A suggested fix, workaround, or patch if you are able to produce one
-* The version of the package having the problem, and any information relating to dependent packages
-* The kernel version, shared C library, and any other details that seem appropriate
-* The output of the command `uname -a`
-* The output of the command` dpkg -s libc6 | grep ^Version`
-* If applicable, software version — ( i.e. `python -V`, etc.)
-* Details of your hardware
-* If you are reporting an issue with a device driver, please provide full details on all hardware in your system — for a complete report on your system install lshw from the repos.
-* Add any other details that seems relevant
-* Do not worry about the report being "too long" — as long as the information is relevant, include it.
+- _Exact and complete text_ of any error messages (screen output or log files)
+- _Exactly_ what you typed or what actions you took to produce the issue
+- A suggested fix, workaround, or patch if you are able to produce one
+- The version of the package having the problem, and any information relating to dependent packages
+- The kernel version, shared C library, and any other details that seem appropriate
+- The output of the command `uname -a`
+- The output of the command` dpkg -s libc6 | grep ^Version`
+- If applicable, software version — ( i.e. `python -V`, etc.)
+- Details of your hardware
+- If you are reporting an issue with a device driver, please provide full details on all hardware in your system — for a complete report on your system install lshw from the repos.
+- Add any other details that seems relevant
+- Do not worry about the report being "too long" — as long as the information is relevant, include it.
 
 Here's an example of a good bug report, providing information that the development team can immediately use to reproduce and try to understand the bug:
 
@@ -208,9 +208,9 @@ An example of some useful "Additional Information":
 
 There is a simple fix that is well documented on several forums. I tried it and it fixed the issue for me.
 
-* Using a text editor open /etc/chromium/default
-* Add --user-data-dir flag
-* i.e. CHROMIUM_FLAGS="--user-data-dir"
+- Using a text editor open /etc/chromium/default
+- Add --user-data-dir flag
+- i.e. CHROMIUM_FLAGS="--user-data-dir"
 
 Can this be patched within the repo version of Chromium so adding this flag is not required for future releases?
 

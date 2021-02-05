@@ -11,9 +11,9 @@ Kali Linux is [easy to customize at a per-package level](/docs/development/live-
 
 Accomplishing this is a simple three-step process:
 
-* use **apt** to pull down the package sources
-* modify them as needed
-* rebuild the package using the Debian tools.
+- use **apt** to pull down the package sources
+- modify them as needed
+- rebuild the package using the Debian tools.
 
 In this example, we will rebuild the [libfreefare](https://github.com/nfc-tools/libfreefare) package in order to add some extra hardcoded Mifare access keys into the mifare-format tool.
 

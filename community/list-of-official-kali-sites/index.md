@@ -53,7 +53,7 @@ We're on social media — follow us on Twitter, "like" our official Facebook pag
 
 **twitter**
 
-We don't tweet a lot but when we do, it's important. Information on releases and blog posts will be pushed to our twitter account, [@KaliLinux](https://twitter.com/KaliLinux).
+We don't tweet a lot but when we do, it's important. Information on releases and blog posts will be pushed to our twitter account, [@KaliLinux](https://twitter.com/kalilinux).
 
 **facebook**
 

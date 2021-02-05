@@ -5,8 +5,6 @@ icon:
 type: post
 weight: 500
 author: ["steev",]
-keywords: [""]
-og_description:
 ---
 
 When BackTrack ARM first came out, it was one image, for a Motorola Xoom. The work was done on the Xoom itself by [@muts](https://www.kali.org/about-us/). He started from an Ubuntu image for it, built all of the packages for BackTrack on it, then installed them. [@steev](https://www.kali.org/about-us/) then took the work and expanded it to support 3 or 4 different ARM devices he had, following a similar proceedure. @steev showed @muts the work he'd done and @muts was as excited about it as @steev was.

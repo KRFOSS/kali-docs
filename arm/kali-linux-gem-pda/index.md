@@ -61,12 +61,12 @@ To back up the NVRAM partition, click the "Read Back" button, connect your Gemin
 ### 4. Flash the Kali Linux Firmware
 
 
-* Click on the "Download" tab
-* Choose the "Scatter-loading file" by pressing the "choose" button as in the following screenshot and select **_Gemini_x27_A20GB_L36GB_Multi_Boot.txt_** inside the downloaded and extracted firmware folder. Ensure that the other settings match the following:
-    * "Download-Agent" should be set to the file **_MTK_AllInOne_DA.bin_**, which is located in the **_FlashToolWindows_** or **_FlashToolLinux_** folder
-    * "Scatter-loading file" should be set to the specific scatter file of the firmware that was customized for the Kali-Gem built, which is located in the firmware folder
-* Select the "Firmware Upgrade" option from the drop down menu. This will automatically select all the partitions in the table
-* Your screen should look like the following:
+- Click on the "Download" tab
+- Choose the "Scatter-loading file" by pressing the "choose" button as in the following screenshot and select **_Gemini_x27_A20GB_L36GB_Multi_Boot.txt_** inside the downloaded and extracted firmware folder. Ensure that the other settings match the following:
+    - "Download-Agent" should be set to the file **_MTK_AllInOne_DA.bin_**, which is located in the **_FlashToolWindows_** or **_FlashToolLinux_** folder
+    - "Scatter-loading file" should be set to the specific scatter file of the firmware that was customized for the Kali-Gem built, which is located in the firmware folder
+- Select the "Firmware Upgrade" option from the drop down menu. This will automatically select all the partitions in the table
+- Your screen should look like the following:
 
 ![](Gemini-Partitions-Full-Firmware.png)
 
@@ -80,10 +80,10 @@ Once booting, the flash tool will detect the unit and will start flashing the de
 
 The multi-boot mechanism works as follows. Starting from a switched off Gemini, press the "Esc" (On) key to start the unit until the Gemini vibrates. Once you feel the vibration, you can choose the boot mode by pressing the following key combination:
 
-* Boot 1 (Android): Default booting option when no keys or buttons are pressed
-* Recovery Mode: Esc (On) is pressed. This will always boot into recovery mode
-* Boot 2 (Kali Linux): Silver button on the right hand side of the device is pressed
-* Boot 3 (N/A): Both Esc(On) key and silver button on the right hand side of the device are pressed at the same time. Keep the keys/buttons pressed until the screen turns ON
+- Boot 1 (Android): Default booting option when no keys or buttons are pressed
+- Recovery Mode: Esc (On) is pressed. This will always boot into recovery mode
+- Boot 2 (Kali Linux): Silver button on the right hand side of the device is pressed
+- Boot 3 (N/A): Both Esc(On) key and silver button on the right hand side of the device are pressed at the same time. Keep the keys/buttons pressed until the screen turns ON
 
 ### 6. Logging in for the First Time
 
@@ -96,16 +96,16 @@ The default usernames/passwords configured for the device are:
 
 After logging in for the first time, we recommend the following steps:
 
-* Open terminal, change passwords, and run 'sudo dpkg-reconfigure locales' to adjust the settings according to your region
-* LXQT Regionals: Applications -> Preferences -> LXQT settings -> Locale
-* Default Applications: Applications -> Preferences -> LXQT settings -> Session Settings
-* Set "Turn off monitor(s) when lid is closed": Applications -> Preferences -> LXQT settings -> Power Management
-* Wifi Setup: Applications -> Usual applications -> Internet -> Conman UI Setup
+- Open terminal, change passwords, and run 'sudo dpkg-reconfigure locales' to adjust the settings according to your region
+- LXQT Regionals: Applications -> Preferences -> LXQT settings -> Locale
+- Default Applications: Applications -> Preferences -> LXQT settings -> Session Settings
+- Set "Turn off monitor(s) when lid is closed": Applications -> Preferences -> LXQT settings -> Power Management
+- Wifi Setup: Applications -> Usual applications -> Internet -> Conman UI Setup
 
 ![](kali-gem_connman.png)
 
-* Run 'bluetoothctl' on the command line to setup a mouse
-* This image comes with Kali Linux Top10 pre-installed, run: `sudo apt update && sudo apt install kali-linux-default`
+- Run 'bluetoothctl' on the command line to setup a mouse
+- This image comes with Kali Linux Top10 pre-installed, run: `sudo apt update && sudo apt install kali-linux-default`
 
 ### 7. Finish Android Rooting Process
 
@@ -119,8 +119,8 @@ To create a backup of your rootfs partition, click on the "Readback" tab in the 
 
 Double-click on the file name and enter the name and location of the resulting image file. In the next screen, change the start address and length to the following values:
 
-* Start Address: 0xc9000000
-* Length: 0x8e2700000
+- Start Address: 0xc9000000
+- Length: 0x8e2700000
 
 It should look like this screenshot:
 

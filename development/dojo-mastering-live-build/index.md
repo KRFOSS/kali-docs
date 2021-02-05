@@ -6,8 +6,6 @@ type: post
 weight:
 author: ["g0tmi1k",]
 tags: ["dojo",]
-keywords: ["",]
-og_description:
 ---
 
 One of the most powerful features of Kali Linux is the ability to create your own flavours of the distribution containing customized tools, desktop managers, and services. This workshop will show you how to create your own personalized Kali Linux ISO, customizing virtually every aspect using the live-build utility and making efficient use of the various [metapackages](/docs/general-use/metapackages/) available in Kali.
@@ -87,5 +85,5 @@ kali@kali:~$ ./build.sh -v
 
 For more live-build implementations, refer to the following:
 
-* [https://www.offensive-security.com/kali-linux/kali-linux-recipes/](https://www.offensive-security.com/kali-linux/kali-linux-recipes/)
-* [https://gitlab.com/kalilinux/recipes/live-build-config-examples](https://gitlab.com/kalilinux/recipes/live-build-config-examples)
+- [https://www.offensive-security.com/kali-linux/kali-linux-recipes/](https://www.offensive-security.com/kali-linux/kali-linux-recipes/)
+- [https://gitlab.com/kalilinux/recipes/live-build-config-examples](https://gitlab.com/kalilinux/recipes/live-build-config-examples)

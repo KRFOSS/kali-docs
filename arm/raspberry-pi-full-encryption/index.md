@@ -19,13 +19,13 @@ As a review, what we are trying to accomplish is to create a stanalone "leave be
 
 Before we dive into the tech of what we are going to try to accomplish, let's take a quick look at our goals on setting up our Raspberry Pi 3 Model B+ (henceforth called "RPi"):
 
-* Create a normal Kali Linux RPi installation
-* Prepare the system for encrypted boot with remote disk unlock
-* Create an initramfs configured with Dropbear and SSH keys to allow the unlock to occur
-* Backup existing data
-* Configure the encrypted partitions
-* Restore our data
-* Hack away!
+- Create a normal Kali Linux RPi installation
+- Prepare the system for encrypted boot with remote disk unlock
+- Create an initramfs configured with Dropbear and SSH keys to allow the unlock to occur
+- Backup existing data
+- Configure the encrypted partitions
+- Restore our data
+- Hack away!
 
 This might seem like a lot, but its really pretty straightforward. Once completed, we will be left with a RPi that will boot, get an IP from DHCP, and  allow us to connect through Dropbear via SSH to provide the LUKS key. This permits us to run the RPi headless, while still keeping our data secure. Then down the road when we are done with it, we can retrieve it.
 

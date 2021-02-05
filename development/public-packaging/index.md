@@ -128,12 +128,12 @@ packaging@kali:~$
 
 There are a number of things to take note of here. Section, priority, maintainer, uploaders, homepage, depends, and description are all changed. Going through them:
 
-* 'section' will be what type of tool it is. Put in your best guess as to what it may be in the general area (web, net, etc) and we will change it if need be
-* Priority can be set to optional
-* Maintainer should always be "Kali Developers <devel@kali.org>" and Uploaders should be your name (it can be account name) and the email associated with the account
-* The homepage is where the tool is originally from. Depends is whatever needs to be installed to make the tool work, which, in this case php is needed
-* Vcs-* should be set to your repo that you are pushing the package to.
-* Description is the combination of the short description and an extended one that explains what the package contains
+- 'section' will be what type of tool it is. Put in your best guess as to what it may be in the general area (web, net, etc) and we will change it if need be
+- Priority can be set to optional
+- Maintainer should always be "Kali Developers <devel@kali.org>" and Uploaders should be your name (it can be account name) and the email associated with the account
+- The homepage is where the tool is originally from. Depends is whatever needs to be installed to make the tool work, which, in this case php is needed
+- Vcs-* should be set to your repo that you are pushing the package to.
+- Description is the combination of the short description and an extended one that explains what the package contains
 
 ```console
 packaging@kali:~/phpggc/debian$ vim changelog

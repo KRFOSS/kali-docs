@@ -19,34 +19,34 @@ Carefully read carefully ANY error message as they will VERY OFTEN tell you what
 
 ### 1. No Interface
 
-* Stupid question: Is it a wireless card? (We've seen that several times)
-* Is the device plugged in?
-* Does it show up on **lsusb** or **lspci** (with the exception of phones)? You might want to update pci ids and usb ids
-* Does **dmesg** contain any information about the driver loading and/or failing
-* Is Kali a VM? Then, unless your card is USB, it will not be useable (VMWare/VirtualBox/QEMU will virtualize EVERY PCI device). Is it attached to the VM?
-* If there is nothing in **dmesg** and it's not in a VM, then you might want to try the latest _compat-wireless_ (and sometimes, you'll need firmware) -> check on Linux-Wireless drivers
+- Stupid question: Is it a wireless card? (We've seen that several times)
+- Is the device plugged in?
+- Does it show up on **lsusb** or **lspci** (with the exception of phones)? You might want to update pci ids and usb ids
+- Does **dmesg** contain any information about the driver loading and/or failing
+- Is Kali a VM? Then, unless your card is USB, it will not be useable (VMWare/VirtualBox/QEMU will virtualize EVERY PCI device). Is it attached to the VM?
+- If there is nothing in **dmesg** and it's not in a VM, then you might want to try the latest _compat-wireless_ (and sometimes, you'll need firmware) -> check on Linux-Wireless drivers
 
 ### 2. Interface But Can't Do Anything
 
-* Read error messages
-* If there are no error messages, then run **dmesg | tail** and it will most likely tell you what's wrong
-* Firmware might be missing
-* Check rfkill and any hardware switches and BIOS options
+- Read error messages
+- If there are no error messages, then run **dmesg | tail** and it will most likely tell you what's wrong
+- Firmware might be missing
+- Check rfkill and any hardware switches and BIOS options
 
 ### 3. No Monitor Mode
 
-* STA drivers (Ralink, Broadcom) and every other manufacturer's provided driver doesn't support monitor mode
-* ndiswrapper doesn't support monitor mode AND NEVER WILL.
-* Airodump-ng/Wireshark don't show any packets: check rfkill and any hardware switches and BIOS options
+- STA drivers (Ralink, Broadcom) and every other manufacturer's provided driver doesn't support monitor mode
+- ndiswrapper doesn't support monitor mode AND NEVER WILL.
+- Airodump-ng/Wireshark don't show any packets: check rfkill and any hardware switches and BIOS options
 
 ### 4. Injection
 
-* Test with aireplay-ng -9 (Make sure the card is in monitor mode with airmon-ng)
-* Airmon-ng doesn't display chipset information: It's not a big issue as it just didn't get that information from the card and doesn't change the abilities of your card
-* No injection but monitor mode: Check rfkill and any hardware switches and BIOS options
-* Network managers sometimes interfere with Aircrack tools. run **airmon-ng check kill** to kill these processes.
+- Test with aireplay-ng -9 (Make sure the card is in monitor mode with airmon-ng)
+- Airmon-ng doesn't display chipset information: It's not a big issue as it just didn't get that information from the card and doesn't change the abilities of your card
+- No injection but monitor mode: Check rfkill and any hardware switches and BIOS options
+- Network managers sometimes interfere with Aircrack tools. run **airmon-ng check kill** to kill these processes.
 
 ### Additional Links
 
-* [Will my card work with Aircrack-ng?](http://aircrack-ng.blogspot.com/2012/10/will-my-card-work-with-aircrack-ng.html)
-* [Compat-wireless](http://aircrack-ng.blogspot.com/2012/03/compat-wireless.html)
+- [Will my card work with Aircrack-ng?](http://aircrack-ng.blogspot.com/2012/10/will-my-card-work-with-aircrack-ng.html)
+- [Compat-wireless](http://aircrack-ng.blogspot.com/2012/03/compat-wireless.html)

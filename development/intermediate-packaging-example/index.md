@@ -132,7 +132,7 @@ We now need to edit each one to make sure the information is accurate. We can us
 
 ### License/Maintainers
 
-This package, like [Instaloader](/docs/development/intro-to-packaging-example/), is very straightforward and **[GitHub](https://github.com/s0md3v/photon) has already detected the [license](https://github.com/s0md3v/photon/blob/master/LICENSE)** as **[GPL-3](https://www.gnu.org/licenses/gpl-3.0.html)**.
+This package, like [Instaloader](/docs/development/intro-to-packaging-example/), is very straightforward and **[GitHub](https://github.com/s0md3v/photon) has already detected the [license](https://github.com/s0md3v/photon/blob/master/LICENSE.md)** as **[GPL-3](https://www.gnu.org/licenses/gpl-3.0.html)**.
 
 For GPL-3 licenses we do not have to copy the entirety as-is in the upstream license file. If we look at `/usr/share/common-licenses/` we can see that there are multiple licenses in their entirety already available locally. As we can see from [GPL-3's page from Debian](https://ftp-master.debian.org/licenses/good/gpl3/) we can use a shortened down version of the license that will be acceptable.
 
@@ -195,10 +195,10 @@ kali@kali:~/kali/packages/photon$
 
 Looks like `python3-socks` is our **second dependency**. However, we can make sure that this is indeed the correct package:
 
-* We will first go to the [PyPI page for requests](https://pypi.org/project/requests/) to find the proper upstream source.
-* Next we can find the [setup.py file](https://github.com/psf/requests/blob/master/setup.py) and look for the [line with socks](https://github.com/psf/requests/blob/master/setup.py#L106). Here we can see that PySocks is the PyPI module name.
-* Again we can find the upstream source from the [PyPI page for PySocks](https://pypi.org/project/PySocks/)
-* We can finally compare the upstream source from PySocks to the homepage provided with python3-socks and see that they match:
+- We will first go to the [PyPI page for requests](https://pypi.org/project/requests/) to find the proper upstream source.
+- Next we can find the [setup.py file](https://github.com/psf/requests/blob/master/setup.py) and look for the [line with socks](https://github.com/psf/requests/blob/master/setup.py#L106). Here we can see that PySocks is the PyPI module name.
+- Again we can find the upstream source from the [PyPI page for PySocks](https://pypi.org/project/PySocks/)
+- We can finally compare the upstream source from PySocks to the homepage provided with python3-socks and see that they match:
 
 ```console
 kali@kali:~/kali/packages/photon$ apt-cache show python3-socks | grep Homepage

@@ -11,7 +11,7 @@ Kali Linux "Live" has two options in the default boot menu which enable persiste
 
 To make use of the USB persistence options at boot time, you'll need to do some additional setup on your "Kali Linux Live" USB drive; this article will show you how.
 
-This guide assumes that you have already created a Kali Linux "Live" USB drive as described in [the doc page for that subject](/docs/usb/kali-linux-live-usb-install/). For the purposes of this article, we'll assume you're working on a Linux-based system.
+This guide assumes that you have already created a Kali Linux "Live" USB drive as described in [the doc page for that subject](/docs/usb/live-usb-install-with-windows/). For the purposes of this article, we'll assume you're working on a Linux-based system.
 
 ![](kali-live-usb-persistence.png)
 
@@ -21,14 +21,14 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 In this example, we assume:
 
-* you are running as the **root user**. As of Kali Linux 2020.1, we do not use root user by default. You can switch to root using the command "sudo bash".
-* your USB drive is `/dev/sdb`
-* your USB drive has a capacity of **at least 8GB** — the Kali Linux image takes over 3GB, and for this guide, we'll be creating a new partition of about 4GB to store our persistent data in.
-* you are running on a separate Linux system (cannot be Live Boot Kali)
+- you are running as the **root user**. As of Kali Linux 2020.1, we do not use root user by default. You can switch to root using the command "sudo bash".
+- your USB drive is `/dev/sdb`
+- your USB drive has a capacity of **at least 8GB** — the Kali Linux image takes over 3GB, and for this guide, we'll be creating a new partition of about 4GB to store our persistent data in.
+- you are running on a separate Linux system (cannot be Live Boot Kali)
 
 In this example, we'll create a new partition to store our persistent data into, starting right above the second Kali Live partition and ending at 7GB, put an ext3 file system onto it, and create a `persistence.conf` file on the new partition.
 
-1. First, begin by imaging the latest Kali Linux ISO (currently [2020.4](https://www.kali.org/downloads/)) to your USB drive as described in [this article](/docs/usb/kali-linux-live-usb-install/). We're going to assume that the two partitions created by the imaging are `/dev/sdb1` and `/dev/sdb2`. This can be verified with the command `fdisk -l`.
+1. First, begin by imaging the latest Kali Linux ISO (currently [2020.4](https://www.kali.org/downloads/)) to your USB drive as described in [this article](/docs/usb/live-usb-install-with-windows/). We're going to assume that the two partitions created by the imaging are `/dev/sdb1` and `/dev/sdb2`. This can be verified with the command `fdisk -l`.
 
 2. Create and format an additional partition on the USB drive.
 First, let's create the new partition in the empty space above our Kali Live partitions. We have to do this from the command line as gparted will read the imaged ISO as a large block. The following command will, as a short explanation, shrink that block to only be the Kali Live partition.
@@ -61,7 +61,7 @@ kali@kali:~$ umount /dev/sdb3
 
 Alternatively, you can create a LUKS-encrypted persistent storage area. This adds an extra layer of security to your sensitive files when traveling with Kali Live on USB devices. In the following example, we'll create a new partition to store our persistent data into, starting right above the second Kali Live partition and ending at 7GB, set up LUKS encryption on the new partition, put an ext3 file system onto it, and create a `persistence.conf` file on it.
 
-1. Image the latest Kali Linux ISO (currently 2020.4) to your USB drive as described in [this article](/docs/usb/kali-linux-live-usb-install/).
+1. Image the latest Kali Linux ISO (currently 2020.4) to your USB drive as described in [this article](/docs/usb/live-usb-install-with-windows/).
 2. Create the new partition in the empty space above our Kali Live partitions.
 
 ```console

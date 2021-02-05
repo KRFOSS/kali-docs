@@ -19,7 +19,7 @@ You will need to enable virtualization in your BIOS/UEFI for (e.g. Intel VT-x/AM
 
 ### Wizard
 
-Upon starting up VMware Workstation, select "**Create a New Virtual Machine.**"
+Upon starting up VMware Workstation, select "**Create a New Virtual Machine**".
 
 ![](vm-01.png)
 
@@ -31,7 +31,7 @@ When you have the option, select "**Custom (advanced)**" for the Virtual Machine
 
 - - -
 
-The next screen is "Virtual Machine Hardware Compatibility", which we use "**Workstation 8.x.**"
+The next screen is "Virtual Machine Hardware Compatibility", which we use "**Workstation 8.x**".
 
 This allows for more users to benefit from Kali Linux out of the box (without having to edit the `.vmx` file to [downgrade](https://communities.vmware.com/thread/517825)). If you are using a later version of VMware than v8, upon start up, VMware will prompt about upgrading the VM. This will remove any limitations caused by older VMware profiles.
 However, most users do not have their Kali Linux VM using all these extra resources (see screenshot below), so they wouldn't benefit from having the latest profile, **which is why we ship with a older profile**.
@@ -121,7 +121,7 @@ We are happy with whats shown to us, so we then press "**Finish**". If you try a
 
 - - -
 
-If this is the first time using the wizard, you may have the following prompt explaining how installing "[VMware tools](/docs/virtualization/install-vmware-tools-kali-guest/)" will give you a better experience when using the VM.
+If this is the first time using the wizard, you may have the following prompt explaining how installing "[VMware tools](/docs/virtualization/install-vmware-guest-tools/)" will give you a better experience when using the VM.
 
 After reading and understanding the page, you may wish to tick the "Don't show this page again", before pressing close.
 

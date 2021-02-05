@@ -12,7 +12,7 @@ Our favourite way, and the fastest method, for getting up and running with Kal
 - It's non-destructive — it makes no changes to the host system's hard drive or installed OS, and to go back to normal operations, you simply remove the "Kali Live" USB drive and restart the system.
 - It's portable — you can carry Kali Linux in your pocket and have it running in minutes on an available system
 - It's customizable — you can [roll your own custom Kali Linux ISO image](/docs/development/live-build-a-custom-kali-iso/) and put it onto a USB drive using the same procedures
-- It's potentially persistent — with a bit of extra effort, you can configure your Kali Linux "live" USB drive to have [persistent storage](/docs/usb/kali-linux-live-usb-persistence/), so the data you collect is saved across reboots
+- It's potentially persistent — with a bit of extra effort, you can configure your Kali Linux "live" USB drive to have [persistent storage](/docs/usb/usb-persistence/), so the data you collect is saved across reboots
 
 In order to do this, we first need to create a bootable USB drive which has been set up from an ISO image of Kali Linux.
 
@@ -26,7 +26,7 @@ In order to do this, we first need to create a bootable USB drive which has bee
 
 ## Kali Linux Live USB Install Procedure
 
-The specifics of this procedure will vary depending on whether you're doing it on a [Windows](/docs/usb/kali-linux-live-usb-install/), [Linux](/docs/usb/kali-linux-live-usb-install-linux/), or [macOS/OS X](/docs/usb/kali-linux-live-usb-install-macos/) system.
+The specifics of this procedure will vary depending on whether you're doing it on a [Windows](/docs/usb/live-usb-install-with-windows/), [Linux](/docs/usb/live-usb-install-with-linux/), or [macOS/OS X](/docs/usb/live-usb-install-with-mac/) system.
 
 #### Creating a Bootable Kali USB Drive on macOS/OS X (DD)
 
@@ -91,4 +91,4 @@ You can now boot into a Kali Live / Installer environment using the USB device.
 
 To boot from an alternate drive on an macOS/OS X system, bring up the boot menu by pressing the **Option** key immediately after powering on the device and select the drive you want to use.
 
-For more information, see [Apple's knowledge base](http://support.apple.com/kb/ht1310).
+For more information, see [Apple's knowledge base](https://support.apple.com/kb/ht1310).

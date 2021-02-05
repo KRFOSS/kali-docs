@@ -52,11 +52,11 @@ When you encounter an error or have a question and need to seek help, you want t
 
 A few places of note to check:
 
-* Anywhere mentioned in the tool's documentation
-* **/var/log/syslog**
-* `dmesg`
-* If it is a service, `systemctl status package-with-issue`
-* The tools website
+- Anywhere mentioned in the tool's documentation
+- **/var/log/syslog**
+- `dmesg`
+- If it is a service, `systemctl status package-with-issue`
+- The tools website
 
 In order to find the tool's website what can be done is utilizing search engine's advanced search functions and ways of completing requests. Should you need information on the brute forcing tool Hydra, you could search any of the following: "Hydra linux", "Hydra hacking", "Hydra brute force", "Hydra Kali", "Hydra pentest", etc. This can also be used for errors, if you search a snippet of the error you can utilize extra key-words or quotes to force certain things to be in the results. Keep in mind sometimes an error might not be the fault of that tool however, and quotes may remove the actual answer you need.
 

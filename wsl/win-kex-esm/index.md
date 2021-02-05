@@ -2,13 +2,9 @@
 title: Win-KeX ESM
 description: Win-KeX Enhanced Session Mode
 icon: ti-pin
-date: 2020-09-17
 type: post
 weight: 37
 author: ["Re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Content:
@@ -59,9 +55,7 @@ The disadvantage of using "--ip" is that you have to re-enter the ESM password e
 
   Tick "Don't ask me again" and confirm the following warnings:
 
-  <img src="RDP-Message-1.png" alt="RDP-Message-1.png" style="zoom:38%;" />
-
-  <img src="RDP-Message-1.png" alt="RDP-Message-1.png" style="zoom:38%;" />
+![](RDP-Message-1.png)
 
   This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
 ![](win-kex.png)

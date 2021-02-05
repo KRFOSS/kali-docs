@@ -111,7 +111,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
     `kex --esm --ip -s`
 
-    Refer to the [Win-KeX ESM usage documentation](../win-kex-esm/) for further information.
+    Refer to the [Win-KeX ESM usage documentation](/docs/wsl/win-kex-esm/) for further information.
 
   - Seamless mode:
 

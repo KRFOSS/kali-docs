@@ -251,7 +251,7 @@ Since the release of **macOS/OS X El Capitan** (10.11), an [additional security 
 
 rEFInd cannot easily be downloaded when in recovery mode, as there is limited space and tools/libraries available (e.g. curl does not support https). As a result, we will download rEFInd inside of a normal macOS/OS X session and afterwards reboot to recovery mode to install.
 
-At the time of this writing, the latest version of [rEFInd](http://sourceforge.net/projects/refind/) is **0.12.0**.
+At the time of this writing, the latest version of [rEFInd](https://sourceforge.net/projects/refind/) is **0.12.0**.
 
 1. We will start off by downloading rEFInd, check its a valid zip file, and then extract.
 

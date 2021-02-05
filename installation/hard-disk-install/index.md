@@ -11,7 +11,7 @@ Installing Kali Linux (Single boot) on your computer is an easy process. This gu
 
 First, you'll need compatible computer hardware. Kali Linux is supported on amd64 (x86_64/64-Bit) and i386 (x86/32-Bit) platforms. Where possible, we would **recommend using the amd64 images**. The hardware requirements are minimal as listed in the section below, although better hardware will naturally provide better performance. You should be able to use Kali Linux on newer hardware with UEFI and older systems with BIOS.
 
-Our i386 images, by default use a [PAE](http://en.wikipedia.org/wiki/Physical_Address_Extension) [kernel](https://pkg.kali.org/pkg/linux), so you can run them on systems with over 4GB of RAM.
+Our i386 images, by default use a [PAE](https://en.wikipedia.org/wiki/Physical_Address_Extension) [kernel](https://pkg.kali.org/pkg/linux), so you can run them on systems with over 4GB of RAM.
 
 In our example, we will be installing Kali Linux in a fresh guest VM, without any existing operating systems pre-installed. We will explain other possible scenarios throughout the guide.
 
@@ -39,7 +39,7 @@ We will be wiping any existing data on the hard disk, so please backup any impor
 
 1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/) _(We [recommend](/docs/introduction/what-image-to-download/#which-image-to-choose) the image marked **Installer**)._
 
-2. Burn The Kali Linux ISO to DVD or [image Kali Linux Live to USB drive](/docs/usb/kali-linux-live-usb-install/). _(If you cannot, check out the [Kali Linux Network Install](/docs/installation/network-pxe/))._
+2. Burn The Kali Linux ISO to DVD or [image Kali Linux Live to USB drive](/docs/usb/live-usb-install-with-windows/). _(If you cannot, check out the [Kali Linux Network Install](/docs/installation/network-pxe/))._
 
 3. Backup any important information on the device to an external media.
 

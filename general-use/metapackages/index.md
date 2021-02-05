@@ -4,7 +4,7 @@ description:
 icon:
 type: post
 weight: 5
-author: ["gamb1t","g0tmi1k",]
+author: ["gamb1t", "g0tmi1k",]
 ---
 
 # What are metapackages

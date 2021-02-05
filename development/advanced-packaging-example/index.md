@@ -9,7 +9,7 @@ author: ["gamb1t", "g0tmi1k",]
 
 _This guide is accurate at the time of writing. As it references a lot of external resources out of our control, items may be different over time (as software gets updated)._
 
-**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)** is a **Python 3** application with multiple Python dependencies. At the time of writing, one of the dependencies(**[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**) is not in the Kali Linux repository. In this guide we will have to learn how to follow dependency chains, and fix anything required to ensure that the end package can be included. We will also create a patch, helper-script, as well as a [runtime test](https://www.kali.org/docs/development/contributing-runtime-tests/) for the package.
+**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)** is a **Python 3** application with multiple Python dependencies. At the time of writing, one of the dependencies(**[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**) is not in the Kali Linux repository. In this guide we will have to learn how to follow dependency chains, and fix anything required to ensure that the end package can be included. We will also create a patch, helper-script, as well as a [runtime test](/docs/development/contributing-runtime-tests/) for the package.
 
 We will assume we have already followed our [documentation on setting up a packaging environment](/docs/development/setting-up-packaging-system/) as well as our previous other packaging guides [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) as this will explain their contents.
 
@@ -26,7 +26,7 @@ The first action we will take, will be to look at [FinalRecon's source code](htt
 
 ### Missing Tag Releases
 
-As FinalRecon does [not have a tag release]((https://github.com/thewhiteh4t/FinalRecon/releases)) we will have to create our own upstream tar file. Looking to see what branches there are, we discover there is just one (there isn't a stable/production one, or is there a beta/deployment/staging one). As a result, we will use whatever is the latest commit on the main branch until the author does a tag release. _We can auto open up an issue request and/or email them seeing if they will response to such an act_.
+As FinalRecon does [not have a tag release](https://github.com/thewhiteh4t/FinalRecon/releases)) we will have to create our own upstream tar file. Looking to see what branches there are, we discover there is just one (there isn't a stable/production one, or is there a beta/deployment/staging one). As a result, we will use whatever is the latest commit on the main branch until the author does a tag release. _We can auto open up an issue request and/or email them seeing if they will response to such an act_.
 
 ### License
 
@@ -610,7 +610,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 ## Runtime Test
 
-The [runtime test](https://www.kali.org/docs/development/contributing-runtime-tests/) process looks like the following (for more information see [our previous guide, #2 (Photon)](/docs/development/intermediate-packaging-example/)). Just like last time, we will just create a **minimal test to look for the help screen**.
+The [runtime test](/docs/development/contributing-runtime-tests/) process looks like the following (for more information see [our previous guide, #2 (Photon)](/docs/development/intermediate-packaging-example/)). Just like last time, we will just create a **minimal test to look for the help screen**.
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ mkdir -p debian/tests/

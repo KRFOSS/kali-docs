@@ -2,7 +2,6 @@
 title: Common Cloud Based Setup Information
 description:
 icon:
-date: 2020-9-18
 type: post
 weight: 11
 author: ["gamb1t",]
@@ -11,7 +10,7 @@ author: ["gamb1t",]
 A cloud image is designed to be lightweight while having the core tools to get the job done. If the base install is lacking something that may be needed, then the following should cover most questions.
 
 - [Metapackages](/docs/general-use/metapackages/) are helpful to quickly and easily install many tools at once. This is good to easily get access to specialized tools, such as information gathering tools.
-- [Kali Network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and [Kali Branches](/docs/introduction/kali-branches/) are useful to know about in case a user may want to have a more static install or not.
+- [Kali Network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and [Kali Branches](/docs/general-use/kali-branches/) are useful to know about in case a user may want to have a more static install or not.
 
 Due to the EOL of Python 2, there may be some confusion on certain topics involving it.
 

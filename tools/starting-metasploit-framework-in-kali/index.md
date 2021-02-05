@@ -11,7 +11,7 @@ In keeping with the [Kali Linux Network Services Policy](/docs/policy/kali-linux
 
 ## Start the Kali PostgreSQL Service
 
-Metasploit uses **[PostgreSQL](http://www.postgresql.org/)** as its database so it needs to be launched first.
+Metasploit uses **[PostgreSQL](https://www.postgresql.org/)** as its database so it needs to be launched first.
 
 ```
 sudo service postgresql start

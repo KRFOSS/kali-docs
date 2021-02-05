@@ -5,9 +5,6 @@ icon:
 type: post
 weight: 100
 author: ["theGorkha",]
-tags: ["",]
-keywords: [""]
-og_description:
 ---
 
 **Kali Undercover** is a set of scripts that changes the look and feel of your Kali Linux desktop environment to **Windows 10** desktop environment, like _magic_.

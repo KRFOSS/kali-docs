@@ -13,9 +13,9 @@ author: ["re4son",]
 
 Install Kali NetHunter on any stock, unrooted Android device without voiding the warranty.
 
-[![](images/010-NH-Rootless-Installation_Start_s.jpg)](images/010-NH-Rootless-Installation_Start.jpg)
+![](010-NH-Rootless-Installation_Start_s.png)
 
-[![](images/020-NH-Rootless-KeX_s.jpg)](images/020-NH-Rootless-KeX_s.jpg)
+![](020-NH-Rootless-KeX_s.png)
 
 &nbsp;
 
@@ -30,19 +30,20 @@ Android Device
 Installation:
 --------------
 
-* Install the NetHunter-Store app from https://store.nethunter.com
-* From the NetHunter Store, install __Termux__, __NetHunter-KeX client__, and __Hacker's keyboard__
+- Install the NetHunter-Store app from https://store.nethunter.com
+- From the NetHunter Store, install __Termux__, __NetHunter-KeX client__, and __Hacker's keyboard__
   _Note:_
        _The button "install" may not change to "installed" in the store client after installation - just ignore it._
       _Starting termux for the first time may seem stuck while displaying "installing" on some devices - just hit enter._
 
-* Open Termux and type:
-```
-termux-setup-storage
-pkg install wget
-wget -O install-nethunter-termux https://offs.ec/2MceZWr
-chmod +x install-nethunter-termux
-./install-nethunter-termux
+- Open Termux and type:
+
+```console
+kali@kali:~$ termux-setup-storage
+kali@kali:~$ pkg install wget
+kali@kali:~$ wget -O install-nethunter-termux https://offs.ec/2MceZWr
+kali@kali:~$ chmod +x install-nethunter-termux
+kali@kali:~$ ./install-nethunter-termux
 ```
 
 

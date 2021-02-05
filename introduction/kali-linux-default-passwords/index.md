@@ -5,9 +5,6 @@ icon:
 type: archived
 weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: [""]
-og_description:
 ---
 
 **This page is dated**. You can find the **latest version** here: [https://www.kali.org/docs/introduction/default-credentials/](/docs/introduction/default-credentials/).

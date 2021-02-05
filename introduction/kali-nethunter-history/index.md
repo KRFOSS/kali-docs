@@ -5,8 +5,6 @@ icon:
 type: post
 weight: 500
 author: ["g0tmi1k",]
-keywords: [""]
-og_description:
 ---
 
 Kali NetHunter is a custom OS for Android devices. This takes Kali Linux desktop and makes it mobile.

@@ -15,13 +15,13 @@ By default, the Kali Linux BeagleBone Black image contains a minimum toolset, si
 
 ## Kali Linux on BeagleBone Black - Pre-built Version
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/kali-linux-live-usb-install/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
 
 To install a prebuilt image of the standard build of Kali Linux on your BeagleBone Black, follow these instructions:
 
 1. Get a fast micro-SD card with at least 8 GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ the Kali Linux BeagleBone Black image from the Offensive Security [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on ["Downloading Kali Linux"](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/kali-linux-live-usb-install/).
+3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}

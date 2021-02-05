@@ -15,10 +15,10 @@ With Kali Linux being a [rolling distribution](/docs/general-use/kali-branches/)
 
 Autopkgstests were created as a way to test a package as accurately as possible on a real Debian system. This method can leverage virtualization and containers to create an accurate and re-usable environment that will be the testing area. There is a lot more information available on this topic. For a more in depth look than what will be covered here please see the following articles (which served as sources of information during writing):
 
-* [The official Debian CI doc page](https://ci.debian.net/doc/file.TUTORIAL.html)
-* [A great talk covering autopkgtests](http://meetings-archive.debian.net/pub/debian-meetings/2015/debconf15/Tutorial_functional_testing_of_Debian_packages.webm)
-* [A paper going in-depth on writing As-Installed tests](https://gitlab.com/terceiro/installed-tests-patterns/raw/pdf/final/installed-tests-patterns.pdf)
-* [The best practices Debian wiki page](https://wiki.debian.org/ContinuousIntegration/AutopkgtestBestPractices)
+- [The official Debian CI doc page](https://ci.debian.net/doc/file.TUTORIAL.html)
+- [A great talk covering autopkgtests](http://meetings-archive.debian.net/pub/debian-meetings/2015/debconf15/Tutorial_functional_testing_of_Debian_packages.webm)
+- [A paper going in-depth on writing As-Installed tests](https://gitlab.com/terceiro/installed-tests-patterns/raw/pdf/final/installed-tests-patterns.pdf)
+- [The best practices Debian wiki page](https://wiki.debian.org/ContinuousIntegration/AutopkgtestBestPractices)
 
 We encourage users to spend some time looking through these after finishing reading the rest of this doc. We will only be really covering a small portion of what is a large topic to explore and learn.
 

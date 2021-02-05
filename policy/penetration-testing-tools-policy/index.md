@@ -11,10 +11,10 @@ One of the key tasks in transitioning from BackTrack Linux to Kali was combing t
 
 We realize that there are many tools or scripts that can do the same job. Some are clearly better than others in some respect, some are more a matter of personal preference. With this in mind, keeping an updated, useful penetration testing tool repository is a challenging task. The Kali Development team uses some of these questions to help decide whether a specific tool should be included in Kali Linux.
 
-* Is the tool useful/functional in a Penetration Testing environment?
-* Does the tool overlap functionality of other existing tools?
-* Does the licensing of the tool allow for free redistribution?
-* How much resources does the tool require? Will it work in a "standard" environment?
+- Is the tool useful/functional in a Penetration Testing environment?
+- Does the tool overlap functionality of other existing tools?
+- Does the licensing of the tool allow for free redistribution?
+- How much resources does the tool require? Will it work in a "standard" environment?
 
 The answers to questions such as these, among other considerations, help us come to a decision whether the tool should be included in Kali.
 

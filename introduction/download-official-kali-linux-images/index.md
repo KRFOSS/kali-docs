@@ -4,7 +4,7 @@ description:
 icon:
 type: post
 weight: 50
-author: ["g0tmi1k","gamb1t",]
+author: ["g0tmi1k", "gamb1t",]
 ---
 
 {{% notice info %}}
@@ -23,7 +23,7 @@ If you're not sure of the architecture of the system you want to run Kali on, on
 
 The Kali Linux images are available both as directly downloadable ".iso/.img" files or via ".torrent" files.
 
-* [Official Kali ISOs for Intel-based PCs ](https://www.kali.org/downloads/)
+- [Official Kali ISOs for Intel-based PCs ](https://www.kali.org/downloads/)
 
 Building your own Kali Linux ISO, standard or customized, is [a very simple process](/docs/development/live-build-a-custom-kali-iso/).
 
@@ -31,7 +31,7 @@ Building your own Kali Linux ISO, standard or customized, is [a very simple proc
 
 If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed. These image are available in a 64-bit (amd64), and 32-bit PAE (i\*86) formats.
 
-* [Official Kali Linux VMware Images](https://www.offensive-security.com/kali-linux-vmware-virtualbox-image-download/)
+- [Official Kali Linux VMware Images](https://www.offensive-security.com/kali-linux-vmware-virtualbox-image-download/)
 
 ##### ARM Images
 
@@ -49,14 +49,14 @@ Moreover, as the leading penetration testing distribution, Kali's strengths mean
 
 Avoiding this is simple:
 
-* _Only_ download Kali Linux via the official download pages at [https://www.kali.org/downloads](https://www.kali.org/downloads/) or [https://www.offensive-security.com/kali-linux-vmware-arm-image-download/](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) — you wo not be able to browse to these pages without SSL; encrypting the connection makes it much harder for an attacker to use a "man-in-the-middle" attack to modify your download. There are a few potential weaknesses to even these sources — see the sections on verifying the download with the SHA256SUMS file and its signature against the official Kali Development team private key for something much closer to absolute assurance.
-* Once you've downloaded an image, and _before you run it_, _always_ validate that it really _is_ what it's supposed to be by verifying its checksum using one of the procedures detailed below.
+- _Only_ download Kali Linux via the official download pages at [https://www.kali.org/downloads](https://www.kali.org/downloads/) or [https://www.offensive-security.com/kali-linux-vmware-arm-image-download/](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) — you wo not be able to browse to these pages without SSL; encrypting the connection makes it much harder for an attacker to use a "man-in-the-middle" attack to modify your download. There are a few potential weaknesses to even these sources — see the sections on verifying the download with the SHA256SUMS file and its signature against the official Kali Development team private key for something much closer to absolute assurance.
+- Once you've downloaded an image, and _before you run it_, _always_ validate that it really _is_ what it's supposed to be by verifying its checksum using one of the procedures detailed below.
 
 There are several methods for verifying your download. Each provides a certain level of assurance, and involves a corresponding level of effort on your part.
 
-* You can download an ISO image from an official Kali Linux "Downloads" mirror, calculate the ISO's SHA256 hash and compare it by inspection with the value listed on the Kali Linux site. This is quick and easy, but potentially susceptible to subversion via a [DNS poisoning](http://en.wikipedia.org/wiki/DNS_spoofing#Cache_poisoning_attacks): it assumes that the site to which, for example, the domain "kali.org" resolves is in fact the actual Kali Linux site. If it somehow were not, an attacker could present a "loaded" image and a matching SHA256 signature on the fake web page. See the section "Manually Verify the Signature on the ISO (Direct Download)", below.
-* You can download an ISO image through the torrents, and it will also pull down a file — unsigned — containing the calculated SHA256 signature. You can then use the shasum command (on Linux and macOS) or a utility (on Windows) to automatically verify that the file's computed signature matches the signature in the secondary file. This is even easier than the "manual" method, but suffers from the same weakness: if the torrent you pulled down is not really Kali Linux, it could still have a good signature. See the section "Verify the Signature on the ISO Using the Included Signature File (Torrent Download)", below.
-* To be as close to absolutely certain as possible that the Kali Linux download you've obtained is the real thing, you can download both a cleartext signature file and and version of the same file that has been signed with the official Kali Linux private key and use GNU Privacy Guard (GPG) to first, verify that the computed SHA256 signature and the signature in the cleartext file match and second, verify that the signed version of the file containing the SHA256 hash has been correctly signed with the official key.
+- You can download an ISO image from an official Kali Linux "Downloads" mirror, calculate the ISO's SHA256 hash and compare it by inspection with the value listed on the Kali Linux site. This is quick and easy, but potentially susceptible to subversion via a [DNS poisoning](https://en.wikipedia.org/wiki/DNS_spoofing#Cache_poisoning_attacks): it assumes that the site to which, for example, the domain "kali.org" resolves is in fact the actual Kali Linux site. If it somehow were not, an attacker could present a "loaded" image and a matching SHA256 signature on the fake web page. See the section "Manually Verify the Signature on the ISO (Direct Download)", below.
+- You can download an ISO image through the torrents, and it will also pull down a file — unsigned — containing the calculated SHA256 signature. You can then use the shasum command (on Linux and macOS) or a utility (on Windows) to automatically verify that the file's computed signature matches the signature in the secondary file. This is even easier than the "manual" method, but suffers from the same weakness: if the torrent you pulled down is not really Kali Linux, it could still have a good signature. See the section "Verify the Signature on the ISO Using the Included Signature File (Torrent Download)", below.
+- To be as close to absolutely certain as possible that the Kali Linux download you've obtained is the real thing, you can download both a cleartext signature file and and version of the same file that has been signed with the official Kali Linux private key and use GNU Privacy Guard (GPG) to first, verify that the computed SHA256 signature and the signature in the cleartext file match and second, verify that the signed version of the file containing the SHA256 hash has been correctly signed with the official key.
 
 If you use this more complicated process and successfully validate your downloaded ISO, you can proceed with pretty complete assurance that what you've got is the official image and that it has not been tampered with in any way. This method, while the most complex, has the advantage of providing independent assurance of the integrity of the image. The only way this method can fail is if the official Kali Linux private key is not only subverted by an attacker, but also not subsequently revoked by the Kali Linux development team. For this method, see the section on verification using the SHA256SUMS file.
 
@@ -64,8 +64,8 @@ If you use this more complicated process and successfully validate your download
 
 If you're running on Linux, you probably already have [GPG](https://www.gnupg.org/) (GNU Privacy Guard) installed. If you're on Windows or macOS, you'll need to install the appropriate version for your platform.
 
-* If you're on a PC running Windows, download and install GPG4Win from [here](http://gpg4win.org/download.html). Certain versions of Windows do not have the native ability to calculate SHA256 checksums. To check this, you can open the command prompt and run `certutil -?`. If you do have this installed, you can run `certutil -hashfile kali-linux-2020.4-live-amd64.iso sha256` to verify your download. If you do not have `certutil` installed, you will also need a utility such as [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) or [Hashtab](http://implbits.com/products/hashtab/) to verify your download.
-* If you're on a Macintosh running macOS, download and install GPGTools from [here](https://gpgtools.org/). Alternatively, if you have [Homebrew](https://brew.sh) installed, just run `brew install gnupg`
+- If you're on a PC running Windows, download and install GPG4Win from [here](http://gpg4win.org/download.html). Certain versions of Windows do not have the native ability to calculate SHA256 checksums. To check this, you can open the command prompt and run `certutil -?`. If you do have this installed, you can run `certutil -hashfile kali-linux-2020.4-live-amd64.iso sha256` to verify your download. If you do not have `certutil` installed, you will also need a utility such as [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) or [Hashtab](http://implbits.com/products/hashtab/) to verify your download.
+- If you're on a Macintosh running macOS, download and install GPGTools from [here](https://gpgtools.org/). Alternatively, if you have [Homebrew](https://brew.sh) installed, just run `brew install gnupg`
 
 Once you've installed GPG, you'll need to download and import a copy of the Kali Linux official key. Do this with the following command:
 
@@ -148,9 +148,9 @@ IMPORTANT! If you are unable to verify the authenticity of the Kali Linux image 
 
 This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2020.4, as of this writing):
 
-* The ISO image itself (e.g. kali-linux-2020.4-live-amd64.iso)
-* The file containing the calculated SHA256 hash for the ISO, SHA256SUMS
-* The signed version of that file, SHA256SUMS.gpg
+- The ISO image itself (e.g. kali-linux-2020.4-live-amd64.iso)
+- The file containing the calculated SHA256 hash for the ISO, SHA256SUMS
+- The signed version of that file, SHA256SUMS.gpg
 
 Before verifying the checksums of the image, you must ensure that the SHA256SUMS file is the one generated by Kali Linux. That's why the file is signed by Kali's official key with a detached signature in SHA256SUMS.gpg. If you have not already done so, Kali's official key can be downloaded and imported into your keychain with this command:
 
@@ -216,4 +216,4 @@ kali-linux-2020.4-live-amd64.iso: OK
 If you do not get "OK" in response, then stop and review what's happened: the Kali image you have has apparently been tampered with. Do NOT use it.
 {{% /notice %}}
 
-Once you've downloaded and verified your image, you can [proceed to create a bootable "Kali Linux Live" USB drive](/docs/usb/kali-linux-live-usb-install/).
+Once you've downloaded and verified your image, you can [proceed to create a bootable "Kali Linux Live" USB drive](/docs/usb/live-usb-install-with-windows/).

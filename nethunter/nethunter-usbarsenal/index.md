@@ -12,7 +12,7 @@ It is used to enable USB gadget modes using the *USB Function Selector*:
 
 &nbsp;
 
-![](./nethunter-usbarsenal1.jpg)
+![](nethunter-usbarsenal1.png)
 
 &nbsp;
 
@@ -20,7 +20,7 @@ If mass storage gadget mode has been enabled then .iso and .img files can be mou
 
 &nbsp;
 
-![](./nethunter-usbarsenal2.jpg)
+![](nethunter-usbarsenal2.png)
 
 &nbsp;
 
@@ -28,4 +28,4 @@ If RNDIS gadget mode is enabled then the *USB Network Tethering* menu can be use
 
 &nbsp;
 
-![](./nethunter-usbarsenal3.jpg)
+![](nethunter-usbarsenal3.png)

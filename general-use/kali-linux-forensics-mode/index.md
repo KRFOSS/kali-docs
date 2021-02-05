@@ -9,9 +9,9 @@ author: ["g0tmi1k",]
 
 Kali Linux "Live" provides a "forensic mode", a feature first introduced in BackTrack Linux. The "Forensic mode live boot" option has proven to be very popular for several reasons:
 
-* Kali Linux is widely and easily available, many potential users already have Kali ISOs or bootable USB drives.
-* When a forensic need comes up, Kali Linux "Live" makes it quick and easy to put Kali Linux on the job.
-* Kali Linux comes pre-loaded with the most popular open source forensic software, a handy toolkit when you need to do forensic work.
+- Kali Linux is widely and easily available, many potential users already have Kali ISOs or bootable USB drives.
+- When a forensic need comes up, Kali Linux "Live" makes it quick and easy to put Kali Linux on the job.
+- Kali Linux comes pre-loaded with the most popular open source forensic software, a handy toolkit when you need to do forensic work.
 
 ![](kali-forensics-mode.png)
 

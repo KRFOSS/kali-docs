@@ -43,7 +43,7 @@ The core of Kali NetHunter, which is included in all three editions, comprises o
 
 
 
-![](NetHunter-Kex.jpg)
+![](NetHunter-Kex.png)
 Figure 2: Kali NetHunter Desktop Experience (KeX) outputting to an HDMI monitor
 
 &nbsp;
@@ -58,7 +58,7 @@ Figure 3: Kali NetHunter App Store
 **Both rooted editions provide additional tools & services**.
 A custom kernel can extend that functionality by adding additional network and USB gadget drivers as well as wifi injection support for selected wifi chips.
 
-![](NetHunter-App.jpg)
+![](NetHunter-App.png)
 Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter Lite & NetHunter).
 
 &nbsp;
@@ -124,7 +124,7 @@ The following live reports are generated automatically by gitlab CI:
 
 Official release NetHunter images for your specific supported device can be download from the Offensive Security NetHunter project page located at the following URL:
 
-* https://www.offensive-security.com/kali-linux-nethunter-download
+- https://www.offensive-security.com/kali-linux-nethunter-download
 
 Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
 
@@ -151,12 +151,12 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 ## 6.0 Post Installation Setup
 
-* Open the NetHunter App and start the Kali Chroot Manager.
-* Install the Hacker Keyboard from the NetHunter Store using the NetHunter Store app.
-* Install any other apps from the NetHunter Store as required.
-* Configure Kali Services, such as SSH.
-* Set up custom commands.
-* Initialize the Exploit Database.
+- Open the NetHunter App and start the Kali Chroot Manager.
+- Install the Hacker Keyboard from the NetHunter Store using the NetHunter Store app.
+- Install any other apps from the NetHunter Store as required.
+- Configure Kali Services, such as SSH.
+- Set up custom commands.
+- Initialize the Exploit Database.
 
 &nbsp;
 
@@ -164,25 +164,25 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 #### Kali NetHunter Application
 
-* [**Home Screen**](nethunter-home-screen/) - General information panel, network interfaces and HID device status.
-* [**Kali Chroot Manager**](nethunter-chroot-manager/) - For managing chroot metapackage installations.
-* [**Kali Services**](nethunter-kali-services/) - Start / stop various chrooted services. Enable or disable them at boot time.
-* [**Custom Commands**](nethunter-custom-commands/) - Add your own custom commands and functions to the launcher.
-* [**MAC Changer**](nethunter-mac-changer/) - Change your Wi-Fi MAC address (only on certain devices)
-* [**KeX Manager**](nethunter-kex-manager/) - Set up an instant VNC session with your Kali chroot.
-* USB Arsenal - Control the USB gadget configurations
-* [**HID [Attacks]**](nethunter-hid-attacks/) - Various HID attacks, Teensy style.
-* [**DuckHunter HID**](nethunter-duckhunter/) - Rubber Ducky style HID attacks
-* [**BadUSB MITM Attack**](nethunter-badusb/) - Nuff said.
-* [**MANA Wireless Toolkit**](nethunter-mana-wireless/) - Setup a malicious Access Point at the click of a button.
-* [**MITM Framework**](nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
-* [**NMap Scan**](nethunter-nmap/) - Quick Nmap scanner interface.
-* [**Metasploit Payload Generator**](nethunter-mpg/) - Generating Metasploit payloads on the fly.
-* [**Searchsploit**](nethunter-searchsploit/) - Easy searching for exploits in the Exploit-DB.
+- [**Home Screen**](nethunter-home-screen/) - General information panel, network interfaces and HID device status.
+- [**Kali Chroot Manager**](nethunter-chroot-manager/) - For managing chroot metapackage installations.
+- [**Kali Services**](nethunter-kali-services/) - Start / stop various chrooted services. Enable or disable them at boot time.
+- [**Custom Commands**](nethunter-custom-commands/) - Add your own custom commands and functions to the launcher.
+- [**MAC Changer**](nethunter-mac-changer/) - Change your Wi-Fi MAC address (only on certain devices)
+- [**KeX Manager**](nethunter-kex-manager/) - Set up an instant VNC session with your Kali chroot.
+- USB Arsenal - Control the USB gadget configurations
+- [**HID [Attacks]**](nethunter-hid-attacks/) - Various HID attacks, Teensy style.
+- [**DuckHunter HID**](nethunter-duckhunter/) - Rubber Ducky style HID attacks
+- [**BadUSB MITM Attack**](nethunter-badusb/) - Nuff said.
+- [**MANA Wireless Toolkit**](nethunter-mana-wireless/) - Setup a malicious Access Point at the click of a button.
+- [**MITM Framework**](nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
+- [**NMap Scan**](nethunter-nmap/) - Quick Nmap scanner interface.
+- [**Metasploit Payload Generator**](nethunter-mpg/) - Generating Metasploit payloads on the fly.
+- [**Searchsploit**](nethunter-searchsploit/) - Easy searching for exploits in the Exploit-DB.
 
 #### 3rd Party Android Applications in the NetHunter App Store
 
-* [**NetHunter Terminal Application**](nethunter-terminal/)
+- [**NetHunter Terminal Application**](nethunter-terminal/)
 
 &nbsp;
 

@@ -5,10 +5,7 @@ icon:
 type: post
 weight:
 author: ["rhertzog",]
-tags: ["",]
-keywords: ["",]
-og_description:
-------
+---
 
 Kali provides official Kali Docker images that are updated once a week on [Docker Hub](https://hub.docker.com/u/kalilinux/). You can thus easily build your own Kali containers on top of those that we provide. We offer various images to try and suit your needs, all with a different variation of Kali Linux as they use unique [branches for the source](/docs/general-use/kali-branches/).
 

@@ -50,7 +50,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
   when asked for authorisation to allow traffic through the Windows Defender firewall
 
-  <img src="firewall.png" alt="Firewall" style="zoom: 50%;" />
+![](firewall.png)
 
   &nbsp;  &nbsp;
 
