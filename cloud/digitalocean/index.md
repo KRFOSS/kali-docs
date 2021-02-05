@@ -2,13 +2,9 @@
 title: Digital Ocean
 description:
 icon:
-date: 2020-01-13
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 [DigitalOcean](https://www.digitalocean.com/) is a cloud provider similar to AWS, Microsoft Azure, Google Cloud Platform, and many others. They offer instances, called "droplets", with different Linux distributions such as Debian, Ubuntu, FreeBSD, etc. Similar to AWS, DigitalOcean has datacenters around the world and sometimes multiple datacenters in each country.
@@ -23,21 +19,21 @@ By default, the Kali Linux ISOs on the download page have a desktop environment 
 
 ## Create the Virtual Machine
 ​
-With our mini.iso , we can now begin to build our virtual machine. Create a new virtual machine setting the OS to the latest Debian 64 bit and allocating a 20 GB hard disk. If needed, detailed set-up is explained on the [Kali Training website](https://kali.training/topic/booting-kali-in-live-mode/). It is important to store the virtual disk as a single file that is dynamically allocated. The rest like the amount of CPU and RAM won't matter because only the disk file will be uploaded to DigitalOcean.
+With our mini.iso , we can now begin to build our virtual machine. Create a new virtual machine setting the OS to the latest Debian 64-bit and allocating a 20 GB hard disk. If needed, detailed set-up is explained on the [Kali Training website](https://kali.training/topic/booting-kali-in-live-mode/). It is important to store the virtual disk as a single file that is dynamically allocated. The rest like the amount of CPU and RAM won't matter because only the disk file will be uploaded to DigitalOcean.
 ​
 Disk size matters as billing is based on disk size for custom images. It will also impact the choice of instance we can create. Let's say a 40 GB hard disk is created, it will prevent creating an instance at the $5/month level because its maximum hard disk size is 25 GB. In that case we would be forced to use the $10/month option for instances with 50 GB disks. Don't worry, even though the disk is 20 GB, it will get expanded depending on the droplet plan chosen.
 
 During the installation, select manual partitioning and set it up as shown below, with all files in one partition and no swap file.
 
-![digitalocean-1](digitalocean-1.png)
+![](digitalocean-1.png)
 
 During the installation, it will prompt for software preferences. For the sake of simplicity and to limit disk space use, we'll just have the base system installed, therefore we'll only select "standard system utilities" as shown below.
 
-![digitalocean-2](digitalocean-2.png)
+![](digitalocean-2.png)
 
 ## Update the System
 
-When installation is complete and after rebooting, we login at the console and update the system:
+When installation is complete and after rebooting, we login at the console and [update the system](/docs/general-use/updating-kali/).
 
 ```
 apt update
@@ -104,30 +100,30 @@ bzip2 kali.vmdk
 
 Login to your DigitalOcean account. In the "Manage" section on the left, click on "Images", then select the "Custom Images" tab.
 
-![digitalocean-2](digitalocean-3.png)
+![](digitalocean-3.png)
 
 From there, we upload the compressed disk image. We'll name it Kali, mark it as Debian, and select the region and datacenter to upload it to. Note that once uploaded to a location, droplets can only be started at that location, which is a current limitation for custom images. Another thing to remember at this stage is that uploaded images consume disk space and DigitalOcean will bill based on disk usage.
 
-![digitalocean-3](digitalocean-4.png)
+![](digitalocean-4.png)
 
 ## Starting a Droplet
 
 Once done, the "Uploaded" column will indicate how long ago it was uploaded. Now we will click on the "More" option of the image and select "Start a droplet".
 
-![digitalocean-4](digitalocean-5.png)
+![](digitalocean-5.png)
 
 You will be taken to the droplet settings where you can select the droplet plan, the SSH key, and the project to start it in. Since this is a custom image, it is required you use a SSH key. You can either select an existing one or upload a new one by clicking on "New SSH key", which will open the following screen where you can paste the public key and name it:
 
-![digitalocean-5](digitalocean-6.png)
+![](digitalocean-6.png)
 
 Once done, click "Create" as shown below. It will then take you back to the dashboard (Manage > Droplets) where all your droplets are listed. Because we are using a SSH key, DigitalOcean will not send an email with credentials for the droplet.
 
-![digitalocean-6](digitalocean-7.png)
+![](digitalocean-7.png)
 
 Within a few seconds, and after the IP is displayed, our droplet will be ready. In order to connect, we will need to use the private SSH key we created (called MY_KEY in this example):
 
 ```
-user@computer:~$ ssh -i MY_KEY root@192.168.1.1
+$ ssh -i MY_KEY kali@192.168.1.1
 The authenticity of host '192.168.1.1 (192.168.1.1)' can't be established.
 ECDSA key fingerprint is SHA256:d83fcd43d25e2a7edd291666160b47360cc85870ded.
 Are you sure you want to continue connecting (yes/no)? yes
@@ -142,19 +138,22 @@ permitted by applicable law.
 
 Now we have a nice, minimal Kali Linux installation that we can deploy and customize as needed.
 
-```
-root@kali-s-1vcpu-1gb-nyc3-01:~# lsb_release -a
+```console
+kali@kali-s-1vcpu-1gb-nyc3-01:~$ lsb_release -a
 No LSB modules are available.
 Distributor ID: Kali
 Description: Kali GNU/Linux Rolling
 Release: 2019.2
 Codename: n/a
 
-root@kali-s-1vcpu-1gb-nyc3-01:~# uname -a
+kali@kali-s-1vcpu-1gb-nyc3-01:~$
+kali@kali-s-1vcpu-1gb-nyc3-01:~$ uname -a
 Linux kali-s-1vcpu-1gb-nyc3-01 4.19.0-kali5-amd64 #1 SMP Debian 4.19.37-2kali1 (2019-05-15) x86_64 GNU/Linux
 
-root@kali-s-1vcpu-1gb-lon1-01:~# free -h
+kali@kali-s-1vcpu-1gb-nyc3-01:~$
+kali@kali-s-1vcpu-1gb-nyc3-01:~$ free -h
 total used free shared buff/cache available
 Mem: 987Mi 51Mi 527Mi 1.0Mi 407Mi 790Mi
 Swap: 0B 0B 0B
+kali@kali-s-1vcpu-1gb-nyc3-01:~$
 ```
