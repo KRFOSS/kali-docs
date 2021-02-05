@@ -2,22 +2,18 @@
 title: Submitting tools to Kali
 description:
 icon:
-date: 2020-02-24
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Preparations
 
-In order for a tool to be added to any Debian-based distribution it needs to be packaged, this can be seen by a Debian/ file in the source code. For developers, we have [documentation](../../development/public-packaging/) that explains this process should they wish to do this themselves. Keep in mind if this tool is packaged for Debian or not when submitting the tool. Additional information that should be found is the license associated, what dependencies the tool has, what other tools are similar, how active is the development of the tool, and finally how to install the tool.
+In order for a tool to be added to any Debian-based distribution it needs to be packaged, this can be seen by a Debian/ file in the source code. For developers, we have [documentation](/docs/development/public-packaging/) that explains this process should they wish to do this themselves. Keep in mind if this tool is packaged for Debian or not when submitting the tool. Additional information that should be found is the license associated, what dependencies the tool has, what other tools are similar, how active is the development of the tool, and finally how to install the tool.
 
 ## Where to submit the tool
 
-Once you have the correct information on the tool, a request for the tool to be added should be submitted on our [bug tracker](https://bugs.kali.org). We have [documentation](../../community/submitting-issues-kali-bug-tracker/) on how to get started at the bug tracker if needed.
+Once you have the correct information on the tool, a request for the tool to be added should be submitted on our [bug tracker](https://bugs.kali.org). We have [documentation](/docs/community/submitting-issues-kali-bug-tracker/) on how to get started at the bug tracker if needed.
 
 ### Requesting the tool:
 1. Report issue

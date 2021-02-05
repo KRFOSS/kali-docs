@@ -2,13 +2,9 @@
 title: Kali Tools
 description:
 icon:
-date: 2020-02-22
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Users have a few areas where they can look for information about a tool in Kali.
