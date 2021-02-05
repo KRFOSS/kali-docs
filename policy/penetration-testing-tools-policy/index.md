@@ -2,16 +2,12 @@
 title: Penetration Testing Tools Policy
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
-One of the key tasks in transitioning from Backtrack Linux to Kali was combing through the packages and selecting the "best of breed" from what was available.
+One of the key tasks in transitioning from BackTrack Linux to Kali was combing through the packages and selecting the "best of breed" from what was available.
 
 We realize that there are many tools or scripts that can do the same job. Some are clearly better than others in some respect, some are more a matter of personal preference. With this in mind, keeping an updated, useful penetration testing tool repository is a challenging task. The Kali Development team uses some of these questions to help decide whether a specific tool should be included in Kali Linux.
 
@@ -28,4 +24,4 @@ Tools which are specifically aimed at DOS, DDOS or anonymity are _rarely used in
 
 ## New Tool Requests
 
-We are always open to adding new and better tools to our distribution, but we ask that a case be made for each tool. Please put some thought and effort into the tool submission, and please do _not_ just send the developers a one line request. Submissions for new tool requests can be made through our [Kali Linux bug tracker](https://bugs.kali.org).
+We are always open to adding new and better tools to our distribution, but we ask that a case be made for each tool. Please put some thought and effort into the tool submission, and please do _not_ just send the developers a one line request. Submissions for new tool requests can be made through our [Kali Linux bug tracker](https://bugs.kali.org/).

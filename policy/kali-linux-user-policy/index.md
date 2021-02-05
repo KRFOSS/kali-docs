@@ -2,13 +2,9 @@
 title: Kali Linux User Policy
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 In order to execute commands at a privileged level, Kali uses two methods todo so:
@@ -29,7 +25,7 @@ This means:
 
 If you wish to restore how Kali previous operated, you can install the following package:
 
-```
+```console
 kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt install -y kali-grant-root

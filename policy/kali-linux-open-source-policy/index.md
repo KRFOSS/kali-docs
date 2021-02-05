@@ -2,18 +2,14 @@
 title: Kali Linux Open Source Policy
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
-Kali Linux is a Linux distribution that aggregates thousands of free software [packages](http://pkg.kali.org/) in its main section. As a Debian derivative, all of the core software in Kali Linux complies with the [Debian Free Software Guidelines](http://www.debian.org/social_contract#guidelines).
+Kali Linux is a Linux distribution that aggregates thousands of free software [packages](https://pkg.kali.org/) in its main section. As a Debian derivative, all of the core software in Kali Linux complies with the [Debian Free Software Guidelines](http://www.debian.org/social_contract#guidelines).
 
-As the specific exception to the above, Kali Linux's non-free section contains several tools which are not open source, but which have been made available for redistribution by [Offensive Security](https://www.offensive-security.com) through default  or specific licensing agreements with the vendors of those tools.
+As the specific exception to the above, Kali Linux's non-free section contains several tools which are not open source, but which have been made available for redistribution by [Offensive Security](https://www.offensive-security.com/) through default  or specific licensing agreements with the vendors of those tools.
 
 If you want to build a Kali derivative, you should _review the license_ of each Kali-specific non-free package before including it in your distribution — but note that non-free packages which are imported from Debian are safe to redistribute.
 
