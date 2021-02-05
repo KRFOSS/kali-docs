@@ -44,47 +44,47 @@ Before we start the "packaging" we need to get the folder prepared properly. Ass
 Otherwise, you need to pull the release if they have one. If they **do** have a release, skip to that header. If they **don't** have a release, clone the repo and do the following command:
 
 ```console
-packaging@kali:~$ git clone https://github.com/ambionics/phpggc.git phpgcc-official
-packaging@kali:~$
-packaging@kali:~$ cd phpggc-official
-packaging@kali:~$
-packaging@kali:~/phpggc-official$ git archive --format=tar master | gzip -c > ../PACKAGE_YEARMONTHDAY.orig.tar.gz
-packaging@kali:~/phpggc-official$
+kali@kali:~$ git clone https://github.com/ambionics/phpggc.git phpgcc-official
+kali@kali:~$
+kali@kali:~$ cd phpggc-official
+kali@kali:~$
+kali@kali:~/phpggc-official$ git archive --format=tar master | gzip -c > ../PACKAGE_YEARMONTHDAY.orig.tar.gz
+kali@kali:~/phpggc-official$
 ```
 Be sure to change both package and date to the appropriate names.
 
 We create an empty git repo and then clone it, then we can import the tool. _Be sure to create a new empty repo of your own for your own package for this step._
 
 ```console
-packaging@kali:~$ git clone git@gitlab.com:PackageAllTheThings/phpggc.git
-packaging@kali:~$
-packaging@kali:~$ cd phpggc/
-packaging@kali:~/phpggc$ gbp import-orig ../phpggc_0.20191028.orig.tar.gz
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git checkout -b kali/master
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git branch -D master
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git push -u origin --all
-packaging@kali:~/phpggc$
+kali@kali:~$ git clone git@gitlab.com:PackageAllTheThings/phpggc.git
+kali@kali:~$
+kali@kali:~$ cd phpggc/
+kali@kali:~/phpggc$ gbp import-orig ../phpggc_0.20191028.orig.tar.gz
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git checkout -b kali/master
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git branch -D master
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git push -u origin --all
+kali@kali:~/phpggc$
 ```
 
 #### Working with a release
 To get the release, we follow a similar process as to when there is no release. We first get the latest release tar.gz link and output the file to the proper Debian format.
 
 ```console
-packaging@kali:~$ wget -O phpggc_1.0.1.orig.tar.gz https://gitlab.com/PackageAllTheThings/phpggc/archive/v1.0.1.tar.gz
-packaging@kali:~$
-packaging@kali:~$ git clone git@gitlab.com:PackageAllTheThings/phpggc.git
-packaging@kali:~$ cd phpggc/
-packaging@kali:~/phpggc$ gbp import-orig ../phpggc_1.0.1.orig.tar.gz
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git checkout -b kali/master
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git branch -D master
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git push -u origin --all
-packaging@kali:~/phpggc$
+kali@kali:~$ wget -O phpggc_1.0.1.orig.tar.gz https://gitlab.com/PackageAllTheThings/phpggc/archive/v1.0.1.tar.gz
+kali@kali:~$
+kali@kali:~$ git clone git@gitlab.com:PackageAllTheThings/phpggc.git
+kali@kali:~$ cd phpggc/
+kali@kali:~/phpggc$ gbp import-orig ../phpggc_1.0.1.orig.tar.gz
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git checkout -b kali/master
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git branch -D master
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git push -u origin --all
+kali@kali:~/phpggc$
 ```
 
 
@@ -93,18 +93,18 @@ packaging@kali:~/phpggc$
 First we need to generate the base Debian files and remove some of the ones that won't be needed. When prompted we select single for the package type, and assuming everything else is correct, the default values for the rest.
 
 ```console
-packaging@kali:~/phpggc$ dh_make -p phpggc_0.20191028
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ cd debian/
-packaging@kali:~/phpggc/debian$ rm *.ex *.EX README.* *.docs
-packaging@kali:~/phpggc/debian$
+kali@kali:~/phpggc$ dh_make -p phpggc_0.20191028
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ cd debian/
+kali@kali:~/phpggc/debian$ rm *.ex *.EX README.* *.docs
+kali@kali:~/phpggc/debian$
 ```
 Next we will need to edit some of the files with the proper information.
 
 ```console
-packaging@kali:~/phpggc/debian$ vim control
-packaging@kali:~/phpggc/debian$
-packaging@kali:~/phpggc/debian$ cat control
+kali@kali:~/phpggc/debian$ vim control
+kali@kali:~/phpggc/debian$
+kali@kali:~/phpggc/debian$ cat control
 Source: phpggc
 Section: net
 Priority: optional
@@ -123,7 +123,7 @@ Description: A library of unserialize() payloads
  PHPGGC is a library of unserialize() payloads
  along with a tool to generate them, from
  command line or programmatically.
-packaging@kali:~$
+kali@kali:~$
 ```
 
 There are a number of things to take note of here. Section, priority, maintainer, uploaders, homepage, depends, and description are all changed. Going through them:
@@ -136,23 +136,23 @@ There are a number of things to take note of here. Section, priority, maintainer
 - Description is the combination of the short description and an extended one that explains what the package contains
 
 ```console
-packaging@kali:~/phpggc/debian$ vim changelog
-packaging@kali:~/phpggc/debian$
-packaging@kali:~/phpggc/debian$ cat changelog
+kali@kali:~/phpggc/debian$ vim changelog
+kali@kali:~/phpggc/debian$
+kali@kali:~/phpggc/debian$ cat changelog
 phpggc (0.20191028-0kali1) kali-dev; urgency=medium
 
   * Initial release
 
  -- First Last <email@domain.com>  Mon, 28 Oct 2019 19:29:57 -0400
-packaging@kali:~$
+kali@kali:~$
 ```
 
 Be sure to set kali-dev rather than unstable before urgency, otherwise there will be issues later from sbuild. You can remove everything after "Initial release". We also use a Debian revision of "-0kali1" instead of the default "-1" to avoid conflicts with a version that would be used by an upstream Debian package.
 
 ```console
-packaging@kali:~/phpggc/debian$ vim copyright
-packaging@kali:~/phpggc/debian$
-packaging@kali:~/phpggc/debian$ cat copyright
+kali@kali:~/phpggc/debian$ vim copyright
+kali@kali:~/phpggc/debian$
+kali@kali:~/phpggc/debian$ cat copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: phpggc
 Upstream-Contact: contact@ambionics.io
@@ -181,24 +181,24 @@ License: GPL-2+
  .
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
-packaging@kali:~$
+kali@kali:~$
 ```
 
 There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debain it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed.
 
 ```console
-packaging@kali:~/phpggc/debian$ vim watch
-packaging@kali:~/phpggc/debian$
-packaging@kali:~/phpggc/debian$ cat watch
+kali@kali:~/phpggc/debian$ vim watch
+kali@kali:~/phpggc/debian$
+kali@kali:~/phpggc/debian$ cat watch
 version=4
 opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/phpggc-$1\.tar\.gz/ \
   https://github.com/ambionics/phpggc/tags .*/v?(\d\S*)\.tar\.gz
-packaging@kali:~$
+kali@kali:~$
 ```
 
 This file can look a bit intimidating, but what actually needs to be changed is very easy as demonstrated:
 
-```console
+```plaintext
 opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/PACKAGENAME-$1\.tar\.gz/ \
   ORIGINALGITLINK/tags .*/v?(\d\S*)\.tar\.gz
 ```
@@ -210,25 +210,25 @@ This file will _watch_ for any changes in the released version number of the ups
 If we built the package now, it would not be installed. To fix this, let's create an .install file and a helper script. The reason we are creating these two files is that they both will work the majority of the time. In some cases, the different ways, like using a symlink, may not work and changes will have to be made. As we can't account for every scenario now, we will go with what works the majority of the time.
 
 ```console
-packaging@kali:~/phpggc/debian$ mkdir helper-script
-packaging@kali:~/phpggc/debian$
-packaging@kali:~/phpggc/debian$ vim phpggc.install
-packaging@kali:~/phpggc/debian$
-packaging@kali:~/phpggc/debian$ cat phpggc.install
+kali@kali:~/phpggc/debian$ mkdir helper-script
+kali@kali:~/phpggc/debian$
+kali@kali:~/phpggc/debian$ vim phpggc.install
+kali@kali:~/phpggc/debian$
+kali@kali:~/phpggc/debian$ cat phpggc.install
 lib usr/share/phpggc/
 phpggc usr/share/phpggc/
 templates usr/share/phpggc/
 gadgetchains usr/share/phpggc/
 debian/helper-script/phpggc usr/bin/
-packaging@kali:~/phpggc/debian$
-packaging@kali:~/phpggc/debian$ vim helper-script/phpggc
-packaging@kali:~/phpggc/debian$
-packaging@kali:~$ cat helper-script/phpggc
+kali@kali:~/phpggc/debian$
+kali@kali:~/phpggc/debian$ vim helper-script/phpggc
+kali@kali:~/phpggc/debian$
+kali@kali:~$ cat helper-script/phpggc
 #!/bin/sh
 
 cd /usr/share/phpggc
 exec ./phpggc
-packaging@kali:~$
+kali@kali:~$
 ```
 
 Some of you may have caught something odd and are wondering what's up with the formatting of the .install file. With the way that the package builder interprets things, a `/` at the beginning of "usr/" will break things, likewise no slash at the end will as well. We include all the files that will be installed in the ".install" file. In the helper-script, we go to that directory and launch the file.
@@ -236,16 +236,16 @@ Some of you may have caught something odd and are wondering what's up with the f
 Now that all that is done, we can push everything to git and try it out!
 
 ```console
-packaging@kali:~/phpggc/debian$ cd ..
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git add .
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git commit -m "Packaged up!"
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ git push
-packaging@kali:~/phpggc$
-packaging@kali:~/phpggc$ gbp buildpackage --git-builder=sbuild
-packaging@kali:~$
+kali@kali:~/phpggc/debian$ cd ..
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git add .
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git commit -m "Packaged up!"
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ git push
+kali@kali:~/phpggc$
+kali@kali:~/phpggc$ gbp buildpackage --git-builder=sbuild
+kali@kali:~$
 ```
 
 This may take a little bit, and in the end a few things can occur. If lintian says "Failed" and there are errors, we recommend googling them and if no solution can be found then submit a post to the [forums](https://forums.kali.org/forumdisplay.php?8-Kali-Linux-Development) where we can assist. If lintian does not fail, then you can find your package in `/home/$USER/kali/build-area/`. Be sure to test it out by using dpkg to install the package and run it.
@@ -255,9 +255,9 @@ This may take a little bit, and in the end a few things can occur. If lintian sa
 If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop` file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one.
 
 ```console
-packaging@kali:~$ vim desktop-files/phpggc.desktop
-packaging@kali:~$
-packaging@kali:~$ cat desktop-files/phpggc.desktop
+kali@kali:~$ vim desktop-files/phpggc.desktop
+kali@kali:~$
+kali@kali:~$ cat desktop-files/phpggc.desktop
 [Desktop Entry]
 Name=PHPGGC
 Encoding=UTF-8
@@ -268,7 +268,7 @@ Terminal=true
 Type=Application
 Categories=08-exploitation-tools;
 X-Kali-Package=phpggc
-packaging@kali:~$
+kali@kali:~$
 ```
 
 # Submitting to the tracker

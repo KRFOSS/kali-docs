@@ -196,30 +196,30 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
   **Basic Win-KeX in ESM mode with sound:**
 
-  ```
-  {
-        "guid": "{55ca431a-3a87-5fb3-83cd-11ecedc031d2}",
-        "hidden": false,
-        "name": "Win-KeX",
-        "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
-  },
-  ```
+```
+{
+      "guid": "{55ca431a-3a87-5fb3-83cd-11ecedc031d2}",
+      "hidden": false,
+      "name": "Win-KeX",
+      "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
+},
+```
 
 
   **Advanced Win-KeX in ESM mode with sound - Kali icon and start in kali home directory:**
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
 
-  ```
-  {
-          "guid": "{55ca431a-3a87-5fb3-83cd-11ecedd031d2}",
-          "hidden": false,
-  		"icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
-          "name": "Win-KeX",
-          "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
-  		"startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
-  },
-  ```
+```
+{
+        "guid": "{55ca431a-3a87-5fb3-83cd-11ecedd031d2}",
+        "hidden": false,
+        "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
+        "name": "Win-KeX",
+        "commandline": "wsl -d kali-linux kex --esm --wtstart -s",
+        "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
+},
+```
 
 ![](win-kex-wt1.png)
 

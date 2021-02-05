@@ -23,8 +23,8 @@ This guide will make the following assumptions:
 
 - You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements, setup assumptions and install media).
 - Downloaded the Kali Linux Mini ISO
-	- [x64 Graphical Installer](http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/gtk/mini.iso)
-	- [x86 Graphical Installer](http://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/gtk/mini.iso)
+    - [x64 Graphical Installer](http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/gtk/mini.iso)
+    - [x86 Graphical Installer](http://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/gtk/mini.iso)
     - [x64 Text Installer](http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/mini.iso)
     - [x86 Text Installer](http://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/mini.iso)
 

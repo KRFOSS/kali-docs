@@ -1,5 +1,5 @@
 ---
-title: Dual Booting Kali with Mac
+title: Dual Booting Kali with macOS/OS X
 description:
 icon:
 type: post

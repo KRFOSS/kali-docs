@@ -1,5 +1,5 @@
 ---
-title: Kali's ARM History
+title: Kali ARM History
 description:
 icon:
 type: post

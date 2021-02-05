@@ -37,26 +37,26 @@ If you would like to use a Kali Docker image, we have a doc page for that [here]
 
 Add Docker repository to your `sources.list`
 
-```markdown
-printf "%s\n" "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" |\
-sudo tee /etc/apt/sources.list.d/docker-ce.list
+```console
+kali@kali:~$ printf "%s\n" "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" |\
+kali@kali:~$ sudo tee /etc/apt/sources.list.d/docker-ce.list
 ```
 Import the gpg key:
 
-```markdown
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+```console
+kali@kali:~$ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 ```
 Fingerprint  checking:
 
-```markdown
-sudo apt-key fingerprint 0EBFCD88
+```console
+kali@kali:~$ sudo apt-key fingerprint 0EBFCD88
 ```
 
 Install the latest version of `docker-ce`:
 
-```markdown
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+```console
+kali@kali:~$ sudo apt-get update
+kali@kali:~$ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
 ##### References

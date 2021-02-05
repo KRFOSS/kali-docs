@@ -1,5 +1,5 @@
 ---
-title: Kali's NetHunter History
+title: Kali NetHunter History
 description:
 icon:
 type: post

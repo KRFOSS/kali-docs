@@ -49,7 +49,7 @@ Some tools shipped with Kali, will use their own default hardcoded credentials (
     - Password: `postgres`
     - Configuration File: `/usr/share/metasploit-framework/config/database.yml`
 
-- [PowerShell-Empire/Starkiller]
+- PowerShell-Empire/Starkiller
     - Username: `empireadmin`
     - Password: `password123`
 
