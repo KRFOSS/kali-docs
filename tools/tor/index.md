@@ -13,14 +13,14 @@ Kali Linux provide the `torbrowser-launcher` tool to install Tor Browser.
 
 Open the terminal then run the following commands:
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 kali@kali:~$ sudo apt install tor torbrowser-launcher
 ```
 
 As user run the following command:
 
-```markdown
+```console
 kali@kali:~$ torbrowser-launcher
 ```
 

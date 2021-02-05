@@ -21,13 +21,13 @@ Compiling kernels and generating images usually comes at the cost of disk space.
 
 Start off by installing the required dependencies for ARM cross-compilation.
 
-```cosole
+```console
 kali@kali:~$ sudo apt install -y git-core gnupg flex bison gperf libesd0-dev build-essential zip curl libncurses5-dev zlib1g-dev gcc-multilib g++-multilib
 ```
 
 If you are running a 64-bit Kali Linux system, add i386 architecture support to your development environment as follows.
 
-```cosole
+```console
 kali@kali:~$ dpkg --add-architecture i386
 kali@kali:~$ sudo apt update
 kali@kali:~$ sudo apt install -y ia32-libs
