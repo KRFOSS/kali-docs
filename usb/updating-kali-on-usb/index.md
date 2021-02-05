@@ -2,18 +2,14 @@
 title: Updating Kali Linux on USB
 description:
 icon:
-date: 2020-03-07
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ### Requirements
 
-In order to properly update Kali on a USB, [persistence](../kali-linux-live-usb-persistence) must be setup. If persistence is not setup, re-imaging the USB with an ISO from the [weekly](https://cdimage.kali.org/kali-images/kali-weekly/) build will be a suitable update.
+In order to properly [update Kali Linux](/docs/general-use/updating-kali/) on a USB, [persistence](/docs/usb/kali-linux-live-usb-persistence/) must be setup. If persistence is not setup, re-imaging the USB with an ISO from the [weekly](https://cdimage.kali.org/kali-images/kali-weekly/) build will be a suitable update.
 
 ### Process
 
@@ -21,16 +17,16 @@ The best way to update Kali on a USB is to follow the same way you would on a fu
 
 First ensure that `etc/apt/sources.list` is properly populated.
 
-```markdown
+```console
 kali@kali:~$ cat /etc/apt/sources.list
 deb http://http.kali.org/kali kali-rolling main contrib non-free
 deb-src http://http.kali.org/kali kali-rolling main contrib non-free
 kali@kali:~$
 ```
 
-After that we can run the following commands which will upgrade us to the latest Kali versions.
+After that we can run the following commands which will upgrade us to the [latest Kali version](/docs/general-use/updating-kali/).
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt full-upgrade -y

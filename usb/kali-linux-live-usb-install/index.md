@@ -2,13 +2,9 @@
 title: Making a Kali Bootable USB Drive (Windows)
 description:
 icon:
-date: 2020-03-07
 type: post
-weight: 10
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Our favourite way, and the fastest method, for getting up and running with Kali Linux is to run it "live" from a USB drive. This method has several advantages:
@@ -30,7 +26,7 @@ In order to do this, we first need to create a bootable USB drive which has bee
 
 ## Kali Linux Live USB Install Procedure
 
-The specifics of this procedure will vary depending on whether you're doing it on a [Windows](/docs/usb/kali-linux-live-usb-install/), [Linux](https://www.kali.org/docs/usb/kali-linux-live-usb-install-linux/), or [macOS/OS X](https://www.kali.org/docs/usb/kali-linux-live-usb-install-macos/) system.
+The specifics of this procedure will vary depending on whether you're doing it on a [Windows](/docs/usb/kali-linux-live-usb-install/), [Linux](/docs/usb/kali-linux-live-usb-install-linux/), or [macOS/OS X](/docs/usb/kali-linux-live-usb-install-macos/) system.
 
 #### Creating a Bootable Kali USB Drive on Windows (Etcher)
 
@@ -38,5 +34,5 @@ The specifics of this procedure will vary depending on whether you're doing it o
 
 2. Choose the Kali Linux ISO file to be imaged with "select image" and verify that the USB drive to be overwritten is the correct one. Click the "Flash!" button once ready.
 
-![kali-usb-install-windows](kali-usb-install-windows.png)
+![](kali-usb-install-windows.png)
 3. Once Etcher alerts you that the image has been flashed, you can safely remove the USB drive and proceed to boot into Kali with it.

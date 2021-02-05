@@ -2,13 +2,9 @@
 title: Making a Kali Bootable USB Drive (macOS/OS X)
 description:
 icon:
-date: 2020-03-07
 type: post
-weight: 11
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Our favourite way, and the fastest method, for getting up and running with Kali Linux is to run it "live" from a USB drive. This method has several advantages:
@@ -30,11 +26,11 @@ In order to do this, we first need to create a bootable USB drive which has bee
 
 ## Kali Linux Live USB Install Procedure
 
-The specifics of this procedure will vary depending on whether you're doing it on a [Windows](/docs/usb/kali-linux-live-usb-install/), [Linux](https://www.kali.org/docs/usb/kali-linux-live-usb-install-linux/), or [macOS/OS X](https://www.kali.org/docs/usb/kali-linux-live-usb-install-macos/) system.
+The specifics of this procedure will vary depending on whether you're doing it on a [Windows](/docs/usb/kali-linux-live-usb-install/), [Linux](/docs/usb/kali-linux-live-usb-install-linux/), or [macOS/OS X](/docs/usb/kali-linux-live-usb-install-macos/) system.
 
 #### Creating a Bootable Kali USB Drive on macOS/OS X (DD)
 
-macOS/OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an macOS/OS X environment is similar to doing it on Linux. Once you’ve downloaded and verified your chosen Kali ISO file, you use `dd` to copy it over to your USB stick. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/disk2.
+macOS/OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an macOS/OS X environment is similar to doing it on Linux. Once you've downloaded and verified your chosen Kali ISO file, you use `dd` to copy it over to your USB stick. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/disk2.
 
 {{% notice info %}}
 WARNING: Although the process of imaging Kali on a USB drive is very easy, you can just as easily overwrite a disk drive you didn't intend to with dd if you do not understand what you are doing, or if you specify an incorrect output path. Double-check what you're doing before you do it, it'll be too late afterwards.
@@ -46,20 +42,20 @@ Consider yourself warned.
 
 2. You will get a list of the device paths (looking like **/dev/disk0**, **/dev/disk1**, etc.) of the disks mounted on your system, along with information on the partitions on each of the disks.
 
-![TerminalScreenSnapz010](TerminalScreenSnapz010.png)
+![](TerminalScreenSnapz010.png)
 3. Plug in your USB device to your Apple computer's USB port and run the command `diskutil list` a second time. Your USB drive's path will most likely be the last one. In any case, it will be one which wasn't present before. In this example, you can see that there is now a **/dev/disk6** which wasn't previously present.
 
-![TerminalScreenSnapz011](TerminalScreenSnapz011.png)
+![](TerminalScreenSnapz011.png)
 4. Unmount the drive (assuming, for this example, the USB stick is **/dev/disk6** — _do **not** simply copy this, verify the correct path on your own system!_):
 
-```markdown
-% diskutil unmountDisk /dev/disk6
+```console
+$ diskutil unmountDisk /dev/disk6
 ```
 
 5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2020.4-live-amd64.iso". We will replace /dev/disk6 with /dev/rdisk6 to improve the write speeds:
 
-```markdown
-% sudo dd if=kali-linux-2020.4-live-amd64.iso of=/dev/rdisk6 bs=4m
+```console
+$ sudo dd if=kali-linux-2020.4-live-amd64.iso of=/dev/rdisk6 bs=4m
 ```
 
 {{% notice info %}}
@@ -70,7 +66,7 @@ Imaging the USB drive can take a good amount of time, over half an hour is not u
 
 The dd command provides no feedback until it's completed, but if your drive has an access indicator, you'll probably see it flickering from time to time. The time to `dd` the image across will depend on the speed of the system used, USB drive itself, and USB port it's inserted into. Once dd has finished imaging the drive, it will output something that looks like this:
 
-```markdown
+```plaintext
 2911+1 records in
 2911+1 records out
 3053371392 bytes transferred in 2151.132182 secs (1419425 bytes/sec)
@@ -88,7 +84,7 @@ Alternatively, [Etcher](https://www.balena.io/etcher/) can be used.
 
 2. Choose the Kali Linux ISO file to be imaged with "select image" and verify that the USB drive to be overwritten is the correct one. Click the "Flash!" button once ready.
 
-![kali-usb-install-windows](kali-usb-install-windows.png)
+![](kali-usb-install-windows.png)
 3. Once Etcher alerts you that the image has been flashed, you can safely remove the USB drive.
 
 You can now boot into a Kali Live / Installer environment using the USB device.
