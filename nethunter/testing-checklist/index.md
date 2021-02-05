@@ -2,13 +2,9 @@
 title: Testing Checklist
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 1000
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Beginning a checklist for testing new devices:

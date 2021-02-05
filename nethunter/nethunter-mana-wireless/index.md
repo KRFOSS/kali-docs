@@ -2,13 +2,9 @@
 title: NetHunter MANA Evil Access Point
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 280
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 [The MANA Toolkit](https://github.com/sensepost/mana) is an evil access-point implementation by [SensePost](https://www.sensepost.com/) that performs rogue Wi-Fi AP and MitM attacks. The MitM logs get written to /var/lib/mana-toolkit/ in the Kali chroot.

@@ -2,13 +2,9 @@
 title: NetHunter USB-Arsenal
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 210
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 USB-Arsenal is the control centre for USB based attacks.

@@ -2,13 +2,9 @@
 title: Installing NetHunter On the Gemini PDA
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 70
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ![](NetHunter-Gemini_tiny.jpg)
@@ -22,7 +18,7 @@ og_description:
 
 ## 1. Flash stock rooted Android
 The Gemini PDA ships with a non-rooted Android image which needs to be replaced.
-Either install the "Pentester Pro" image with rooted Android and Kali Linux partitions as detailed here: [Kali Linux Gemini PDA](/docs/arm/kali-linux-gem-pda)
+Either install the "Pentester Pro" image with rooted Android and Kali Linux partitions as detailed here: [Kali Linux Gemini PDA](/docs/arm/kali-linux-gem-pda/)
 
 ~~or create your own image if you prefer a different partition layout:
 [http://support.planetcom.co.uk/index.php/Linux_Flashing_Guide](http://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)~~

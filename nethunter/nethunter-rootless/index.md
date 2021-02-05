@@ -2,13 +2,9 @@
 title: NetHunter Rootless
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 040
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## NetHunter Rootless Edition
@@ -41,12 +37,13 @@ Installation:
       _Starting termux for the first time may seem stuck while displaying "installing" on some devices - just hit enter._
 
 * Open Termux and type:
-  ```termux-setup-storage
-  pkg install wget
-  wget -O install-nethunter-termux https://offs.ec/2MceZWr
-  chmod +x install-nethunter-termux
-  ./install-nethunter-termux
-  ```
+```
+termux-setup-storage
+pkg install wget
+wget -O install-nethunter-termux https://offs.ec/2MceZWr
+chmod +x install-nethunter-termux
+./install-nethunter-termux
+```
 
 
 &nbsp;
@@ -80,13 +77,13 @@ _Tip: For a better viewing experience, enter a custom resolution under "Advanced
 
 ## NetHunter Editions:
 
-Please refer to [this table](../#1-0-nethunter-editions) for a comparison of the different NetHunter editions.
+Please refer to [this table](/docs/nethunter/#1-0-nethunter-editions) for a comparison of the different NetHunter editions.
 
 &nbsp;
 
 ## Tips:
 
-1. Run `sudo apt update && sudo apt full-upgrade` first thing after installation. If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
+1. Run `sudo apt update && sudo apt full-upgrade` first thing after installation to [update Kali](/docs/general-use/updating-kali/). If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
 2. All of the penetration testing tools should work but some might have restrictions, e.g. metasploit works but doesn't have database support. If you discover any tools that don't work, please post it in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums).
 3. Some utilities like "top" won't run on unrooted phones.
 4. Non-root users still have root access in the chroot. That's a proot thing. Just be aware of that.

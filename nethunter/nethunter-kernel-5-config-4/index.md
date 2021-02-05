@@ -2,13 +2,9 @@
 title: Configuring the Kernel - SDR
 description:
 icon:
-date: 2020-04-05
 type: post
-weight: 2140
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Kernel Configuration
@@ -25,7 +21,7 @@ Navigate to ***"Device Drivers -> Multimedia support"*** and configure the follo
 - select ***"Software defined radio support"***
   (CONFIG_MEDIA_SDR_SUPPORT=y)
 
-![SDR](./nh-kernel-260-sdr1.png)
+![](./nh-kernel-260-sdr1.png)
 
 &nbsp;
 
@@ -38,7 +34,7 @@ Navigate to _Device Drivers_ -> _Multimedia_ -> _DVB/ATSC adapters_ -> _Customiz
 - select ***"Mirics MSi2500"***
   (USB_MSI2500=y)
 
-![SDR Devices](./nh-kernel-270-sdr2.png)
+![](./nh-kernel-270-sdr2.png)
 
 &nbsp;
 
@@ -62,5 +58,5 @@ You can reduce the selection to the following few from the section ***"DVB-T (te
 - select ***"ZyDAS ZD1301"***
   (CONFIG_DVB_ZD1301_DEMOD=y)
 
-![DVB-T devices](./nh-kernel-280-sdr3.png)
+![](./nh-kernel-280-sdr3.png)
 

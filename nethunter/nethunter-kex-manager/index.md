@@ -2,13 +2,9 @@
 title: NetHunter KeX Manager
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 200
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ##### *Being mobile doesn't mean putting up with tiny!*

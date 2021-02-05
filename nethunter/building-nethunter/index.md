@@ -2,27 +2,23 @@
 title: Building NetHunter
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 1000
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Those of you who want to build a NetHunter image from our GitLab repository may do so using our Python build scripts.
 
-```markdown
-root@kali:~# git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project
-root@kali:~# cd kali-nethunter/nethunter-installer
+```console
+kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project
+kali@kali:~$ cd kali-nethunter/nethunter-installer
 ```
 Before you can build for a device, you will need to enter the **nethunter-installer** directory and run `./bootstrap.sh`. This will ask you a few questions before downloading the devices folder.
 
 The main build script is also located in the **nethunter-installer** directory and can be used to build images for multiple devices and Android OS versions as shown below:
 
-```html
-root@kali:~/kali-nethunter/nethunter-installer# python3 build.py -h
+```console
+kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -h
 usage: build.py [-h] [--device DEVICE] [--kitkat] [--lollipop] [--marshmallow] [--nougat] [--oreo] [--pie]
                 [--ten] [--forcedown] [--uninstaller] [--kernel] [--nokernel] [--nobrand] [--nofreespace]
                 [--supersu] [--nightly] [--generic ARCH] [--rootfs SIZE] [--release VERSION]
@@ -67,13 +63,13 @@ optional arguments:
                         Build with Kali chroot rootfs (full or minimal)
   --release VERSION, -r VERSION
                         Specify NetHunter release version
-root@kali:~/kali-nethunter/nethunter-installer#
+kali@kali:~/kali-nethunter/nethunter-installer$
 ```
 
 To build a Lollipop image for a OnePlus 7 device, we would run **build.py** as follows:
 
-```markdown
-root@kali:~/kali-nethunter/nethunter-installer# python3 build.py -d oneplus7-oos --ten
+```console
+kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -d oneplus7-oos --ten
 ```
 
 The resulting zip file image will be created in the **nethunter-installer** directory – this is the zip file you will need to flash on your device later on.

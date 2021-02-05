@@ -2,13 +2,9 @@
 title: Configuring the Kernel - Network
 description:
 icon:
-date: 2020-04-05
 type: post
-weight: 2120
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Kernel Configuration cont.
@@ -32,7 +28,7 @@ Navigate to ***"Networking support → Bluetooth subsystem support → Bluetooth
 - select ***"HCI BlueFRITZ! USB driver"***
   CONFIG_BT_HCIBFUSB=y)
 
-![Bluetooth](nh-kernel-bluetooth-140.png)
+![](nh-kernel-bluetooth-140.png)
 
 &nbsp;
 
@@ -60,4 +56,4 @@ Navigate to ***"Device Drivers_ -> _Network Device Support_ ->  _USB Network Ada
 - select ***"Realtek RTL8152/RTL8153 Based USB Ethernet Adapters"***
   (CONFIG_USB_RTL8152=y)
 
-![USB Ethernet](./nh-kernel-usb-ethernet-160.png)
+![](./nh-kernel-usb-ethernet-160.png)

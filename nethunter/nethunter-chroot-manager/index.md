@@ -2,13 +2,9 @@
 title: NetHunter Chroot Manager
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 195
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The NetHunter chroot manager allows you to download and install a Kali Linux chroot (if one does not already exist), backup and restore a chroot, as well as remove an existing chroot. In addition, one can install various Kali Linux metapackages as required.

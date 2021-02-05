@@ -2,13 +2,9 @@
 title: Configuring the Kernel - USB
 description:
 icon:
-date: 2020-04-05
 type: post
-weight: 2140
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Kernel Configuration cont.
@@ -24,7 +20,7 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 - select ***"USB Modem (CDC ACM) support"***
   (CONFIG_USB_ACM=y)
 
-![CDC_ACM](./nh-kernel-270-usb-1.png)
+![](./nh-kernel-270-usb-1.png)
 
 &nbsp;
 
@@ -53,7 +49,7 @@ Navigate to ***Device Drivers -> USB support -> USB Gadget Support*** and choose
 - select ***"Mass Storage"***
   (CONFIG_USB_CONFIGFS_MASS_STORAGE=y)
 
-![Gadget](./nh-kernel-280-usb-2.png)
+![](./nh-kernel-280-usb-2.png)
 
 &nbsp;
 

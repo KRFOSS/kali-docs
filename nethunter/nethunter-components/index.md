@@ -2,13 +2,9 @@
 title: NetHunter Components
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 150
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The NetHunter ROM overlay is composed of several parts that interact and rely on each other for proper operation. These parts include a custom Android Kernel, a Kali Linux Chroot, and a NetHunter Android App.
