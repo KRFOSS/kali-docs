@@ -15,34 +15,9 @@ In this walkthrough we will be explaining certain things that are only on a VM. 
 
 It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 150GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories. Likely, you will not need all of the packages to be downloaded.
 
-#### User accounts and keys
+#### Installing packages
 
-Packaging needs to be done on a user with sudo privileges. _The default Kali user is suitable for this, however if your install is outdated you may still be running as root (and it may be time to upgrade)_. The name of the user can be whatever the user prefers, in this example we will be using the name "packaging". In the below example we will be creating a new user when we do not have to for the purposes of this walkthrough.
-
-```console
-kali@kali:~$ sudo adduser packaging
-Adding user `packaging' ...
-Adding new group `packaging' (1000) ...
-Adding new user `packaging' (1000) with group `packaging' ...
-Creating home directory `/home/packaging' ...
-Copying files from `/etc/skel' ...
-Enter new UNIX password: [PASSWORD]
-Retype new UNIX password: [PASSWORD]
-passwd: password updated successfully
-Changing the user information for packaging
-Enter the new value, or press ENTER for the default
- Full Name []:
- Room Number []:
- Work Phone []:
- Home Phone []:
- Other []:
-Is the information correct? [Y/n] Y
-kali@kali:~$
-```
-
-Be sure to change `[PASSWORD]` to your own password. Keep in mind you won't see your password or any sort of sign it is being typed out even though it is still being registered.
-
-Before we switch accounts completely, we will also install tools that we will use later for packaging. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev) is a metapackage, and will install many of the proper packages that are needed.
+We will install tools that we will use later for packaging. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev) is a metapackage, and will install many of the proper packages that are needed.
 
 ```console
 kali@kali:~$ sudo apt install -y packaging-dev apt-file gitk mr
@@ -50,11 +25,11 @@ kali@kali:~$ sudo apt install -y packaging-dev apt-file gitk mr
 kali@kali:~$
 ```
 
-```console
-kali@kali:~$ sudo usermod -G sudo packaging
-```
+#### User accounts and keys
 
-We add the account to the sudoers group so we can run commands later with the [usermod](https://manpages.debian.org/testing/passwd/usermod.8.en.html) command. Next you **must** log out of your account and switch to the new user. This is done as some pieces (such as variables that are set) of the following setup require you to be on that account, `su` will not work.
+Packaging needs to be done on a non-root user with sudo privileges. _The default Kali user is suitable for this_.
+
+you **must** log out of your account and switch to the new user _(rather than using `su`)_. This is done as some pieces (such as variables that are set) of the following setup require you to be on that account, `su` will not work.
 
 Next, we should generate SSH and GPG keys. These are important for packaging as they will allow us to access our files on GitLab easily and ensure the work is ours. This step is not always necessary, however it is helpful in certain cases. You will know if you need to set up a GPG key, however we recommend setting up an SSH key as it will make the packaging process quicker.
 
