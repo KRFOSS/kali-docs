@@ -52,6 +52,10 @@ Some tools shipped with Kali, will use their own default hardcoded credentials (
     - Password: `postgres`
     - Configuration File: `/usr/share/metasploit-framework/config/database.yml`
 
+- [PowerShell-Empire/Starkiller]
+    - Username: `empireadmin`
+    - Password: `password123`
+
 - - -
 
 For versions of Kali Linux older than 2020.1, here is our [previous credential information](/docs/introduction/kali-linux-default-passwords/) and [root policy](/docs/policy/kali-linux-root-user-policy/) information.

@@ -9,7 +9,7 @@ author: ["gamb1t",]
 
 # Getting involved in the Kali ecosystem
 
-Kali Linux has a large number of tools that it maintains and adds on a regular basis. However, we can't always consider every request for a package to be added because of the large number of requests. Because of this, we have developed requirements that we have users follow in order to increase the chances that we see them, and then are able to properly consider them. If you have visited the [bug tracker](http://bugs.kali.org) you may have noticed the requirements posted on certain package requests. If you haven't, no worries, because they are as follows:
+Kali Linux has a large number of tools that it maintains and adds on a regular basis. However, we can't always consider every request for a package to be added because of the large number of requests. Because of this, we have developed requirements that we have users follow in order to increase the chances that we see them, and then are able to properly consider them. If you have visited the [bug tracker](https://bugs.kali.org/) you may have noticed the requirements posted on certain package requests. If you haven't, no worries, because they are as follows:
 
 ```plaintext
 - [Name] - The name of the tool
@@ -273,7 +273,7 @@ packaging@kali:~$
 
 # Submitting to the tracker
 
-Just one last thing to do; submit it to us! To do this, lets head over to [Kali's issue tracker](https://bugs.kali.org). We are going to want to submit a new issue with the category "New Tool Requests". For the title we will call it "phpggc: a library of unserialize() payloads along with a tool to generate them" and for the description we will include that list from earlier.
+Just one last thing to do; submit it to us! To do this, lets head over to [Kali's issue tracker](https://bugs.kali.org/). We are going to want to submit a new issue with the category "New Tool Requests". For the title we will call it "phpggc: a library of unserialize() payloads along with a tool to generate them" and for the description we will include that list from earlier.
 
 ```plaintext
 - [Name] - PHPGGC

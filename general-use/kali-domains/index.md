@@ -16,7 +16,7 @@ Kali has quite a few subdomains that may be useful to know about:
 `https://www.kali.org/docs/`: This is the home of the official documentation for Kali Linux. Users can find documentation from the initial installation to how to create a LUKS nuke capable live USB.
 
 
-`https://tools.kali.org/`: Many questions related to packages can be answered by browsing this site. This site and [pkg.kali.org](https://pkg.kali.org) store much of the information on versions of packages, what tools are in which metapackages, the man pages of tools, and more. Tools lists information on the use case of a tool.
+`https://tools.kali.org/`: Many questions related to packages can be answered by browsing this site. This site and [pkg.kali.org](https://pkg.kali.org/) store much of the information on versions of packages, what tools are in which metapackages, the man pages of tools, and more. Tools lists information on the use case of a tool.
 
 
 `https://kali.training/`: New or experienced users of Kali may wish to gain a greater knowledge of Kali, which is covered in this site. Kali Training lets users go through the Kali Linux Revealed book and complete practice tests associated with the content of chapters. This is all to prepare for the KLCP (Kali Linux Certified Professional) exam.
@@ -30,7 +30,7 @@ Kali has quite a few subdomains that may be useful to know about:
 `https://autopkgtest.kali.org/`: Many packages have a test that is associated with it to ensure that they run. This site shows all of those tests and whether they pass or fail.
 
 
-`https://pkg.kali.org/`: The counterpart of [tools.kali.org](https://tools.kali.org) and very useful for users to see the history of a package. Along with the history users can see the associated binaries, upstream, the package in Kali's git repo, and more. Another useful feature to know about is the ability to track package versions, which can be done via email or RSS feed. This is well explained [at Debian's documentation on the software](https://qa.pages.debian.net/distro-tracker/usage/follow-packages.html).
+`https://pkg.kali.org/`: The counterpart of [tools.kali.org](https://tools.kali.org/) and very useful for users to see the history of a package. Along with the history users can see the associated binaries, upstream, the package in Kali's git repo, and more. Another useful feature to know about is the ability to track package versions, which can be done via email or RSS feed. This is well explained [at Debian's documentation on the software](https://qa.pages.debian.net/distro-tracker/usage/follow-packages.html).
 
 
 `http://old.kali.org/`: If for any reason a user needs an old copy of Kali Linux, then this is the site for them. Images from some of the first Kali releases can be found as well as more recent releases.

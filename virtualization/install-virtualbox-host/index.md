@@ -47,8 +47,8 @@ Our CPU architecture is amd64. You may need to later the example below if yours 
 
 One thing to bare in mind, [Kali Linux is based on Debian](/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/) (even though Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/)).
 
-```markdown
-kali@kali:~$ echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian buster contrib" \
+```console
+kali@kali:~$ echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $( lsb_release -cs ) contrib" \
   | sudo tee /etc/apt/sources.list.d/virtualbox.list
 kali@kali:~$
 ```

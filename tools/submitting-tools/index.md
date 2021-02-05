@@ -13,7 +13,7 @@ In order for a tool to be added to any Debian-based distribution it needs to be 
 
 ## Where to submit the tool
 
-Once you have the correct information on the tool, a request for the tool to be added should be submitted on our [bug tracker](https://bugs.kali.org). We have [documentation](/docs/community/submitting-issues-kali-bug-tracker/) on how to get started at the bug tracker if needed.
+Once you have the correct information on the tool, a request for the tool to be added should be submitted on our [bug tracker](https://bugs.kali.org/). We have [documentation](/docs/community/submitting-issues-kali-bug-tracker/) on how to get started at the bug tracker if needed.
 
 ### Requesting the tool:
 1. Report issue

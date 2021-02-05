@@ -55,7 +55,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
   &nbsp;  &nbsp;
 
   This will start Win-KeX in seamless mode:
-  ![](win-kex-sl.png)
+![](win-kex-sl.png)
 
   The Kali panel is placed at the top of the screen and the Windows Start menu at the bottom.
 
@@ -75,25 +75,17 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 - When starting Win-KeX with sounds support for the first time, ensure to select
 
 
-<<<<<<< Updated upstream
-  when asked for authorization to allow traffic through the Windows Defender firewall  
-=======
-"**<u>Public networks</u>**"
->>>>>>> Stashed changes
+"**Public networks**"
 
-  when asked for authorisation to allow traffic through the Windows Defender firewall
+  when asked for authorization to allow traffic through the Windows Defender firewall
 
-  ![](win-kex-pulseaudio_firewall.png)
+![](win-kex-pulseaudio_firewall.png)
 
   &nbsp;  &nbsp;
 
 ### Multiscreen Support
 
-<<<<<<< Updated upstream
-- Win-KeX supports multiscreen setups: 
-=======
-- Win-KeX supports mutiscreen setups:
->>>>>>> Stashed changes
+- Win-KeX supports multiscreen setups:
 
   Open "Panel Preference" to reduce the panel length, untick "Lock panel" and move the panel to the desired screen.
 

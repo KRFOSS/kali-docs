@@ -25,10 +25,9 @@ launched from the menu and can be installed with `apt install`.
 Looks interesting? Let's see how you can package an application
 with this new framework. First install the tool itself:
 
+```console
+kali@kali:~$ sudo apt install -y kaboxer
 ```
-$ sudo apt install kaboxer
-```
-
 
 ## Introduction to Kaboxer
 

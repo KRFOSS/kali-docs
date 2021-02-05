@@ -33,7 +33,7 @@ kali@kali:~$ dd if=/dev/zero of=kali-custom-bbb.img bs=4M count=7000
 
 ```console
 kali@kali:~$ parted --script kali-custom-bbb.img mklabel msdos
-kali@kali:~$ fdisk kali-custom-bbb.img << __EOF__
+kali@kali:~$ fdisk kali-custom-bbb.img <<EOF
 n
 p
 1
@@ -43,15 +43,15 @@ t
 e
 p
 w
-__EOF__
+EOF
 kali@kali:~$ parted --script kali-custom-bbb.img set 1 boot on
-kali@kali:~$ fdisk kali-custom-bbb.img << __EOF__
+kali@kali:~$ fdisk kali-custom-bbb.img <<EOF
 n
 p
 2
 
 w
-__EOF__
+EOF
 ```
 
 ```console

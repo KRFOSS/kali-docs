@@ -124,7 +124,7 @@ The output should look like this:
 
 The resulting SHA256 signature, "4d764a2ba67f41495c17247184d24b7f9ac9a7c57415bbbed663402aec78952b", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2020.4 ISO image:
 
-![](kali_download-iso-page-2020-4.png)
+![](kali-download-iso-2020-4.png)
 
 ##### Verify the Signature on the ISO Using the Included Signature File (Torrent Download)
 

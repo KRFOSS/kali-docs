@@ -29,7 +29,7 @@ Help us help you! To give us the best start in getting your issue resolved:
 
 ## How to Report a Bug
 
-The Kali Linux Bug Tracker can be found at [https://bugs.kali.org](https://bugs.kali.org). This section will guide you through signing up for a new account, creating a system profile, and creating a detailed bug report for submission to the Bug Tracker.
+The Kali Linux Bug Tracker can be found at [https://bugs.kali.org](https://bugs.kali.org/). This section will guide you through signing up for a new account, creating a system profile, and creating a detailed bug report for submission to the Bug Tracker.
 
 ### Signing Up For a Bug Tracker Account
 
@@ -85,7 +85,7 @@ There are currently eight (8) categories available in the Kali bug tracker. Befo
 * Queued Tool Addition
 * Tool Upgrade
 
-Do not request support or ask questions within the bug tracker. Kali Linux offers several options for support including [Kali Docs](/docs/), [Kali forums](https://forums.kali.org), and our IRC chat room (**_#kali-linux_** on freenode)
+Do not request support or ask questions within the bug tracker. Kali Linux offers several options for support including [Kali Docs](/docs/), [Kali forums](https://forums.kali.org/), and our IRC chat room (**_#kali-linux_** on freenode)
 
 #### Providing a Descriptive Summary
 

@@ -40,7 +40,7 @@ This will mount the Guest Additions ISO in the virtual CD drive in your Kali Lin
 
 From a terminal window, copy the `VboxLinuxAdditions.run` file from the Guest Additions CD-ROM to a path on your local system. Ensure it is **executable and run** the file to begin the installation.
 
-```markdown
+```console
 kali@kali:~$ cp /media/cdrom/VBoxLinuxAdditions.run ~/Downloads/
 kali@kali:~$ chmod 0755 ~/Downloads/VBoxLinuxAdditions.run
 kali@kali:~$ cd ~/Downloads/

@@ -50,7 +50,7 @@ Each Kali Linux installer image _(not live)_ allows the user to select the prefe
 
 **We recommend sticking with the default selections and add further packages after the installation as required**. `Xfce` is the default desktop environment, and `kali-linux-top10` and `kali-linux-default` are the tools which get installed at the same time.
 
-![](kali-setup.png)
+![](setup-default-metapackages.png)
 
 At this screen, you may wish to not install a desktop environment, then Kali Linux becomes "headless" (no graphic interface) which uses less system resources up and commonly found on servers, dropboxes, low powered ARM devices, and the cloud. This is meant for people who are completely comfortable with the command line. You are able to install multiple Desktop Environments, allowing you to switch, we wouldn't recommend it. You may change your mind and [switch desktop environments](/docs/general-use/switching-desktop-environments/) at a later date.
 

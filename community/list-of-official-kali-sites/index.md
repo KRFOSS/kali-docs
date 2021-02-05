@@ -7,7 +7,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-The[ Kali Linux project](https://www.kali.org) uses several different subdomains of kali.org, each with a specific purpose. This article lists the official Kali sites and the purpose each one of them serves. _Note that these sites are the **only** official Kali Linux sites_ and are _the only authoritative sources of information_ available for the distribution.
+The[ Kali Linux project](https://www.kali.org/) uses several different subdomains of kali.org, each with a specific purpose. This article lists the official Kali sites and the purpose each one of them serves. _Note that these sites are the **only** official Kali Linux sites_ and are _the only authoritative sources of information_ available for the distribution.
 
 {{% notice info %}}
 The sites listed below are the ONLY official outlets for the Kali Linux Distribution.
@@ -32,7 +32,7 @@ More information on the Kali Linux Forums can be found in [this article](/docs/c
 
 **bugs.kali.org**
 
-Despite our best efforts at making Kali Linux perfect, bugs and errors are inevitable. We are always open to improvement and can only effectively do so when issues or tools suggestions are reported to us. You are encouraged to submit bug reports at [bugs.kali.org](https://bugs.kali.org) to help us make Kali Linux even better.
+Despite our best efforts at making Kali Linux perfect, bugs and errors are inevitable. We are always open to improvement and can only effectively do so when issues or tools suggestions are reported to us. You are encouraged to submit bug reports at [bugs.kali.org](https://bugs.kali.org/) to help us make Kali Linux even better.
 More information on submitting bug reports to the Kali Linux project can be found in [this article](/docs/community/submitting-issues-kali-bug-tracker/).
 
 **gitlab.com/kalilinux**

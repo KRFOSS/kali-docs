@@ -16,11 +16,11 @@ One of the most powerful features of Kali Linux is the ability to create your ow
 
 **0x00 - Begin by updating the repos, installing the prerequisites,** and checking out a fresh version of `live-build-config` from the Kali Git repositories:
 
-```markdown
-sudo apt update
-sudo apt install -y git live-build cdebootstrap devscripts
-git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
-cd live-build-config/
+```console
+kali@kali:~$ sudo apt update
+kali@kali:~$ sudo apt install -y git live-build cdebootstrap devscripts
+kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
+kali@kali:~$ cd live-build-config/
 ```
 
 **0x01 - Overwrite the default Kali package list**, including only the packages you want. In the video, we simply edited the list and changed a few package names.
@@ -67,16 +67,16 @@ kali@kali:~$ mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpap
 ```
 **0x05 - Add a preseed file** that will run through a default Kali installation with no input (unattended). We can include a ready made preseed configuration and alter it as needed:
 
-```markdown
-mkdir -p kali-config/common/debian-installer/
-wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/-/raw/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
+```console
+kali@kali:~$ mkdir -p kali-config/common/debian-installer/
+kali@kali:~$ wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/-/raw/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
 ```
 
-**0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64 bit build, we're including a 64 bit Nessus Debian package. [Download](http://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:
+**0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64-bit build, we're including a 64-bit Nessus Debian package. [Download](http://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:
 
-```markdown
-mkdir kali-config/common/packages.chroot/
-mv Nessus-*amd64.deb kali-config/common/packages.chroot/
+```console
+kali@kali:~$ mkdir kali-config/common/packages.chroot/
+kali@kali:~$ mv Nessus-*amd64.deb kali-config/common/packages.chroot/
 ```
 
 **0x07 - Now you can proceed to build your ISO**, this process may take a while depending on your hardware and internet speeds. Once completed, your ISO can be found in the live-build root directory.

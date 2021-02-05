@@ -105,42 +105,36 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
     Refer to the [Win-KeX Win usage documentation](/docs/wsl/win-kex-win/) for further information.
 
   - Enhanced Session Mode:
-![Win-Kex-2](win-kex-2.png)
-    
-  - To start Win-KeX in Enhanced Session Mode with sound support and arm workaround, run  
+![](win-kex-2.png)
 
-    `kex --esm --ip -s`  
+  - To start Win-KeX in Enhanced Session Mode with sound support and arm workaround, run
 
-    Refer to the [Win-KeX ESM usage documentation](../win-kex-esm/) for further information.  
+    `kex --esm --ip -s`
+
+    Refer to the [Win-KeX ESM usage documentation](../win-kex-esm/) for further information.
 
   - Seamless mode:
 
 ![](win-kex-sl.png)
 
-    To start Win-KeX in Seamless mode with sound support, run  
+    To start Win-KeX in Seamless mode with sound support, run
 
-    `kex --sl -s`  
+    `kex --sl -s`
 
-<<<<<<< Updated upstream
-    Refer to the [Win-KeX SL usage documentation](../win-kex-sl/) for further information.  
-    
-      
-=======
     Refer to the [Win-KeX SL usage documentation](/docs/wsl/win-kex-sl/) for further information.
->>>>>>> Stashed changes
 
 ## Optional Steps:
 
 - If you have the space, why not install "Kali with the lot"?:
 `sudo apt install kali-linux-large`
 
-  ![](win-kex-thelot.png)
+![](win-kex-thelot.png)
 
 
 
 - Create a [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) Shortcut:
 
-  ![](win-kex-wt1.png)
+![](win-kex-wt1.png)
 
 
  Choose amongst these options:
@@ -200,7 +194,6 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 },
 ```
 
-<<<<<<< Updated upstream
   **Basic Win-KeX in ESM mode with sound:**
 
   ```
@@ -228,14 +221,11 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
   },
   ```
 
-![Win-Kex in WTS](win-kex-wt1.png)
-=======
-  ![](win-kex-wt1.png)
->>>>>>> Stashed changes
+![](win-kex-wt1.png)
 
-  ![](win-kex-wt2.png)
+![](win-kex-wt2.png)
 
-  ![](win-kex-full.png)
+![](win-kex-full.png)
 
 
 

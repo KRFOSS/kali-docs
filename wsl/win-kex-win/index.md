@@ -52,7 +52,7 @@ or simply via
 
 
   This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
-  ![](win-kex.png)
+![](win-kex.png)
 &nbsp;
 
 ### Start Root Session
@@ -91,7 +91,7 @@ or simply via
 
   when asked for authorisation to allow traffic through the Windows Defender firewall
 
-  ![](win-kex-pulseaudio_firewall.png)
+![](win-kex-pulseaudio_firewall.png)
 
   &nbsp;
 
@@ -99,7 +99,7 @@ or simply via
 
 - Win-KeX supports mutiscreen setups:
   Press "F8" an go to "Options" -> "Screen" then untick "Enable full-screen mode over all monitors" & "Full screen mode", move Win-KeX to the desired screen and re-enable full-screen mode
-  ![](win-kex-multiscreen.png)
+![](win-kex-multiscreen.png)
 
 &nbsp;
 
