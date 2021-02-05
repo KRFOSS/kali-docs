@@ -24,9 +24,9 @@ As user run the following command:
 torbrowser-launcher
 ```
 
-First time it will download install Tor Browser including the signature verification.
+First time it will download and install Tor Browser including the signature verification.
 
-Next time it will be used to update an launch Tor Browser.
+Next time it will be used to update and launch Tor Browser.
 
 ###### Reference 
 
