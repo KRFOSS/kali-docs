@@ -57,7 +57,7 @@ recommend `python2`, `python-is-python2` and `offsec-awae-python2` so that
 they are installed by default while being removable by users that would
 like to get rid of them.
 
-The make users aware of this situation, we are displaying a promiment
+To make users aware of this situation, we are displaying a promiment
 message on login:
 ```plaintext
 ┏━(Message from Kali developers)
