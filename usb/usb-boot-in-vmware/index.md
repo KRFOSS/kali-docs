@@ -3,7 +3,7 @@ title: USB boot in a VM
 description:
 icon:
 type: post
-weight: 500
+weight: 400
 author: ["gamb1t",]
 ---
 
