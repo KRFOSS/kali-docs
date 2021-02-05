@@ -229,8 +229,9 @@ kali@kali:~$
 We also will need to set up sbuild. Although this isn't too difficult, it does require some extra setup.
 
 ```console
-kali@kali:~$ sudo mkdir -p /srv/chroots/ && cd /srv/chroots
+kali@kali:~$ sudo mkdir -p /srv/chroots/
 kali@kali:~$
+kali@kali:~$  cd /srv/chroots/
 kali@kali:/srv/chroots$ sudo sbuild-createchroot --keyring=/usr/share/keyrings/kali-archive-keyring.gpg --arch=amd64 --components=main,contrib,non-free --include=kali-archive-keyring kali-dev kali-dev-amd64-sbuild http://http.kali.org/kali
 kali@kali:/srv/chroots$
 ```
@@ -287,7 +288,7 @@ kali@kali:~$ cat <<EOF | sudo tee /etc/apt-cacher-ng/kali.conf
 Remap-klxrep: file:kali_mirrors /kali ; file:backends_kali
 EOF
 kali@kali:~$
-kali@kali:~$ sudo systemctl enable --now apt-cacher-ng
+kali@kali:~$ sudo systemctl enable apt-cacher-ng --now
 kali@kali:~$
 ```
 

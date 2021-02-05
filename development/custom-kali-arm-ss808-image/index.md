@@ -22,13 +22,10 @@ Build yourself a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as desc
 Next, we create the physical image file which will hold our MK/SS808 rootfs and boot images.
 
 ```console
-kali@kali:~$ apt install -y kpartx xz-utils sharutils
-kali@kali:~$ cd ~/
-kali@kali:~$ mkdir -p arm-stuff
-kali@kali:~$ cd arm-stuff/
-kali@kali:~$ mkdir -p images/
-kali@kali:~$ cd images/
-kali@kali:~$ dd if=/dev/zero of=kali-custom-ss808.img bs=4M count=7000
+kali@kali:~$ sudo apt install -y kpartx xz-utils sharutils
+kali@kali:~$ mkdir -p ~/arm-stuff/images/
+kali@kali:~$ cd ~/arm-stuff/images/
+kali@kali:~/arm-stuff/images$ dd if=/dev/zero of=kali-custom-ss808.img bs=4M count=7000
 ```
 
 ### 03. Partition and Mount the Image File
@@ -45,7 +42,7 @@ kali@kali:~$ device="/dev/mapper/${device}"
 kali@kali:~$ rootp=${device}p1
 kali@kali:~$
 kali@kali:~$ mkfs.ext4 $rootp
-kali@kali:~$ mkdir -p root
+kali@kali:~$ mkdir -p root/
 kali@kali:~$ mount $rootp root
 ```
 
@@ -62,7 +59,7 @@ kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following steps.
 
 ```console
-kali@kali:~$ apt install -y xz-utils
+kali@kali:~$ sudo apt install -y xz-utils
 kali@kali:~$ mkdir -p ~/arm-stuff/kernel/
 kali@kali:~$ cd ~/arm-stuff/kernel/
 kali@kali:~$
@@ -85,10 +82,10 @@ kali@kali:~$ # configure your kernel !
 kali@kali:~$ make menuconfig
 
 kali@kali:~$ # Configure the kernel as per http://www.armtvtech.com/armtvtechforum/viewtopic.php?f=66&t;=835
-kali@kali:~$ mkdir ../initramfs/
+kali@kali:~$ mkdir -p ../initramfs/
 kali@kali:~$ wget http://208.88.127.99/initramfs.cpio -O ../initramfs/initramfs.cpio
 kali@kali:~$
-kali@kali:~$ mkdir -p ../patches
+kali@kali:~$ mkdir -p ../patches/
 kali@kali:~$ wget http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch -O ../patches/mac80211.patch
 kali@kali:~$ wget http://patches.aircrack-ng.org/channel-negative-one-maxim.patch- O ../patches/negative.patch
 kali@kali:~$ patch -p1 < ../patches/mac80211.patch
@@ -98,7 +95,7 @@ kali@kali:~$ ./make_kernel_ruikemei.sh
 ```
 
 ```console
-kali@kali:~$ make modules -j$(cat /proc/cpuinfo|grep processor|wc -l)
+kali@kali:~$ make modules -j$(cat /proc/cpuinfo|grep processor | wc -l)
 kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root
 kali@kali:~$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git firmware-git
 kali@kali:~$ mkdir -p ~/arm-stuff/images/root/lib/firmware

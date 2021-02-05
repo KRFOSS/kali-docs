@@ -234,7 +234,7 @@ kali@kali:~/kali/packages/finalrecon$
 We then try to search for each dependency from `requirements.txt` in `apt-cache`, to make sure that we have everything in Kali Linux' repository.
 
 ```console
-kali@kali:~/kali/packages/finalrecon$ sudo apt-get update
+kali@kali:~/kali/packages/finalrecon$ sudo apt update
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ apt-cache search ipwhois | grep -i python3
 python3-ipwhois - Retrieve and parse whois data for IP addresses (Python 3)
@@ -248,7 +248,10 @@ We could search each one manually by repeating the above process for all items i
 During this process, we will notice **one dependency which does not have an entry (`icmplib`)**.
 
 ```console
-kali@kali:~/kali/packages/finalrecon$ for x in $( cat requirements.txt ); do apt-cache search $x | grep -i "python3-$x -" || echo --MISSING $x--; done
+kali@kali:~/kali/packages/finalrecon$ cat requirements.txt | while read; do
+  apt-cache search $x | grep -i "python3-$x -" \
+    || echo --MISSING $x--;
+done
 python3-requests - elegant and simple HTTP library for Python3, built for human beings
 python3-ipwhois - Retrieve and parse whois data for IP addresses (Python 3)
 python3-bs4 - error-tolerant HTML parser for Python 3

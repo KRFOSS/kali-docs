@@ -22,7 +22,7 @@ Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in 
 Next, we create the physical image file, which will hold our CuBox rootfs and boot images.
 
 ```console
-kali@kali:~$ apt install -y kpartx xz-utils sharutils
+kali@kali:~$ sudo apt install -y kpartx xz-utils sharutils
 kali@kali:~$ mkdir -p ~/arm-stuff/images/
 kali@kali:~$ cd ~/arm-stuff/images/
 kali@kali:~$ dd if=/dev/zero of=kali-custom-cubox.img bs=4M count=7000

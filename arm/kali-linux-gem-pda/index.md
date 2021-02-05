@@ -105,7 +105,7 @@ After logging in for the first time, we recommend the following steps:
 ![](kali-gem_connman.png)
 
 - Run 'bluetoothctl' on the command line to setup a mouse
-- This image comes with Kali Linux Top10 pre-installed, run: `sudo apt update && sudo apt install kali-linux-default`
+- This image comes with Kali Linux Top10 pre-installed, run: `sudo apt update && sudo apt install -y kali-linux-default`
 
 ### 7. Finish Android Rooting Process
 

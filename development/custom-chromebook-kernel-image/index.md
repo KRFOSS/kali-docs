@@ -26,7 +26,7 @@ Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as d
 Next, we create the physical image file that will hold our Chromebook rootfs and boot images.
 
 ```console
-kali@kali:~$ apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
+kali@kali:~$ sudo apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
 kali@kali:~$ mkdir -p ~/arm-stuff/images/
 kali@kali:~$ cd ~/arm-stuff/images/
 kali@kali:~$ dd if=/dev/zero of=kali-custom-chrome.img bs=4M count=7000
@@ -177,7 +177,7 @@ kali@kali:~$ sed -i 's/CONFIG_SECURITY_CHROMIUMOS=y/# CONFIG_SECURITY_CHROMIUMOS
 kali@kali:~$ sed -i 's/if defined(__linux__)/if defined(__linux__) ||defined(__KERNEL__) /g' include/drm/drm.h
 
 kali@kali:~$ make menuconfig
-kali@kali:~$ make -j$(cat /proc/cpuinfo|grep processor|wc -l)
+kali@kali:~$ make -j$(cat /proc/cpuinfo|grep processor | wc -l)
 kali@kali:~$ make dtbs
 kali@kali:~$ cp ./scripts/dtc/dtc /usr/bin/
 kali@kali:~$ mkimage -f kernel.its kernel.itb

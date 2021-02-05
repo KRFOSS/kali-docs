@@ -76,7 +76,7 @@ kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
 
 ```console
 kali@kali:~$ xc exec my-kali -- apt update
-kali@kali:~$ xc exec my-kali -- apt install kali-linux-default kali-desktop-xfce
+kali@kali:~$ xc exec my-kali -- apt install -y kali-linux-default kali-desktop-xfce
 ```
 
 ![](030_Ubuntu-InstallPackages.png)
@@ -146,7 +146,7 @@ kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
 
 ```console
 kali@kali:~$ lxc exec my-kali -- apt update
-kali@kali:~$ lxc exec my-kali -- apt install kali-linux-default
+kali@kali:~$ lxc exec my-kali -- apt install -y kali-linux-default
 ```
 
 4 - Create non-root user - "kali" in this example:
@@ -276,7 +276,7 @@ kali@kali:~$ sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-c
 2 - Setup LXC for unprivileged containers
 
 ```console
-kali@kali:~$ echo "$USER veth virbr0 10"| sudo tee -i /etc/lxc/lxc-usernet
+kali@kali:~$ echo "$USER veth virbr0 10" | sudo tee -i /etc/lxc/lxc-usernet
 kali@kali:~$ sudo sh -c 'echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/80-lxc-userns.conf'
 kali@kali:~$ sudo sysctl kernel.unprivileged_userns_clone=1
 kali@kali:~$ sudo chmod u+s /usr/libexec/lxc/lxc-user-nic
@@ -333,7 +333,7 @@ But before we login, we perform some post-installation setup tasks
 5 - Install default packages:
 ```console
 kali@kali:~$ lxc-attach -n my-kali apt update
-kali@kali:~$ lxc-attach -n my-kali apt install kali-linux-default
+kali@kali:~$ lxc-attach -n my-kali apt install -y kali-linux-default
 ```
 
 ![](220_Kali-UnPrivContainerInstallPackages.png)

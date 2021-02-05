@@ -22,7 +22,7 @@ Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in 
 Next, we create the physical image file, which will hold our EfikaMX rootfs and boot images.
 
 ```console
-kali@kali:~$ apt install -y kpartx xz-utils sharutils
+kali@kali:~$ sudo apt install -y kpartx xz-utils sharutils
 kali@kali:~$ mkdir -p ~/arm-stuff/images/
 kali@kali:~$ cd ~/arm-stuff/images/
 kali@kali:~$ dd if=/dev/zero of=kali-custom-efikamx.img bs=4M count=7000
@@ -74,7 +74,7 @@ kali@kali:~$ make efikamx_defconfig
 
 # configure your kernel !
 kali@kali:~$ make menuconfig
-kali@kali:~$ make -j$(cat /proc/cpuinfo|grep processor|wc -l)
+kali@kali:~$ make -j$(cat /proc/cpuinfo|grep processor | wc -l)
 kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root
 kali@kali:~$ make uImage
 kali@kali:~$ cp arch/arm/boot/uImage ~/arm-stuff/images/boot

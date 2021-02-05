@@ -35,67 +35,67 @@ During the installation, it will prompt for software preferences. For the sake o
 
 When installation is complete and after rebooting, we login at the console and [update the system](/docs/general-use/updating-kali/).
 
-```
-apt update
-apt full-upgrade -y
+```console
+kali@kali:~$ sudo apt update
+kali@kali:~$ sudo apt full-upgrade -y
 ```
 
-If you don't see it going over a mirror during 'apt update', you may have accidentally forgotten to add a network mirror during the installation. Follow the [instructions on the Kali Docs site](/docs/general-use/kali-linux-sources-list-repositories/) to fix it and run both of the commands again.
+If you don't see it going over a mirror during `sudo apt update`, you may have accidentally forgotten to add a network mirror during the installation. Follow the [instructions on the Kali Docs site](/docs/general-use/kali-linux-sources-list-repositories/) to fix it and run both of the commands again.
 
 ### Install Required Packages
 
 In order for DigitalOcean to configure the system for us, we need to install the ***cloud-init*** package:
 
-```
-apt install -y cloud-init
-echo 'datasource_list: [ ConfigDrive, DigitalOcean, NoCloud, None ]' > /etc/cloud/cloud.cfg.d/99_digitalocean.cfg
-systemctl enable cloud-init
+```console
+kali@kali:~$ sudo apt install -y cloud-init
+kali@kali:~$ echo 'datasource_list: [ ConfigDrive, DigitalOcean, NoCloud, None ]' > /etc/cloud/cloud.cfg.d/99_digitalocean.cfg
+kali@kali:~$ sudo systemctl enable cloud-init
 ```
 
 ### Prepare for SSH
 
 Since we will need to use SSH to connect to the system on DigitalOcean, the ***openssh-server*** package needs to be installed (and enabled) as well:
 
-```
-apt install -y openssh-server
-systemctl enable ssh.service
+```console
+kali@kali:~$ sudo apt install -y openssh-server
+kali@kali:~$ sudo systemctl enable ssh.service
 ```
 
 When creating a standard droplet, you can choose to use SSH keys or not. However, when using custom images, this isn't an option and using SSH keys is mandatory. For this reason, DigitalOcean requires us to remove the root password:
 
-```
-passwd -d root
+```console
+kali@kali:~$ passwd -d root
 ```
 
 We also need to create a ***/root/.ssh*** folder:
 
-```
-mkdir /root/.ssh
+```console
+kali@kali:~$ mkdir -p /root/.ssh/
 ```
 
 ### Cleanup
 
 Before we finish with our virtual machine, we run a few commands to clean things up:
 
-```
-apt autoremove
-apt autoclean
-rm -rf /var/log/*
-history -c
+```console
+kali@kali:~$ apt autoremove
+kali@kali:~$ apt autoclean
+kali@kali:~$ rm -rf /var/log/*
+kali@kali:~$ history -c
 ```
 
 At this point, our virtual machine is ready so we run 'poweroff' to shutdown the system.
 
-```
-poweroff
+```console
+kali@kali:~$ poweroff
 ```
 
 ## Uploading
 
 In the virtual machine folder, locate the ***.vmdk*** file, then compress it using bzip2, gzip, or zip in preparation for uploading to DigitalOcean.
 
-```
-bzip2 kali.vmdk
+```console
+$ bzip2 kali.vmdk
 ```
 
 Login to your DigitalOcean account. In the "Manage" section on the left, click on "Images", then select the "Custom Images" tab.
@@ -122,7 +122,7 @@ Once done, click "Create" as shown below. It will then take you back to the dash
 
 Within a few seconds, and after the IP is displayed, our droplet will be ready. In order to connect, we will need to use the private SSH key we created (called MY_KEY in this example):
 
-```
+```console
 $ ssh -i MY_KEY kali@192.168.1.1
 The authenticity of host '192.168.1.1 (192.168.1.1)' can't be established.
 ECDSA key fingerprint is SHA256:d83fcd43d25e2a7edd291666160b47360cc85870ded.

@@ -24,11 +24,11 @@ kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt full-upgrade -y
 kali@kali:~$
-kali@kali:~$ sudo apt install linux-headers-5.7.0-kali3-cloud-amd64
+kali@kali:~$ sudo apt install -y linux-headers-5.7.0-kali3-cloud-amd64
 kali@kali:~$
 kali@kali:~$ sudo reboot -f
 kali@kali:~$
-kali@kali:~$ sudo apt install nvidia-driver nvidia-cuda-toolkit
+kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
 kali@kali:~$
 kali@kali:~$ sudo reboot -f
 kali@kali:~$

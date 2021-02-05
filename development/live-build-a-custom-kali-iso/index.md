@@ -118,7 +118,7 @@ kali@kali:~$ echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-a
 kali@kali:~$ sudo mv /tmp/kali .
 kali@kali:~$ sudo ln -s kali kali-rolling
 kali@kali:~$
-kali@kali:~$ cd ~
+kali@kali:~$ cd ~/
 kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 kali@kali:~$
 kali@kali:~$ cd live-build-config/

@@ -14,9 +14,7 @@ In December of 2019 we released a [blog post](https://www.kali.org/news/python-2
 Python 2 is no longer being maintained in the Debian repositories. This means that we must find a way to work around this issue. `pyenv` solves this problem by allowing us to install multiple versions of Python that do not conflict with each other. Currently it is not in the Debian or Kali repository, so we will need to install it from source. Thankfully, there is a handy [installation script](https://github.com/pyenv/pyenv-installer) that the authors have released. Let's go through the installation and setup together.
 
 ```console
-kali@kali:~$ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
-...
-SNIP
+kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
 ...
 kali@kali:~$
 ```
@@ -25,8 +23,6 @@ We will next be quickly running the bash install script. If `ZSH` is the default
 
 ```console
 kali@kali:~$ curl https://pyenv.run | bash
-...
-SNIP
 ...
 kali@kali:~$
 ```

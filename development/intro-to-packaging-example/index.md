@@ -271,11 +271,11 @@ Another trick we could try is looking to see if they used a "legit" email addres
 ```console
 kali@kali:~/kali/packages/instaloader$ git clone https://github.com/instaloader/instaloader/ /tmp/instaloader
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ cd /tmp/instaloader
+kali@kali:~/kali/packages/instaloader$ cd /tmp/instaloader/
 kali@kali:/tmp/instaloader$ git --no-pager log -s --format="%ae" | sort -u | grep -v '@users.noreply.github.com'
 ...
 kali@kali:/tmp/instaloader$
-kali@kali:/tmp/instaloader$ cd ~/kali/packages/instaloader
+kali@kali:/tmp/instaloader$ cd ~/kali/packages/instaloader/
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -832,7 +832,6 @@ kali@kali:~/kali/packages/instaloader$ vim debian/helper-script/instaloader
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/helper-script/instaloader
 #!/bin/sh
-
 exec python3 /usr/share/instaloader/instaloader.py "$@"
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install

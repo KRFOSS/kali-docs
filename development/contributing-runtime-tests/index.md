@@ -31,7 +31,7 @@ Before getting started with writing tests, we need to get our environment set up
 ```console
 kali@kali:~$ sudo apt install -y autopkgtest vmdb2
 kali@kali:~$
-kali@kali:~$ sudo mkdir /srv/autopkgtest-images/
+kali@kali:~$ sudo mkdir -p /srv/autopkgtest-images/
 kali@kali:~$
 kali@kali:~$ sudo autopkgtest-build-qemu kali-rolling /srv/autopkgtest-images/kali-rolling.img http://http.kali.org/kali
 kali@kali:~$
@@ -45,7 +45,7 @@ The [cloud_enum](https://gitlab.com/kalilinux/packages/cloud-enum/-/tree/kali/ma
 
 <p class="codeblock-label">cloud_enum control file</p>
 
-```
+```plaintext
 Test-Command: cloud_enum --help
 Depends: @
 Restrictions: superficial
@@ -55,7 +55,7 @@ Whereas the [python-pip](https://gitlab.com/kalilinux/packages/python-pip/-/tree
 
 <p class="codeblock-label">python-pip control file</p>
 
-```
+```plaintext
 Tests: pip3-root.sh
 Restrictions: needs-root
 
@@ -69,9 +69,8 @@ With includes a test that looks like:
 
 <p class="codeblock-label">python-pip pip3-user.sh test file</p>
 
-```
+```plaintext
 #!/bin/sh
-
 export HOME=$AUTOPKGTEST_TMP
 export PATH=$PATH:$HOME/.local/bin
 export PIP_DISABLE_PIP_VERSION_CHECK=1
@@ -80,7 +79,7 @@ if [ $(id -u) = 0 ]
 then
     adduser --quiet --system --group --no-create-home testing
     user=testing
-    mkdir $HOME/.cache
+    mkdir -p $HOME/.cache
     chown -R $user $HOME
     runuser="runuser -p -u $user --"
 else
@@ -107,22 +106,24 @@ We did just throw a bunch of text and code at you all to look at without much ex
 
 Looking more closely at the `cloud_enum` control file, we have three things going on.
 
-```
+```plaintext
 Test-Command: cloud_enum --help
 Depends: @
 Restrictions: superficial
 ```
+
 The first thing we do is tell what command we are running. Because this is just a superficial test, we do not tell it to run a script and instead just do one line to test if it outputs the help. We then tell it to depend on the same dependencies that the package depends on, by using '@'. Should the test need other dependencies, we can list them here. In another test we will look at, this will be seen in action. We finally tell it that yes, this test is just a superficial one. We could tell it other things, like that `cloud_enum` needs root, or that after running this test the testing environment will need to be scrapped.
 
 The next control file we will learn from is [pytest-factoryboy's](https://gitlab.com/kalilinux/packages/pytest-factoryboy/-/tree/kali/master/debian/tests).
 
-```
+```plaintext
 Tests: test3-pytest-factoryboy
 Depends: @, python3-pytest-pep8
 ```
+
 As we can see, it depends on a python module. This python module will help us to test the tool, as we can see being done in the test:
 
-```
+```plaintext
 #!/bin/sh
 set -e
 cp -r tests "$AUTOPKGTEST_TMP/" && cd "$AUTOPKGTEST_TMP"
@@ -130,6 +131,7 @@ for py in $(py3versions -i); do
     $py -Wd -m pytest -v -x tests 2>&1;
 done
 ```
+
 We can also see something else being done that is a good practice. `$AUTOPKGTEST_TMP` can be used during these tests, and will help to clean a system and start on a next test, assuming the `breaks-testbed` flag is not set.
 
 Another package that can show a lot of info is [hyperion](https://gitlab.com/kalilinux/packages/hyperion/-/tree/kali/master/debian/tests). However, due to the size of the files and the breakdowns associated that will not be explained here.

@@ -84,7 +84,7 @@ Please refer to [this table](/docs/nethunter/#1-0-nethunter-editions) for a comp
 
 ## Tips:
 
-1. Run `sudo apt update && sudo apt full-upgrade` first thing after installation to [update Kali](/docs/general-use/updating-kali/). If you have plenty of storage space available you might want to run `apt install kali-linux-default` as well.
+1. Run `sudo apt update && sudo apt full-upgrade -y` first thing after installation to [update Kali](/docs/general-use/updating-kali/). If you have plenty of storage space available you might want to run `sudo apt install -y kali-linux-default` as well.
 2. All of the penetration testing tools should work but some might have restrictions, e.g. metasploit works but doesn't have database support. If you discover any tools that don't work, please post it in our [forums](https://forums.kali.org/forumdisplay.php?14-NetHunter-Forums).
 3. Some utilities like "top" won't run on unrooted phones.
 4. Non-root users still have root access in the chroot. That's a proot thing. Just be aware of that.

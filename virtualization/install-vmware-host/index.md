@@ -221,7 +221,7 @@ As VMware has various kernel modules, we need to make sure they are kept up-to-d
 
 ```console
 kali@kali:~$ cat<<EOF | sudo tee /etc/kernel/install.d/99-vmmodules.install
-#!/usr/bin/bash
+#!/bin/bash
 
 export LANG=C
 

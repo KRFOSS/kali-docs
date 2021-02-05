@@ -46,7 +46,7 @@ Otherwise, you need to pull the release if they have one. If they **do** have a 
 ```console
 kali@kali:~$ git clone https://github.com/ambionics/phpggc.git phpgcc-official
 kali@kali:~$
-kali@kali:~$ cd phpggc-official
+kali@kali:~$ cd phpggc-official/
 kali@kali:~$
 kali@kali:~/phpggc-official$ git archive --format=tar master | gzip -c > ../PACKAGE_YEARMONTHDAY.orig.tar.gz
 kali@kali:~/phpggc-official$
@@ -210,7 +210,7 @@ This file will _watch_ for any changes in the released version number of the ups
 If we built the package now, it would not be installed. To fix this, let's create an .install file and a helper script. The reason we are creating these two files is that they both will work the majority of the time. In some cases, the different ways, like using a symlink, may not work and changes will have to be made. As we can't account for every scenario now, we will go with what works the majority of the time.
 
 ```console
-kali@kali:~/phpggc/debian$ mkdir helper-script
+kali@kali:~/phpggc/debian$ mkdir -p helper-script/
 kali@kali:~/phpggc/debian$
 kali@kali:~/phpggc/debian$ vim phpggc.install
 kali@kali:~/phpggc/debian$
@@ -225,10 +225,9 @@ kali@kali:~/phpggc/debian$ vim helper-script/phpggc
 kali@kali:~/phpggc/debian$
 kali@kali:~$ cat helper-script/phpggc
 #!/bin/sh
-
-cd /usr/share/phpggc
+cd /usr/share/phpggc/
 exec ./phpggc
-kali@kali:~$
+kali@kali:~/phpggc/debian$
 ```
 
 Some of you may have caught something odd and are wondering what's up with the formatting of the .install file. With the way that the package builder interprets things, a `/` at the beginning of "usr/" will break things, likewise no slash at the end will as well. We include all the files that will be installed in the ".install" file. In the helper-script, we go to that directory and launch the file.
@@ -236,7 +235,7 @@ Some of you may have caught something odd and are wondering what's up with the f
 Now that all that is done, we can push everything to git and try it out!
 
 ```console
-kali@kali:~/phpggc/debian$ cd ..
+kali@kali:~/phpggc/debian$ cd ../
 kali@kali:~/phpggc$
 kali@kali:~/phpggc$ git add .
 kali@kali:~/phpggc$

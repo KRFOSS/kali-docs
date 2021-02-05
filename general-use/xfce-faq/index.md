@@ -26,7 +26,7 @@ The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are 
 
 **Q:** I absolutely love the new theme and I desperately want it, but without having to re-install my system. How can I migrate my existing Kali Linux installation?
 
-**A:** Run `sudo apt update && sudo apt install kali-desktop-xfce` in a terminal session to install the new Kali Linux Xfce environment. When asked to select the "*Default display manager*", choose `lightdm`.
+**A:** Run `sudo apt update && sudo apt install -y kali-desktop-xfce` in a terminal session to install the new Kali Linux Xfce environment. When asked to select the "*Default display manager*", choose `lightdm`.
 
 Next, run `update-alternatives --config x-session-manager` and select Xfce's option. If you would also like to remove the Gnome window manager, which we do not recommend until you are sure you are ready to, run `apt purge --autoremove kali-desktop-gnome`. Be sure to run this *after* setting up Xfce.
 
@@ -51,7 +51,7 @@ Next time you login after a reboot you will have the Xfce theme, if you did not 
 
 **Q:** I tried Xfce and I really like it but I still would like to switch back to GNOME. How can I do that?
 
-**A:** You can run `sudo apt update && sudo apt install kali-desktop-gnome` in a terminal session.
+**A:** You can run `sudo apt update && sudo apt install -y kali-desktop-gnome` in a terminal session.
 Next time you login you can choose "GNOME" in the session selector in the top right hand corner of the login screen.
 
 &nbsp;
@@ -121,7 +121,7 @@ go to "*Settings -> Window Manager Tweaks*" from the main menu on the desktop an
 
 If you want a compositor still, and the xfwm4 compositor isn't working for you, you can use an alternative like "*compton*".
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- `apt install compton`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- `sudo apt install -y compton`
 
 Then to have it auto run at login,
 go to "*Settings -> Session and Startup*" and:
@@ -150,7 +150,7 @@ Alternatively, if this issue is occurring in a VM disable 3D acceleration in the
 
 **A:**  You can install ibus to configure different input methods, for Anthy you also have to install ibus-anthy, i.e.  via
 
-`apt install ibus ibus-anthy`
+`sudo apt install -y ibus ibus-anthy`
 
 You can now add and configure various input methods through "*Settings -> iBus Preferences*".
 Once configured, you can use the newly added "iBus" icon on the right hand side of the panel to select the preferred input method.

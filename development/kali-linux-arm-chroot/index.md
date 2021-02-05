@@ -48,7 +48,7 @@ To do an ARM build, you must enable cross-compilation for your current shell ses
 ```console
 kali@kali:~$ export ARCH=arm
 kali@kali:~$ mkdir -p ~/arm-stuff/kernel/toolchains/
-kali@kali:~$ cd ~/arm-stuff/kernel/toolchains
+kali@kali:~$ cd ~/arm-stuff/kernel/toolchains/
 kali@kali:~$ git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4-6-2.git
 kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-linaro-4.6.2/bin/arm-eabi-
 ```
@@ -116,7 +116,7 @@ kali@kali:~$ cp /usr/bin/qemu-arm-static kali-$architecture/usr/bin/
 First, we'll chroot into our newly-created base rootfs, use **debootstrap** a second time to construct our second-stage rootfs, and configure base image settings such as repositories (in `/etc/apt/sources.list`), host name (in `/etc/hostname`), default network interfaces and behavior (in `/etc/network/interfaces` and `/etc/resolv.conf`), etc. Change these to suit your requirements.
 
 ```console
-kali@kali:~$ cd ~/arm-stuff/rootfs
+kali@kali:~$ cd ~/arm-stuff/rootfs/
 kali@kali:~$ LANG=C chroot kali-$architecture /debootstrap/debootstrap --second-stage
 kali@kali:~$
 cat <<EOF > kali-$architecture/etc/apt/sources.list
@@ -162,23 +162,24 @@ Here, we'll create the script to do the third-stage chroot
 
 ```console
 kali@kali:~$ cat <<EOF > kali-$architecture/third-stage
-#!/bin/bash
+#!/bin/sh
 dpkg-divert --add --local --divert /usr/sbin/invoke-rc.d.chroot --rename /usr/sbin/invoke-rc.d
 cp /bin/true /usr/sbin/invoke-rc.d
 
-apt update
-apt install locales-all
+apt-get update
+apt-get install -y locales-all
 #locale-gen en_US.UTF-8
 
 debconf-set-selections /debconf.set
 rm -f /debconf.set
-apt update
-apt install -y git-core binutils ca-certificates initramfs-tools u-boot-tools
-apt install -y locales console-common less vim git
+apt-get update
+apt-get install -y locales-all
+apt-get install -y git-core binutils ca-certificates initramfs-tools u-boot-tools
+apt-get install -y locales console-common less vim git
 echo "kali:kali" | chpasswd
 sed -i -e 's/KERNEL\!=\"eth\*|/KERNEL\!=\"/' /lib/udev/rules.d/75-persistent-net-generator.rules
 rm -f /etc/udev/rules.d/70-persistent-net.rules
-apt install -y --force-yes ${packages}
+apt-get install -y --force-yes ${packages}
 
 rm -f /usr/sbin/invoke-rc.d
 dpkg-divert --remove --rename /usr/sbin/invoke-rc.d
@@ -215,10 +216,10 @@ Lastly, we create and run a cleanup script in our chroot to free up space used b
 
 ```console
 kali@kali:~$ cat <<EOF > kali-$architecture/cleanup
-#!/bin/bash
+#!/bin/sh
 rm -rf /root/.bash_history
-apt update
-apt clean
+apt-get update
+apt-get clean
 rm -f cleanup
 EOF
 kali@kali:~$
@@ -229,7 +230,7 @@ kali@kali:~$ umount kali-$architecture/proc
 kali@kali:~$ umount kali-$architecture/dev/pts
 kali@kali:~$ umount kali-$architecture/dev/
 kali@kali:~$
-kali@kali:~$ cd ..
+kali@kali:~$ cd ../
 ```
 
 Congratulations! Your custom Kali ARM rootfs is located in the `~/arm-stuff/rootfs/kali-$architecture` directory. You can now tar up this directory or convert it to an image file for further work.

@@ -37,7 +37,7 @@ More information on submitting bug reports to the Kali Linux project can be foun
 
 **gitlab.com/kalilinux**
 
-This site is the Kali Linux project's [official git repository](https://gitlab.com/kalilinux/) and is publicly accessible. Most users will never need to interact with it directly, but users who wish to more closely monitor the development of Kali Linux, or people who want to know when they should run `apt full-upgrade`, can peruse or clone the repository.
+This site is the Kali Linux project's [official git repository](https://gitlab.com/kalilinux/) and is publicly accessible. Most users will never need to interact with it directly, but users who wish to more closely monitor the development of Kali Linux, or people who want to know when they should run `sudo apt full-upgrade -y`, can peruse or clone the repository.
 
 **tools.kali.org**
 

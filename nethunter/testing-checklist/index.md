@@ -33,7 +33,7 @@ Beginning a checklist for testing new devices:
 - Launcher Kali terminal shell
 
     - Metasploit
-        - Run commands: service postgresql start && service metasploit start
+        - Run commands: `service postgresql start && service metasploit start`
             - Did it generate username/database?
         - Run command: msfconsole
             - Be patient, this can take 10 minutes or longer
@@ -43,9 +43,9 @@ Beginning a checklist for testing new devices:
 
 - External WiFi support
 
-    - Plugin device, run commands: ifconig wlan1 up && wifite
+    - Plugin device, run commands: `ifconig wlan1 up && wifite`
         - Does wifite see wlan1?
-    - Run commands (assume wlan1 up): airmon-ng start wlan1 && airodump-ng mon0
+    - Run commands (assume wlan1 up): `airmon-ng start wlan1 && airodump-ng mon0`
         - Check for errors
     - Run kalimenu > Wireless attacks > kismet
 

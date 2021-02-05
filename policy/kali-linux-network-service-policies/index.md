@@ -31,7 +31,7 @@ Notice how the update-rc.d script disallowed persistence of the apt-cacher-ng da
 In certain situations, you may actually want certain services to persist over reboots. To allow for this, you can enable a service to persist through reboots using the systemctl command as follows:
 
 ```console
-kali@kali:~$ systemctl enable apt-cacher-ng
+kali@kali:~$ sudo systemctl enable apt-cacher-ng
 Synchronizing state of apt-cacher-ng.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable apt-cacher-ng
 insserv: warning: current start runlevel(s) (empty) of script `apt-cacher-ng' overrides LSB defaults (2 3 4 5).

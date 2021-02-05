@@ -136,7 +136,7 @@ Boot the computer, and set it to boot from USB. When the boot menu appears, edit
 As penetration testers, we often need to travel with sensitive data stored on our laptops. Of course, we use full disk encryption wherever possible, including our Kali Linux machines, which tend to contain the most sensitive materials. Let's configure a nuke password as a safety measure:
 
 ```console
-kali@kali:~$ sudo apt install cryptsetup-nuke-password
+kali@kali:~$ sudo apt install -y cryptsetup-nuke-password
 kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password
 ```
 

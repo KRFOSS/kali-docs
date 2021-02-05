@@ -87,7 +87,12 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 ### Install Win-KeX
 
 - Install win-kex via:
-  `sudo apt update && sudo apt install kali-win-kex`
+
+```console
+kali@kali:~$ sudo apt update
+kali@kali:~$
+kali@kali:~$ sudo apt install -y kali-win-kex
+```
 
 
 
@@ -126,7 +131,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 ## Optional Steps:
 
 - If you have the space, why not install "Kali with the lot"?:
-`sudo apt install kali-linux-large`
+`sudo apt install -y kali-linux-large`
 
 ![](win-kex-thelot.png)
 
@@ -141,7 +146,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
   **Basic Win-KeX in window mode with sound:**
 
-```
+```plaintext
 {
       "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
       "hidden": false,
@@ -156,7 +161,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
 
-```
+```plaintext
 {
         "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
         "hidden": false,
@@ -169,7 +174,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
  **Basic Win-KeX in seamless mode with sound:**
 
-```
+```plaintext
 {
       "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
       "hidden": false,
@@ -183,7 +188,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
 
-```
+```plaintext
 {
         "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
         "hidden": false,
@@ -196,7 +201,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
   **Basic Win-KeX in ESM mode with sound:**
 
-```
+```plaintext
 {
       "guid": "{55ca431a-3a87-5fb3-83cd-11ecedc031d2}",
       "hidden": false,
@@ -210,7 +215,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
 
-```
+```plaintext
 {
         "guid": "{55ca431a-3a87-5fb3-83cd-11ecedd031d2}",
         "hidden": false,

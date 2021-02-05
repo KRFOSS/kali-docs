@@ -22,7 +22,7 @@ Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as d
 Next, we create the physical image file which will hold our ODROID rootfs and boot images.
 
 ```console
-kali@kali:~$ apt install -y kpartx xz-utils uboot-mkimage
+kali@kali:~$ sudo apt install -y kpartx xz-utils uboot-mkimage
 kali@kali:~$ mkdir -p ~/arm-stuff/images/
 kali@kali:~$ cd ~/arm-stuff/images/
 kali@kali:~$ dd if=/dev/zero of=kali-custom-odroid.img bs=4M count=7000
@@ -168,7 +168,7 @@ kali@kali:~$
 kali@kali:~$ # If cross compiling, run this once
 kali@kali:~$ sed -i 's/if defined(__linux__)/if defined(__linux__) ||defined(__KERNEL__) /g' include/uapi/drm/drm.h
 kali@kali:~$
-kali@kali:~$ make -j $(cat /proc/cpuinfo|grep processor|wc -l)
+kali@kali:~$ make -j $(cat /proc/cpuinfo|grep processor | wc -l)
 kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root/
 ```
 
@@ -176,7 +176,7 @@ Chroot into the rootfs and create an [initrd](https://en.wikipedia.org/wiki/Init
 
 ```console
 kali@kali:~$ LANG=C chroot ~/arm-stuff/images/root/
-kali@kali:~$ apt install -y initramfs-tools uboot-mkimage
+kali@kali:~$ sudo apt install -y initramfs-tools uboot-mkimage
 kali@kali:~$ cd /
 kali@kali:~$ # Change the example "3.8.13" to your current odroid kernel revision
 kali@kali:~$ mkinitramfs -c lzma -o ./initramfs 3.8.13
@@ -253,7 +253,7 @@ These steps are experimental and not fully tested yet. They should be preformed 
 
 ```console
 kali@kali:~$ # http://malideveloper.arm.com/develop-for-mali/drivers/open-source-mali-gpus-linux-exadri2-and-x11-display-drivers/
-kali@kali:~$ apt install -y build-essential autoconf automake make libtool xorg xorg-dev xutils-dev libdrm-dev
+kali@kali:~$ sudo apt install -y build-essential autoconf automake make libtool xorg xorg-dev xutils-dev libdrm-dev
 kali@kali:~$ wget http://malideveloper.arm.com/downloads/drivers/DX910/r3p2-01rel0/DX910-SW-99003-r3p2-01rel0.tgz
 kali@kali:~$ wget http://malideveloper.arm.com/downloads/drivers/DX910/r3p2-01rel0/DX910-SW-99006-r3p2-01rel0.tgz
 kali@kali:~$ wget --no-check-certificate https://dl.dropbox.com/u/65312725/mali_opengl_hf_lib.tgz

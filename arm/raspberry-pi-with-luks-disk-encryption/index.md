@@ -26,33 +26,33 @@ If all goes well, the RPi will boot and then LUKS will kick in and ask for a pas
 
 As always, all our ARM dev is done on a Kali amd64 machine and we've made sure that we have all the [dependencies](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/master/build-deps.sh) we need. We [download the latest Kali RPi3 image](https://www.offensive-security.com/kali-linux-arm-images/) (2019.4), extract it, and **dd** it to our SD card, which in our case showed up as /dev/sdb2 - adapt as necessary!
 
-```
-dd if=kali-linux-$version-rpi3-nexmon.img of=/dev/sdb bs=4M
+```console
+kali@kali:~$ dd if=kali-linux-$version-rpi3-nexmon.img of=/dev/sdb bs=4M
 ```
 
 Once dd'd, we mount the various partitions and chroot into the Kali RPi3 image:
 
-```
-mkdir -p /mnt/chroot/boot
-
-mount /dev/sdb2 /mnt/chroot/
-mount /dev/sdb1 /mnt/chroot/boot/
-
-mount -t proc none /mnt/chroot/proc
-mount -t sysfs none /mnt/chroot/sys
-mount -o bind /dev /mnt/chroot/dev
-mount -o bind /dev/pts /mnt/chroot/dev/pts
-apt install -y qemu-user-static
-
-cp /usr/bin/qemu-arm-static /mnt/chroot/usr/bin/
-LANG=C chroot /mnt/chroot/
+```console
+kali@kali:~$ mkdir -p /mnt/chroot/boot
+kali@kali:~$
+kali@kali:~$ mount /dev/sdb2 /mnt/chroot/
+kali@kali:~$ mount /dev/sdb1 /mnt/chroot/boot/
+kali@kali:~$
+kali@kali:~$ mount -t proc none /mnt/chroot/proc
+kali@kali:~$ mount -t sysfs none /mnt/chroot/sys
+kali@kali:~$ mount -o bind /dev /mnt/chroot/dev
+kali@kali:~$ mount -o bind /dev/pts /mnt/chroot/dev/pts
+kali@kali:~$ sudo apt install -y qemu-user-static
+kali@kali:~$
+kali@kali:~$ cp /usr/bin/qemu-arm-static /mnt/chroot/usr/bin/
+kali@kali:~$ LANG=C chroot /mnt/chroot/
 ```
 
 We then update our image and install some essential packages we will need for this process:
 
-```
-apt update
-apt install -y busybox cryptsetup dropbear-initramfs cryptsetup-nuke-password
+```console
+kali@kali:~$ sudo apt update
+kali@kali:~$ sudo apt install -y busybox cryptsetup dropbear-initramfs cryptsetup-nuke-password
 ```
 
 We create an initial initramfs file, which will trigger the dropbear SSH key generation. We first find out the modules directory version number as follows (this will change between different image versions and Kali releases):
@@ -71,7 +71,7 @@ kali@kali:~$ mkinitramfs -o /boot/initramfs.gz 4.9.59-Re4son-Kali-Pi+
 We change the default root password.
 
 ```console
-kali@kali:~$ passwd
+kali@kali:~$ sudo passwd root
 ```
 
 Next, we modify the boot parameters in cmdline.txt and config.txt.
@@ -98,7 +98,7 @@ Now we deal with the Dropbear SSH access. We copy over SSH private key from our 
 
 ```console
 kali@kali:~$ cp /root/.ssh/id_rsa.pub /etc/dropbear-initramfs/authorized_keys
-chmod 0600 /etc/dropbear-initramfs/authorized_keys
+kali@kali:~$ chmod 0600 /etc/dropbear-initramfs/authorized_keys
 ```
 
 Creating (on the host machine, **NOT** in the chroot:

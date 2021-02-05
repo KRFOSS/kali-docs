@@ -66,7 +66,6 @@ By creating the following script, and then calling it when there is trouble, sho
 ```console
 kali@kali:~$ cat <<EOF | sudo tee /usr/local/sbin/restart-vm-tools
 #!/bin/sh
-
 systemctl stop run-vmblock\\\\x2dfuse.mount
 killall -q -w vmtoolsd
 systemctl start run-vmblock\\\\x2dfuse.mount

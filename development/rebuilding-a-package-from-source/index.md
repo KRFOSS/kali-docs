@@ -55,7 +55,7 @@ dpkg-checkbuilddeps: Unmet build dependencies: dh-autoreconf libnfc-dev libssl-d
 Install any build dependencies if needed, as shown in the output of **dpkg-checkbuilddeps**:
 
 ```console
-kali@kali:~$ sudo apt install dh-autoreconf libnfc-dev libssl-dev
+kali@kali:~$ sudo apt install -y dh-autoreconf libnfc-dev libssl-dev
 ```
 
 ## Build the Modified Package

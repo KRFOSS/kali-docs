@@ -14,9 +14,9 @@ author: ["gamb1t", "g0tmi1k",]
 To install a metapackage we first need to update and then install the desired package:
 
 ```console
-kali@kali:~$ apt update
+kali@kali:~$ sudo apt update
 kali@kali:~$
-kali@kali:~$ apt install kali-linux-default
+kali@kali:~$ sudo apt install -y kali-linux-default
 kali@kali:~$
 ```
 

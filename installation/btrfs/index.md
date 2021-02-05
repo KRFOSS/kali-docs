@@ -249,10 +249,7 @@ kali@kali:~$ umount /target
 - move "/home", "/var/log", "/root" to their dedicated subvolumes:
 
 ```console
-kali@kali:~$ mkdir /target/mnt/root
-kali@kali:~$ mkdir /target/mnt/home
-kali@kali:~$ mkdir /target/mnt/log
-kali@kali:~$ mkdir /target/.snapshots
+kali@kali:~$ mkdir -p /target/mnt/{root,home,log} /target/.snapshots
 kali@kali:~$
 kali@kali:~$ mount -t btrfs -o subvol=@root /dev/sda2 /target/mnt/root
 kali@kali:~$ mount -t btrfs -o subvol=@home /dev/sda2 /target/mnt/home
@@ -307,7 +304,7 @@ Add `PRUNENAMES = ".snapshots"` to `/mnt/root/etc/updatedb.conf`
 First let's install "btrfs-progs":
 
 ```
-kali@kali:~$ sudo apt install btrfs-progs
+kali@kali:~$ sudo apt install -y btrfs-progs
 ```
 
 - - -
@@ -403,8 +400,8 @@ After a new installation we don't have any snapshots yet as we can see via:
 Let's do a [full system upgrade](/docs/general-use/updating-kali/):
 
 ```console
-kali@kali:~$ apt update
-kali@kali:~$ apt full-upgrade
+kali@kali:~$ sudo apt update
+kali@kali:~$ sudo apt full-upgrade -y
 ```
 
 ![](btrfs-72-Rollback-03.png)
@@ -465,7 +462,7 @@ After the reboot, we can see that the snapshot is gone, because we rolled back t
 
 ![](btrfs-82-Rollback-13.png)
 
-And if we issue another "apt update", we can see that we are back to where we were before the snapshot:
+And if we issue another `sudo apt update`, we can see that we are back to where we were before the snapshot:
 
 ![](btrfs-83-Rollback-14.png)
 

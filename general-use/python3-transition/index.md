@@ -111,7 +111,7 @@ kali@kali:~$ sudo apt remove python-is-python2
 Or you can decide to make it point to Python 3:
 
 ```console
-kali@kali:~$ sudo apt install python-is-python3
+kali@kali:~$ sudo apt install -y python-is-python3
 ```
 
 Either of those actions will get rid of the login message.

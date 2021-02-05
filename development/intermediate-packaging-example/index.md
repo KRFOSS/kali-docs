@@ -433,13 +433,12 @@ The `.install` and helper-script file for this package are very straightforward.
 We first will create the helper-script:
 
 ```console
-kali@kali:~/kali/packages/photon$ mkdir debian/helper-script/
+kali@kali:~/kali/packages/photon$ mkdir -p debian/helper-script/
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ vim debian/helper-script/photon
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/helper-script/photon
 #!/bin/sh
-
 exec python3 /usr/share/photon/photon.py "$@"
 kali@kali:~/kali/packages/photon$
 ```
@@ -509,7 +508,7 @@ kali@kali:~/kali/packages/photon$
 We first will get started with creating the directory we will create the test in:
 
 ```console
-kali@kali:~/kali/packages/photon$ mkdir debian/tests
+kali@kali:~/kali/packages/photon$ mkdir -p debian/tests
 ```
 
 We now have to create a control file. If we had multiple commands/tests, we would put different information into this file, however as we have only the one command/test we will be running we can work directly in this file.

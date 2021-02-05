@@ -54,9 +54,7 @@ kali@kali:~$ /usr/share/novnc/utils/launch.sh --listen 8081 --vnc localhost:5900
 Better yet, enable SSH:
 
 ```console
-kali@kali:~$ sudo systemctl enable ssh
-kali@kali:~$
-kali@kali:~$ sudo systemctl start ssh
+kali@kali:~$ sudo systemctl enable ssh --now
 kali@kali:~$
 ```
 

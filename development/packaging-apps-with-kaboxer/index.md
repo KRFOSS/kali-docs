@@ -58,11 +58,11 @@ but otherwise it's a standard Dockerfile. For instance, the
 
 ```
 FROM debian:stable-slim
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     python3 \
     python3-prompt-toolkit
 ARG KBX_APP_VERSION=0.5
-RUN mkdir /kaboxer ; echo $KBX_APP_VERSION > /kaboxer/version
+RUN mkdir /kaboxer; echo $KBX_APP_VERSION > /kaboxer/version
 COPY ./kbx-hello /kbx-hello
 ```
 

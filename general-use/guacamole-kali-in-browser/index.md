@@ -31,15 +31,15 @@ IMPORTANT! If you are in the Eastern time zone, you will have to change to a dif
 To fix this issue, we will change our time zone to be Central time.
 
 ```console
-kali@kali:~$ sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/US/Central /etc/localtime
+kali@kali:~$ sudo rm /etc/localtime
 kali@kali:~$
+kali@kali:~$ sudo ln -s /usr/share/zoneinfo/US/Central /etc/localtime
 ```
 
 We are going to do a "standalone" installation, were there isn't a separate MySQL database host as well as not enabling any MFA _(as we are going to hide this behind a SSH tunnel)_:
 
 ```console
 kali@kali:~$ cd /tmp/guac-install/
-kali@kali:~$
 kali@kali:/tmp/guac-install$ sudo ./guac-install.sh --nomfa --installmysql --mysqlpwd S3cur3Pa$$w0rd --guacpwd P@s$W0rD
 ...
 Cleanup install files...
@@ -104,7 +104,9 @@ We are going to use TigerVNC.
 ```console
 kali@kali:~$ sudo apt install -y tigervnc-standalone-server
 kali@kali:~$
-kali@kali:~$ mkdir ~/.vnc/ && wget https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/raw/master/nethunter-fs/profiles/xstartup -O ~/.vnc/xstartup
+kali@kali:~$ mkdir -p ~/.vnc/
+kali@kali:~$
+kali@kali:~$ wget https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/raw/master/nethunter-fs/profiles/xstartup -O ~/.vnc/xstartup
 kali@kali:~$
 kali@kali:~$ vncserver :1
 ```

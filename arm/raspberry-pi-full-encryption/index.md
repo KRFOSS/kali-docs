@@ -33,46 +33,46 @@ This might seem like a lot, but its really pretty straightforward. Once complete
 
 We first will download and image the latest Kali RPi3 image. If you're following along, be sure to know where you are imaging the file to.
 
-```
-wget https://images.offensive-security.com/arm-images/kali-linux-$version-rpi3-nexmon.img.xz
-
-xzcat kali-linux-$version-rpi3-nexmon.img.xz | dd of=/dev/sdb bs=4M
+```console
+kali@kali:~$ wget https://images.offensive-security.com/arm-images/kali-linux-$version-rpi3-nexmon.img.xz
+kali@kali:~$
+kali@kali:~$ xzcat kali-linux-$version-rpi3-nexmon.img.xz | dd of=/dev/sdb bs=4M
 ```
 
 Next we are going to get things ready for chroot. Let's create where we want to mount the SD card then mount it.
 
-```
-mkdir -p /mnt/chroot/boot
-mount /dev/sdb2 /mnt/chroot/
-mount /dev/sdb1 /mnt/chroot/boot/
-mount -t proc none /mnt/chroot/proc
-mount -t sysfs none /mnt/chroot/sys
-mount -o bind /dev /mnt/chroot/dev
-mount -o bind /dev/pts /mnt/chroot/dev/pts
-apt install -y qemu-user-static
-cp /usr/bin/qemu-arm-static /mnt/chroot/usr/bin/
+```console
+kali@kali:~$ mkdir -p /mnt/chroot/boot
+kali@kali:~$ mount /dev/sdb2 /mnt/chroot/
+kali@kali:~$ mount /dev/sdb1 /mnt/chroot/boot/
+kali@kali:~$ mount -t proc none /mnt/chroot/proc
+kali@kali:~$ mount -t sysfs none /mnt/chroot/sys
+kali@kali:~$ mount -o bind /dev /mnt/chroot/dev
+kali@kali:~$ mount -o bind /dev/pts /mnt/chroot/dev/pts
+kali@kali:~$ sudo apt install -y qemu-user-static
+kali@kali:~$ cp /usr/bin/qemu-arm-static /mnt/chroot/usr/bin/
 ```
 
 # Doing the Magic Fu
 
 Now that our system is set up we can use chroot to set up the RPi image for encryption. Let's first chroot in and install some necessary packages.
 
-```
-LANG=C chroot /mnt/chroot/
-sudo apt update
-sudo apt install -y cryptsetup lvm2 busybox dropbear
+```console
+kali@kali:~$ LANG=C chroot /mnt/chroot/
+kali@kali:~$ sudo apt update
+kali@kali:~$ sudo apt install -y cryptsetup lvm2 busybox dropbear
 ```
 
 We will now be listing out five kernel versions and depending on the RPi being used you will need to choose certain versions. The first version, Re4son+, is for armv6 devices IE. RPi1, RPi0, or RPi0w. The next two, Re4son-v7+ and Re4son-v8+, are the 32-bit and 64-bit versions for armv7 devices, respectfully. The final two will be the ones merged into the armv7 32bit and 64bit versions, and the `l` in the name means they will be for the RPi4. Keep in mind the kernel versions may change, however the name will not.
 
-```
-ls -l /lib/modules/ | awk -F" " '{print $9}'
+```console
+kali@kali:~$ ls -l /lib/modules/ | awk -F" " '{print $9}'
 4.19.81-Re4son+
 4.19.81-Re4son-v7+
 4.19.81-Re4son-v7l+
 4.19.81-Re4son-v8+
 4.19.81-Re4son-v8l+
-echo initramfs initramfs.gz followkernel >> /boot/config.txt
+kali@kali:~$ echo initramfs initramfs.gz followkernel >> /boot/config.txt
 ```
 
 Next we are going to edit `/boot/cmdline.txt` and change the root path. We will want to change the root path to be `/dev/mapper/crypt`, and then we will add in `cryptdevice=/dev/mmcblk0p2:crypt` right after that. The end result should look like this:
@@ -95,25 +95,25 @@ proc            /proc           proc    defaults          0       0
 
 Next we will create the crypttab file.
 
-```
-echo -e 'crypt\t/dev/mmcblk0p2\tnone\tluks' > /etc/crypttab
+```console
+kali@kali:~$ echo -e 'crypt\t/dev/mmcblk0p2\tnone\tluks' > /etc/crypttab
 ```
 
 Now we do a little filesystem trickery. We create a fake LUKS filesystem which forces cryptsetup to be included.
 
-```
-dd if=/dev/zero of=/tmp/fakeroot.img bs=4M count=20
-exit
-cryptsetup luksFormat /mnt/chroot/tmp/fakeroot.img
-cryptsetup luksOpen /mnt/chroot/tmp/fakeroot.img crypt
-mkfs.ext4 /mnt/chroot/dev/mapper/crypt
+```console
+kali@kali:~$ dd if=/dev/zero of=/tmp/fakeroot.img bs=4M count=20
+kali@kali:~$ exit
+kali@kali:~$ cryptsetup luksFormat /mnt/chroot/tmp/fakeroot.img
+kali@kali:~$ cryptsetup luksOpen /mnt/chroot/tmp/fakeroot.img crypt
+kali@kali:~$ mkfs.ext4 /mnt/chroot/dev/mapper/crypt
 ```
 
 After that we need to copy over, or generate, an ssh key to be added to dropbear's authorized_keys file.
 
-```
-cp id_rsa.pub /mnt/chroot/
-LANG=C chroot /mnt/chroot/
+```console
+kali@kali:~$ cp id_rsa.pub /mnt/chroot/
+kali@kali:~$ LANG=C chroot /mnt/chroot/
 ```
 
 Next we must add the following to /etc/dropbear-initramfs/authorized_keys:
@@ -126,8 +126,9 @@ command="export PATH='/sbin:/bin/:/usr/sbin:/usr/bin'; /scripts/local-top/cryptr
 
 After doing so, we can append the ssh key that we copied over and then remove it from the card.
 
-```
-cat id_rsa.pub >> /etc/dropbear-initramfs/authorized_keys && rm id_rsa.pub
+```console
+kali@kali:~$ cat id_rsa.pub >> /etc/dropbear-initramfs/authorized_keys
+kali@kali:~$ rm id_rsa.pub
 ```
 
 Once you're done, `/etc/dropbear-initramfs/authorized_keys` should look like this (Note: you may need to delete a return after the command so the ssh key follows directly after):
@@ -139,7 +140,7 @@ command="export PATH='/sbin:/bin/:/usr/sbin:/usr/bin'; /scripts/local-top/cryptr
 
 We now need to edit `/usr/share/initramfs-tools/scripts/init-premount/dropbear` to add a sleep timer, this allows for networking to start *before* dropbear does.
 
-```
+```plaintext
 [ "$BOOT" != nfs ] || configure_networking
 sleep 5
 run_dropbear &
@@ -148,88 +149,91 @@ echo $! >/run/dropbear.pid
 
 Let's now enable cryptsetup.
 
-```
-echo CRYPTSETUP=y > /etc/cryptsetup-initramfs/conf-hook
-
+```console
+kali@kali:~$ echo CRYPTSETUP=y > /etc/cryptsetup-initramfs/conf-hook
+kali@kali:~$
 kali@kali:~$ cat /etc/cryptsetup-initramfs/conf-hook
 CRYPTSETUP=y
 ```
 
 Now we need to create the initramfs. This is where the kernel versions from before come into play.
 
-```
-mkinitramfs -o /boot/initramfs.gz 4.19.93-Re4son-v7+
+```console
+kali@kali:~$ mkinitramfs -o /boot/initramfs.gz 4.19.93-Re4son-v7+
 ```
 
 Now we want to ensure that we created the initramfs corectly. If there is no result, then something went wrong.
 
+```console
+kali@kali:~$ lsinitramfs /boot/initramfs.gz | grep cryptsetup
+kali@kali:~$ lsinitramfs /boot/initramfs.gz | grep authorized
 ```
-lsinitramfs /boot/initramfs.gz | grep cryptsetup
-lsinitramfs /boot/initramfs.gz | grep authorized
-```
+
 Before we can backup, we have to ensure that rpiwiggle is disabled, otherwise it will delete the filesystem.
 
-```
-systemctl disable rpiwiggle
+```console
+kali@kali:~$ systemctl disable rpiwiggle
 ```
 
 Now we can ensure that all the changes are written, then we can encrypt the disk.
 
-```
-sync && sync
-exit
-umount /mnt/chroot/boot
-umount /mnt/chroot/sys
-umount /mnt/chroot/proc
-umount /mnt/chroot/dev/pts
-umount /mnt/chroot/dev
-mkdir -p /mnt/{backup,encrypted}
-rsync -avh /mnt/chroot/* /mnt/backup/
-cryptsetup luksClose crypt
-umount /mnt/chroot
-echo -e "d\n2\nw" | fdisk /dev/sdb
-partprobe
-sleep 5
-echo -e "n\np\n2\n\n\nw" | fdisk /dev/sdb
-partprobe
-sync && sync
-cryptsetup -v -y --cipher aes-cbc-essiv:sha256 --key-size 256 luksFormat /dev/sdb2
-cryptsetup -v luksOpen /dev/sdb2 crypt
-mkfs.ext4 /dev/mapper/crypt
-mount /dev/mapper/crypt /mnt/encrypted/
-rsync -avh /mnt/backup/* /mnt/encrypted/
-sync
+```console
+kali@kali:~$ sync
+kali@kali:~$ exit
+kali@kali:~$ umount /mnt/chroot/boot
+kali@kali:~$ umount /mnt/chroot/sys
+kali@kali:~$ umount /mnt/chroot/proc
+kali@kali:~$ umount /mnt/chroot/dev/pts
+kali@kali:~$ umount /mnt/chroot/dev
+kali@kali:~$ mkdir -p /mnt/{backup,encrypted}
+kali@kali:~$ rsync -avh /mnt/chroot/* /mnt/backup/
+kali@kali:~$ cryptsetup luksClose crypt
+kali@kali:~$ umount /mnt/chroot
+kali@kali:~$ echo -e "d\n2\nw" | fdisk /dev/sdb
+kali@kali:~$ partprobe
+kali@kali:~$ sleep 5
+kali@kali:~$ echo -e "n\np\n2\n\n\nw" | fdisk /dev/sdb
+kali@kali:~$ partprobe
+kali@kali:~$ sync
+kali@kali:~$ cryptsetup -v -y --cipher aes-cbc-essiv:sha256 --key-size 256 luksFormat /dev/sdb2
+kali@kali:~$ cryptsetup -v luksOpen /dev/sdb2 crypt
+kali@kali:~$ mkfs.ext4 /dev/mapper/crypt
+kali@kali:~$ mount /dev/mapper/crypt /mnt/encrypted/
+kali@kali:~$ rsync -avh /mnt/backup/* /mnt/encrypted/
+kali@kali:~$ sync
 ```
 
 The final step that we have to do is remake the initramfs file, this step is important as it will not properly boot if not done.
 
+```console
+kali@kali:~$ mount /dev/sdb1 /mnt/encrypted/boot/
+kali@kali:~$ mount -t proc none /mnt/encrypted/proc
+kali@kali:~$ mount -t sysfs none /mnt/encrypted/sys
+kali@kali:~$ mount -o bind /dev /mnt/encrypted/dev
+kali@kali:~$ mount -o bind /dev/pts /mnt/encrypted/dev/pts
+kali@kali:~$ LANG=C chroot /mnt/encrypted
+kali@kali:~$ mkinitramfs -o /boot/initramfs.gz 4.19.93-Re4son-v7+
 ```
-mount /dev/sdb1 /mnt/encrypted/boot/
-mount -t proc none /mnt/encrypted/proc
-mount -t sysfs none /mnt/encrypted/sys
-mount -o bind /dev /mnt/encrypted/dev
-mount -o bind /dev/pts /mnt/encrypted/dev/pts
-LANG=C chroot /mnt/encrypted
-mkinitramfs -o /boot/initramfs.gz 4.19.93-Re4son-v7+
-```
+
 Now we can unmount and close up everything.
 
+```console
+kali@kali:~$ exit
+kali@kali:~$ umount /mnt/encrypted/boot
+kali@kali:~$ umount /mnt/encrypted/sys
+kali@kali:~$ umount /mnt/encrypted/proc
+kali@kali:~$ umount /mnt/encrypted/dev/pts
+kali@kali:~$ umount /mnt/encrypted/dev
+kali@kali:~$ umount /mnt/encrypted
+kali@kali:~$ cryptsetup luksClose /dev/mapper/crypt
 ```
-exit
-umount /mnt/encrypted/boot
-umount /mnt/encrypted/sys
-umount /mnt/encrypted/proc
-umount /mnt/encrypted/dev/pts
-umount /mnt/encrypted/dev
-umount /mnt/encrypted
-cryptsetup luksClose /dev/mapper/crypt
-```
+
 # LUKS NUKE
 
 Should a user also want [LUKS NUKE](https://www.kali.org/tutorials/nuke-kali-linux-luks/), all they need to do is run the following command.
 
-```
-dpkg-reconfigure cryptsetup-nuke-password
+```console
+kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password
 ```
 
 # Automation?
@@ -238,23 +242,23 @@ Now how about we get this automated? Thanks to Richard Nelson (unixabg), anyone 
 
 First things first, let's download [unixabg's cryptmypi](https://github.com/unixabg/cryptmypi) script.
 
-```
-git clone https://github.com/unixabg/cryptmypi.git
+```console
+kali@kali:~$ git clone https://github.com/unixabg/cryptmypi.git
 ```
 
 There are a number of things we want to do before we can run the build scripts however. Let's go through those together now:
 
-```
-cd cryptmypi
-cp cryptmypi.conf config
-cd config
-cat ~/.ssh/id_rsa.pub >> authorized_keys
+```console
+kali@kali:~$ cd cryptmypi/
+kali@kali:~$ cp cryptmypi.conf config
+kali@kali:~$ cd config/
+kali@kali:~$ cat ~/.ssh/id_rsa.pub >> authorized_keys
 ```
 
 Now we need to edit cryptmypi.conf to change some settings in stage-2. These settings will be personal, but let's just give you all an example.
 
-```
-cat cryptmypi.conf
+```console
+kali@kali:~$ cat cryptmypi.conf
 ##################
 ## cryptmypi settings
 ##################
