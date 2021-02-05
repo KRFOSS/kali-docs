@@ -9,7 +9,7 @@ author: ["Re4son",]
 
 ##### Kali NetHunter is a free & open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.
 
-![](images/NetHunter-xiaomi-mi-9t.png)
+![](NetHunter-xiaomi-mi-9t.png)
 &nbsp;
 
 ## Content:
@@ -43,14 +43,14 @@ The core of Kali NetHunter, which is included in all three editions, comprises o
 
 
 
-![](images/NetHunter-Kex.jpg)
+![](NetHunter-Kex.jpg)
 Figure 2: Kali NetHunter Desktop Experience (KeX) outputting to an HDMI monitor
 
 &nbsp;
 
 The Kali NetHunter App Store can be accessed through the dedicated client app or via the web interface.
 
-![](images/nethunter-store-02.png)
+![](nethunter-store-02.png)
 Figure 3: Kali NetHunter App Store
 
 &nbsp;
@@ -58,12 +58,12 @@ Figure 3: Kali NetHunter App Store
 **Both rooted editions provide additional tools & services**.
 A custom kernel can extend that functionality by adding additional network and USB gadget drivers as well as wifi injection support for selected wifi chips.
 
-![](images/NetHunter-App.jpg)
+![](NetHunter-App.jpg)
 Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter Lite & NetHunter).
 
 &nbsp;
 
-Beyond the [penetration testing tools](https://tools.kali.org) included in Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and many more.
+Beyond the [penetration testing tools](https://tools.kali.org/) included in Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and many more.
 
 For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](nethunter-components/) page. Kali NetHunter is an open-source project developed by [Offensive Security](https://www.offensive-security.com/) and the community.
 
