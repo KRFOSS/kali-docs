@@ -2,13 +2,9 @@
 title: The Basics of Troubleshooting
 description:
 icon:
-date: 2020-06-19
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Troubleshooting Linux can be very confusing due to all of the moving parts. This doc will aim to cover as much as possible while still being understandable. If you believe something is missing or could be improved, please submit an issue to help to try and get this to be as complete as possible.

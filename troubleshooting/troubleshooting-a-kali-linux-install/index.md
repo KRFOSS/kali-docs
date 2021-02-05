@@ -2,33 +2,29 @@
 title: Troubleshooting Installations Failures
 description:
 icon:
-date: 2019-11-29
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 There can be a wide variety of reasons for a Kali Linux installation to fail. This could include issues such as a corrupt or incomplete ISO download, not enough disk space on the target machine, etc. The following article will give you some pointers on what to look for when your Kali Linux installation has failed. The following is an example of the dreaded "Red Screen", indicating the installation encountered a problem.
 
-![failed-kali-install](failed-kali-install.png)
+![](failed-kali-install.png)
 
 Hitting the **continue** button should take you to the **Debian installer main menu**. From that main menu, browse to the "**save debug logs**":
 
-![failed-install-kali-linux-00](failed-install-kali-linux-001.png)
+![](failed-install-kali-linux-001.png)
 
 Going into the debug logs, you are presented with several ways of transferring the installation log files away from the failed installation. The most convenient way is usually to start a web server on the machine undergoing the installation.
 
-![failed-linux-installed-transfer-method](failed-linux-installed-transfer-method.png)
+![](failed-linux-installed-transfer-method.png)
 
 Once you choose this option, a web server is started from which you are able to download or view several installation log files.
-![install-log-download](install-log-download.png)
+![](install-log-download.png)
 
 Look over the logs files for anything irregular, or any error messages which look like they might be the cause of your failed installation. In this case, the target machine did not have enough disk space to install Kali Linux, as was seen towards the end of the **syslinux** log file
 
-```html
+```plaintext
 Aug 19 23:45:05 base-installer: error: The tar process copying the live system failed (only 152937 out of 286496 files have been copied, last file was ).
 Aug 19 23:45:05 main-menu[927]: (process:7553): tar: write error: No space left on device
 Aug 19 23:45:05 main-menu[927]: WARNING **: Configuring 'live-installer' failed with error code 1

@@ -2,13 +2,9 @@
 title: Troubleshooting Wireless Drivers
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Troubleshooting wireless driver issues in Linux can be a frustrating experience if you don't know what to look for. This article is meant to be used as a general guideline to better help you find the information you need to solve your wireless issues. The most thorough source for wireless driver information is the [aircrack-ng documentation](http://www.aircrack-ng.org/documentation.html).
