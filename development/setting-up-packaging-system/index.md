@@ -303,8 +303,8 @@ Finally, we just need to add a line of configuration inside our chroot, so that 
 ```
 packaging@kali:~$ sudo sbuild-shell source:kali-dev-amd64-sbuild
 I: /bin/sh
-echo 'Acquire::HTTP::Proxy "http://localhost:3142";' > /etc/apt/apt.conf.d/01proxy
-exit
+# echo 'Acquire::HTTP::Proxy "http://localhost:3142";' > /etc/apt/apt.conf.d/01proxy
+# exit
 packaging@kali:~$
 ```
 
