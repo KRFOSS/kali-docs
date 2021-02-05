@@ -2,13 +2,9 @@
 title: RIoTboard
 description:
 icon:
-date: 2019-11-25
 type: archived
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [RIoTboard](http://riotboard.org/) is a Cortex A9 1GHz, with 1GB of RAM. Kali Linux fits on an external micro SD card.

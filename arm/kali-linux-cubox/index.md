@@ -2,13 +2,9 @@
 title: CuBox
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system and it can do far more than act as a media PC.

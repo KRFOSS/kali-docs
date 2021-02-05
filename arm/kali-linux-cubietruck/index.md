@@ -2,13 +2,9 @@
 title: Cubietruck
 description:
 icon:
-date: 2019-11-25
 type: archived
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [Cubietruck](http://www.cubietruck.com/) is a dual core 1GHz, with 2GB of RAM. Kali Linux fits on an external micro SD card.

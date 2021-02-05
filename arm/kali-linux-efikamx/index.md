@@ -2,13 +2,9 @@
 title: EfikaMX
 description:
 icon:
-date: 2019-11-25
 type: archived
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The EfikaMX is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system.
@@ -19,7 +15,7 @@ If all you want to do is to install Kali on your EfikaMX, follow these instructi
 
 1. Get a nice fast 8 GB (or more) SD card. Class 10 cards are highly recommended.
 2. Download the Kali Linux EfikaMX image from our [downloads](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) area.
-3. Use the **dd** utility to image this file to your SD card. In our example, we assume the storage device is located at /dev/sdb. **Change this as needed.**
+3. Use the **dd** utility to image this file to your SD card. In our example, we assume the storage device is located at /dev/sdb. **Change this as needed**.
 
 {{% notice info %}}
 **Alert!** This process will wipe out your SD card. If you choose the wrong storage device, you may wipe out your computers hard disk.

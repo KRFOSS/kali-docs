@@ -2,13 +2,9 @@
 title: ODROID-C1
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [ODROID-C1](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G141578608433) is a quad core 1.5GHz Cortex A5, with 1GB of RAM development board. Kali Linux fits on an external micro SD card or on an eMMC module.

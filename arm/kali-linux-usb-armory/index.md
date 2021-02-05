@@ -2,13 +2,9 @@
 title: USB Armory
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [USB armory](https://inversepath.com/usbarmory) from Inverse Path is an open source hardware design, implementing a flash drive sized computer. Kali Linux fits on a micro SD card for it.

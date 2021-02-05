@@ -2,13 +2,9 @@
 title: NanoPi2
 description:
 icon:
-date: 2019-11-25
 type: archived
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [NanoPi2](http://nanopi.io/nanopi2.html) is a quad core 1.9GHz, with 1GB of RAM. Kali Linux fits on an external micro SD card.

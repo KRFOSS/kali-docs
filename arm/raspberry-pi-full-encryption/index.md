@@ -2,13 +2,9 @@
 title: Raspberry Pi - Full Disk Encryption
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 {{% notice info %}}
@@ -21,7 +17,7 @@ As a review, what we are trying to accomplish is to create a stanalone "leave be
 
 # Overview of the process
 
-Before we dive into the tech of what we are going to try to accomplish, let’s take a quick look at our goals on setting up our Raspberry Pi 3 Model B+ (henceforth called "RPi"):
+Before we dive into the tech of what we are going to try to accomplish, let's take a quick look at our goals on setting up our Raspberry Pi 3 Model B+ (henceforth called "RPi"):
 
 * Create a normal Kali Linux RPi installation
 * Prepare the system for encrypted boot with remote disk unlock
@@ -67,7 +63,7 @@ sudo apt update
 sudo apt install -y cryptsetup lvm2 busybox dropbear
 ```
 
-We will now be listing out five kernel versions and depending on the RPi being used you will need to choose certain versions. The first version, Re4son+, is for armv6 devices IE. RPi1, RPi0, or RPi0w. The next two, Re4son-v7+ and Re4son-v8+, are the 32bit and 64bit versions for armv7 devices, respectfully. The final two will be the ones merged into the armv7 32bit and 64bit versions, and the `l` in the name means they will be for the RPi4. Keep in mind the kernel versions may change, however the name will not.
+We will now be listing out five kernel versions and depending on the RPi being used you will need to choose certain versions. The first version, Re4son+, is for armv6 devices IE. RPi1, RPi0, or RPi0w. The next two, Re4son-v7+ and Re4son-v8+, are the 32-bit and 64-bit versions for armv7 devices, respectfully. The final two will be the ones merged into the armv7 32bit and 64bit versions, and the `l` in the name means they will be for the RPi4. Keep in mind the kernel versions may change, however the name will not.
 
 ```
 ls -l /lib/modules/ | awk -F" " '{print $9}'
@@ -81,15 +77,15 @@ echo initramfs initramfs.gz followkernel >> /boot/config.txt
 
 Next we are going to edit `/boot/cmdline.txt` and change the root path. We will want to change the root path to be `/dev/mapper/crypt`, and then we will add in `cryptdevice=/dev/mmcblk0p2:crypt` right after that. The end result should look like this:
 
-```
-root@kali:~# cat /boot/cmdline.txt
+```console
+kali@kali:~$ cat /boot/cmdline.txt
 dwc_otg.fiq_fix_enable=2 console=ttyAMA0,115200 kgdboc=ttyAMA0,115200 console=tty1 root=/dev/mapper/crypt cryptdevice=/dev/mmcblk0p2:crypt rootfstype=ext4 rootwait rootflags=noload net.ifnames=0
 ```
 
 Now we update fstab to have the correct root filesystem path.
 
-```
-root@kali:~# cat /etc/fstab
+```console
+kali@kali:~$ cat /etc/fstab
 # <file system> <mount point>   <type>  <options>       <dump>  <pass>
 proc            /proc           proc    defaults          0       0
 /dev/mmcblk0p1  /boot           vfat    defaults          0       2
@@ -122,9 +118,9 @@ LANG=C chroot /mnt/chroot/
 
 Next we must add the following to /etc/dropbear-initramfs/authorized_keys:
 
-```
-root@kali:~# nano /etc/dropbear-initramfs/authorized_keys
-root@kali:~# cat /etc/dropbear-initramfs/authorized_keys
+```console
+kali@kali:~$ vim /etc/dropbear-initramfs/authorized_keys
+kali@kali:~$ cat /etc/dropbear-initramfs/authorized_keys
 command="export PATH='/sbin:/bin/:/usr/sbin:/usr/bin'; /scripts/local-top/cryptroot && kill -9 `ps | grep -m 1 'cryptroot' | cut -d ' ' -f 3` && exit"
 ```
 
@@ -136,8 +132,8 @@ cat id_rsa.pub >> /etc/dropbear-initramfs/authorized_keys && rm id_rsa.pub
 
 Once you're done, `/etc/dropbear-initramfs/authorized_keys` should look like this (Note: you may need to delete a return after the command so the ssh key follows directly after):
 
-```
-root@kali:~# cat /etc/dropbear-initramfs/authorized_keys
+```console
+kali@kali:~$ cat /etc/dropbear-initramfs/authorized_keys
 command="export PATH='/sbin:/bin/:/usr/sbin:/usr/bin'; /scripts/local-top/cryptroot && kill -9 `ps | grep -m 1 'cryptroot' | cut -d ' ' -f 3` && exit" ssh-rsa key user@sys
 ```
 
@@ -155,7 +151,7 @@ Let's now enable cryptsetup.
 ```
 echo CRYPTSETUP=y > /etc/cryptsetup-initramfs/conf-hook
 
-root@kali:~# cat /etc/cryptsetup-initramfs/conf-hook
+kali@kali:~$ cat /etc/cryptsetup-initramfs/conf-hook
 CRYPTSETUP=y
 ```
 

@@ -2,13 +2,9 @@
 title: Galaxy Note 10.1
 description:
 icon:
-date: 2020-02-12
 type: archived
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The Samsung Galaxy Note 10.1 is a 10.1-inch tablet computer designed, developed, and marketed by Samsung. The tablet incorporates a 1.4 GHz quad-core Exynos processor and 2 GB of RAM. The touch screen works surprisingly well with Kali as well as the wireless card, however Bluetooth and audio are not yet functional on this image.
@@ -20,8 +16,8 @@ If all you want to do is to install Kali on your Galaxy Note 10.1, follow these 
 1. You'll need **at least 7 GB free** on your internal SD card for our image.
 2. Root your Samsung Galaxy Note 10.1 if you have not already done so.
 3. Download the **Kali Linux Galaxy Note 10.1** image from our [downloads](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) area.
-4. Rename the downloaded Kali image to **linux.img** and copy it to /storage/sdcard0.
-5. Download our recovery.img file from [here](/docs/downloads/recovery.img) and copy it to /storage/sdcard0.
+4. Rename the downloaded Kali image to **linux.img** and copy it to `/storage/sdcard0`.
+5. Download our `recovery.img` file from here and copy it to `/storage/sdcard0`.
 6. Get root on your Galaxy Note 10.1, change /storage/sdcard0, and backup your recovery partition:
 
 ```

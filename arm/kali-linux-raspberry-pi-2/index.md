@@ -2,13 +2,9 @@
 title: Raspberry Pi 2
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [Raspberry Pi2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external micro SD card.

@@ -2,13 +2,9 @@
 title: CuBox-i4Pro
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [SolidRun CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the "world's smallest computer". The specifications are Quad core i.MX6 1GHZ processor, 2GB RAM, Gbit ethernet, eSata port, and MicroSD slot.

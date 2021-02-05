@@ -2,13 +2,9 @@
 title: Gem PDA
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ![](2018.11-Kali-Gem_medium.png)
@@ -33,7 +29,7 @@ The Kali Linux Gemini image can be downloaded from the [Offensive Security ARM i
 
 {{% notice info %}}
 If you would like a different partition layout, follow [the official flashing guide](http://support.planetcom.co.uk/index.php/Linux_Flashing_Guide). Make sure that the Linux partition is at least 6GB.
-With a linux partition created, you can write the image file **_linux_root.img_** straight into it. Don’t forget to flash the corresponding Linux kernel image "linux_boot.img".
+With a linux partition created, you can write the image file **_linux_root.img_** straight into it. Don't forget to flash the corresponding Linux kernel image "linux_boot.img".
 {{% /notice %}}
 
 The rest of the steps in this guide detail a complete re-flash of a Gemini x27 with a Windows PC.

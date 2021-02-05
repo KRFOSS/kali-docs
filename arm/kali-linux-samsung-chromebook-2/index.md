@@ -2,13 +2,9 @@
 title: Samsung Chromebook 2
 description:
 icon:
-date: 2019-11-25
 type: archived
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [Samsung ARM Chromebook 2](https://web.archive.org/web/20161111005125/http://www.samsung.com/us/computing/chromebooks/12-14/samsung-chromebook-2-13-3-xe503c32-k01us/) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5800 1.7GHz quad core processor and 4 GB of RAM, the Chromebook 2 is a fast ARM laptop. Kali Linux fits on an external micro SD card on this machine which leaves the internal disk untouched.

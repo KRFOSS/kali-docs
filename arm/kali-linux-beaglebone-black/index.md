@@ -2,20 +2,16 @@
 title: BeagleBone Black
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The [BeagleBone Black](http://beagleboard.org/BLACK) is a low-cost, community-supported ARM-based development platform aimed at developers and hobbyists. The BeagleBone Black runs a 1GHz Cortex-A8 CPU and includes hardware-based floating point and 3D acceleration; while much lower-powered than a desktop or laptop system, its affordability makes it an excellent option for a tiny Linux system.
 
 The BeagleBone Black provides a micro-SD card slot for mass storage and if that device is bootable, will use it in preference to the board's "burned-in" Angstrom or Debian operating system.
 
-By default, the Kali Linux BeagleBone Black image contains a minimum toolset, similar to all the other ARM images. If you wish to upgrade the installation to a standard desktop installation, you can include the extra tools by installing the **kali-linux-default** metapackage. For more information on metapackages, please refer to our [tools site](http://tools.kali.org/kali-metapackages).
+By default, the Kali Linux BeagleBone Black image contains a minimum toolset, similar to all the other ARM images. If you wish to upgrade the installation to a standard desktop installation, you can include the extra tools by installing the **kali-linux-default** metapackage. For more information on metapackages, please refer to our [tools site](https://tools.kali.org/kali-metapackages).
 
 ## Kali Linux on BeagleBone Black - Pre-built Version
 
@@ -26,7 +22,7 @@ To install a prebuilt image of the standard build of Kali Linux on your BeagleBo
 1. Get a fast micro-SD card with at least 8 GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ the Kali Linux BeagleBone Black image from the Offensive Security [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on ["Downloading Kali Linux"](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/kali-linux-live-usb-install/).
-In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to [the correct drive path](/docs/faq/how-do-i-tell-what-drive-path-my-usb-drive-is-on).**
+In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
 This command will wipe out any existing data on your micro-SD card. If you specify the _wrong device path_, you could wipe out your computer's hard disk!
@@ -45,10 +41,10 @@ You should be able to [Log in to Kali](/docs/introduction/default-credentials/) 
 
 Changing the SSH host keys can be accomplished by doing the following:
 
-```
-kali@kali:~# sudo rm /etc/ssh/ssh_host_*
-kali@kali:~# sudo dpkg-reconfigure openssh-server
-kali@kali:~# sudo service ssh restart
+```console
+kali@kali:~$ sudo rm /etc/ssh/ssh_host_*
+kali@kali:~$ sudo dpkg-reconfigure openssh-server
+kali@kali:~$ sudo service ssh restart
 ```
 
 ## Kali Linux on BeagleBone Black - Custom Build
