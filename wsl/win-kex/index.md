@@ -2,13 +2,9 @@
 title: Win-KeX
 description: Windows Subsystem for Linux 2 & Win-KeX
 icon: ti-pin
-date: 2020-09-21
 type: post
-weight: 37
+weight:
 author: ["Re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Content:
@@ -34,7 +30,7 @@ og_description:
 - Shared clipboard for cut and paste support between Kali Linux and Windows apps
 - Multi-session support: root window & non-priv window & seamless sessions concurrently
 
-![win-kex-full](win-kex-sl.png)
+![](win-kex-sl.png)
 
 
 #### This page details the steps to install Win-Kex in under 2 minutes.
@@ -59,18 +55,18 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
 - Open PowerShell as administrator and run:
 
-  ```
-  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-  ```
+```
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+```
 
 - Restart
 
 - Open PowerShell as administrator and run:
 
-  ```
-  dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-  ```
+```
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
 
 - Restart
 
@@ -100,14 +96,13 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 #### Win-KeX supports three modes:
 
   - Window Mode:
-    ![Win-Kex](win-kex.png)
+![](win-kex.png)
 
     To start Win-KeX in Window mode with sound support, run
 
     `kex --win -s`
 
-    Refer to the [Win-KeX Win usage documentation](../win-kex-win/) for further information.
-
+    Refer to the [Win-KeX Win usage documentation](/docs/wsl/win-kex-win/) for further information.
 
   - Enhanced Session Mode:
 ![Win-Kex-2](win-kex-2.png)
@@ -120,42 +115,46 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
   - Seamless mode:
 
-    ![Win-Kex](win-kex-sl.png)
+![](win-kex-sl.png)
 
     To start Win-KeX in Seamless mode with sound support, run  
 
     `kex --sl -s`  
 
+<<<<<<< Updated upstream
     Refer to the [Win-KeX SL usage documentation](../win-kex-sl/) for further information.  
     
       
+=======
+    Refer to the [Win-KeX SL usage documentation](/docs/wsl/win-kex-sl/) for further information.
+>>>>>>> Stashed changes
 
 ## Optional Steps:
 
 - If you have the space, why not install "Kali with the lot"?:
 `sudo apt install kali-linux-large`
 
-  ![Win-Kex with the Lot](win-kex-thelot.png)
+  ![](win-kex-thelot.png)
 
 
 
 - Create a [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) Shortcut:
 
-  ![Win-Kex in WTS](win-kex-wt1.png)
+  ![](win-kex-wt1.png)
 
 
  Choose amongst these options:
 
   **Basic Win-KeX in window mode with sound:**
 
-  ```
-  {
-        "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
-        "hidden": false,
-        "name": "Win-KeX",
-        "commandline": "wsl -d kali-linux kex --wtstart -s",
-  },
-  ```
+```
+{
+      "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
+      "hidden": false,
+      "name": "Win-KeX",
+      "commandline": "wsl -d kali-linux kex --wtstart -s",
+},
+```
 
 
 
@@ -163,44 +162,45 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
 
-  ```
-  {
-          "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
-          "hidden": false,
-  		"icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
-          "name": "Win-KeX",
-          "commandline": "wsl -d kali-linux kex --wtstart -s",
-  		"startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
-  },
-  ```
+```
+{
+        "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
+        "hidden": false,
+        "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
+        "name": "Win-KeX",
+        "commandline": "wsl -d kali-linux kex --wtstart -s",
+        "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
+},
+```
 
  **Basic Win-KeX in seamless mode with sound:**
 
-  ```
-  {
-        "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
-        "hidden": false,
-        "name": "Win-KeX",
-        "commandline": "wsl -d kali-linux kex --sl --wtstart -s",
-  },
-  ```
+```
+{
+      "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
+      "hidden": false,
+      "name": "Win-KeX",
+      "commandline": "wsl -d kali-linux kex --sl --wtstart -s",
+},
+```
 
 
   **Advanced Win-KeX in seamless mode with sound - Kali icon and start in kali home directory:**
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
 
-  ```
-  {
-          "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
-          "hidden": false,
-  		"icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
-          "name": "Win-KeX",
-          "commandline": "wsl -d kali-linux kex --sl --wtstart -s",
-  		"startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
-  },
-  ```
+```
+{
+        "guid": "{55ca431a-3a87-5fb3-83cd-11ececc031d2}",
+        "hidden": false,
+        "icon": "file:///c:/users/<windows user>/pictures/icons/kali-menu.png",
+        "name": "Win-KeX",
+        "commandline": "wsl -d kali-linux kex --sl --wtstart -s",
+        "startingDirectory" : "//wsl$/kali-linux/home/<kali user>"
+},
+```
 
+<<<<<<< Updated upstream
   **Basic Win-KeX in ESM mode with sound:**
 
   ```
@@ -229,10 +229,13 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
   ```
 
 ![Win-Kex in WTS](win-kex-wt1.png)
+=======
+  ![](win-kex-wt1.png)
+>>>>>>> Stashed changes
 
-  ![Win-Kex in wts](win-kex-wt2.png)
+  ![](win-kex-wt2.png)
 
-  ![win-kex-full](win-kex-full.png)
+  ![](win-kex-full.png)
 
 
 
@@ -244,7 +247,9 @@ For more information, ask for help via:
 
 or consult the manpage via:
 
-`man kex`    ![win-kex manpage](manpage.png)
+`man kex`
+
+![](manpage.png)
 
 
 

@@ -2,13 +2,9 @@
 title: Win-KeX SL
 description: Win-KeX Seamless Mode
 icon: ti-pin
-date: 2020-09-17
 type: post
-weight: 37
+weight:
 author: ["Re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Content:
@@ -33,7 +29,7 @@ Seamless mode removes the visual segregation between linux and window apps and o
 
 Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/) to achieve seamless desktop integration.
 
-![win-kex-sl](win-kex-sl.png)  
+![](win-kex-sl.png)
 
 &nbsp;
 
@@ -41,67 +37,75 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
 - VcXsrv requires [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-US/download/details.aspx?id=48145) (vcredist140). It should be included in standard Windows installations but if you receive an error complaining that it is missing, just download and install it.
 
-## Usage  
+## Usage
 
-### Start  
+### Start
 
-- Start Win-KeX as normal user in seamless mode via:  
-`kex --sl`  
+- Start Win-KeX as normal user in seamless mode via:
+`kex --sl`
 
-  When starting Win-KeX SL for the first time, ensure to select  
-  
-  "**<u>Public networks</u>**"  
-  
-  when asked for authorisation to allow traffic through the Windows Defender firewall  
-  
-  <img src="firewall.png" alt="Firewall" style="zoom: 50%;" />  
-  
-  &nbsp;  &nbsp;
-  
-  This will start Win-KeX in seamless mode:   
-  ![Win-Kex SL](win-kex-sl.png)  
-  
-  The Kali panel is placed at the top of the screen and the Windows Start menu at the bottom.  
-  
-    
-  
-- **Tip:** The Kali panel might cover the title bar of maximised windows. To prevent it getting in the way you may prefer to set it to "Automatically hide" in the panel preferences.  
+  When starting Win-KeX SL for the first time, ensure to select
+
+  "**<u>Public networks</u>**"
+
+  when asked for authorisation to allow traffic through the Windows Defender firewall
+
+  <img src="firewall.png" alt="Firewall" style="zoom: 50%;" />
 
   &nbsp;  &nbsp;
 
-### Sound Support  
+  This will start Win-KeX in seamless mode:
+  ![](win-kex-sl.png)
 
-- Win-KeX includes pulse audio support  
+  The Kali panel is placed at the top of the screen and the Windows Start menu at the bottom.
 
-- To start Win-KeX with sound support, add `--sound` or `-s`, e.g.  
-  `kex --win -s`  
 
-- When starting Win-KeX with sounds support for the first time, ensure to select  
-  
 
-"**<u>Public networks</u>**"  
+- **Tip:** The Kali panel might cover the title bar of maximised windows. To prevent it getting in the way you may prefer to set it to "Automatically hide" in the panel preferences.
 
+  &nbsp;  &nbsp;
+
+### Sound Support
+
+- Win-KeX includes pulse audio support
+
+- To start Win-KeX with sound support, add `--sound` or `-s`, e.g.
+  `kex --win -s`
+
+- When starting Win-KeX with sounds support for the first time, ensure to select
+
+
+<<<<<<< Updated upstream
   when asked for authorization to allow traffic through the Windows Defender firewall  
+=======
+"**<u>Public networks</u>**"
+>>>>>>> Stashed changes
 
-  ![PulseAudit-Firewall](win-kex-pulseaudio_firewall.png)    
+  when asked for authorisation to allow traffic through the Windows Defender firewall
+
+  ![](win-kex-pulseaudio_firewall.png)
 
   &nbsp;  &nbsp;
 
 ### Multiscreen Support
 
+<<<<<<< Updated upstream
 - Win-KeX supports multiscreen setups: 
+=======
+- Win-KeX supports mutiscreen setups:
+>>>>>>> Stashed changes
 
-  Open "Panel Preference" to reduce the panel length, untick "Lock panel" and move the panel to the desired screen.  
+  Open "Panel Preference" to reduce the panel length, untick "Lock panel" and move the panel to the desired screen.
 
   &nbsp;
 
-### Stop  
+### Stop
 
-- To close Win-KeX SL, simply log out of the session via the "Logout" button in the panel.  
-  
-- To optionally shutdown the Win-KeX SL server, type  
-  `kex --sl --stop`   
+- To close Win-KeX SL, simply log out of the session via the "Logout" button in the panel.
+
+- To optionally shutdown the Win-KeX SL server, type
+  `kex --sl --stop`
 
     &nbsp;
 
-#### Enjoy Win-KeX!  
+#### Enjoy Win-KeX!
