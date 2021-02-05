@@ -67,39 +67,39 @@ The next screen is "Processors". Here we can start to define how many resources 
 
 - - -
 
-"Memory" is the next section, where we can define how much RAM to use. Again, the higher amount of RAM, the more applications can be open and at increased performance. Various tools inside of Kali can be demanding of resources. When we make the general VMs, we select 2GB (2048 MB) for RAM, but we often increase this for our personal machines as we have high-performing devices with spare RAM which Kali can utilize.
+"Memory" is the next section, where we can define how much RAM to use. Again, the higher amount of RAM, the more applications can be open and at increased performance. Various tools inside of Kali can be demanding of resources. When we make the general VMs, we select 2GB (**2048 MB**) for RAM, but we often increase this for our personal machines as we have high-performing devices with spare RAM which Kali can utilize.
 
 ![](vm-08.png)
 
 - - -
 
-We are then presented with "Network Connection". We default to using a NAT connection. However, this can easy be altered (even when the VM is powered on). This allows for Kali VM to talk to the Internet, as well as the rest of the LAN connection, without it taking up an additional IP address. The downside to this is it will not be able to receive reverse shells (without port forwarding inside of VMware).
+We are then presented with "Network Connection". We default to using a **NAT** connection. However, this can easy be altered (even when the VM is powered on). This allows for Kali VM to talk to the Internet, as well as the rest of the LAN connection, without it taking up an additional IP address. The downside to this is it will not be able to receive reverse shells (without port forwarding inside of VMware).
 
 ![](vm-09.png)
 
 - - -
 
-Next is "I/O Controller Types". We accept the default value of "LSI Logic."
+Next is "I/O Controller Types". We accept the default value of "**LSI Logic**".
 
 ![](vm-10.png)
 
 - - -
 
-Next is "Virtual Disk Type". We accept the default value of "SCSI."
+Next is "Virtual Disk Type". We accept the default value of "**SCSI"**
 
 ![](vm-11.png)
 
 - - -
 
-The following screen is "Disk", which allows us to "create a new virtual disk."
+The following screen is "Disk", which allows us to "**create a new virtual disk"**
 
 ![](vm-12.png)
 
 - - -
 
-This screen below, "Disk Size", allows us to define how large the virtual hard disk will be. We use "80 GB" for our VMs.
+This screen below, "Disk Size", allows us to define how large the virtual hard disk will be. We use "**80 GB**" for our VMs.
 
-We also don't have it in a single file, but instead "Split virtual disk into multiple files". The VM hard disk will grow over time, to the maximum size, as we do not enable the "Allocate all disk space."
+We also don't have it in a single file, but instead "**Split virtual disk into multiple files**". The VM hard disk will grow over time, to the maximum size, as we do not enable the "Allocate all disk space".
 
 It is possible to increase/decrease the hard disk after the VM has been created, however, if you have installed Kali, you'll need to then also grow or shrink the partition for the space to reflect that.
 
@@ -115,7 +115,7 @@ When it comes to the "Disk File" screen, we accept the default value, which has 
 
 We are then presented the final screen for the VM setup wizard, which gives us an overview of the settings we picked.
 
-We are happy with whats shown to us, so we then press "Finish". If you try and "Customize Hardware" at this stage, before the VM is fully created, not every setting is visible.
+We are happy with whats shown to us, so we then press "**Finish**". If you try and "Customize Hardware" at this stage, before the VM is fully created, not every setting is visible.
 
 ![](vm-15.png)
 
@@ -131,43 +131,43 @@ After reading and understanding the page, you may wish to tick the "Don't show t
 
 ### Edit Settings
 
-Before we start up the VM, we now edit its settings, by pressing "Edit virtual machine settings."
+Before we start up the VM, we now edit its settings, by pressing "**Edit virtual machine settings**".
 
 ![](vm-17.png)
 
 - - -
 
-We do not have a use for a printer, so we remove it. Navigate to the "Printer" section, and then press "Remove."
+We do not have a use for a printer, so we remove it. Navigate to the "**Printer**" section, and then press "**Remove**".
 
 ![](vm-18.png)
 
 - - -
 
-You may wish to edit the "USB" settings to alter how USB devices behave. Here we have disabled "Automatically connect new USB devices" and enabled "Show all USB input devices."
+You may wish to edit the "**USB**" settings to alter how USB devices behave. Here we have disabled "**Automatically connect new USB devices**" _(may not have the option depending on your VMware version)_ and enabled "**Show all USB input devices**".
 
 ![](vm-usb.png)
 
 - - -
 
-Another item to point out is in the "Display" section. Make sure that "Accelerated 3D graphics" is disabled, as people have reported that causes issues.
+Another item to point out is in the "Display" section. Make sure that "**Accelerated 3D graphics**" is **disabled**, as people have reported that causes issues.
 
 ![](vm-gpu.png)
 
 - - -
 
-We then move over to the "Options" tab, and move down to "Power". We choose to enable "Report battery information to guests", as it is a handy thing for users who use Kali on a laptop/notebook.
+We then move over to the "**Options**" tab, and move down to "**Power**". We choose to enable "**Report battery information to guests**", as it is a handy thing for users who use Kali on a laptop/notebook.
 
 ![](vm-19.png)
 
 - - -
 
-In "Shared folders", we select "Always enable". At this stage, do not share any paths, as some users may not wish for it.
+In "**Shared folders**", we select "**Always enable**". At this stage, do not share any paths, as some users may not wish for it.
 
 ![](vm-20.png)
 
 - - -
 
-The final option we alter is "VMware Tool", where we enable "Synchronize guest time with host."
+The final option we alter is "**VMware Tool**", where we enable "**Synchronize guest time with host**".
 
 ![](vm-21.png)
 

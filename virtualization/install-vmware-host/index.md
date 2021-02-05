@@ -17,7 +17,7 @@ VMware Workstation & Fusion is a commercial software (there is VMware Player whi
 
 Before trying to install VMware, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine.
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 ...
 kali@kali:~$
@@ -34,7 +34,7 @@ To start with, you will need to download VMware. You can do this by going to [VM
 
 Alternatively, you can do the following command line method.
 
-```markdown
+```console
 kali@kali:~$ sudo apt install -y curl
 ...
 kali@kali:~$
@@ -53,7 +53,7 @@ kali@kali:~$
 
 When everything is up-to-date, and ready to go, make sure the file is executable and then call it.
 
-```markdown
+```console
 kali@kali:~$ chmod +x ~/Downloads/vmware.bin
 kali@kali:~$
 kali@kali:~$ sudo ~/Downloads/vmware.bin
@@ -69,7 +69,7 @@ We can see we have installed **VMware Workstation 15.5.1**. The version number m
 
 After the installer is installed, you should be able to just run `vmware` to continue setup.
 
-```markdown
+```console
 kali@kali:~$ vmware
 kali@kali:~$
 ```
@@ -160,7 +160,7 @@ If you see the following problem, upon trying to run `vmware`.
 
 Try installing the [libaio1](https://packages.debian.org/testing/libaio1) package.
 
-```markdown
+```console
 kali@kali:~$ vmware
 [AppLoader] Use shipped Linux kernel AIO access library.
 An up-to-date "libaio" or "libaio1" package from your system is preferred.
@@ -178,7 +178,7 @@ Then the next time you start `vmware`, it should of gone away.
 
 From time to time, things may not go right. There could be a number of reasons why VMware may not install. The first thing to check would be you have all the necessary packages installed.
 
-```markdown
+```console
 kali@kali:~$ sudo apt install -y build-essential linux-headers-$( uname -r ) vlan libaio1
 ...
 kali@kali:~$
@@ -192,7 +192,7 @@ Try running `vmware` again, and see if now setup continues.
 
 A common issue is because the setup file for VMware isn't supporting the latest kernels, which could be an issue as Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/) and receives frequent updates. If this is the case, we can patch VMware modules to support this.
 
-```markdown
+```console
 kali@kali:~$ sudo apt install -y git
 ...
 kali@kali:~$
@@ -219,7 +219,7 @@ If you are still having issues, you may need to restart your Kali Linux before t
 
 As VMware has various kernel modules, we need to make sure they are kept up-to-date and re-patched when Kali Linux's kernel gets updated. This can be achieved by the steps in the [following guide](https://docs.fedoraproject.org/en-US/quick-docs/how-to-use-vmware/).
 
-```markdown
+```console
 kali@kali:~$ cat<<EOF | sudo tee /etc/kernel/install.d/99-vmmodules.install
 #!/usr/bin/bash
 
@@ -268,7 +268,7 @@ kali@kali:~$
 
 If VMware is unsuccessful, we can dig a little further by running the following.
 
-```markdown
+```console
 kali@kali:~$ sudo vmware-modconfig --console --install-all
 ...
 kali@kali:~$

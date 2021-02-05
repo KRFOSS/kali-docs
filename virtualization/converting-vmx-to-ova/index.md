@@ -19,7 +19,7 @@ In order to convert from VMware's VMX to a OVA file, we will use [ovftool](https
 
 We will be using the [official Kali Linux VMWare image](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/) to convert. To start with unzip it to get access to the vmx within.
 
-```markdown
+```console
 kali@kali:~$ 7z x kali-linux-2020.4-vmware-amd64.7z
 ...
 kali@kali:~$
@@ -32,7 +32,7 @@ kali@kali:~$
 
 We can now start to convert by doing the following.
 
-```markdown
+```console
 kali@kali:~$ ovftool Kali-Linux-*-vmware-amd64.vmwarevm/*vmx Kali-Linux-rolling-amd64.ova
 Opening VMX source: Kali-Linux-2020.4-vmware-amd64.vmwarevm/Kali-Linux-2020.4-vmware-amd64.vmx
 Opening OVA target: Kali-Linux-rolling-amd64.ova

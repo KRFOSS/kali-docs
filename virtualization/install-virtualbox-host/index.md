@@ -17,7 +17,7 @@ VirtualBox is free and open source. There are a few other software such as QEMU,
 
 Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine.
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 ...
 kali@kali:~$
@@ -32,7 +32,7 @@ kali@kali:~$
 
 The first thing we are going to do is import VirtualBox's repository key.
 
-```markdown
+```console
 kali@kali:~$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- \
   | sudo apt-key add -
 ...
@@ -57,7 +57,7 @@ kali@kali:~$
 
 As we have altered our network repository, we need to re-build the cache.
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 ...
 kali@kali:~$
@@ -68,7 +68,7 @@ kali@kali:~$
 
 As VirtualBox has various kernel modules (e.g. `vboxdrv`, `vboxnetflt` and `vboxnetadp`), we need to make sure they are kept up-to-date when Kali Linux's kernel gets updated. This can be achieved using [dkms](https://packages.debian.org/testing/dkms).
 
-```markdown
+```console
 kali@kali:~$ sudo apt install -y dkms
 ...
 kali@kali:~$
@@ -78,7 +78,7 @@ kali@kali:~$
 
 Now its time to install VirtualBox itself (along with its Extension Pack to expand VirtualBox's advanced features).
 
-```markdown
+```console
 kali@kali:~$ sudo apt install -y virtualbox virtualbox-ext-pack
 ...
 kali@kali:~$
@@ -90,7 +90,7 @@ When prompted, read and accept the license.
 
 You can now find VirtualBox in the menu or start it via the command line.
 
-```markdown
+```console
 kali@kali:~$ virtualbox
 kali@kali:~$
 ```

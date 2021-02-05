@@ -19,7 +19,7 @@ You must use **VirtualBox 4.2.xx or higher** in order to take advantage of the i
 
 Start up your Kali Linux virtual machine, open a terminal window and issue the following command to install the Linux kernel headers.
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 ...
 kali@kali:~$
@@ -34,7 +34,7 @@ Once this is complete you can now attach the **Guest Additions** CD-ROM image. T
 
 This will mount the Guest Additions ISO in the virtual CD drive in your Kali Linux virtual machine. When prompted to autorun the CD, click the **Cancel** button.
 
-![VirtualBox-Cancel-Auto-Run](Figure-17-Cancel-Auto-Run.png)
+![](Figure-17-Cancel-Auto-Run.png)
 
 ## Installing
 
@@ -57,8 +57,8 @@ From the VirtualBox Manager, select your Kali Linux VM instance and click on the
 
 In the Folder Path text box, provide the path to the folder you would like to share, or click the drop-down arrow to browse your host system for the path to the folder. Select the check boxes that allow for **Auto-mount** and **Make Permanent** and click the **OK** button both times when prompted.
 
-![Figure-20-Shared-folder-config](Figure-20-Shared-folder-config.png)
+![](Figure-20-Shared-folder-config.png)
 
 Your shared folders will now be available in the media directory. You can create a bookmark or link for easier access to the directory.
 
-![VirtualBox-Shared-folder-in-Kali](Figure-21-Shared-folder-in-Kali.png)
+![](Figure-21-Shared-folder-in-Kali.png)

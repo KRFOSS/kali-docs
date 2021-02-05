@@ -15,7 +15,7 @@ As of September 2015, **VMware [recommends](https://blogs.vmware.com/vsphere/201
 
 Should you decide to [create your own VMware installation of Kali Linux](/docs/virtualization/install-vmware-guest-vm/) _(rather than using our [pre-made VMware images](https://www.offensive-security.com/kali-linux-vmware-virtualbox-image-download/))_, and you want to force a manual reinstall of `open-vm-tools` (as something has gone wrong), first make sure you are [fully updated](/docs/general-use/updating-kali/), then enter the following.
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 ...
 kali@kali:~$
@@ -30,7 +30,7 @@ kali@kali:~$
 
 Unfortunately, shared folders will not work out of the box. To enable this feature for your current session, you will need to execute the following script after logging in.
 
-```html
+```console
 kali@kali:~$ cat <<EOF | sudo tee /usr/local/sbin/mount-shared-folders
 #!/bin/sh
 vmware-hgfsclient | while read folder; do
@@ -51,7 +51,7 @@ kali@kali:~$
 
 All you then need todo is run.
 
-```
+```console
 kali@kali:~$ sudo mount-shared-folders
 ```
 
@@ -63,7 +63,7 @@ Some time to time, its not uncommon for OVT to stops functioning correctly (e.g.
 
 By creating the following script, and then calling it when there is trouble, should fix a some issues.
 
-```html
+```console
 kali@kali:~$ cat <<EOF | sudo tee /usr/local/sbin/restart-vm-tools
 #!/bin/sh
 
@@ -81,7 +81,7 @@ kali@kali:~$
 
 Afterwards just need to call it.
 
-```markdown
+```console
 kali@kali:~$ sudo restart-vm-tools
 ...
 kali@kali:~$

@@ -19,7 +19,7 @@ The latest version of VMwareTools at this date does compiles against [our kernel
 
 First, we need to make sure to install any package and also make a local copy of the Git repository.
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 ...
 kali@kali:~$
@@ -37,7 +37,7 @@ Next, mount the VMware tools ISO by clicking "**Install VMware Tools**" from the
 
 Once the VMware Tools ISO has been attached to the Virtual Machine, copy the installer to the **downloads** directory and then run the installer script from the Git repository.
 
-```markdown
+```console
 kali@kali:~$ sudo mkdir -p /media/cdrom/
 kali@kali:~$
 kali@kali:~$ sudo mount /dev/cdrom /media/cdrom/

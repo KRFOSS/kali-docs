@@ -11,13 +11,13 @@ Installing "Guest VM Packages", gives a better user experience with VMs in gener
 
 This article will help you to enable the **[Enhanced Session Mode](https://techcommunity.microsoft.com/t5/virtualization/sneak-peek-taking-a-spin-with-enhanced-linux-vms/ba-p/382415)**, which opens up the possibility of clipboard sharing and windows resizing.
 
-![kali-hyper-v-enhancedmode](kali-hyper-v-enhancedmode.png)
+![](kali-hyper-v-enhancedmode.png)
 
 ## Install
 
 Start up your Kali Linux virtual machine, open a terminal window and issue the following commands.
 
-```markdown
+```console
 kali@kali:~$ sudo git clone https://github.com/mimura1133/linux-vm-tools /opt/linux-vm-tools
 ...
 kali@kali:~$
@@ -42,14 +42,14 @@ You now need to change the **transport type** from VMBus to **HVSocket**.
 
 Open a PowerShell (with Administrator privileges) on the host, issue the following command.
 
-```markdown
-Set-VM "(YOUR VM NAME HERE)" -EnhancedSessionTransportType HVSocket
+```console
+> Set-VM "(YOUR VM NAME HERE)" -EnhancedSessionTransportType HVSocket
 ```
 
-![kali-hyperv-step2](kali-hyperv-step2.png)
+![](kali-hyperv-step2.png)
 
 - - -
 
 We can test to see if it been a success by starting the virtual machine again, and check if you can see the following screen when trying to use xrdp.
 
-![kali-hyperv-step3](kali-hyperv-step3.png)
+![](kali-hyperv-step3.png)

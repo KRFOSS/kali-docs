@@ -15,7 +15,7 @@ You must use **VirtualBox 4.2.xx or higher**  in order to take advantage of the 
 
 Should you decide to [create your own VirtualBox installation of Kali Linux](/docs/virtualization/install-virtualbox-guest-vm/) _(rather than using our [pre-made VirtualBox images](https://www.offensive-security.com/kali-linux-vmware-virtualbox-image-download/))_, and you want to force a manual reinstall of `virtualbox-guest-x11` (as something has gone wrong), first make sure you are [fully updated](/docs/general-use/updating-kali/), then enter the following.
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 ...
 kali@kali:~$
