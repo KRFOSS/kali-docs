@@ -20,7 +20,7 @@ It was released with [**Kali Linux 2019.4**](https://www.kali.org/news/kali-linu
 
 Switching to undercover mode is pretty straight-forward, just run the following command:
 
-```markdown
+```console
 kali@kali:~$ kali-undercover
 kali@kali:~$
 ```
@@ -33,7 +33,7 @@ or, you can also look for **"Kali Undercover Mode"** from menu of your desktop a
 
 Now, to **revert** back into your previous desktop settings just re-enter the previous command:
 
-```markdown
+```console
 kali@kali:~$ kali-undercover
 kali@kali:~$
 ```
