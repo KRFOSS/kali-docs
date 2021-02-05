@@ -2,13 +2,9 @@
 title: Kali Linux LXC/LXD Images
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 60
+weight:
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 ## Content:
@@ -29,8 +25,8 @@ og_description:
 - **run Kali Linux within other Linux distributions**
 - **provide isolated environments for development or testing activities**
 
-**without the overhead of virtual machines.**
-**Docker is the preferred solution for applications whilst LXC/LXD are preferred for entire systems.**
+**without the overhead of virtual machines**.
+**Docker is the preferred solution for applications whilst LXC/LXD are preferred for entire systems**.
 
 Linux containers provide features like snapshots and freezing which comes in very handy when developing or testing software.
 
@@ -63,44 +59,46 @@ Installing a Kali Linux container in Ubuntu only requires a few steps:
 
 1 - Install lxd via snap and perform initial setup:
 
-```bash
-sudo snap install lxd
-lxd init
+```console
+kali@kali:~$ sudo snap install lxd
+kali@kali:~$ lxd init
 ```
 
-![010_Ubuntu-SnapInstallLXD.png](010_Ubuntu-SnapInstallLXD.png)
+![](010_Ubuntu-SnapInstallLXD.png)
 2 - Launch your first Kali Linux container with
 
-```bash
-lxc launch images:kali/current/amd64 my-kali
+```console
+kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
 ```
 
-![020_Ubuntu-CreateKaliContainer.png](020_Ubuntu-CreateKaliContainer.png)
+![](020_Ubuntu-CreateKaliContainer.png)
 3 - Install additional packages inside the container via
 
-```bash
-lxc exec my-kali -- apt update
-lxc exec my-kali -- apt install kali-linux-default kali-desktop-xfce
+```console
+kali@kali:~$ xc exec my-kali -- apt update
+kali@kali:~$ xc exec my-kali -- apt install kali-linux-default kali-desktop-xfce
 ```
 
-![030_Ubuntu-InstallPackages.png](030_Ubuntu-InstallPackages.png)
+![](030_Ubuntu-InstallPackages.png)
 4 - Create non-root user - "kali" in this example:
 
-```bash
-lxc exec my-kali -- adduser kali
-lxc exec my-kali -- usermod -aG sudo kali
-lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
-lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
+```console
+kali@kali:~$ lxc exec my-kali -- adduser kali
+kali@kali:~$ lxc exec my-kali -- usermod -aG sudo kali
+kali@kali:~$ lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
+kali@kali:~$ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 ```
 
-![040_Ubuntu-Adduser.png](040_Ubuntu-Adduser.png)
+![](040_Ubuntu-Adduser.png)
 5 - Login to the new container as user "kali" via
 
-`lxc console my-kali`
+```console
+kali@kali:~$ lxc console my-kali
+```
 
-![050_Ubuntu-KaliCliSession.png](050_Ubuntu-KaliCliSession.png)
+![](050_Ubuntu-KaliCliSession.png)
 
-![055_Ubuntu_KaliCliSession_DE.png](055_Ubuntu_KaliCliSession_DE.png)
+![](055_Ubuntu_KaliCliSession_DE.png)
 
 Voila!
 
@@ -127,47 +125,47 @@ Installing a Kali container to run GUI applications is similar to the previous e
 
 1 - Install lxd via snap and perform initial setup (if not already done):
 
-```bash
-sudo snap install lxd
-lxd init
+```console
+kali@kali:~$ sudo snap install lxd
+kali@kali:~$ lxd init
 ```
 
 2 - Launch your first Kali Linux container with
 
-```bash
-wget https://blog.simos.info/wp-content/uploads/2018/06/lxdguiprofile.txt
-lxc profile create gui
-cat lxdguiprofile.txt | lxc profile edit gui
-lxc profile list
-lxc launch --profile default --profile gui images:kali/current/amd64    gui-kali
-lxc launch images:kali/current/amd64 my-kali```
+```console
+kali@kali:~$ wget https://blog.simos.info/wp-content/uploads/2018/06/lxdguiprofile.txt
+kali@kali:~$ lxc profile create gui
+kali@kali:~$ cat lxdguiprofile.txt | lxc profile edit gui
+kali@kali:~$ lxc profile list
+kali@kali:~$ lxc launch --profile default --profile gui images:kali/current/amd64    gui-kali
+kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
 ```
 
-![080_Ubuntu_KaliGuiSetup.png](080_Ubuntu_KaliGuiSetup.png)
+![](080_Ubuntu_KaliGuiSetup.png)
 3 - Install additional packages inside the container via
 
-```bash
-lxc exec my-kali -- apt update
-lxc exec my-kali -- apt install kali-linux-default
+```console
+kali@kali:~$ lxc exec my-kali -- apt update
+kali@kali:~$ lxc exec my-kali -- apt install kali-linux-default
 ```
 
 4 - Create non-root user - "kali" in this example:
 
-```bash
-lxc exec my-kali -- adduser kali
-lxc exec my-kali -- usermod -aG sudo kali
-lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
-lxc exec my-kali -- echo "export DISPLAY=:0" >> /home/kali/.bashrc
-lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
+```console
+kali@kali:~$ lxc exec my-kali -- adduser kali
+kali@kali:~$ lxc exec my-kali -- usermod -aG sudo kali
+kali@kali:~$ lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
+kali@kali:~$ lxc exec my-kali -- echo "export DISPLAY=:0" >> /home/kali/.bashrc
+kali@kali:~$ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 ```
 
 5 - Start Kali Xfce panel via
 
 ```
-lxc exec gui-kali -- sudo -u kali xfce4-panel
+kali@kali:~$ lxc exec gui-kali -- sudo -u kali xfce4-panel
 ```
 
-![090_Ubuntu_KaliGuiSession.png](090_Ubuntu_KaliGuiSession.png)
+![](090_Ubuntu_KaliGuiSession.png)
 
 Customise the panel as desired.
 
@@ -193,30 +191,33 @@ Installing a privileged Kali Linux container on a Kali host only requires to:
 
 1 - Install lxc and setup the network:
 
-```bash
-sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
-
-sudo cat <<EOF > /etc/lxc/default.conf
+```console
+kali@kali:~$ sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
+kali@kali:~$
+kali@kali:~$ sudo cat <<EOF > /etc/lxc/default.conf
 lxc.net.0.type = veth
 lxc.net.0.link = virbr0
 lxc.net.0.flags = up
 lxc.apparmor.profile = generated
 lxc.apparmor.allow_nesting = 1
 EOF
-
-sudo virsh net-start default
-sudo virsh net-autostart default
+kali@kali:~$
+kali@kali:~$ sudo virsh net-start default
+kali@kali:~$ sudo virsh net-autostart default
 ```
 
-![110_Kali-VirtNetStart.png](110_Kali-VirtNetStart.png)
+![](110_Kali-VirtNetStart.png)
 2 - Download the Kali Linux image from the image server via
 
-`lxc-create -t download -n my-kali`
-![120_Kali-PrivContainerCreate.png](120_Kali-PrivContainerCreate.png)
+```console
+kali@kali:~$ lxc-create -t download -n my-kali
+```
+
+![](120_Kali-PrivContainerCreate.png)
 
 This will list all available images.
 
-![130_Kali-PrivContainerCreate_2.png](130_Kali-PrivContainerCreate_2.png)
+![](130_Kali-PrivContainerCreate_2.png)
 
 When prompted, enter:
 
@@ -224,21 +225,21 @@ When prompted, enter:
 - Release: *current*
 - Architecture: *amd64* (or other as applicable)
 
-![140_Kali-PrivContainerCreate_3.png](140_Kali-PrivContainerCreate_3.png)
+![](140_Kali-PrivContainerCreate_3.png)
 3 - Start the container with
 
 ```
-sudo lxc-start -n my-kali -d
-````
+kali@kali:~$ sudo lxc-start -n my-kali -d
+```
 
-![150_Kali-PrivContainerStart.png](150_Kali-PrivContainerStart.png)
+![](150_Kali-PrivContainerStart.png)
 4 - Attach to the container via
 
 ```
-sudo lxc-attach -n my-kali
+kali@kali:~$ sudo lxc-attach -n my-kali
 ```
 
-![170_Kali-PrivContainerAttach.png](170_Kali-PrivContainerAttach.png)
+![](170_Kali-PrivContainerAttach.png)
 
 There you have it. Next you should set a root password and install the "kali-linux-default" metapackage.
 
@@ -269,50 +270,50 @@ The setup it slightly more involved:
 
 1 - Install lxc (if required):
 
-```bash
-sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
+```console
+kali@kali:~$ sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
 ```
 2 - Setup LXC for unprivileged containers
 
-```bash
-echo "$USER veth virbr0 10"| sudo tee -i /etc/lxc/lxc-usernet
-sudo sh -c 'echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/80-lxc-userns.conf'
-sudo sysctl kernel.unprivileged_userns_clone=1
-sudo chmod u+s /usr/libexec/lxc/lxc-user-nic
-
-mkdir -p ~/.config/lxc
-cp /etc/lxc/default.conf ~/.config/lxc/default.conf
-sed -i 's/lxc.apparmor.profile = generated/lxc.apparmor.profile = unconfined/g' ~/.config/lxc/default.conf
+```console
+kali@kali:~$ echo "$USER veth virbr0 10"| sudo tee -i /etc/lxc/lxc-usernet
+kali@kali:~$ sudo sh -c 'echo "kernel.unprivileged_userns_clone=1" > /etc/sysctl.d/80-lxc-userns.conf'
+kali@kali:~$ sudo sysctl kernel.unprivileged_userns_clone=1
+kali@kali:~$ sudo chmod u+s /usr/libexec/lxc/lxc-user-nic
+kali@kali:~$
+kali@kali:~$ mkdir -p ~/.config/lxc
+kali@kali:~$ cp /etc/lxc/default.conf ~/.config/lxc/default.conf
+kali@kali:~$ sed -i 's/lxc.apparmor.profile = generated/lxc.apparmor.profile = unconfined/g' ~/.config/lxc/default.conf
 ```
 
-Next we have to add two lines into `~/.config/lxc/default.conf` whose    subuid & subguid match those listed in `/etc/subuid` and `/etc/subgid`.
-First let's get the id's via `cat  /etc/s*id|grep $USER`
+Next we have to add two lines into `~/.config/lxc/default.conf` whose subuid & subguid match those listed in `/etc/subuid` and `/etc/subgid`.
+First let's get the id's via `cat /etc/s*i d grep $USER`
 The result should look like this:
 
-```bash
+```plaintext
 kali:100000:65536
 kali:100000:65536
 ```
 
 Substitute the ID's in the following commands with the ones in the previous output:
 
-```bash
-echo lxc.idmap = u 0 100000 65536 >> ~/.config/lxc/default.conf
-echo lxc.idmap = g 0 100000 65536 >> ~/.config/lxc/default.conf
+```console
+kali@kali:~$ echo lxc.idmap = u 0 100000 65536 >> ~/.config/lxc/default.conf
+kali@kali:~$ echo lxc.idmap = g 0 100000 65536 >> ~/.config/lxc/default.conf
 ```
 
-![200_Kali-UnPrivPrep.png](200_Kali-UnPrivPrep.png)
+![](200_Kali-UnPrivPrep.png)
 3 - Download the Kali Linux image from the image server via
 
 ```
-lxc-create -t download -n my-kali
+kali@kali:~$ lxc-create -t download -n my-kali
 ```
 
-![200_Kali-UnPriv-ContainerCreate_1.png](200_Kali-UnPriv-ContainerCreate_1.png)
+![](200_Kali-UnPriv-ContainerCreate_1.png)
 
 This will list all available images.
 
-![210_Kali-UnPriv-ContainerCreate_2.png](210_Kali-UnPriv-ContainerCreate_2.png)
+![](210_Kali-UnPriv-ContainerCreate_2.png)
 
 When prompted, enter:
 
@@ -320,44 +321,44 @@ When prompted, enter:
 - Release: *current*
 - Architecture: *amd64* (or other as applicable)
 
-![220_Kali-UnPrivContainerAttach.png](220_Kali-UnPrivContainerAttach.png)
+![](220_Kali-UnPrivContainerAttach.png)
 4 - Start the container with
 
-```bash
-lxc-start -n my-kali -d
+```console
+kali@kali:~$ lxc-start -n my-kali -d
 ```
 
 But before we login, we perform some post-installation setup tasks
 
 5 - Install default packages:
-```bash
-lxc-attach -n my-kali apt update
-lxc-attach -n my-kali apt install kali-linux-default
+```console
+kali@kali:~$ lxc-attach -n my-kali apt update
+kali@kali:~$ lxc-attach -n my-kali apt install kali-linux-default
 ```
 
-![220_Kali-UnPrivContainerInstallPackages.png](220_Kali-UnPrivContainerInstallPackages.png)
+![](220_Kali-UnPrivContainerInstallPackages.png)
 6 - Create a non-root user:
 
-```bash
-lxc-attach -n my-kali --clear-env adduser <username>
-lxc-attach -n my-kali --clear-env adduser <username> sudo
+```console
+kali@kali:~$ lxc-attach -n my-kali --clear-env adduser <username>
+kali@kali:~$ lxc-attach -n my-kali --clear-env adduser <username> sudo
 ```
 
-![230_Kali-UnPrivCreateUser.png](230_Kali-UnPrivCreateUser.png)
+![](230_Kali-UnPrivCreateUser.png)
 7 - Login as non-root user via
 
-```bash
-lxc-console
+```console
+kali@kali:~$ lxc-console
 ```
 
 And perform the following on initial login to get some colors in the console:
 
-```bash
-sed -i '1 i\TERM=xterm-256color' ~/.bashrc
-. ~/.bashrc
+```console
+kali@kali:~$ sed -i '1 i\TERM=xterm-256color' ~/.bashrc
+kali@kali:~$ . ~/.bashrc
 ```
 
-![230_Kali-UnPrivCreateUser.png](230_Kali-UnPrivCreateUser.png)
+![](230_Kali-UnPrivCreateUser.png)
 
 ##### Container management:
 

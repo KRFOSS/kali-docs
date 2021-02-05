@@ -2,17 +2,14 @@
 title: Using Kali Linux Docker Images
 description:
 icon:
-date: 2020-06-19
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
+
 To use the Kali Linux Docker image, we will do the following commands:
 
-```
+```console
 kali@kali:~$ docker pull kalilinux/kali-rolling
 kali@kali:~$
 kali@kali:~$ docker run --tty --interactive kalilinux/kali-rolling /bin/bash
