@@ -2,16 +2,12 @@
 title: Rebuilding a Source Package
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
-Kali Linux is [easy to customize at a per-package level](/docs/development/live-build-a-custom-kali-iso/), and it's equally simple to make modifications to individual [packages](http://pkg.kali.org/) and rebuild them from their source code for inclusion in your custom ISO or on your desktop install.
+Kali Linux is [easy to customize at a per-package level](/docs/development/live-build-a-custom-kali-iso/), and it's equally simple to make modifications to individual [packages](https://pkg.kali.org/) and rebuild them from their source code for inclusion in your custom ISO or on your desktop install.
 
 Accomplishing this is a simple three-step process:
 
@@ -25,32 +21,32 @@ Before anything else, ensure that the `deb-src` line in `/etc/apt/sources.list` 
 
 ## Downloading the Package Source
 
-```html
-# Get the source package
-sudo apt update
-apt source libfreefare
-cd libfreefare-0.4.0/
+```console
+kali@kali:~$ # Get the source package
+kali@kali:~$ sudo apt update
+kali@kali:~$ apt source libfreefare
+kali@kali:~$ cd libfreefare-0.4.0/
 ```
 
 ## Edit the Package Source Code
 
 Make the changes needed to the source code of the package. In our case, we modify an example file, mifare-classic-format.c.
 
-```markdown
-nano examples/mifare-classic-format.c
+```console
+kali@kali:~$ vim examples/mifare-classic-format.c
 ```
 
 ## Check for Build Dependencies
 
 Check for any build dependencies the package may have. These need to be installed before you can build the package.
 
-```markdown
-dpkg-checkbuilddeps
+```console
+kali@kali:~$ dpkg-checkbuilddeps
 ```
 
 The output should be similar to the following, depending on what packages you already have installed. If **dpkg-checkbuilddeps** returns no output, that means you can proceed with the build, all of the dependencies are already satisfied.
 
-```markdown
+```plaintext
 dpkg-checkbuilddeps: Unmet build dependencies: dh-autoreconf libnfc-dev libssl-dev
 ```
 
@@ -58,22 +54,22 @@ dpkg-checkbuilddeps: Unmet build dependencies: dh-autoreconf libnfc-dev libssl-d
 
 Install any build dependencies if needed, as shown in the output of **dpkg-checkbuilddeps**:
 
-```markdown
-sudo apt install dh-autoreconf libnfc-dev libssl-dev
+```console
+kali@kali:~$ sudo apt install dh-autoreconf libnfc-dev libssl-dev
 ```
 
 ## Build the Modified Package
 
 With all of the dependencies installed, the **dpkg-buildpackage** command is all it takes to build your new version.
 
-```markdown
-dpkg-buildpackage
+```console
+kali@kali:~$ dpkg-buildpackage
 ```
 
 ## Install the New Package
 
 If the build completes without errors, you'll be able to install your newly-created package with **dpkg**.
 
-```markdown
-sudo dpkg -i ../libfreefare*.deb
+```console
+kali@kali:~$ sudo dpkg -i ../libfreefare*.deb
 ```

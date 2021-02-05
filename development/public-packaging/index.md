@@ -2,20 +2,16 @@
 title: Public Packaging
 description:
 icon:
-date: 2020-06-23
 type: archived
-weight: 100
+weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 # Getting involved in the Kali ecosystem
 
 Kali Linux has a large number of tools that it maintains and adds on a regular basis. However, we can't always consider every request for a package to be added because of the large number of requests. Because of this, we have developed requirements that we have users follow in order to increase the chances that we see them, and then are able to properly consider them. If you have visited the [bug tracker](http://bugs.kali.org) you may have noticed the requirements posted on certain package requests. If you haven't, no worries, because they are as follows:
 
-```markdown
+```plaintext
 - [Name] - The name of the tool
 - [Version] - What version of the tool should be added?
 --- If it uses source control (such as git), please make sure there is a release to match (e.g. git tag)
@@ -32,9 +28,10 @@ Kali Linux has a large number of tools that it maintains and adds on a regular b
 - [How to use] - What are some basic commands/functions to demonstrate it?
 ```
 
-You may be asking at this point 'How does this relate to me getting involved?'. Well that's simple: users can now do most of the work on their own to get the tool added thanks to [our move to GitLab](https://gitlab.com/kalilinux). Keep in mind that we still will not be adding all tools that are requested; perhaps there is a different tool that does the same thing but has been around longer, or maybe the tool is too new and needs time to really get more user's opinion on. There are a few things that those who want to get involved need to do first, which is what we are going to walk you through now.
+You may be asking at this point 'How does this relate to me getting involved?'. Well that's simple: users can now do most of the work on their own to get the tool added thanks to [our move to GitLab](https://gitlab.com/kalilinux/). Keep in mind that we still will not be adding all tools that are requested; perhaps there is a different tool that does the same thing but has been around longer, or maybe the tool is too new and needs time to really get more user's opinion on. There are a few things that those who want to get involved need to do first, which is what we are going to walk you through now.
 
-Related: [Setting Up A System For Packaging](/docs/development/setting-up-packaging-system), [MyRepos MR](/docs/development/git-clone-my-repos), [Getting Started with Kali Development](/docs/development/getting-started-with-kali-development), [Building packages with sbuild](/docs/development/building-package-with-sbuild)
+Related:
+- [Setting Up A System For Packaging](/docs/development/setting-up-packaging-system/)
 
 - - -
 
@@ -46,50 +43,48 @@ Before we start the "packaging" we need to get the folder prepared properly. Ass
 
 Otherwise, you need to pull the release if they have one. If they **do** have a release, skip to that header. If they **don't** have a release, clone the repo and do the following command:
 
-```
+```console
 packaging@kali:~$ git clone https://github.com/ambionics/phpggc.git phpgcc-official
 packaging@kali:~$
 packaging@kali:~$ cd phpggc-official
 packaging@kali:~$
-packaging@kali:~/phpggc-official/$ git archive --format=tar master | gzip -c > ../PACKAGE_YEARMONTHDAY.orig.tar.gz
-packaging@kali:~/phpggc-official/$
+packaging@kali:~/phpggc-official$ git archive --format=tar master | gzip -c > ../PACKAGE_YEARMONTHDAY.orig.tar.gz
+packaging@kali:~/phpggc-official$
 ```
 Be sure to change both package and date to the appropriate names.
 
 We create an empty git repo and then clone it, then we can import the tool. _Be sure to create a new empty repo of your own for your own package for this step._
 
-```markdown
+```console
 packaging@kali:~$ git clone git@gitlab.com:PackageAllTheThings/phpggc.git
 packaging@kali:~$
-packaging@kali:~$ cd phpggc
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ gbp import-orig ../phpggc_0.20191028.orig.tar.gz
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git checkout -b kali/master
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git branch -D master
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git push -u origin --all
-packaging@kali:~/phpggc/$
+packaging@kali:~$ cd phpggc/
+packaging@kali:~/phpggc$ gbp import-orig ../phpggc_0.20191028.orig.tar.gz
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git checkout -b kali/master
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git branch -D master
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git push -u origin --all
+packaging@kali:~/phpggc$
 ```
 
 #### Working with a release
 To get the release, we follow a similar process as to when there is no release. We first get the latest release tar.gz link and output the file to the proper Debian format.
 
-```
+```console
 packaging@kali:~$ wget -O phpggc_1.0.1.orig.tar.gz https://gitlab.com/PackageAllTheThings/phpggc/archive/v1.0.1.tar.gz
 packaging@kali:~$
 packaging@kali:~$ git clone git@gitlab.com:PackageAllTheThings/phpggc.git
-packaging@kali:~$ cd phpggc
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ gbp import-orig ../phpggc_1.0.1.orig.tar.gz
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git checkout -b kali/master
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git branch -D master
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git push -u origin --all
-packaging@kali:~/phpggc/$
+packaging@kali:~$ cd phpggc/
+packaging@kali:~/phpggc$ gbp import-orig ../phpggc_1.0.1.orig.tar.gz
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git checkout -b kali/master
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git branch -D master
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git push -u origin --all
+packaging@kali:~/phpggc$
 ```
 
 
@@ -97,20 +92,19 @@ packaging@kali:~/phpggc/$
 
 First we need to generate the base Debian files and remove some of the ones that won't be needed. When prompted we select single for the package type, and assuming everything else is correct, the default values for the rest.
 
-```html
-packaging@kali:~/phpggc/$ dh_make -p phpggc_0.20191028
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ cd debian
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ rm *.ex *.EX README.* *.docs
-packaging@kali:~/phpggc/debian/$
+```console
+packaging@kali:~/phpggc$ dh_make -p phpggc_0.20191028
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ cd debian/
+packaging@kali:~/phpggc/debian$ rm *.ex *.EX README.* *.docs
+packaging@kali:~/phpggc/debian$
 ```
 Next we will need to edit some of the files with the proper information.
 
-```html
-packaging@kali:~/phpggc/debian/$ nano control
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ cat control
+```console
+packaging@kali:~/phpggc/debian$ vim control
+packaging@kali:~/phpggc/debian$
+packaging@kali:~/phpggc/debian$ cat control
 Source: phpggc
 Section: net
 Priority: optional
@@ -141,10 +135,10 @@ There are a number of things to take note of here. Section, priority, maintainer
 * Vcs-* should be set to your repo that you are pushing the package to.
 * Description is the combination of the short description and an extended one that explains what the package contains
 
-```markdown
-packaging@kali:~/phpggc/debian/$ nano changelog
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ cat changelog
+```console
+packaging@kali:~/phpggc/debian$ vim changelog
+packaging@kali:~/phpggc/debian$
+packaging@kali:~/phpggc/debian$ cat changelog
 phpggc (0.20191028-0kali1) kali-dev; urgency=medium
 
   * Initial release
@@ -155,10 +149,10 @@ packaging@kali:~$
 
 Be sure to set kali-dev rather than unstable before urgency, otherwise there will be issues later from sbuild. You can remove everything after "Initial release". We also use a Debian revision of "-0kali1" instead of the default "-1" to avoid conflicts with a version that would be used by an upstream Debian package.
 
-```markdown
-packaging@kali:~/phpggc/debian/$ nano copyright
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ cat copyright
+```console
+packaging@kali:~/phpggc/debian$ vim copyright
+packaging@kali:~/phpggc/debian$
+packaging@kali:~/phpggc/debian$ cat copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: phpggc
 Upstream-Contact: contact@ambionics.io
@@ -192,10 +186,10 @@ packaging@kali:~$
 
 There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debain it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed.
 
-```markdown
-packaging@kali:~/phpggc/debian/$ nano watch
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ cat watch
+```console
+packaging@kali:~/phpggc/debian$ vim watch
+packaging@kali:~/phpggc/debian$
+packaging@kali:~/phpggc/debian$ cat watch
 version=4
 opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/phpggc-$1\.tar\.gz/ \
   https://github.com/ambionics/phpggc/tags .*/v?(\d\S*)\.tar\.gz
@@ -204,7 +198,7 @@ packaging@kali:~$
 
 This file can look a bit intimidating, but what actually needs to be changed is very easy as demonstrated:
 
-```markdown
+```console
 opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/PACKAGENAME-$1\.tar\.gz/ \
   ORIGINALGITLINK/tags .*/v?(\d\S*)\.tar\.gz
 ```
@@ -215,20 +209,20 @@ This file will _watch_ for any changes in the released version number of the ups
 
 If we built the package now, it would not be installed. To fix this, let's create an .install file and a helper script. The reason we are creating these two files is that they both will work the majority of the time. In some cases, the different ways, like using a symlink, may not work and changes will have to be made. As we can't account for every scenario now, we will go with what works the majority of the time.
 
-```html
-packaging@kali:~/phpggc/debian/$ mkdir helper-script
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ nano phpggc.install
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ cat phpggc.install
+```console
+packaging@kali:~/phpggc/debian$ mkdir helper-script
+packaging@kali:~/phpggc/debian$
+packaging@kali:~/phpggc/debian$ vim phpggc.install
+packaging@kali:~/phpggc/debian$
+packaging@kali:~/phpggc/debian$ cat phpggc.install
 lib usr/share/phpggc/
 phpggc usr/share/phpggc/
 templates usr/share/phpggc/
 gadgetchains usr/share/phpggc/
 debian/helper-script/phpggc usr/bin/
-packaging@kali:~/phpggc/debian/$
-packaging@kali:~/phpggc/debian/$ nano helper-script/phpggc
-packaging@kali:~/phpggc/debian/$
+packaging@kali:~/phpggc/debian$
+packaging@kali:~/phpggc/debian$ vim helper-script/phpggc
+packaging@kali:~/phpggc/debian$
 packaging@kali:~$ cat helper-script/phpggc
 #!/bin/sh
 
@@ -241,16 +235,16 @@ Some of you may have caught something odd and are wondering what's up with the f
 
 Now that all that is done, we can push everything to git and try it out!
 
-```markdown
-packaging@kali:~/phpggc/debian/$ cd ..
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git add .
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git commit -m "Packaged up!"
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ git push
-packaging@kali:~/phpggc/$
-packaging@kali:~/phpggc/$ gbp buildpackage --git-builder=sbuild
+```console
+packaging@kali:~/phpggc/debian$ cd ..
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git add .
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git commit -m "Packaged up!"
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ git push
+packaging@kali:~/phpggc$
+packaging@kali:~/phpggc$ gbp buildpackage --git-builder=sbuild
 packaging@kali:~$
 ```
 
@@ -260,8 +254,8 @@ This may take a little bit, and in the end a few things can occur. If lintian sa
 
 If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop` file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one.
 
-```
-packaging@kali:~$ nano desktop-files/phpggc.desktop
+```console
+packaging@kali:~$ vim desktop-files/phpggc.desktop
 packaging@kali:~$
 packaging@kali:~$ cat desktop-files/phpggc.desktop
 [Desktop Entry]
@@ -281,7 +275,7 @@ packaging@kali:~$
 
 Just one last thing to do; submit it to us! To do this, lets head over to [Kali's issue tracker](https://bugs.kali.org). We are going to want to submit a new issue with the category "New Tool Requests". For the title we will call it "phpggc: a library of unserialize() payloads along with a tool to generate them" and for the description we will include that list from earlier.
 
-```markdown
+```plaintext
 - [Name] - PHPGGC
 - [Version] - 0.20191028
 - [Homepage] - https://github.com/ambionics/phpggc

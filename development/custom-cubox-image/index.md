@@ -2,13 +2,9 @@
 title: Custom CuBox Image
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The following document describes our own method of creating a **custom Kali Linux CuBox ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on CuBox](/docs/arm/kali-linux-cubox/) article.
@@ -25,62 +21,63 @@ Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in 
 
 Next, we create the physical image file, which will hold our CuBox rootfs and boot images.
 
-```markdown
-apt install -y kpartx xz-utils sharutils
-mkdir -p ~/arm-stuff/images/
-cd ~/arm-stuff/images/
-dd if=/dev/zero of=kali-custom-cubox.img bs=4M count=7000
+```console
+kali@kali:~$ apt install -y kpartx xz-utils sharutils
+kali@kali:~$ mkdir -p ~/arm-stuff/images/
+kali@kali:~$ cd ~/arm-stuff/images/
+kali@kali:~$ dd if=/dev/zero of=kali-custom-cubox.img bs=4M count=7000
 ```
 
 ### 03. Partition and Mount the Image File
 
-```markdown
-parted kali-custom-cubox.img --script -- mklabel msdos
-parted kali-custom-cubox.img --script -- mkpart primary ext4 0 -1
+```console
+kali@kali:~$ parted kali-custom-cubox.img --script -- mklabel msdos
+kali@kali:~$ parted kali-custom-cubox.img --script -- mkpart primary ext4 0 -1
 ```
 
-```html
-loopdevice=`losetup -f --show kali-custom-cubox.img`
-device=`kpartx -va $loopdevice| sed -E 's/.*(loop[0-9])p.*/\1/g' | head -1`
-device="/dev/mapper/${device}"
-rootp=${device}p1
-
-mkfs.ext4 $rootp
-mkdir -p root
-mount $rootp root
+```console
+kali@kali:~$ loopdevice=$(losetup -f --show kali-custom-cubox.img)
+kali@kali:~$ device=`kpartx -va $loopdevice| sed -E 's/.*(loop[0-9])p.*/\1/g' | head -1`
+kali@kali:~$ device="/dev/mapper/${device}"
+kali@kali:~$ rootp=${device}p1
+kali@kali:~$
+kali@kali:~$ mkfs.ext4 $rootp
+kali@kali:~$ mkdir -p root
+kali@kali:~$ mount $rootp root
 ```
 
 ### 04. Copy and Modify the Kali rootfs
 
-```markdown
-rsync -HPavz /root/arm-stuff/rootfs/kali-armhf/ root
-echo nameserver 8.8.8.8 > root/etc/resolv.conf
+```console
+kali@kali:~$ rsync -HPavz /root/arm-stuff/rootfs/kali-armhf/ root
+kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 ```
 
 ### 05. Compile the CuBox Kernel and Modules
 
 If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following instructions.
 
-```plaintext
-mkdir -p ~/arm-stuff/kernel/
-cd ~/arm-stuff/kernel/
-git clone --depth 1 https://github.com/rabeeh/linux.git
-cd linux/
-touch .scmversion
-mkdir -p ../patches/
-wget http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch -O ../patches/mac80211.patch
-patch -p1 --no-backup-if-mismatch < ../patches/mac80211.patch
-export ARCH=arm
-export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-4.6.2/bin/arm-eabi-
-make cubox_defconfig
-# configure your kernel !
-make menuconfig
-make -j$( cat /proc/cpuinfo|grep processor | wc -l )
-make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root
-make uImage
-cp arch/arm/boot/uImage ~/arm-stuff/images/root/boot
+```console
+kali@kali:~$ mkdir -p ~/arm-stuff/kernel/
+kali@kali:~$ cd ~/arm-stuff/kernel/
+kali@kali:~$ git clone --depth 1 https://github.com/rabeeh/linux.git
+kali@kali:~$ cd linux/
+kali@kali:~$ touch .scmversion
+kali@kali:~$ mkdir -p ../patches/
+kali@kali:~$ wget http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch -O ../patches/mac80211.patch
+kali@kali:~$ patch -p1 --no-backup-if-mismatch < ../patches/mac80211.patch
+kali@kali:~$ export ARCH=arm
+kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-4.6.2/bin/arm-eabi-
+kali@kali:~$ make cubox_defconfig
 
-cat <<EOF > ~/arm-stuff/images/root/boot/boot.txt
+# configure your kernel !
+kali@kali:~$ make menuconfig
+kali@kali:~$ make -j$( cat /proc/cpuinfo|grep processor | wc -l )
+kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root
+kali@kali:~$ make uImage
+kali@kali:~$ cp arch/arm/boot/uImage ~/arm-stuff/images/root/boot
+kali@kali:~$
+kali@kali:~$ cat <<EOF > ~/arm-stuff/images/root/boot/boot.txt
 echo "== Executing ${directory}${bootscript} on ${device_name} partition ${partition} =="
 setenv unit_no 0
 setenv root_device ?
@@ -109,20 +106,20 @@ fi
 
 echo "!! Unable to locate root partition on ${device_name} !!"
 EOF
-
-mkimage -A arm -T script -C none -n "Boot.scr for CuBox" -d ~/arm-stuff/images/root/boot/boot.txt ~/arm-stuff/images/root/boot/boot.scr
+kali@kali:~$
+kali@kali:~$ mkimage -A arm -T script -C none -n "Boot.scr for CuBox" -d ~/arm-stuff/images/root/boot/boot.txt ~/arm-stuff/images/root/boot/boot.scr
 ```
 
-```markdown
-umount $rootp
-kpartx -dv $loopdevice
-losetup -d $loopdevice
+```console
+kali@kali:~$ umount $rootp
+kali@kali:~$ kpartx -dv $loopdevice
+kali@kali:~$ losetup -d $loopdevice
 ```
 
-Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed.**
+Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed**.
 
-```markdown
-dd if=kali-custom-cubox.img of=/dev/sdb bs=4M
+```console
+kali@kali:~$ dd if=kali-custom-cubox.img of=/dev/sdb bs=4M
 ```
 
 Once the dd operation is complete, unmount and eject the SD card and boot your CuBox into Kali Linux

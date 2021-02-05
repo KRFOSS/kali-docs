@@ -2,13 +2,9 @@
 title: Custom Chromebook Image
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The following document describes our own method of creating a **custom Kali Linux Samsung Chromebook ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on Samsung Chromebook](/docs/arm/kali-linux-samsung-chromebook/) article.
@@ -29,19 +25,19 @@ Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as d
 
 Next, we create the physical image file that will hold our Chromebook rootfs and boot images.
 
-```markdown
-apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
-mkdir -p ~/arm-stuff/images/
-cd ~/arm-stuff/images//
-dd if=/dev/zero of=kali-custom-chrome.img bs=4M count=7000
+```console
+kali@kali:~$ apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
+kali@kali:~$ mkdir -p ~/arm-stuff/images/
+kali@kali:~$ cd ~/arm-stuff/images/
+kali@kali:~$ dd if=/dev/zero of=kali-custom-chrome.img bs=4M count=7000
 ```
 
 #### 03. Partition and Mount the Image File
 
-```plaintext
-parted kali-custom-chrome.img --script -- mklabel msdos
-parted kali-custom-chrome.img --script -- mktable gpt
-gdisk kali-custom-chrome.img <<EOF
+```console
+kali@kali:~$ parted kali-custom-chrome.img --script -- mklabel msdos
+kali@kali:~$ parted kali-custom-chrome.img --script -- mktable gpt
+kali@kali:~$ gdisk kali-custom-chrome.img <<EOF
 x
 l
 8192
@@ -64,31 +60,31 @@ y
 EOF
 ```
 
-```html
-loopdevice=`losetup -f --show kali-custom-chrome.img`
-device=`kpartx -va $loopdevice| sed -E 's/.*(loop[0-9])p.*/\1/g' | head -1`
-device="/dev/mapper/${device}"
-bootp1=${device}p1
-bootp2=${device}p2
-rootp=${device}p3
+```console
+kali@kali:~$ loopdevice=`losetup -f --show kali-custom-chrome.img`
+kali@kali:~$ device=`kpartx -va $loopdevice| sed -E 's/.*(loop[0-9])p.*/\1/g' | head -1`
+kali@kali:~$ device="/dev/mapper/${device}"
+kali@kali:~$ bootp1=${device}p1
+kali@kali:~$ bootp2=${device}p2
+kali@kali:~$ rootp=${device}p3
 
-mkfs.ext4 $rootp
-mkdir -p root
-mount $rootp root
+kali@kali:~$ mkfs.ext4 $rootp
+kali@kali:~$ mkdir -p root
+kali@kali:~$ mount $rootp root
 ```
 
 #### 04. Copy and Modify the Kali rootfs
 
 Copy over the Kali rootfs you bootstrapped earlier using **[rsync](https://packages.debian.org/testing/rsync)** to the mounted image.
 
-```markdown
-cd ~/arm-stuff/images/
-rsync -HPavz ~/arm-stuff/rootfs/kali-armhf/ root
-
-echo nameserver 8.8.8.8 > root/etc/resolv.conf
-
-mkdir -p root/etc/X11/xorg.conf.d/
-cat <<EOF > root/etc/X11/xorg.conf.d/50-touchpad.conf
+```console
+kali@kali:~$ cd ~/arm-stuff/images/
+kali@kali:~$ rsync -HPavz ~/arm-stuff/rootfs/kali-armhf/ root
+kali@kali:~$
+kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
+kali@kali:~$
+kali@kali:~$ mkdir -p root/etc/X11/xorg.conf.d/
+kali@kali:~$ cat <<EOF > root/etc/X11/xorg.conf.d/50-touchpad.conf
 Section "InputClass"
 Identifier "touchpad"
 MatchIsTouchpad "on"
@@ -109,15 +105,15 @@ If you're not using ARM hardware as the development environment, you will need t
 
 Fetch the Chromium kernel sources and place them in our development tree structure:
 
-```markdown
-mkdir -p ~/arm-stuff/kernel/
-cd ~/arm-stuff/kernel/
-git clone http://git.chromium.org/chromiumos/third_party/kernel.git -b chromeos-3.4 chromeos
-cd chromeos/
+```console
+kali@kali:~$ mkdir -p ~/arm-stuff/kernel/
+kali@kali:~$ cd ~/arm-stuff/kernel/
+kali@kali:~$ git clone http://git.chromium.org/chromiumos/third_party/kernel.git -b chromeos-3.4 chromeos
+kali@kali:~$ cd chromeos/
 ```
 
-```html
-cat <<EOF > kernel.its
+```console
+kali@kali:~$ cat <<EOF > kernel.its
 /dts-v1/;
 
 / {
@@ -158,79 +154,81 @@ EOF
 
 Patch the kernel, in our case, with wireless injection patches.
 
-```bash
-mkdir -p ../patches/
-wget http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch -O ../patches/mac80211.patch
-wget http://patches.aircrack-ng.org/channel-negative-one-maxim.patch -O ../patches/negative.patch
-patch -p1 < ../patches/negative.patch
-patch -p1 < ../patches/mac80211.patch
+```console
+kali@kali:~$ mkdir -p ../patches/
+kali@kali:~$ wget http://patches.aircrack-ng.org/mac80211.compat08082009.wl_frag+ack_v1.patch -O ../patches/mac80211.patch
+kali@kali:~$ wget http://patches.aircrack-ng.org/channel-negative-one-maxim.patch -O ../patches/negative.patch
+kali@kali:~$ patch -p1 < ../patches/negative.patch
+kali@kali:~$ patch -p1 < ../patches/mac80211.patch
 ```
 
 Configure, then cross-compile the Chromium kernel as shown below.
 
-```html
-export ARCH=arm
-export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-4.6.2/bin/arm-eabi-
+```console
+kali@kali:~$ export ARCH=arm
+kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-4.6.2/bin/arm-eabi-
+kali@kali:~$
+kali@kali:~$ ./chromeos/scripts/prepareconfig chromeos-exynos5
 
-./chromeos/scripts/prepareconfig chromeos-exynos5
 # Disable LSM
-sed -i 's/CONFIG_SECURITY_CHROMIUMOS=y/# CONFIG_SECURITY_CHROMIUMOS is not set/g' .config
+kali@kali:~$ sed -i 's/CONFIG_SECURITY_CHROMIUMOS=y/# CONFIG_SECURITY_CHROMIUMOS is not set/g' .config
+
 # If cross compiling, do this once:
-sed -i 's/if defined(__linux__)/if defined(__linux__) ||defined(__KERNEL__) /g' include/drm/drm.h
+kali@kali:~$ sed -i 's/if defined(__linux__)/if defined(__linux__) ||defined(__KERNEL__) /g' include/drm/drm.h
 
-make menuconfig
-make -j$(cat /proc/cpuinfo|grep processor|wc -l)
-make dtbs
-cp ./scripts/dtc/dtc /usr/bin/
-mkimage -f kernel.its kernel.itb
-make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root/
+kali@kali:~$ make menuconfig
+kali@kali:~$ make -j$(cat /proc/cpuinfo|grep processor|wc -l)
+kali@kali:~$ make dtbs
+kali@kali:~$ cp ./scripts/dtc/dtc /usr/bin/
+kali@kali:~$ mkimage -f kernel.its kernel.itb
+kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root/
 
-# copy over firmware. Ideally use the original firmware (/lib/firmware) from the Chromebook.
-git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git
-cp -rf linux-firmware/* ~/arm-stuff/images/root/lib/firmware/
-rm -rf linux-firmware
+# Copy over firmware. Ideally use the original firmware (/lib/firmware) from the Chromebook.
+kali@kali:~$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git
+kali@kali:~$ cp -rf linux-firmware/* ~/arm-stuff/images/root/lib/firmware/
+kali@kali:~$ rm -rf linux-firmware
 ```
 
-```markdown
-echo "console=tty1 debug verbose root=/dev/mmcblk1p3 rootwait rw rootfstype=ext4" > /tmp/config-sd
-echo "console=tty1 debug verbose root=/dev/sda3 rootwait rw rootfstype=ext4" > /tmp/config-usb
-
-vbutil_kernel --pack /tmp/newkern-sd --keyblock /usr/share/vboot/devkeys/kernel.keyblock --version 1 --signprivate /usr/share/vboot/devkeys/kernel_data_key.vbprivk --config=/tmp/config-sd --vmlinuz kernel.itb --arch arm
-vbutil_kernel --pack /tmp/newkern-usb --keyblock /usr/share/vboot/devkeys/kernel.keyblock --version 1 --signprivate /usr/share/vboot/devkeys/kernel_data_key.vbprivk --config=/tmp/config-usb --vmlinuz kernel.itb --arch arm
+```console
+kali@kali:~$ echo "console=tty1 debug verbose root=/dev/mmcblk1p3 rootwait rw rootfstype=ext4" > /tmp/config-sd
+kali@kali:~$ echo "console=tty1 debug verbose root=/dev/sda3 rootwait rw rootfstype=ext4" > /tmp/config-usb
+kali@kali:~$
+kali@kali:~$ vbutil_kernel --pack /tmp/newkern-sd --keyblock /usr/share/vboot/devkeys/kernel.keyblock --version 1 --signprivate /usr/share/vboot/devkeys/kali@kali:~$ kernel_data_key.vbprivk --config=/tmp/config-sd --vmlinuz kernel.itb --arch arm
+kali@kali:~$ vbutil_kernel --pack /tmp/newkern-usb --keyblock /usr/share/vboot/devkeys/kernel.keyblock --version 1 --signprivate /usr/share/vboot/devkeys/kali@kali:~$ kernel_data_key.vbprivk --config=/tmp/config-usb --vmlinuz kernel.itb --arch arm
 ```
 
 #### 06. Prepare the Boot Partition
 
-```markdown
-dd if=/tmp/newkern-sd of=$bootp1 # first boot partition for SD
-dd if=/tmp/newkern-usb of=$bootp2 # second boot partition for USB
-
-umount $rootp
-
-kpartx -dv $loopdevice
-losetup -d $loopdevice
+```console
+kali@kali:~$ dd if=/tmp/newkern-sd of=$bootp1 # first boot partition for SD
+kali@kali:~$ dd if=/tmp/newkern-usb of=$bootp2 # second boot partition for USB
+kali@kali:~$
+kali@kali:~$ umount $rootp
+kali@kali:~$
+kali@kali:~$ kpartx -dv $loopdevice
+kali@kali:~$ losetup -d $loopdevice
 ```
 
 #### 07. dd the Image and Mark the USB Drive Bootable
 
-```markdown
-dd if=kali-custom-chrome.img of=/dev/sdb bs=4M
-cgpt repair /dev/sdb
+```console
+kali@kali:~$ dd if=kali-custom-chrome.img of=/dev/sdb bs=4M
+kali@kali:~$ cgpt repair /dev/sdb
 ```
 
 {{% notice info %}}
 This is the point where you need to mark either boot partition 1 or 2 to have higher priority. The number with the higher priority will boot first. The example below will give priority 10 to the first partition (-i) and will thus boot successfully from a SD card.
 {{% /notice %}}
 
-```markdown
-cgpt add -i 1 -S 1 -T 5 -P 10 -l KERN-A /dev/sdb
-cgpt add -i 2 -S 1 -T 5 -P 5 -l KERN-B /dev/sdb
+```console
+kali@kali:~$ cgpt add -i 1 -S 1 -T 5 -P 10 -l KERN-A /dev/sdb
+kali@kali:~$ cgpt add -i 2 -S 1 -T 5 -P 5 -l KERN-B /dev/sdb
 ```
 
 To see your partition list and order, use the command **cgpt show**.
 
-```markdown
-root@kali:~# cgpt show /dev/sdb
+```console
+kali@kali:~$ cgpt show /dev/sdb
 start size part contents
 0 1 PMBR
 1 1 Pri GPT header
@@ -248,7 +246,7 @@ Type: 0FC63DAF-8483-4772-8E79-3D69D8477DE4
 UUID: E9E67EE1-C02E-481C-BA3F-18E721515DBB
 125045391 32 Sec GPT table
 125045423 1 Sec GPT header
-root@kali:~#
+kali@kali:~$
 ```
 
 Once this operation is complete, boot up your Samsung Chromebook with the SD/USB device plugged in. At the developer mode boot screen, hit CTRL+u to boot from from your USB storage device. Log in to Kali (root / toor) and startx.

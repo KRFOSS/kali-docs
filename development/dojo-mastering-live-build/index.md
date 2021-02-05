@@ -2,9 +2,8 @@
 title: Building Custom Kali ISOs
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 20
+weight:
 author: ["g0tmi1k",]
 tags: ["dojo",]
 keywords: ["",]
@@ -26,8 +25,8 @@ cd live-build-config/
 
 **0x01 - Overwrite the default Kali package list**, including only the packages you want. In the video, we simply edited the list and changed a few package names.
 
-```markdown
-cat <<EOF > kali-config/variant-default/package-lists/kali.list.chroot
+```console
+kali@kali:~$ cat <<EOF > kali-config/variant-default/package-lists/kali.list.chroot
 kali-root-login
 kali-defaults
 kali-menu
@@ -42,8 +41,8 @@ EOF
 ```
 **0x02 - Add a customised syslinux boot entry** which includes a boot parameter for a custom preseed file.
 
-```html
-cat <<EOF > kali-config/common/includes.binary/isolinux/install.cfg
+```console
+kali@kali:~$ cat <<EOF > kali-config/common/includes.binary/isolinux/install.cfg
 label install
     menu label ^Install Automated
     linux /install/vmlinuz
@@ -52,19 +51,19 @@ label install
 EOF
 ```
 
-**0x03 - Customise the ISO build**. In this example, we’ll have the SSH service start by default. To do this, we can use a chroot hook script which is placed in the "hooks" directory:
+**0x03 - Customise the ISO build**. In this example, we'll have the SSH service start by default. To do this, we can use a chroot hook script which is placed in the "hooks" directory:
 
-```markdown
-echo 'systemctl enable ssh' >>  kali-config/common/hooks/01-start-ssh.chroot
-chmod +x kali-config/common/hooks/01-start-ssh.chroot
+```console
+kali@kali:~$ echo 'systemctl enable ssh' >>  kali-config/common/hooks/01-start-ssh.chroot
+kali@kali:~$ chmod +x kali-config/common/hooks/01-start-ssh.chroot
 ```
 
 **0x04 - Next, we download a wallpaper** and overlay it. Notice how chroot overlayed files are placed in the _includes.chroot_ directory.
 
-```markdown
-mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images/
-wget https://www.kali.org/dojo/blackhat-2015/wp-blue.png
-mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images
+```console
+kali@kali:~$ mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images/
+kali@kali:~$ wget https://www.kali.org/dojo/blackhat-2015/wp-blue.png
+kali@kali:~$ mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images
 ```
 **0x05 - Add a preseed file** that will run through a default Kali installation with no input (unattended). We can include a ready made preseed configuration and alter it as needed:
 
@@ -82,8 +81,8 @@ mv Nessus-*amd64.deb kali-config/common/packages.chroot/
 
 **0x07 - Now you can proceed to build your ISO**, this process may take a while depending on your hardware and internet speeds. Once completed, your ISO can be found in the live-build root directory.
 
-```markdown
-./build.sh -v
+```console
+kali@kali:~$ ./build.sh -v
 ```
 
 For more live-build implementations, refer to the following:

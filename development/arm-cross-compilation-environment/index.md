@@ -2,13 +2,9 @@
 title: ARM Cross-Compilation
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["steev",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The following guide will demonstrate how to set up an ARM cross-compilation environment in Kali Linux. This guide is the starting point for many of our contributed "Custom ARM Images" articles.
@@ -29,7 +25,7 @@ Start off by installing the required dependencies for ARM cross-compilation.
 apt install -y git-core gnupg flex bison gperf libesd0-dev build-essential zip curl libncurses5-dev zlib1g-dev gcc-multilib g++-multilib
 ```
 
-If you are running a 64 bit Kali Linux system, add i386 architecture support to your development environment as follows.
+If you are running a 64-bit Kali Linux system, add i386 architecture support to your development environment as follows.
 
 ```
 dpkg --add-architecture i386

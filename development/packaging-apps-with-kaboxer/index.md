@@ -55,10 +55,10 @@ image to run it.
 ### Creating a Docker image
 
 Kaboxer currently only supports Docker as the isolation/container
-mechanism.  As such, the first step when preparing an application to
+mechanism. As such, the first step when preparing an application to
 be packaged with Kaboxer ("kaboxed" for short) is to write a
-**Dockerfile**.  There are few options that are required by Kaboxer,
-but otherwise it's a standard Dockerfile.  For instance, the
+**Dockerfile**. There are few options that are required by Kaboxer,
+but otherwise it's a standard Dockerfile. For instance, the
 `kbx-hello-cli` application uses the following Dockerfile:
 
 ```
@@ -72,12 +72,12 @@ COPY ./kbx-hello /kbx-hello
 ```
 
 Pretty straightforward, except for the two lines about
-`$KBX_APP_VERSION`.  These are used by Kaboxer to track the
-"upstream" version of the application being packaged.  Note the
+`$KBX_APP_VERSION`. These are used by Kaboxer to track the
+"upstream" version of the application being packaged. Note the
 starting point of the image (which is based on a slimmed-down version
 of Debian), and the installation of a couple of packages that are
 dependencies of `kbx-hello-cli` (namely, `python3` and
-`python3-prompt-toolkit`).  In this case, the application consists
+`python3-prompt-toolkit`). In this case, the application consists
 of a single `kbx-hello` program that is installed inside the
 container as `/kbx-hello`.
 
@@ -88,12 +88,12 @@ Now given this Dockerfile, we can build a Docker image for the app.
 Kaboxer is more than that though, as it allows distributing this image
 in various ways, and more importantly it allows adding instructions on
 how to run that image so that the kaboxed app can be seamlessly
-integrated within the system and run just like any other app.  This is
+integrated within the system and run just like any other app. This is
 done via a `kaboxer.yaml` file; it will most likely be named
 `kbx-hello-cli.kaboxer.yaml`, in order to distinguish it from files
-for other apps.  This file uses the YAML syntax for
+for other apps. This file uses the YAML syntax for
 machine-readability, but it's also quite human-readable (and, more to
-the point, human-writable).  A minimal `kaboxer.yaml` file could read
+the point, human-writable). A minimal `kaboxer.yaml` file could read
 like the following:
 
 ```
@@ -111,23 +111,23 @@ components:
 ```
 
 The required information is split into sections and subsections, with
-a clear structure.  The `application` section describes the app
+a clear structure. The `application` section describes the app
 itself; the `packaging` section contains metadata about the
-packaging of the app.  The third section, `components`, describes
+packaging of the app. The third section, `components`, describes
 each component of the app (there's only one for `kbx-hello-cli`, but
-we'll see a multi-component app later).  The most important fields
+we'll see a multi-component app later). The most important fields
 within each subsection are `executable`, which specifies how to
 start the app within the container, and `run_mode`, which describes
-what kind of app this is.  In our case, we picked `cli`, which is
+what kind of app this is. In our case, we picked `cli`, which is
 for text-mode apps.
 
 ### Building the image and testing it
 
-There, we have our two required files.  Now let's build the Kaboxer
+There, we have our two required files. Now let's build the Kaboxer
 image:
 
-```
-$ kaboxer build kbx-hello-cli
+```console
+kali@kali:~$ kaboxer build kbx-hello-cli
 ```
 
 This command will run Docker stuff, so it requires some
@@ -228,12 +228,12 @@ sharing some part of the file system or by letting it access the
 network.
 
 Sharing a part of the file system is a simple matter of defining a
-"mount" for the component.  A "mount" makes a source directory (on the
-host) available inside the container as the target directory.  This
+"mount" for the component. A "mount" makes a source directory (on the
+host) available inside the container as the target directory. This
 allows persisting data across runs, since even if the container is
 stopped and removed, the data that is stored in the source directory
-is not touched.  It also allows sharing parts of the file system
-across containers.  For instance, assuming we want to make the
+is not touched. It also allows sharing parts of the file system
+across containers. For instance, assuming we want to make the
 `/var/lib/kbx-hello` directory available to the container as
 `/data`, we'd add the following section to our component definition:
 
@@ -247,8 +247,8 @@ components:
 ```
 
 For applications that need interaction, it will often be necessary to
-also allow the app to be accessed from outside the container.  In many
-cases, it will just be a matter of exposing one port.  For instance,
+also allow the app to be accessed from outside the container. In many
+cases, it will just be a matter of exposing one port. For instance,
 the following exposes port 8123 from the container (but no other: if
 the app itself uses several ports internally, only the published ports
 will be accessible from outside the container):
@@ -271,9 +271,9 @@ needs.
 The simple, "shared container" scenario is illustrated by
 `kbx-hello-allinone`; the `kbx-hello` application has all three
 components in the same Kaboxer app, and they run in the same
-container.  For that, once the server part is running in its
+container. For that, once the server part is running in its
 container, the other parts need to be started within that running
-container.  Kaboxer automates that when the client components declare
+container. Kaboxer automates that when the client components declare
 the following:
 
 ```
@@ -286,10 +286,10 @@ components:
 
 In more complex scenarios, application may need to isolate the
 components from one another, but still allow them to communicate
-through the network.  It would of course be possible to publish ports
+through the network. It would of course be possible to publish ports
 to the outside of the server container, but that would leave them open
 to the world; in that case, it's simpler to just define a private
-network and plug the containers into this network.  For instance, both
+network and plug the containers into this network. For instance, both
 ``kbx-hello-cli`` and ``kbx-hello-server`` define the following
 network:
 
@@ -351,7 +351,7 @@ build a Kali package like for any other normal application.
 
 This tutorial is only about getting started with Kaboxer; all the
 options are described in more details in the appropriate manual pages,
-namely `kaboxer(1)` and `kaboxer.yaml(5)`.  The `kaboxer`
+namely `kaboxer(1)` and `kaboxer.yaml(5)`. The `kaboxer`
 package also provides a rather comprehensive sample `kbx-hello`
 application that illustrates the settings and the operation; have a
 look in `/usr/share/doc/kaboxer/examples/kbx-hello`.

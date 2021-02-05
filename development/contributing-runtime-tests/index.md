@@ -9,7 +9,7 @@ author: ["gamb1t",]
 
 ## Why Kali could benefit from your help
 
-With Kali Linux being a rolling distribution it will occasionally have packages that are not stable. To best combat this, we have set up [automated runtime tests](https://autopkgtest.kali.org) that have to be passed in order to allow the packages to migrate into [kali-rolling](/docs/general-use/kali-branches/). However, most packages at this time don't have a comprehensive autopkgtest associated with it causing this process to not reach its full potential. This is where the community can help us, by contributing test for packages that lack them.
+With Kali Linux being a [rolling distribution](/docs/general-use/kali-branches/) it will occasionally have packages that are not stable. To best combat this, we have set up [automated runtime tests](https://autopkgtest.kali.org) that have to be passed in order to allow the packages to migrate into [kali-rolling](/docs/general-use/kali-branches/). However, most packages at this time don't have a comprehensive autopkgtest associated with it causing this process to not reach its full potential. This is where the community can help us, by contributing test for packages that lack them.
 
 ### A bit of autopkgtest background
 
@@ -28,7 +28,7 @@ For more information on the environment itself, the `autopkgtest-build-qemu` and
 
 Before getting started with writing tests, we need to get our environment set up. So we can validate our test once it is written.
 
-```
+```console
 kali@kali:~$ sudo apt install -y autopkgtest vmdb2
 kali@kali:~$
 kali@kali:~$ sudo mkdir /srv/autopkgtest-images/

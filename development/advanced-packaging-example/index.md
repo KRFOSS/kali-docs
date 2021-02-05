@@ -80,7 +80,7 @@ As we are manually creating the upstream file, we need to make sure to give it t
 
 We will do the long way by doing using Git to pull down the latest source code from [FinalRecon's GitHub's page](https://github.com/thewhiteh4t/FinalRecon), and create a compressed archive afterwards.
 
-```markdown
+```console
 kali@kali:~$ git clone https://github.com/thewhiteh4t/FinalRecon ~/kali/upstream/finalrecon/
 ...
 kali@kali:~$
@@ -101,7 +101,7 @@ kali@kali:~/kali/upstream/finalrecon$
 {{% notice info %}}
 The `wget` method would be to get the URL from GitHub and then run the following command.
 
-```markdown
+```console
 kali@kali:~$ mkdir -p ~/kali/upstream/
 kali@kali:~$
 kali@kali:~$ wget \
@@ -118,7 +118,7 @@ GitHub UI changes over time. Currently you can find the URL by click in the gree
 
 Now that the prerequisites are done, we can go to the working directory of where we will be making this package and create an **empty Git repository**. This is where we will house our packaging work, and save anything we make.
 
-```markdown
+```console
 kali@kali:~/kali/upstream/finalrecon$ mkdir -p ~/kali/packages/finalrecon/
 kali@kali:~/kali/upstream/finalrecon$
 kali@kali:~/kali/upstream/finalrecon$ cd ~/kali/packages/finalrecon/
@@ -143,7 +143,7 @@ We can now **import the upstream `.tar.gz`** file we previously created into the
 
 When prompted, we accept any default values _(or use the flag `--no-interactive`)_.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ gbp import-orig ~/kali/upstream/finalrecon_*.orig.tar.gz --debian-branch=kali/master
 What will be the source package name? [finalrecon]
 What is the upstream version? [0~20201108]
@@ -169,7 +169,7 @@ We can now **generate the `debian/` folder** with its related files. We will man
 
 Afterwards we will remove any example files that get automatically generated, as they are not used.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ dh_make --file ~/kali/upstream/finalrecon_*.orig.tar.gz -p finalrecon_0~$( date '+%Y%m%d' ) --single -y
 Maintainer Name     : Joseph O'Gorman
 Email-Address       : gamb1t@kali.org
@@ -214,7 +214,7 @@ For this tool to work, it requires additional software to be installed, aka depe
 
 In Python's eco-system, there is [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files). This is Python's package manager, which can be used to download and install any Python libraries. However, we are trying to build a package for Debian package management instead. As a result, any Python libraries need to be ported over to Debian format, in order for our package to use them (so the OS can track any files, allowing for cleaner upgrades and un-installs of packages). Lets start out by looking to see what is needed outside of the standard values, for this tool to work.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ cat requirements.txt
 requests
 ipwhois
@@ -233,7 +233,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 We then try to search for each dependency from `requirements.txt` in `apt-cache`, to make sure that we have everything in Kali Linux' repository.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ sudo apt-get update
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ apt-cache search ipwhois | grep -i python3
@@ -247,7 +247,7 @@ We could search each one manually by repeating the above process for all items i
 
 During this process, we will notice **one dependency which does not have an entry (`icmplib`)**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ for x in $( cat requirements.txt ); do apt-cache search $x | grep -i "python3-$x -" || echo --MISSING $x--; done
 python3-requests - elegant and simple HTTP library for Python3, built for human beings
 python3-ipwhois - Retrieve and parse whois data for IP addresses (Python 3)
@@ -266,7 +266,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 We can try and **broaden our search** for `icmplib`, as we were limiting output last time _(by using grep)_.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ apt-cache search icmplib | grep -i python3
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ apt-cache search icmplib
@@ -294,7 +294,7 @@ We can now start to edit the files in the `debian/` folder.
 
 We will now perform what are our standard changes ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) to the **version**, **distribution** and **description**. The resulting file should be similar to the following.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/changelog
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/changelog
@@ -322,7 +322,7 @@ We make sure to include the **Python dependencies** for building the package as 
 
 There is one thing to note, and that is `python3-icmplib`. **This package does not exist yet**. We are adding this in for the time being as we will be creating it soon, to prevent going back and adding it we will add it now. This does **mean that we will be unable to build our package until** we finish with `icmplib`.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/control
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/control
@@ -373,7 +373,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 As we have already finished getting the copyright information (license, name, contact, year and source), we now just need to add it.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/copyright
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/copyright
@@ -418,7 +418,7 @@ kali@kali:~/kali/packages/finalrecon$
 The start of the rules file will look very similar to [#2 (Photon)](/docs/development/intermediate-packaging-example/), however there is a new lower section.
 This part is to set the permissions on `finalrecon.py`, so when we call it using the symlinks (by `debian/links`), it will be executable.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/rules
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/rules
@@ -445,7 +445,7 @@ This watch file should be in theory be easy. However as there are no tag release
 
 We will go with the **[Debian standard watch file for GitHub](https://wiki.debian.org/debian/watch)**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/watch
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/watch
@@ -459,7 +459,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 Whereas last time ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)), we are not going to use a "helper-script" but instead create a symlink pointing to the main Python file, which will still be in `$PATH`.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/links
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/links
@@ -477,7 +477,7 @@ This could be discovered by auditing the source code, or trial and error when te
 
 We can now create the install file, which is required to say **what files go where on the system during the unpacking of the package**. We need to make sure to include everything from the root of the package directory.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/finalrecon.install
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/finalrecon.install
@@ -498,7 +498,7 @@ For this tool we will need to also implement a **patch to disable the update and
 
 The patch process looks like the following (for more information see [our previous guide, #2 (Photon)](/docs/development/intermediate-packaging-example/)).
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ gbp pq import
 gbp:info: Trying to apply patches at 'f1c4c9f8d25224186749ce69a9f403f207feda03'
 gbp:info: 0 patches listed in 'debian/patches/series' imported on 'patch-queue/kali/master'
@@ -612,7 +612,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 The [runtime test](https://www.kali.org/docs/development/contributing-runtime-tests/) process looks like the following (for more information see [our previous guide, #2 (Photon)](/docs/development/intermediate-packaging-example/)). Just like last time, we will just create a **minimal test to look for the help screen**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ mkdir -p debian/tests/
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ vim debian/tests/control
@@ -643,7 +643,7 @@ For more information on building Python libraries, see the [Debian resource](htt
 
 Here is a quick overview of the **commands needed to build the package**.
 
-```markdown
+```plaintext
 mkdir -p ~/kali/upstream/ ~/kali/packages/python-icmplib/ ~/kali/build-area/
 wget https://github.com/ValentinBELYN/icmplib/archive/v1.2.2.tar.gz -O ~/kali/upstream/python-icmplib_1.2.2.orig.tar.gz
 cd ~/kali/packages/python-icmplib/
@@ -673,7 +673,7 @@ Straight forward, like all the other guides, [#1 (Instaloader)](/docs/developmen
 
 Note, `python-icmplib` needs to match the source name in `debian/control`.
 
-```markdown
+```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/changelog
 python-icmplib (1.2.2-0kali1) kali-dev; urgency=medium
 
@@ -691,7 +691,7 @@ We also need to name the package differently. The source package part of `debian
 
 Note, the source name `python-icmplib` needs to match in `debian/changelog`.
 
-```markdown
+```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/control
 Source: python-icmplib
 Section: python
@@ -720,7 +720,7 @@ kali@kali:~/kali/packages/python-icmplib$
 
 As we renamed the `orig.tar.gz`, upstream name is incorrect, as it normally would not have a leading `python3-`. We can get this from the **source URL**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: icmplib
@@ -759,7 +759,7 @@ kali@kali:~/kali/packages/python-icmplib$
 
 We need to make sure to drop any leading `python-` when being defined in `PYBUILD_NAME`, even though the binary package which gets produced (as defined in `debian/control`) will be `python3-icmplib`. This is because of [PyBuild](https://wiki.debian.org/Python/Pybuild), **only wanting the Python module name**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/rules
 #!/usr/bin/make -f
 #export DH_VERBOSE = 1
@@ -774,7 +774,7 @@ kali@kali:~/kali/packages/python-icmplib$
 
 Straight forward, like all the other guides, [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/), using the **[Debian standard watch file for GitHub](https://wiki.debian.org/debian/watch)**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/watch
 version=4
 opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/icmplib-$1\.tar\.gz/ \
@@ -792,7 +792,7 @@ As we may not have pushed out, had `python3-icmplib` being accepted yet into Kal
 
 We are also unsure about the status of the package, we may not want to commit the latest edits to Git. So we will add `--git-export=WC` when **building the package**.
 
-```markdxown
+```console
 kali@kali:~/kali/packages/python-icmplib$ cd ~/kali/packages/finalrecon/
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ gbp buildpackage \
@@ -810,7 +810,7 @@ kali@kali:~/kali/packages/finalrecon$
 Before we try to test our newly generated package, we remember that in `debian/control` we listed a few dependencies (not only to build the package but to run the package). Using `
 dpkg`, it will not satisfy these requirements, so we need to manually install them first. We can **check what is missing from our operating system**, by doing.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ dpkg-checkbuilddeps
 dpkg-checkbuilddeps: error: Unmet build dependencies: python3-ipwhois python3-dnslib python3-aiohttp python3-aiodns python3-psycopg2 python3-tldextract
 kali@kali:~/kali/packages/finalrecon$
@@ -822,7 +822,7 @@ kali@kali:~/kali/packages/finalrecon$
 {{% notice info %}}
 If you fail to do install the package, you may end up with the following mess.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ sudo dpkg -i ~/kali/build-area/finalrecon_*.deb
 (Reading database ... 167589 files and directories currently installed.)
 Preparing to unpack .../finalrecon_0~20201108-0kali1_all.deb ...
@@ -853,7 +853,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 You will then hit the issue of the next time you try and install or update a package, it will fail.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ sudo apt upgrade
 Reading package lists... Done
 Building dependency tree
@@ -879,7 +879,7 @@ Following what it says, running `sudo apt --fix-broken install` often fixes the 
 
 Our package has been built and dependencies have been installed. Its now time to **finally install FinalRecon**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ sudo dpkg -i ~/kali/build-area/finalrecon_*.deb
 ...
 kali@kali:~/kali/packages/finalrecon$
@@ -891,7 +891,7 @@ kali@kali:~/kali/packages/finalrecon$
 {{% notice info %}}
 You can also install by doing.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ sudo debi --debs-dir ~/kali/build-area/
 ```
 {{% /notice %}}
@@ -902,7 +902,7 @@ We have **successfully managed to build FinalRecon as a package**!
 
 Let's test to **make sure it works**.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ finalrecon
 usage: finalrecon [-h] [--headers] [--sslinfo] [--whois] [--crawl] [--dns] [--sub] [--trace] [--dir] [--ps] [--full] [-t T] [-T T] [-w W] [-r] [-s]
                   [-sp SP] [-d D] [-e E] [-m M] [-p P] [-tt TT] [-o O]
@@ -915,7 +915,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 At this point, we can **save the work** we have put in.
 
-```markdown
+```console
 kali@kali:~/kali/packages/finalrecon$ git add debian/
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git commit -m "Initial release"

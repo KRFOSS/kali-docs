@@ -2,28 +2,24 @@
 title: Intermediate packaging step-by-step example
 description:
 icon:
-date: 2020-09-11
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 # Photon
 
-[Photon](https://github.com/s0md3v/Photon) is a **Python3** application with multiple dependencies. This makes it a more interesting package than [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/) as potentially more work is involved.
+[Photon](https://github.com/s0md3v/Photon) is a **Python3** application with multiple dependencies. This makes it a more interesting package than [Instaloader](/docs/development/intro-to-packaging-example/) as potentially more work is involved.
 
 ## GitHub Overview
 
-Like before with [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/) we will first take a look at [their GitHub page](https://github.com/s0md3v/photon) to see what information we can acquire. In this case we notice the following:
+Like before with [Instaloader](/docs/development/intro-to-packaging-example/) we will first take a look at [their GitHub page](https://github.com/s0md3v/photon) to see what information we can acquire. In this case we notice the following:
 
 - There is no `setup.py`, however there is a `requirements.txt` ([file](https://github.com/s0md3v/Photon/blob/master/requirements.txt))
 - The [license is GPL-3](https://github.com/s0md3v/Photon/blob/master/LICENSE.md)
 - It has [a release](https://github.com/s0md3v/photon/releases)
 
-Because there is no `setup.py` file we will have to do more work during the packaging process, and do some things differently than with [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/).
+Because there is no `setup.py` file we will have to do more work during the packaging process, and do some things differently than with [Instaloader](/docs/development/intro-to-packaging-example/).
 
 ## Setting Up Environment
 
@@ -31,17 +27,17 @@ We assume we have already followed our [documentation on setting up a packing en
 
 Let's set up our directories now for this package:
 
-```
+```console
 kali@kali:~$ mkdir -p ~/kali/packages/photon/
 kali@kali:~$
 ```
 
 ## Downloading Tag Release
 
-As this package has a tag release like [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/), we will follow the same process. We go to Photon's [GitHub's release page](https://github.com/s0md3v/photon/releases) and see the latest release is version **1.3.0**.
+As this package has a tag release like [Instaloader](/docs/development/intro-to-packaging-example/), we will follow the same process. We go to Photon's [GitHub's release page](https://github.com/s0md3v/photon/releases) and see the latest release is version **1.3.0**.
 We then **download it** with the filename format of `[name]_[version].orig.tar.gz`:
 
-```
+```console
 kali@kali:~$ wget https://github.com/s0md3v/photon/archive/v1.3.0.tar.gz -O ~/kali/upstream/photon_1.3.0.orig.tar.gz
 kali@kali:~$
 ```
@@ -50,14 +46,14 @@ kali@kali:~$
 
 We can now go to the working directory for the process now that the prerequisites are done:
 
-```
+```console
 kali@kali:~$ cd ~/kali/packages/photon/
 kali@kali:~/kali/packages/photon$
 ```
 
 We then can make it into an **empty Git repository**:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ git init
 Initialized empty Git repository in /home/kali/packages/photon/.git/
 kali@kali:~/kali/packages/photon$
@@ -66,7 +62,7 @@ kali@kali:~/kali/packages/photon$
 We can now **import** the `.tar.gz` we previously downloaded into the empty Git repository we just created.
 When prompted, we remember to accept the default values:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ gbp import-orig ~/kali/upstream/photon_1.3.0.orig.tar.gz
 What will be the source package name? [photon]
 What is the upstream version? [1.3.0]
@@ -80,7 +76,7 @@ kali@kali:~/kali/packages/photon$
 We remember to **change the default branch**, from `master` to `kali/master` (as `master` is for upstream development), then **delete the old branch**.
 _We also run a quick `git branch -v` to visually see the change:_
 
-```
+```console
 kali@kali:~/kali/packages/photon$ git checkout -b kali/master
 Switched to a new branch 'kali/master'
 kali@kali:~/kali/packages/photon$
@@ -97,7 +93,7 @@ kali@kali:~/kali/packages/photon$
 We can now **generate the `debian/` folder** and related files. We will again go with **S**ingle for this package.
 We will manually specify the downloaded file _(as it is not located in `../`)_, and also the package name to use in the template:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ dh_make --file ~/kali/upstream/photon_1.3.0.orig.tar.gz -p photon_1.3.0
 Type of package: (single, indep, library, python)
 [s/i/l/p]?
@@ -136,7 +132,7 @@ We now need to edit each one to make sure the information is accurate. We can us
 
 ### License/Maintainers
 
-This package, like [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/), is very straightforward and **[GitHub](https://github.com/s0md3v/photon) has already detected the [license](https://github.com/s0md3v/photon/blob/master/LICENSE)** as **[GPL-3](https://www.gnu.org/licenses/gpl-3.0.html)**.
+This package, like [Instaloader](/docs/development/intro-to-packaging-example/), is very straightforward and **[GitHub](https://github.com/s0md3v/photon) has already detected the [license](https://github.com/s0md3v/photon/blob/master/LICENSE)** as **[GPL-3](https://www.gnu.org/licenses/gpl-3.0.html)**.
 
 For GPL-3 licenses we do not have to copy the entirety as-is in the upstream license file. If we look at `/usr/share/common-licenses/` we can see that there are multiple licenses in their entirety already available locally. As we can see from [GPL-3's page from Debian](https://ftp-master.debian.org/licenses/good/gpl3/) we can use a shortened down version of the license that will be acceptable.
 
@@ -148,7 +144,7 @@ If we look through the **[README.me](https://github.com/s0md3v/Photon/blob/maste
 
 We now need to find out **what dependencies** are needed for this tool to work. Fortunately, we have a `requirements.txt` file that we spotted earlier. Looking at this we can see **four** dependencies needed:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ cat requirements.txt
 requests
 requests[socks]
@@ -159,9 +155,9 @@ kali@kali:~/kali/packages/photon$
 
 We now need to find the proper name in `apt` to make sure that we have everything for when we edit the `debian/control` file later.
 
-From [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/), we already know that **requests** will be available with `python3-requests`. However, **requests[socks]** will not so we have to find a way to install socks. If we search for `python3-requests`, we can see that there is no result that includes any mention of socks:
+From [Instaloader](/docs/development/intro-to-packaging-example/), we already know that **requests** will be available with `python3-requests`. However, **requests[socks]** will not so we have to find a way to install socks. If we search for `python3-requests`, we can see that there is no result that includes any mention of socks:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ apt-cache search python3-requests | grep -i socks
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ apt-cache search python3-requests
@@ -188,7 +184,7 @@ kali@kali:~/kali/packages/photon$
 
 If we broaden our search and utilize `grep` we are able to find what we need!
 
-```
+```console
 kali@kali:~/kali/packages/photon$ apt-cache search python3 | grep -i socks
 python3-aiohttp-socks - SOCKS proxy connector for aiohttp (Python 3)
 python3-asysocks - Socks5 / Socks4 client and server library (Python 3)
@@ -204,7 +200,7 @@ Looks like `python3-socks` is our **second dependency**. However, we can make su
 * Again we can find the upstream source from the [PyPI page for PySocks](https://pypi.org/project/PySocks/)
 * We can finally compare the upstream source from PySocks to the homepage provided with python3-socks and see that they match:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ apt-cache show python3-socks | grep Homepage
 Homepage: https://github.com/Anorov/PySocks
 kali@kali:~/kali/packages/photon$
@@ -212,7 +208,7 @@ kali@kali:~/kali/packages/photon$
 
 Keeping this in mind, lets find **urllib3** and **tld**.
 
-```
+```console
 kali@kali:~/kali/packages/photon$ apt-cache search python3 | grep urllib3
 python3-urllib3 - HTTP library with thread-safe connection pooling for Python3
 kali@kali:~/kali/packages/photon$
@@ -227,11 +223,11 @@ We now have all four dependencies figured out (`python3-requests`,`python3-socks
 
 ### Maintainers
 
-Like [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/), while doing the other parts we have discovered the authors and maintainers of the software, so we don't need to do anything extra for this.
+Like [Instaloader](/docs/development/intro-to-packaging-example/), while doing the other parts we have discovered the authors and maintainers of the software, so we don't need to do anything extra for this.
 
 ### Description
 
-Similarly to [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/) we will pull the descriptions from the [GitHub page](https://github.com/s0md3v/photon). Remember we need two description values, a short one and a long one.
+Similarly to [Instaloader](/docs/development/intro-to-packaging-example/) we will pull the descriptions from the [GitHub page](https://github.com/s0md3v/photon). Remember we need two description values, a short one and a long one.
 
 The first description we create is the **short description**. For this one, we will take the summary from the about section of the GitHub and expand "OSINT" to be "Open Source INTelligence" for anyone who would not know what "OSINT" means.
 
@@ -251,7 +247,7 @@ Here we will need to alter:
     - The format is `[softwareversion]-0kali[release]`. We put `0kali` in case this package makes it into Debian, it avoids conflicting versions and ensures proper upgrade to the Debian version.
 - The **log entry** - We keep it simple with `Initial release`
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim debian/changelog
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/changelog
@@ -265,9 +261,9 @@ photon (1.3.0-0kali1) kali-dev; urgency=medium
 
 ### Control
 
-Most of this we have now figured out from [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/), so it should make it easier to fill in. We supply the values that we found from our information gathering and get the following:
+Most of this we have now figured out from [Instaloader](/docs/development/intro-to-packaging-example/), so it should make it easier to fill in. We supply the values that we found from our information gathering and get the following:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim debian/control
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/control
@@ -323,14 +319,14 @@ In `Build-Depends` now, this is a Python3 Package so we need to add in:
 - **python3-urllib3**
 - **python3-tld**
 
-For this package however, as we do not have a **setup.py** file, we will make a small change compared to [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/). This change is that we do not include the build dependency of `python3-setuptools`. We will still include `python3-all`, and that is for a separate reason. We will also include all of the dependencies that are for the package. We do this to ensure that a test suite can be ran if there is one.
+For this package however, as we do not have a **setup.py** file, we will make a small change compared to [Instaloader](/docs/development/intro-to-packaging-example/). This change is that we do not include the build dependency of `python3-setuptools`. We will still include `python3-all`, and that is for a separate reason. We will also include all of the dependencies that are for the package. We do this to ensure that a test suite can be ran if there is one.
 
 As stated previously, `python3-all` is still included. This is due to its reliance on a python module that requires compiled binary extensions. These can be found by doing the following:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ find /usr/lib/python3.8/ -name '*.so'
 /usr/lib/python3.8/lib-dynload/_codecs_hk.cpython-38-x86_64-linux-gnu.so
-...SNIP...
+...
 /usr/lib/python3.8/dist-packages/cryptography/hazmat/bindings/_openssl.abi3.so
 /usr/lib/python3.8/config-3.8-x86_64-linux-gnu/libpython3.8.so
 kali@kali:~/kali/packages/photon$
@@ -338,7 +334,7 @@ kali@kali:~/kali/packages/photon$
 
 This can be a bit overwhelming, and at first glance does not give too much helpful information. We can use this to learn if we are going to have any dependency that will eventually call in one of the previous files. To do this we do the following:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ apt depends python3-urllib3
 python3-urllib3
   Depends: <python3:any>
@@ -360,7 +356,7 @@ In `Depends` we change **${shlibs:Depends}** to **${python3:Depends}** like befo
 
 We already have figured out the **copyright license** description we will use, and have the `Upstream-Contact` information, so we can easily populate this file:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim debian/copyright
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/copyright
@@ -398,9 +394,9 @@ kali@kali:~/kali/packages/photon$
 
 ### Rules
 
-This rules file will look similar to [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/)'s, with **how to install**, however there is one key difference that will change significantly how the package is built. As there is no `setup.py`, we **do not need** to set the `pybuild` build system:
+This rules file will look similar to [Instaloader](/docs/development/intro-to-packaging-example/)'s, with **how to install**, however there is one key difference that will change significantly how the package is built. As there is no `setup.py`, we **do not need** to set the `pybuild` build system:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim debian/rules
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/rules
@@ -417,10 +413,10 @@ Beware that the "dh" line needs to be indented by a single tabulation character.
 
 ### Watch
 
-This watch file is easier than [Instaloader](https://kali.org/docs/development/intro-to-packaging-example/)'s in that we do not have to worry about version mangling.
+This watch file is easier than [Instaloader](/docs/development/intro-to-packaging-example/)'s in that we do not have to worry about version mangling.
 We can do a straightforward watch file like so:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim debian/watch
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/watch
@@ -436,7 +432,7 @@ The `.install` and helper-script file for this package are very straightforward.
 
 We first will create the helper-script:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ mkdir debian/helper-script/
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ vim debian/helper-script/photon
@@ -450,7 +446,7 @@ kali@kali:~/kali/packages/photon$
 
 We can now create the install file. For this install file, we ensure that we copy over the files that `photon.py` will use:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim debian/photon.install
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/photon.install
@@ -472,7 +468,7 @@ Patches are occasionally used to fix an issue with the upstream tool or adhere t
 
 We will be [using gbp pq](https://manpages.debian.org/unstable/git-buildpackage/gbp-pq.1.en.html) to create a patch for this package:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ gbp pq import
 gbp:info: Trying to apply patches at 'ac95fad43f0418dd05510a9647b9f8e08c24ce12'
 gbp:info: 0 patches listed in 'debian/patches/series' imported on 'patch-queue/kali/master'
@@ -481,7 +477,7 @@ kali@kali:~/kali/packages/photon$
 
 We first will create a separate branch where we can work freely. With this command, any patches that are already created will be automatically imported and applied.
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim photon.py
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ git commit -m "disable update option"
@@ -492,7 +488,7 @@ kali@kali:~/kali/packages/photon$
 
 After we make our changes we will do a commit. The commit message will be the title of the patch.
 
-```
+```console
 kali@kali:~/kali/packages/photon$ gbp pq export
 gbp:info: On 'patch-queue/kali/master', switching to 'kali/master'
 gbp:info: Generating patches from git (kali/master..patch-queue/kali/master)
@@ -501,7 +497,7 @@ kali@kali:~/kali/packages/photon$
 
 We export the commits into a patch with the titles of the commits we made. We can see there are some new files made up:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ ls debian/patches/
 disable-update-option.patch  series
 kali@kali:~/kali/packages/photon$
@@ -512,7 +508,7 @@ kali@kali:~/kali/packages/photon$
 [Autopkgtest](https://autopkgtest.kali.org/) is a huge help to **detecting issues when updating packages**. For this package, we will create a simple test that may not catch more advanced errors however it is better than nothing.
 We first will get started with creating the directory we will create the test in:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ mkdir debian/tests
 ```
 
@@ -520,7 +516,7 @@ We now have to create a control file. If we had multiple commands/tests, we woul
 
 For this test we will simply supply `--help` to photon and see if it works correctly. Because we only use photon, we only need what the tool is dependent on. For this we will use **@**. Finally, because it is a simple test that wont catch much, we make sure to note that this is a **superficial** test:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ vim debian/tests/control
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ cat debian/tests/control
@@ -537,7 +533,7 @@ More information on runtime tests can be found on [our docs](/docs/development/c
 
 We can now commit our changes and see if it all works:
 
-```
+```console
 kali@kali:~/kali/packages/photon$ git add debian/
 kali@kali:~/kali/packages/photon$
 kali@kali:~/kali/packages/photon$ git commit -m "Initial release"
@@ -559,7 +555,7 @@ kali@kali:~/kali/packages/photon$
 
 Lets try and build the package!
 
-```
+```console
 kali@kali:~/kali/packages/photon$ gbp buildpackage --git-builder=sbuild --git-export=WC
 gbp:info: Creating /home/kali/kali/build-area/photon_1.3.0.orig.tar.gz
 gbp:info: Exporting 'WC' to '/home/kali/kali/build-area/photon-tmp'
@@ -567,7 +563,7 @@ gbp:info: Moving '/home/kali/kali/build-area/photon-tmp' to '/home/kali/kali/bui
 gbp:info: Performing the build
 dh clean --with python3
    dh_clean
-...SNIP...
+...
 Processing triggers for libc-bin (2.30-8) ...
 W: photon: binary-without-manpage usr/bin/photon
 

@@ -2,13 +2,9 @@
 title: Introduction to packaging step-by-step example
 description:
 icon:
-date: 2020-09-11
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 # Instaloader
@@ -19,7 +15,7 @@ og_description:
 
 The first thing we do is look at the application's [GitHub page](https://github.com/instaloader/instaloader/)​. A few things stand out which we take a note of:
 
-![](img/instaloader-00.jpg)
+![](instaloader-00.png)
 
 What we notice here is some information that will come in handy later:
 
@@ -35,7 +31,7 @@ We will assume that we have already followed our [documentation on setting up a 
 
 Let's set up our directories now for this package:
 
-```
+```console
 kali@kali:~$ mkdir -p ~/kali/packages/instaloader/ ~/kali/upstream/
 kali@kali:~$
 ```
@@ -53,7 +49,7 @@ Going to the [GitHub's release page](https://github.com/instaloader/instaloader/
 
 We will use `wget` and make sure to format its name appropriately according to Debian's standards for source packages (take note of `.orig.tar.gz`):
 
-```
+```console
 kali@kali:~$ wget https://github.com/instaloader/instaloader/archive/v4.4.4.tar.gz -O ~/kali/upstream/instaloader_4.4.4.orig.tar.gz
 kali@kali:~$
 ```
@@ -64,14 +60,14 @@ If there isn't a tag release for the software _(or it hasn't had an release in s
 
 We need to switch paths to the working location of the package:
 
-```
+```console
 kali@kali:~$ cd ~/kali/packages/instaloader/
 kali@kali:~/kali/packages/instaloader$
 ```
 
 We are now going to create a new blank git repository:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git init
 Initialized empty Git repository in /home/kali/kali/packages/instaloader/.git/
 kali@kali:~/kali/packages/instaloader$
@@ -79,7 +75,7 @@ kali@kali:~/kali/packages/instaloader$
 
 If we wanted to, we can confirm this by looking at "status" and "log":
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git status
 On branch master
 
@@ -96,7 +92,7 @@ Great. Everything is empty; we have a clean working area.
 
 We can now import the upstream version into our packing source code by using the file downloaded from `wget` before. Because of the filename format, `gbp` is able to detect the values `instaloader` as the package name, and `4.4.4` as the version. We just press enter to accept the default values:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ gbp import-orig ~/kali/upstream/instaloader_4.4.4.orig.tar.gz
 What will be the source package name? [instaloader]
 What is the upstream version? [4.4.4]
@@ -109,7 +105,7 @@ kali@kali:~/kali/packages/instaloader$
 
 If we wanted to check everything is okay, once again, we can use git to do so:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git status
 On branch master
 nothing to commit, working tree clean
@@ -135,7 +131,7 @@ So there is now an automatic commit created in the master branch _(which is the 
 
 We are creating a Kali package, and we don't use the `master` branch, but rather `kali/master`. So let's switch:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git checkout -b kali/master
 Switched to a new branch 'kali/master'
 kali@kali:~/kali/packages/instaloader$
@@ -158,7 +154,7 @@ Now we can generate the necessary files required to build a Debain-based package
 
 We are going to keep it simple, and go with "**S**ingle". Then accept whats on the screen with `Y`. If you would like more information about when to use what option, please see the [manpage for dh_make](https://manpages.debian.org/jessie/dh-make/dh_make.8.en.html).:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ dh_make --file ~/kali/upstream/instaloader_4.4.4.orig.tar.gz -p instaloader_4.4.4
 Type of package: (single, indep, library, python)
 [s/i/l/p]?
@@ -181,7 +177,7 @@ We use `--file` to say where the `orig.tar.gz` file is. If the file was one dire
 
 If you would like to see what got generated when using `dh_make`, we can use `git`:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git status
 On branch kali/master
 Untracked files:
@@ -220,12 +216,12 @@ We now need to edit most of these to make sure the information is accurate. We c
 
 For this package, its straight forward. GitHub has given us a helping hand, and detected the [license](https://github.com/instaloader/instaloader/blob/master/LICENSE) as MIT. We can also see there is a license file:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ cat LICENSE
 The MIT License (MIT)
 
 Copyright (c) 2016-2019 Alexander Graf and André Koch-Kramer.
-...SNIP...
+...
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -242,7 +238,7 @@ Reading the license, we can see there are two authors which are given credit too
 
 For our package, we can see:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ ls
 AUTHORS.md  debian  deploy  docs  instaloader  instaloader.py  LICENSE  Pipfile  Pipfile.lock  README.rst  setup.py  test
 kali@kali:~/kali/packages/instaloader$
@@ -255,7 +251,7 @@ kali@kali:~/kali/packages/instaloader$
 
 As it turns out, there is: `AUTHORS.md`, `docs/`, `instaloader.py`, and `README.rst`, so we have a few places to look at. Starting with `AUTHORS.md`, we can see the authors name and their method of contact:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ cat AUTHORS.md
 Authors
 =======
@@ -272,12 +268,12 @@ So rather than an email address, it appears to be a username (could be just for 
 
 Another trick we could try is looking to see if they used a "legit" email address with git:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git clone https://github.com/instaloader/instaloader/ /tmp/instaloader
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cd /tmp/instaloader
 kali@kali:/tmp/instaloader$ git --no-pager log -s --format="%ae" | sort -u | grep -v '@users.noreply.github.com'
-...SNIP...
+...
 kali@kali:/tmp/instaloader$
 kali@kali:/tmp/instaloader$ cd ~/kali/packages/instaloader
 kali@kali:~/kali/packages/instaloader$
@@ -298,7 +294,7 @@ Some starting places to look at for this information:
 
 There is a README for this application, but it just says how to install the application, rather than how to build it/compile from source:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ grep -C 3 -i install README.rst
 
 ::
@@ -314,10 +310,10 @@ Exploring the [pip option](https://pypi.org/project/instaloader/) is something w
 
 Next we spot `setup.py`, which contains a lot of useful information:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ cat setup.py
 #!/usr/bin/env python3
-...SNIP...
+...
 if sys.version_info < (3, 5):
     sys.exit('Instaloader requires Python >= 3.5.')
 
@@ -325,7 +321,7 @@ requirements = ['requests>=2.4']
 
 if platform.system() == 'Windows' and sys.version_info < (3, 6):
     requirements.append('win_unicode_console')
-...SNIP...
+...
     url='https://instaloader.github.io/',
     license='MIT',
     author='Alexander Graf, André Koch-Kramer',
@@ -335,7 +331,7 @@ if platform.system() == 'Windows' and sys.version_info < (3, 6):
     long_description=open(os.path.join(SRC, 'README.rst')).read(),
     install_requires=requirements,
     python_requires='>=3.5',
-...SNIP...
+...
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -369,7 +365,7 @@ We will stick with the command line option for the time being.
 
 Doing just `requests` gives a little too many results:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search requests | wc -l
 561
 kali@kali:~/kali/packages/instaloader$
@@ -377,7 +373,7 @@ kali@kali:~/kali/packages/instaloader$
 
 So we need to do better to shorten the list, by just searching **the short version** of the description (we will cover this more later, but its the visible part of the output):
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search --names-only requests | wc -l
 19
 kali@kali:~/kali/packages/instaloader$
@@ -394,7 +390,7 @@ kali@kali:~/kali/packages/instaloader$
 
 After removing the documentation from the results, we don't get any results. So on with the next search!:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search --names-only python3-requests
 python3-requests - elegant and simple HTTP library for Python3, built for human beings
 python3-requests-cache - persistent cache for requests library (Python 3)
@@ -412,12 +408,12 @@ kali@kali:~/kali/packages/instaloader$
 
 The first result, `python3-requests`, looks exactly right! We can look closer:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ apt-cache show python3-requests
 Package: python3-requests
 Source: requests
 Version: 2.23.0+dfsg-2
-...SNIP...
+...
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -431,7 +427,7 @@ While doing the other parts, we have discovered the authors and maintainers of t
 
 There are two descriptions that we need to supply, a long description and a short description. When we look at the GitHub page we can see an about section that we can use for the short description. For the long description, we can use the description in the README.
 
-![](img/instaloader-01.jpg)
+![](instaloader-01.png)
 
 We also have a value from the `setup.py`.
 
@@ -445,7 +441,7 @@ More information on the subject can be found on the [Debian documentation](https
 
 If we followed the documentation on [setting up a packaging environment](/docs/development/setting-up-packaging-system/), the only values we will need to alter would be **distribution** (from `unstable` to `kali-dev`), **version** (from `4.4.4-1` to `4.4.4-0kali1`) and the **log entry**:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ cat debian/changelog
 instaloader (4.4.4-1) unstable; urgency=medium
 
@@ -472,7 +468,7 @@ More information on the subject can be found on the [Debian documentation](https
 
 Out of the box, it will look a little like this:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ cat debian/control
 Source: instaloader
 Section: unknown
@@ -507,7 +503,7 @@ So we can see a few things that need updating:
 
 Most of this we have now figured out from before, so it should make it easier to fill in. We went ahead and created a remote empty git repository on our GitLab account. In our example, this is the end result:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/control
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/control
@@ -573,7 +569,7 @@ More information on the subject can be found on the [Debian documentation](https
 
 Below is the skeleton template output (with comments removed):
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ grep -v '#' debian/copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: instaloader
@@ -614,7 +610,7 @@ kali@kali:~/kali/packages/instaloader$
 The original tool's author has ownership on their work, and the work we have put into creating the package belongs to us.
 After updating it, it looks like the following:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/copyright
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/copyright
@@ -670,7 +666,7 @@ More information on the subject can be found on the [Debian documentation](https
 
 The output of the template looks like the following:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ cat debian/rules
 #!/usr/bin/make -f
 # See debhelper(7) (uncomment to enable)
@@ -712,7 +708,7 @@ Which is a wildcard (`%`), and feed in all the arguments into `dh`.
 
 What needs to go here now starts to depend on the program and how complex it is. As our program is a python application we are going to have to tell it to build with `python3`. We also need to tell it to use `pybuild` to build, as we have a `setup.py` file included in the source of the application. If there was not a `setup.py` file, we would not add this flag. We also need to tell PyBuild the name of the application. This looks like:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/rules
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/rules
@@ -743,7 +739,7 @@ opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/<project>-$1\.tar\.gz/ \
 
 So lets now alter it to fit our needs:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/watch
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/watch
@@ -757,19 +753,19 @@ NOTE: This has two spaces for any indentation
 
 So let's do a quick check to see if its working right:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ uscan -vv --no-download
-...SNIP...
+...
 uscan info: Found the following matching hrefs on the web page (newest first):
    /instaloader/instaloader/archive/v4.4.4rc3.tar.gz (4.4.4rc3) index=4.4.4rc3-1
    /instaloader/instaloader/archive/v4.4.4rc2.tar.gz (4.4.4rc2) index=4.4.4rc2-1
    /instaloader/instaloader/archive/v4.4.4rc1.tar.gz (4.4.4rc1) index=4.4.4rc1-1
    /instaloader/instaloader/archive/v4.4.4.tar.gz (4.4.4) index=4.4.4-1
    /instaloader/instaloader/archive/v4.4.3.tar.gz (4.4.3) index=4.4.3-1
-...SNIP...
+...
     $newversion  = 4.4.4rc3
     $lastversion = 4.4.4
-...SNIP...
+...
 uscan: Newest version of instaloader on remote site is 4.4.4rc3, local version is 4.4.4
 uscan:    => Newer package available from
       https://github.com/instaloader/instaloader/archive/v4.4.4rc3.tar.gz
@@ -779,7 +775,7 @@ kali@kali:~/kali/packages/instaloader$
 
 Looks like its not! Its correctly detected all the versions, but its not sorted the order correctly (due to the release candidate). We know this by going to the [release page](https://github.com/instaloader/instaloader/tags):
 
-![](img/instaloader-02.png)
+![](instaloader-02.png)
 
 Looking back at the [Debian wiki](https://wiki.debian.org/debian/watch), there is a section called [Common mistakes](https://wiki.debian.org/debian/watch#Common_mistakes):
 
@@ -793,7 +789,7 @@ However, we need to edit it a bit to fit Instaloader. This can be figured out th
 
 Let's see how it works:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/watch
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/watch
@@ -802,7 +798,7 @@ opts=uversionmangle=s/(\d)[_\.\-\+]?((RC|rc|pre|dev|beta|alpha|a)\d*)$// \
   https://github.com/instaloader/instaloader/tags .*/v?(\d\S+)\.tar\.gz
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ uscan -vv --no-download
-...SNIP...
+...
 uscan info: Newest version of instaloader on remote site is 4.4.4, local version is 4.4.4
 uscan info:    => Package is up to date for from
       https://github.com/instaloader/instaloader/archive/v4.4.4.tar.gz
@@ -816,7 +812,7 @@ Success!
 
 Everything we have done so far would just be for building the package, but we haven't said how to install the application.
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/instaloader.install
@@ -829,7 +825,7 @@ NOTE: There is no leading slash in the target directory
 
 We can go forward with this, but it may not behave like we were expecting. This is because we don't have anything in `$PATH`, so if we went to the command line and tried typing in `instaloader.py` its not going to work (also it has the file extension, `.py`). The solution is to create a **helper-script**, which is placed into `$PATH` (and we include in the `.install` file):
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ mkdir -p debian/helper-script/
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ vim debian/helper-script/instaloader
@@ -858,7 +854,7 @@ If you don't want to use **sbuild**, just drop it from the arguments (e.g. `gbp 
 
 So lets give sbuild a try:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
 gbp:error: Can't determine package type: Failed to read changelog: can't get HEAD:debian/changelog: fatal: path 'debian/changelog' exists on disk, but not in 'HEAD'
 kali@kali:~/kali/packages/instaloader$
@@ -868,7 +864,7 @@ Oops! We haven't committed our changes to git. Shame on us.
 
 If we wanted to, we could bypass this by doing `gbp buildpackage --git-builder=sbuild --git-export=WC`, which would allow us to test out our values in `debian/` before commiting to it, rather than cluttering up the git history with various debugging/troubleshooting commits. Then when we have our package in a working state, we can then commit to git, and try again, like so:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git status
 On branch kali/master
 Untracked files:
@@ -897,7 +893,7 @@ Let's try and build again:
 
 NOTE: You may not get the following error (as it depends on how "clean" your OS is):
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
 gbp:info: Exporting 'HEAD' to '/home/kali/kali/build-area/instaloader-tmp'
 gbp:info: Moving '/home/kali/kali/build-area/instaloader-tmp' to '/home/kali/kali/build-area/instaloader-4.4.4'
@@ -913,38 +909,38 @@ kali@kali:~/kali/packages/instaloader$
 
 If you see the above error, this is because `dh-python` is missing from our OS. We can quickly fix this by doing:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ sudo apt install -y dh-python
 kali@kali:~/kali/packages/instaloader$
 ```
 
 So, one more try and building:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
 gbp:info: Exporting 'HEAD' to '/home/kali/kali/build-area/instaloader-tmp'
 gbp:info: Moving '/home/kali/kali/build-area/instaloader-tmp' to '/home/kali/kali/build-area/instaloader-4.4.4'
 gbp:info: Performing the build
 dh clean --with python3 --buildsystem=pybuild
-...SNIP...
+...
 
 +------------------------------------------------------------------------------+
 | Package contents                                                             |
 +------------------------------------------------------------------------------+
 
-...SNIP...
+...
 
 Install lintian build dependencies (apt-based resolver)
 -------------------------------------------------------
 
-...SNIP...
+...
 
 E: instaloader source: source-is-missing docs/_static/bootstrap-4.1.3.bundle.min.js
 W: instaloader: binary-without-manpage usr/bin/instaloader
 I: instaloader source: testsuite-autopkgtest-missing
 
 I: Lintian run was successful.
-...SNIP...
+...
 
 +------------------------------------------------------------------------------+
 | Summary                                                                      |
@@ -977,7 +973,7 @@ The output here is very long, so we have truncated it, but we can see its being 
 
 Let's double check to see what got created:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ ls ~/kali/build-area/instaloader*
 /home/kali/kali/build-area/instaloader_4.4.4-0kali1_all.deb          /home/kali/kali/build-area/instaloader_4.4.4-0kali1.debian.tar.xz
 /home/kali/kali/build-area/instaloader_4.4.4-0kali1_amd64.build      /home/kali/kali/build-area/instaloader_4.4.4-0kali1.dsc
@@ -994,11 +990,11 @@ For more information, see [Debian's documentation](https://www.debian.org/doc/ma
 
 To fix this error `E: instaloader source: source-is-missing docs/_static/bootstrap-4.1.3.bundle.min.js`, which will make sure the package is a higher standard, we can resolve this by expanding the minified JavaScript (Beautifier/Unminify) file and put it into a new directory in `debian/` called `missing-sources`:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search beautifier js
-...SNIP...
+...
 jsbeautifier - JavaScript unobfuscator and beautifier
-...SNIP...
+...
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ sudo apt install -y jsbeautifier
 kali@kali:~/kali/packages/instaloader$
@@ -1014,26 +1010,26 @@ kali@kali:~/kali/packages/instaloader$
 
 We can now rebuild the package with the same command and see that it was successful with no error
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
-...SNIP...
+...
 
 +------------------------------------------------------------------------------+
 | Package contents                                                             |
 +------------------------------------------------------------------------------+
 
-...SNIP...
+...
 
 Install lintian build dependencies (apt-based resolver)
 -------------------------------------------------------
 
-...SNIP...
+...
 
 W: instaloader: binary-without-manpage usr/bin/instaloader
 I: instaloader source: testsuite-autopkgtest-missing
 
 I: Lintian run was successful.
-...SNIP...
+...
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -1043,7 +1039,7 @@ A way we can improve this package is to automate this stage by unminify the Java
 
 Let's now give our package a test drive:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ sudo apt install ~/kali/build-area/instaloader_4.4.4-0kali1_all.deb
 Selecting previously unselected package instaloader.
 (Reading database ... 154513 files and directories currently installed.)
@@ -1071,7 +1067,7 @@ We are going to need to either patch the application or find a different way to 
 
 Let's now make sure everything is in git locally, before we push it out to the remote repository (the one we defined in `debian/control`):
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git status
 On branch kali/master
 nothing to commit, working tree clean
@@ -1089,7 +1085,7 @@ We don't (yet) have a remote repository setup, so we go to GitLab and [create a 
 
 Afterwards:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git remote add origin git@gitlab.com:kalilinux/packages/instaloader.git
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ git remote -v
@@ -1100,7 +1096,7 @@ kali@kali:~/kali/packages/instaloader$
 
 Now we need to send our local work to the new remote repository (and don't forget the tags):
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ git push --all
 Enumerating objects: 95, done.
 Counting objects: 100% (95/95), done.
