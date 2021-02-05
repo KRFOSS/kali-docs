@@ -2,13 +2,9 @@
 title: Kali's Domains
 description:
 icon:
-date: 2020-02-22
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Kali has quite a few subdomains that may be useful to know about:
@@ -43,7 +39,7 @@ Kali has quite a few subdomains that may be useful to know about:
 `https://http.kali.org/`: A redirector url for the mirrors Kali has available. This should point to your closest mirror.
 
 
-`https://cdimage.kali.org/`: A server that hosts the ISO’s for download.
+`https://cdimage.kali.org/`: A server that hosts the ISO's for download.
 
 
 `https://status.kali.org/`: Should any site be down for you, you can check their status here.

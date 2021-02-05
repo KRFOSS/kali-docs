@@ -2,13 +2,9 @@
 title: Packages That Behave Differently With Non-root
 description:
 icon:
-date: 2020-06-19
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 There are many packages that require privileged access to use. There are also packages that may run without privileged access but lose some of their functionality. This page will be continually updated to include any tools that fall under the latter.

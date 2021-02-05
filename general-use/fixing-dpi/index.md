@@ -2,13 +2,9 @@
 title: Fixing DPI (Dots Per Inch) / Large Fonts
 description:
 icon:
-date: 2020-07-21
 type: post
 weight: 40
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Upon starting Kali Linux up, certain things may appear larger than expected. This could be because of **DPI** (**Dots Per Inch**) / **PPI** (**Pixels Per Inch**) being incorrect. If things are looking smaller than expected, you may wish to look at our [HiDPI guide](/docs/general-use/hidpi/).
@@ -31,7 +27,7 @@ Upon opening some applications, the font may appear larger than expected, like i
 
 We first use [xrdb](https://packages.debian.org/buster/x11-xserver-utils), which looks up in the database of X server _(X is what is sponsorable for the graphical display output)_, to see what values are there:
 
-```
+```console
 kali@kali:~$ xrdb -q
 *customization:	-color
 Xft.antialias:	1
@@ -46,7 +42,7 @@ There is no sign of DPI being pre-defined. Time to move onto the next tool.
 
 Using [xdpyinfo](https://manpages.debian.org/buster/x11-utils/xdpyinfo.1.en.html), we can look at the display information about X, which is currently in use _(as things will get defined dynamically at various points. e.g. startup, new screen attached etc)_:
 
-```
+```console
 kali@kali:~$ xdpyinfo | grep 'dimensions\|resolution'
   dimensions:    1680x1050 pixels (160x90 millimeters)
   resolution:    267x296 dots per inch
@@ -57,7 +53,7 @@ We only get the values back once, which means there is only one monitor. Great! 
 
 Next we can use [xrandr](https://packages.debian.org/buster/x11-xserver-utils) as this handles the **extension RandR** _(resize and rotate)_ to see if what that is reporting matches up:
 
-```
+```console
 kali@kali:~$ xrandr -q | grep -iw 'screen\|connected'
 Screen 0: minimum 8 x 8, current 1680 x 1050, maximum 32767 x 32767
 HDMI-0 connected 1680x1050+0+0 (normal left inverted right x axis y axis) 160mm x 90mm
@@ -68,7 +64,7 @@ Again, one screen. ALso, its resolution matches up with what `xdpyinfo` told us.
 
 Checking the logs of X, we can see:
 
-```
+```console
 kali@kali:~$ grep DPI /var/log/Xorg.0.log
 [     7.324] (--) NVIDIA(0): DPI set to (266, 296); computed from "UseEdidDpi" X config
 kali@kali:~$
@@ -78,14 +74,14 @@ Which is very close to the DPI value which `xrandr` reported _(but off by one)_.
 
 If we wanted to, we can look at the value of **EDID** by using [edid-decode](https://manpages.debian.org/buster/edid-decode/edid-decode.1.en.html):
 
-```
+```console
 kali@kali:~$ sudo apt install -y edid-decode
 kali@kali:~$
 kali@kali:~$ xrandr --props | edid-decode -c -s
 EDID version: 1.3
-...SNIP...
+...
 Maximum image size: 16 cm x 9 cm
-...SNIP...
+...
 Warnings:
 
 Block 0 (Base Block):
@@ -115,7 +111,7 @@ Using a bit of math (`1cm` is `10mm` & `25.4mm` is `1 inch`), we can convert the
 
 _Remember that the output was `dimensions: 1680x1050 pixels (160x90 millimeters)`, so we are taking "width" as `160` and "height²" as `90`_
 
-```
+```console
 kali@kali:~$ echo 'print(160/25.4)' | python3
 6.299212598425197   # 6.3 in
 kali@kali:~$
@@ -126,7 +122,7 @@ kali@kali:~$
 
 Now, we can find the diagonal screen size by doing `√(width² + height²) = diagonal`:
 
-```
+```console
 kali@kali:~$ echo 'print( ( ((160/25.4) ** 2)+((90/25.4) ** 2) ) ** (0.5) )' | python3
 7.227385728616465  # 7.2 in
 kali@kali:~$
@@ -140,7 +136,7 @@ Using the formula `√(width² + height²) / diagonal = DPI`, we get:
 
 _Remember that the output was `dimensions: 1680x1050 pixels (160x90 millimeters)`, so we are taking "width" as `1680` and "height" as `1050`, and correct diagonal is `20`_
 
-```
+```console
 kali@kali:~$ # e.g. (((width ** 2)+(height² ** 2) ) ** (0.5) ) / diagonal )
 kali@kali:~$
 kali@kali:~$ echo 'print( (((1680 ** 2)+(1050 ** 2) ) ** (0.5) ) / 20 )' | python3
@@ -163,7 +159,7 @@ There are various ways we can do to fix this, each with their pros and cons:
 
 We can configure X (per user). In a terminal window, run the following commands:
 
-```
+```console
 kali@kali:~$ echo "Xft.dpi: 99" >> ~/.Xresources
 kali@kali:~$
 kali@kali:~$ cat ~/.Xresources
@@ -179,7 +175,7 @@ After running `xrdb -merge`, a logout shouldn't be required, so the next time yo
 
 This is a shell script, which will automatically get executed upon a graphical login. In a terminal window, run the following commands:
 
-```
+```console
 kali@kali:~$ echo "xrandr --dpi 99" >> ~/.xsessionrc
 kali@kali:~$
 kali@kali:~$ cat ~/.xsessionrc
@@ -197,7 +193,7 @@ Another approach would be to get the NVIDIA drivers to handle the DPI.
 
 If there isn't a configuration file for X, we are going to generate one and then move it:
 
-```
+```console
 kali@kali:~$ sudo apt install -y nvidia-xconfig
 kali@kali:~$
 kali@kali:~$ sudo nvidia-xconfig
@@ -211,11 +207,11 @@ We can now edit the configuration file, to include the following two lines in th
 - `Option "UseEdidDpi" "False"`
 - `Option "DPI" "99 x 99"`
 
-```
+```console
 kali@kali:~$ sudo vim /usr/share/X11/xorg.conf.d/20-nvidia.conf
 kali@kali:~$
 kali@kali:~$ cat /usr/share/X11/xorg.conf.d/20-nvidia.conf
-...SNIP...
+...
 Section "Device"
     Identifier     "Device0"
     Driver         "nvidia"
@@ -223,7 +219,7 @@ Section "Device"
     Option         "UseEdidDpi" "False"
     Option         "DPI" "99 x 99"
 EndSection
-...SNIP...
+...
 kali@kali:~$
 kali@kali:~$ xfce4-session-logout --logout
 kali@kali:~$

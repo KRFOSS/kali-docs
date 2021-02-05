@@ -2,13 +2,9 @@
 title: HiDPI (High Dots Per Inch) Display
 description:
 icon:
-date: 2020-07-21
 type: post
 weight: 40
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Upon starting Kali Linux up, certain things (**Windows/buttons** or **text/font**) may appear **smaller than expected**. This could be because of **HiDPI** (aka **High DPI**). It all depends on the software in question, with how it was made, (e.g. GTK2, GTK3, Qt5 etc). This could be happening for various reasons, such as the graphic card drivers and/or the monitor profile.
@@ -43,7 +39,7 @@ Increasing the "**Scaling Factor**" from "**x1**" to "**x2**" should address thi
 
 - In a terminal window, run the following commands:
 
-```
+```console
 kali@kali:~$ echo export GDK_SCALE=2 >> ~/.xsessionrc
 kali@kali:~$
 kali@kali:~$ xfconf-query -c xfwm4 -p /general/theme -s Kali-Dark-xHiDPI
@@ -68,7 +64,7 @@ Some apps, such as [qTerminal](https://packages.debian.org/testing/qterminal), d
 
 To do so, you need to set the following environmental variables in the `~/.xsessionrc` file:
 
-```
+```console
 kali@kali:~$ echo export QT_SCALE_FACTOR=2 >> ~/.xsessionrc
 kali@kali:~$
 ```
@@ -79,7 +75,7 @@ Enabling HiDPI settings can cause some issues with the mouse size, and you might
 
 To solve this, you can force the cursor size with the following command:
 
-```
+```console
 kali@kali:~$ echo export XCURSOR_SIZE=48 >> ~/.xsessionrc
 kali@kali:~$
 ```
@@ -98,7 +94,7 @@ Are you experiencing an issue with the login screen (`lightdm`), with the login 
 
 A possible solution would be to set "`xft-dpi`" to "`180` (**or higher**):
 
-```
+```console
 kali@kali:~$ grep xft-dpi /etc/lightdm/lightdm-gtk-greeter.conf
 xft-dpi = 96
 kali@kali:~$
@@ -106,9 +102,9 @@ kali@kali:~$ sudo vim /etc/lightdm/lightdm-gtk-greeter.conf
 kali@kali:~$
 kali@kali:~$ cat /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
-...SNIP...
+...
 xft-dpi = 180
-...SNIP...
+...
 kali@kali:~$
 ```
 

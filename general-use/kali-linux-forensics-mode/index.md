@@ -2,13 +2,9 @@
 title: Kali Linux Forensics Mode
 description:
 icon:
-date: 2019-11-25
 type: post
-weight: 45
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Kali Linux "Live" provides a "forensic mode", a feature first introduced in BackTrack Linux. The "Forensic mode live boot" option has proven to be very popular for several reasons:
@@ -17,7 +13,7 @@ Kali Linux "Live" provides a "forensic mode", a feature first introduced in Back
 * When a forensic need comes up, Kali Linux "Live" makes it quick and easy to put Kali Linux on the job.
 * Kali Linux comes pre-loaded with the most popular open source forensic software, a handy toolkit when you need to do forensic work.
 
-![kali-forensics-mode](kali-forensics-mode.png)
+![](kali-forensics-mode.png)
 
 When booted into the forensic boot mode, there are a few _very important changes_ to the regular operation of the system:
 

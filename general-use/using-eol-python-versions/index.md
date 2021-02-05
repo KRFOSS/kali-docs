@@ -2,13 +2,9 @@
 title: Using EoL Python Versions on Kali
 description:
 icon:
-date: 2020-09-02
 type: post
 weight: 15
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 In December of 2019 we released a [blog post](https://www.kali.org/news/python-2-end-of-life/) talking about how we will deal with Python 2's End-of-Life. Since then there has been quite a lot of tools that users use that have not been ported to Python 3, causing issues when they try to use them. This page will cover a way of using the depreciated version in a safe way.
@@ -17,7 +13,7 @@ In December of 2019 we released a [blog post](https://www.kali.org/news/python-2
 
 Python 2 is no longer being maintained in the Debian repositories. This means that we must find a way to work around this issue. `pyenv` solves this problem by allowing us to install multiple versions of Python that do not conflict with each other. Currently it is not in the Debian or Kali repository, so we will need to install it from source. Thankfully, there is a handy [installation script](https://github.com/pyenv/pyenv-installer) that the authors have released. Let's go through the installation and setup together.
 
-```
+```console
 kali@kali:~$ sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
 ...
 SNIP
@@ -27,7 +23,7 @@ kali@kali:~$
 
 We will next be quickly running the bash install script. If `ZSH` is the default shell we will have to edit the `.zshrc` file after this.
 
-```
+```console
 kali@kali:~$ curl https://pyenv.run | bash
 ...
 SNIP
@@ -45,7 +41,7 @@ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nf
 
 Lets continue with the setup
 
-```
+```console
 kali@kali:~$ exec $SHELL
 kali@kali:~$
 kali@kali:~$ pyenv
@@ -91,7 +87,7 @@ kali@kali:~$
 
 We can now install Python 2 and set it as our default Python version:
 
-```
+```console
 kali@kali:~$ pyenv install 2.7.18
 Downloading Python-2.7.18.tar.xz...
 -> https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz

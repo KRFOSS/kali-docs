@@ -2,13 +2,9 @@
 title: Kali Linux Metapackages
 description:
 icon:
-date: 2020-05-11
 type: post
 weight: 5
 author: ["gamb1t","g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 # What are metapackages
@@ -17,7 +13,7 @@ og_description:
 
 To install a metapackage we first need to update and then install the desired package:
 
-```
+```console
 kali@kali:~$ apt update
 kali@kali:~$
 kali@kali:~$ apt install kali-linux-default

@@ -2,13 +2,9 @@
 title: Setting up RDP with Xfce
 description:
 icon:
-date: 2020-06-03
 type: post
 weight:
 author: ["gamb1t",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 Kali Linux is supported on many different devices and systems. On some of those systems, you may only get a bare bones install and occasionally may not have direct access to a GUI such as with WSL. One simple way to get access to a GUI for Kali is by installing Xfce and setting up RDP. This can be done either manually or with the script provided [here](https://gitlab.com/kalilinux/build-scripts/kali-wsl-chroot/-/blob/master/xfce4.sh), and can be seen below.
@@ -27,7 +23,7 @@ sed -i 's/port=3389/port=3390/g' /etc/xrdp/xrdp.ini
 
 To use the script we do the following:
 
-```
+```console
 kali@kali:~$ wget https://gitlab.com/kalilinux/build-scripts/kali-wsl-chroot/-/raw/master/xfce4.sh
 kali@kali:~$
 kali@kali:~$ chmod +x xfce4.sh
@@ -38,7 +34,7 @@ kali@kali:~$
 
 Setting this up manually will provide more control over what configuration is done, but also will take a bit longer. After you set up Xfce and RDP, you need to start the service and connect. To start the service you will need to run the following:
 
-```
+```console
 kali@kali:~$ sudo systemctl enable xrdp --now
 kali@kali:~$
 ```

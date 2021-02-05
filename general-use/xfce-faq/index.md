@@ -2,13 +2,9 @@
 title: Kali Linux Xfce FAQ
 description:
 icon:
-date: 2020-02-22
 type: post
 weight: 10
 author: ["re4son",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 The new Kali Linux Desktop is incredibly fast and absolutely gorgeous. Here are some tips and tricks to help you find your way around it quickly.

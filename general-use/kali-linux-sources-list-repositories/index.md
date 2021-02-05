@@ -6,6 +6,7 @@ type: post
 weight:
 author: ["g0tmi1k",]
 ---
+
 ​
 The topic of repositories is always a large one, and comes up frequently. It is an item which people often get wrong and confused with. Please take the time to read the information below and any references which is linked to before acting on anything.
 ​
@@ -15,7 +16,7 @@ The topic of repositories is always a large one, and comes up frequently. It is 
 ​
 On a standard, clean install of Kali Linux, with network access, you should have the following entry present in `/etc/apt/sources.list`:
 ​
-```
+```console
 kali@kali:~$ grep -v '#' /etc/apt/sources.list | sort -u
 ​
 deb http://http.kali.org/kali kali-rolling main non-free contrib
@@ -39,19 +40,19 @@ Kali has various [different branches](/docs/general-use/kali-branches/) to choos
 ​
 **kali-rolling** (Default & frequently updated)
 ​
-```
+```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list
 ```
 ​
 **kali-last-snapshot** (Point release so more "stable" & the "safest")
 ​
-```
+```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main non-free contrib" | sudo tee /etc/apt/sources.list
 ```
 ​
 **kali-experimental** (Packages which are under testing - often used with the rolling repository)
 ​
-```
+```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main non-free contrib" | sudo tee -a /etc/apt/sources.list
 ```
 ​
@@ -73,11 +74,11 @@ deb   http://http.kali.org/kali   kali-rolling   main non-free contrib
 ​
 ## Default Off-line Install Values
 ​
-During the Kali setup process, if you don't have access to a network connection to reach a repository, you will perform an off-line installation of Kali. You will be limited to the packages & the version which is on the medium you installed Kali from. This will then configure Kali to continue to use this medium to install packages from, even after Kali has been installed.
+During the Kali setup process, if you don't have access to a network connection to reach a repository, you will perform an off-line installation of Kali Linux. You will be limited to the packages & the version which is on the medium you installed Kali from. This will then configure Kali to continue to use this medium to install packages from, even after Kali has been installed.
 ​
 This means you will not get any updates to packages, or any new additional tools, which can be frustrating. You can see if you the off-line media enabled if your values match up with whats below (or if you want to enable this option):
 ​
-```
+```console
 kali@kali:~$ cat /etc/apt/sources.list
 #
 ​
@@ -134,7 +135,7 @@ We have a list of [official Kali Linux mirrors](/docs/community/kali-linux-mirro
 ​
 By using a `deb` in the repositories, it will allow for binary packages to be downloaded. However, should you require the source to a package (so you can compile the package yourself if you so wish, or look into debugging a problem with a package), you can add `deb-src` as a extra line in the repositories.
 ​
-```markdown
+```console
 kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee -a /etc/apt/sources.list
 ```
 ​

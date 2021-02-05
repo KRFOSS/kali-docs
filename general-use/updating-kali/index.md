@@ -17,16 +17,16 @@ If you are using [last-snapshot](/docs/general-use/kali-branches/), you will not
 
 To update Kali, first ensure that `/etc/apt/sources.list` is properly populated:
 
-```markdown
+```console
 kali@kali:~$ cat /etc/apt/sources.list
 deb http://http.kali.org/kali kali-rolling main contrib non-free
 deb-src http://http.kali.org/kali kali-rolling main contrib non-free
 kali@kali:~$
 ```
 
-After that we can run the following commands which will upgrade us to the latest Kali versions:
+After that we can run the following commands which will [upgrade us to the latest Kali version](/docs/general-use/updating-kali/).
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt full-upgrade -y

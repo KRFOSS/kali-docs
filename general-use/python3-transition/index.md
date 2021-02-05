@@ -27,14 +27,14 @@ have been updated so that all their scripts use
 
 Thanks to those changes, Debian no longer need to provide
 `/usr/bin/python` and recent upgrades will effectively get rid of that
-symlink. 
+symlink.
 
 Unfortunately, when you download a Python script on the web, it will
 likely have `/usr/bin/python` as its shebang. If you try to execute it
 without fixing the shebang line, you will end up with an error like
 this one:
 
-```sh
+```plaintext
 zsh: /home/kali/test.py: bad interpreter: /usr/bin/python: no such file or directory
 ```
 
@@ -50,7 +50,7 @@ error, we decided that Kali would continue to ship Python 2 by default (as
 long as Debian still provides it) and that `/usr/bin/python` would point
 to it. We are also keeping a few common external modules (like `requests`)
 so that random exploit scripts have a reasonable chance to run
-successfully. 
+successfully.
 
 Howewer, pip for Python2 (aka python-pip) is gone, `/usr/bin/pip` is the
 same as `/usr/bin/pip3` and it will install modules for Python 3. See the
@@ -63,7 +63,7 @@ like to get rid of them.
 
 The make users aware of this situation, we are displaying a promiment
 message on login:
-```sh
+```plaintext
 ┏━(Message from Kali developers)
 ┃
 ┃ We have kept /usr/bin/python pointing to Python 2 for backwards
@@ -108,14 +108,14 @@ the deprecated Python 2. Now that you know about this situation and that
 you know how to fix the shebang line of old scripts, you can safely get
 rid of `/usr/bin/python`:
 
-```sh
-$ sudo apt remove python-is-python2
+```console
+kali@kali:~$ sudo apt remove python-is-python2
 ```
 
 Or you can decide to make it point to Python 3:
 
-```sh
-$ sudo apt install python-is-python3
+```console
+kali@kali:~$ sudo apt install python-is-python3
 ```
 
 Either of those actions will get rid of the login message.
@@ -124,9 +124,9 @@ Alternatively, if you want to keep `/usr/bin/python` pointing to
 `python2` and you still want to disable the message, you can do
 this:
 
-```sh
-$ mkdir -p ~/.local/share/kali-motd
-$ touch ~/.local/share/kali-motd/disable-old-python-warning
+```console
+kali@kali:~$ mkdir -p ~/.local/share/kali-motd
+kali@kali:~$ touch ~/.local/share/kali-motd/disable-old-python-warning
 ```
 
 #### I have a Python 2 script that doesn't run, what should I do?
@@ -152,3 +152,21 @@ Be nice with end users:
   it's more expressive than `/usr/bin/python` and is more likely to have
   the desired result
 - update it for Python 3 compatibility if that's not the case yet
+
+
+
+
+
+
+## Python2 & PIP
+
+@g0tmi1k, I'm sure I remember something being said. but is it now covered in the kali-docs?
+
+```
+@Gamb1t-Joe-O Looking at https://www.kali.org/docs/general-use/using-eol-python-versions/ I wonder how that interact with sudo when you want to run an old python2 script as root. It might be worth saying a word about this and in particular clearly indicate that they should never ever run "sudo pip" as that would likely not use pyenv and use the system wide script and install stuff that would conflict with packaged modules.
+kali.orgkali.org
+Using EoL Python Versions on Kali | Kali Linux Documentation
+Official documentation of Kali Linux, an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments.
+
+BTW now that we have documented the above, we have removed python-pip (i.e. the python2 version of pip) and users calling "pip" will install stuff for Python 3.
+```

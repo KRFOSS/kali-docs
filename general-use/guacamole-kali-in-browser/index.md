@@ -2,13 +2,9 @@
 title: Kali In The Browser (Guacamole)
 description:
 icon:
-date: 2020-03-27
 type: post
 weight:
-author: ["g0tmi1k","gamb1t"]
-tags: ["",]
-keywords: ["",]
-og_description:
+author: ["g0tmi1k","gamb1t",]
 ---
 
 There are various ways you can interact with Kali, such as sitting down and being direct at the console (more often than not, for a graphic experience), alternatively using Kali remotely via SSH (which gives you command line access). Alternatively, you may have setup VNC which will allow for remote graphical access (please make sure to do this securely by having VNC listen on loopback and port forward via SSH). Another approach would be to interact with Kali in a browser, rather than having to install necessary VNC clients.
@@ -19,7 +15,7 @@ Apache Guacamole is [not packaged with Debian](https://wiki.debian.org/Guacamole
 
 The first stage is to download the script:
 
-```
+```console
 kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt install -y git
@@ -34,18 +30,18 @@ IMPORTANT! If you are in the Eastern time zone, you will have to change to a dif
 
 To fix this issue, we will change our time zone to be Central time.
 
-```
+```console
 kali@kali:~$ sudo rm /etc/localtime && sudo ln -s /usr/share/zoneinfo/US/Central /etc/localtime
 kali@kali:~$
 ```
 
 We are going to do a "standalone" installation, were there isn't a separate MySQL database host as well as not enabling any MFA _(as we are going to hide this behind a SSH tunnel)_:
 
-```
+```console
 kali@kali:~$ cd /tmp/guac-install/
 kali@kali:~$
 kali@kali:/tmp/guac-install$ sudo ./guac-install.sh --nomfa --installmysql --mysqlpwd S3cur3Pa$$w0rd --guacpwd P@s$W0rD
-...SNIP...
+...
 Cleanup install files...
 
 Installation Complete
@@ -58,7 +54,7 @@ kali@kali:/tmp/guac-install$
 
 We can quickly check all the services are happy:
 
-```
+```console
 kali@kali:/tmp/guac-install$ systemctl status tomcat9 guacd mysql
 ● tomcat9.service - Apache Tomcat 9 Web Application Server
      Loaded: loaded (/lib/systemd/system/tomcat9.service; enabled; vendor preset: disabled)
@@ -105,7 +101,7 @@ Next is to enable VNC service on Kali.
 
 We are going to use TigerVNC.
 
-```
+```console
 kali@kali:~$ sudo apt install -y tigervnc-standalone-server
 kali@kali:~$
 kali@kali:~$ mkdir ~/.vnc/ && wget https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/raw/master/nethunter-fs/profiles/xstartup -O ~/.vnc/xstartup

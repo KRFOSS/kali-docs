@@ -2,13 +2,9 @@
 title: Configuring Yubikeys for SSH Authentication
 description:
 icon:
-date: 2020-02-22
 type: post
-weight: 100
+weight:
 author: ["g0tmi1k",]
-tags: ["",]
-keywords: ["",]
-og_description:
 ---
 
 This document explains how to configure a Yubikey for SSH authentication
@@ -17,15 +13,15 @@ This document explains how to configure a Yubikey for SSH authentication
 
 Install Yubikey Personalization Tool and Smart Card Daemon
 
-```markdown
-sudo apt install -y yubikey-personalization scdaemon
+```console
+kali@kali:~$ sudo apt install -y yubikey-personalization scdaemon
 ```
 
 #### Detect Yubikey
 
-First, you'll need to ensure that your system is fully upgraded.
+First, you'll need to ensure that your system is [fully up-to-date](/docs/general-use/updating-kali/).
 
-```html
+```console
 kali@kali:~$ pcsc_scan
 Scanning present readers...
 Reader 0: Yubico Yubikey 4 OTP+U2F+CCID 00 00
@@ -38,7 +34,7 @@ Possibly identified card (using /usr/share/pcsc/smartcard_list.txt):
 
 In order for our Yubikey to be detected as a smart card, we'll need to set our Yubikey to CCID mode.
 
-```markdown
+```console
 kali@kali:~$ sudo ykpersonalize -m 86
 The USB mode will be set to: 0x86
 
@@ -47,7 +43,7 @@ Commit? (y/n) [n]: y
 
 After this modification, GPG should now be able to recognize our Yubikey as a smart card.
 
-```markdown
+```console
 kali@kali:~$ gpg --card-status
 Reader ...........: Yubico Yubikey 4 OTP U2F CCID 00 00
 Version ..........: 2.1
@@ -63,7 +59,7 @@ Now we will need to change the default PIN that is configured.
 The default PIN is 123456 and default admin PIN is 12345678.
 {{% /notice %}}
 
-```markdown
+```console
 kali@kali:~$ gpg --change-pin
 gpg: OpenPGP card no. F8482212202010006041587850000 detected
 
