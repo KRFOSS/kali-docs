@@ -4,7 +4,7 @@ description:
 icon:
 type: post
 weight:
-author: ["g0tmi1k", "5M7X",]
+author: ["g0tmi1k",]
 tags: ["dojo",]
 ---
 
@@ -70,18 +70,11 @@ kali@kali:~$ mkdir -p kali-config/common/debian-installer/
 kali@kali:~$ wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/-/raw/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
 ```
 
-**0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64-bit build, we're including a 64 bit Nessus Debian package. [Download](http://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file. However there is a little bug with the package as Nessus does not conform to the official rules of how Debian-packages have to be built as it uses a uppercase name as in the `packagename`. Therefore we need to unpack and change its content a little bit then repack it as follows:
-
-```markdown
-kali@kali:~$ mkdir -p /tmp/nessus/
-kali@kali:~$ dpkg-deb -R Nessus*.deb /tmp/nessus
-kali@kali:~$ sed -i 's/Package: Nessus/Package: nessus/g' /tmp/nessus/DEBIAN/control
-kali@kali:~$ dpkg-deb -b /tmp/nessus nessus-fixed.deb
-```
+**0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64-bit build, we're including a 64-bit Nessus Debian package. [Download](http://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:
 
 ```console
 kali@kali:~$ mkdir -p kali-config/common/packages.chroot/
-kali@kali:~$ mv nessus-fixed.deb kali-config/common/packages.chroot/
+kali@kali:~$ mv Nessus-*amd64.deb kali-config/common/packages.chroot/
 ```
 
 **0x07 - Now you can proceed to build your ISO**, this process may take a while depending on your hardware and internet speeds. Once completed, your ISO can be found in the live-build root directory.
