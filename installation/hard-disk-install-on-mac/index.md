@@ -1,5 +1,5 @@
 ---
-title: Install Kali on Mac Hardware
+title: Installing Kali on Mac Hardware
 description:
 icon:
 type: post
@@ -8,7 +8,7 @@ author: ["g0tmi1k",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Newer Mac hardware (e.g. T2 chips) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
+IMPORTANT! Newer Mac hardware (e.g. T2/M1 chips) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
 The model & year of the device will determine how successful your experience will be.<br />
 {{% /notice %}}
 
@@ -39,7 +39,7 @@ We will be wiping any existing data on the hard disk, so please backup any impor
 1. To start your installation, make sure you **insert your Kali Linux installation medium** and **power on the device**. Immediately press and hold the [**Option (or Alt) ⌥** key until you see the boot menu](https://support.apple.com/en-us/HT201255) (rEFInd if installed, else the default macOS/OS X).
 You may or may not have a **Recovery HD** depending on your macOS/OS X setup.
 
-![boot-mac](boot-mac.png)
+![](boot-mac.png)
 
 - - -
 
@@ -55,7 +55,7 @@ You may wish to install **rEFInd**, as it is a boot manager, and try again.
 
 Even though Kali Linux is [based on Debian](/docs/policy/kali-linux-relationship-with-debian/), macOS/OS X always detects non-EFI boot media as Windows. We suggest that you select the **EFI Boot** volume to continue. However, if the installation hangs at this point, power cycle and select Windows (Being Kali Linux non-EFI/BIOS). The success depends on the Mac hardware's model & year.
 
-![boot-mac-usb-efi](boot-mac-usb-efi.png)
+![](boot-mac-usb-efi.png)
 
 ### Kali Linux Installation Procedure
 

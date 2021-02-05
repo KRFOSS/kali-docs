@@ -1,5 +1,5 @@
 ---
-title: Dual Boot Kali with Mac
+title: Dual Booting Kali with Mac
 description:
 icon:
 type: post
@@ -8,7 +8,7 @@ author: ["g0tmi1k",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Newer Mac hardware (e.g. T2 chips) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
+IMPORTANT! Newer Mac hardware (e.g. T2/M1 chips) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
 The model & year of the device will determine how successful your experience will be.<br />
 {{% /notice %}}
 
@@ -60,7 +60,7 @@ Before we can install Kali Linux, there needs to be room on the hard disk. Depen
 1. To start resizing, make sure you **insert your Kali Linux installation medium** and **power on the device**. Immediately press and hold the [**Option (or Alt) ⌥** key until you see the boot menu](https://support.apple.com/en-us/HT201255) (rEFInd if installed, else the default macOS/OS X).
 You may or may not have a **Recovery HD** depending on your macOS/OS X setup.
 
-![boot-mac](boot-mac.png)
+![](boot-mac.png)
 
 - - -
 
@@ -76,19 +76,19 @@ You may wish to install **rEFInd**, as it is a boot manager, and try again.
 
 Even though Kali Linux is [based on Debian](/docs/policy/kali-linux-relationship-with-debian/), macOS/OS X always detects non-EFI boot media as Windows. We suggest that you select the **EFI Boot** volume to continue. However, if the installation hangs at this point, power cycle and select Windows (Being Kali Linux non-EFI/BIOS). The success depends on the Mac hardware's model & year.
 
-![boot-mac-usb-efi](boot-mac-usb-efi.png)
+![](boot-mac-usb-efi.png)
 
 - - -
 
 3. You should be greeted with the Kali Linux **boot screen**. Select **Live**, and you should be booted into the Kali Linux default desktop.
 
-![boot-live](boot-live.png)
+![](boot-live.png)
 
 - - -
 
 4. Now launch **[GParted](https://packages.debian.org/testing/gparted)**, which we'll use to shrink the existing macOS/OS X partition to give us enough room to install Kali Linux in the free space.
 
-![gparted-1](gparted-1.png)
+![](gparted-1.png)
 
 - - -
 
@@ -110,7 +110,7 @@ It is alright to leave the third partition (`/dev/sda3`), and only shrink the ac
 If you wish to organize the partition to group all the macOS/OS X partitions together, placing the free space at the end, you may do so.
 {{% /notice %}}
 
-![gparted-2](gparted-2.png)
+![](gparted-2.png)
 
 - - -
 
@@ -124,8 +124,8 @@ This can be doing using either the command line, or graphical (using Disk Utilit
 
 2. By using `diskutil list`, we can see our disk we want to resize is `disk0s2`, and it is \~500GB.
 
-```markdown
-Mac:~ username$ diskutil list
+```console
+$ diskutil list
 /dev/disk0 (internal, physical):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:      GUID_partition_scheme                        *500.1 GB   disk0
@@ -141,15 +141,15 @@ Mac:~ username$ diskutil list
    3:                APFS Volume Recovery                516.2 MB   disk1s3
    4:                APFS Volume VM                      20.5 KB    disk1s4
 
-Mac:~ username$
+$
 ```
 
 - - -
 
 3. We want to reduce the 500GB to be 400GB. This would give Kali Linux 100GB (we recommend at least 20 GB).
 
-```markdown
-Mac:~ username$ sudo diskutil apfs resizeContainer disk0s2 400g
+```console
+$ sudo diskutil apfs resizeContainer disk0s2 400g
 Password:
 Started APFS operation
 Aligning shrink delta to 99,898,105,856 bytes and targeting a new physical store size of 400,000,000,000 bytes
@@ -196,7 +196,7 @@ Shrinking APFS data structures
 Shrinking partition
 Modifying partition map
 Finished APFS operation
-Mac:~ username$
+$
 ```
 
 - - -
@@ -204,7 +204,7 @@ Mac:~ username$
 4. Quickly checking `diskutil list` again, we can see it has been successful.
 
 ```
-Mac:~ username$ diskutil list
+$ diskutil list
 /dev/disk0 (internal, physical):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:      GUID_partition_scheme                        *500.1 GB   disk0
@@ -219,7 +219,7 @@ Mac:~ username$ diskutil list
    2:                APFS Volume Preboot                 21.4 MB    disk1s2
    3:                APFS Volume Recovery                516.2 MB   disk1s3
    4:                APFS Volume VM                      20.5 KB    disk1s4
-Mac:~ username$
+$
 ```
 
 ### Kali Linux Installation Procedure
@@ -229,7 +229,7 @@ At this point, you need to select "**Guided - use the largest continuous free sp
 
 _Do not forget you may need to press and hold the [**Option (or Alt) ⌥** key during the startup to see the boot menu](https://support.apple.com/en-us/HT201255) (unless you have rEFInd installed)._
 
-![setup-partition-1-continuous](setup-partition-1-continuous.png)
+![](setup-partition-1-continuous.png)
 
 - - -
 
@@ -237,7 +237,7 @@ _Do not forget you may need to press and hold the [**Option (or Alt) ⌥** key d
 
 By default, macOS/OS X will boot into itself, rather than any other operating system/install media. As we have done it already a few times, you need to hold the [Option (or Alt) ⌥ key](https://support.apple.com/en-us/HT201255). Whilst this "works", but its not ideal as it is easy to not boot anything other tha macOS/OS X. Enter rEFInd, a replacement boot manager (which can also have themes applied).
 
-![boot-mac-kali](boot-mac-kali.png)
+![](boot-mac-kali.png)
 
 ### Installing rEFInd
 
@@ -245,7 +245,7 @@ rEFInd is a boot manager, replacing the limiting default one with macOS/OS X, al
 
 Since the release of **macOS/OS X El Capitan** (10.11), an [additional security feature](https://www.rodsbooks.com/refind/sip.html) got introduced, **[System Integrity Protection](https://support.apple.com/en-gb/HT204899) (SIP)**. To install rEFInd using macOS/OS X, this first needs to be one-time bypassed _(recommended)_, or disabled. Alternatively rEFInd can be installed using Kali Linux _(we recommended todo so after when Kali Linux is installed rather than using live mode)_.
 
-![boot-refind-mac-kali](boot-refind-mac-kali.png)
+![](boot-refind-mac-kali.png)
 
 #### Installing rEFInd using macOS/OS X
 
@@ -255,30 +255,30 @@ At the time of this writing, the latest version of [rEFInd](http://sourceforge.n
 
 1. We will start off by downloading rEFInd, check its a valid zip file, and then extract.
 
-```markdown
-Mac:~ username$ curl -s -L https://sourceforge.net/projects/refind/files/0.12.0/refind-bin-0.12.0.zip -o ~/Downloads/refind.zip
-Mac:~ username$
-Mac:~ username$ file Downloads/refind.zip
+```console
+$ curl -s -L https://sourceforge.net/projects/refind/files/0.12.0/refind-bin-0.12.0.zip -o ~/Downloads/refind.zip
+$
+$ file Downloads/refind.zip
 Downloads/refind.zip: Zip archive data, at least v1.0 to extract
-Mac:~ username$
-Mac:~ username$ unzip -q -d Downloads/ Downloads/refind.zip
-Mac:~ username$
-Mac:~ username$ ls Downloads/
+$
+$ unzip -q -d Downloads/ Downloads/refind.zip
+$
+$ ls Downloads/
 refind-bin-0.12.0 refind.zip
-Mac:~ username$
+$
 ```
 
 2. We are going to restarting macOS/OS X, and press the [**Command (⌘)** and **R** keys at the same time, until you see a boot logo](https://support.apple.com/en-us/HT201255). At this point, if there is a firmware password, you will need to enter it in order to continue.
 
 This will **bypass SIP by using macOS/OS X's [Recovery System](https://support.apple.com/en-gb/HT204904)** version which is in-built to the firmware (so no Internet connection is required).
 
-![(boot-recovery](boot-recovery.png)
+![](boot-recovery.png)
 
 - - -
 
 3. When recovery mode has fully loaded, from the menu: **Utilities->Terminal**.
 
-![mac-recovery](mac-recovery.png)
+![](mac-recovery.png)
 
 - - -
 
@@ -288,12 +288,12 @@ This will **bypass SIP by using macOS/OS X's [Recovery System](https://support.a
 The path will be different, as its based on the label of the hard disk (in our case, `Macintosh HD`) and username (`username`) and version of rEFInd (`0.12.0`)
 {{% /notice %}}
 
-```markdown
--bash-3.2# cd /Volumes/Macintosh\ HD/Users/username/Downloads/refind-bin-0.12.0/
--bash-3.2#
--bash-3.2# pwd
+```console
+# cd /Volumes/Macintosh\ HD/Users/username/Downloads/refind-bin-0.12.0/
+#
+# pwd
 /Volumes/Macintosh HD/Users/username/Downloads/refind-bin-0.12.0
--bash-3.2#
+#
 ```
 
 - - -
@@ -304,8 +304,8 @@ The path will be different, as its based on the label of the hard disk (in our c
 Even though we are in recovery, where SIP is not running, rEFInd still believes it is. We will overwrite this.
 {{% /notice %}}
 
-```markdown
--bash-3.2# ./refind-install
+```console
+# ./refind-install
 ShimSource is none
 Installing rEFInd on macOS....
 Installing rEFInd to the partition mounted at /Volumes/ESP
@@ -334,14 +334,14 @@ Copied rEFInd binary files
 Copying sample configuration file as refind.conf; edit this file to configure
 rEFInd.
 
--bash-3.2#
+#
 ```
 
 - - -
 
 6. Reboot macOS/OS X. From the menu: **Apple->Restart**.
 
-![mac-reboot](mac-reboot.png)
+![](mac-reboot.png)
 
 - - -
 
@@ -352,7 +352,7 @@ rEFInd.
 
 **[rEFInd](https://packages.debian.org/testing/refind)** is also included with Kali Linux. We can quickly install it by doing the following:
 
-```markdown
+```console
 kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt install -y refind
@@ -414,33 +414,33 @@ If you wish, you can alter rEFInd in various ways now, including:
 
 If you wish to make any of these alterations, this can be done by editing rEFInd's configuration file. If you are using macOS/OS X El Capitan (10.11) or later, you need to mount the EFI boot volume first to access the file. This is done by doing the following.
 
-```markdown
-Mac:~ username$ cd ~/Downloads/refind-bin-*/
-Mac:refind-bin-0.12.0 username$
-Mac:refind-bin-0.12.0 username$ sudo ./mountesp
+```console
+$ cd ~/Downloads/refind-bin-*/
+$
+$ sudo ./mountesp
 The ESP has been identified as /dev/disk0s1; attempting to mount it....
 The ESP is mounted at /Volumes/ESP
 username@Usernames-Mac refind-bin-0.12.0 %
 
-Mac:refind-bin-0.12.0 username$
-Mac:refind-bin-0.12.0 username$ vim /Volumes/ESP/EFI/refind/refind.conf
-Mac:refind-bin-0.12.0 username$
+$
+$ vim /Volumes/ESP/EFI/refind/refind.conf
+$
 ```
 
 #### macOS/OS X Yosemite
 
 If you are using macOS/OS X Yosemite (10.10) or earlier, the configuration file is located here as no mounting is required.
 
-```markdown
-Mac:~ username$ sudo vim /EFI/refind/refind.conf
-Mac:~ username$ s
+```console
+$ sudo vim /EFI/refind/refind.conf
+$ s
 ```
 
 #### Kali Linux
 
 On Kali Linux, the configuration file is found in the following location.
 
-```markdown
+```console
 kali@kali:~$ sudo vim /boot/efi/EFI/refind/refind.conf
 kali@kali:~$
 ```

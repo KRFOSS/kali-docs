@@ -36,7 +36,7 @@ Installing Kali Linux with snapshotting functionality is very similar to a stand
 
 We are going to use the following layout:
 
-```markdown
+```plaintext
 Mount Point         | Subvolume         | Description
 -------------------------------------------------------------------------
 /                   | @                 | The root filesystem incl. /boot
@@ -66,179 +66,179 @@ Mount Point         | Subvolume         | Description
 
 2. The installation steps are identical to a standard Kali installation except a pause during the step where you choose a domain name as seen below.
 
-![btrfs-g-08-di.png](btrfs-g-08-di.png)
+![](btrfs-g-08-di.png)
 
 - - -
 
 3. When prompted, pause the installation and switch to the second VT via "Ctrl + Alt + 2"
 
-![btrfs-g-09-cli.png](btrfs-g-09-cli.png)
+![](btrfs-g-09-cli.png)
 
 Press `enter` to activate that console and run `partman` to partition the hard disk.
 
-![btrfs-g-11-cli.png](btrfs-g-11-cli.png)
+![](btrfs-g-11-cli.png)
 
 - - -
 
 4. First we create two partitions: swap and root.
 Choose `manual` under "Partitioning method" and press `enter`.
 
-![btrfs-g-12-partman.png](btrfs-g-12-partman.png)
+![](btrfs-g-12-partman.png)
 
 - - -
 
 5. Choose your hard disk:
 
-![btrfs-g-13-partman.png](btrfs-g-13-partman.png)
+![](btrfs-g-13-partman.png)
 
 - - -
 
 6. Confirm to create a new partition table
 
-![btrfs-g-14-partman.png](btrfs-g-14-partman.png)
+![](btrfs-g-14-partman.png)
 
 - - -
 
 7. Next, select the newly defined "free space":
 
-![btrfs-g-15-partman.png](btrfs-g-15-partman.png)
+![](btrfs-g-15-partman.png)
 
 - - -
 
 8. Select `Create a new partition`:
 
-![btrfs-g-16-partman.png](btrfs-g-16-partman.png)
+![](btrfs-g-16-partman.png)
 
 - - -
 
 9. Pick the desired size for the swap partition:
 
-![btrfs-g-17-partman.png](btrfs-g-17-partman.png)
+![](btrfs-g-17-partman.png)
 
 - - -
 
 10. Choose the preferred partition type:
 
-![btrfs-g-18-partman.png](btrfs-g-18-partman.png)
+![](btrfs-g-18-partman.png)
 
 - - -
 
 11. The location of the swap partition is personal preference, we choose "end" here so it's out of the way
 
-![btrfs-g-19-partman.png](btrfs-g-19-partman.png)
+![](btrfs-g-19-partman.png)
 
 - - -
 
 12. Choose "Done setting up the partition":
 
-![btrfs-g-20-partman.png](btrfs-g-20-partman.png)
+![](btrfs-g-20-partman.png)
 
 - - -
 
 13. Next we repeat the procedure to setup the maim btrfs partition:
 
-![btrfs-g-21-partman.png](btrfs-g-21-partman.png)
+![](btrfs-g-21-partman.png)
 
 - - -
 
 14. Let's create a new partition:
 
-![btrfs-g-22-partman.png](btrfs-g-22-partman.png)
+![](btrfs-g-22-partman.png)
 
 - - -
 
 15. Use the rest of the available space:
 
-![btrfs-g-23-partman.png](btrfs-g-23-partman.png)
+![](btrfs-g-23-partman.png)
 
 - - -
 
 16. Choose "Primary" as partition type:
 
-![btrfs-g-24-partman.png](btrfs-g-24-partman.png)
+![](btrfs-g-24-partman.png)
 
 - - -
 
 17. Configure the following parameters and select `Done setting up the partition`:
 
-```markdown
+```plaintext
 Use as:          btrfs journaling file system
 Mount point:     /
 Bootable flag:   on
 ```
 
-![btrfs-g-25-partman.png](btrfs-g-25-partman.png)
+![](btrfs-g-25-partman.png)
 
 - - -
 
 18. Finish the partitioning and confirming to write the partition table to disk:
 
-![btrfs-g-26-partman.png](btrfs-g-26-partman.png)
+![](btrfs-g-26-partman.png)
 
-![btrfs-g-27-partman.png](btrfs-g-27-partman.png)
+![](btrfs-g-27-partman.png)
 
 - - -
 
 19. We return to the command line and can confirm that the new btrfs partition is mounted at /target:
 
-![btrfs-g-28-postpartman.png](btrfs-g-28-postpartman.png)
+![](btrfs-g-28-postpartman.png)
 
 - - -
 
 20. Next we create the desired subvolumes:
 
-```markdown
-btrfs subvolume create /target/@
-btrfs subvolume create /target/@home
-btrfs subvolume create /target/@log
-btrfs subvolume create /target/@root
-btrfs subvolume create /target/@snapshots
+```console
+kali@kali:~$ btrfs subvolume create /target/@
+kali@kali:~$ btrfs subvolume create /target/@home
+kali@kali:~$ btrfs subvolume create /target/@log
+kali@kali:~$ btrfs subvolume create /target/@root
+kali@kali:~$ btrfs subvolume create /target/@snapshots
 ```
 
-![btrfs-g-30-postpartman.png](btrfs-g-30-postpartman.png)
+![](btrfs-g-30-postpartman.png)
 
 - - -
 
 21. Lastly we obtain the subvolume id from our new root subvolume "@" via
 
-```markdown
-btrfs subvolume list /target
+```console
+kali@kali:~$ btrfs subvolume list /target
 ```
 
 here "257" - and we set that as out new default and unmount the partition
 
-```markdown
-btrfs subvolume set-default 257 /target
-umount /target
+```console
+kali@kali:~$ btrfs subvolume set-default 257 /target
+kali@kali:~$ umount /target
 ```
 
-![btrfs-g-33-postpartman.png](btrfs-g-33-postpartman.png)
+![](btrfs-g-33-postpartman.png)
 
 - - -
 
 22. Now can switch back to the graphical install via Ctrl + Alt + F5 and continue with the installation:
 
-![btrfs-g-08-di.png](btrfs-g-08-di.png)
+![](btrfs-g-08-di.png)
 
 - - -
 
 23. When we get to the partitioning phase, just skip through it and confirm that we are happy to use the existing file system:
 
-![btrfs-g-38-di.png](btrfs-g-38-di.png)
+![](btrfs-g-38-di.png)
 
-![btrfs-g-39-di.png](btrfs-g-39-di.png)
+![](btrfs-g-39-di.png)
 
 - - -
 
 24. If you wish you can switch back to VT 2 and confirm that the installer has indeed mounted our "@" subvolume as the temporary root for the installation "/target":
 
-![btrfs-g-40-cli.png](btrfs-g-40-cli.png)
+![](btrfs-g-40-cli.png)
 
 - - -
 
 25. Returning back to VT 5 we can continue with our installation until we hit the final screen were we pause for one last time:
 
-![btrfs-g-45-di.png](btrfs-g-45-di.png)
+![](btrfs-g-45-di.png)
 
 - - -
 
@@ -248,28 +248,28 @@ umount /target
 - mount the subvolumes
 - move "/home", "/var/log", "/root" to their dedicated subvolumes:
 
-```markdown
-mkdir /target/mnt/root
-mkdir /target/mnt/home
-mkdir /target/mnt/log
-mkdir /target/.snapshots
-
-mount -t btrfs -o subvol=@root /dev/sda2 /target/mnt/root
-mount -t btrfs -o subvol=@home /dev/sda2 /target/mnt/home
-mount -t btrfs -o subvol=@log /dev/sda2 /target/mnt/log
-
-mv /target/root/.* /target/mnt/root/
-mv /target/home/* /target/mnt/home/
-mv /target/var/log/* /target/mnt/log/
-
-nano /target/etc/fstab
+```console
+kali@kali:~$ mkdir /target/mnt/root
+kali@kali:~$ mkdir /target/mnt/home
+kali@kali:~$ mkdir /target/mnt/log
+kali@kali:~$ mkdir /target/.snapshots
+kali@kali:~$
+kali@kali:~$ mount -t btrfs -o subvol=@root /dev/sda2 /target/mnt/root
+kali@kali:~$ mount -t btrfs -o subvol=@home /dev/sda2 /target/mnt/home
+kali@kali:~$ mount -t btrfs -o subvol=@log /dev/sda2 /target/mnt/log
+kali@kali:~$
+kali@kali:~$ mv /target/root/.* /target/mnt/root/
+kali@kali:~$ mv /target/home/* /target/mnt/home/
+kali@kali:~$ mv /target/var/log/* /target/mnt/log/
+kali@kali:~$
+kali@kali:~$ vim /target/etc/fstab
 ```
 
 - - -
 
-27. After that we can edit fstab to mount each subvolume via `nano /target/etc/fstab`:
+27. After that we can edit fstab to mount each subvolume via `vim /target/etc/fstab`:
 
-```markdown
+```plaintext
 UUID=<UUID of btrfs partition> /               btrfs   defaults,subvol=@             0       0
 UUID=<UUID of btrfs partition> /home           btrfs   defaults,subvol=@home         0       0
 UUID=<UUID of btrfs partition> /var/log        btrfs   defaults,subvol=@log          0       0
@@ -279,26 +279,26 @@ UUID=<UUID of btrfs partition> /.snapshots     btrfs   defaults,subvol=@snapshot
 
 e.g.:
 
-![btrfs-g-48-postinst.png](btrfs-g-48-postinst.png)
+![](btrfs-g-48-postinst.png)
 
 - - -
 
 28. Optionally we can configure "locate" to ignore the .snapshot folder used by snapper (if installed later)
 Add `PRUNENAMES = ".snapshots"` to `/mnt/root/etc/updatedb.conf`
 
-![btrfs-g-49-postinst.png](btrfs-g-49-postinst.png)
+![](btrfs-g-49-postinst.png)
 
 - - -
 
 29. As the last step we have to reset the "default-subvolume" to 5, as that is a requirement for "apt-btrfs-snapshot" to work properly:
 
-![btrfs-g-50-postinst.png](btrfs-g-50-postinst.png)
+![](btrfs-g-50-postinst.png)
 
 - - -
 
 30. Installation is finished now and we can switch back to VT5 (`Ctrl + Alt + F5`) and reboot.
 
-![btrfs-g-52-finish.png](btrfs-g-52-finish.png)
+![](btrfs-g-52-finish.png)
 
 - - -
 
@@ -306,15 +306,17 @@ Add `PRUNENAMES = ".snapshots"` to `/mnt/root/etc/updatedb.conf`
 
 First let's install "btrfs-progs":
 
-`sudo apt install btrfs-progs`
+```
+kali@kali:~$ sudo apt install btrfs-progs
+```
 
 - - -
 
 32. Now we can download and install the "apt-btrfs-snapshot" tool from the Ubuntu repository
 
-```markdown
-wget https://launchpad.net/ubuntu/+archive/primary/+files/apt-btrfs-snapshot_3.5.2_all.deb
-sudo apt install ./apt-btrfs-snapshot_3.5.2_all.deb
+```console
+kali@kali:~$ wget https://launchpad.net/ubuntu/+archive/primary/+files/apt-btrfs-snapshot_3.5.2_all.deb
+kali@kali:~$ sudo apt install ./apt-btrfs-snapshot_3.5.2_all.deb
 ```
 
 Congratulations, you have just installed a Kali system with automatic snapshotting functionality! Next, we will cover some basic usage examples.
@@ -325,7 +327,7 @@ Congratulations, you have just installed a Kali system with automatic snapshotti
 
 Snapshots are automatically created during apt operations. There are no additional steps required, e.g.:
 
-![btrfs-50-example-snapshot](btrfs-50-example-snapshot.png)
+![](btrfs-50-example-snapshot.png)
 
 - - -
 
@@ -333,15 +335,19 @@ Snapshots are automatically created during apt operations. There are no addition
 
 Firstly, a snapshot is also a subvolume, thus all snapshots also show up when listing btrfs subvolumes, e.g. via
 
-`sudo btrfs subvolume list /`
+```
+kali@kali:~$ sudo btrfs subvolume list /
+```
 
-![btrfs-51-example-subvolume-list](btrfs-51-example-subvolume-list.png)
+![](btrfs-51-example-subvolume-list.png)
 
 To list only the snapshots, we can use the following command:
 
-`sudo apt-btrfs-snapshot list`
+```
+kali@kali:~$ sudo apt-btrfs-snapshot list
+```
 
-![btrfs-52-example-snapshot-list](btrfs-52-example-snapshot-list.png)
+![](btrfs-52-example-snapshot-list.png)
 
 - - -
 
@@ -351,11 +357,11 @@ The easiest way to delete a snapshot is by using the following command:
 
 `sudo apt-btrfs-snapshot delete`
 
-![btrfs-52-example-snapshot-delete](btrfs-52-example-snapshot-delete.png)
+![](btrfs-52-example-snapshot-delete.png)
 
 Voila, it's gone:
 
-![btrfs-53-example-snapshot-list-after-delete](btrfs-53-example-snapshot-list-after-delete.png)
+![](btrfs-53-example-snapshot-list-after-delete.png)
 
 There are more sophisticated ways to delete multiple snapshots, e.g. the following deletes all snapshots older than 2 days:
 
@@ -372,17 +378,17 @@ To roll back to a previous snapshot we have to remember two things:
 Thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the curent root ("@") subvolume.
 E.g.:
 
-```markdown
-# mount your root partition (replace "/dev/mmcblk2p2" with yours):
-sudo mount /dev/mmcblk2p2 /mnt
+```console
+kali@kali:~$ # mount your root partition (replace "/dev/mmcblk2p2" with yours):
+kali@kali:~$ sudo mount /dev/mmcblk2p2 /mnt
 
-# Move the old root away:
-sudo mv /mnt/@ /mnt/@_badroot
+kali@kali:~$ # Move the old root away:
+kali@kali:~$ sudo mv /mnt/@ /mnt/@_badroot
 
-# Roll back to a previous snapshot:
-sudo mv /mnt/@ /mnt/@apt-snapshot-2019-10-13_18:07:40 /mnt/@
-
-sudo reboot -f
+kali@kali:~$ # Roll back to a previous snapshot:
+kali@kali:~$ sudo mv /mnt/@ /mnt/@apt-snapshot-2019-10-13_18:07:40 /mnt/@
+kali@kali:~$
+kali@kali:~$ sudo reboot -f
 ```
 
 #### Full walkthrough from apt full-upgrade to rollback
@@ -392,28 +398,28 @@ sudo reboot -f
 After a new installation we don't have any snapshots yet as we can see via:
 `sudo apt-btrfs-snapshot list`
 
-![btrfs-70-Rollback-01.png](btrfs-70-Rollback-01.png)
+![](btrfs-70-Rollback-01.png)
 
 Let's do a [full system upgrade](/docs/general-use/updating-kali/):
 
-```markdown
-apt update
-apt full-upgrade
+```console
+kali@kali:~$ apt update
+kali@kali:~$ apt full-upgrade
 ```
 
-![btrfs-72-Rollback-03.png](btrfs-72-Rollback-03.png)
+![](btrfs-72-Rollback-03.png)
 
 We can observe that a snapshot is being created before any packages are installed:
 
-![btrfs-74-Rollback-05.png](btrfs-74-Rollback-05.png)
+![](btrfs-74-Rollback-05.png)
 
 Once finished we can confirm that there are no more updates available:
 
-![btrfs-74-Rollback-05b.png](btrfs-74-Rollback-05b.png)
+![](btrfs-74-Rollback-05b.png)
 
 If we list the snapshots again we can see the one that has just been created:
 
-![btrfs-75-Rollback-06.png](btrfs-75-Rollback-06.png)
+![](btrfs-75-Rollback-06.png)
 
 ##### Rollback
 
@@ -425,7 +431,7 @@ Remember that "/" itself is the subvolume "@". To rollback to a snapshot, all we
 
 If we list the content of that partition we can see all the subvolumes, including the snapshots:
 
-![btrfs-77-Rollback-08.png](btrfs-77-Rollback-08.png)
+![](btrfs-77-Rollback-08.png)
 
 - - -
 
@@ -433,7 +439,7 @@ If we list the content of that partition we can see all the subvolumes, includin
 
 `sudo mv /mnt/@ /mnt/@_badroot`
 
-![btrfs-78-Rollback-09.png](btrfs-78-Rollback-09.png)
+![](btrfs-78-Rollback-09.png)
 
 - - -
 
@@ -441,15 +447,15 @@ If we list the content of that partition we can see all the subvolumes, includin
 
 `sudo mv /mnt/@apt-snapshot-2019-10-21_23:50:26 /mnt/@`
 
-![btrfs-79-Rollback-10.png](btrfs-79-Rollback-10.png)
+![](btrfs-79-Rollback-10.png)
 
 And that's all there is to it, here's the new "@":
 
-![btrfs-80-Rollback-11.png](btrfs-80-Rollback-11.png)
+![](btrfs-80-Rollback-11.png)
 
 Let's reboot for the rollback to take effect:
 
-![btrfs-81-Rollback-12.png](btrfs-81-Rollback-12.png)
+![](btrfs-81-Rollback-12.png)
 
 - - -
 
@@ -457,20 +463,20 @@ Let's reboot for the rollback to take effect:
 
 After the reboot, we can see that the snapshot is gone, because we rolled back to it:
 
-![btrfs-82-Rollback-13.png](btrfs-82-Rollback-13.png)
+![](btrfs-82-Rollback-13.png)
 
 And if we issue another "apt update", we can see that we are back to where we were before the snapshot:
 
-![btrfs-83-Rollback-14.png](btrfs-83-Rollback-14.png)
+![](btrfs-83-Rollback-14.png)
 
 Once you confirmed that the system works you can delete the old "root" by mounting the btrfs partition and using the "btrfs subvolume delete" command:
 
-```markdown
-sudo mount /dev/<your btrfs partition> /mnt
-sudo btrfs subvolume delete /mnt/@_badroot
+```console
+kali@kali:~$ sudo mount /dev/<your btrfs partition> /mnt
+kali@kali:~$ sudo btrfs subvolume delete /mnt/@_badroot
 ```
 
-![btrfs-84-Rollback-15.png](btrfs-84-Rollback-15.png)
+![](btrfs-84-Rollback-15.png)
 
 - - -
 

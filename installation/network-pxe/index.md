@@ -13,7 +13,7 @@ Booting and installing Kali Linux over the network ([PXE](http://en.wikipedia.or
 
 First, we need to install **[dnsmasq](https://packages.debian.org/testing/dnsmasq)** to provide the DHCP/TFTP server and then edit the `dnsmasq.conf` file:
 
-```markdown
+```console
 kali@kali:~$ sudo apt install -y dnsmasq
 ...
 kali@kali:~$
@@ -25,7 +25,7 @@ kali@kali:~$
 
 In `dnsmasq.conf`, enable **DHCP**, **TFTP** and **PXE booting** and set the `dhcp-range` to match your environment (we are using **192.168.101.100-200**). If needed you can also define your gateway and DNS servers with the `dhcp-option` directive as shown below:
 
-```markdown
+```plaintext
 interface=eth0
 dhcp-range=192.168.101.100,192.168.101.200,12h
 dhcp-boot=pxelinux.0
@@ -39,7 +39,7 @@ dhcp-option=6,8.8.8.8,8.8.4.4
 
 With the edits in place, the dnsmasq service needs to be restarted in order for the changes to take effect.
 
-```markdown
+```console
 kali@kali:~$ sudo systemctl restart dnsmasq
 kali@kali:~$
 ```
@@ -48,7 +48,7 @@ kali@kali:~$
 
 Now, we need to create a directory to hold the Kali Linux Netboot image and download the image we wish to serve.
 
-```markdown
+```console
 kali@kali:~$ sudo mkdir -p /tftpboot/
 kali@kali:~$
 

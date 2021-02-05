@@ -1,5 +1,5 @@
 ---
-title: Dual Boot Kali with Windows
+title: Dual Booting Kali with Windows
 description:
 icon:
 type: post
@@ -49,13 +49,13 @@ You may need to disable secure boot
 
 3. You should be greeted with the Kali Linux **boot screen**. Select **Live**, and you should be booted into the Kali Linux default desktop.
 
-![boot-live](boot-live.png)
+![](boot-live.png)
 
 - - -
 
 4. Now launch **[GParted](https://packages.debian.org/testing/gparted)**, which we'll use to shrink the existing Windows partition to give us enough room to install Kali Linux in the free space.
 
-![gparted-1](gparted-1.png)
+![](gparted-1.png)
 
 - - -
 
@@ -77,20 +77,20 @@ It is normal to leave the third partition (`/dev/sda3`), and only shrink the act
 If you wish to organize the partition to group all the Windows partitions together, placing the free space at the end, you may do so.
 {{% /notice %}}
 
-![gparted-2-windows](gparted-2-windows.png)
+![](gparted-2-windows.png)
 
 - - -
 
 6. Once you have resized your Windows partition, ensure you "**Apply All Operations**" on the hard disk. Exit gparted and **reboot**.
 
-![gparted-3-windows](gparted-3-windows.png)
+![](gparted-3-windows.png)
 
 ### Kali Linux Installation Procedure
 
 1. The installation procedure from this point onwards is similar to a [Kali Linux Hard Disk install](/docs/installation/hard-disk-install/), until the point of the partitioning.
 At this point, you need to select "**Guided - use the largest continuous free space**" _(rather than "Guided - the entire disk")_ which got created earlier with **gparted**.
 
-![setup-partition-1-continuous](setup-partition-1-continuous.png)
+![](setup-partition-1-continuous.png)
 
 - - -
 
@@ -98,7 +98,7 @@ At this point, you need to select "**Guided - use the largest continuous free sp
 
 You should be greeted with a **GRUB boot menu**, which will allow you to boot either into Kali Linux or Windows.
 
-![boot-windows](boot-windows.png)
+![](boot-windows.png)
 
 ### Post Installation
 
@@ -110,14 +110,14 @@ The [General Use section](/docs/general-use/) has more information and you can a
 
 One thing that may be worth knowing about is that occasionally the time will get changed between the Windows and the Linux system. To fix this, we can do the following:
 
-```markdown
+```console
 kali@kali:~$ timedatectl set-local-rtc 1 --adjust-system-clock
 kali@kali:~$
 ```
 
 To undo this we can simply do:
 
-```markdown
+```console
 kali@kali:~$ timedatectl set-local-rtc 0 --adjust-system-clock
 kali@kali:~$
 ```

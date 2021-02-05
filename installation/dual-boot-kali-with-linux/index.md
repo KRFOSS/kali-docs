@@ -1,5 +1,5 @@
 ---
-title: Dual Boot Kali with Linux
+title: Dual Booting Kali with Linux
 description:
 icon:
 type: post
@@ -45,13 +45,13 @@ You may need to try a few different options in order to find success.
 
 3. You should be greeted with the Kali Linux **boot screen**. Select **Live**, and you should be booted into the Kali Linux default desktop.
 
-![boot-live](boot-live.png)
+![](boot-live.png)
 
 - - -
 
 4. Now launch **[GParted](https://packages.debian.org/testing/gparted)**, which we'll use to shrink the existing Linux partition to give us enough room to install Kali Linux in the free space.
 
-![gparted-1](gparted-1.png)
+![](gparted-1.png)
 
 - - -
 
@@ -73,20 +73,20 @@ Only remove from the area of the partition that is not in use.
 If you wish to organize the partition to group all the Linux partitions together, placing the free space at the end, you may do so.
 {{% /notice %}}
 
-![gparted-2-linux](gparted-2-linux.png)
+![](gparted-2-linux.png)
 
 - - -
 
 6. Once you have resized your Linux partition, ensure you "**Apply All Operations**" on the hard disk. Exit gparted and **reboot**.
 
-![gparted-3-linux](gparted-3-linux.png)
+![](gparted-3-linux.png)
 
 ### Kali Linux Installation Procedure
 
 1. The installation procedure from this point onwards is similar to a [Kali Linux Hard Disk install](/docs/installation/hard-disk-install/), until the point of the partitioning.
 At this point, you need to select "**Guided - use the largest continuous free space**" _(rather than "Guided - the entire disk")_ which got created earlier with **gparted**.
 
-![setup-partition-1-continuous](setup-partition-1-continuous.png)
+![](setup-partition-1-continuous.png)
 
 - - -
 
@@ -94,7 +94,7 @@ At this point, you need to select "**Guided - use the largest continuous free sp
 
 You should be greeted with a **GRUB boot menu**, which will allow you to boot either into Kali Linux or the other Linux operating system.
 
-![boot-linux](boot-linux.png)
+![](boot-linux.png)
 
 ### Post Installation
 

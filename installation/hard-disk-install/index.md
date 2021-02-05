@@ -1,5 +1,5 @@
 ---
-title: Install Kali Linux
+title: Installing Kali Linux
 description:
 icon:
 type: post
@@ -52,30 +52,30 @@ We will be wiping any existing data on the hard disk, so please backup any impor
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Linux Boot screen. Choose either **Graphical install** or **Install** (Text-Mode).
 In this example, we chose the Graphical install.
 
-![boot-installer](boot-installer.png)
+![](boot-installer.png)
 
 {{% notice info %}}
 If you're using the **live** image instead, you will see another mode, **Live**, which is also the default boot option.<br />
-![boot-live](boot-live.png)
+![](boot-live.png)
 {{% /notice %}}
 
 #### Language
 
 2. Select your preferred language. This will be used for both the setup process and once you are using Kali Linux.
 
-![setup-language-1](setup-language-1.png)
+![](setup-language-1.png)
 
 - - -
 
 3. Specify your geographic location.
 
-![setup-language-2](setup-language-2.png)
+![](setup-language-2.png)
 
 - - -
 
 4. Select your keyboard layout.
 
-![setup-language-3](setup-language-3.png)
+![](setup-language-3.png)
 
 #### Network
 
@@ -91,27 +91,27 @@ If there is no network access with DHCP service detected, you may need to manual
 - If the setup detects multiple NICs, it may prompt you which one to use for the install.
 - If the chosen NIC is 802.11 based, you will be asked for your wireless network information before being prompted for a hostname.
 
-![setup-hostname-1](setup-hostname-1.png)
+![](setup-hostname-1.png)
 
 - - -
 
 6. You may optionally provide a default domain name for this system to use (values may be pulled in from DHCP or if there is an existing operating systems pre-existing).
 
-![setup-hostname-2](setup-hostname-2.png)
+![](setup-hostname-2.png)
 
 #### User Accounts
 
 7. Next, create the user account for the system (Full name, username and a strong password).
 
-![setup-user-1](setup-user-1.png)
-![setup-user-2](setup-user-2.png)
-![setup-user-3](setup-user-3.png)
+![](setup-user-1.png)
+![](setup-user-2.png)
+![](setup-user-3.png)
 
 #### Clock
 
 8. Next, set your time zone.
 
-![setup-clock](setup-clock.png)
+![](setup-clock.png)
 
 #### Disk
 
@@ -125,13 +125,13 @@ Experienced users can use the "Manual" partitioning method for more granular con
 
 If you want to encrypt Kali Linux, you can enable Full Disk Encryption (FDE), by selecting **Guided - used entire disk and setup encrypted LVM**. When selected, later on in the setup (not in this guide) prompt you to enter a password (twice). You will have to enter this password every time you start up Kali Linux.
 
-![setup-partition-1](setup-partition-1.png)
+![](setup-partition-1.png)
 
 - - -
 
 10. Select the disk to be partitioned.
 
-![setup-partition-2](setup-partition-2.png)
+![](setup-partition-2.png)
 
 - - -
 
@@ -139,14 +139,14 @@ If you want to encrypt Kali Linux, you can enable Full Disk Encryption (FDE), by
 11. Depending on your needs, you can choose to keep all your files in a single partition — the default — or to have separate partitions for one or more of the top-level directories.
 If you're not sure which you want, you want "**All files in one partition**".
 
-![setup-partition-3](setup-partition-3.png)
-![setup-partition-4](setup-partition-4.png)
+![](setup-partition-3.png)
+![](setup-partition-4.png)
 
 - - -
 
 12. Next, you'll have one last chance to review your disk configuration before the installer makes irreversible changes. After you click _Continue_, the installer will go to work and you'll have an almost finished installation.
 
-![setup-partition-5](setup-partition-5.png)
+![](setup-partition-5.png)
 
 
 #### Encrypted LVM
@@ -164,7 +164,7 @@ If you wish to risk it, you can skip it.
 
 13. Kali Linux uses a central repository to distribute applications. You'll need to enter any appropriate proxy information as needed.
 
-![setup-proxy](setup-proxy.png)
+![](setup-proxy.png)
 
 #### Metapackages
 
@@ -179,25 +179,25 @@ If you are using the **Live** image, you will not have the following stage
 14. Next you can select which [metapackages](/docs/general-use/metapackages/) you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.
 Please [refer to this guide](/docs/introduction/what-image-to-download/#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.
 
-![setup-default-metapackages](setup-default-metapackages.png)
+![](setup-default-metapackages.png)
 
 #### Boot Information
 
 15. Next confirm to install the GRUB boot loader.
 
-![setup-grub-1](setup-grub-1.png)
+![](setup-grub-1.png)
 
 - - -
 
 16. Select the hard drive to install the GRUB bootloader in (**it does not by default select any drive**).
 
-![setup-grub-2](setup-grub-2.png)
+![](setup-grub-2.png)
 
 #### Reboot
 
 17. Finally, click Continue to reboot into your new Kali Linux installation.
 
-![setup-reboot](setup-reboot.png)
+![](setup-reboot.png)
 
 ### Post Installation
 
