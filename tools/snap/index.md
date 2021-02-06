@@ -19,7 +19,7 @@ kali@kali:~$ sudo apt install snapd
 Enabling and starting `snapd` and `snapd.apparmor` services:
 
 ```console
-kali@kali:~$ systemctl enable --now snapd apparmor
+kali@kali:~$ sudo systemctl enable --now snapd apparmor
 ```
 
 Log out and back in again, or restart your system, to ensure 
