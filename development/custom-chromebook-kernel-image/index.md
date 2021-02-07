@@ -212,7 +212,7 @@ kali@kali:~$ losetup -d $loopdevice
 #### 07. dd the Image and Mark the USB Drive Bootable
 
 ```console
-kali@kali:~$ dd if=kali-custom-chrome.img of=/dev/sdb bs=4M
+kali@kali:~$ dd if=kali-linux-chrome.img of=/dev/sdb bs=4M
 kali@kali:~$ cgpt repair /dev/sdb
 ```
 

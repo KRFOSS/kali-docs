@@ -23,8 +23,8 @@ We will be using the [official Kali Linux VMWare image](https://www.offensive-se
 kali@kali:~$ 7z x kali-linux-2020.4-vmware-amd64.7z
 ...
 kali@kali:~$
-kali@kali:~$ ls Kali-Linux-*-vmware-amd64.vmwarevm/*vmx
-Kali-Linux-2020.4-vmware-amd64.vmwarevm/Kali-Linux-2020.4-vmware-amd64.vmx
+kali@kali:~$ ls kali-linux-*-vmware-amd64.vmwarevm/*vmx
+kali-linux-2020.4-vmware-amd64.vmwarevm/kali-linux-2020.4-vmware-amd64.vmx
 kali@kali:~$
 ```
 
@@ -33,10 +33,10 @@ kali@kali:~$
 We can now start to convert by doing the following.
 
 ```console
-kali@kali:~$ ovftool Kali-Linux-*-vmware-amd64.vmwarevm/*vmx Kali-Linux-rolling-amd64.ova
-Opening VMX source: Kali-Linux-2020.4-vmware-amd64.vmwarevm/Kali-Linux-2020.4-vmware-amd64.vmx
-Opening OVA target: Kali-Linux-rolling-amd64.ova
-Writing OVA package: Kali-Linux-rolling-amd64.ova
+kali@kali:~$ ovftool kali-linux-*-vmware-amd64.vmwarevm/*vmx kali-linux-rolling-amd64.ova
+Opening VMX source: kali-linux-2020.4-vmware-amd64.vmwarevm/kali-linux-2020.4-vmware-amd64.vmx
+Opening OVA target: kali-linux-rolling-amd64.ova
+Writing OVA package: kali-linux-rolling-amd64.ova
 ...
 Transfer Completed
 Completed successfully

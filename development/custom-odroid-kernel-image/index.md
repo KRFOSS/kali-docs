@@ -231,7 +231,7 @@ kali@kali:~$ losetup -d $loopdevice
 Now, image the file onto your USB storage device. Our device is **/dev/sdb**. Change this as needed.
 
 ```console
-kali@kali:~$ dd if=kali-custom-odroid.img of=/dev/sdb bs=4M
+kali@kali:~$ dd if=kali-linux-odroid.img of=/dev/sdb bs=4M
 ```
 
 Once this operation is complete, connect your UART serial cable to the ODROID and boot it up with the microSD/SD card plugged in. Through the serial console, you will be able to log in to Kali (root / toor) and startx.

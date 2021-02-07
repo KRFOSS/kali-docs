@@ -113,7 +113,7 @@ kali@kali:~$ losetup -d $loopdevice
 Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed**.
 
 ```console
-kali@kali:~$ dd if=kali-custom-ss808.img of=/dev/sdb bs=4M
+kali@kali:~$ dd if=kali-linux-ss808.img of=/dev/sdb bs=4M
 ```
 
 Once the dd operation is complete, unmount and eject the SD card and boot your MK/SS808 into Kali Linux
