@@ -7,9 +7,7 @@ weight:
 author: ["steev",]
 ---
 
-```
 The [[ https://www.kali.org/docs/arm/install-kali-linux-arm-raspberry-pi | Raspberry Pi Kali doc ]] should be updated to account for errors found in [[ https://forums.kali.org/showthread.php?13-Install-Kali-ARM-on-a-Raspberry-Pi/page2 | this thread ]], this [[ https://itfellover.com/kali-linux-1-1-0-git-install-kernel-cross-compilation-with-wireless-injection-working-v2/ | user posted doc ]], and even [[ https://www.raspberrypi.org/forums/viewtopic.php?t=68598&p=500327 | this Raspberry Pi doc ]]. There's even a badass user-created project running Kali on a Pi3, a touch interface and mounted on a friggin DRONE [[ https://whitedome.com.au/re4son/sticky-fingers-kali-pi/ | here ]].
-```
 
 The [Raspberry Pi](http://raspberrypi.org) is a low-cost, credit-card-sized ARM computer. Despite being a good bit less powerful than a laptop or desktop PC, its affordability makes it an excellent option for a tiny Linux system and it can do far more than act as a media hub.
 
@@ -32,8 +30,8 @@ In our example, we assume the storage device is located at **_/dev/sdb_**. Do _n
 This command will overwrite any existing data on your SD card. If you specify the _wrong device path_, you could wipe out your computer's hard disk!
 {{% /notice %}}
 
-```
-dd if=kali-linux-$version-rpi.img of=/dev/sdb bs=4M
+```console
+$ dd if=kali-linux-$version-rpi.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while depending on your SD card's device speed and image size. Once the **dd** operation is complete, insert the SD card into the Raspberry Pi and power it on.

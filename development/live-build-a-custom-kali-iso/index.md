@@ -24,6 +24,7 @@ kali@kali:~$ sudo apt update
 kali@kali:~$ sudo apt install -y curl git live-build cdebootstrap
 kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 ```
+
 Now you can simply build an updated Kali ISO by entering the "live-build-config" directory and running our **build.sh** wrapper script, as follows:
 
 ```console

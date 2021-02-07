@@ -13,7 +13,7 @@ Depending on the Site you are accessing, our [privacy notice](https://www.offens
 
 If you have questions, please contact us by email at **privacy at offensive-Security dot com** or write to us at:
 
-```
+```plaintext
 Offensive Security
 230 Park Avenue 3rd Floor West
 New York, NY 10169.

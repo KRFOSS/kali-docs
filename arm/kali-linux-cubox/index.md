@@ -23,8 +23,8 @@ If all you want to do is to install Kali on your CuBox, follow these instruction
 This process will wipe out your SD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
-```
-dd if=kali-linux-$version-cubox.img of=/dev/sdb bs=4M
+```console
+$ dd if=kali-linux-$version-cubox.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while depending on your USB storage device speed and image size. Once the _dd_ operation is complete, boot up your CuBox with the SD card plugged in. You will be able to [Log in to Kali](/docs/introduction/default-credentials/) and **startx**. That's it, you're done!

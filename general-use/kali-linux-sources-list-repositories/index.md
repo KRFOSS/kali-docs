@@ -7,10 +7,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-​
-The topic of repositories is always a large one, and comes up frequently. It is an item which people often get wrong and confused with. Please take the time to read the information below and any references which is linked to before acting on anything.
-​
-​
+​The topic of repositories is always a large one, and comes up frequently. It is an item which people often get wrong and confused with. Please take the time to read the information below and any references which is linked to before acting on anything.
 ​
 ## Default Network Repository Value
 ​
@@ -22,6 +19,7 @@ kali@kali:~$ grep -v '#' /etc/apt/sources.list | sort -u
 deb http://http.kali.org/kali kali-rolling main non-free contrib
 kali@kali:~$
 ```
+
 ​
 If the output doesn't exactly match up to the above output, you may not be able to install any new additional packages or receive updates.
 This may happen for any number of reasons, such as:
@@ -32,45 +30,43 @@ This may happen for any number of reasons, such as:
 ​
 You will probably want to read the "switching branches" section to alter this.
 ​
-​
-​
 ## Switching Branches/Regular Repositories
 ​
 Kali has various [different branches](/docs/general-use/kali-branches/) to choose from (please take the time to read which one would be the best option for your setup), and you may be able to switch or include additional repositories.
 ​
-**kali-rolling** (Default & frequently updated)
+**kali-rolling** (Default & frequently updated):
 ​
 ```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list
 ```
-​
-**kali-last-snapshot** (Point release so more "stable" & the "safest")
+
+​- - -
+
+**kali-last-snapshot** (Point release so more "stable" & the "safest"):
 ​
 ```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main non-free contrib" | sudo tee /etc/apt/sources.list
 ```
-​
-**kali-experimental** (Packages which are under testing - often used with the rolling repository)
+
+- - -
+
+**kali-experimental** (Packages which are under testing - often used with the rolling repository):
 ​
 ```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main non-free contrib" | sudo tee -a /etc/apt/sources.list
 ```
-​
-​
-​
 ## Sources.list Format
 ​
-```
+```plaintext
 deb   http://http.kali.org/kali   kali-rolling   main non-free contrib
 <Archive>   <Mirror>                <Branch>         <Component>
 ```
+
 ​
 - **Archive** is going to be `deb` (Regular Binary) or `deb-src` (Source), depending if you want a package or the source of the package.
 - **Mirror** should be `http.kali.org/kali` as this is our load balancer, which will direct you to best [mirror](/docs/community/kali-linux-mirrors/).
 - **Branch** is what [version of Kali](/docs/general-use/kali-branches/) you wish to use.
 - **Component** is what packages you wish to use, based on the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract#guidelines). Kali defaults to everything.
-​
-​
 ​
 ## Default Off-line Install Values
 ​
@@ -106,12 +102,10 @@ deb cdrom:[Kali GNU/Linux 2020.1a _Kali-last-snapshot_ - Official amd64 DVD Bina
 Repeat this process for the rest of the CDs in your set.
 kali@kali:~$
 ```
-​
-If your output matches whats above, please see the switching branch section, if you wish to receive updates.
+
+​If your output matches whats above, please see the switching branch section, if you wish to receive updates.
 ​
 However, if you do have network connection, which has access to network repositories, it will be enabled for you. You don't need to do anything.
-​
-​
 ​
 ## Non-Kali Repositories
 ​
@@ -122,14 +116,10 @@ By adding Kali's repository to a non-Kali OS (such as trying to add Kali to Ubun
 Likewise, adding other operating system's repositories into Kali (such as trying to put Ubuntu on Kali), will break your installation. This is the single most common reason why Kali Linux systems break.
 ​
 If any guides are telling you to do anything else than the above, this is unofficial advice, and completely not supported by Kali Linux. More often than not, users in this case end up doing a reinstall after learning this lesson.
-​
-​
-​
+
 ## Mirrors
 ​
 We have a list of [official Kali Linux mirrors](/docs/community/kali-linux-mirrors/), as well as a [guide on how to setup your own](/docs/community/setting-up-a-kali-linux-mirror/). This may be kept as a local repository which is only accessible on a LAN, or a remote private one, or if you have the ability to, you may wish to [share back to the community](/docs/community/contribute/) and make it public allowing for anyone else in your geographical area to benefit from it.
-​
-​
 ​
 ## Source Repositories
 ​
@@ -138,5 +128,5 @@ By using a `deb` in the repositories, it will allow for binary packages to be do
 ```console
 kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee -a /etc/apt/sources.list
 ```
-​
+
 We used `kali-rolling` for the [branch](/docs/general-use/kali-branches/) above, but you can select any value you wish.

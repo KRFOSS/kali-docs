@@ -26,7 +26,7 @@ Navigate to _Device Drivers_ -> _Network Device Support_ ->  _Wireless LAN_ and 
 - select ***"Atheros ath6kl USB support"***
   (CONFIG_ATH6KL_USB=y)
 
-![](./nh-kernel-170-usb-wifi-1.png)
+![](nh-kernel-170-usb-wifi-1.png)
 
 &nbsp;
 
@@ -39,7 +39,7 @@ Navigate to _Device Drivers_ -> _Network Device Support_ ->  _Wireless LAN_ and 
 - select ***"Ralink driver support"***
   (CONFIG_RT2X00=y)
 
-![](./nh-kernel-180-usb-wifi-2.png)
+![](nh-kernel-180-usb-wifi-2.png)
 
 &nbsp;
 
@@ -64,7 +64,7 @@ Open Ralink driver support and configure the following drivers:
 - select ***"rt2800usb - Include support for unknown (USB)"***
   (CONFIG_RT2800USB_UNKNOWN=y)
 
-![](./nh-kernel-190-usb-wifi-3.png)
+![](nh-kernel-190-usb-wifi-3.png)
 
 &nbsp;&nbsp;
 
@@ -89,6 +89,4 @@ Continue down the page and enable the following drivers:
 - select ***"Wireless RNDIS USB support"***
   (CONFIG_USB_NET_RNDIS_WLAN=y)
 
-![](./nh-kernel-200-usb-wifi-4.png)
-
-
+![](nh-kernel-200-usb-wifi-4.png)

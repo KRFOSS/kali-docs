@@ -46,7 +46,6 @@ If still you have not figured it out, here is a summary that will hopefully remo
 - The developers always try to make Kali Linux as much hardware compatible as possible but, still some hardware/s *might not work* as *expected* or *not work at all*. So, its better to **research hardware compatibility** beforehand rather than breaking your computer later.
 - If you are installing Kali Linux for the first time, it is recommended to install first in Virtual Machine then, after getting familiar with it, you can install it in your own hardware.
 
-
 Hopefully, now you know if you need to install **Kali Linux** or not. If you have decided to install **Kali Linux** then, we welcome you to our community.
 
 If not, then see you later, and remember always **"Try Harder"**.

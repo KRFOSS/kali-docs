@@ -156,7 +156,6 @@ configure_networking()
 echo "Waiting 5 seconds for USB to wake"
 sleep 5
 ...
-
 ```
 
 {{% notice info %}}

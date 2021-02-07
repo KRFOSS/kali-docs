@@ -190,7 +190,6 @@ EOF
 
 Now, we'll run it from within our second-stage chroot.
 
-
 ```console
 kali@kali:~$ chmod +x kali-$architecture/third-stage
 kali@kali:~$ LANG=C chroot kali-$architecture /third-stage

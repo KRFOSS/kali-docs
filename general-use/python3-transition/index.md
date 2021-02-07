@@ -149,20 +149,13 @@ Be nice with end users:
   the desired result
 - update it for Python 3 compatibility if that's not the case yet
 
-
-
-
-
-
 ## Python2 & PIP
 
 @g0tmi1k, I'm sure I remember something being said. but is it now covered in the kali-docs?
 
-```
 @Gamb1t-Joe-O Looking at https://www.kali.org/docs/general-use/using-eol-python-versions/ I wonder how that interact with sudo when you want to run an old python2 script as root. It might be worth saying a word about this and in particular clearly indicate that they should never ever run "sudo pip" as that would likely not use pyenv and use the system wide script and install stuff that would conflict with packaged modules.
 kali.orgkali.org
 Using EoL Python Versions on Kali | Kali Linux Documentation
 Official documentation of Kali Linux, an Advanced Penetration Testing Linux distribution used for Penetration Testing, Ethical Hacking and network security assessments.
 
 BTW now that we have documented the above, we have removed python-pip (i.e. the python2 version of pip) and users calling "pip" will install stuff for Python 3.
-```

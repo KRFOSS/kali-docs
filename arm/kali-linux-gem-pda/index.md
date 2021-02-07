@@ -60,7 +60,6 @@ To back up the NVRAM partition, click the "Read Back" button, connect your Gemin
 
 ### 4. Flash the Kali Linux Firmware
 
-
 - Click on the "Download" tab
 - Choose the "Scatter-loading file" by pressing the "choose" button as in the following screenshot and select **_Gemini_x27_A20GB_L36GB_Multi_Boot.txt_** inside the downloaded and extracted firmware folder. Ensure that the other settings match the following:
     - "Download-Agent" should be set to the file **_MTK_AllInOne_DA.bin_**, which is located in the **_FlashToolWindows_** or **_FlashToolLinux_** folder

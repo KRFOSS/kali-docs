@@ -18,7 +18,7 @@ In section "General Setup":
 - select ***"System V IPC"***
   (CONFIG_SYSVIPC=y)
 
-![](./nh-kernel-110-general.png)
+![](nh-kernel-110-general.png)
 
 &nbsp;
 
@@ -37,8 +37,6 @@ We want to enable modules in _Enable Loadable Module Support_ just in case there
   (CONFIG_MODULE_FORCE_UNLOAD=y)
 - select ***"Module versioning support"***
   (CONFIG_MODVERSIONS=y)
-
-
 
 ![](nh-kernel-120-modules.png)
 

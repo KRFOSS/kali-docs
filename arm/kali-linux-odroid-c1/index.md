@@ -21,8 +21,8 @@ If all you want to do is install Kali on your ODROID-C1, follow these instructio
 **Alert!** This process will wipe out your SD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
-```
-xzcat kali-linux-$version-odroidc.img.xz | dd of=/dev/sdb bs=4M
+```console
+$ xzcat kali-linux-$version-odroidc.img.xz | dd of=/dev/sdb bs=4M
 ```
 
 This process can take awhile depending on your device speed and image size.

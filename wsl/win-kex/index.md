@@ -17,8 +17,6 @@ author: ["Re4son",]
 - [Run Win-KeX](#run-win-kex)
 - [Optional steps](#optional-steps)
 
-
-
 ## Overview
 
 #### Win-KeX provides a Kali Desktop Experience for Windows Subsystem for Linux (WSL 2) with the following features:
@@ -32,10 +30,7 @@ author: ["Re4son",]
 
 ![](win-kex-sl.png)
 
-
 #### This page details the steps to install Win-Kex in under 2 minutes.
-
-
 
 ## Installation
 
@@ -44,7 +39,6 @@ All installation steps, up to the point where we install Win-Kex, are also expla
 [Kali Linux on Windows in 5min (WSL2 GUI)](https://www.youtube.com/watch?v=AfVH54edAHU)
 
 Note: You can skip the installation of xrdp and follow [the last step of this guide](#install-win-kex) to install Win-Kex instead.
-
 
 ### Prerequisites
 
@@ -55,7 +49,7 @@ Note: You can skip the installation of xrdp and follow [the last step of this gu
 
 - Open PowerShell as administrator and run:
 
-```
+```console
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
@@ -63,7 +57,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 - Open PowerShell as administrator and run:
 
-```
+```console
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
@@ -82,8 +76,6 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
 - Run Kali and finish the initial setup
 
-
-
 ### Install Win-KeX
 
 - Install win-kex via:
@@ -93,8 +85,6 @@ kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt install -y kali-win-kex
 ```
-
-
 
 ## Run Win-KeX
 
@@ -135,12 +125,9 @@ kali@kali:~$ sudo apt install -y kali-win-kex
 
 ![](win-kex-thelot.png)
 
-
-
 - Create a [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) Shortcut:
 
 ![](win-kex-wt1.png)
-
 
  Choose amongst these options:
 
@@ -154,8 +141,6 @@ kali@kali:~$ sudo apt install -y kali-win-kex
       "commandline": "wsl -d kali-linux kex --wtstart -s",
 },
 ```
-
-
 
   **Advanced Win-KeX in window mode with sound - Kali icon and start in kali home directory:**
 
@@ -183,7 +168,6 @@ kali@kali:~$ sudo apt install -y kali-win-kex
 },
 ```
 
-
   **Advanced Win-KeX in seamless mode with sound - Kali icon and start in kali home directory:**
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
@@ -210,7 +194,6 @@ kali@kali:~$ sudo apt install -y kali-win-kex
 },
 ```
 
-
   **Advanced Win-KeX in ESM mode with sound - Kali icon and start in kali home directory:**
 
   Copy the kali-menu.png icon across to your windows picture directory and add the icon and start directory to your WT config:
@@ -232,8 +215,6 @@ kali@kali:~$ sudo apt install -y kali-win-kex
 
 ![](win-kex-full.png)
 
-
-
 ### Help
 
 For more information, ask for help via:
@@ -246,9 +227,6 @@ or consult the manpage via:
 
 ![](manpage.png)
 
-
-
 or join us in the [Kali Forums](https://forums.kali.org/)
-
 
 #### Enjoy Win-KeX!

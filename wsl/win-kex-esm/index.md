@@ -16,8 +16,6 @@ author: ["Re4son",]
   - [Session Management](#session-management)
   - [Stop](#stop)
 
-
-
 ## Overview
 
 #### Win-KeX in Enhanced Session Mode will run a Kali Linux desktop session in a separate window using protocols and clients native to Windows. ESM mode is the only supported mode on arm devices.
@@ -29,10 +27,6 @@ Win-KeX utilises [xrdp](http://xrdp.org/) server and Microsoft's native RDP clie
 Using the native Microsoft client might yield a crispier GUI on HiDPI devices. The downside is that it is not s fast as --win or --sl modes to the increased pixel density.
 
 ![](win-kex-esm-arm.png)
-
-
-
-
 
 ## Usage
 
@@ -51,17 +45,12 @@ The disadvantage of using "--ip" is that you have to re-enter the ESM password e
 
   `kex --esm --passwd`
 
-
-
   Tick "Don't ask me again" and confirm the following warnings:
 
 ![](RDP-Message-1.png)
 
   This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
 ![](win-kex.png)
-  &nbsp;
-
-
 
 ### Start Root Session
 
@@ -74,16 +63,11 @@ The disadvantage of using "--ip" is that you have to re-enter the ESM password e
 
   This will start the Win-KeX server as root and launch the Win-KeX client in full screen mode.
 
-
-&nbsp;
-
 ### Session Management
 
 - You can disconnect from active sessions by closing the RDP client; this will close the client but leave the session running in the background
 - You can re-connect to a session by typing
   `kex --esm --start-client`
-
-&nbsp;
 
 ### Sound Support
 
@@ -92,11 +76,6 @@ The disadvantage of using "--ip" is that you have to re-enter the ESM password e
 - To start Win-KeX with sound support, add `--sound` or `-s`, e.g.
   `kex --esm --sound`
 
-  &nbsp;
-
-
-&nbsp;
-
 ### Stop
 
 - To close the Win-KeX client, log out of the Kali GUI session
@@ -104,7 +83,5 @@ The disadvantage of using "--ip" is that you have to re-enter the ESM password e
 
 - To shutdown Win-KeX in ESM mode, type
   `kex --esm --stop`
-
-
 
 #### Enjoy Win-KeX!

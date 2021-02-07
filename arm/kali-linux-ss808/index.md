@@ -27,7 +27,8 @@ If all you want to do is to install Kali on your SS808, follow instructions belo
 **Alert!** This process will wipe out your SD card! If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
+```console
+$ dd if=kali-linux-$version-SS808.img of=/dev/sdb bs=4M
 ```
-dd if=kali-linux-$version-SS808.img of=/dev/sdb bs=4M
-```
+
 This process can take a while depending on your USB storage device speed and image size. Once the dd operation is done, boot up your SS808, with the microSD card plugged in. [Log in to Kali](/docs/introduction/default-credentials/) and **startx**. That's it, you're done!

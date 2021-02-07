@@ -20,8 +20,8 @@ If all you want to do is to install Kali on your Galaxy Note 10.1, follow these 
 5. Download our `recovery.img` file from here and copy it to `/storage/sdcard0`.
 6. Get root on your Galaxy Note 10.1, change /storage/sdcard0, and backup your recovery partition:
 
-```
-dd if=/dev/block/mmcblk0p6 of=recovery.img_orig
+```console
+$ dd if=/dev/block/mmcblk0p6 of=recovery.img_orig
 ```
 
 7. **dd** the downloaded recovery.img image to the recovery partition:
@@ -30,8 +30,8 @@ dd if=/dev/block/mmcblk0p6 of=recovery.img_orig
 **Alert!** This process will overwrite your recovery partition. Please make sure you know what you are doing. You may brick your device if you fumble this.
 {{% /notice %}}
 
-```
-dd if=recovery.img of=/dev/block/mmcblk0p6
+```console
+$ dd if=recovery.img of=/dev/block/mmcblk0p6
 ```
 
 8. Reboot your Galaxy Note 10.1 into recovery mode. You can do this by **turning it off**, then press and hold both the **power button** and the **volume up** button. Once you see the "Samsung Galaxy Note 10.1" text appear, **release the power button but keep pressing the volume up button**. This should boot you into Kali and auto-login into Gnome. The root password is "changeme" (without the quotes!)

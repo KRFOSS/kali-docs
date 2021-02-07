@@ -60,7 +60,8 @@ kali@kali:~$
 
 Then on the remote box, SSH into your Kali setup _(you may need to enable port forwarding first)_
 
-```
+```console
 $ ssh kali@192.168.13.37 -L 8081:localhost:8081
 ```
+
 ![](novnc-kali-in-browser-2.png)

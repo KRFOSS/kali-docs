@@ -19,6 +19,7 @@ For ease of use, please use a root account. This can be done with "sudo su".
 ```console
 kali@kali:~$ dd if=kali-linux-2020.4-live-amd64.iso of=/dev/sdb bs=4M
 ```
+
 **0x02 - Create and format an additional partition on the USB stick**. In our example, we create a persistent partition of about 7 GB in size:
 
 ```console

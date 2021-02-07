@@ -10,7 +10,6 @@ author: ["Re4son",]
 ##### Kali NetHunter is a free & open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.
 
 ![](NetHunter-xiaomi-mi-9t.png)
-&nbsp;
 
 ## Content:
 
@@ -26,7 +25,6 @@ author: ["Re4son",]
 - [Known Working Hardware](#9-0-known-working-hardware)
 - [NetHunter App](#10-0-nethunter-app)
 
-&nbsp;
 ## Overview
 
 Kali NetHunter is available for un-rooted devices (NetHunter Rootless), for rooted devices that have a custom recovery (NetHunter Lite), and for rooted devices with custom recovery for which a NetHunter specific kernel is available (NetHunter).
@@ -41,19 +39,13 @@ The core of Kali NetHunter, which is included in all three editions, comprises o
 
 - Kali NetHunter Desktop Experience (KeX) to run full Kali Linux desktop sessions with support for screen mirroring via HDMI or wireless screen casting
 
-
-
 ![](NetHunter-Kex.png)
 Figure 2: Kali NetHunter Desktop Experience (KeX) outputting to an HDMI monitor
-
-&nbsp;
 
 The Kali NetHunter App Store can be accessed through the dedicated client app or via the web interface.
 
 ![](nethunter-store-02.png)
 Figure 3: Kali NetHunter App Store
-
-&nbsp;
 
 **Both rooted editions provide additional tools & services**.
 A custom kernel can extend that functionality by adding additional network and USB gadget drivers as well as wifi injection support for selected wifi chips.
@@ -61,14 +53,9 @@ A custom kernel can extend that functionality by adding additional network and U
 ![](NetHunter-App.png)
 Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter Lite & NetHunter).
 
-&nbsp;
-
 Beyond the [penetration testing tools](https://tools.kali.org/) included in Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and many more.
 
 For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](nethunter-components/) page. Kali NetHunter is an open-source project developed by [Offensive Security](https://www.offensive-security.com/) and the community.
-
-&nbsp;
-
 
 ## 1.0 NetHunter Editions
 
@@ -103,8 +90,6 @@ The NetHunter-App specific chapters are only applicable to the NetHunter & NetHu
 
 The Kernel specific chapters are only applicable to the NetHunter edition.
 
- &nbsp;
-
 ## 2.0 NetHunter Supported Devices and ROMs
 
 NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.
@@ -116,10 +101,6 @@ The following live reports are generated automatically by gitlab CI:
 [NetHunter kernel statistics](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernelstats.html)
 [NetHunter kernel table with](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernels.html)
 
-
-
-&nbsp;
-
 ## 3.0 Downloading NetHunter
 
 Official release NetHunter images for your specific supported device can be download from the Offensive Security NetHunter project page located at the following URL:
@@ -128,14 +109,10 @@ Official release NetHunter images for your specific supported device can be down
 
 Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
 
-&nbsp;
-
 ## 4.0 Building NetHunter
 
 Those of you who want to build a NetHunter image from our Gitlab repository may do so using our Python build scripts. Check out our [Building NetHunter](building-nethunter/) page for more information.
 You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md) located in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer) git directory.
-
-&nbsp;
 
 ## 5.0 Installing NetHunter on top of Android
 
@@ -147,8 +124,6 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - disabling force encryption may be required if TWRP cannot access the data partition
 - Once you have a custom recovery, all that remains is to flash the NetHunter installer zip file onto your Android device.
 
-&nbsp;
-
 ## 6.0 Post Installation Setup
 
 - Open the NetHunter App and start the Kali Chroot Manager.
@@ -157,8 +132,6 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - Configure Kali Services, such as SSH.
 - Set up custom commands.
 - Initialize the Exploit Database.
-
-&nbsp;
 
 ## 7.0 Kali NetHunter Attacks and Features
 
@@ -184,8 +157,6 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 - [**NetHunter Terminal Application**](nethunter-terminal/)
 
-&nbsp;
-
 ## 8.0 Porting NetHunter to New Devices
 
 If you're interested in porting NetHunter to other Android devices, check out the following links. If your port works, make sure to tell us about it so we can include these kernels in our releases!
@@ -194,14 +165,10 @@ If you're interested in porting NetHunter to other Android devices, check out th
 2. Modifying a Kernel
 3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md)
 
-&nbsp;
-
 ## 9.0 Known Working Hardware
 
 1. [Wireless Cards](wireless-cards/)
 2. SDR - RTL-SDR (based on RTL2832U)
-
-&nbsp;
 
 ## 10.0 NetHunter Apps
 
@@ -210,4 +177,3 @@ All apps can be installed through the NetHunter Store client.
 1. The NetHunter Store App can be downloaded [here](https://store.nethunter.com/NetHunterStore.apk)
 2. The NetHunter Web Store can be found [here](https://store.nethunter.com/)
 3. The source code for building the NetHunter Apps can be found on GitLab [here](https://gitlab.com/kalilinux/nethunter/apps/)
-

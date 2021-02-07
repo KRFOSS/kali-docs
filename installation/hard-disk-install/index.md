@@ -79,7 +79,6 @@ If you're using the **live** image instead, you will see another mode, **Live**,
 
 #### Network
 
-
 5. The setup will now probe your network interfaces, looks for a DHCP service, and then prompt you to enter a hostname for your system. In the example below, we've entered **kali** as our hostname.
 
 {{% notice info %}}
@@ -135,8 +134,8 @@ If you want to encrypt Kali Linux, you can enable Full Disk Encryption (FDE), by
 
 - - -
 
-
 11. Depending on your needs, you can choose to keep all your files in a single partition — the default — or to have separate partitions for one or more of the top-level directories.
+
 If you're not sure which you want, you want "**All files in one partition**".
 
 ![](setup-partition-3.png)
@@ -147,7 +146,6 @@ If you're not sure which you want, you want "**All files in one partition**".
 12. Next, you'll have one last chance to review your disk configuration before the installer makes irreversible changes. After you click _Continue_, the installer will go to work and you'll have an almost finished installation.
 
 ![](setup-partition-5.png)
-
 
 #### Encrypted LVM
 

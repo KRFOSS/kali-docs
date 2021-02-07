@@ -65,6 +65,7 @@ Restrictions: breaks-testbed
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823358
 Tests: pip3-editable.sh
 ```
+
 With includes a test that looks like:
 
 <p class="codeblock-label">python-pip pip3-user.sh test file</p>

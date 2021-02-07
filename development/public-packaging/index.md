@@ -51,6 +51,7 @@ kali@kali:~$
 kali@kali:~/phpggc-official$ git archive --format=tar master | gzip -c > ../PACKAGE_YEARMONTHDAY.orig.tar.gz
 kali@kali:~/phpggc-official$
 ```
+
 Be sure to change both package and date to the appropriate names.
 
 We create an empty git repo and then clone it, then we can import the tool. _Be sure to create a new empty repo of your own for your own package for this step._
@@ -87,7 +88,6 @@ kali@kali:~/phpggc$ git push -u origin --all
 kali@kali:~/phpggc$
 ```
 
-
 ## Creating the Debian files
 
 First we need to generate the base Debian files and remove some of the ones that won't be needed. When prompted we select single for the package type, and assuming everything else is correct, the default values for the rest.
@@ -99,6 +99,7 @@ kali@kali:~/phpggc$ cd debian/
 kali@kali:~/phpggc/debian$ rm *.ex *.EX README.* *.docs
 kali@kali:~/phpggc/debian$
 ```
+
 Next we will need to edit some of the files with the proper information.
 
 ```console

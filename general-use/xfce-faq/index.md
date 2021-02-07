@@ -160,8 +160,6 @@ https://en.wikipedia.org/w/index.php?title=Intelligent_Input_Bus#Available_input
 
 &nbsp;
 
-
-
 #### Feedback
 
 **Q:** How can I get in touch to discuss some questions I have?
@@ -174,4 +172,3 @@ https://en.wikipedia.org/w/index.php?title=Intelligent_Input_Bus#Available_input
 **Q:** I have found a bug. Who should I talk to?
 
 **A:** Awesome. Not the fact that there is bug but that you found it. Please open a bug report in the [Kali Linux Bug Tracker](https://bugs.kali.org/). We really appreciate your help in making Kali Linux better.
-

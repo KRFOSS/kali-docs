@@ -142,6 +142,7 @@ kali@kali:~$ grep -q DEBEMAIL ~/.bashrc \
   || echo export DEBEMAIL=email@domain.com >> ~/.bashrc
 kali@kali:~$
 ```
+
 **Be sure to replace `email@domain.com` with your email, and ensure it is the same one used with your GPG key, if that was setup**.
 
 We enable `pristine-tar` by default as we will use this tool to (efficiently) store a copy of the upstream tarball in the Git repository. We also set `export-dir` so that package builds happen outside of the git checkout directory.
@@ -206,7 +207,7 @@ We also will need to set up sbuild. Although this isn't too difficult, it does r
 ```console
 kali@kali:~$ sudo mkdir -p /srv/chroots/
 kali@kali:~$
-kali@kali:~$  cd /srv/chroots/
+kali@kali:~$ cd /srv/chroots/
 kali@kali:/srv/chroots$ sudo sbuild-createchroot --keyring=/usr/share/keyrings/kali-archive-keyring.gpg --arch=amd64 --components=main,contrib,non-free --include=kali-archive-keyring kali-dev kali-dev-amd64-sbuild http://http.kali.org/kali
 kali@kali:/srv/chroots$
 ```
@@ -247,13 +248,13 @@ kali@kali:~$
 
 When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy: apt-cacher-ng.
 
-```
+```console
 kali@kali:~$ sudo apt install -y apt-cacher-ng
 ```
 
 Kali is not supported out of the box by apt-cacher-ng, so there's a little config to do:
 
-```
+```console
 kali@kali:~$ echo "http://http.kali.org/kali/" | sudo tee /etc/apt-cacher-ng/kali_mirrors
 kali@kali:~$
 kali@kali:~$ echo "http://kali.download/kali/" | sudo tee /etc/apt-cacher-ng/backends_kali
@@ -273,7 +274,7 @@ In the snippet above, note that:
 
 Finally, we just need to add a line of configuration inside our chroot, so that apt is configured to use the proxy.
 
-```
+```console
 kali@kali:~$ sudo sbuild-shell source:kali-dev-amd64-sbuild
 I: /bin/sh
 # echo 'Acquire::HTTP::Proxy "http://localhost:3142";' > /etc/apt/apt.conf.d/01proxy

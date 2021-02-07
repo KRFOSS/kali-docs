@@ -43,7 +43,7 @@ Next are those that you will likely not need except in very special cases:
 
 Below is a diagram showing the relationship between the branches.
 
-```
+```plaintext
 debian-experimental -> debian-unstable -> debian-testing -> kali-dev -> kali-rolling -> kali-last-snapshot
       |                      |                              ^   ^         ^       |
       v                      v                              |   |         |       v
@@ -70,22 +70,6 @@ kali-rolling-only --------------------------------------------------------|
 
 For more information about how Kali relates to Debian, please see our [policy page](/docs/policy/kali-linux-relationship-with-debian/) on the matter.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### The kali-rolling repository
 
 Contrary to kali-dev, kali-rolling is expected to be of better quality because it's managed by a tool that ensures installability of all the package it contains. That tool picks updated packages from kali-dev and copies them to kali-rolling only when they have been verified to be installable. Note however that those checks do not include any functional testing. It might still contain broken software due to other problems that are not covered by the package dependencies. **Kali Rolling is the primary repository that most users should be using**. They can also report any issue they have with Kali specific packages on [bugs.kali.org](https://bugs.kali.org/). Make sure to select the "kali-dev" version in "Product version".
@@ -95,10 +79,6 @@ Kali Rolling users are expected to have the following entries in their sources.l
 ```plaintext
 deb http://http.kali.org/kali kali-rolling main non-free contrib
 ```
-
-
-
-
 
 ### The kali-dev repository
 

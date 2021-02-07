@@ -11,4 +11,4 @@ The Kali Services pane allows you to start and stop various chrooted services su
 
 **Warning:** Ensure you have changed any default passwords before enabling remote access to your device as Kali comes with a default "toor" password.
 
-![](./nethunter-services.png)
+![](nethunter-services.png)

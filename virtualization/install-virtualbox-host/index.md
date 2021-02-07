@@ -65,7 +65,6 @@ kali@kali:~$
 
 - - -
 
-
 As VirtualBox has various kernel modules (e.g. `vboxdrv`, `vboxnetflt` and `vboxnetadp`), we need to make sure they are kept up-to-date when Kali Linux's kernel gets updated. This can be achieved using [dkms](https://packages.debian.org/testing/dkms).
 
 ```console

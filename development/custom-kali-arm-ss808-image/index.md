@@ -46,7 +46,6 @@ kali@kali:~$ mkdir -p root/
 kali@kali:~$ mount $rootp root
 ```
 
-
 ### 04. Copy and Modify the Kali rootfs
 
 ```console

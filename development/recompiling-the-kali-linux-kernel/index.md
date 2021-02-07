@@ -11,7 +11,6 @@ The customizability of Kali Linux extends all the way down into the Linux kernel
 
 Depending on your requirements, you might want to add drivers, patches, or kernel features that are not included in the stock Kali Linux kernel. The following guide will describe how the Kali Linux kernel can be quickly modified and recompiled for your needs. Note that global wireless injection patches are already present by default in the Kali Linux kernel.
 
-
 ### Install Build Dependencies
 
 Start by installing all the build dependencies for recompiling the kernel.
@@ -90,4 +89,5 @@ When the build has successfully completed, you can go ahead and install the new 
 kali@kali:~/kernel$ sudo dpkg -i ../linux-image-4.9.0-kali1-custom_4.9.2-1_amd64.deb
 kali@kali:~/kernel$ reboot
 ```
+
 Once your system has rebooted, your new kernel should be running. If things go wrong and your kernel fails to boot successfully, you can still use the Grub menu to boot from the original stock Kali kernel and fix your issues.

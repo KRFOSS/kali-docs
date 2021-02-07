@@ -17,6 +17,7 @@ author: ["re4son",]
 4. Install NetHunter
 
 ## 1. Flash stock rooted Android
+
 The Gemini PDA ships with a non-rooted Android image which needs to be replaced.
 Either install the "Pentester Pro" image with rooted Android and Kali Linux partitions as detailed here: [Kali Linux Gemini PDA](/docs/arm/kali-linux-gem-pda/)
 
@@ -30,8 +31,8 @@ Reboot the newly imaged Gemini into Android and:
 - Open the "Play Store" app and sign in with your google account
 - Update all apps
 
-
 ## 2. Run Magisk Manager to finish the rooting process
+
 - Run the "Magisk Manager" app and follow the prompts to update the app
 
 Sometimes the magisk version shipped with an android image is not compatible with the latest version of the magisk manager which will require a little workaround.
@@ -48,6 +49,7 @@ If you are prompted with an error message that "Magisk Manager" is incompatible 
 Note: Newer versions of Magisk seem to be breaking auto rotation. Let's stick with the previous version for now.
 
 ## 3. Install TWRP recovery
+
 - install the "Official TWRP App" from Playstore
 - open the "Official TWRP App"
 - select your account
@@ -64,8 +66,8 @@ Note: Newer versions of Magisk seem to be breaking auto rotation. Let's stick wi
 - Flash to recovery
 
 ## 4. Install NetHunter
-- Download the NetHunter beta image from here:
-[http://http.re4son-kernel.com/downloads/gemini-nethunter/](http://http.re4son-kernel.com/downloads/gemini-nethunter/)
+
+- Download the NetHunter beta image from here: [http://http.re4son-kernel.com/downloads/gemini-nethunter/](http://http.re4son-kernel.com/downloads/gemini-nethunter/)
 - connect the Gemini PDA to your computer
 - transfer the NetHunter image to the Gemini PDA
 - reboot the Gemini PDA into recovery via the "Official TWRP App" (TWRP Flash->Menu->Reboot-Reboot Recovery)
@@ -81,6 +83,7 @@ Note: Newer versions of Magisk seem to be breaking auto rotation. Let's stick wi
 ### Enjoy Kali NetHunter on the Gemini PDA
 
 ## Current status
+
 - HID attacks are not yet supported. The drivers are still being worked on.
 - SearchSploit is not fully working yet.
 

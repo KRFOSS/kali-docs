@@ -40,7 +40,6 @@ Beginning a checklist for testing new devices:
 
     - Social Engineering Toolkit
 
-
 - External WiFi support
 
     - Plugin device, run commands: `ifconig wlan1 up && wifite`

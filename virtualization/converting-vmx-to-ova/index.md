@@ -47,6 +47,7 @@ kali@kali:~$ ls -lah kali-linux-rolloing.ova
 -rw-r--r-- 1 kali kali 3.4G Nov 10 23:18 kali-linux-rolloing.ova
 kali@kali:~$
 ```
+
 - - -
 
 Thats it!

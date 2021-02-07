@@ -303,7 +303,7 @@ Add `PRUNENAMES = ".snapshots"` to `/mnt/root/etc/updatedb.conf`
 
 First let's install "btrfs-progs":
 
-```
+```console
 kali@kali:~$ sudo apt install -y btrfs-progs
 ```
 
@@ -332,7 +332,7 @@ Snapshots are automatically created during apt operations. There are no addition
 
 Firstly, a snapshot is also a subvolume, thus all snapshots also show up when listing btrfs subvolumes, e.g. via
 
-```
+```console
 kali@kali:~$ sudo btrfs subvolume list /
 ```
 
@@ -340,7 +340,7 @@ kali@kali:~$ sudo btrfs subvolume list /
 
 To list only the snapshots, we can use the following command:
 
-```
+```console
 kali@kali:~$ sudo apt-btrfs-snapshot list
 ```
 

@@ -17,10 +17,6 @@ Connect a monitor via HDMI or screen casting and you have a Kali experience indi
 
 ![](nh-kex-3s.png)
 
-
-
-
-
 #### Content:
 
 [Start the KeX Manager](#start-the-kex-manager)
@@ -35,10 +31,6 @@ Connect a monitor via HDMI or screen casting and you have a Kali experience indi
 
 [Advanced KeX Settings](#advanced-kex-settings)
 
-
-
-
-
 #### Start the KeX Manager
 
 Click on the hamburger menu item and select *"KeX Manager"* to open the KeX menu.
@@ -52,28 +44,18 @@ KeX can be started by executing the following steps:
 - Click *"Connect"* in the KeX client to connect to the KeX server
 - Connect HDMI monitor and bluetooth keyboard and mouse (optional, device can be used as touchpad)
 
-
 Optional:
 
 - Open *"ADVANCED SETTINGS"* and set a custom resolution to fit the connected monitor
 
 ![](NetHunter-KeX-10s.png)
 
-&nbsp;
-
 ![](NetHunter-KeX-20s.png)
-&nbsp;
-
 
 #### Set-up KeX
 Before starting the KeX server for the first time, click on *"SETUP LOCAL SERVER"* and configure a session password and a read only password.
 
 ![](NetHunter-KeX-30s.png)
-
-&nbsp;
-
-
-
 
 #### Start KeX
 To start KeX, click on *"START SERVER"*.
@@ -82,29 +64,18 @@ To display wether the server is running or not, click the refresh button.
 
 ![](NetHunter-KeX-40s.png)
 
-&nbsp;
-
-
 #### Launch the KeX Client
 To launch the KeX client, click *"OPEN KEX CLIENT"*
 
 ![](NetHunter-KeX-50s.png)
 
-&nbsp;
-
 Before connecting for the first time, enter the password (the one you have configured when setting up the server) in the password field
 
 ![](NetHunter-KeX-50s.png)
 
-&nbsp;
-
-
 Press *"Connect"*
 
 ![](NetHunter-KeX-55s.png)
-
-&nbsp;
-
 
 #### Use KeX controls
 
@@ -114,19 +85,12 @@ You can disconnect and re-connect to your session any time.
 
 ![](NetHunter-KeX-60s.png)
 
-&nbsp;
-
 ![](NetHunter-KeX-70s.png)
-
-&nbsp;
-
 
 #### Advanced KeX Settings
 
 Open the *"ADVANCED SETTINGS"* menu to tweak the display resolution settings.
 
 ![](NetHunter-KeX-80s.png)
-
-&nbsp;
 
 ![](NetHunter-KeX-90s.png)

@@ -37,20 +37,20 @@ kali@kali:~$ sudo apt install -y ia32-libs
 
 Download the Linaro cross-compiler from our Git repository.
 
-```
-cd ~/
-mkdir -p arm-stuff/kernel/toolchains/
-cd arm-stuff/kernel/toolchains/
-git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4-6-2.git
+```console
+kali@kali:~$ cd ~/
+kali@kali:~$ mkdir -p arm-stuff/kernel/toolchains/
+kali@kali:~$ cd arm-stuff/kernel/toolchains/
+kali@kali:~$ git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4-6-2.git
 ```
 
 ### Set Environment Variables
 
 To use the Linaro cross-compiler, you will need to set the following environment variables in your session.
 
-```
-export ARCH=arm
-export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-linaro-4.6.2/bin/arm-eabi-
+```console
+kali@kali:~$ export ARCH=arm
+kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-linaro-4.6.2/bin/arm-eabi-
 ```
 
 Now your ARM cross-compilation environment is complete and you can proceed with building your own ARM kernels as described in [the article on preparing a Kali Linux ARM chroot](/docs/development/kali-linux-arm-chroot/).

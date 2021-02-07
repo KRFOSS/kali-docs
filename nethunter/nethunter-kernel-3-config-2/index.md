@@ -43,7 +43,7 @@ Navigate to ***"Networking support → Wireless"*** and configure the following 
 - select ***"Enable mac80211 mesh networking (pre-802.11s) support"***
   (CONFIG_MAC80211_MESH=y)
 
-![](./nh-kernel-mac80211-150.png)
+![](nh-kernel-mac80211-150.png)
 
 &nbsp;
 
@@ -56,4 +56,4 @@ Navigate to ***"Device Drivers_ -> _Network Device Support_ ->  _USB Network Ada
 - select ***"Realtek RTL8152/RTL8153 Based USB Ethernet Adapters"***
   (CONFIG_USB_RTL8152=y)
 
-![](./nh-kernel-usb-ethernet-160.png)
+![](nh-kernel-usb-ethernet-160.png)

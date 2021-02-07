@@ -161,7 +161,7 @@ kali@kali:~$ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc
 
 5 - Start Kali Xfce panel via
 
-```
+```console
 kali@kali:~$ lxc exec gui-kali -- sudo -u kali xfce4-panel
 ```
 
@@ -228,14 +228,14 @@ When prompted, enter:
 ![](140_Kali-PrivContainerCreate_3.png)
 3 - Start the container with
 
-```
+```console
 kali@kali:~$ sudo lxc-start -n my-kali -d
 ```
 
 ![](150_Kali-PrivContainerStart.png)
 4 - Attach to the container via
 
-```
+```console
 kali@kali:~$ sudo lxc-attach -n my-kali
 ```
 
@@ -305,7 +305,7 @@ kali@kali:~$ echo lxc.idmap = g 0 100000 65536 >> ~/.config/lxc/default.conf
 ![](200_Kali-UnPrivPrep.png)
 3 - Download the Kali Linux image from the image server via
 
-```
+```console
 kali@kali:~$ lxc-create -t download -n my-kali
 ```
 

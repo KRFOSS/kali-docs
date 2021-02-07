@@ -37,6 +37,7 @@ dconf-tools
 openssh-server
 EOF
 ```
+
 **0x02 - Add a customised syslinux boot entry** which includes a boot parameter for a custom preseed file.
 
 ```console
@@ -63,6 +64,7 @@ kali@kali:~$ mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/ka
 kali@kali:~$ wget https://www.kali.org/dojo/blackhat-2015/wp-blue.png
 kali@kali:~$ mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images
 ```
+
 **0x05 - Add a preseed file** that will run through a default Kali installation with no input (unattended). We can include a ready made preseed configuration and alter it as needed:
 
 ```console

@@ -14,9 +14,7 @@ In order to execute commands at a privileged level, Kali uses two methods todo s
 
 It is also worth bearing in mind, some tools may perform differently without super-user privileges. An example of this is [nmap](https://nmap.org/book/man-port-scanning-techniques.html). As stated on the website:
 
-```
-By default, Nmap performs a SYN Scan, though it substitutes a connect scan if the user does not have proper privileges to send raw packets (requires root access on Unix).
-```
+> By default, Nmap performs a SYN Scan, though it substitutes a connect scan if the user does not have proper privileges to send raw packets (requires root access on Unix).
 
 This means:
 

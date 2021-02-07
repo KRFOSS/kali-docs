@@ -28,4 +28,5 @@ To work around this we will remove Xfce and only have KDE installed, and we do n
 kali@kali:~$ sudo apt purge --autoremove kali-desktop-xfce
 kali@kali:~$
 ```
+
 We will now reboot the system and make sure that all our changes were made properly.

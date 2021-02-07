@@ -13,4 +13,4 @@ The default MANA configuration should work as-is however, you can tweak any of t
 
 Once everything is configured to your satisfaction, tap the **Update** button to save the configuration.
 
-![](./nethunter-mana.png)
+![](nethunter-mana.png)

@@ -13,6 +13,7 @@ Those of you who want to build a NetHunter image from our GitLab repository may 
 kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project
 kali@kali:~$ cd kali-nethunter/nethunter-installer/
 ```
+
 Before you can build for a device, you will need to enter the **nethunter-installer** directory and run `./bootstrap.sh`. This will ask you a few questions before downloading the devices folder.
 
 The main build script is also located in the **nethunter-installer** directory and can be used to build images for multiple devices and Android OS versions as shown below:

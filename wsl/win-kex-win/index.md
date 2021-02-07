@@ -18,8 +18,6 @@ author: ["Re4son",]
   - [Multiscreen Support](#multiscreen-support)
   - [Stop](#stop)
 
-
-
 ## Overview
 
 #### Win-KeX in Window Mode will run a Kali Linux desktop session in a separate window.
@@ -29,10 +27,6 @@ Window mode helps keeping the Windows and Kali environments visually apart.
 Win-KeX utilises [TigerVNC](https://tigervnc.org/) for its client and server components.
 
 ![](win-kex-full.png)
-
-
-
-
 
 ## Usage
 
@@ -49,12 +43,8 @@ or simply via
 
   `kex --passwd`
 
-
-
   This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
 ![](win-kex.png)
-&nbsp;
-
 ### Start Root Session
 
 - Start Win-KeX as root in window mode via:
@@ -67,16 +57,12 @@ or simply via
   This will start the Win-KeX server as root and launch the Win-KeX client in full screen mode.
   **Note:** The Win-KeX client always prompts for the vnc server password when connecting to a root session.
 
-&nbsp;
-
 ### Session Management
 
 - Pressing "F8" will open the client's context menu, which allows to manage the client sessions, e.g. close the client, switch between full screen and window, etc.)
 - You can disconnect from active sessions by pressing "F8" -> "Exit viewer", this will close the client but leave the session running in the background
 - You can re-connect to a session by typing
   `kex --win --start-client`
-
-&nbsp;
 
 ### Sound Support
 
@@ -93,15 +79,11 @@ or simply via
 
 ![](win-kex-pulseaudio_firewall.png)
 
-  &nbsp;
-
 ### Multiscreen Support
 
 - Win-KeX supports mutiscreen setups:
   Press "F8" an go to "Options" -> "Screen" then untick "Enable full-screen mode over all monitors" & "Full screen mode", move Win-KeX to the desired screen and re-enable full-screen mode
 ![](win-kex-multiscreen.png)
-
-&nbsp;
 
 ### Stop
 
@@ -109,7 +91,5 @@ or simply via
 
 - To shutdown Win-KeX in window mode, type
   `kex --win --stop`
-
-
 
 #### Enjoy Win-KeX!

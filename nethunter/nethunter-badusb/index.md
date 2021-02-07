@@ -11,4 +11,4 @@ This is our implementation of the [BadUSB](https://srlabs.de/badusb/) attack as 
 
 &nbsp;
 
-![](./nethunter-badusb.png)
+![](nethunter-badusb.png)

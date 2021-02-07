@@ -19,21 +19,20 @@ We no longer need CD-ROM patches as all modern operating systems support being i
 
 In the Kernel-Builder, choose ***"Apply NetHunter kernel patches"***:
 
-![](./nh-kernel-010-patching1.png)
+![](nh-kernel-010-patching1.png)
 
 &nbsp;
 
  navigate to the directory that closest resembles your kernel version:
 
-![](./nh-kernel-020-patching2.png)
+![](nh-kernel-020-patching2.png)
 
 &nbsp;
 
  and apply each applicable patch:
 
-![](./nh-kernel-030-patching3.png)
+![](nh-kernel-030-patching3.png)
 
 &nbsp;
 
 We recommend that you work in another terminal window in parallel and commit the changes to the kernel source after having applied each patch.
-

@@ -203,7 +203,7 @@ $
 
 4. Quickly checking `diskutil list` again, we can see it has been successful.
 
-```
+```console
 $ diskutil list
 /dev/disk0 (internal, physical):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
@@ -347,7 +347,6 @@ rEFInd.
 
 7. Upon restart you should see the new boot manager, rEFInd.
 
-
 #### Installing rEFInd using Kali Linux
 
 **[rEFInd](https://packages.debian.org/testing/refind)** is also included with Kali Linux. We can quickly install it by doing the following:
@@ -362,7 +361,7 @@ kali@kali:~$ sudo apt install -y refind
 
 During the installation, you will get a prompt saying about automatically running rEFInd. We recommend you press **yes**, otherwise you will need to run `sudo dpkg-reconfigure refind` (or `sudo refind-install`) afterwards.
 
-```
+```console
  ┌────────────────────────┤ Configuring refind ├────────────────────────┐
  │                                                                      │
  │ It is necessary to install rEFInd to the EFI System Partition (ESP)  │

@@ -527,7 +527,6 @@ kali@kali:~/kali/packages/photon$
 
 More information on runtime tests can be found on [our docs](/docs/development/contributing-runtime-tests/) which has many other helpful resources that explain in detail runtime tests.
 
-
 ## Packing Up
 
 We can now commit our changes and see if it all works:

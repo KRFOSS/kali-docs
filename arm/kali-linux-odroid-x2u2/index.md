@@ -25,8 +25,8 @@ If all you want to do is to install Kali on your awesome ODROID, follow these in
 This process will wipe out your SD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
-```
-dd if=kali-linux-$version-odroid.img of=/dev/sdb bs=4M
+```console
+$ dd if=kali-linux-$version-odroid.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while depending on your USB storage device speed and image size. Once the _dd_ operation is done,boot up the ODROID with the microSD plugged in. You should be welcomed with a Gnome login screen - (**_kali_** / **_kali_**). That's it, you're done!
@@ -35,8 +35,8 @@ This process can take a while depending on your USB storage device speed and ima
 
 To troubleshoot the ODROID boot process, you will need to connect a UART serial cable to the ODROID. Once the cable is connected, you can issue the following command to connect to the console:
 
-```
-screen /dev/ttySAC1 115200
+```console
+$ screen /dev/ttySAC1 115200
 ```
 
 ## Kali on ODROID-U2 - Developer Instructions

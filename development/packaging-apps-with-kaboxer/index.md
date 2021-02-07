@@ -56,7 +56,7 @@ be packaged with Kaboxer ("kaboxed" for short) is to write a
 but otherwise it's a standard Dockerfile. For instance, the
 `kbx-hello-cli` application uses the following Dockerfile:
 
-```
+```plaintext
 FROM debian:stable-slim
 RUN apt update && apt install -y \
     python3 \
@@ -91,7 +91,7 @@ machine-readability, but it's also quite human-readable (and, more to
 the point, human-writable). A minimal `kaboxer.yaml` file could read
 like the following:
 
-```
+```plaintext
 application:
     id: kbx-hello-cli
     name: Hello World for Kaboxer (CLI)
@@ -135,14 +135,14 @@ docker image directly with `docker build` so that you can see the precise
 error message. Here's how you would do that (you need membership in the
 `docker` group, or root rights):
 
-```
+```console
 $ docker build -f Dockerfile . -t kaboxer/kbx-hello-cli
 ```
 
 Once `kaboxer build` ran successfully, run the app in its container with
 the following command:
 
-```
+```console
 $ kaboxer run kbx-hello-cli
 ```
 
@@ -163,7 +163,7 @@ a few files to enable the integration with Kaboxer:
    changing the `dh $@` call into `dh $@ --with kaboxer
    --buildsystem=kaboxer`
 
-```
+```console
 $ cat debian/control
 Source: kbx-hello
 [...]
@@ -188,7 +188,7 @@ image.
 You can either push the image to some docker registry and modify
 the `kaboxer.yaml` file to point to it:
 
-```
+```console
 $ cat
 [...]
 container:
@@ -203,7 +203,7 @@ Or you can tell the build system to build the image and store it in the
 package (beware, the package will be very large!) by setting the
 `DH_KABOXER_BUILD_STRATEGY` variable in `debian/rules`:
 
-```
+```console
 $ cat debian/rules
 #!/usr/bin/make -f
 
@@ -232,7 +232,7 @@ across containers. For instance, assuming we want to make the
 `/var/lib/kbx-hello` directory available to the container as
 `/data`, we'd add the following section to our component definition:
 
-```
+```plaintext
 components:
   default:
     [...]
@@ -248,7 +248,7 @@ the following exposes port 8123 from the container (but no other: if
 the app itself uses several ports internally, only the published ports
 will be accessible from outside the container):
 
-```
+```plaintext
 components:
   default:
     [...]
@@ -271,7 +271,7 @@ container, the other parts need to be started within that running
 container. Kaboxer automates that when the client components declare
 the following:
 
-```
+```plaintext
 components:
   [...]
   gui:
@@ -288,7 +288,7 @@ network and plug the containers into this network. For instance, both
 ``kbx-hello-cli`` and ``kbx-hello-server`` define the following
 network:
 
-```
+```plaintext
 components:
   default:
     [...]
@@ -317,7 +317,7 @@ the kaboxer.yaml file (with the `categories` field below `application`).
 Here's for example how you would put an application in the "Bluetooth
 tools" and "Wireless Attacks" categories:
 
-```
+```plaintext
 application:
     [...]
     categories: Utility;06-02-bluetooth-tools;06-wireless-attacks

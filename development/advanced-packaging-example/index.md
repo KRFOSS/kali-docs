@@ -897,6 +897,7 @@ You can also install by doing.
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo debi --debs-dir ~/kali/build-area/
 ```
+
 {{% /notice %}}
 
 - - -

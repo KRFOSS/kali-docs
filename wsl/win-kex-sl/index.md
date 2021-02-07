@@ -17,8 +17,6 @@ author: ["Re4son",]
   - [Multiscreen Support](#multiscreen-support)
   - [Stop](#stop)
 
-
-
 ## Overview
 
 #### Win-KeX in Seamless Mode will launch a Kali Linux panel on the screen top of the Windows desktop.
@@ -30,8 +28,6 @@ Seamless mode removes the visual segregation between linux and window apps and o
 Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/) to achieve seamless desktop integration.
 
 ![](win-kex-sl.png)
-
-&nbsp;
 
 ## Prerequisites
 
@@ -59,11 +55,7 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
   The Kali panel is placed at the top of the screen and the Windows Start menu at the bottom.
 
-
-
 - **Tip:** The Kali panel might cover the title bar of maximised windows. To prevent it getting in the way you may prefer to set it to "Automatically hide" in the panel preferences.
-
-  &nbsp;  &nbsp;
 
 ### Sound Support
 
@@ -73,7 +65,6 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
   `kex --win -s`
 
 - When starting Win-KeX with sounds support for the first time, ensure to select
-
 
 "**Public networks**"
 
@@ -89,15 +80,11 @@ Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxs
 
   Open "Panel Preference" to reduce the panel length, untick "Lock panel" and move the panel to the desired screen.
 
-  &nbsp;
-
 ### Stop
 
 - To close Win-KeX SL, simply log out of the session via the "Logout" button in the panel.
 
 - To optionally shutdown the Win-KeX SL server, type
   `kex --sl --stop`
-
-    &nbsp;
 
 #### Enjoy Win-KeX!

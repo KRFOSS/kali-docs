@@ -699,7 +699,7 @@ kali@kali:~/kali/packages/instaloader$
 So there are a lot of items which are pre-commented out, that may be handy for debugging & troubleshooting.
 Other than the shebang (`#!/usr/bin/make -f`), there is only two other lines which are currently in use:
 
-```
+```plaintext
 %:
   dh $@
 ```
@@ -731,7 +731,7 @@ An additional file which we highly recommend to include is a `watch` file. This 
 For more information, and example formats, please see the [Debian wiki](https://wiki.debian.org/debian/watch).
 Using this wiki, we can see there is an example for GitHub which is where our project is stored - [github.com/instaloader/instaloader/](https://github.com/instaloader/instaloader/):
 
-```
+```plaintext
 version=4
 opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/<project>-$1\.tar\.gz/ \
   https://github.com/<user>/<project>/tags .*/v?(\d\S+)\.tar\.gz
@@ -779,11 +779,11 @@ Looks like its not! Its correctly detected all the versions, but its not sorted 
 
 Looking back at the [Debian wiki](https://wiki.debian.org/debian/watch), there is a section called [Common mistakes](https://wiki.debian.org/debian/watch#Common_mistakes):
 
-```
-Not mangling upstream versions that are alphas, betas or release candidates to make them sort before the final release. The solution is to use "uversionmangle" like this:
+> Not mangling upstream versions that are alphas, betas or release candidates to make them sort before the final release. The solution is to use "uversionmangle" like this:
+
+```plaintext
 opts=uversionmangle=s/(\d)[_\.\-\+]?((RC|rc|pre|dev|beta|alpha)\d*)$/$1~$2/
 ```
-
 
 However, we need to edit it a bit to fit Instaloader. This can be figured out through trial and error using the above uversionmangle as the base.
 

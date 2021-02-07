@@ -139,7 +139,6 @@ Version: 76.0.3809.100-1
 kali@kali:~$
 ```
 
-
 ### Building the Description Scenario
 
 This is your opportunity to to help us out and provide a well thought-out description of the problem you're experiencing. Please provide as many details and facts as possible.

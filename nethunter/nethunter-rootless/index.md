@@ -17,15 +17,11 @@ Install Kali NetHunter on any stock, unrooted Android device without voiding the
 
 ![](020-NH-Rootless-KeX_s.png)
 
-&nbsp;
-
 Prerequisite:
 --------------
 
 Android Device
 (Stock unmodified device, no root or custom recovery required)
-
-&nbsp;
 
 Installation:
 --------------
@@ -45,9 +41,6 @@ kali@kali:~$ wget -O install-nethunter-termux https://offs.ec/2MceZWr
 kali@kali:~$ chmod +x install-nethunter-termux
 kali@kali:~$ ./install-nethunter-termux
 ```
-
-
-&nbsp;
 
 Usage:
 -------
@@ -79,8 +72,6 @@ _Tip: For a better viewing experience, enter a custom resolution under "Advanced
 ## NetHunter Editions:
 
 Please refer to [this table](/docs/nethunter/#1-0-nethunter-editions) for a comparison of the different NetHunter editions.
-
-&nbsp;
 
 ## Tips:
 

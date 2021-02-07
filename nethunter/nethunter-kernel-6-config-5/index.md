@@ -9,8 +9,6 @@ author: ["re4son",]
 
 ## Kernel Configuration cont.
 
-
-
 ### USB Modem
 
 CDC ACM support is required for Proxmark and similar devices
@@ -20,7 +18,7 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 - select ***"USB Modem (CDC ACM) support"***
   (CONFIG_USB_ACM=y)
 
-![](./nh-kernel-270-usb-1.png)
+![](nh-kernel-270-usb-1.png)
 
 &nbsp;
 
@@ -49,10 +47,8 @@ Navigate to ***Device Drivers -> USB support -> USB Gadget Support*** and choose
 - select ***"Mass Storage"***
   (CONFIG_USB_CONFIGFS_MASS_STORAGE=y)
 
-![](./nh-kernel-280-usb-2.png)
+![](nh-kernel-280-usb-2.png)
 
 &nbsp;
 
 ## Exit, save, and build
-
-

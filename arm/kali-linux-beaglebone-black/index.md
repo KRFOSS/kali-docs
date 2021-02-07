@@ -28,8 +28,8 @@ In our example, we assume the storage device is located at **_/dev/sdb_**. Do _n
 This command will wipe out any existing data on your micro-SD card. If you specify the _wrong device path_, you could wipe out your computer's hard disk!
 {{% /notice %}}
 
-```
-dd if=kali-linux-$version-bbb.img of=/dev/sdb bs=4M
+```console
+$ dd if=kali-linux-$version-bbb.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your micro-SD card's speed, and the size of the Kali Linux image. Once the _dd_ operation is complete, insert the micro-SD card into the BeagleBone Black and power it on.
