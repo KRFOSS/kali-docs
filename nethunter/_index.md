@@ -97,9 +97,9 @@ The full NetHunter experience requires a devices specific kernel that has been p
 The [NetHunter gitlab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Offensive Security publishes over 25 images for the most popular devices on the [NetHunter download page](https://nethunter.com/).
 The following live reports are generated automatically by gitlab CI:
 
-[List of quarterly published NetHunter images](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-images.html)
-[NetHunter kernel statistics](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernelstats.html)
-[NetHunter kernel table with](https://kalilinux.gitlab.io/nethunter/build-scripts/kali-nethunter-devices/nethunter-kernels.html)
+[List of quarterly published NetHunter images](https://stats.nethunter.com/nethunter-images.html)
+[NetHunter kernel statistics](https://stats.nethunter.com/nethunter-kernelstats.html)
+[NetHunter kernel table with](https://stats.nethunter.com/nethunter-kernels.html)
 
 ## 3.0 Downloading NetHunter
 
