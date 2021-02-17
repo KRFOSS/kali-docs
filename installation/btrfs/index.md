@@ -70,7 +70,7 @@ Mount Point         | Subvolume         | Description
 
 - - -
 
-3. When prompted, pause the installation and switch to the second VT via "Ctrl + Alt + 2"
+3. When prompted, pause the installation and switch to the second VT via `Ctrl + Alt + F2`.
 
 ![](btrfs-g-09-cli.png)
 
@@ -216,7 +216,7 @@ kali@kali:~$ umount /target
 
 - - -
 
-22. Now can switch back to the graphical install via Ctrl + Alt + F5 and continue with the installation:
+22. Now can switch back to the graphical install via `Ctrl + Alt + F5` and continue with the installation:
 
 ![](btrfs-g-08-di.png)
 
@@ -264,7 +264,7 @@ kali@kali:~$ vim /target/etc/fstab
 
 - - -
 
-27. After that we can edit fstab to mount each subvolume via `vim /target/etc/fstab`:
+27. After that we can edit fstab to mount each subvolume via `nano /target/etc/fstab`:
 
 ```plaintext
 UUID=<UUID of btrfs partition> /               btrfs   defaults,subvol=@             0       0
@@ -281,7 +281,7 @@ e.g.:
 - - -
 
 28. Optionally we can configure "locate" to ignore the .snapshot folder used by snapper (if installed later)
-Add `PRUNENAMES = ".snapshots"` to `/mnt/root/etc/updatedb.conf`
+Add `PRUNENAMES = ".snapshots"` to `/target/etc/updatedb.conf`:
 
 ![](btrfs-g-49-postinst.png)
 
