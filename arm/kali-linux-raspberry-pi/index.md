@@ -7,7 +7,7 @@ weight:
 author: ["steev",]
 ---
 
-The [[ https://www.kali.org/docs/arm/install-kali-linux-arm-raspberry-pi | Raspberry Pi Kali doc ]] should be updated to account for errors found in [[ https://forums.kali.org/showthread.php?13-Install-Kali-ARM-on-a-Raspberry-Pi/page2 | this thread ]], this [[ https://itfellover.com/kali-linux-1-1-0-git-install-kernel-cross-compilation-with-wireless-injection-working-v2/ | user posted doc ]], and even [[ https://www.raspberrypi.org/forums/viewtopic.php?t=68598&p=500327 | this Raspberry Pi doc ]]. There's even a badass user-created project running Kali on a Pi3, a touch interface and mounted on a friggin DRONE [[ https://whitedome.com.au/re4son/sticky-fingers-kali-pi/ | here ]].
+The [Raspberry Pi Kali doc](https://www.kali.org/docs/arm/install-kali-linux-arm-raspberry-pi) should be updated to account for errors found in [this thread](https://forums.kali.org/showthread.php?13-Install-Kali-ARM-on-a-Raspberry-Pi/page2), this [user posted doc](https://itfellover.com/kali-linux-1-1-0-git-install-kernel-cross-compilation-with-wireless-injection-working-v2/), and even this [Raspberry Pi doc](https://www.raspberrypi.org/forums/viewtopic.php?t=68598&p=500327). There's even a badass user-created project running Kali on a Pi3, a touch interface and mounted on a friggin DRONE [here](https://whitedome.com.au/re4son/sticky-fingers-kali-pi/).
 
 The [Raspberry Pi](http://raspberrypi.org) is a low-cost, credit-card-sized ARM computer. Despite being a good bit less powerful than a laptop or desktop PC, its affordability makes it an excellent option for a tiny Linux system and it can do far more than act as a media hub.
 
