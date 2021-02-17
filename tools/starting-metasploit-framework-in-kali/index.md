@@ -1,5 +1,3 @@
-msfdb
-
 ---
 title: Metasploit Framework
 description:
