@@ -11,7 +11,7 @@ author: ["gamb1t",]
 The following documentation is not yet working. Follow along with the status at the following link: https://gitlab.com/kalilinux/documentation/kali-docs/issues/49
 {{% /notice %}}
 
-Last year we made a blog post, [Secure Kali Pi 2018](https://www.kali.org/tutorials/secure-kali-pi-2018/), covering how to encrypt a Kali RPi install. Since then there have been a few developments. One important note is that unixabg has created a script to automate the process. We will touch more on that after going through the manual method, however we recommend reading what is being done still.
+Last year we made a blog post, [Secure Kali Pi 2018](/blog/secure-kali-pi-2018/), covering how to encrypt a Kali RPi install. Since then there have been a few developments. One important note is that unixabg has created a script to automate the process. We will touch more on that after going through the manual method, however we recommend reading what is being done still.
 
 As a review, what we are trying to accomplish is to create a stanalone "leave behind" device that, when discovered, does not make it easy to figure out what you were doing. So we use the LUKS full disk encryption along with the LUKS Nuke capability to put this together. If you have a Raspberry Pi 3 Model B+, or really any other model or similar device, feel free to use the instructions below to set up your own secure system. This updated process is based on our previous documentation, and updated with some community suggestions.
 
@@ -230,7 +230,7 @@ kali@kali:~$ cryptsetup luksClose /dev/mapper/crypt
 
 # LUKS NUKE
 
-Should a user also want [LUKS NUKE](https://www.kali.org/tutorials/nuke-kali-linux-luks/), all they need to do is run the following command.
+Should a user also want [LUKS NUKE](/blog/nuke-kali-linux-luks/), all they need to do is run the following command.
 
 ```console
 kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password

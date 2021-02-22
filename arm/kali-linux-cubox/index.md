@@ -9,7 +9,7 @@ author: ["steev",]
 
 The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system and it can do far more than act as a media PC.
 
-The easiest way to generate these images is **from within a pre existing Kali Linux environment**.
+The easiest way to generate these images is **from within a pre existing Kali Linux environment**.
 
 ## Stock Kali on CuBox - Easy Version
 

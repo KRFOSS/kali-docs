@@ -64,7 +64,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 
 - Restart
 
-- Download and install the WSL2 Linux Kernel from here: https://aka.ms/wsl2kernel
+- Download and install the WSL2 Linux Kernel from here: [https://aka.ms/wsl2kernel](https://aka.ms/wsl2kernel)
 
 - Open PowerShell as administrator and run:
 `wsl --set-default-version 2`

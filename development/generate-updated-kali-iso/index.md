@@ -7,7 +7,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-Kali Linux allows you to generate updated ISOs of Kali using Debian [live-build](http://live.debian.net/devel/live-build/) scripts on the fly. The easiest way to generate these images is **from within a pre existing Kali Linux environment**.
+Kali Linux allows you to generate updated ISOs of Kali using Debian [live-build](http://live.debian.net/devel/live-build/) scripts on the fly. The easiest way to generate these images is **from within a pre existing Kali Linux environment**.
 You will first need to install the `live-build` and `cdebootstrap` packages:
 
 ```console

@@ -23,7 +23,7 @@ If you're not sure of the architecture of the system you want to run Kali on, on
 
 The Kali Linux images are available both as directly downloadable ".iso/.img" files or via ".torrent" files.
 
-- [Official Kali ISOs for Intel-based PCs ](https://www.kali.org/downloads/)
+- [Official Kali ISOs for Intel-based PCs](/downloads/)
 
 Building your own Kali Linux ISO, standard or customized, is [a very simple process](/docs/development/live-build-a-custom-kali-iso/).
 
@@ -49,7 +49,7 @@ Moreover, as the leading penetration testing distribution, Kali's strengths mean
 
 Avoiding this is simple:
 
-- _Only_ download Kali Linux via the official download pages at [https://www.kali.org/downloads](https://www.kali.org/downloads/) or [https://www.offensive-security.com/kali-linux-vmware-arm-image-download/](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) — you wo not be able to browse to these pages without SSL; encrypting the connection makes it much harder for an attacker to use a "man-in-the-middle" attack to modify your download. There are a few potential weaknesses to even these sources — see the sections on verifying the download with the SHA256SUMS file and its signature against the official Kali Development team private key for something much closer to absolute assurance.
+- _Only_ download Kali Linux via the official download pages at [kali.org/downloads/](/downloads/) or [offensive-security.com/kali-linux-vmware-arm-image-download/](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) — you wo not be able to browse to these pages without SSL; encrypting the connection makes it much harder for an attacker to use a "man-in-the-middle" attack to modify your download. There are a few potential weaknesses to even these sources — see the sections on verifying the download with the SHA256SUMS file and its signature against the official Kali Development team private key for something much closer to absolute assurance.
 - Once you've downloaded an image, and _before you run it_, _always_ validate that it really _is_ what it's supposed to be by verifying its checksum using one of the procedures detailed below.
 
 There are several methods for verifying your download. Each provides a certain level of assurance, and involves a corresponding level of effort on your part.
@@ -64,7 +64,7 @@ If you use this more complicated process and successfully validate your download
 
 If you're running on Linux, you probably already have [GPG](https://www.gnupg.org/) (GNU Privacy Guard) installed. If you're on Windows or macOS, you'll need to install the appropriate version for your platform.
 
-- If you're on a PC running Windows, download and install GPG4Win from [here](http://gpg4win.org/download.html). Certain versions of Windows do not have the native ability to calculate SHA256 checksums. To check this, you can open the command prompt and run `certutil -?`. If you do have this installed, you can run `certutil -hashfile kali-linux-2020.4-live-amd64.iso sha256` to verify your download. If you do not have `certutil` installed, you will also need a utility such as [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) or [Hashtab](http://implbits.com/products/hashtab/) to verify your download.
+- If you're on a PC running Windows, download and install GPG4Win from [here](http://gpg4win.org/download.html). Certain versions of Windows do not have the native ability to calculate SHA256 checksums. To check this, you can open the command prompt and run `certutil -?`. If you do have this installed, you can run `certutil -hashfile kali-linux-2020.4-live-amd64.iso sha256` to verify your download. If you do not have `certutil` installed, you will also need a utility such as [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) or [Hashtab](http://implbits.com/products/hashtab/) to verify your download.
 - If you're on a Macintosh running macOS, download and install GPGTools from [here](https://gpgtools.org/). Alternatively, if you have [Homebrew](https://brew.sh) installed, just run `brew install gnupg`
 
 Once you've installed GPG, you'll need to download and import a copy of the Kali Linux official key. Do this with the following command:
@@ -84,7 +84,7 @@ Your output should look like this:
 ```plaintext
 gpg: key ED444FF07D8D0BF6: public key "Kali Linux Repository <devel@kali.org>" imported
 gpg: Total number processed: 1
-gpg:               imported: 1  (RSA: 1)
+gpg:               imported: 1  (RSA: 1)
 ```
 
 Verify that the key is properly installed with the command:
@@ -122,7 +122,7 @@ The output should look like this:
 4d764a2ba67f41495c17247184d24b7f9ac9a7c57415bbbed663402aec78952b  kali-linux-2020.4-live-amd64.iso
 ```
 
-The resulting SHA256 signature, "4d764a2ba67f41495c17247184d24b7f9ac9a7c57415bbbed663402aec78952b", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2020.4 ISO image:
+The resulting SHA256 signature, "4d764a2ba67f41495c17247184d24b7f9ac9a7c57415bbbed663402aec78952b", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2020.4 ISO image:
 
 ![](kali-download-iso-2020-4.png)
 
@@ -169,7 +169,7 @@ Your output should look like this:
 ```plaintext
 gpg: key ED444FF07D8D0BF6: public key "Kali Linux Repository <devel@kali.org>" imported
 gpg: Total number processed: 1
-gpg:               imported: 1  (RSA: 1)
+gpg:               imported: 1  (RSA: 1)
 ```
 
 You should verify that the key is properly installed with the command:

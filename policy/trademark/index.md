@@ -7,20 +7,19 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-[Kali Linux](https://www.kali.org/) and [Offensive Security](https://www.offensive-security.com/) want to promote the widespread recognition of our trademarks among the Internet community however, we also need to ensure our trademarks solely identify our company and our products. At the heart of our trademark policy is **trust** - we want to avoid the public from being confused into believing they are dealing with Kali Linux and/or Offensive Security when, in fact, they are not. This is of particular importance with regards to the development and distribution of trusted penetration testing distribution such as Kali Linux.
+# Trademark Policy
+
+[Kali Linux](/) and [Offensive Security](https://www.offensive-security.com/) want to promote the widespread recognition of our trademarks among the Internet community however, we also need to ensure our trademarks solely identify our company and our products. At the heart of our trademark policy is **trust** - we want to avoid the public from being confused into believing they are dealing with Kali Linux and/or Offensive Security when, in fact, they are not. This is of particular importance with regards to the development and distribution of trusted penetration testing distribution such as Kali Linux.
+
 This document identifies and the describes our trademarks and provides guidance as to their fair use. We are generally quite accommodating when it comes to fair and honest use of our trademarks so if you are so inclined, feel free to contact us for further guidance.
 
 ### Some of our Trademarks
 
-![](kali-tm.png)
-
-![](offsec-tm.png)
-
-![](dragon-tm.png)
-
-![](trademarked-tryharder.png)
-
-![](guy-tm.png)
+|                            |                              |
+|----------------------------|------------------------------|
+![](images/kali-tm.png)      | ![](images/offsec-tm.png)    |
+![](images/dragon-tm.png)    | ![](images/tryharder-tm.png) |
+![](images/manindoor-tm.png) |                              |
 
 ### Use in Print, Web, Media and Public Display
 
@@ -32,7 +31,7 @@ The first mention of an Offensive Security trademark should be accompanied by a 
 
 The use of an Offensive Security trademark should be set apart from surrounding text, either by capitalizing it or by italicizing, bolding or underlining it. The Offensive Security trademarks are to designate the source of our products and services.
 
-When using an Offensive Security trademark in written materials, you should provide a statement indicating that the [trademark] is a trademark of Offensive Security. For example:
+When using an Offensive Security trademark in written materials, you should provide a statement indicating that the \[trademark\] is a trademark of Offensive Security. For example:
 
 "KALI LINUX ™ is a trademark of Offensive Security." This statement can be provided directly in your text, or as a footnote or an endnote.
 
@@ -42,4 +41,4 @@ You may make t-shirts, desktop wallpaper, or other merchandise with Offensive Se
 
 ### Contact
 
-If you have any questions or comments, or wish to report misuse of the Offensive Security trademarks, please [contact us](https://www.offensive-security.com/contact-us/).
+If you have any questions or comments, or wish to report misuse of the Offensive Security trademarks, please [contact us](/contact/).

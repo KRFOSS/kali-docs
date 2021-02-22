@@ -26,7 +26,7 @@ Android Device
 Installation:
 --------------
 
-- Install the NetHunter-Store app from https://store.nethunter.com
+- Install the NetHunter-Store app from [store.nethunter.com](https://store.nethunter.com/)
 - From the NetHunter Store, install __Termux__, __NetHunter-KeX client__, and __Hacker's keyboard__
   _Note:_
        _The button "install" may not change to "installed" in the store client after installation - just ignore it._

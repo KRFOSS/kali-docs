@@ -3,13 +3,17 @@ title: Cookie Policy
 type: single
 ---
 
-## Last revised: {#last}
+<!--
+Address needs to match whats on MailChimp
+-->
 
-Last revised: 2019-August-20
+# Cookie Policy
 
-Our Cookie Policy (the "Cookie Policy") describes the different cookies used in connection with websites owned and controlled by OffSec Services Limited, 5 Secretary's Lane, Gibraltar ("Offensive Security" or "us"), from which you are accessing this Cookie Policy (the "Site"). Offensive Security determines the means and purposes of the personal data processing described in this Cookie Policy and is therefore the data controller for the purposes of the EU General Data Protection Regulation (or GDPR).
+#### Last Revised: 2021-February-21
 
-Depending on the Site you are accessing, our [privacy notice](https://www.offensive-security.com/privacy-policy/) applies in addition to this Cookie Policy.
+Our Cookie Policy (the "Cookie Policy") describes the different cookies used in connection with websites owned and controlled by Offensive Security, 230 Park Avenue 3rd Floor West, New York. ("Offensive Security" or "us"), from which you are accessing this Cookie Policy (the "Site"). Offensive Security determines the means and purposes of the personal data processing described in this Cookie Policy and is therefore the data controller for the purposes of the EU General Data Protection Regulation (or GDPR).
+
+Depending on the Site you are accessing, our [privacy notice](/docs/policy/privacy/) applies in addition to this [Cookie Policy](/docs/policy/cookie/).
 
 If you have questions, please contact us by email at **privacy at offensive-Security dot com** or write to us at:
 
@@ -25,29 +29,13 @@ Cookies are a standard feature of websites that allow us to store small amounts 
 
 ### First-party cookies and third-party cookies
 
-Cookies are downloaded by your internet browser the first time you visit the Site. The next time you visit the Site from the same device, the cookie and the information stored in it is either sent back to the site generating it (first-party cookie) or to a different website to which it belongs (third-party cookie).
+Cookies are downloaded by your Internet browser the first time you visit the Site. The next time you visit the Site from the same device, the cookie and the information stored in it is either sent back to the site generating it (first-party cookie) or to a different website to which it belongs (third-party cookie).
 
 These third-party providers set cookies when you are logged on to their pages and visit our Site. We have no influence on the cookie settings of these websites. Please visit the websites of third-party providers to obtain further information on how they use cookies.
 
 First-party and third-party cookies enable the website to recognize whether you have already accessed the Site through a browser and, often make the content displayed vary.
 
-You can change your cookie settings within your internet browser. Your internet browser allows you to change your cookie settings.
-
-### Google Analytics
-
-Like many websites, we use Google Analytics, a web analysis tool provided by Google Inc. ("Google") that allows us to keep the Site relevant to you. Google Analytics uses its third party cookies to track your preferences when you visit the Site. The data is only analyzed for reports after anonymization.
-
-We also run Google Analytics Demographics and Interest Reporting. These cookies gather data on how visitors interact with the Site (as well as demographic data such as age and gender) to optimize website content and marketing.
-
-If you have accessed our website via a Google Ad, Google places a cookie on your computer. When you visit the Site, we and Google can recognize that someone has clicked on an ad and been directed to our page as a result. This allows us to optimize our marketing and services and to understand the total number of customers who have clicked on our Google Ad and been redirected to the Site.
-
-Google's remarketing technology means that users who have already visited our Site and shown an interest in what we have to offer are shown targeted advertising on other websites of the Google Partner network. The ads are displayed through the use of cookies, and the user's behavior during their visit to the website is analyzed and then used for targeted product recommendations and interest-based advertising.
-
-When you visit a website that uses analytics tools like Google Analytics, your web browser automatically sends certain information to Google. This includes the URL of the page you're visiting and your IP address. Google may also [set cookies on your browser](https://policies.google.com/technologies/cookies?hl=en-US) or read cookies that are already there.
-
-For more information on how Google uses information from sites that use its services and how you can control the information collected by Google please visit:
-
-[How Google uses information from sites that use its services](https://policies.google.com/technologies/partner-sites?hl=en-US)
+You can change your cookie settings within your Internet browser. Your Internet browser allows you to change your cookie settings.
 
 ### Persistent and session cookies
 
@@ -78,15 +66,15 @@ As regards the browser settings for the deletion of former cookies, the same pri
 
 You can disable Google Analytics related cookies in all the ways described in this Cookie Policy or, additionally, by downloading and installing a browser plug-in. The current link is:
 
-[https://tools.google.com/dlpage/gaoptout/](https://tools.google.com/dlpage/gaoptout/)
+[tools.google.com/dlpage/gaoptout/](https://tools.google.com/dlpage/gaoptout/)
 
 If you do not wish to receive any interest-based advertising, you can deactivate Google's use of cookies for these purposes by going to
 
-[https://adssettings.google.com](https://adssettings.google.com/)
+[adssettings.google.com](https://adssettings.google.com/)
 
 #### Deactivate cookies via other online tools
 
-There are online tools available for clearing all cookies left behind by the websites you have visited, such as www.allaboutcookies.org and http://optout.networkadvertising.org/?c=1.
+There are online tools available for clearing all cookies left behind by the websites you have visited, such as [allaboutcookies.org](https://www.allaboutcookies.org/) and [networkadvertising.org](https://optout.networkadvertising.org/?c=1).
 
 When you visit this Site from different computers, it will be necessary to repeat the modification of your settings.
 
@@ -102,4 +90,4 @@ The tables below list all the types of cookies we and third parties use on the S
 
 ### Updates to this Cookie Policy
 
-You can find out when this Cookie Policy was last amended by checking "[LAST REVISED](#last)" at the top of this page.
+You can find out when this Cookie Policy was last amended by checking "[Last Revised](/docs/policy/cookie/#cookie-policy)" at the top of this page.

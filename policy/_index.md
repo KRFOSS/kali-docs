@@ -1,6 +1,6 @@
 ---
 title: Policy
-description: Boring paper work...
+description: The small print
 icon: ti-write
 type: toc
 weight: 75

@@ -7,7 +7,7 @@ weight:
 author: ["steev",]
 ---
 
-Although you can [download pre-rolled Kali ARM images](https://www.kali.org/downloads/) from our download area, there may be applications which will require building your own custom bootstrapped Kali rootfs for ARM.
+Although you can [download pre-rolled Kali ARM images](/downloads/) from our download area, there may be applications which will require building your own custom bootstrapped Kali rootfs for ARM.
 
 The following procedure shows an example of building a fairly generic Kali **armhf** rootfs. If you wish to build for **armel**, use that value rather than "armhf" when you export the **architecture** environment variable.
 
@@ -64,7 +64,7 @@ The ARM build scripts are all completely self-contained, aside from the initial 
 
 It's possible to speed up your builds by caching the packages you download using **[apt-cacher-ng](https://packages.debian.org/testing/apt-cacher-ng)**, as described in [the previous article](/docs/development/arm-cross-compilation-environment/). Note that this can break some of the standard build scripts unless you uncomment certain lines before building — they're noted in the scripts themselves. If you're using **apt-cacher-ng**, make sure you _check your scripts_ for any necessary changes.
 
-For reliable and predictable results, build your Kali Linix ARM chroot **from within a pre-existing and [up-to-date](/docs/general-use/updating-kali/) Kali Linux environment**. This guide assumes that you have already [set up your ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/).
+For reliable and predictable results, build your Kali Linix ARM chroot **from within a pre-existing and [up-to-date](/docs/general-use/updating-kali/) Kali Linux environment**. This guide assumes that you have already [set up your ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/).
 
 ## An Annotated Example of a Generic ARM Build of Kali Linux
 

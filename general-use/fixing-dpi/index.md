@@ -250,7 +250,7 @@ A logout shouldn't be required, so the next time you open a problematic program 
 
 For additional reading material, you may wish to reference:
 
-- https://http.download.nvidia.com/XFree86/Linux-x86/390.132/README/dpi.html
-- https://wiki.ubuntu.com/X/Troubleshooting/HugeFonts
-- https://wiki.archlinux.org/index.php/HiDPI
-- https://wiki.archlinux.org/index.php/Xrandr
+- [http.download.nvidia.com/XFree86/Linux-x86/390.132/README/dpi.html](https://http.download.nvidia.com/XFree86/Linux-x86/390.132/README/dpi.html)
+- [wiki.ubuntu.com/X/Troubleshooting/HugeFonts](https://wiki.ubuntu.com/X/Troubleshooting/HugeFonts)
+- [wiki.archlinux.org/index.php/HiDPI](https://wiki.archlinux.org/index.php/HiDPI)
+- [wiki.archlinux.org/index.php/Xrandr](https://wiki.archlinux.org/index.php/Xrandr)

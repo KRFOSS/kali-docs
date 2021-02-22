@@ -15,7 +15,7 @@ Building a customized Kali ISO is easy, fun, and rewarding. You can configure vi
 
 Ideally, you should build your custom Kali ISO from **within a pre-existing Kali environment**.
 
-### Getting Ready — Setting up the live-build system
+### Getting Ready — Setting up the live-build system
 
 We first need to prepare the Kali ISO build environment by installing and setting up live-build and its requirements with the following commands:
 

@@ -29,7 +29,7 @@ Help us help you! To give us the best start in getting your issue resolved:
 
 ## How to Report a Bug
 
-The Kali Linux Bug Tracker can be found at [https://bugs.kali.org](https://bugs.kali.org/). This section will guide you through signing up for a new account, creating a system profile, and creating a detailed bug report for submission to the Bug Tracker.
+The Kali Linux Bug Tracker can be found at [bugs.kali.org](https://bugs.kali.org/). This section will guide you through signing up for a new account, creating a system profile, and creating a detailed bug report for submission to the Bug Tracker.
 
 ### Signing Up For a Bug Tracker Account
 
@@ -121,9 +121,9 @@ kali@kali:~$ dpkg --list chromium
 Desired=Unknown/Install/Remove/Purge/Hold
 | Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
 |/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
-||/ Name           Version      Architecture Description
+||/ Name           Version      Architecture Description
 +++-==============-============-============-=================================
-ii  chromium       76.0.3809.100-1 amd64       web browser
+ii  chromium       76.0.3809.100-1 amd64       web browser
 kali@kali:~$
 kali@kali:~$ dpkg --status chromium
 Package: chromium
@@ -141,7 +141,7 @@ kali@kali:~$
 
 ### Building the Description Scenario
 
-This is your opportunity to to help us out and provide a well thought-out description of the problem you're experiencing. Please provide as many details and facts as possible.
+This is your opportunity to to help us out and provide a well thought-out description of the problem you're experiencing. Please provide as many details and facts as possible.
 
 Please ensure you include the following where applicable:
 
@@ -227,7 +227,7 @@ At this point, you are ready to submit the report. All that is left to do is cli
 
 #### Summary
 
-Bug reports help the Kali Linux development team see the failure with their own eyes. Since they cannot be with you to experience the problem you're having, you must provide instructions detailed enough that they can make their own systems fail themselves.
+Bug reports help the Kali Linux development team see the failure with their own eyes. Since they cannot be with you to experience the problem you're having, you must provide instructions detailed enough that they can make their own systems fail themselves.
 
 Describe everything in detail, stating the steps taken, what you saw, what you did, as well as the expected outcome.
 

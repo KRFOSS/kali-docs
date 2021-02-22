@@ -7,7 +7,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-Kali Linux has an official IRC channel, **#kali-linux**, on the [Freenode](https://freenode.net/) network. Please take a few moments to review the rules and guidelines below before joining the channel.
+Kali Linux has an official IRC channel, **#kali-linux**, on the [Freenode](https://freenode.net/) network. Please take a few moments to review the rules and guidelines below before joining the channel.
 
 ## #kali-linux IRC Rules and Guidelines
 

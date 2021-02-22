@@ -7,7 +7,7 @@ weight: 45
 author: ["Re4son",]
 ---
 
-##### Kali NetHunter is a free & open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.
+##### Kali NetHunter is a free & Open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.
 
 ![](NetHunter-xiaomi-mi-9t.png)
 
@@ -55,7 +55,7 @@ Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter
 
 Beyond the [penetration testing tools](https://tools.kali.org/) included in Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and many more.
 
-For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](nethunter-components/) page. Kali NetHunter is an open-source project developed by [Offensive Security](https://www.offensive-security.com/) and the community.
+For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](nethunter-components/) page. Kali NetHunter is an [Open-source project](/docs/policy/kali-linux-open-source-policy/) developed by [Offensive Security](https://www.offensive-security.com/) and the community.
 
 ## 1.0 NetHunter Editions
 
@@ -94,8 +94,8 @@ The Kernel specific chapters are only applicable to the NetHunter edition.
 
 NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.
 The full NetHunter experience requires a devices specific kernel that has been purpose built for Kali NetHunter.
-The [NetHunter gitlab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Offensive Security publishes over 25 images for the most popular devices on the [NetHunter download page](https://nethunter.com/).
-The following live reports are generated automatically by gitlab CI:
+The [NetHunter gitlab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Offensive Security publishes over 25 images for the most popular devices on the [NetHunter download page](https://www.offensive-security.com/kali-linux-nethunter-download/).
+The following live reports are generated automatically by GitLab CI:
 
 [List of quarterly published NetHunter images](https://stats.nethunter.com/nethunter-images.html)
 [NetHunter kernel statistics](https://stats.nethunter.com/nethunter-kernelstats.html)
@@ -105,7 +105,7 @@ The following live reports are generated automatically by gitlab CI:
 
 Official release NetHunter images for your specific supported device can be download from the Offensive Security NetHunter project page located at the following URL:
 
-- https://www.offensive-security.com/kali-linux-nethunter-download
+- [offensive-security.com/kali-linux-nethunter-download/](https://www.offensive-security.com/kali-linux-nethunter-download/)
 
 Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
 
@@ -131,7 +131,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - Install any other apps from the NetHunter Store as required.
 - Configure Kali Services, such as SSH.
 - Set up custom commands.
-- Initialize the Exploit Database.
+- Initialize the Exploit-Database.
 
 ## 7.0 Kali NetHunter Attacks and Features
 
@@ -151,7 +151,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - [**MITM Framework**](nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
 - [**NMap Scan**](nethunter-nmap/) - Quick Nmap scanner interface.
 - [**Metasploit Payload Generator**](nethunter-mpg/) - Generating Metasploit payloads on the fly.
-- [**Searchsploit**](nethunter-searchsploit/) - Easy searching for exploits in the Exploit-DB.
+- [**Searchsploit**](nethunter-searchsploit/) - Easy searching for exploits in [Exploit-Database](https://www.exploit-db.com/).
 
 #### 3rd Party Android Applications in the NetHunter App Store
 

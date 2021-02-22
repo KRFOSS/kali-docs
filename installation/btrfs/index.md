@@ -23,7 +23,7 @@ We are going to install Kali Linux to automatically create file system snapshots
 
 The snapshotting strategy of this walkthrough centres around a tool called "apt-btrfs-snapshot" from the Ubuntu repositories, which is a wrapper around "apt". This wrapper transparently hooks into the apt workflow and automatically creates snapshots before and after any apt operation. This neat little feature allows to easily rollback a system after a botched upgrade.
 
-Snapper is another useful utility to create snapshots. We are preparing the Kali system for the use of snapper by creating a separate subvolume for its snapshots but we are not including the installation and usage of snapper in this walkthrough. Details about snapper can be found on the following website: [http://snapper.io/](http://snapper.io/)
+Snapper is another useful utility to create snapshots. We are preparing the Kali system for the use of snapper by creating a separate subvolume for its snapshots but we are not including the installation and usage of snapper in this walkthrough. Details about snapper can be found on the following website: [snapper.io/](http://snapper.io/)
 
 ##### Installation Overview
 

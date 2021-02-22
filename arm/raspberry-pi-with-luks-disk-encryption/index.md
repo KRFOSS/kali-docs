@@ -237,7 +237,7 @@ kali@kali:~$
 
 ### Can I Have Some LUKS NUKE With That Pi?
 
-If you are not familiar with the [Kali Linux LUKS NUKE](https://www.kali.org/how-to/nuke-kali-linux-luks/) feature then you're missing out. Although this stage is optional, it allows you to configure and apply an emergency self-destruct password to your LUKS encrypted drive. To do this, we simply define a Nuke password with our special purpose package cryptsetup-nuke-password:
+If you are not familiar with the [Kali Linux LUKS NUKE](/blog/nuke-kali-linux-luks/) feature then you're missing out. Although this stage is optional, it allows you to configure and apply an emergency self-destruct password to your LUKS encrypted drive. To do this, we simply define a Nuke password with our special purpose package cryptsetup-nuke-password:
 
 ```console
 kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password
@@ -257,5 +257,5 @@ Setting up LUKS disk encryption on a Raspberry Pi running Kali Linux. Also suppo
 
 We came up with this procedure by cannibalising ideas and instructions from various sources on the net, most notably, the two below. Big thanks to the Raspberry Pi community!
 
-1. [https://www.ofthedeed.org/posts/Encrypted_Raspberry_Pi/](https://www.ofthedeed.org/posts/Encrypted_Raspberry_Pi/)
-2. [https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=7626](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=7626)
+1. [ofthedeed.org/posts/Encrypted_Raspberry_Pi/](https://www.ofthedeed.org/posts/Encrypted_Raspberry_Pi/)
+2. [raspberrypi.org/forums/viewtopic.php?f=28&t=7626](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=7626)

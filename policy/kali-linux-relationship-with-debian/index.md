@@ -13,7 +13,7 @@ The Kali Linux distribution is based on [Debian Testing](https://www.debian.org/
 
 In order to implement some of Kali's unique features, we had to fork some packages. The Kali development team strives to keep such packages to a minimum by improving the upstream packages whenever possible, either by integrating the feature directly, or by adding the required hooks so that it's straightforward to enable the desired features without further modifying the upstream packages themselves.
 
-Each package forked by Kali is maintained in a [Git repository](https://gitlab.com/kalilinux/) with a "debian" branch so that updating a forked package can be easily done with a simple _git merge debian_ in its master branch.
+Each package forked by Kali is maintained in a [Git repository](https://gitlab.com/kalilinux) with a "debian" branch so that updating a forked package can be easily done with a simple _git merge debian_ in its master branch.
 
 ### Additional Packages
 

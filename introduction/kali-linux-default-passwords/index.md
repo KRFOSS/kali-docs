@@ -7,7 +7,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-**This page is dated**. You can find the **latest version** here: [https://www.kali.org/docs/introduction/default-credentials/](/docs/introduction/default-credentials/).
+**This page is dated**. You can find the **latest version** here: [Default Credentials](/docs/introduction/default-credentials/).
 
 - - -
 

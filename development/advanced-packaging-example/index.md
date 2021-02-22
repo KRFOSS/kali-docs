@@ -18,7 +18,7 @@ We will assume we have already followed our [documentation on setting up a packa
 The first action we will take, will be to look at [FinalRecon's source code](https://github.com/thewhiteh4t/FinalRecon) to see what information we can acquire. Using this, we notice the following:
 
 - It has [no tag release](https://github.com/thewhiteh4t/FinalRecon/releases)
-- The [MIT license file ](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE)
+- The [MIT license file](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE)
 - There is no `setup.py` file (which is used for [setuptools](https://packaging.python.org/tutorials/packaging-projects/))
 - There is a `requirements.txt` [file](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/requirements.txt) (which is used for [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files))
 - Various descriptions about the tool & usage guides

@@ -7,7 +7,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-One of the key tasks in transitioning from BackTrack Linux to Kali was combing through the packages and selecting the "best of breed" from what was available.
+One of the key tasks in transitioning from [BackTrack](https://www.backtrack-linux.org/) to Kali was combing through the packages and selecting the "best of breed" from what was available.
 
 We realize that there are many tools or scripts that can do the same job. Some are clearly better than others in some respect, some are more a matter of personal preference. With this in mind, keeping an updated, useful penetration testing tool repository is a challenging task. The Kali Development team uses some of these questions to help decide whether a specific tool should be included in Kali Linux.
 
@@ -18,7 +18,7 @@ We realize that there are many tools or scripts that can do the same job. Some a
 
 The answers to questions such as these, among other considerations, help us come to a decision whether the tool should be included in Kali.
 
-Most of the members of the Kali development team are working penetration testers, and we rely on our combined experience and expertise to select the best tools to add the most value to the Kali distribution as we continue its development.
+Most of the members of the Kali development team are working penetration testers, and we rely on our combined experience and expertise to select the best tools to add the most value to the Kali distribution as we continue its development.
 
 Tools which are specifically aimed at DOS, DDOS or anonymity are _rarely used in legitimate engagements_, and are therefore _not installed by default_ in Kali Linux.
 

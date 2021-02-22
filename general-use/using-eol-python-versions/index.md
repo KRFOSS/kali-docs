@@ -7,7 +7,7 @@ weight: 15
 author: ["gamb1t",]
 ---
 
-In December of 2019 we released a [blog post](https://www.kali.org/news/python-2-end-of-life/) talking about how we will deal with Python 2's End-of-Life. Since then there has been quite a lot of tools that users use that have not been ported to Python 3, causing issues when they try to use them. This page will cover a way of using the depreciated version in a safe way.
+In December of 2019 we released a [blog post]((/blog/python-2-end-of-life/) talking about how we will deal with Python 2's End-of-Life. Since then there has been quite a lot of tools that users use that have not been ported to Python 3, causing issues when they try to use them. This page will cover a way of using the depreciated version in a safe way.
 
 ## pyenv
 

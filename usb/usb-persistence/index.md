@@ -28,7 +28,7 @@ In this example, we assume:
 
 In this example, we'll create a new partition to store our persistent data into, starting right above the second Kali Live partition and ending at 7GB, put an ext3 file system onto it, and create a `persistence.conf` file on the new partition.
 
-1. First, begin by imaging the latest Kali Linux ISO (currently [2020.4](https://www.kali.org/downloads/)) to your USB drive as described in [this article](/docs/usb/live-usb-install-with-windows/). We're going to assume that the two partitions created by the imaging are `/dev/sdb1` and `/dev/sdb2`. This can be verified with the command `fdisk -l`.
+1. First, begin by imaging the latest Kali Linux ISO (currently [2020.4](/downloads/)) to your USB drive as described in [this article](/docs/usb/live-usb-install-with-windows/). We're going to assume that the two partitions created by the imaging are `/dev/sdb1` and `/dev/sdb2`. This can be verified with the command `fdisk -l`.
 
 2. Create and format an additional partition on the USB drive.
 First, let's create the new partition in the empty space above our Kali Live partitions. We have to do this from the command line as gparted will read the imaged ISO as a large block. The following command will, as a short explanation, shrink that block to only be the Kali Live partition.
@@ -101,4 +101,4 @@ kali@kali:~$ umount /dev/mapper/my_usb
 kali@kali:~$ cryptsetup luksClose /dev/mapper/my_usb
 ```
 
-That's really all there is to it! To use the persistent data features, simply plug your USB drive into the computer you want to boot up Kali Live on — make sure your BIOS is set to boot from your USB device — and fire it up. When the Kali Linux boot screen is displayed, choose the persistent option you set up on your USB drive, either normal or encrypted.
+That's really all there is to it! To use the persistent data features, simply plug your USB drive into the computer you want to boot up Kali Live on — make sure your BIOS is set to boot from your USB device — and fire it up. When the Kali Linux boot screen is displayed, choose the persistent option you set up on your USB drive, either normal or encrypted.

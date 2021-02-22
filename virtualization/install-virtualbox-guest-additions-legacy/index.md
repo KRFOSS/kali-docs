@@ -7,7 +7,7 @@ weight: 310
 author: ["g0tmi1k",]
 ---
 
-**This page is dated**. You can find the **latest version** here: [https://www.kali.org/docs/virtualization/install-virtualbox-guest-additions/](/docs/virtualization/install-virtualbox-guest-additions/).
+**This page is dated**. You can find the **latest version** here: [Install VirtualBox Guest Additions](/docs/virtualization/install-virtualbox-guest-additions/).
 
 - - -
 

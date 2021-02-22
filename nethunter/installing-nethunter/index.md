@@ -28,7 +28,7 @@ You can confirm that your device and Android version is supported via our gitlab
 [NetHunter kernel statistics](https://stats.nethunter.com/nethunter-kernelstats.html)
 [NetHunter kernel table with](https://stats.nethunter.com/nethunter-kernels.html)
 
-The NetHunter team builds and publishes images for a selected list of devices, on the [official NetHunter download page](https://nethunter.com).
+The NetHunter team builds and publishes images for a selected list of devices, on the [official NetHunter download page](https://www.offensive-security.com/kali-linux-nethunter-download/).
 
 If you devices is supported by NetHunter but not available as a pre-build image, you can easily build your own image by following the steps in our ["Building NetHunter" documentation](/docs/nethunter/building-nethunter/)
 

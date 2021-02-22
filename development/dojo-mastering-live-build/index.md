@@ -87,5 +87,5 @@ kali@kali:~$ ./build.sh -v
 
 For more live-build implementations, refer to the following:
 
-- [https://www.offensive-security.com/kali-linux/kali-linux-recipes/](https://www.offensive-security.com/kali-linux/kali-linux-recipes/)
-- [https://gitlab.com/kalilinux/recipes/live-build-config-examples](https://gitlab.com/kalilinux/recipes/live-build-config-examples)
+- [offensive-security.com/kali-linux/kali-linux-recipes/](https://www.offensive-security.com/kali-linux/kali-linux-recipes/)
+- [gitlab.com/kalilinux/recipes/live-build-config-examples](https://gitlab.com/kalilinux/recipes/live-build-config-examples)

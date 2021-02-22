@@ -28,7 +28,7 @@ Kali Linux has a large number of tools that it maintains and adds on a regular b
 - [How to use] - What are some basic commands/functions to demonstrate it?
 ```
 
-You may be asking at this point 'How does this relate to me getting involved?'. Well that's simple: users can now do most of the work on their own to get the tool added thanks to [our move to GitLab](https://gitlab.com/kalilinux/). Keep in mind that we still will not be adding all tools that are requested; perhaps there is a different tool that does the same thing but has been around longer, or maybe the tool is too new and needs time to really get more user's opinion on. There are a few things that those who want to get involved need to do first, which is what we are going to walk you through now.
+You may be asking at this point 'How does this relate to me getting involved?'. Well that's simple: users can now do most of the work on their own to get the tool added thanks to [our move to GitLab](https://gitlab.com/kalilinux). Keep in mind that we still will not be adding all tools that are requested; perhaps there is a different tool that does the same thing but has been around longer, or maybe the tool is too new and needs time to really get more user's opinion on. There are a few things that those who want to get involved need to do first, which is what we are going to walk you through now.
 
 Related:
 - [Setting Up A System For Packaging](/docs/development/setting-up-packaging-system/)
