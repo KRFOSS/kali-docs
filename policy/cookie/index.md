@@ -7,9 +7,10 @@ type: single
 Address needs to match whats on MailChimp
 -->
 
-# Cookie Policy
+#### Last Revised:
+###### 2021-February-21
 
-#### Last Revised: 2021-February-21
+- - -
 
 Our Cookie Policy (the "Cookie Policy") describes the different cookies used in connection with websites owned and controlled by Offensive Security, 230 Park Avenue 3rd Floor West, New York. ("Offensive Security" or "us"), from which you are accessing this Cookie Policy (the "Site"). Offensive Security determines the means and purposes of the personal data processing described in this Cookie Policy and is therefore the data controller for the purposes of the EU General Data Protection Regulation (or GDPR).
 
@@ -90,4 +91,4 @@ The tables below list all the types of cookies we and third parties use on the S
 
 ### Updates to this Cookie Policy
 
-You can find out when this Cookie Policy was last amended by checking "[Last Revised](/docs/policy/cookie/#cookie-policy)" at the top of this page.
+You can find out when this Cookie Policy was last amended by checking "[Last Revised](/docs/policy/cookie/#last-revised)" at the top of this page.

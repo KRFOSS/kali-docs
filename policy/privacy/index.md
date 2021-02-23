@@ -2,8 +2,6 @@
 title: "Privacy Policy"
 ---
 
-# Privacy Policy
-
 Thank you for visiting our web site. The following privacy policy tells you how we use personal information collected at this site. Please read this privacy policy before using the site or submitting any personal information. By using the site, you are accepting the practices described in this privacy policy. These practices may be changed, but any changes will be posted and changes will only apply to activities and information on a going forward, not retroactive basis. You are encouraged to review the privacy policy whenever you visit the site to make sure that you understand how any personal information you provide will be used.
 
 ### Collection of Information

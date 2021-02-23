@@ -7,19 +7,17 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-# Trademark Policy
-
 [Kali Linux](/) and [Offensive Security](https://www.offensive-security.com/) want to promote the widespread recognition of our trademarks among the Internet community however, we also need to ensure our trademarks solely identify our company and our products. At the heart of our trademark policy is **trust** - we want to avoid the public from being confused into believing they are dealing with Kali Linux and/or Offensive Security when, in fact, they are not. This is of particular importance with regards to the development and distribution of trusted penetration testing distribution such as Kali Linux.
 
 This document identifies and the describes our trademarks and provides guidance as to their fair use. We are generally quite accommodating when it comes to fair and honest use of our trademarks so if you are so inclined, feel free to contact us for further guidance.
 
 ### Some of our Trademarks
 
-|                            |                              |
-|----------------------------|------------------------------|
-![](images/kali-tm.png)      | ![](images/offsec-tm.png)    |
-![](images/dragon-tm.png)    | ![](images/tryharder-tm.png) |
-![](images/manindoor-tm.png) |                              |
+![](images/kali-tm.png)
+![](images/offsec-tm.png)
+![](images/dragon-tm.png)
+![](images/tryharder-tm.png)
+![](images/manindoor-tm.png)
 
 ### Use in Print, Web, Media and Public Display
 
