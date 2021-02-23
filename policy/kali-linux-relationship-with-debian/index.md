@@ -17,6 +17,6 @@ Each package forked by Kali is maintained in a [Git repository](https://gitlab.c
 
 ### Additional Packages
 
-Beyond this, Kali incorporates many additional [packages](https://pkg.kali.org/) which are specific to the penetration testing and security auditing field. The majority of these packages constitute "free software" according to [Debian's Free Software Guidelines](http://www.debian.org/social_contract#guidelines). Kali intends to contribute those packages back to Debian and to maintain them directly within Debian.
+Beyond this, Kali incorporates many additional [packages](https://pkg.kali.org/) which are specific to the penetration testing and security auditing field. The majority of these packages constitute "free software" according to [Debian's Free Software Guidelines](https://www.debian.org/social_contract#guidelines). Kali intends to contribute those packages back to Debian and to maintain them directly within Debian.
 
-To facilitate this, Kali packaging strives to comply with the [Debian Policy](http://www.debian.org/doc/debian-policy/) and follow the best practices in use in Debian.
+To facilitate this, Kali packaging strives to comply with the [Debian Policy](https://www.debian.org/doc/debian-policy/) and follow the best practices in use in Debian.

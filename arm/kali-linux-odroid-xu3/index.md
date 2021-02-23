@@ -7,7 +7,7 @@ weight:
 author: ["steev",]
 ---
 
-The [ODROID-XU3](http://www.hardkernel.com/main/products/prdt_info.php?g_code=g140448267127) is an octacore development board. Boasting 4 A15 cores and 4 A7 cores and 4 GB of RAM, the ODROID-XU3 is a fast ARM device. Kali Linux fits on an external micro SD card or on an eMMC module.
+The [ODROID-XU3](https://www.hardkernel.com/main/products/prdt_info.php?g_code=g140448267127) is an octacore development board. Boasting 4 A15 cores and 4 A7 cores and 4 GB of RAM, the ODROID-XU3 is a fast ARM device. Kali Linux fits on an external micro SD card or on an eMMC module.
 
 ## Kali on ODROID-XU3 - User Instructions
 

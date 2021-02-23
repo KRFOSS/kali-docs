@@ -23,7 +23,7 @@ In order to make the channel a pleasant place for all of our users, we expect al
 
 ### How to Argue
 
-As mentioned above, we'd appreciate it if you'd strive to be friendly and tolerant. We also encourage debates and in-depth discussions about topical subjects. If you choose to participate in one, we expect you to remain as reasonable as possible and employ the skills of logic and [critical thinking](http://www.criticalthinking.org//). These skills will serve you well in discussion, enable you to communicate more efficiently, and spot when others are being less than forthcoming with the truth!
+As mentioned above, we'd appreciate it if you'd strive to be friendly and tolerant. We also encourage debates and in-depth discussions about topical subjects. If you choose to participate in one, we expect you to remain as reasonable as possible and employ the skills of logic and [critical thinking](https://www.criticalthinking.org/). These skills will serve you well in discussion, enable you to communicate more efficiently, and spot when others are being less than forthcoming with the truth!
 
 ### Language
 
@@ -56,7 +56,7 @@ We often find that we learn a lot even from questions we already think we know t
 
 Spam, flooding, disrespect or verbal attacks against other users, misleading links, intentionally wrong answers, and other forms of disruptive behaviour not otherwise specified are unwelcome. Disruptive behaviour includes (but is not restricted to) the operation of unauthorized bots in the channel, public logging of the channel, and scripts such as those that publicly announce what track your MP3 player is playing or your away status.
 
-If you have more than 5 lines of text to paste, use [pastebin](http://pastebin.com/) for your data and then paste the URL into channel.
+If you have more than 5 lines of text to paste, use [pastebin](https://pastebin.com/) for your data and then paste the URL into channel.
 
 **Dealing With the Channel Staff**
 

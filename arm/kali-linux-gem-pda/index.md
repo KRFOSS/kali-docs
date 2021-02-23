@@ -28,7 +28,7 @@ Operating systems aren't installed but flashed using the Smart Phone Flash tool 
 The Kali Linux Gemini image can be downloaded from the [Offensive Security ARM images](https://www.offensive-security.com/kali-linux-arm-images/) page. The folder contains all files required for a complete re-flash of the Gemini PDA with bootloader, a rooted Android partition and Kali-Linux.
 
 {{% notice info %}}
-If you would like a different partition layout, follow [the official flashing guide](http://support.planetcom.co.uk/index.php/Linux_Flashing_Guide). Make sure that the Linux partition is at least 6GB.
+If you would like a different partition layout, follow [the official flashing guide](https://support.planetcom.co.uk/index.php/Linux_Flashing_Guide). Make sure that the Linux partition is at least 6GB.
 With a linux partition created, you can write the image file **_linux_root.img_** straight into it. Don't forget to flash the corresponding Linux kernel image "linux_boot.img".
 {{% /notice %}}
 
@@ -36,11 +36,11 @@ The rest of the steps in this guide detail a complete re-flash of a Gemini x27 w
 
 ### 2. Download and Install the Drivers and Flash Tool
 
-1. You can find the latest drivers here: [Windows Flash Tool Drivers](http://support.planetcom.co.uk/download/FlashToolDrivers.zip)
+1. You can find the latest drivers here: [Windows Flash Tool Drivers](https://support.planetcom.co.uk/download/FlashToolDrivers.zip)
 2. Once downloaded, unzip the archive
 3. You will find a folder called **_FlashToolDrivers_**. Open the folder and double click on the Install (**_install.bat_**) file
 4. Let the installation run and choose "Yes" when asked to make changes
-5. Now that the drivers have been installed, you can download the latest Windows flash tool: [Windows Flash Tool](http://support.planetcom.co.uk/download/FlashToolWindows.zip)
+5. Now that the drivers have been installed, you can download the latest Windows flash tool: [Windows Flash Tool](https://support.planetcom.co.uk/download/FlashToolWindows.zip)
 6. Unzip the downloaded zip file containing the Windows FlashTool directory
 7. Next, run 'flash_tool.exe' in the **_FlashToolWindows_** folder
 
@@ -139,7 +139,7 @@ Please keep in touch by joining us in the [Kali Forums](https://forums.kali.org/
 - Gemini: [geminiplanet.com](https://geminiplanet.com/)
 - Planet Computers: [planetcom.co.uk](https://planetcom.co.uk/)
 - Planet Computers Developers Forum: [developer.planetcom.co.uk/forumdisplay.php?fid=1](https://developer.planetcom.co.uk/forumdisplay.php?fid=1)
-- Gemian: [gemian.thinkglobally.org](http://gemian.thinkglobally.org/)
+- Gemian: [gemian.thinkglobally.org](https://gemian.thinkglobally.org/)
 - Gemian Wiki: [github.com/gemian/gemini-keyboard-apps/wiki](https://github.com/gemian/gemini-keyboard-apps/wiki)
 - OESF Forum: [oesf.org/forum/](https://www.oesf.org/forum/index.php?showforum=192)
 - IRC Logs: [logs.nslu2-linux.org/livelogs/gemini-pda/](http://logs.nslu2-linux.org/livelogs/gemini-pda/)
@@ -147,10 +147,10 @@ Please keep in touch by joining us in the [Kali Forums](https://forums.kali.org/
 
 ### Guides:
 
-- [Linux Flashing Guide](http://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)
-- [Android Flashing Guide](http://support.planetcom.co.uk/index.php/Android_Flashing_Guide)
+- [Linux Flashing Guide](https://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)
+- [Android Flashing Guide](https://support.planetcom.co.uk/index.php/Android_Flashing_Guide)
 
 ### Downloads:
 
-- [Windows Flash Tool Drivers](http://support.planetcom.co.uk/download/FlashToolDrivers.zip)
+- [Windows Flash Tool Drivers](https://support.planetcom.co.uk/download/FlashToolDrivers.zip)
 - [SP-Flashing Tool for Windows](https://forum.hovatek.com/thread-13970.html)

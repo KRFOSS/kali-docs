@@ -16,7 +16,7 @@ If all you want to do is to install Kali on your SS808, follow instructions belo
 1. Get a nice fast 8 GB (or more) microSD card. Class 10 cards are highly recommended.
 2. Download the Kali Linux SS808 image from our [downloads](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) area.
 3. Use the **dd** utility to image this file to your microSD card. In our example, we assume the storage device is located at /dev/sdb and are using an SS808 image. **Change this as needed**.
-4. Download the [MK808-Finless-1-6-Custom-ROM](http://www.freaktab.com/showthread.php?3207-NEW-MK808-Finless-1-6-Custom-ROM) to a Windows machine and extract the zip file.
+4. Download the [MK808-Finless-1-6-Custom-ROM](https://forum.freaktab.com/?3207-NEW-MK808-Finless-1-6-Custom-ROM) to a Windows machine and extract the zip file.
 5. Read the README file of the MK808 Finless ROM tool, then install the required Windows drivers.
 6. Run the Finless ROM Flash Tool and ensure that it says "Found RKAndroid Loader Rock USB" at the bottom. Deselect kernel.img and recovery.img from the list, and flash the device.
 7. Next overwrite both kernel.img and recovery.img in the FInless ROM directory with the kali "kernel.img".

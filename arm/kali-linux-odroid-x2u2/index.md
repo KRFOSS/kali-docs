@@ -7,7 +7,7 @@ weight:
 author: ["steev",]
 ---
 
-The [ODROID-U2](http://www.hardkernel.com/main/products/prdt_info.php?g_code=G135341370451) is a tricky piece of hardware as console output is not a given. Ideally, when purchasing an ODROID, you should also get a USB UART cable, used for serial debugging of the boot process. Saying this, these machines are (at this time) some of the most impressive in terms of size, horsepower and memory availability.
+The [ODROID-U2](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G135341370451) is a tricky piece of hardware as console output is not a given. Ideally, when purchasing an ODROID, you should also get a USB UART cable, used for serial debugging of the boot process. Saying this, these machines are (at this time) some of the most impressive in terms of size, horsepower and memory availability.
 
 {{% notice info %}}
 The ODROID-U2 and ODROID-U3 hardware are based on the same basic platform, so the U2 image will work with the U3 without modification.

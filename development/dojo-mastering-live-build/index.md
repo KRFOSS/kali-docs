@@ -72,7 +72,7 @@ kali@kali:~$ mkdir -p kali-config/common/debian-installer/
 kali@kali:~$ wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/-/raw/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
 ```
 
-**0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64-bit build, we're including a 64-bit Nessus Debian package. [Download](http://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:
+**0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64-bit build, we're including a 64-bit Nessus Debian package. [Download](https://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:
 
 ```console
 kali@kali:~$ mkdir -p kali-config/common/packages.chroot/

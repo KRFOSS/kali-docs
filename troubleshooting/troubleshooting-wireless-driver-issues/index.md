@@ -48,5 +48,5 @@ Carefully read carefully ANY error message as they will VERY OFTEN tell you what
 
 ### Additional Links
 
-- [Will my card work with Aircrack-ng?](http://aircrack-ng.blogspot.com/2012/10/will-my-card-work-with-aircrack-ng.html)
-- [Compat-wireless](http://aircrack-ng.blogspot.com/2012/03/compat-wireless.html)
+- [Will my card work with Aircrack-ng?](https://aircrack-ng.blogspot.com/2012/10/will-my-card-work-with-aircrack-ng.html)
+- [Compat-wireless](https://aircrack-ng.blogspot.com/2012/03/compat-wireless.html)
