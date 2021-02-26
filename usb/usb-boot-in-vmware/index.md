@@ -7,7 +7,7 @@ weight: 400
 author: ["gamb1t",]
 ---
 
-A few years ago we released a blog post on [VMware Fusion Kali USB Boot]((/blog/vmware-fusion-kali-usb-boot/). This can come in handy if a USB is not working how it should, as it can reduce time from needing to reboot or transfer it to another machine. Since then there have been some updates to VMware Fusion that make this process a bit easier.
+A few years ago we released a blog post on [VMware Fusion Kali USB Boot](/blog/vmware-fusion-kali-usb-boot/). This can come in handy if a USB is not working how it should, as it can reduce time from needing to reboot or transfer it to another machine. Since then there have been some updates to VMware Fusion that make this process a bit easier.
 
 As a review, we will be creating a VM that has no hard drive attached and will boot the USB off of EFI.
 

@@ -25,7 +25,7 @@ First are the main branches, which are the most frequently used, and the most st
 Next are those that you will likely not need except in very special cases:
 
 - **kali-experimental** is a staging area for work-in-progress packages.
-- **kali-bleeding-edge** contains packages that are [automatically updated from the upstream]((/blog/bleeding-edge-kali-repositories/) git repositories. This branch has the potential to be very unstable.
+- **kali-bleeding-edge** contains packages that are [automatically updated from the upstream](/blog/bleeding-edge-kali-repositories/) git repositories. This branch has the potential to be very unstable.
 
 ### Development
 

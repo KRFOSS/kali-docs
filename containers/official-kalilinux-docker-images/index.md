@@ -16,7 +16,7 @@ Here's a quick review of the various images available (for more detailed informa
 
 And those that you will likely not need except in very special cases:
 
-- [kalilinux/kali-bleeding-edge](https://hub.docker.com/r/kalilinux/kali-bleeding-edge) is exactly like `kalilinux/kali-rolling` with the ['kali-bleeding-edge" repository]((/blog/bleeding-edge-kali-repositories/) enabled.
+- [kalilinux/kali-bleeding-edge](https://hub.docker.com/r/kalilinux/kali-bleeding-edge) is exactly like `kalilinux/kali-rolling` with the ['kali-bleeding-edge" repository](/blog/bleeding-edge-kali-repositories/) enabled.
 - [kalilinux/kali-dev](https://hub.docker.com/r/kalilinux/kali-dev) is an image tracking the "kali-dev" repository used by Kali developers to merge updates coming from Debian and changes maintained by Kali Linux. It can be useful to rebuild (or do test rebuild of) Kali packages.
 - [kalilinux/kali-experimental](https://hub.docker.com/r/kalilinux/kali-experimental) is exactly like `kalilinux/kali-dev` with the `kali-experimental` repository enabled. Might be useful to test some not-yet-ready updates uploaded to "kali-experimental" by Kali developers who are looking for feedback.
 

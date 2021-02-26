@@ -14,7 +14,7 @@ A minimum install is one that does not have `kali-linux-headless` or at least on
 
 Due to the EOL of Python 2, there may be some confusion on certain topics involving it.
 
-- What happened to _blank_ [Python 2 tool]((/blog/python-2-end-of-life/)
+- What happened to _blank_ [Python 2 tool](/blog/python-2-end-of-life/)
 - How to get [Python 2 working](/docs/general-use/using-eol-python-versions/) after it has been removed
 
 ### WSL

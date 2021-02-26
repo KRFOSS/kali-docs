@@ -7,7 +7,7 @@ weight: 60
 author: ["g0tmi1k",]
 ---
 
-Kali changed to a [non-root user policy](/docs/policy/kali-linux-user-policy/) by default [since the release of **2020.1**]((/blog/kali-default-non-root-user/).
+Kali changed to a [non-root user policy](/docs/policy/kali-linux-user-policy/) by default [since the release of **2020.1**](/blog/kali-default-non-root-user/).
 
 This means:
 
