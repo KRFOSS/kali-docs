@@ -19,8 +19,11 @@ To update Kali, first ensure that `/etc/apt/sources.list` is properly populated:
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
+# See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/
 deb http://http.kali.org/kali kali-rolling main contrib non-free
-deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+
+# Additional line for source packages
+# deb-src http://http.kali.org/kali kali-rolling main contrib non-free
 kali@kali:~$
 ```
 
