@@ -246,13 +246,13 @@ kali@kali:~$
 
 #### apt-cacher-ng
 
-When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy: apt-cacher-ng.
+When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy, such as apt-cacher-ng.
 
 ```console
 kali@kali:~$ sudo apt install -y apt-cacher-ng
 ```
 
-Kali is not supported out of the box by apt-cacher-ng, so there's a little config to do:
+Check the version that was installed. If it's below `0.6.1-1`, Kali is not supported out of the box, and there's a little config to do:
 
 ```console
 kali@kali:~$ echo "http://http.kali.org/kali/" | sudo tee /etc/apt-cacher-ng/kali_mirrors
