@@ -31,7 +31,14 @@ kali@kali:~$ sudo ./xfce4.sh
 kali@kali:~$
 ```
 
-Setting this up manually will provide more control over what configuration is done, but also will take a bit longer. After you set up Xfce and RDP, you need to start the service and connect.  dbus-x11 needs to be installed next for xrdp and xfce to connect.
+Setting this up manually will provide more control over what configuration is done, but also will take a bit longer. If you are not using WSL, after you set up Xfce and RDP, you need to start the service and connect.
+
+```console
+kali@kali:~$ sudo systemctl enable xrdp --now
+kali@kali:~$
+```
+
+If you are using WSL, dbus-x11 needs to be installed next for xrdp and xfce to connect.
 
 ```console
 kali@kali:~$ sudo apt-get install dbus-x11
@@ -39,7 +46,7 @@ kali@kali:~$
 ```
 
  To start the service you will need to run the following:
- 
+
 ```console
 kali@kali:~$ sudo /etc/init.d/xrdp start
 kali@kali:~$
