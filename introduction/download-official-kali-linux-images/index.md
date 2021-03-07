@@ -43,13 +43,13 @@ Scripts for building your own ARM images locally are also [available on GitLab](
 
 ##### Why do I need to do this?
 
-Before you run Kali Linux Live, or install it to your hard disk, you want to be very sure that what you've got actually _is_ Kali Linux, and not an imposter. Kali Linux is a professional penetration testing and forensics toolkit. As a professional penetration tester, having absolute confidence in the integrity of your tools is critical: if your tools are not trustworthy, your investigations wo not be trustworthy, either.
+Before you run Kali Linux Live, or install it to your hard disk, you want to be very sure that what you've got actually _is_ Kali Linux, and not an imposter. Kali Linux is a professional penetration testing and forensics toolkit. As a professional penetration tester, having absolute confidence in the integrity of your tools is critical: if your tools are not trustworthy, your investigations will not be trustworthy, either.
 
 Moreover, as the leading penetration testing distribution, Kali's strengths mean that a bogus version of Kali Linux could do _a tremendous amount of damage_ if it were deployed unwittingly. There are plenty of people with plenty of reason to want to stick very sketchy stuff into something that _looks_ like Kali, and you absolutely do not want to find yourself running something like that.
 
 Avoiding this is simple:
 
-- _Only_ download Kali Linux via the official download pages at [kali.org/downloads/](/downloads/) or [offensive-security.com/kali-linux-vmware-arm-image-download/](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) — you wo not be able to browse to these pages without SSL; encrypting the connection makes it much harder for an attacker to use a "man-in-the-middle" attack to modify your download. There are a few potential weaknesses to even these sources — see the sections on verifying the download with the SHA256SUMS file and its signature against the official Kali Development team private key for something much closer to absolute assurance.
+- _Only_ download Kali Linux via the official download pages at [kali.org/downloads/](/downloads/) or [offensive-security.com/kali-linux-vmware-arm-image-download/](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) — you will not be able to browse to these pages without SSL; encrypting the connection makes it much harder for an attacker to use a "man-in-the-middle" attack to modify your download. There are a few potential weaknesses to even these sources — see the sections on verifying the download with the SHA256SUMS file and its signature against the official Kali Development team private key for something much closer to absolute assurance.
 - Once you've downloaded an image, and _before you run it_, _always_ validate that it really _is_ what it's supposed to be by verifying its checksum using one of the procedures detailed below.
 
 There are several methods for verifying your download. Each provides a certain level of assurance, and involves a corresponding level of effort on your part.
