@@ -7,15 +7,15 @@ weight:
 author: ["gad3r",]
 ---
 
-Kali Linux provide the `torbrowser-launcher` tool to install Tor Browser.
-
-#### Install instructions
+#### Install Instructions
 
 Open the terminal then run the following commands:
 
 ```console
 kali@kali:~$ sudo apt update
-kali@kali:~$ sudo apt install tor torbrowser-launcher
+kali@kali:~$
+kali@kali:~$ sudo apt install -y tor torbrowser-launcher
+kali@kali:~$
 ```
 
 As user run the following command:
@@ -30,4 +30,4 @@ Next time it will be used to update and launch Tor Browser.
 
 ###### Reference
 
-[Debian Wiki: TorBrowser](https://wiki.debian.org/TorBrowser)
+- [Debian Wiki: TorBrowser](https://wiki.debian.org/TorBrowser)

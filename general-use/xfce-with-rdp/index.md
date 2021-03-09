@@ -41,7 +41,7 @@ kali@kali:~$
 If you are using WSL, dbus-x11 needs to be installed next for xrdp and xfce to connect.
 
 ```console
-kali@kali:~$ sudo apt-get install dbus-x11
+kali@kali:~$ sudo apt install -y dbus-x11
 kali@kali:~$
 ```
 
