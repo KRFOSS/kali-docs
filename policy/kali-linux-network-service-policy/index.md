@@ -1,5 +1,5 @@
 ---
-title: Kali Linux Network Service Policies
+title: Kali Linux Network Service Policy
 description:
 icon:
 type: post
