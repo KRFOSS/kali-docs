@@ -13,13 +13,7 @@ author: ["g0tmi1k",]
 
 **_Popular BackTrack Linux Evolves Into Mature, Enterprise-Ready Penetration Testing Toolkit._**
 
-<!--
-  Other links:
-    - https://pkg.kali.org/derivative/kali-roll/
-    - https://pkg.kali.org/teams/kali-developers/
-    - https://gitlab.com/kalilinux/packages/ + archived
--->
-Black Hat Europe, Amsterdam – March 2013 – [Offensive Security](https://www.offensive-security.com/) today announced the availability of [Kali Linux](https://www.offensive-security.com/kali-linux/kali-linux-released/), the evolution of its popular [BackTrack Linux](https://www.backtrack-linux.org/), a free security auditing operating system and toolkit. Showcased at [Black Hat Europe](https://www.blackhat.com/eu-13/) in Amsterdam, Kali Linux incorporates more than [400](https://pkg.kali.org/derivative/kali-roll/) penetration testing and security auditing programs with a Linux operating system, delivering an all-in-one solution that enables IT administrators and security professionals to test the effectiveness of risk mitigation strategies.
+Black Hat Europe, Amsterdam – March 2013 – [Offensive Security](https://www.offensive-security.com/) today announced the availability of [Kali Linux](https://www.offensive-security.com/kali-linux/kali-linux-released/), the evolution of its popular [BackTrack Linux](https://www.backtrack-linux.org/), a free security auditing operating system and toolkit. Showcased at [Black Hat Europe](https://www.blackhat.com/eu-13/) in Amsterdam, Kali Linux incorporates more than [300](/docs/policy/kali-linux-relationship-with-debian/) penetration testing and security auditing programs with a Linux operating system, delivering an all-in-one solution that enables IT administrators and security professionals to test the effectiveness of risk mitigation strategies.
 
 "For IT professionals, an experiment is worth a thousand theories. Applied to security, it means that simulating attacks to assess the defenses protecting your organization is the only sure way to understand their effectiveness and the impact of an attack," said [Mati Aharoni](/about-us/), Lead Trainer and Developer, Offensive Security. "That’s why we created Kali Linux; we’ve developed the most advanced penetration testing and security auditing toolkit available to help IT administrators and security professionals put themselves in the shoes of potential attackers."
 
@@ -35,15 +29,7 @@ Like its [predecessors](/docs/introduction/kali-linux-history/), Kali Linux is c
 
 ### About Kali Linux
 
-[Kali Linux](/) _(formerly known as [BackTrack Linux](https://www.backtrack-linux.org/))_ is a Debian-based Linux distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains several hundred tools targeted toward various information security tasks, such as Penetration Testing, Forensics, and Reverse Engineering. Kali Linux is a multi platform solution, accessible and freely available to information security professionals and hobbyists.
-
-<!--
-  - Medium:
-    > Kali Linux is a Debian-based Linux distribution aimed at advanced Penetration Testing and Security Auditing. Kali contains several hundred tools targeted towards various information security tasks, such as Penetration Testing, Forensics, and Reverse Engineering.
-
-  - Short:
-    > Kali Linux is a Debian-based Linux distribution aimed at advanced Penetration Testing and Security Auditing.
--->
+[Kali Linux](/) _(formerly known as [BackTrack Linux](https://www.backtrack-linux.org/))_ is an [open-source](/docs/policy/kali-linux-open-source-policy/), [Debian-based Linux](/docs/policy/kali-linux-relationship-with-debian/) distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains [several hundred tools](/docs/policy/penetration-testing-tools-policy/) targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering. Kali Linux is a multi platform solution, accessible and freely available to information security professionals and hobbyists.
 
 ### About Offensive Security
 
