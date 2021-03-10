@@ -7,4 +7,4 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-Kali Linux's End-User License Agreement (EULA), can be found at the following URL: [kali.org/docs/policy/EULA.txt](/docs/policy/EULA.txt).
+For Kali Linux's End-User License Agreement (EULA), please see the following page: [kali.org/docs/policy/EULA.txt](/docs/policy/EULA.txt).
