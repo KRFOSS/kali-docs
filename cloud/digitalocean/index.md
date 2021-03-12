@@ -14,13 +14,13 @@ However, one feature in particular sets them apart them from their competitors. 
 While it might be possible to load the [official Kali Linux virtual images](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/), it wouldn't be very efficient. Instead, we'll build a lightweight Kali installation with the bare minimum to get it working.
 
 ## Get the netboot ISO
-​
+
 By default, the Kali Linux ISOs on the download page have a desktop environment installed, and while we could use it to build a virtual machine, we want to minimize the amount of data we have to upload to DigitalOcean for reasons we will talk about later. Having a GUI running on a headless system is also a waste of resources so while we could uninstall it or disable it, we'll install the virtual machine using [a netboot ISO](http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/). If you are comfortable with a text installation, grab the mini.iso in this directory. If not, head to the [gtk/](https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/gtk/) directory and grab the mini.iso in there, which will start a graphical installer.
 
 ## Create the Virtual Machine
-​
+
 With our mini.iso , we can now begin to build our virtual machine. Create a new virtual machine setting the OS to the latest Debian 64-bit and allocating a 20 GB hard disk. If needed, detailed set-up is explained on the [Kali Training website](https://kali.training/topic/booting-kali-in-live-mode/). It is important to store the virtual disk as a single file that is dynamically allocated. The rest like the amount of CPU and RAM won't matter because only the disk file will be uploaded to DigitalOcean.
-​
+
 Disk size matters as billing is based on disk size for custom images. It will also impact the choice of instance we can create. Let's say a 40 GB hard disk is created, it will prevent creating an instance at the $5/month level because its maximum hard disk size is 25 GB. In that case we would be forced to use the $10/month option for instances with 50 GB disks. Don't worry, even though the disk is 20 GB, it will get expanded depending on the droplet plan chosen.
 
 During the installation, select manual partitioning and set it up as shown below, with all files in one partition and no swap file.

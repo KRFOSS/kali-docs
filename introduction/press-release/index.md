@@ -6,7 +6,7 @@ type: post
 weight: 449
 author: ["g0tmi1k",]
 ---
-​
+
 ### Introducing Kali Linux
 
 ##### Free All-in-One Solution for Professional Security Auditing

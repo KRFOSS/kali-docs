@@ -9,11 +9,11 @@ author: ["gamb1t",]
 
 # Instaloader
 
-[Instaloader](https://github.com/instaloader/instaloader/)​ is a **Python 3** application with a single dependency (Python's `requests`). This makes it a relatively simple package, however not as straightforward as only packaging up a shell script would be. Because of the learning opportunities and simplicity, this makes it a good introduction package.
+[Instaloader](https://github.com/instaloader/instaloader/) is a **Python 3** application with a single dependency (Python's `requests`). This makes it a relatively simple package, however not as straightforward as only packaging up a shell script would be. Because of the learning opportunities and simplicity, this makes it a good introduction package.
 
 ## GitHub Overview
 
-The first thing we do is look at the application's [GitHub page](https://github.com/instaloader/instaloader/)​. A few things stand out which we take a note of:
+The first thing we do is look at the application's [GitHub page](https://github.com/instaloader/instaloader/). A few things stand out which we take a note of:
 
 ![](instaloader-00.png)
 

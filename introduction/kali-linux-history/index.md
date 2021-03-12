@@ -6,7 +6,7 @@ type: post
 weight: 450
 author: ["g0tmi1k",]
 ---
-​
+
 Kali Linux is based on years of knowledge and experience of building a pentestion testing Operating Systems, which has spanned over multiple previous projects. During all these project's life-time, there has been only a few different developers, as [the team](/about-us/) has always been small. As a result, Kali has been years in the making and has come a long way.
 
 The first project was called **Whoppix**, which stood for **WhiteHat Knoppix**. As can be inferred from the name, it was based on Knoppix for the underlining OS. Whoppix had releases ranging from v2.0 to v2.7.
@@ -16,11 +16,11 @@ This made way for the next project, **WHAX** _(or the long hand, **WhiteHat Slax
 There was a similar OS being produced at the same time, **Auditor Security Collection** _(often getting shorted to just **Auditor**)_, once again using Knoppix, and efforts were combined (with WHAX) to produce **[BackTrack](https://www.backtrack-linux.org/)**. BackTrack was based on Slackware from v1 to v3, but switched to Ubuntu later on with v4 to v5.
 
 Using the experience gained from all of this, **Kali Linux** came after BackTrack in [2013](/docs/introduction/press-release/). Kali started off using Debian stable as the engine under the hood before moving to [Debian](/docs/policy/kali-linux-relationship-with-debian/) testing when Kali became a rolling OS.
-​
+
 - - -
-​
+
 Below is a rough overview of how Kali Linux came to be:
-​
+
 | Date         | Project Released          | Base OS                     |
 |--------------|---------------------------|-----------------------------|
 | 2004-August  | Whoppix v2                | Knoppix                     |
