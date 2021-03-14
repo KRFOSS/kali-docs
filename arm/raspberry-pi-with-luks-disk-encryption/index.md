@@ -58,7 +58,7 @@ kali@kali:~$ sudo apt install -y busybox cryptsetup dropbear-initramfs cryptsetu
 We create an initial initramfs file, which will trigger the dropbear SSH key generation. We first find out the modules directory version number as follows (this will change between different image versions and Kali releases):
 
 ```console
-kali@kali:~$ ls -l /lib/modules/ | wk -F" " '{print $9}'
+kali@kali:~$ ls -l /lib/modules/ | awk -F" " '{print $9}'
 4.9.59-Re4son-Kali-Pi+
 ```
 
