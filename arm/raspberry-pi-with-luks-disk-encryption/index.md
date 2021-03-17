@@ -251,7 +251,7 @@ In order to give a bit more visual context to the process, we made a short video
 
 Setting up LUKS disk encryption on a Raspberry Pi running Kali Linux. Also supports LUKS Nuke features!
 
-[Kali Dojo 04 - Kali on a Raspberry Pi with LUKS Disk Encryption](https://vimeo.com/121449299) from [Offensive Security](https://vimeo.com/offsec).
+{{< vimeo 121449299 >}}
 
 ### References
 
