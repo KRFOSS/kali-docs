@@ -9,8 +9,6 @@ author: ["steev",]
 
 This guide is about virtualizing Kali Linux inside of Parallels, allowing you to have a Kali VM. This is a great way to use Kali, as it is completely separate from the host, allows you to interact with other VMs (as well as the host, and other machines on the network), and allows you to revert to snapshots.
 
-The guide below is what we use to generate our [pre-made Kali Linux VMware images](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/). You may alter this to your needs. We always generate the images using the latest version of VMware Workstation, as Player and Fusion don't have the same level of functionally and controls over settings.
-
 ### Wizard
 
 Upon starting up Parallels, select the **Plus** symbol.
