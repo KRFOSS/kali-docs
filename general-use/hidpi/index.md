@@ -25,6 +25,10 @@ In order to make this process easier, Kali now provides a HiDPI mode. This mode 
 
 Even though kali-hidpi-mode is able to alter the scaling-factor without the need of restarting, it is recommended to close the session and login again to ensure all changes are properly applied.
 
+This mode is able to scale every window to a 2x factor, but in some cases, this ratio is too big for some displays. In this situation, you can enable the HiDPI mode and later configure a custom fractional scaling inside the Xfce's display settings. A recommended configuration would be 1.3x-1.5x
+
+![](xfce-display-scaling.png)
+
 Below is more of an explanation for a manual setting.
 
 ### Scaling Factor
