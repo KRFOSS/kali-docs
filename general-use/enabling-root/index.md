@@ -1,8 +1,8 @@
 ---
-title: Enabling root
+title: Enabling Root
 description:
 icon:
-date: 2021-03-10
+date: 2021-03-30
 type: post
 weight:
 author: ["gamb1t",]
@@ -13,13 +13,13 @@ og_description:
 
 ## Permanent vs temporary usage
 
-There are some cases where you may need to use root for an extended period of time. In these cases we can easily access the root account with a simple `sudo su`, or alternatively `su -` if you have already given root a password. When finished, `exit` or CTRL+D will take us out of this elevated shell. However, there may be other times where you may want to use root across multiple sessions. In these situations we will need to install a package and make a few modifications to fully enable the root account for use.
+There are some cases where you may need to use superuser, root, for an extended period of time. In these cases we can easily access the root account with a simple `sudo su` (which will ask for the current user's password), selecting the root terminal icon in the Kali menu, or alternatively using `su -` (which will ask for the root user's password) if you have set a password for the root account that you know of. When finished, `exit` or CTRL+D will take us out of this elevated shell. However, there may be other times where you may want to use root across multiple sessions without the hassle of elevating privileges. In these situations we will need to install a package and make a few modifications to fully enable the root account for use due to security reasons of keeping the root account disabled by default.
 
 ## Enabling the root account
 
-The first thing to do is set a root password. We can do this by doing the following:
+The first thing to do is set a root password, which should be different to the current user's password (in this case `kali`). We can do this by doing the following:
 
-```
+```console
 kali@kali:~$ sudo passwd
 [sudo] password for kali:
 New password:
@@ -28,7 +28,11 @@ passwd: password updated successfully
 kali@kali:~$
 ```
 
-The next thing we need to decide is if we are wanting to use root via ssh or through the login prompt on whichever DE is installed.
+{{% notice info %}}
+Please note that the password prompt will not display output as you are typing in the password, but it will still register the keystrokes.
+{{% /notice %}}
+
+The next thing we need to decide is if we are wanting to use root via ssh or through the login prompt on whichever desktop environment is installed.
 
 ### Enabling root for SSH
 
@@ -48,6 +52,8 @@ kali@kali:~$ man sshd_config | grep -C 1 prohibit-password
              If this option is set to prohibit-password (or its deprecated alias, without-password), password and keyboard-interactive authentication
              are disabled for root.
 kali@kali:~$
+kali@kali:~$ sudo systemctl restart ssh
+kali@kali:~$
 ```
 
 If we have set up an ssh-key for the root account, then we can simply uncomment the appropriate line and continue on. Otherwise, we should change 'PermitRootLogin' to be 'yes'.
@@ -57,7 +63,7 @@ If we have set up an ssh-key for the root account, then we can simply uncomment 
 We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GUI login prompt.
 
 ```
-kali@kali:~$ sudo apt install kali-root-login
+kali@kali:~$ sudo apt -y install kali-root-login
 Reading package lists... Done
 Building dependency tree
 Reading state information... Done
