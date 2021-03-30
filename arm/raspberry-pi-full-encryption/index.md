@@ -258,7 +258,7 @@ Next let's list available Kali examples to build:
 kali@kali:~$ ls -aFl examples/ | grep kali
 ```
 
-Now we need to edit the cryptmypi.conf on the example you wish you attempt to build. These settings will be personal, but let's just give you all an example.
+Now we need to edit the cryptmypi.conf on the example you wish to build. These settings will be personal, but let's just give you all an example.
 
 ```console
 kali@kali:~$ cat kali-encrypted-basic/cryptmypi.conf
@@ -374,4 +374,4 @@ After you have made all the chages you desire to the example you have selected t
 kali@kali:~$ sudo ./cryptmypi.sh examples/kali-encrypted-basic
 ```
 
-By the end of it, you should have a fully encrypted filesystem with features enabled of the example you selected. Should you encounter any issues with your automated build, you are encouraged to examine issues at the project's [issues](https://github.com/unixabg/cryptmypi/issues) page. If your believe your issue is new or not listed, please feel free to file a new issue.
+By the end of it, you should have a fully encrypted filesystem with features enabled of the example you selected. Should you encounter any issues with your automated build, you are encouraged to examine issues at the project's [issues](https://github.com/unixabg/cryptmypi/issues) page. If your believe your issue is new or not listed, please file a new issue.
