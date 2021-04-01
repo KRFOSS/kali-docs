@@ -240,68 +240,138 @@ kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password
 
 Now how about we get this automated? Thanks to Richard Nelson (unixabg), anyone who wants to get this all set up in much less time than the manual method and much easier, can!
 
-First things first, let's download [unixabg's cryptmypi](https://github.com/unixabg/cryptmypi) script.
+First things first, let's clone [unixabg's cryptmypi](https://github.com/unixabg/cryptmypi) script repository.
 
 ```console
 kali@kali:~$ git clone https://github.com/unixabg/cryptmypi.git
 ```
 
-There are a number of things we want to do before we can run the build scripts however. Let's go through those together now:
+After clone is complete, let's change to the working directory of cryptmypi:
 
 ```console
 kali@kali:~$ cd cryptmypi/
-kali@kali:~$ cp cryptmypi.conf config
-kali@kali:~$ cd config/
-kali@kali:~$ cat ~/.ssh/id_rsa.pub >> authorized_keys
 ```
 
-Now we need to edit cryptmypi.conf to change some settings in stage-2. These settings will be personal, but let's just give you all an example.
+Next let's list available Kali examples to build:
 
 ```console
-kali@kali:~$ cat cryptmypi.conf
-##################
-## cryptmypi settings
-##################
-# export prefix for hooks
-export _VER="2.2-beta"
-
-# base and build
-export _BASEDIR=$(pwd)
-export _BUILDDIR=${_BASEDIR}/cryptmypi-build
-
-##################
-## Stage-1
-##################
-_IMAGEURL=https://images.offensive-security.com/arm-images/kali-linux-$version-rpi3-nexmon-64.img.xz
-
-# compose package actions
-export _PKGSPURGE=""
-export _PKGSINSTALL=""
-
-# iodine settings
-_IODINE_PASSWORD="your iodine password goes here"
-_IODINE_DOMAIN="your iodine domain goes here"
-
-# final package actions
-export _FINALPKGPURGE=""
-export _FINALPKGINSTALL="telnet dsniff bettercap"
-
-##################
-## Stage-2
-##################
-# block device
-_BLKDEV="/dev/sdb"
-
-# luks encryption cipher
-_LUKSCIPHER="aes-cbc-essiv:sha256"
-
-# luks encryption password
-_LUKSPASSWD="toor"
-
-# root password
-export _ROOTPASSWD="toor"
+kali@kali:~$ ls -aFl examples/ | grep kali
 ```
 
-What we changed here is the block device, luks encryption password, and the root password. The image URL can be changed if you would like to use a different image file, so be sure to do that now if need be.
+Now we need to edit the cryptmypi.conf on the example you wish to build. These settings will be personal, but let's just give you all an example.
 
-Now the only thing left to do is run both stages' scripts and follow the instructions. By the end of it, you'll have a fully encrypted filesystem with dropbear SSH access.
+```console
+kali@kali:~$ cat kali-encrypted-basic/cryptmypi.conf
+###############################################################################
+## cryptmypi profile ##########################################################
+
+
+# EXAMPLE OF A ENCRYPTED KALI CONFIGURATION
+#   Will create a encrypted Kali system:
+#   - during boot the encryption password will be prompted
+#   - with ssh server (available after boot)
+#       The id_rsa.pub public key will be added to authorized_keys
+#
+#   Some optional hooks are defined on stage2:
+#   - "optional-sys-rootpassword" that sets root password
+
+
+# General settings ------------------------------------------------------------
+# You need to choose a kernel compatible with your RPi version.
+#   Kali RPi images name its kernels:
+#   - Re4son+ is for armv6 devices (ie. RPi1, RPi0, and RPi0w)
+#   - v7+ and v8+ sufixes are for the 32bit and 64bit armv7 devices (ie. RPi 3)
+#   - l+ sufix in the name means they will be ready for the RPi4.
+export _KERNEL_VERSION_FILTER="v8+"
+
+# HOSTNAME
+#   Each element of the hostname must be from 1 to 63 characters long and
+#   the entire hostname, including the dots, can be at most 253
+#   characters long.  Valid characters for hostnames are ASCII(7) letters
+#   from a to z, the digits from 0 to 9, and the hyphen (-)
+export _HOSTNAME="kali-encrypted-basic"
+
+# BLOCK DEVICE
+#   The SD card or USD SD card reader block device
+#   - USB drives will show up as the normal /dev/sdb, /dev/sdc, etc.
+#   - MMC/SDcards may show up the same way if the card reader is USB-connected.
+#   - Internal card readers normally show up as /dev/mmcblk0, /dev/mmcblk1, ...
+#   You can use the lsblk command to get an easy quick view of all block
+#   devices on your system at a given moment.
+export _BLKDEV="/dev/sdb"
+
+# LUKS ENCRYPTION -------------------------------------------------------------
+## Encryption Cypher
+export _LUKSCIPHER="aes-cbc-essiv:sha256"
+
+## Encryption Password
+export _LUKSPASSWD="luks_password"
+
+## Encryption Extra
+# On rpi0-1-2-3 you may want to reduce the required memory to unlock
+#  _LUKSEXTRA="--pbkdf-memory 131072"
+export _LUKSEXTRA=""
+
+
+# LINUX IMAGE FILE ------------------------------------------------------------
+export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2021.1-rpi4-nexmon-64.img.xz
+export _IMAGESHA="f5e126f33d32882f526e16b5148bd8b84a4e7c351bdd0eb9cfe3da2176580181"
+
+# PACKAGE ACTIONS -------------------------------------------------------------
+export _PKGSPURGE=""
+export _PKGSINSTALL="tree htop"
+
+
+# MINIMAL SSH CONFIG ----------------------------------------------------------
+#   Keyfile to be used to access the system remotelly through ssh.
+#   Its public key will be added to the system's root .ssh/autorized_keys
+export _SSH_LOCAL_KEYFILE="$_USER_HOME/.ssh/id_rsa"
+
+
+###############################################################################
+## Stage 1 Settings ###########################################################
+
+# Custom Stage1 Profile
+#   Check functions/stage1profiles.fns for reference. You may instruct hooks
+#   here or you may call one predefined stage1profile functions.
+# Optional: if stage1_hooks function is not defined, a prompt will be displayed
+stage1_hooks(){
+    stage1profile_encryption
+}
+
+
+###############################################################################
+## Stage-2 Settings ###########################################################
+
+
+# Optional stage 2 hooks
+#   If declared, this function is called during stage2 build by the
+#   stage2-runoptional hook.
+#
+#   Optional function: can be ommited.
+stage2_optional_hooks(){
+    myhooks "optional-sys-rootpassword"
+}
+
+
+###############################################################################
+##Optional Hook Settings #####################################################
+
+
+# ROOT PASSWORD CHANGER settings ----------------------------------------------
+# Hooks
+#   optional-sys-rootpassword
+#       Changes the system root password
+
+## The new root password
+export _ROOTPASSWD="root_password"
+
+```
+
+After you have made all the chages you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions.
+
+```console
+kali@kali:~$ sudo ./cryptmypi.sh examples/kali-encrypted-basic
+```
+
+By the end of it, you should have a fully encrypted filesystem with features enabled of the example you selected. Should you encounter any issues with your automated build, you are encouraged to examine issues at the project's [issues](https://github.com/unixabg/cryptmypi/issues) page. If your believe your issue is new or not listed, please file a new issue.
