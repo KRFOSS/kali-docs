@@ -13,11 +13,13 @@ og_description:
 
 ## Permanent vs temporary usage
 
-There are some cases where you may need to use superuser, root, for an extended period of time. In these cases we can easily access the root account with a simple `sudo su` (which will ask for the current user's password), selecting the root terminal icon in the Kali menu, or alternatively using `su -` (which will ask for the root user's password) if you have set a password for the root account that you know of. When finished, `exit` or CTRL+D will take us out of this elevated shell. However, there may be other times where you may want to use root across multiple sessions without the hassle of elevating privileges. In these situations we will need to install a package and make a few modifications to fully enable the root account for use due to security reasons of keeping the root account disabled by default.
+There are some cases where you may need to use superuser, root, for an extended period of time. In these cases we can easily access the root account with a simple `sudo su` (which will ask for the current user's password), selecting the root terminal icon in the Kali menu, or alternatively using `su -` (which will ask for the root user's password) if you have set a password for the root account that you know of. When finished, `exit` or CTRL+D will take us out of this elevated shell.
+
+However, there may be other times where you may want to use root across multiple sessions without the hassle of elevating privileges. In these situations we will need to install a package and make a few modifications to fully enable the root account for use due to security reasons of keeping the root account disabled by default.
 
 ## Enabling the root account
 
-The first thing to do is set a root password, which should be different to the current user's password (in this case `kali`). We can do this by doing the following:
+The first thing to do is set a root password, which should be different to the current user's password ([in this case `kali`](/docs/introduction/default-credentials/)). We can do this by doing the following:
 
 ```console
 kali@kali:~$ sudo passwd
@@ -32,17 +34,16 @@ kali@kali:~$
 Please note that the password prompt will not display output as you are typing in the password, but it will still register the keystrokes.
 {{% /notice %}}
 
-The next thing we need to decide is if we are wanting to use root via ssh or through the login prompt on whichever desktop environment is installed.
+The next thing we need to decide is if we are wanting to use root via SSH or through the login prompt on whichever desktop environment is installed.
 
 ### Enabling root for SSH
 
-If we look at `/etc/ssh/sshd_config` we will see a 'PermitRootLogin' line. We will want to change this line to match our use case.
+If we look at `/etc/ssh/sshd_config` we will see a **PermitRootLogin** line. We will want to change this line to match our use case.
 
-```
-kali@kali:~$ grep -i root /etc/ssh/sshd_config
+```console
+kali@kali:~$ grep PermitRootLogin /etc/ssh/sshd_config
 #PermitRootLogin prohibit-password
 # the setting of "PermitRootLogin without-password".
-#ChrootDirectory none
 kali@kali:~$
 kali@kali:~$ man sshd_config | grep -C 1 prohibit-password
      PermitRootLogin
@@ -56,13 +57,13 @@ kali@kali:~$ sudo systemctl restart ssh
 kali@kali:~$
 ```
 
-If we have set up an ssh-key for the root account, then we can simply uncomment the appropriate line and continue on. Otherwise, we should change 'PermitRootLogin' to be 'yes'.
+If we have set up SSH key based login for the root account, then we can simply uncomment the appropriate line and continue on. Otherwise, we should change **PermitRootLogin** to be **yes** which will allow us to input a password.
 
-### Enabling root for GUI login
+### Enabling root for GNOME login
 
-We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GUI login prompt.
+We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GNOME GDM3 login prompt. This step is not necessary when using other desktop environments.
 
-```
+```console
 kali@kali:~$ sudo apt -y install kali-root-login
 Reading package lists... Done
 Building dependency tree
@@ -94,4 +95,4 @@ Installing /usr/share/kali-root-login/sddm.conf as /etc/sddm.conf
 kali@kali:~$
 ```
 
-We now have to log out of our kali account and login to root using the password that we set earlier.
+We can now log out of our non-root user account and login to root using the password that we set earlier.
