@@ -94,7 +94,7 @@ At this point, you need to select "**Guided - use the largest continuous free sp
 
 - - -
 
-2. You can carry on following the [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), expect you will not have the option to select [desktop environment](/docs/general-use/switching-desktop-environments/) or [metapackages](/docs/general-use/metapackages/) as you are using the live image. Once the installation is done, **reboot**.
+2. You can carry on following the [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), except you will not have the option to select [desktop environment](/docs/general-use/switching-desktop-environments/) or [metapackages](/docs/general-use/metapackages/) as you are using the live image. Once the installation is done, **reboot**.
 
 You should be greeted with a **GRUB boot menu**, which will allow you to boot either into Kali Linux or Windows.
 
