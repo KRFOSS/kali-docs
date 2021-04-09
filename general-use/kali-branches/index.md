@@ -46,11 +46,11 @@ Below is a diagram showing the relationship between the branches.
 ```plaintext
 debian-experimental -> debian-unstable -> debian-testing -> kali-dev -> kali-rolling -> kali-last-snapshot
       |                      |                              ^   ^         ^       |
-      v                      v                              |   |         |       v
-      ---------------------------------> kali-debian-picks -|   |         |       --> kali-bleeding-edge
-                                                                |         |                  ^
-kali-experimental -> kali-dev-only -----------------------------|         |                  |
-                                                                          |               Upstream
+      v                      v                              |   |         |       |
+      ---------------------------------> kali-debian-picks -|   |         |       ----> kali-bleeding-edge
+                                                                |         |                    ^
+kali-experimental -> kali-dev-only -----------------------------|         |                    |
+                                                                          |                 Upstream
 kali-rolling-only --------------------------------------------------------|
 ```
 

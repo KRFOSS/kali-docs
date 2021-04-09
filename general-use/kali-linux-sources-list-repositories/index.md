@@ -26,7 +26,7 @@ This may happen for any number of reasons, such as:
 
 - You did an off-line install (such as missing a network connection during installation).
 - You have switched your [branch](/docs/general-use/kali-branches/).
-- Using a different (hardcoded) [mirror](/docs/community/kali-linux-mirrors/)].
+- Using a different (hardcoded) [mirror](/docs/community/kali-linux-mirrors/).
 
 You will probably want to read the "switching branches" section to alter this.
 
