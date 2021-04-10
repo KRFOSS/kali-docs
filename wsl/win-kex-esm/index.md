@@ -24,7 +24,7 @@ ESM mode helps keeping the Windows and Kali environments visually apart.
 
 Win-KeX utilises [xrdp](http://xrdp.org/) server and Microsoft's native RDP client.
 
-Using the native Microsoft client might yield a crispier GUI on HiDPI devices. The downside is that it is not s fast as --win or --sl modes to the increased pixel density.
+Using the native Microsoft client might yield a crispier GUI on HiDPI devices. The downside is that it is not as fast as --win or --sl modes to the increased pixel density.
 
 ![](win-kex-esm-arm.png)
 
