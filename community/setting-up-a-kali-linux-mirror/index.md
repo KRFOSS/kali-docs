@@ -104,9 +104,9 @@ The last step is to setup the `.ssh/authorized_keys` file so that archive.kali.o
 
 ```console
 $ mkdir -p ~/.ssh/
-$ chown 0700 ~/.ssh/
+$ chmod 0700 ~/.ssh/
 $ wget -O - -q http://archive.kali.org/pushmirror.pub >> ~/.ssh/authorized_keys
-$ chown 0644 ~/.ssh/authorized_keys
+$ chmod 0644 ~/.ssh/authorized_keys
 ```
 
 If you have not unpacked the ftpsync.tar.gz in the home directory, then you must adjust accordingly the `~/bin/ftpsync` path, which is hard-coded in `.ssh/authorized_keys`.
