@@ -34,7 +34,8 @@ The first thing we are going to do is import VirtualBox's repository key.
 
 ```console
 kali@kali:~$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- \
-  | sudo apt-key add -
+  | gpg --dearmor \
+  | sudo tee /usr/share/keyrings/virtualbox-archive-keyring.gpg
 ...
 kali@kali:~$
 ```
@@ -42,13 +43,13 @@ kali@kali:~$
 - - -
 
 We then move onto adding VirtualBox's repository.
-We add this to a separate file, so it does not interfere with [Kali Linux's main repository](/docs/general-use/kali-linux-sources-list-repositories/).
-Our CPU architecture is amd64. You may need to later the example below if yours is different.
+We add this to a separate file, so it does not interfere with [Kali Linux's main repository](/docs/general-use/kali-linux-sources-list-repositories/). We also will be making sure to state where the keyring is at so the files can be properly signed.
+Our CPU architecture is amd64. You may need to alter the example below if yours is different.
 
 One thing to bare in mind, [Kali Linux is based on Debian](/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/) (even though Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/)). At the time of writing, its "buster":
 
 ```console
-kali@kali:~$ echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian $( lsb_release -cs ) contrib" \
+kali@kali:~$ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/virtualbox-archive-keyring.gpg] http://download.virtualbox.org/virtualbox/debian buster contrib" \
   | sudo tee /etc/apt/sources.list.d/virtualbox.list
 kali@kali:~$
 ```
