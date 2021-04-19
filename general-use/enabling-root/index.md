@@ -59,9 +59,9 @@ kali@kali:~$
 
 If we have set up SSH key based login for the root account, then we can simply uncomment the appropriate line and continue on. Otherwise, we should change **PermitRootLogin** to be **yes** which will allow us to input a password.
 
-### Enabling root for GNOME login
+### Enabling root for GNOME and KDE login
 
-We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GNOME GDM3 login prompt. This step is not necessary when using other desktop environments.
+We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GNOME GDM3 and the KDE login prompt. This step is not necessary when using other desktop environments.
 
 ```console
 kali@kali:~$ sudo apt -y install kali-root-login
