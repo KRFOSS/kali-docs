@@ -36,7 +36,7 @@ If you would like to use a Kali Docker image, we have a doc page for that [here]
 `docker-ce` can be installed from Docker repository. One thing to bare in mind, [Kali Linux is based on Debian](/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/) (even though Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/)). At the time of writing, its "buster":
 
 ```console
-kali@kali:~$ printf "%s\n" "deb [arch=amd64] https://download.docker.com/linux/debian buster stable" \
+kali@kali:~$ printf "%s\n" "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-ce-archive-keyring.gpg] https://download.docker.com/linux/debian buster stable" \
   | sudo tee /etc/apt/sources.list.d/docker-ce.list
 ```
 
@@ -44,13 +44,8 @@ Import the gpg key:
 
 ```console
 kali@kali:~$ curl -fsSL https://download.docker.com/linux/debian/gpg \
-  | sudo apt-key add -
-```
-
-Fingerprint checking:
-
-```console
-kali@kali:~$ sudo apt-key fingerprint 0EBFCD88
+  | gpg --dearmor \
+  | sudo tee /usr/share/keyrings/docker-ce-archive-keyring.gpg
 ```
 
 Install the latest version of `docker-ce`:
