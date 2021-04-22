@@ -13,6 +13,8 @@ author: ["g0tmi1k",]
 > Kali Linux's purpose is to provide an open-source platform for penetration testing and other security assessment activity. It does this by providing common tools, configurations, and automations which allows the user to focus on the task that needs to be completed, not the surrounding activity. 
 > At the core, Kali's base is an open-source Debian-based Linux distribution with industry specific modifications and configurations along with a custom tool repository. Our repository contains several hundred tools targeted towards various Information Security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering. 
 > Kali Linux is a multi-platform solution, with multiple "flavors" available from Bare Metal, Virtual Machines, ARM systems, Android, Cloud, Containers, WSL and so on. This makes it accessible and freely available to Information Security professionals and hobbyists.
+> Kali Linux provides and open-source set of documentation that is user modifiable to cover everything from the base Operating System usage to specific tools that are included in the repository. Success is measured by how well the platform solves the problem set it is targeting, as evidenced by user report bugs and feature requests. 
+
 
 > Kali Linux is an open-source, Debian-based Linux distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains several hundred tools targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
 
