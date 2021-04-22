@@ -10,11 +10,11 @@ author: ["g0tmi1k",]
 ### About Kali Linux
 
 <!--
-> The Most Advanced Penetration Testing Distribution, Ever.
-
 > Kali Linux is an open-source, Debian-based Linux distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains several hundred tools targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
 
 > Kali Linux is an open-source, Debian-based Linux distribution geared towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
+
+> The Most Advanced Penetration Testing Distribution, Ever.
 -->
 
 [Kali Linux](/) _(formerly known as [BackTrack Linux](https://www.backtrack-linux.org/))_ is an [open-source](/docs/policy/kali-linux-open-source-policy/), [Debian-based Linux](/docs/policy/kali-linux-relationship-with-debian/) distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains [several hundred tools](/docs/policy/penetration-testing-tools-policy/) targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering. Kali Linux is a multi platform solution, accessible and freely available to information security professionals and hobbyists.
