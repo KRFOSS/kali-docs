@@ -1,5 +1,5 @@
 ---
-title: Acer Tegra Chromebook 13"
+title: Acer Tegra Chromebook 13" (Nyan)
 description:
 icon:
 type: post

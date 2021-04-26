@@ -1,5 +1,5 @@
 ---
-title: Gem PDA
+title: Gemini PDA
 description:
 icon:
 type: post

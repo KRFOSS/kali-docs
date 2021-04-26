@@ -81,3 +81,4 @@ The wireless chip on the Raspberry Pi 400 is **NOT** supported by [nexmon](https
 ## Kali on Raspberry Pi400 - Image Customization
 
 If you want to customize the Kali Raspberry Pi400 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi3-nexmon.sh` (32-bit) or `rpi3-64.sh` (64-bit).
+<!-- @g0tmi1k: Should the script filename be updated to rpi400.sh? --

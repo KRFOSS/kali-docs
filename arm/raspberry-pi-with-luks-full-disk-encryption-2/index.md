@@ -365,8 +365,7 @@ stage2_optional_hooks(){
 
 ## The new root password
 export _ROOTPASSWD="root_password"
-
-```console
+```
 
 After you have made all the chages you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions.
 

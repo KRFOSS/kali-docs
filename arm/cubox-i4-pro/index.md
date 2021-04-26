@@ -18,7 +18,7 @@ usb2:
 storage:
 ---
 
-The [SolidRun CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the "world's smallest computer". The specifications are Quad core i.MX6 1GHZ processor, 2GB RAM, Gigabit ethernet, eSata port, and microSD card slot.
+SolidRun's [CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the "world's smallest computer". The specifications are Quad core i.MX6 1GHZ processor, 2GB RAM, Gigabit ethernet, eSata port, and microSD card slot.
 
 By default, the Kali Linux CuBox-i4Pro image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 

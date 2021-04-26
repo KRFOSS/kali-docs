@@ -1,5 +1,5 @@
 ---
-title: Samsung Chromebook 2
+title: Samsung Chromebook 2 (Exynos)
 description:
 icon:
 type: post

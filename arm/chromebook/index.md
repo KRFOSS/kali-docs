@@ -1,5 +1,5 @@
 ---
-title: HP ARM Chromebook
+title: HP ARM Chromebook (Exynos)
 description:
 icon:
 type: post

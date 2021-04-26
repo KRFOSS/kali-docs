@@ -19,6 +19,8 @@ storage:
 ---
 
 The [Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external microSD card. eMMC module can be purchased separately to speed up read/write speeds.
+<!-- @gg0tmi1k: How do you know if you need this or the v1.2 image? -->
+<!-- @gg0tmi1k: Worth putting a link to the other image as well? -->
 
 By default, the Kali Linux Raspberry Pi 2 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 

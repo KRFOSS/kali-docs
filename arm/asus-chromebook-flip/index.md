@@ -1,5 +1,5 @@
 ---
-title: ASUS Chromebook Flip
+title: ASUS Chromebook Flip (Veyron)
 description:
 icon:
 type: post
