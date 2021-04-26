@@ -10,7 +10,7 @@ tags: ["dojo",]
 
 In this workshop, we will examine the various features available to us when booting Kali Linux from USB devices. We will explore features such as persistence, creating LUKS encrypted persistence stores, and even dabble in "LUKS Nuking" our USB drive. The default Kali Linux ISOs (from 1.0.7 onwards) support USB encrypted persistence.
 
-**0x01 - Start by imaging the Kali ISO onto your USB stick (ours was /dev/sdb)**. Once done, you can inspect the USB partition structure using _parted /dev/sdb print_.
+**0x01 - Start by imaging the Kali ISO onto your USB drive (ours was /dev/sdb)**. Once done, you can inspect the USB partition structure using _parted /dev/sdb print_.
 
 {{% notice info %}}
 For ease of use, please use a root account. This can be done with "sudo su".
@@ -20,7 +20,7 @@ For ease of use, please use a root account. This can be done with "sudo su".
 kali@kali:~$ dd if=kali-linux-2021.1-live-amd64.iso of=/dev/sdb bs=4M
 ```
 
-**0x02 - Create and format an additional partition on the USB stick**. In our example, we create a persistent partition of about 7 GB in size:
+**0x02 - Create and format an additional partition on the USB drive**. In our example, we create a persistent partition of about 7 GB in size:
 
 ```console
 kali@kali:~$ parted
@@ -79,7 +79,7 @@ kali@kali:~$ umount /dev/mapper/my_usb
 kali@kali:~$ cryptsetup luksClose /dev/mapper/my_usb
 ```
 
-Now your USB stick is ready to plug in and reboot into Live USB Encrypted Persistence mode.
+Now your USB drive is ready to plug in and reboot into Live USB Encrypted Persistence mode.
 
 ## Multiple Persistence Stores
 

@@ -30,7 +30,7 @@ The specifics of this procedure will vary depending on whether you're doing it o
 
 #### Creating a Bootable Kali USB Drive on macOS/OS X (DD)
 
-macOS/OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an macOS/OS X environment is similar to doing it on Linux. Once you've downloaded and verified your chosen Kali ISO file, you use `dd` to copy it over to your USB stick. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/disk2.
+macOS/OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an macOS/OS X environment is similar to doing it on Linux. Once you've downloaded and verified your chosen Kali ISO file, you use `dd` to copy it over to your USB drive. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/disk2.
 
 {{% notice info %}}
 WARNING: Although the process of imaging Kali on a USB drive is very easy, you can just as easily overwrite a disk drive you didn't intend to with dd if you do not understand what you are doing, or if you specify an incorrect output path. Double-check what you're doing before you do it, it'll be too late afterwards.
@@ -46,7 +46,7 @@ Consider yourself warned.
 3. Plug in your USB device to your Apple computer's USB port and run the command `diskutil list` a second time. Your USB drive's path will most likely be the last one. In any case, it will be one which wasn't present before. In this example, you can see that there is now a **/dev/disk6** which wasn't previously present.
 
 ![](TerminalScreenSnapz011.png)
-4. Unmount the drive (assuming, for this example, the USB stick is **/dev/disk6** — _do **not** simply copy this, verify the correct path on your own system!_):
+4. Unmount the drive (assuming, for this example, the USB drive is **/dev/disk6** — _do **not** simply copy this, verify the correct path on your own system!_):
 
 ```console
 $ diskutil unmountDisk /dev/disk6
@@ -59,7 +59,7 @@ $ sudo dd if=kali-linux-2021.1-live-amd64.iso of=/dev/rdisk6 bs=4m
 ```
 
 {{% notice info %}}
-Increasing the blocksize (bs) will speed up the write progress, but will also increase the chances of creating a bad USB stick. Using the given value on macOS/OS X has produced reliable images consistently.
+Increasing the blocksize (bs) will speed up the write progress, but will also increase the chances of creating a bad USB drive. Using the given value on macOS/OS X has produced reliable images consistently.
 {{% /notice %}}
 
 Imaging the USB drive can take a good amount of time, over half an hour is not unusual, as the sample output below shows. Be patient!

@@ -1,6 +1,6 @@
 ---
 title: USB
-description: Portable Kali on a USB stick/drive
+description: Portable Kali on a USB drive/key/stick
 icon: ti-widget
 type: toc
 weight: 25
