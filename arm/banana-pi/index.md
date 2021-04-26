@@ -5,11 +5,22 @@ icon:
 type: post
 weight:
 author: ["steev",]
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/banana-pi.sh
+headless:
+cpu:
+gpu:
+ram:
+ethernet:
+wifi:
+bluetooth:
+usb3:
+usb2:
+storage:
 ---
 
 The [Banana Pi](http://www.banana-pi.org/m1.html) has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.
 
-By default, the Kali Linux Banana Pi image contains the **kali-linux-default** metapackage similar to other ARM images. If you wish to install extra tools please refer to our [tools site](https://tools.kali.org/kali-metapackages).
+By default, the Kali Linux Banana Pi image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on Banana Pi - User Instructions
 
@@ -18,13 +29,13 @@ If you're unfamiliar with the details of [downloading and validating a Kali Linu
 To install a pre-built image of the standard build of Kali Linux on your Banana Pi, follow these instructions:
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali Banana Pi` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+2. Download _and validate_ the `Kali Banana Pi` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
+3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
-In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to the correct drive path**.
+In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
-This process will wipe out your SD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console
@@ -33,7 +44,7 @@ $ xzcat kali-linux-$version-bananapi.img.xz | sudo dd of=/dev/sdb bs=4M status=p
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
 
-Once the _dd_ operation is complete, boot up the Banana Pi with the microSD plugged in.
+Once the _dd_ operation is complete, boot up the Banana Pi with the microSD card plugged in.
 
 You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
@@ -43,4 +54,4 @@ The bootloader on the Banana Pi is u-boot, and in order to make changes to the k
 
 ## Kali on Banana Pi - Image Customization
 
-If you want to customize the Kali Banana Pi image, including changes to the [packages](https://www.kali.org/docs/general-use/metapackages/) being installed, changing the desktop environment, increasing or decreasing the image file size or generally being adventurous, check out the [kali-arm-build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is **banana-pi.sh**
+If you want to customize the Kali Banana Pi image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `banana-pi.sh`.

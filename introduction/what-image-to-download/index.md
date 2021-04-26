@@ -38,7 +38,7 @@ This image **cannot be used to boot a live system** _(such as directly running K
 
 ##### Live
 
-This image is for **running Kali Linux without installing it first** so it is perfect for running off a [USB stick](/docs/usb/) _(or a CD/DVD)_.
+This image is for **running Kali Linux without installing it first** so it is perfect for running off a [USB drive](/docs/usb/) _(or a CD/DVD)_.
 
 You are able to install Kali Linux in its default configuration from this image but **you will not be able to choose** between **desktop environments** or to specify **additional [(meta)packages](/docs/general-use/metapackages/)** to install.
 

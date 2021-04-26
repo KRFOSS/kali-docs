@@ -5,14 +5,25 @@ icon:
 type: post
 weight:
 author: ["steev",]
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-nexmon.sh
+headless:
+cpu:
+gpu:
+ram:
+ethernet:
+wifi:
+bluetooth:
+usb3:
+usb2:
+storage:
 ---
 
-The [Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
+The [Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external microSD card. eMMC module can be purchased separately to speed up read/write speeds.
 
-By default, the Kali Linux Raspberry Pi 2 image contains the **kali-linux-default** metapackage similar to other ARM images. If you wish to install extra tools please refer to our [tools site](https://tools.kali.org/kali-metapackages).
+By default, the Kali Linux Raspberry Pi 2 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
-The Raspberry Pi images use [Re4son](https://twitter.com/re4sonkernel)'s kernel, which includes the drivers for external Wi-Fi cards, TFT displays, and the [nexmon](https://github.com/seemoo-lab/nexmon) firmware for the built-in wireless card on the Raspberry Pi 3 and 4. You will not need to download it and install it, and doing so will likely be a downgrade over the current installed kernel.
+The Raspberry Pi images use [Re4son](https://twitter.com/re4sonkernel)'s kernel, which includes the drivers for external Wi-Fi cards, TFT displays, and the [nexmon](https://github.com/seemoo-lab/nexmon) firmware for the built-in wireless card on the [Raspberry Pi 3](/docs/arm/raspberry-pi-3/) and [4](/docs/arm/raspberry-pi-4/). You will not need to download it and install it, and doing so will likely be a downgrade over the current installed kernel.
 {{% /notice %}}
 
 ## Kali on Raspberry Pi 2 - User Instructions
@@ -21,29 +32,29 @@ If you're unfamiliar with the details of [downloading and validating a Kali Linu
 
 To install a pre-built image of the standard build of Kali Linux on your Raspberry Pi 2, follow these instructions:
 
-1. Get a fast microSD or eMMC card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali Linux RaspberryPi 2, 3, 4 and 400 (img.xz)` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail in the article on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **dd** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+1. Get a fast microSD card or eMMC with at least 16GB capacity. Class 10 cards are highly recommended.
+2. Download _and validate_ the `Kali RaspberryPi 2, 3, 4 and 400 (img.xz)` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
+3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
-In our example, we assume the storage device is located at **_/dev/sdb_**. Do _not_ simply copy these value, **change this to the correct drive path**.
+In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
-This process will wipe out your SD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+This process will wipe out your microSD card or eMMC. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-$version-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+This process can take a while, depending on your PC, your microSD/eMMC's speed, and the size of the Kali Linux image.
 
-Once the _dd_ operation is complete, boot up the Raspberry Pi 2 with the microSD plugged in.
+Once the _dd_ operation is complete, boot up the Raspberry Pi 2 with the microSD/eMMC plugged in.
 
 You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 ## Kali on Raspberry Pi 2 - Tips
 
-If you are on the 5.10 kernel, you can use mt76 chipset usb wifi devices, but they require creating a configuration file in `/etc/modprobe.d` with the following contents
+If you are on the 5.10 kernel, you can use mt76 chipset USB Wi-Fi devices, but they require creating a configuration file in `/etc/modprobe.d` with the following contents:
 
 ```
 # Load mt76usb without using scatter-gather which doesn't work on the RPi2 or RPi3 USB chipset
@@ -52,4 +63,4 @@ options mt76-usb disabe_usb_sg=1
 
 ## Kali on Raspberry Pi 2 - Image Customization
 
-If you want to customize the Kali Raspberry Pi 2 image, including changes to the [packages](https://www.kali.org/docs/general-use/metapackages/) being installed, changing the desktop environment, increasing or decreasing the image file size or generally being adventurous, check out the [kali-arm-build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is **rpi3-nexmon.sh**
+If you want to customize the Kali Raspberry Pi 2 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi3-nexmon.sh`.

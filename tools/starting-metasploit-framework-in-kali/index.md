@@ -62,7 +62,7 @@ kali@kali:~$
 You can verify that **PostgreSQL** is running by checking the output of `ss -ant` and making sure that port 5432 is listening, or using `sudo msfdb status`:
 
 ```plaintext
-kali@kali:~ sudo msfdb status
+kali@kali:~$ sudo msfdb status
 ● postgresql.service - PostgreSQL RDBMS
      Loaded: loaded (/lib/systemd/system/postgresql.service; disabled; vendor preset: disabled)
      Active: active (exited) since Sun 2021-02-07 02:15:42 EST; 4s ago
