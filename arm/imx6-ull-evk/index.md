@@ -26,7 +26,7 @@ By default, the Kali Linux MCIMX6ULL-EVK image contains the [**kali-linux-defaul
 
 ## Kali on the MCIMX6ULL-EVK - Build-Script Instructions
 
-Kali no longer provides pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on Gitlab, and follow the _README.md_ file's instructions. The script to use is `i.mx-6ull-evk`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on Gitlab, and follow the _README.md_ file's instructions. The script to use is `i.mx-6ull-evk`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 
