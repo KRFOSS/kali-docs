@@ -6,7 +6,7 @@ type: archived
 weight:
 author: ["re4son",]
 build-script: N/A
-headless:
+headless: kali-desktop-xfce
 metapackage: N/A
 status: eol
 cpu:
@@ -31,6 +31,8 @@ The page is left for historical value.
 ![](images/2018.11-Kali-Gem_medium.png)
 
 The [Gemini PDA](https://planetcom.squarespace.com/device/) is a multi-boot Android smartphone with a keyboard that supports the installation of up to three operating systems side-by-side (currently any three of the following: Android, Sailfish, Debian, Kali Linux).
+
+By default, the Kali Linux Gemini PDA image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on the Gem PDA - User Instructions
 

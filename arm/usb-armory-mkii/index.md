@@ -6,8 +6,8 @@ type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/usbarmory-mk2.sh
-headless:
-metapackage: kali-linux-default
+headless: kali-desktop-xfce
+metapackage: N/A
 status: pre-generated
 cpu:
 gpu:
@@ -22,7 +22,7 @@ storage:
 
 The [USB Armory MKII](https://inversepath.com/usbarmory) from Inverse Path is an open source hardware design, implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.
 
-By default, the Kali Linux USB Armory MKII image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux USB Armory MKII image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on USB Armory MKII - User Instructions
 

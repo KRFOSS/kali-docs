@@ -6,7 +6,7 @@ type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
 cpu:
@@ -21,10 +21,10 @@ storage:
 ---
 
 {{% notice info %}}
-The original Raspberry Pi boards had a full-size SD card slot, however newer board revisions moved to a microSD card slot.  We document using the full-size SD card, but the process is the same for microSD card. 
+The early revisions of Raspberry Pi 1 (Original) boards have a full-size SD card slot, however later board revisions moved to a microSD card slot. We document using the full-size SD card, but the process is the same for microSD card.
 {{% /notice %}}
 
-The [Raspberry Pi 1 (Original)](https://raspberrypi.org/) is a low-cost, credit-card-sized ARM computer. Despite being a being less powerful than a "standard" laptop or desktop PC, its affordability makes it an excellent option for a tiny Linux system. The Raspberry Pi provides a full-size SD card slot for mass storage and will attempt to boot off that device when the board is powered on.	
+The [Raspberry Pi 1 (Original)](https://raspberrypi.org/) is a low-cost, credit-card-sized ARM computer. Despite being a being less powerful than a "standard" laptop or desktop PC, its affordability makes it an excellent option for a tiny Linux system. The Raspberry Pi provides a full-size SD card slot for mass storage and will attempt to boot off that device when the board is powered on.
 
 By default, the Kali Linux Raspberry Pi image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 

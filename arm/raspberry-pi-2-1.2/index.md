@@ -8,7 +8,7 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-nexmon.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64-lite.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
 cpu:
@@ -23,10 +23,10 @@ storage:
 ---
 
 {{% notice info %}}
-The Raspberry Pi 2 v1.2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU.  If your Raspberry Pi 2 does **NOT** have this, you should follow the [Raspberry Pi 2 documentation](docs/arm/raspberry-pi-2/)
+The Raspberry Pi 2 v1.2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU. If your Raspberry Pi 2 does **NOT** have this, you should follow the [Raspberry Pi 2 documentation](docs/arm/raspberry-pi-2/)
 {{% /notice %}}
 
-The [Raspberry Pi 2 v1.2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external microSD card.  
+The [Raspberry Pi 2 v1.2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
 
 By default, the Kali Linux Raspberry Pi 2 v1.2 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 

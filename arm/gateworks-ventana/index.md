@@ -6,7 +6,7 @@ type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/gateworks_ventana.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: community
 cpu:

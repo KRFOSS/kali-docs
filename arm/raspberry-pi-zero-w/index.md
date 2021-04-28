@@ -8,7 +8,7 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon-minimal.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon-p4wnp1-aloa.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
 cpu:
@@ -24,7 +24,7 @@ storage:
 
 {{% notice info %}}
 The Raspberry Pi Zero W has `Raspberry Pi Zero W V1.1` printed on the **bottom** of the PCB.
-{{% /notice %}} 
+{{% /notice %}}
 
 The [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) has a single core 1GHz, with 512MB of RAM. Kali Linux fits on an external microSD card. Unlike the [Raspberry Pi Zero](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero W **has** *w*ireless networking on the board.
 

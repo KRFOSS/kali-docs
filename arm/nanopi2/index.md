@@ -6,7 +6,7 @@ type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopi2.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
 cpu:
@@ -26,7 +26,7 @@ By default, the Kali Linux NanoPi2 image contains the [**kali-linux-default** me
 
 ## Kali on NanoPi2 - Build-Script Instructions
 
-Kali no longer provides pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `nanopi2.sh`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `nanopi2.sh`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 

@@ -8,7 +8,7 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon-minimal.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon-p4wnp1-aloa.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
 cpu:

@@ -6,7 +6,7 @@ type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-exynos.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
 cpu:
@@ -21,7 +21,7 @@ storage:
 ---
 
 {{% notice info %}}
-The ChromiumOS code name for the Samsung Chromebook 2 is peach_pi (1080p screen) or peach_pit (1366x768).  We use exynos for the script name as there are a number of Chromebooks with the Samsung Exynos processor in them that use the same kernel.
+The ChromiumOS code name for the Samsung Chromebook 2 is **peach_pi** (1080p screen) or **peach_pit** (1366x768). We use **exynos** for the script name as there are a number of Chromebooks with the Samsung Exynos processor in them that use the same kernel.
 {{% /notice %}}
 
 The [Samsung ARM Chromebook 2](https://web.archive.org/web/20161111005125/http://www.samsung.com/us/computing/chromebooks/12-14/samsung-chromebook-2-13-3-xe503c32-k01us/) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5800 1.7GHz quad core processor and 4GB of RAM, the Chromebook 2 is a fast ARM laptop. Kali Linux fits on an external microSD card or USB drive for this machine which leaves the internal disk untouched.
@@ -30,7 +30,7 @@ By default, the Kali Linux Samsung Chromebook 2 image contains the [**kali-linux
 
 ## Kali on Samsung Chromebook 2 - Build-Script Instructions
 
-Kali no longer provides pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-arm-exynos.sh`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-arm-exynos.sh`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 

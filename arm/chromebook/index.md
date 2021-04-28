@@ -6,7 +6,7 @@ type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-exynos.sh
-headless:
+headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
 cpu:
@@ -21,9 +21,8 @@ storage:
 ---
 
 {{% notice info %}}
-The ChromiumOS code name for the HP ARM Chromebook is daisy_spring.  We use exynos for the script name as there are a number of Chromebooks with the Samsung Exynos processor in them that use the same kernel.
+The ChromiumOS code name for the HP ARM Chromebook is **daisy_spring**. We use **exynos** for the script name as there are a number of Chromebooks with the Samsung Exynos processor in them that use the same kernel.
 {{% /notice %}}
-
 
 The [HP ARM Chromebook](https://www8.hp.com/ca/en/ads/chromebooks/specs.html) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5250 1.7GHz dual core processor and 2GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an USB drive on this machine which leaves the internal disk untouched.
 
@@ -31,7 +30,7 @@ By default, the Kali Linux HP ARM Chromebook image contains the [**kali-linux-de
 
 ## Kali on HP ARM Chromebook - Build-Script Instructions
 
-Kali no longer provides pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-arm-exynos.sh`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-arm-exynos.sh`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 
