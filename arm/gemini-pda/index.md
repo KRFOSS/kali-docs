@@ -5,8 +5,10 @@ icon:
 type: archived
 weight:
 author: ["re4son",]
-build-script:
+build-script: N/A
 headless:
+metapackage: N/A
+status: eol
 cpu:
 gpu:
 ram:
@@ -17,6 +19,14 @@ usb3:
 usb2:
 storage:
 ---
+
+{{% notice info %}}
+Kali Linux is no longer providing pre-built images or a build-script to generate your own image.
+This hardware is no longer supported.
+The page is left for historical value.
+{{% /notice %}}
+
+- - -
 
 ![](images/2018.11-Kali-Gem_medium.png)
 

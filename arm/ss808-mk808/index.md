@@ -5,8 +5,10 @@ icon:
 type: archived
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/TODO.sh
+build-script: N/A
 headless:
+metapackage: N/A
+status: eol
 cpu:
 gpu:
 ram:
@@ -17,6 +19,14 @@ usb3:
 usb2:
 storage:
 ---
+
+{{% notice info %}}
+Kali Linux is no longer providing pre-built images or a build-script to generate your own image.
+This hardware is no longer supported.
+The page is left for historical value.
+{{% /notice %}}
+
+- - -
 
 <!-- @g0tmi1k: How does MK808 come into it -->
 The SainSmart SS808 is a **rockchip**-based ARM device that comes in various forms and flavors. It has a dual-core 1.6 GHz A9 processor with 1GB of RAM and runs Kali very well.

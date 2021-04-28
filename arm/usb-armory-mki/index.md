@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/usbarmory.sh
 headless:
+metapackage: kali-linux-default
+status: build-scripts
 cpu:
 gpu:
 ram:
@@ -32,7 +34,7 @@ The easiest way to generate these images is **from within a pre-existing Kali Li
 
 ## Kali on USB Armory MKI - User Instructions
 
-If to install Kali on your USB Armory MKI, follow these instructions:
+To install Kali on your USB Armory MKI, follow these instructions:
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.or USB drive.
 2. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card or USB drive. In our example, we use a microSD which is located at `/dev/sdb`. **_Change this as needed._**

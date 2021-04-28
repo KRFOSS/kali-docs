@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-nyan.sh
 headless:
+metapackage: kali-linux-default
+status: build-scripts
 cpu:
 gpu:
 ram:
@@ -24,7 +26,7 @@ By default, the Kali Linux Acer Tegra Chromebook 13" image contains the [**kali-
 
 ## Kali on Acer Tegra Chromebook - Build-Script Instructions
 
-Kali no longer provides pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on Gitlab, and follow the _README.md_ file's instructions. The script to use is `chromebook-arm-nyan.sh`.
+Kali no longer provides pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-arm-nyan.sh`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 
@@ -32,7 +34,7 @@ The easiest way to generate these images is **from within a pre-existing Kali Li
 
 ## Kali on Acer Tegra Chromebook - User Instructions
 
-If to install Kali on your Acer Tegra Chromebook 13", follow these instructions:
+To install Kali on your Acer Tegra Chromebook 13", follow these instructions:
 
 1. Get a fast full-size SD card or USB drive with at least 16GB capacity. Class 10 cards are highly recommended.
 2. [Put your Chromebook in developer mode](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook), and enable USB boot.

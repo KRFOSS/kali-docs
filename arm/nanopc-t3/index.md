@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopi3.sh
 headless:
+metapackage: kali-linux-default
+status: pre-generated
 cpu:
 gpu:
 ram:

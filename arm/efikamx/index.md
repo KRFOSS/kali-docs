@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/efikamx.sh
 headless:
+metapackage: N/A
+status: eol
 cpu:
 gpu:
 ram:
@@ -17,6 +19,14 @@ usb3:
 usb2:
 storage:
 ---
+
+{{% notice info %}}
+Kali Linux is no longer providing pre-built images or a build-script to generate your own image.
+This hardware is no longer supported.
+The page is left for historical value.
+{{% /notice %}}
+
+- - -
 
 The EfikaMX is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system.
 
@@ -33,7 +43,7 @@ To install a pre-built image of the standard build of Kali Linux on your EfikaMX
 In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
-**Alert!** This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+This process will wipe out your full-size SD or eMMC. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console

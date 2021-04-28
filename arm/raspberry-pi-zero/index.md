@@ -9,6 +9,8 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon-minimal.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon-p4wnp1-aloa.sh
 headless:
+metapackage: kali-linux-default
+status: pre-generated
 cpu:
 gpu:
 ram:

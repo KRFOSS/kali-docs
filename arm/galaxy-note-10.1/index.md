@@ -5,8 +5,10 @@ icon:
 type: archived
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/TODO.sh
+build-script: N/A
 headless:
+metapackage: N/A
+status: eol
 cpu:
 gpu:
 ram:
@@ -18,6 +20,14 @@ usb2:
 storage:
 ---
 
+{{% notice info %}}
+Kali Linux is no longer providing pre-built images or a build-script to generate your own image.
+This hardware is no longer supported.
+The page is left for historical value.
+{{% /notice %}}
+
+- - -
+
 The Samsung Galaxy Note 10.1 is a 10.1-inch tablet computer designed, developed, and marketed by Samsung. The tablet incorporates a 1.4 GHz quad-core Exynos processor and 2GB of RAM. The touch screen works surprisingly well with Kali as well as the wireless card, however Bluetooth and audio are not yet functional on this image.
 
 ## Kali on Galaxy Note 10.1 - User Instructions
@@ -26,7 +36,7 @@ If you're unfamiliar with the details of [downloading and validating a Kali Linu
 
 To install a pre-built image of the standard build of Kali Linux on your Galaxy Note 10.1, follow these instructions:
 
-1. You'll need **at least 7GB free** on your internal SD card for our image.
+1. You'll need **at least 7GB free** on your internal full-size SD card for our image.
 2. Root your Samsung Galaxy Note 10.1 if you have not already done so.
 3.Download _and validate_ the `Kali Galaxy Note 10.1` image from the [downloads](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 4. Rename the downloaded Kali image to `linux.img` and copy it to `/storage/sdcard0`.

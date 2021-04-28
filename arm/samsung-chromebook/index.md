@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-exynos.sh
 headless:
+metapackage: kali-linux-default
+status: build-scripts
 cpu:
 gpu:
 ram:
@@ -22,7 +24,7 @@ storage:
 The ChromiumOS code name for the Samsung Chromebook is daisy_snow.  We use exynos for the script name as there are a number of Chromebooks with the Samsung Exynos processor in them that use the same kernel.
 {{% /notice %}}
 
-The Samsung ARM Chromebook is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5250 1.7GHz dual core processor and 2GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external SD card on this machine which leaves the internal disk untouched.
+The Samsung ARM Chromebook is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5250 1.7GHz dual core processor and 2GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external full-size SD card on this machine which leaves the internal disk untouched.
 
 By default, the Kali Linux Samsung Chromebook image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
@@ -36,7 +38,7 @@ The easiest way to generate these images is **from within a pre-existing Kali Li
 
 ## Kali on Samsung Chromebook - User Instructions
 
-If all you want to do is run Kali on your Samsung Chromebook, follow these instructions:
+To install Kali on your Kali on your Samsung Chromebook, follow these instructions:
 
 1. Get a fast microSD card or USB drive with at least 16GB capacity. Class 10 cards are highly recommended.
 2. [Put your Chromebook in developer mode](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook), and enable USB boot.

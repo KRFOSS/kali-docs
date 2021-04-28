@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-exynos.sh
 headless:
+metapackage: kali-linux-default
+status: build-scripts
 cpu:
 gpu:
 ram:
@@ -36,7 +38,7 @@ The easiest way to generate these images is **from within a pre-existing Kali Li
 
 ## Kali on Samsung Chromebook 2 - User Instructions
 
-If to install Kali on your Samsung Chromebook 2, follow these instructions:
+To install Kali on your Samsung Chromebook 2, follow these instructions:
 
 1. Get a fast microSD card or USB drive with at least 16GB capacity. Class 10 cards are highly recommended.
 2. [Put your Chromebook in developer mode](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook), and enable USB boot.

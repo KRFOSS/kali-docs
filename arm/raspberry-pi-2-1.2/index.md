@@ -9,6 +9,8 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64-lite.sh
 headless:
+metapackage: kali-linux-default
+status: pre-generated
 cpu:
 gpu:
 ram:

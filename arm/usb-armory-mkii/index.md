@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/usbarmory-mk2.sh
 headless:
+metapackage: kali-linux-default
+status: pre-generated
 cpu:
 gpu:
 ram:

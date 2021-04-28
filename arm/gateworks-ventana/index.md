@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/gateworks_ventana.sh
 headless:
+metapackage: kali-linux-default
+status: community
 cpu:
 gpu:
 ram:

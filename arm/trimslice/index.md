@@ -7,6 +7,8 @@ weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/trimslice.sh
 headless:
+metapackage: kali-linux-default
+status: build-scripts
 cpu:
 gpu:
 ram:
@@ -22,11 +24,17 @@ The [Trimslice](http://www.compulab.co.il/utilite-computer/web/trim-slice) is a 
 
 By default, the Kali Linux Trimslice image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
+## Kali on Trimslice - Build-Script Instructions
+
+Kali no longer provides pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `trimslice.sh`.
+
+Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
+
+The easiest way to generate these images is **from within a pre-existing Kali Linux environment**.
+
 ## Kali on Trimslice - User Instructions
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
-
-If to install Kali on your Trimslice, follow these instructions:
+To install Kali on your Trimslice, follow these instructions:
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ the `Kali Raspberry Trimslice` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
@@ -39,14 +47,14 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-$version-trimslice.img.xz | dd of=/dev/sdb bs=4M
+$ xzcat kali-linux-$version-trimslice.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
 
 Once the _dd_ operation is complete, boot up the Trimslice with the microSD plugged in.
 
-[Log in to Kali](/docs/introduction/default-credentials/).
+You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 ## Kali on Trimslice - Image Customization
 

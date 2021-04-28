@@ -8,6 +8,8 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopineoplus2.sh
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopineoplus2-minimal.sh
 headless:
+metapackage: kali-linux-default
+status: pre-generated
 cpu:
 gpu:
 ram:
