@@ -3,7 +3,7 @@ title: Recompiling the Kali Linux Kernel
 description:
 icon:
 type: post
-weight:
+weight: 61
 author: ["g0tmi1k",]
 ---
 

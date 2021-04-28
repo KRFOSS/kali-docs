@@ -3,7 +3,7 @@ title: Preparing a Kali Linux ARM chroot
 description:
 icon:
 type: post
-weight:
+weight: 70
 author: ["steev",]
 ---
 

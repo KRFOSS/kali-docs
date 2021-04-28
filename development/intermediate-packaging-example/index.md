@@ -3,7 +3,7 @@ title: Intermediate packaging step-by-step example
 description:
 icon:
 type: post
-weight:
+weight: 12
 author: ["gamb1t",]
 ---
 

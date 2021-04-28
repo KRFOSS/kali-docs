@@ -3,7 +3,7 @@ title: Contributing run-time tests with autopkgtest
 description:
 icon:
 type: post
-weight:
+weight: 20
 author: ["gamb1t",]
 ---
 

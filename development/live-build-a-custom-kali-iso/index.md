@@ -3,7 +3,7 @@ title: Live Build a Custom Kali ISO
 description:
 icon:
 type: post
-weight:
+weight: 51
 author: ["g0tmi1k",]
 ---
 

@@ -3,7 +3,7 @@ title: Generate an Updated Kali ISO
 description:
 icon:
 type: post
-weight:
+weight: 50
 author: ["g0tmi1k",]
 ---
 

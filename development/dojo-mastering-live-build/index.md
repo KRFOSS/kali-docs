@@ -3,7 +3,7 @@ title: Building Custom Kali ISOs
 description:
 icon:
 type: post
-weight:
+weight: 52
 author: ["g0tmi1k",]
 tags: ["dojo",]
 ---

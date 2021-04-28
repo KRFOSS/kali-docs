@@ -3,7 +3,7 @@ title: Advanced Packaging Step-By-Step Example (FinalRecon & Python-icmplib)
 description:
 icon:
 type: post
-weight:
+weight: 13
 author: ["gamb1t", "g0tmi1k",]
 ---
 

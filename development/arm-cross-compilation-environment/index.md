@@ -3,7 +3,7 @@ title: ARM Cross-Compilation
 description:
 icon:
 type: post
-weight:
+weight: 71
 author: ["steev",]
 ---
 
