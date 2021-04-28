@@ -20,14 +20,15 @@ usb2:
 storage:
 ---
 
-The [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) has a quad core 1.2GHz processor, with 1GB of RAM. Kali Linux fits on an external microSD card. eMMC module can be purchased separately to speed up read/write speeds.
+The [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) has a quad core 1.2GHz processor, with 1GB of RAM. Kali Linux fits on an external microSD card.
 
 By default, the Kali Linux Raspberry Pi 3 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
 The Raspberry Pi 3 has a 64-bit processor and can run 64-bit images.
 Because it can run 64-bit images, you can choose either `Kali Linux RaspberryPi 2, 3, 4 and 400 (img.xz)` or `Kali Linux RaspberryPi 2 (v1.2), 3, 4 and 400 (64-Bit) (img.xz)` as the image to run, the latter being 64-bit.
-<!-- @gg0tmi1k: it might be worth saying which one to pick if you don't know -->
+
+We recommend using the 32-bit image on Raspberry Pi devices as that gets far more testing, and a lot of documentation out there expects you to be running RaspberryPi OS which is 32-bit.
 {{% /notice %}}
 
 {{% notice info %}}
@@ -40,14 +41,14 @@ If you're unfamiliar with the details of [downloading and validating a Kali Linu
 
 To install a pre-built image of the standard build of Kali Linux on your Raspberry Pi 3, follow these instructions:
 
-1. Get a fast microSD card or eMMC with at least 16GB capacity. Class 10 cards are highly recommended.
+1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ our preferred `Kali Raspberry Pi 3` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
-This process will wipe out your microSD card or eMMC. If you choose the wrong storage device, you may wipe out your computers hard disk.
+This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console
@@ -60,9 +61,9 @@ $ xzcat kali-linux-$version-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M statu
 $ xzcat kali-linux-$version-rpi4-nexmon-64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD/eMMC's speed, and the size of the Kali Linux image.
+This process can take a while, depending on your PC, your microSD's speed, and the size of the Kali Linux image.
 
-Once the _dd_ operation is complete, boot up the Raspberry Pi 3 with the microSD/eMMC plugged in.
+Once the _dd_ operation is complete, boot up the Raspberry Pi 3 with the microSD plugged in.
 
 You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 

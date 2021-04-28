@@ -27,7 +27,8 @@ By default, the Kali Linux Raspberry Pi 400 image contains the [**kali-linux-def
 {{% notice info %}}
 The Raspberry Pi400 has a 64-bit processor and can run 64-bit images.
 Because it can run 64-bit images, you can choose either `Kali Linux RaspberryPi 2, 3, 4 and 400 (img.xz)` or `Kali Linux RaspberryPi 2 (v1.2), 3, 4 and 400 (64-Bit) (img.xz)` as the image to run, the latter being 64-bit.
-<!-- @gg0tmi1k: it might be worth saying which one to pick if you don't know -->
+
+We recommend using the 32-bit image on Raspberry Pi devices as that gets far more testing, and a lot of documentation out there expects you to be running RaspberryPi OS which is 32-bit.
 {{% /notice %}}
 
 {{% notice info %}}
@@ -80,4 +81,3 @@ The wireless chip on the Raspberry Pi 400 is **NOT** supported by [nexmon](https
 ## Kali on Raspberry Pi400 - Image Customization
 
 If you want to customize the Kali Raspberry Pi400 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi3-nexmon.sh` (32-bit) or `rpi3-64.sh` (64-bit).
-<!-- @g0tmi1k: Should the script filename be updated to rpi400.sh? --
