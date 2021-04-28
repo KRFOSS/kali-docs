@@ -45,7 +45,7 @@ To install a pre-built image of the standard build of Kali Linux on your Raspber
 In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
-This command will overwrite any existing data on your full-size SD card. If you specify the _wrong device path_, you could wipe out your computer's hard disk!
+This process will wipe out your full-size SD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console
