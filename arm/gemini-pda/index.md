@@ -2,10 +2,10 @@
 title: Gemini PDA
 description:
 icon:
-type: post
+type: archived
 weight:
-author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/TODO.sh
+author: ["re4son",]
+build-script:
 headless:
 cpu:
 gpu:
