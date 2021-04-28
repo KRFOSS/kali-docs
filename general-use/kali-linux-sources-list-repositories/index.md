@@ -3,7 +3,7 @@ title: Kali Network Repositories (/etc/apt/sources.list)
 description:
 icon:
 type: post
-weight:
+weight: 61
 author: ["g0tmi1k",]
 ---
 
