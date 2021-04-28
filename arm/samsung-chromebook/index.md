@@ -1,5 +1,5 @@
 ---
-title: Samsung Chromebook (Daisy/Snow)
+title: Samsung Chromebook (daisy_snow)
 description:
 icon:
 type: post
@@ -17,6 +17,10 @@ usb3:
 usb2:
 storage:
 ---
+
+{{% notice info %}}
+The ChromiumOS code name for the Samsung Chromebook is daisy_snow.  We use exynos for the script name as there are a number of Chromebooks with the Samsung Exynos processor in them that use the same kernel.
+{{% /notice %}}
 
 The Samsung ARM Chromebook is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5250 1.7GHz dual core processor and 2GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external SD card on this machine which leaves the internal disk untouched.
 

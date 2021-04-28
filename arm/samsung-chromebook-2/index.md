@@ -1,5 +1,5 @@
 ---
-title: Samsung Chromebook 2 (Exynos)
+title: Samsung Chromebook 2 (peach_pi)
 description:
 icon:
 type: post
@@ -18,7 +18,11 @@ usb2:
 storage:
 ---
 
-The [Samsung ARM Chromebook 2](https://web.archive.org/web/20161111005125/http://www.samsung.com/us/computing/chromebooks/12-14/samsung-chromebook-2-13-3-xe503c32-k01us/) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5800 1.7GHz quad core processor and 4GB of RAM, the Chromebook 2 is a fast ARM laptop. Kali Linux fits on an external microSD card on this machine which leaves the internal disk untouched.
+{{% notice info %}}
+The ChromiumOS code name for the Samsung Chromebook 2 is peach_pi (1080p screen) or peach_pit (1366x768).  We use exynos for the script name as there are a number of Chromebooks with the Samsung Exynos processor in them that use the same kernel.
+{{% /notice %}}
+
+The [Samsung ARM Chromebook 2](https://web.archive.org/web/20161111005125/http://www.samsung.com/us/computing/chromebooks/12-14/samsung-chromebook-2-13-3-xe503c32-k01us/) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5800 1.7GHz quad core processor and 4GB of RAM, the Chromebook 2 is a fast ARM laptop. Kali Linux fits on an external microSD card or USB drive for this machine which leaves the internal disk untouched.
 
 By default, the Kali Linux Samsung Chromebook 2 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 

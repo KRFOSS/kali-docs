@@ -20,7 +20,11 @@ usb2:
 storage:
 ---
 
-The [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) has a single core 1GHz, with 512MB of RAM. Kali Linux fits on an external microSD card. Unlike the [Raspberry Pi Zero](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero W **has** networking on the board.
+{{% notice info %}}
+The Raspberry Pi Zero W has `Raspberry Pi Zero W V1.1` printed on the **bottom** of the PCB.
+{{% /notice %}} 
+
+The [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) has a single core 1GHz, with 512MB of RAM. Kali Linux fits on an external microSD card. Unlike the [Raspberry Pi Zero](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero W **has** *w*ireless networking on the board.
 
 By default, the Kali Linux Raspberry Pi Zero W image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
