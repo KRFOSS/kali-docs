@@ -1,5 +1,5 @@
 ---
-title: MCIMX6ULL-EVK
+title: i.MX 6ULL EVK
 description:
 icon:
 type: post
@@ -22,11 +22,11 @@ storage:
 
 <!-- @steev: TODO: This is a community contributed image, so we don't know that much about it, nor do we test it. -->
 
-The [MCIMX6ULL-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK) is a market-focused development tool based on the i.MX 6ULL applications processor. Kali Linux fits on a microSD card for it.
+The [i.MX 6ULL EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK) is a market-focused development tool based on the i.MX 6ULL applications processor. Kali Linux fits on a microSD card for it.
 
-By default, the Kali Linux MCIMX6ULL-EVK image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux i.MX 6ULL EVK image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
-## Kali on the MCIMX6ULL-EVK - Build-Script Instructions
+## Kali on the i.MX 6ULL EVK - Build-Script Instructions
 
 Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `i.mx-6ull-evk.sh`.
 
