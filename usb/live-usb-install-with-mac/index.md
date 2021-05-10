@@ -55,7 +55,7 @@ $ diskutil unmountDisk /dev/disk6
 5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2021.1-live-amd64.iso". We will replace /dev/disk6 with /dev/rdisk6 to improve the write speeds:
 
 ```console
-$ sudo dd if=kali-linux-2021.1-live-amd64.iso of=/dev/rdisk6 bs=4m
+$ sudo dd if=kali-linux-2021.1-live-amd64.iso of=/dev/rdisk6 bs=4M
 ```
 
 {{% notice info %}}
