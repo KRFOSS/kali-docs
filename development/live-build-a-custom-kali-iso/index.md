@@ -1,5 +1,5 @@
 ---
-title: Live Build a Custom Kali ISO
+title: Live-Build a Custom Kali ISO
 description:
 icon:
 type: post
@@ -40,7 +40,7 @@ kali@kali:~/live-build-config$ ./build.sh --verbose --installer
 
 ### Configuring The Kali ISO Build (Optional)
 
-If you want to customize your Kali Linux ISO, this section will explain some of the details. Through the **kali-config** directory, the Kali Linux live build supports a wide range of customization options, which are well-documented on the Debian [live build 4.x](https://live-team.pages.debian.net/live-manual/html/live-manual/customization-overview.en.html) page. However, for the impatient, here are some of the highlights.
+If you want to customize your Kali Linux ISO, this section will explain some of the details. Through the **kali-config** directory, the Kali Linux live-build supports a wide range of customization options, which are well-documented on the Debian [live-build 4.x](https://live-team.pages.debian.net/live-manual/html/live-manual/customization-overview.en.html) page. However, for the impatient, here are some of the highlights.
 
 #### Building Kali With Different Desktop Environments
 
@@ -59,11 +59,17 @@ kali@kali:~/live-build-config$ ./build.sh --variant kde --verbose
 
 #### Controlling The Packages Included In Your Build
 
-The list of packages included in your build will be present in the the respective kali-$variant directory. For example, if you're building a default Xfce ISO, you would use the following package lists file - **kali-config/variant-xfce/package-lists/kali.list.chroot**. By default, this list includes the "kali-linux-default" [metapackage](/docs/general-use/metapackages/), as well as some others. These can be commented out and replaced with a manual list of packages to include in the ISO for greater granularity.
+The list of packages included in your build will be present in the the respective **kali-config** directory. For example:
+
+- If you're building the default ISO (a Live image using Xfce), you would use the following package lists file - **kali-config/variant-default/package-lists/kali.list.chroot**.
+- Sticking with a Live image, but this time using Gnome, you would need to use this package lists file - **kali-config/variant-gnome/package-lists/kali.list.chroot**.
+- However, if you are wanting to alter the Installer image, you would need to use the following package lists file - **kali-config/installer-default/packages**.
+
+By default, this lists includes the ["kali-linux-default" metapackage](/docs/general-use/metapackages/), as well as some others. These can be commented out and replaced with a manual list of packages to include in the ISO for greater granularity.
 
 #### Build Hooks, Binary and Chroot
 
-Live-build hooks allows us to hook scripts in various stages of the Kali ISO live build. For more detailed information about hooks and how to use them, refer to the [live build manual](https://live-team.pages.debian.net/live-manual/html/live-manual/customizing-contents.en.html#507). As an example, we recommend you check out the existing hooks in **kali-config/common/hooks/**.
+Live-build hooks allows us to hook scripts in various stages of the Kali ISO live-build. For more detailed information about hooks and how to use them, refer to the [live-build manual](https://live-team.pages.debian.net/live-manual/html/live-manual/customizing-contents.en.html#507). As an example, we recommend you check out the existing hooks in **kali-config/common/hooks/**.
 
 #### Overlaying Files In Your Build
 
