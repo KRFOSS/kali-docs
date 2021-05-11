@@ -53,7 +53,7 @@ kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main non-fre
 **kali-experimental** (Packages which are under testing - often used with the rolling repository):
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main non-free contrib" | sudo tee -a /etc/apt/sources.list
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main non-free contrib" | sudo tee /etc/apt/sources.list.d/kali-experimental.list
 ```
 ## Sources.list Format
 
