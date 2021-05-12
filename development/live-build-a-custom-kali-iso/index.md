@@ -1,5 +1,5 @@
 ---
-title: Live-Build a Custom Kali ISO
+title: Creating A Custom Kali ISO
 description:
 icon:
 type: post
@@ -7,44 +7,141 @@ weight: 51
 author: ["g0tmi1k",]
 ---
 
+<!-- @g0tmi1k: Is it Kali ISO or Kali Image? -->
+
 ## An Introduction to Building Your Own Kali ISO
 
-Building a customized Kali ISO is easy, fun, and rewarding. You can configure virtually any aspect of your Kali ISO build using the Debian [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html) scripts. These scripts allow developers to easily build live system images by providing a framework that uses a configuration set to automate and customize all aspects of building the image. The Kali Linux development team has adopted these scripts and they're used to produce the official Kali ISO releases.
+Building a customized Kali Linux image is not as complex as you may be thinking. It is easy, fun, and rewarding! Kali Linux traditionally, has been a **Live Image**, but since [Kali 2020.1](/blog/kali-linux-2020-1-release/) an **Installer Image** was introduced. Both these images have [different functions](/docs/introduction/what-image-to-download/), and are also built in different ways.
 
-### Where Should You Build Your ISO?
+- Live Image - allows you to try Kali, without altering the system (making it create for [USB](/docs/usb/)). It is created using [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html)
+- Installer Image - allows for you to customize Kali by picking packaging during installation, so you to (?)  [pick the desktop environment](/docs/general-use/switching-desktop-environments/) as well as what [metapackages](/docs/general-use/metapackages/) get installed. This image is powered by [simple-cdd](https://wiki.debian.org/Simple-CDD) _(which uses `debian-cd` to make `Debian-Installer`)_.
 
-Ideally, you should build your custom Kali ISO from **within a pre-existing Kali environment**.
+You can configure virtually any aspect of your Kali ISO build, such as adding packages from outside of Kali network repositories, unattended installations to changing the default wallpaper. Pur build-scripts allows provides (??)  a framework that uses a configuration set to automate and customize all aspects of building the images. The Kali Linux development team use the same build-scripts to produce the official Kali ISO releases.
 
-### Getting Ready — Setting Up The live-build System
+## Where Should You Build Your ISO?
 
-We first need to prepare the Kali ISO build environment by installing and setting up live-build and its requirements with the following commands:
+Ideally, you should build your custom Kali ISO from **within a pre-existing Kali environment**, as there is less chance of items going wrong. However, it is possible to generate the images on a Non-Kali but still a Debian-Based system.
+
+## Kali Environment
+
+#### Getting Ready — Setting Up The build-script Kali System
+
+We first need to prepare the Kali ISO build environment by installing and setting up the required packages with the following commands:
 
 ```console
 kali@kali:~$ sudo apt update
 kali@kali:~$ sudo apt install -y git live-build simple-cdd cdebootstrap curl
+kali@kali:~$
 kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 ```
 
-Now you can simply build an updated Kali ISO by entering the "live-build-config" directory and running our **build.sh** wrapper script, as follows:
+#### Building an Updated Live Image
+
+Now you can simply build an updated Kali ISO _(with our default configuration)_ by entering the `live-build-config/` directory and running our `build.sh` wrapper script, as follows:
 
 ```console
 kali@kali:~$ cd live-build-config/
 kali@kali:~/live-build-config$ ./build.sh --verbose
 ```
 
-The `build.sh` script will take a while to complete, as it downloads all of the required packages needed to create your ISO. Good time for a coffee. By default, it will generate a **Live Image** _(which uses live-build on the back end)_. If you want an **Installer Image** _(powered by simple-cdd)_:
+The `build.sh` script will take a while to complete, as it downloads all of the required packages needed to create your ISO. Good time for a drink.
+
+#### Building an Updated Installer Image
+
+By default, it will generate a **Live Image**. If you want an **Installer Image**, add `--installer`:
 
 ```console
 kali@kali:~/live-build-config$ ./build.sh --verbose --installer
 ```
 
-### Configuring The Kali ISO Build (Optional)
+We are using the `--verbose` to output more on the screen rather than it being captured in just the `build.log` output.
 
-If you want to customize your Kali Linux ISO, this section will explain some of the details. Through the **kali-config** directory, the Kali Linux live-build supports a wide range of customization options, which are well-documented on the Debian [live-build 4.x](https://live-team.pages.debian.net/live-manual/html/live-manual/customization-overview.en.html) page. However, for the impatient, here are some of the highlights.
+- - -
 
-#### Building Kali With Different Desktop Environments
+## Non-Kali Debian-Based Environment
 
-Since Kali 2.0, we now support built in configurations for various desktop environments, including Xfce _(default)_, KDE, Gnome, E17, I3WM, LXDE, MATE. To build any of these, you would use syntax similar to the following:
+#### Setting Up The build-script Non-Kali Debian-Based System
+
+You can build an Kali ISO on a Debian-based systems other than Kali Linux. The instructions below have been tested to work with both Debian and Ubuntu.
+
+First, we prepare the system by ensuring it is fully updated, then proceed to download the Kali archive keyring and packages:
+
+```console
+$ sudo apt update
+$ sudo apt full-upgrade -y
+$
+$ wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
+$ wget https://http.kali.org/kali/pool/main/l/live-build/live-build_20210407_all.deb
+```
+
+_Note: You may need to check that`kali-archive-keyring_20YY.X_all.deb` & `live-build_20YYMMDD_all.deb` are the latest files._
+
+With that completed, we install some additional dependencies and the previously downloaded files:
+
+```console
+$ sudo apt install -y git live-build simple-cdd cdebootstrap curl
+$
+$ sudo dpkg -i kali-archive-keyring_2020.2_all.deb
+$ sudo dpkg -i live-build_20210407_all.deb
+```
+
+With the environment all prepared, we start the process by setting up the build-script profile and clone out the build config:
+
+```console
+$ cd /usr/share/debootstrap/scripts/
+$ (echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid) > /tmp/kali
+$ sudo mv /tmp/kali .
+$ sudo ln -s kali kali-rolling
+$
+$ cd ~/
+$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
+$
+$ cd live-build-config/
+```
+
+At this point, depending on the host OS and its version, we may need to edit  `build.sh` to bypass a version check for **debootstrap**. We do this by commenting out the `exit 1` below:
+
+```console
+$ cat build.sh
+...
+		ver_debootstrap=$(dpkg-query -f '${Version}' -W debootstrap)
+		if dpkg --compare-versions "$ver_debootstrap" lt "1.0.97"; then
+			echo "ERROR: You need debootstrap (>= 1.0.97), you have $ver_debootstrap" >&2
+			exit 1
+		fi
+...
+$
+```
+
+With that change made, the script should like (look?) as follows:
+
+```console
+$ cat build.sh
+...
+		ver_debootstrap=$(dpkg-query -f '${Version}' -W debootstrap)
+		if dpkg --compare-versions "$ver_debootstrap" lt "1.0.97"; then
+			echo "ERROR: You need debootstrap (>= 1.0.97), you have $ver_debootstrap" >&2
+			#exit 1
+		fi
+...
+$
+```
+
+At this point, we can build our ISO as normal
+
+```console
+$ ./build.sh --verbose
+```
+
+- - -
+
+## Configuring The Kali ISO Build (Optional)
+
+If you want to customize your Kali Linux ISO, this section will explain some of the details. Through the `kali-config/` directory, there are a wide range of customization options, which are well-documented for [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/customization-overview.en.html) page. Simple-CD is a little more limited with options. For the impatient, here are some of the highlights.
+
+#### Building Kali Live With Different Desktop Environments
+
+Since [Kali 2.0](/blog/kali-linux-2-0-release/), we now support built in configurations for various [desktop environments](/docs/general-use/switching-desktop-environments/), including Xfce _(default)_, Gnome, KDE, E17, I3WM, LXDE, MATE. To build any of these, you would use syntax similar to the following:
 
 ```console
 kali@kali:~/live-build-config$ # These are the different Desktop Environment build options:
@@ -57,57 +154,69 @@ kali@kali:~/live-build-config$ # To build a KDE ISO:
 kali@kali:~/live-build-config$ ./build.sh --variant kde --verbose
 ```
 
+This is not required with the installer images, as it includes Xfce, Gnome and KDE by default. You can add others by including their packages as explained in the section below.
+
 #### Controlling The Packages Included In Your Build
 
-The list of packages included in your build will be present in the the respective **kali-config** directory. For example:
+The list of packages included in your build will be present in the the respective `kali-config/` directory. For example, if you're wanting to edit:
 
-- If you're building the default ISO (a Live image using Xfce), you would use the following package lists file - **kali-config/variant-default/package-lists/kali.list.chroot**.
-- Sticking with a Live image, but this time using Gnome, you would need to use this package lists file - **kali-config/variant-gnome/package-lists/kali.list.chroot**.
-- However, if you are wanting to alter the Installer image, you would need to use the following package lists file - **kali-config/installer-default/packages**.
+- The default Installer ISO, you would use the following package lists file - `kali-config/installer-default/packages`
+- The default Live ISO, you would use the following package lists file - `kali-config/variant-default/package-lists/kali.list.chroot`
+- A non-default Live ISO desktop environment, such as Gnome - `kali-config/variant-gnome/package-lists/kali.list.chroot` _(You can replace Gnome with any supported desktop environments)_
 
-By default, this lists includes the ["kali-linux-default" metapackage](/docs/general-use/metapackages/), as well as some others. These can be commented out and replaced with a manual list of packages to include in the ISO for greater granularity.
-
-#### Build Hooks, Binary and Chroot
-
-Live-build hooks allows us to hook scripts in various stages of the Kali ISO live-build. For more detailed information about hooks and how to use them, refer to the [live-build manual](https://live-team.pages.debian.net/live-manual/html/live-manual/customizing-contents.en.html#507). As an example, we recommend you check out the existing hooks in **kali-config/common/hooks/**.
+By default, these lists will includes the [**kali-linux-default** metapackage](/docs/general-use/metapackages/), as well as some others. These can be commented out and replaced with a manual list of packages to include in the ISO for greater granularity.
 
 #### Overlaying Files In Your Build
 
-You have the option to include additional files or scripts in your build by overlaying them on the existing file-system, inside the **includes.{chroot,binary,installer}** directories, respectively. For example, if we wanted to include our own custom script into the **/root/** directory of the ISO (this would correspond to the "chroot" stage), then we would drop this script file in the **kali-config/common/includes.chroot/** directory before building the ISO.
+With Live images, you have the option to include additional files or scripts in your build by overlaying them on the existing file-system, inside the `includes.{chroot,binary,installer}` directories, respectively.
 
-### Building a Kali Linux ISO for Different Architectures
+For example, if we wanted to include our own custom script into the `/root/` directory of the ISO (this would correspond to the **chroot** stage), then we would drop this script file in the `kali-config/common/includes.chroot/` directory before building the ISO.
 
-By default, Live-build will generate the image based on the architectures of the current operating system. If you wish to alter this:
+For more information see the [live-build documentation](https://live-team.pages.debian.net/live-manual/html/live-manual/customizing-contents.en.html).
+
+<!--For installer images, TODO -->
+
+#### Build Hooks, Binary and Chroot
+
+For live images, live-build supports hooks allows us to "hook scripts" in various stages of the Kali ISO live image. For more detailed information about hooks and how to use them, refer to the [live-build manual](https://live-team.pages.debian.net/live-manual/html/live-manual/customizing-contents.en.html#507).
+
+As an example, we recommend you check out the existing hooks in `kali-config/common/hooks/`.
+
+<!--For installer images, TODO -->
+
+- - -
+
+## Building a Kali Linux ISO for Different Architectures (Optional)
+
+By default, the build-script will generate the Kali image based on the architectures of the current operating system. If you wish to alter this:
 
 - x64: `./build.sh --verbose --arch amd64`
 - x86: `./build.sh --verbose --arch i386`
 
-### Building a Kali Linux ISO for Older i386 Architectures
 
-The Kali Linux i386 ISO has PAE enabled. If you require a default kernel for older hardware with PAE disabled, you will need to rebuild a Kali Linux ISO. The rebuilding process is much the same as described above, except that the **686-pae** parameter that needs to be changed to **586** in **auto/config** as follows. First, install the prerequisites.
+#### Building a Kali Linux ISO for Older i386 Architectures
 
-```console
-kali@kali:~$ sudo apt update
-kali@kali:~$ sudo apt install -y git live-build simple-cdd cdebootstrap curl
-kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
-```
-
-Next, make the change in `auto/config` for the appropriate architecture:
+The Kali Linux i386 ISO has PAE enabled. If you require a default kernel for older hardware with PAE disabled, you will need to rebuild a Kali Linux ISO. The rebuilding process is much the same as described above, except that the **686-pae** parameter needs to be changed to **686** in `auto/config` before building:
 
 ```console
-kali@kali:~$ cd live-build-config/
 kali@kali:~/live-build-config$ sed -i 's/686-pae/686/g' auto/config
-```
-
-Finally, run your build.
-
-```console
+kali@kali:~/live-build-config$
 kali@kali:~/live-build-config$ ./build.sh --verbose --arch i386
 ```
 
-### Using A Custom Network Mirror For Building
+- - -
 
-If you decide to start building images, to help speed up the progress, you may wish to setup a [local network mirror](/docs/community/setting-up-a-kali-linux-mirror/). To instruct live-build to use it, with the assumption its at **http://192.168.0.101/kali**:
+## Using A Custom Network Mirror For Building (Optional)
+
+If you build multiple images, you will find you are often waiting on `build.sh` to finish. There are a few ways to speed up the build process, such as:
+
+- Building Installer images as they often build quicker than Live images
+- Have less packages included (such as switching `kali-linux-default` to `kali-linux-top10`)
+- Improve access to packages
+
+You often find that you are waiting on packages to be pulled down. You can either setup a local proxy on the same machine (such as `apt-cacher` or `apt-cacher-ng`). Alternatively, you can setup a [local network mirror](/docs/community/setting-up-a-kali-linux-mirror/).
+
+We can instruct the build-script to use a different mirror, by doing the following (assuming our network mirror is located at `http://192.168.0.101/kali`):
 
 ```console
 kali@kali:~/live-build-config$ echo "http://192.168.0.101/kali/" > .mirror
@@ -116,71 +225,46 @@ kali@kali:~/live-build-config$ ./build.sh --verbose
 
 - - -
 
-## Building Kali on Non-Kali Debian Based Systems
+## Testing Built Image
 
-You can easily run live-build on Debian based systems other than Kali Linux. The instructions below have been tested to work with both Debian and Ubuntu.
+After producing the issue, you can treat it like any Kali base image, so you can [install](/docs/installation/) it (either on bare metal or [virtually](/docs/virtualization/)), or copy to a CD/DVD/[USB](/docs/usb/).
 
-First, we prep the system by ensuring it is fully updated, then proceed to download the Kali archive keyring and live-build packages.
-
-```console
-$ sudo apt update
-$ sudo apt upgrade
-$ cd /root/
-$
-$ wget http://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.2_all.deb
-$ wget https://archive.kali.org/kali/pool/main/l/live-build/live-build_20190311_all.deb
-```
-
-With that completed, we install some additional dependencies and the previously downloaded files.
+If you are wanting to quickly test the image before putting it "in production", we can use [qemu](https://packages.debian.org/sid/qemu) (and [ovmf](https://packages.debian.org/sid/ovmf) for UEFI). First we install the packages:
 
 ```console
-$ sudo apt install -y git live-build cdebootstrap debootstrap curl
-$ sudo dpkg -i kali-archive-keyring_2018.2_all.deb
-$ sudo dpkg -i live-build_20190311_all.deb
+kali@kali:$ sudo apt update
+kali@kali:$ sudo apt install -y qemu qemu-system-x86 ovmf
 ```
 
-With the environment all prepared, we start the live-build process by setting up the build script and checking out the build config.
+Next we produce a hard disk to use:
 
 ```console
-$ cd /usr/share/debootstrap/scripts/
-$ echo "default_mirror http://http.kali.org/kali"; sed -e "s/debian-archive-keyring.gpg/kali-archive-keyring.gpg/g" sid > /tmp/kali
-$ sudo mv /tmp/kali .
-$ sudo ln -s kali kali-rolling
-$
-$ cd ~/
-$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
-$
-$ cd live-build-config/
+kali@kali:$ qemu-img create \
+  -f qcow2 \
+  /tmp/kali-test.hdd.img \
+  4G
 ```
 
-At this point, we have to edit the `build.sh` script to bypass a version check. We do this by commenting out the "exit 1" below.
+Afterwards, to boot from the image produced _(we will be using the Live image on x64)_:
 
 ```console
-$ # Check we have a good debootstrap
-$ ver_debootstrap=$(dpkg-query -f '${Version}' -W debootstrap)
-$ if dpkg --compare-versions "$ver_debootstrap" lt "1.0.97"; then
-if ! echo "$ver_debootstrap" | grep -q kali; then
-echo "ERROR: You need debootstrap >= 1.0.97 (or a Kali patched debootstrap). Your current version: $ver_debootstrap" >&2
-exit 1
-fi
-fi
+kali@kali:$ qemu-system-x86_64 \
+  -enable-kvm \
+  -drive if=virtio,aio=threads,cache=unsafe,file=/tmp/kali-test.hdd.img \
+  -cdrom /home/kali/live-build-config/images/kali-linux-rolling-live-amd64.iso \
+  -boot once=d
 ```
 
-With that change made, the script should like as follows:
+The above will be a "BIOS" boot. For a "UEFI" boot:
 
 ```console
-$ # Check we have a good debootstrap
-$ ver_debootstrap=$(dpkg-query -f '${Version}' -W debootstrap)
-$ if dpkg --compare-versions "$ver_debootstrap" lt "1.0.97"; then
-if ! echo "$ver_debootstrap" | grep -q kali; then
-echo "ERROR: You need debootstrap >= 1.0.97 (or a Kali patched debootstrap). Your current version: $ver_debootstrap" >&2
-# exit 1
-fi
-fi
+kali@kali:$ qemu-system-x86_64 \
+  -enable-kvm \
+  -drive if=virtio,aio=threads,cache=unsafe,file=/tmp/kali-test.hdd.img \
+  -drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_CODE.fd \
+  -drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_VARS.fd \
+  -cdrom /home/kali/live-build-config/images/kali-linux-rolling-live-amd64.iso \
+  -boot once=d
 ```
 
-At this point, we can build our ISO as normal
-
-```console
-$ sudo ./build.sh --variant light --verbose
-```
+_Note: We have set UEFI configuration file to be read only_
