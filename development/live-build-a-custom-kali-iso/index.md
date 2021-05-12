@@ -14,9 +14,9 @@ author: ["g0tmi1k",]
 Building a customized Kali Linux image is not as complex as you may be thinking. It is easy, fun, and rewarding! Kali Linux traditionally, has been a **Live Image**, but since [Kali 2020.1](/blog/kali-linux-2020-1-release/) an **Installer Image** was introduced. Both these images have [different functions](/docs/introduction/what-image-to-download/), and are also built in different ways.
 
 - Live Image - allows you to try Kali, without altering the system (making it create for [USB](/docs/usb/)). It is created using [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html)
-- Installer Image - allows for you to customize Kali by picking packaging during installation, so you to (?)  [pick the desktop environment](/docs/general-use/switching-desktop-environments/) as well as what [metapackages](/docs/general-use/metapackages/) get installed. This image is powered by [simple-cdd](https://wiki.debian.org/Simple-CDD) _(which uses `debian-cd` to make `Debian-Installer`)_.
+- Installer Image - allows for you to customize Kali by picking packaging during installation, such as picking the [desktop environment](/docs/general-use/switching-desktop-environments/) as well as what [metapackages](/docs/general-use/metapackages/) get installed. This image is powered by [simple-cdd](https://wiki.debian.org/Simple-CDD) _(which uses `debian-cd` to make `Debian-Installer`)_.
 
-You can configure virtually any aspect of your Kali ISO build, such as adding packages from outside of Kali network repositories, unattended installations to changing the default wallpaper. Pur build-scripts allows provides (??)  a framework that uses a configuration set to automate and customize all aspects of building the images. The Kali Linux development team use the same build-scripts to produce the official Kali ISO releases.
+You can configure virtually any aspect of your Kali ISO build, such as adding packages from outside of Kali network repositories, unattended installations to changing the default wallpaper. Our build-scripts provides a framework that uses a configuration set to automate and customize all aspects of building the images. The Kali Linux development team use the same build-scripts to produce the official Kali ISO releases.
 
 ## Where Should You Build Your ISO?
 
@@ -54,7 +54,7 @@ By default, it will generate a **Live Image**. If you want an **Installer Image*
 kali@kali:~/live-build-config$ ./build.sh --verbose --installer
 ```
 
-We are using the `--verbose` to output more on the screen rather than it being captured in just the `build.log` output.
+We are using the `--verbose` to output more on the screen rather than it being captured in just the `build.log` output. If you want even more output, you can use `--debug` instead, which will then give more information.
 
 - - -
 
@@ -99,7 +99,7 @@ $
 $ cd live-build-config/
 ```
 
-At this point, depending on the host OS and its version, we may need to edit  `build.sh` to bypass a version check for **debootstrap**. We do this by commenting out the `exit 1` below:
+At this point, depending on the host OS and its version, we may need to edit `build.sh` to bypass a version check for **debootstrap**. We do this by commenting out the `exit 1` below:
 
 ```console
 $ cat build.sh
@@ -113,7 +113,7 @@ $ cat build.sh
 $
 ```
 
-With that change made, the script should like (look?) as follows:
+With the above change made, `build.sh` should look similar:
 
 ```console
 $ cat build.sh
@@ -209,6 +209,12 @@ kali@kali:~/live-build-config$ ./build.sh --verbose --arch i386
 ## Using A Custom Network Mirror For Building (Optional)
 
 If you build multiple images, you will find you are often waiting on `build.sh` to finish. There are a few ways to speed up the build process, such as:
+
+<!--
+$ time ./build.sh --installer >/dev/null && time ./build.sh --live >/dev/null
+./build.sh --installer >/dev/null  164.10s user 12.80s system 49% cpu 5:55.25 total
+./build.sh --live >/dev/null  728.35s user 67.41s system 90% cpu 14:41.27 total
+-->
 
 - Building Installer images as they often build quicker than Live images
 - Have less packages included (such as switching `kali-linux-default` to `kali-linux-top10`)
