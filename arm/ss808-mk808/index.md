@@ -56,7 +56,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-$version-SS808.img of=/dev/sdb bs=4M
+$ dd if=kali-linux-2021.1-SS808.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

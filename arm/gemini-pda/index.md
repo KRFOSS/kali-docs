@@ -28,7 +28,7 @@ The page is left for historical value.
 
 - - -
 
-![](images/2018.11-Kali-Gem_medium.png)
+![](2018.11-Kali-Gem_medium.png)
 
 The [Gemini PDA](https://planetcom.squarespace.com/device/) is a multi-boot Android smartphone with a keyboard that supports the installation of up to three operating systems side-by-side (currently any three of the following: Android, Sailfish, Debian, Kali Linux).
 
@@ -74,11 +74,11 @@ Before flashing the device with a different firmware, it is a good idea to backu
 
 To create a backup of your NVRAM partition, first select the **Scatter-loading file** by pressing the **choose** button and select **_Gemini_x27_A20GB_L36GB_Multi_Boot.txt_** inside the downloaded and extracted firmware folder. You should now see a partition table similar to the following:
 
-![](images/Gemini-Partitions-Full-Firmware.png)
+![](Gemini-Partitions-Full-Firmware.png)
 
 Next go to the **Readback** tab and click on the **Add** button. A row will appear in the table as in the following screenshot:
 
-![](images/Image-Backup-1.png)
+![](Image-Backup-1.png)
 
 To back up the NVRAM partition, click the **Read Back** button, connect your Gemini to your PC, and power on the Gemini by pressing the **Esc** button for about a second or two. The flash tool will detect the unit and back up the partition.
 
@@ -91,13 +91,13 @@ To back up the NVRAM partition, click the **Read Back** button, connect your Gem
 - Select the **Firmware Upgrade** option from the drop down menu. This will automatically select all the partitions in the table
 - Your screen should look like the following:
 
-![](images/Gemini-Partitions-Full-Firmware.png)
+![](Gemini-Partitions-Full-Firmware.png)
 
 To start the flashing process, just click on the big **Download** button, connect your Gemini to your PC, and power on the Gemini by pressing the **Esc** button for about a second or two.
 
 Once booting, the flash tool will detect the unit and will start flashing the device with the selected firmware. The following screenshot shows a successfully completed flashing process:
 
-![](images/Gemini-Flashing-Success.png)
+![](Gemini-Flashing-Success.png)
 
 ### 5. Boot Notes
 
@@ -125,7 +125,7 @@ After logging in for the first time, we recommend the following steps:
 - Set "Turn off monitor(s) when lid is closed": **Applications** -> **Preferences** -> **LXQT settings** -> **Power Management**
 - Wi-Fi Setup: **Applications** -> **Usual applications** -> **Internet** -> **Conman UI Setup**
 
-![](images/kali-gem_connman.png)
+![](kali-gem_connman.png)
 
 - Run `bluetoothctl` on the command line to setup a mouse
 - This image comes with the [**kali-tools-top10** metapackage](https://tools.kali.org/kali-metapackages) pre-installed by default. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/) or by running:
@@ -144,7 +144,7 @@ Run the pre-installed **Magisk Manager** to complete the rooting process.
 
 To create a backup of your rootfs partition, click on the **Readback** tab in the flash tool and then on the **Add** button. A row will appear in the table as in the following screenshot:
 
-![](images/Image-Backup-1.png)
+![](Image-Backup-1.png)
 
 Double-click on the file name and enter the name and location of the resulting image file. In the next screen, change the start address and length to the following values:
 
@@ -153,7 +153,7 @@ Double-click on the file name and enter the name and location of the resulting i
 
 It should look like this screenshot:
 
-![](images/Image-Backup-2.png)
+![](Image-Backup-2.png)
 
 Click **OK** and then click **Readback**. Connect the Gemini and turn it on by pressing **OK**.
 

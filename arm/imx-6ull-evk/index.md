@@ -44,7 +44,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-$version-i.mx-6ull-evk.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.1-i.mx-6ull-evk.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card, and the size of the Kali Linux image.
