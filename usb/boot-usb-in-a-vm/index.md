@@ -1,9 +1,9 @@
 ---
-title: USB boot in a VM
+title: USB Boot in a VM
 description:
 icon:
 type: post
-weight: 400
+weight: 200
 author: ["gamb1t",]
 ---
 
