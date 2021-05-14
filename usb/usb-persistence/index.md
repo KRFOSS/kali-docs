@@ -1,5 +1,5 @@
 ---
-title: Adding Persistence to a Kali Linux "Live" USB Drive
+title: Adding Persistence to a Kali Linux Live USB Drive
 description:
 icon:
 type: post

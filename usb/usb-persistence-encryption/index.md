@@ -1,5 +1,5 @@
 ---
-title: USB Persistence & Encrypted Persistence
+title: Adding Encrypted Persistence to a Kali Linux Live USB Drive
 description:
 icon:
 type: post
