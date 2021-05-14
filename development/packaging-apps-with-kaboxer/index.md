@@ -78,7 +78,7 @@ be packaged with Kaboxer ("kaboxed" for short) is to write a
 but otherwise it's a standard Dockerfile. For instance, the
 `hello-cli` application uses the following Dockerfile:
 
-```plaintext
+```dockerfile
 FROM debian:stable-slim
 RUN apt update && apt install -y \
     python3 \
@@ -113,7 +113,7 @@ machine-readability, but it's also quite human-readable (and, more to
 the point, human-writable). A minimal `kaboxer.yaml` file could read
 like the following:
 
-```plaintext
+```yaml
 application:
   id: hello-cli
   name: Hello World for Kaboxer (CLI)
@@ -255,7 +255,7 @@ across containers. For instance, assuming we want to make the
 `/var/lib/hello-kbx` directory available to the container as
 `/data`, we'd add the following section to our component definition:
 
-```plaintext
+```yaml
 components:
   default:
     [...]
@@ -271,7 +271,7 @@ the following exposes port 8123 from the container (but no other: if
 the app itself uses several ports internally, only the published ports
 will be accessible from outside the container):
 
-```plaintext
+```yaml
 components:
   default:
     [...]
@@ -294,7 +294,7 @@ container, the other parts need to be started within that running
 container. Kaboxer automates that when the client components declare
 the following:
 
-```plaintext
+```yaml
 components:
   [...]
   gui:
@@ -311,7 +311,7 @@ network and plug the containers into this network. For instance, both
 ``hello-cli-kbx`` and ``hello-server-kbx`` define the following
 network:
 
-```plaintext
+```yaml
 components:
   default:
     [...]
@@ -340,7 +340,7 @@ the `kaboxer.yaml` file (with the `categories` field below `application`).
 Here's for example how you would put an application in the "Bluetooth
 tools" and "Wireless Attacks" categories:
 
-```plaintext
+```yaml
 application:
   [...]
   categories: Utility;06-02-bluetooth-tools;06-wireless-attacks
