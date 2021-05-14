@@ -49,6 +49,18 @@ image to run it.
 
 ### Prerequisites
 
+The commands described in this tutorial should be run from within the
+`hello-kbx` directory, which is part of the Kaboxer source code. You
+can get it with Git:
+
+```console
+kali@kali:~$ git clone https://gitlab.com/kalilinux/tools/kaboxer.git
+Cloning into 'kaboxer'...
+[…]
+
+kali@kali:~$ cd kaboxer/hello-kbx
+```
+
 Kaboxer needs access to the Docker daemon so you must ensure that your
 user has the required rights: it needs to be part either of the `docker`
 group (which has direct write access to the Docker socket) or of the
@@ -56,7 +68,12 @@ group (which has direct write access to the Docker socket) or of the
 
 If you installed Kali 2020.4 or newer, the initial user created during
 installation should already be part of the `kaboxer` group and have the
-required privileges (you can check with `id`).
+required privileges. You can check with the command `groups`:
+
+```console
+kali@kali:~$ groups
+[…] kaboxer […]
+```
 
 If your current user is not part of the `kaboxer` group, then you should
 grant the group membership with the following command:
@@ -83,14 +100,14 @@ FROM debian:stable-slim
 RUN apt update && apt install -y \
     python3 \
     python3-prompt-toolkit
-ARG KBX_APP_VERSION=0.5
-RUN mkdir /kaboxer; echo $KBX_APP_VERSION > /kaboxer/version
 COPY ./hello /usr/bin/hello
+RUN mkdir /kaboxer \
+ && hello version > /kaboxer/version
 ```
 
-Pretty straightforward, except for the two lines about
-`$KBX_APP_VERSION`. These are used by Kaboxer to track the
-"upstream" version of the application being packaged. Note the
+Pretty straightforward, except for the last lines that save the version
+of the application in `/kaboxer/version`. This is used by Kaboxer to
+track the "upstream" version of the application being packaged. Note the
 starting point of the image (which is based on a slimmed-down version
 of Debian), and the installation of a couple of packages that are
 dependencies of `hello-cli` (namely, `python3` and
@@ -108,7 +125,7 @@ how to run that image so that the kaboxed app can be seamlessly
 integrated within the system and run just like any other app. This is
 done via a `kaboxer.yaml` file; it will most likely be named
 `hello-cli.kaboxer.yaml`, in order to distinguish it from files
-for other apps. This file uses the YAML syntax for
+for other apps in the same directory. This file uses the YAML syntax for
 machine-readability, but it's also quite human-readable (and, more to
 the point, human-writable). A minimal `kaboxer.yaml` file could read
 like the following:
@@ -131,7 +148,7 @@ The required information is split into sections and subsections, with
 a clear structure. The `application` section describes the app
 itself; the `packaging` section contains metadata about the
 packaging of the app. The third section, `components`, describes
-each component of the app (there's only one for `hello-cli-kbx`, but
+each component of the app (there's only one for `hello-cli`, but
 we'll see a multi-component app later). The most important fields
 within each subsection are `executable`, which specifies how to
 start the app within the container, and `run_mode`, which describes
@@ -147,9 +164,9 @@ image:
 kali@kali:~$ kaboxer build hello-cli
 ```
 
-This command will run Docker stuff, so it requires some
-privileges: at least membership in the `docker` or `kaboxer`
-groups.
+As mentioned above, Kaboxer requires privileges to use Docker,
+hence this command will fail if you're not part of either the
+`docker` or the `kaboxer` group.
 
 Note that if the build fails, Kaboxer will not provide much information to
 figure out what's going wrong. In that case, you should try to build your
@@ -158,17 +175,46 @@ error message. Here's how you would do that (you need membership in the
 `docker` group, or root rights):
 
 ```console
-kali@kali:~$ docker build -f Dockerfile . -t kaboxer/hello-cli
+kali@kali:~$ docker build -f hello-cli.Dockerfile -t kaboxer/hello-cli .
 ```
 
-Once `kaboxer build` ran successfully, run the app in its container with
-the following command:
+Once `kaboxer build` ran successfully, let's try running the app in its
+container with the following command:
 
 ```console
 kali@kali:~$ kaboxer run hello-cli
+[…]
+PermissionError: [Errno 13] Permission denied: '/var/lib/hello-kbx'
+```
+
+Ouch! If you look into the file `hello-cli.kaboxer.yaml`, you can see
+that the directory `/var/lib/hello-kbx` is expected to exist in order
+to be mounted in the container at `/data`. Creating this directory
+requires root privileges, and it's something that would be done by the
+package manager if you were to install `hello-cli-kbx` with APT.
+
+For the sake of our example here, the most simple solution is to
+use another directory, that can be created automatically without
+requiring root privileges. Let's use `/tmp/hello-kbx` instead:
+
+```console
+$ sed -i 's;/var/lib/hello-kbx;/tmp/hello-kbx;' *.kaboxer.yaml
+```
+
+Now let's try to run the app again:
+
+```console
+kali@kali:~$ kaboxer run hello-cli
+fetch | save <value> | delete | exit ?
 ```
 
 Voilà, `hello-cli` is now running in isolation!
+
+There's not much it can do alone, and the next step would be to
+build `hello-server`, run it in a separate terminal, and then use
+`hello-cli` to communicate with the server. It should be
+straightforward enough so we won't cover this part, instead let's
+jump to the next topic: Debian packaging files.
 
 ### Adding Debian packaging files
 
@@ -178,9 +224,9 @@ a few files to enable the integration with Kaboxer:
 
 1. we add `kaboxer` to `Build-Depends` in `debian/control` so that
    the debhelper integration offered by Kaboxer is available at build-time
-1. we ensure that we have `${misc:Depends}` in the `Depends` fields in `debian/control`
-   so that `dh_kaboxer` can inject the appropriate dependency
-   (mainly on Docker and Kaboxer currently)
+1. we ensure that we have `${misc:Depends}` in the `Depends` fields in
+   `debian/control` so that `dh_kaboxer` can inject the appropriate
+   dependency (mainly on Docker and Kaboxer currently)
 1. we modify `debian/rules` to enable the debhelper integrations by
    changing the `dh $@` call into `dh $@ --with kaboxer
    --buildsystem=kaboxer`
@@ -188,14 +234,14 @@ a few files to enable the integration with Kaboxer:
 ```console
 kali@kali:~$ cat debian/control
 Source: hello-kbx
-[...]
-Build-Depends: debhelper-compat (= 13), kaboxer (>= 0.3)
-[...]
+[…]
+Build-Depends: debhelper-compat (= 13), kaboxer
+[…]
 
 Package: hello-cli-kbx
 Architecture: all
 Depends: ${misc:Depends}
-[...]
+[…]
 
 kali@kali:~$ cat debian/rules
 #!/usr/bin/make -f
@@ -213,13 +259,13 @@ the `kaboxer.yaml` file to point to it:
 
 ```console
 kali@kali:~$ cat kaboxer.yaml
-[...]
+[…]
 container:
   type: docker
   origin:
     registry:
-      url: https://registry.gitlab.com/kalilinux/packages/hello-kbx
-      image: kaboxer/hello
+      url: https://registry.gitlab.com
+      image: kalilinux/packages/hello-kbx/hello
 ```
 
 Or you can tell the build system to build the image and store it in the
@@ -258,7 +304,7 @@ across containers. For instance, assuming we want to make the
 ```yaml
 components:
   default:
-    [...]
+    […]
     mounts:
       - source: /var/lib/hello-kbx
         target: /data
@@ -274,7 +320,7 @@ will be accessible from outside the container):
 ```yaml
 components:
   default:
-    [...]
+    […]
     publish_ports:
       - 8123
 ```
@@ -296,9 +342,9 @@ the following:
 
 ```yaml
 components:
-  [...]
+  […]
   gui:
-    [...]
+    […]
     reuse_container: true
 ```
 
@@ -308,20 +354,20 @@ through the network. It would of course be possible to publish ports
 to the outside of the server container, but that would leave them open
 to the world; in that case, it's simpler to just define a private
 network and plug the containers into this network. For instance, both
-``hello-cli-kbx`` and ``hello-server-kbx`` define the following
+`hello-cli-kbx` and `hello-server-kbx` define the following
 network:
 
 ```yaml
 components:
   default:
-    [...]
+    […]
     networks:
       - hello-kbx
 ```
 
 This means that even though the server part is not accessible from the
 host outside the server container, it is accessible from the cli
-container: the cli can connect to the ``hello-server-kbx`` host and
+container: the cli can connect to the `hello-server-kbx` host and
 the connection will be automatically routed through the private
 network to the other container.
 
@@ -342,14 +388,26 @@ tools" and "Wireless Attacks" categories:
 
 ```yaml
 application:
-  [...]
+  […]
   categories: Utility;06-02-bluetooth-tools;06-wireless-attacks
 ```
+
+### Convenience command-line helpers
+
+If you run your applications from the command-line, it can be cumbersome
+to always type `kaboxer run --some-option --another-option APP`, hence Kaboxer
+automatically generates command-line helpers that are named after the
+application ID, the component name (if there's more than one component),
+and a `-kbx` suffix.
+
+With these helpers, you can simply start the hello server with
+`hello-server-kbx start`, run the cli with `hello-cli-kbx`, and finally
+stop the server with `hello-server-kbx stop`.
 
 ## Automating the build with GitLab CI
 
 To make it super easy to maintain Kaboxer applications, we are
-storing the Kaboxer files in git repositories and we rely on
+storing the Kaboxer files in Git repositories and we rely on
 GitLab CI to rebuild the Docker image every time that we push
 a change.
 
