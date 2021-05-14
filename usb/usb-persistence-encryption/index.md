@@ -3,7 +3,7 @@ title: USB Persistence & Encrypted Persistence
 description:
 icon:
 type: post
-weight: 210
+weight: 150
 author: ["g0tmi1k",]
 tags: ["dojo",]
 ---

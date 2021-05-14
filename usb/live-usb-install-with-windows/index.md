@@ -3,7 +3,7 @@ title: Making a Kali Bootable USB Drive (Windows)
 description:
 icon:
 type: post
-weight: 120
+weight: 50
 author: ["g0tmi1k",]
 ---
 
