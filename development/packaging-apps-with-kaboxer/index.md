@@ -62,7 +62,7 @@ If your current user is not part of the `kaboxer` group, then you should
 grant the group membership with the following command:
 
 ```
-$ sudo adduser $USER kaboxer
+kali@kali:~$ sudo adduser $USER kaboxer
 ```
 
 Note that the new group membership will only be visible after having
@@ -158,14 +158,14 @@ error message. Here's how you would do that (you need membership in the
 `docker` group, or root rights):
 
 ```console
-$ docker build -f Dockerfile . -t kaboxer/hello-cli
+kali@kali:~$ docker build -f Dockerfile . -t kaboxer/hello-cli
 ```
 
 Once `kaboxer build` ran successfully, run the app in its container with
 the following command:
 
 ```console
-$ kaboxer run hello-cli
+kali@kali:~$ kaboxer run hello-cli
 ```
 
 Voilà, `hello-cli` is now running in isolation!
@@ -186,7 +186,7 @@ a few files to enable the integration with Kaboxer:
    --buildsystem=kaboxer`
 
 ```console
-$ cat debian/control
+kali@kali:~$ cat debian/control
 Source: hello-kbx
 [...]
 Build-Depends: debhelper-compat (= 13), kaboxer (>= 0.3)
@@ -196,7 +196,8 @@ Package: hello-cli-kbx
 Architecture: all
 Depends: ${misc:Depends}
 [...]
-$ cat debian/rules
+
+kali@kali:~$ cat debian/rules
 #!/usr/bin/make -f
 
 %:
@@ -211,7 +212,7 @@ You can either push the image to some Docker registry and modify
 the `kaboxer.yaml` file to point to it:
 
 ```console
-$ cat
+kali@kali:~$ cat kaboxer.yaml
 [...]
 container:
   type: docker
@@ -226,7 +227,7 @@ package (beware, the package will be very large!) by setting the
 `DH_KABOXER_BUILD_STRATEGY` variable in `debian/rules`:
 
 ```console
-$ cat debian/rules
+kali@kali:~$ cat debian/rules
 #!/usr/bin/make -f
 
 export DH_KABOXER_BUILD_STRATEGY=tarball
