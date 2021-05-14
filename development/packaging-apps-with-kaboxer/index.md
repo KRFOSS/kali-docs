@@ -28,13 +28,13 @@ kali@kali:~$ sudo apt install -y kaboxer
 ## Introduction to Kaboxer
 
 The idea of Kaboxer is to prepare ready-to-run application images,
-make them available online in a docker registry and then let users
+make them available online in a Docker registry and then let users
 fetch those images and start/stop containers to run the applications. All
 those steps are handled with the `kaboxer` command line tool.
 
 To stay close to the usual way of distributing applications
 through Debian packages, Kaboxer makes it easy to build packages
-that will transparently download the docker image at installation
+that will transparently download the Docker image at installation
 time and that will seamlessly integrate the application in the system.
 This is notably achieved by providing some integration with the debhelper
 tool (with `dh_kaboxer` and a specific build system).
@@ -49,13 +49,13 @@ image to run it.
 
 ### Prerequisites
 
-Kaboxer needs access to the docker daemon so you must ensure that your
-user has the required rights: it needs to be part either of the docker
-group (which has direct write access to the docker socket) or of the
-kaboxer group (which can get the required permissions with `sudo`).
+Kaboxer needs access to the Docker daemon so you must ensure that your
+user has the required rights: it needs to be part either of the `docker`
+group (which has direct write access to the Docker socket) or of the
+`kaboxer` group (which can get the required permissions with `sudo`).
 
 If you installed Kali 2020.4 or newer, the initial user created during
-installation should already be part of the kaboxer group and have the
+installation should already be part of the `kaboxer` group and have the
 required privileges (you can check with `id`).
 
 If your current user is not part of the `kaboxer` group, then you should
@@ -151,9 +151,9 @@ This command will run Docker stuff, so it requires some
 privileges: at least membership in the `docker` or `kaboxer`
 groups.
 
-Note that if the build fails, kaboxer will not provide much information to
+Note that if the build fails, Kaboxer will not provide much information to
 figure out what's going wrong. In that case, you should try to build your
-docker image directly with `docker build` so that you can see the precise
+Docker image directly with `docker build` so that you can see the precise
 error message. Here's how you would do that (you need membership in the
 `docker` group, or root rights):
 
@@ -180,7 +180,7 @@ a few files to enable the integration with Kaboxer:
    the debhelper integration offered by Kaboxer is available at build-time
 1. we ensure that we have `${misc:Depends}` in the `Depends` fields in `debian/control`
    so that `dh_kaboxer` can inject the appropriate dependency
-   (mainly on docker and kaboxer currently)
+   (mainly on Docker and Kaboxer currently)
 1. we modify `debian/rules` to enable the debhelper integrations by
    changing the `dh $@` call into `dh $@ --with kaboxer
    --buildsystem=kaboxer`
@@ -204,10 +204,10 @@ $ cat debian/rules
 ```
 
 At this point, you can build a Debian package already but it will
-not work properly because it doesn't know how to retrieve the docker
+not work properly because it doesn't know how to retrieve the Docker
 image.
 
-You can either push the image to some docker registry and modify
+You can either push the image to some Docker registry and modify
 the `kaboxer.yaml` file to point to it:
 
 ```console
@@ -335,7 +335,7 @@ categories [in this
 file](https://gitlab.com/kalilinux/packages/kali-menu/-/blob/kali/master/menus/kali-applications.menu).
 
 Adding a category to the desktop file can be easily done through
-the kaboxer.yaml file (with the `categories` field below `application`).
+the `kaboxer.yaml` file (with the `categories` field below `application`).
 Here's for example how you would put an application in the "Bluetooth
 tools" and "Wireless Attacks" categories:
 
@@ -349,16 +349,16 @@ application:
 
 To make it super easy to maintain Kaboxer applications, we are
 storing the Kaboxer files in git repositories and we rely on
-GitLab CI to rebuild the docker image every time that we push
+GitLab CI to rebuild the Docker image every time that we push
 a change.
 
-The kaboxer project contains a [generic GitLab CI
+The Kaboxer project contains a [generic GitLab CI
 file](https://gitlab.com/kalilinux/tools/kaboxer/-/blob/master/gitlab-ci/build-docker-image.yml)
 that you can just remotely include in your project ([example
 here](https://gitlab.com/kalilinux/packages/covenant-kbx/-/blob/kali/master/debian/kali-ci.yml)).
-It will build the image and upload it to the project's docker registry
+It will build the image and upload it to the project's Docker registry
 provided by GitLab. The `kaboxer.yaml` file must be updated to reference
-the URL of that docker registry and kaboxer will then download the image
+the URL of that Docker registry and Kaboxer will then download the image
 from that location when needed.
 
 The repository also contains the Debian packaging files so that we can
