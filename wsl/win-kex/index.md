@@ -109,7 +109,6 @@ kali@kali:~$ sudo apt install -y kali-win-kex
     Refer to the [Win-KeX ESM usage documentation](/docs/wsl/win-kex-esm/) for further information.
 
   - Seamless mode:
-
 ![](win-kex-sl.png)
 
     To start Win-KeX in Seamless mode with sound support, run
