@@ -13,11 +13,11 @@ This document identifies and the describes our trademarks and provides guidance 
 
 ### Some of our Trademarks
 
-![](images/kali-tm.png)
-![](images/offsec-tm.png)
-![](images/dragon-tm.png)
-![](images/tryharder-tm.png)
-![](images/manindoor-tm.png)
+![](kali-tm.png)
+![](offsec-tm.png)
+![](dragon-tm.png)
+![](tryharder-tm.png)
+![](manindoor-tm.png)
 
 ### Use in Print, Web, Media and Public Display
 
