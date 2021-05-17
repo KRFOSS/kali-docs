@@ -10,7 +10,7 @@ tags: ["dojo",]
 
 In this workshop, we will examine the various features available to us when booting Kali Linux from USB devices. We will explore features such as persistence, creating LUKS encrypted persistence stores, and even dabble in "LUKS Nuking" our USB drive. The default Kali Linux ISOs (from 1.0.7 onwards) support USB encrypted persistence.
 
-**0x01 - Start by imaging the Kali ISO onto your USB drive (ours was /dev/sdb)**. Once done, you can inspect the USB partition structure using _parted /dev/sdb print_.
+**0x01 - Start by imaging the Kali ISO onto your USB drive (ours was /dev/sdb)**. Once done, you can inspect the USB partition structure using _parted /dev/sdb print_:
 
 {{% notice info %}}
 For ease of use, please use a root account. This can be done with "sudo su".
@@ -62,7 +62,7 @@ kali@kali:~$ cryptsetup --verbose --verify-passphrase luksFormat /dev/sdb3
 kali@kali:~$ cryptsetup luksOpen /dev/sdb3 my_usb
 ```
 
-**0x06 - Create an ext3 filesystem and label it**.
+**0x06 - Create an ext3 filesystem and label it**:
 
 ```console
 kali@kali:~$ mkfs.ext3 /dev/mapper/my_usb
@@ -91,7 +91,7 @@ kali@kali:~$ parted /dev/sdb print
 
 We can add additional persistence stores to the USB drive, both encrypted or not…and choose which persistence store we want to load, at boot time. Let's create one more additional non-encrypted store. We'll label and call it "work".
 
-**0x01 - Create an additional, 4th partition which will hold the "work" data**. We'll give it another 5GB of space.
+**0x01 - Create an additional, 4th partition which will hold the "work" data**. We'll give it another 5GB of space:
 
 ```console
 kali@kali:~$ parted /dev/sdb
@@ -114,7 +114,7 @@ Number  Start   End     Size    Type     File system  Flags
 Information: You may need to update /etc/fstab.
 ```
 
-**0x02 - Format the fourth partition, label it "work"**.
+**0x02 - Format the fourth partition, label it "work"**:
 
 ```console
 kali@kali:~$ mkfs.ext3 /dev/sdb4

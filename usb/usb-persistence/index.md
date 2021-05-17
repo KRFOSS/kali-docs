@@ -21,9 +21,9 @@ You'll need to have root privileges to do this procedure, or the ability to esca
 
 In this example, we assume:
 
-- you are running as the **root user**. As of Kali Linux 2020.1, we do not use root user by default. You can switch to root using the command "sudo bash".
+- you are running as the **root user**. As of Kali Linux 2020.1, we do not use root user by default. You can switch to root using the command "sudo bash"
 - your USB drive is `/dev/sdb`
-- your USB drive has a capacity of **at least 8GB** — the Kali Linux image takes over 3GB, and for this guide, we'll be creating a new partition of about 4GB to store our persistent data in.
+- your USB drive has a capacity of **at least 8GB** — the Kali Linux image takes over 3GB, and for this guide, we'll be creating a new partition of about 4GB to store our persistent data in
 - you are running on a separate Linux system (cannot be Live Boot Kali)
 
 In this example, we'll create a new partition to store our persistent data into, starting right above the second Kali Live partition and ending at 7GB, put an ext3 file system onto it, and create a `persistence.conf` file on the new partition.
