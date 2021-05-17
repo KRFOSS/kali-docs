@@ -20,15 +20,15 @@ deb http://http.kali.org/kali kali-rolling main non-free contrib
 kali@kali:~$
 ```
 
-
 If the output doesn't exactly match up to the above output, you may not be able to install any new additional packages or receive updates.
 This may happen for any number of reasons, such as:
 
-- You did an off-line install (such as missing a network connection during installation).
 - You have switched your [branch](/docs/general-use/kali-branches/).
-- Using a different (hardcoded) [mirror](/docs/community/kali-linux-mirrors/).
+- Using a different hardcoded [mirror](/docs/community/kali-linux-mirrors/).
 
 You will probably want to read the "switching branches" section to alter this.
+
+Since [Kali 2020.3](https://www.kali.org/blog/kali-linux-2020-3-release/), after Kali's setup is complete, network repositories will be enabled by default, even if there was no network access during installation.
 
 ## Switching Branches/Regular Repositories
 
@@ -68,11 +68,11 @@ deb   http://http.kali.org/kali   kali-rolling   main non-free contrib
 - **Branch** is what [version of Kali](/docs/general-use/kali-branches/) you wish to use.
 - **Component** is what packages you wish to use, based on the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract#guidelines). Kali defaults to everything.
 
-## Default Off-line Install Values
+## Default Offline Install Values
 
-During the Kali setup process, if you don't have access to a network connection to reach a repository, you will perform an off-line installation of Kali Linux. You will be limited to the packages & the version which is on the medium you installed Kali from. This will then configure Kali to continue to use this medium to install packages from, even after Kali has been installed.
+During the Kali setup process, if you don't have access to a network connection to reach a repository, you will perform an offline installation of Kali Linux. You will be limited to the packages & the version which is on the medium you installed Kali from. This will then configure Kali to continue to use this medium to install packages from, even after Kali has been installed.
 
-This means you will not get any updates to packages, or any new additional tools, which can be frustrating. You can see if you the off-line media enabled if your values match up with whats below (or if you want to enable this option):
+This means you will not get any updates to packages, or any new additional tools, which can be frustrating. You can see if you the offline media enabled if your values match up with whats below (or if you want to enable this option):
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
