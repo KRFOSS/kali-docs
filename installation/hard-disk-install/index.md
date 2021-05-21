@@ -7,11 +7,11 @@ weight: 100
 author: ["gamb1t",]
 ---
 
-Installing Kali Linux (Single boot) on your computer is an easy process. This guide will cover the basic install (which can be done on bare metal or guest VM), with the option of encrypting the partition. At times, you may have sensitive data you would prefer to encrypt using Full Disk Encryption (FDE). During the setup process you can initiate an LVM encrypted install on either Hard Disk or USB drives.
+Installing Kali Linux (single boot) on your computer is an easy process. This guide will cover the basic install (which can be done on bare metal or [guest VM](/docs/virtualization/)), with the option of encrypting the partition. At times, you may have sensitive data you would prefer to encrypt using Full Disk Encryption (FDE). During the setup process you can initiate an LVM encrypted install on either Hard Disk or USB drives.
 
 First, you'll need compatible computer hardware. Kali Linux is supported on amd64 (x86_64/64-Bit) and i386 (x86/32-Bit) platforms. Where possible, we would **recommend using the amd64 images**. The hardware requirements are minimal as listed in the section below, although better hardware will naturally provide better performance. You should be able to use Kali Linux on newer hardware with UEFI and older systems with BIOS.
 
-Our i386 images, by default use a [PAE](https://en.wikipedia.org/wiki/Physical_Address_Extension) [kernel](https://pkg.kali.org/pkg/linux), so you can run them on systems with over 4GB of RAM.
+Our i386 images, by default use a [PAE](https://en.wikipedia.org/wiki/Physical_Address_Extension) [kernel](https://pkg.kali.org/pkg/linux), so you can run them on systems with over 4 GB of RAM.
 
 In our example, we will be installing Kali Linux in a fresh guest VM, without any existing operating systems pre-installed. We will explain other possible scenarios throughout the guide.
 
@@ -20,7 +20,7 @@ In our example, we will be installing Kali Linux in a fresh guest VM, without an
 The installation requirements for Kali Linux will vary depending on what you would like to install and your setup. For system requirements:
 
 - On the low end, you can set up Kali Linux as a basic Secure Shell (SSH) server with no desktop, using **as little as 128 MB of RAM (512 MB recommended)** and **2 GB of disk space**.
-- On the higher end, if you opt to install the default Xfce4 desktop and the `kali-linux-default` [metapackage](/docs/general-use/metapackages/), you should really aim for **at least 2048 MB of RAM** and **20 GB of disk space**.
+- On the higher end, if you opt to install the default Xfce4 desktop and the `kali-linux-default` [metapackage](/docs/general-use/metapackages/), you should really aim for **at least 2 GB of RAM** and **20 GB of disk space**.
   - When using resource-intensive applications, such as Burp Suite, [they recommend](https://portswigger.net/support/burp-suite-software-faqs) at least **8 GB of RAM** _(and even more if it large web application!)_ or using simultaneous programs at the same time.
 
 ### Installation Prerequisites
@@ -172,10 +172,11 @@ If network access was not setup, you will want to **continue with setup** when p
 {{% /notice %}}
 
 {{% notice info %}}
-If you are using the **Live** image, you will not have the following stage
+If you are using the **Live** image, you will not have the following stage.
 {{% /notice %}}
 
 14. Next you can select which [metapackages](/docs/general-use/metapackages/) you would like to install. The default selections will install a standard Kali Linux system and you don't really have to change anything here.
+
 Please [refer to this guide](/docs/introduction/what-image-to-download/#which-desktop-environment-and-software-collection-to-choose-during-installation) if you prefer to change the default selections.
 
 ![](setup-default-metapackages.png)
