@@ -24,7 +24,7 @@ kali@kali:~$
 
 - `kali-linux-core`: Base Kali Linux System – core items that are always included
 - `kali-linux-headless`: Default install that doesn't require GUI
-- `kali-linux-default`: "Default" desktop (AMD64/i386) images include these tools
+- `kali-linux-default`: "Default" desktop (amd64/i386) images include these tools
 - `kali-linux-light`: Kali-Light images use this to be generated
 - `kali-linux-arm`: All tools suitable for ARM devices
 - `kali-linux-nethunter`: Tools used as part of Kali NetHunter
@@ -71,7 +71,7 @@ kali@kali:~$
 
 ## Others
 
-- `kali-linux-large`: Our previous default tools for AMD64/i386 images
+- `kali-linux-large`: Our previous default tools for amd64/i386 images
 - `kali-linux-everything`: Every metapackage and tool listed here
 - `kali-tools-top10`: The most commonly used tools
 - `kali-desktop-live`: Used during a live session when booted from the image
