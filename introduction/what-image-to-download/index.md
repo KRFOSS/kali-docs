@@ -7,7 +7,7 @@ weight: 40
 author: ["Re4son",]
 ---
 
-In this section, we will describe the process of installing Kali Linux on 32-bit and 64-bit hardware using the images published on the [Kali Linux download page](https://www.kali.org/downloads/).
+In this section, we will describe the process of installing Kali Linux on 32-bit and 64-bit hardware using the images published on the [Kali Linux download page](/downloads/).
 
 #### Content
 
@@ -18,7 +18,7 @@ In this section, we will describe the process of installing Kali Linux on 32-bit
 
 #### Which Image to Choose
 
-The [Kali Linux download page](https://www.kali.org/downloads/) offers three different image types (**Installer**, **NetInstaller** and **Live**) for download, each available for both 32-bit and 64-bit architectures.
+The [Kali Linux download page](/downloads/) offers three different image types (**Installer**, **NetInstaller** and **Live**) for download, each available for both 32-bit and 64-bit architectures.
 
 **If in doubt, use the "Installer" image**. You will need to check your system architecture to know whether to get 32-bit or 64-bit. If you don't know it, you're best to research how to find out _(As a rule of thumb, if your machine's newer than 2005 you should be okay with amd64/x64/64-bit)_
 

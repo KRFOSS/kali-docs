@@ -28,7 +28,7 @@ This may happen for any number of reasons, such as:
 
 You will probably want to read the "switching branches" section to alter this.
 
-Since [Kali 2020.3](https://www.kali.org/blog/kali-linux-2020-3-release/), after Kali's setup is complete, network repositories will be enabled by default, even if there was no network access during installation.
+Since [Kali 2020.3](/blog/kali-linux-2020-3-release/), after Kali's setup is complete, network repositories will be enabled by default, even if there was no network access during installation.
 
 ## Switching Branches/Regular Repositories
 

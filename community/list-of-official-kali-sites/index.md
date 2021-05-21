@@ -20,7 +20,7 @@ The sites listed below are the ONLY official outlets for the Kali Linux Distribu
 The main [Kali Linux website](/) is our primary means of communicating news about the Kali Linux project, general introductory information, and general updates about the project and its ongoing development.
 Blog posts about new tools, features, Kali Linux tips, tricks, and tutorials can be found here. This should be _your one and only source_ to [download](/downloads/) the official Kali Linux distribution.
 
-**[kali.org/docs/](https://www.kali.org/docs/)**
+**[kali.org/docs/](/docs/)**
 
 Where you are right now. The Kali Linux [documentation](/docs/) site contains a basic set of Kali Linux-related documentation and tutorials, which we continually work to update and improve.
 For [BackTrack](https://www.backtrack-linux.org/) users, the changes introduced in Kali are substantial and we have tried to address a broad range of common issues.
