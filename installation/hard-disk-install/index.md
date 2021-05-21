@@ -21,6 +21,7 @@ The installation requirements for Kali Linux will vary depending on what you wou
 
 - On the low end, you can set up Kali Linux as a basic Secure Shell (SSH) server with no desktop, using **as little as 128 MB of RAM (512 MB recommended)** and **2 GB of disk space**.
 - On the higher end, if you opt to install the default Xfce4 desktop and the `kali-linux-default` [metapackage](/docs/general-use/metapackages/), you should really aim for **at least 2048 MB of RAM** and **20 GB of disk space**.
+  - When using resource-intensive applications, such as Burp Suite, [they recommend](https://portswigger.net/support/burp-suite-software-faqs) at least **8 GB of RAM** _(and even more if it large web application!)_ or using simultaneous programs at the same time.
 
 ### Installation Prerequisites
 
