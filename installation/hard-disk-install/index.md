@@ -135,7 +135,7 @@ If you want to encrypt Kali Linux, you can enable Full Disk Encryption (FDE), by
 
 - - -
 
-11. Depending on your needs, you can choose to keep all your files in a single partition — the default — or to have separate partitions for one or more of the top-level directories.
+11. Depending on your needs, you can choose to keep all your files in a single partition - the default - or to have separate partitions for one or more of the top-level directories.
 
 If you're not sure which you want, you want "**All files in one partition**".
 

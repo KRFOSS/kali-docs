@@ -142,7 +142,7 @@ There's a scheduler that will regularly trigger all possible jobs
 on all possible packages (the allowed combinations are defined
 in the [policy.conf
 file](https://gitlab.com/kalilinux/internal/janitor.kali.org/-/blob/master/policy.conf)
-— that file is only accessible to Kali developers). You can see the [resulting
+- that file is only accessible to Kali developers). You can see the [resulting
 queue](https://janitor.kali.org/cupboard/queue).
 
 Then we have a worker that runs all those jobs. A job is usually

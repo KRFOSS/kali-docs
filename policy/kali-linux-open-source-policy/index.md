@@ -11,7 +11,7 @@ Kali Linux is a Linux distribution that aggregates thousands of free software [p
 
 As the specific exception to the above, Kali Linux's non-free section contains several tools which are not open source, but which have been made available for redistribution by [Offensive Security](https://www.offensive-security.com/) through default or specific licensing agreements with the vendors of those tools.
 
-If you want to build a Kali derivative, you should _review the license_ of each Kali-specific non-free package before including it in your distribution — but note that non-free packages which are imported from Debian are safe to redistribute.
+If you want to build a Kali derivative, you should _review the license_ of each Kali-specific non-free package before including it in your distribution - but note that non-free packages which are imported from Debian are safe to redistribute.
 
 More importantly, all of the specific developments in Kali Linux's infrastructure or its integration with the included software have been put under the [GNU GPL](http://www.gnu.org/licenses/gpl.html).
 

@@ -49,7 +49,7 @@ The [Kali Linux Package Tracker](https://pkg.kali.org/) site allows you to follo
 
 ### Social Media
 
-We're on social media — follow us on Twitter, "like" our official Facebook page to keep up with important announcements and news.
+We're on social media - follow us on Twitter, "like" our official Facebook page to keep up with important announcements and news.
 
 **Twitter**
 

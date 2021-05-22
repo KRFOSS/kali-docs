@@ -21,7 +21,7 @@ Help us help you! To give us the best start in getting your issue resolved:
 
 - Supply all the information you can. Try to stick to what's relevant, but if you're uncertain, too much is better than too little.
 - Keep your bug report objective and try to stick to the facts at hand.
-- Be very clear about what _is_ a fact — document these whenever possible, via logs, scrollback captures, etc. — and what is a hypothesis on your part.
+- Be very clear about what _is_ a fact - document these whenever possible, via logs, scrollback captures, etc. - and what is a hypothesis on your part.
 - Do not quote Wikipedia and other non-primary resources as "facts" in your submission. What's happening on your system is what's at issue, not what Wikipedia claims
 - Do not stack multiple issues into a single report; submit additional reports as needed. One person should submit one report, for one bug, on one particular hardware combination. Trying to stack multiple variations into a single report makes any specific issue in there very difficult to tease out. What seem like similar bugs to you may in fact turn out to be unrelated.
 - If one of the developers asks for additional information, please do your best to understand what's being asked for and provide it in a reasonable time. If you're not sure you understand what you're being asked for, ask for clarification, we'll do our best to provide more guidance. Do not post comments that are unhelpful such as "Me too!" or "+1".
@@ -66,9 +66,9 @@ The following fields are _mandatory_ within the report:
 
 Even though the other fields are not mandatory, we recommend you try to include as much information as possible within each option while paying special attention to the following fields:
 
-- Reproducibility — How reproducible is this bug? Always? Only sometimes? Only under specific circumstances?
-- Select Profile — We need to know what you're running, and what you're running it _on._
-- Steps to Reproduce — Be very clear here, and provide as much concrete detail as you can.
+- Reproducibility - How reproducible is this bug? Always? Only sometimes? Only under specific circumstances?
+- Select Profile - We need to know what you're running, and what you're running it _on._
+- Steps to Reproduce - Be very clear here, and provide as much concrete detail as you can.
 - Additional Information
 - Upload File (error logs, screenshot)
 
@@ -152,11 +152,11 @@ Please ensure you include the following where applicable:
 - The kernel version, shared C library, and any other details that seem appropriate
 - The output of the command `uname -a`
 - The output of the command` dpkg -s libc6 | grep ^Version`
-- If applicable, software version — ( i.e. `python -V`, etc.)
+- If applicable, software version - ( i.e. `python -V`, etc.)
 - Details of your hardware
-- If you are reporting an issue with a device driver, please provide full details on all hardware in your system — for a complete report on your system install lshw from the repos.
+- If you are reporting an issue with a device driver, please provide full details on all hardware in your system - for a complete report on your system install lshw from the repos.
 - Add any other details that seems relevant
-- Do not worry about the report being "too long" — as long as the information is relevant, include it.
+- Do not worry about the report being "too long" - as long as the information is relevant, include it.
 
 Here's an example of a good bug report, providing information that the development team can immediately use to reproduce and try to understand the bug:
 
@@ -231,7 +231,7 @@ Bug reports help the Kali Linux development team see the failure with their own 
 
 Describe everything in detail, stating the steps taken, what you saw, what you did, as well as the expected outcome.
 
-Attempt to find an issue or fix through research, if at all possible — remember, open source development is a participatory process! If you are able to provide a solution to fix the issue for your system, provide the developers with the same level of detail as you did when reporting the bug. It is important that the developers know _exactly_ what you did, so they can successfully repeat the process. This should not stop you from filing a full explanation of the symptom that caused the unexpected behaviour.
+Attempt to find an issue or fix through research, if at all possible - remember, open source development is a participatory process! If you are able to provide a solution to fix the issue for your system, provide the developers with the same level of detail as you did when reporting the bug. It is important that the developers know _exactly_ what you did, so they can successfully repeat the process. This should not stop you from filing a full explanation of the symptom that caused the unexpected behaviour.
 
 Write accurately, be clear, precise, and concise to ensure the developers cannot misinterpret what you are trying to convey.
 

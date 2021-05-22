@@ -83,7 +83,7 @@ kali@kali:~/kernel$ ls ../*.deb
 
 ### Install the Modified Kernel
 
-When the build has successfully completed, you can go ahead and install the new custom kernel and reboot your system. Please note that the specific kernel version numbers will vary — in our example, done on a Kali 2016.2 system, it was 4.9.2. Depending on the current kernel version you're building, you will need to adjust your commands accordingly.
+When the build has successfully completed, you can go ahead and install the new custom kernel and reboot your system. Please note that the specific kernel version numbers will vary - in our example, done on a Kali 2016.2 system, it was 4.9.2. Depending on the current kernel version you're building, you will need to adjust your commands accordingly.
 
 ```console
 kali@kali:~/kernel$ sudo dpkg -i ../linux-image-4.9.0-kali1-custom_4.9.2-1_amd64.deb

@@ -19,7 +19,7 @@ version of the source code found in the upstream git repository.
 ### Ensure you have the latest version of a specific tool
 
 With over 300 tools in our repository, it's close to impossible for us to
-keep every tool updated to their latest git version all the time — it's
+keep every tool updated to their latest git version all the time - it's
 already hard to do with official releases. However there are certainly
 cases where you really want the latest version. Consider this:
 

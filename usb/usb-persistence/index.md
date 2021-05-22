@@ -7,7 +7,7 @@ weight: 100
 author: ["g0tmi1k",]
 ---
 
-Kali Linux "Live" has two options in the default boot menu which enable persistence — the preservation of data on the "Kali Live" USB drive — across reboots of "Kali Live". This can be an extremely useful enhancement, and enables you to retain documents, collected testing results, configurations, etc., when running Kali Linux "Live" from the USB drive, even across different systems. The persistent data is stored in its own partition on the USB drive, which can also be optionally LUKS-encrypted.
+Kali Linux "Live" has two options in the default boot menu which enable persistence - the preservation of data on the "Kali Live" USB drive - across reboots of "Kali Live". This can be an extremely useful enhancement, and enables you to retain documents, collected testing results, configurations, etc., when running Kali Linux "Live" from the USB drive, even across different systems. The persistent data is stored in its own partition on the USB drive, which can also be optionally LUKS-encrypted.
 
 To make use of the USB persistence options at boot time, you'll need to do some additional setup on your "Kali Linux Live" USB drive; this article will show you how.
 
@@ -23,7 +23,7 @@ In this example, we assume:
 
 - you are running as the **root user**. As of Kali Linux 2020.1, we do not use root user by default. You can switch to root using the command "sudo bash"
 - your USB drive is `/dev/sdb`
-- your USB drive has a capacity of **at least 8GB** — the Kali Linux image takes over 3GB, and for this guide, we'll be creating a new partition of about 4GB to store our persistent data in
+- your USB drive has a capacity of **at least 8GB** - the Kali Linux image takes over 3GB, and for this guide, we'll be creating a new partition of about 4GB to store our persistent data in
 - you are running on a separate Linux system (cannot be Live Boot Kali)
 
 In this example, we'll create a new partition to store our persistent data into, starting right above the second Kali Live partition and ending at 7GB, put an ext3 file system onto it, and create a `persistence.conf` file on the new partition.
@@ -101,4 +101,4 @@ kali@kali:~$ umount /dev/mapper/my_usb
 kali@kali:~$ cryptsetup luksClose /dev/mapper/my_usb
 ```
 
-That's really all there is to it! To use the persistent data features, simply plug your USB drive into the computer you want to boot up Kali Live on — make sure your BIOS is set to boot from your USB device — and fire it up. When the Kali Linux boot screen is displayed, choose the persistent option you set up on your USB drive, either normal or encrypted.
+That's really all there is to it! To use the persistent data features, simply plug your USB drive into the computer you want to boot up Kali Live on - make sure your BIOS is set to boot from your USB device - and fire it up. When the Kali Linux boot screen is displayed, choose the persistent option you set up on your USB drive, either normal or encrypted.

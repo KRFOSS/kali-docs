@@ -26,7 +26,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
 -->
 To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of early 2021, the main package repository is about 1.1 TB and the ISO images repository is about 84 GB but you can expect those numbers to grow regularly. A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
 
-**Note on "Push Mirroring"** — The Kali Linux mirroring infrastructure uses SSH-based triggers to ping the mirrors when they need to be refreshed. This currently takes place 4 times a day.
+**Note on "Push Mirroring"** - The Kali Linux mirroring infrastructure uses SSH-based triggers to ping the mirrors when they need to be refreshed. This currently takes place 4 times a day.
 
 ### Create a User Account for the Mirror
 
