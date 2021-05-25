@@ -5,7 +5,6 @@ icon:
 type: post
 weight: 100
 author: ["lolando", "rhertzog",]
-draft: true
 ---
 
 Some applications can't be packaged properly, for example when they have
