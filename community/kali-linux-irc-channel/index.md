@@ -7,7 +7,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-Kali Linux has an official IRC channel, **#kali-linux**, on the [Freenode](https://freenode.net/) network. Please take a few moments to review the rules and guidelines below before joining the channel.
+Kali Linux has an official IRC channel, **#kali-linux**, on the [OFTC](https://oftc.net/) network. Please take a few moments to review the rules and guidelines below before joining the channel.
 
 ## #kali-linux IRC Rules and Guidelines
 
@@ -15,7 +15,7 @@ We try to remain as informal as possible but there _are_ some rules and we'd app
 
 ### Registered nickname
 
-We do require that users use a registered nickname on IRC. If you do not have one and would like to learn how to get one, the [Freenode site has a step by step](https://freenode.net/kb/answer/registration) you can follow.
+We do require that users use a registered nickname on IRC.  Once you are connected to the OFTC irc network, you can `/msg NickServ HELP REGISTER` for instructions on registering your nickname.
 
 ### How to Treat Other Users
 
@@ -33,11 +33,11 @@ We are a _family-friendly_ IRC channel and will not tolerate foul language. Save
 
 ### Staying on Topic
 
-We maintain no strict policy regarding off-topic chat in the channel however, the discussion of Kali Linux projects is the primary focus of the channel, so you may be asked to take discussions elsewhere, particularly if there are venues on **freenode** better suited to them (such as **#politics**), if there are other more relevant conversations going on, or if they're repetitive or otherwise seen by the channel staff as being detrimental to the good atmosphere of the channel.
+We maintain no strict policy regarding off-topic chat in the channel however, the discussion of Kali Linux projects is the primary focus of the channel, so you may be asked to take discussions elsewhere, particularly if there are venues on **OFTC** better suited to them (such as **#politics**), if there are other more relevant conversations going on, or if they're repetitive or otherwise seen by the channel staff as being detrimental to the good atmosphere of the channel.
 
 **Certain things are seen as being specifically off-topic. These topics include:**
 
-- **Support or encouragement of illegal activity** - it should go without saying, but we don't exist to help you break the law or do things you shouldn't be doing. Such queries are absolutely off-topic for the channel, for freenode as a whole, and may very well get you removed from the channel and/or network. Please don't ask. Laws vary from country to country and channel OPs may determine whether a specific discussion is appropriate for the channel or not.
+- **Support or encouragement of illegal activity** - it should go without saying, but we don't exist to help you break the law or do things you shouldn't be doing. Such queries are absolutely off-topic for the channel, for OFTC as a whole, and may very well get you removed from the channel and/or network. Please don't ask. Laws vary from country to country and channel OPs may determine whether a specific discussion is appropriate for the channel or not.
 - **Warez/cracks/pirated software** - these too are off-topic for the channel and network so again: please don't ask.
 - **Political and religious matters** - Many people have very strong political/religious beliefs and we respect that. We also recognize that these are volatile and contentious topics which have nothing to do with Kali Linux, penetration testing, or anything related to those subjects, and are best discussed elsewhere.
 
