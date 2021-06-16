@@ -3,7 +3,7 @@ title: Download Kali Linux Images Securely
 description:
 icon:
 type: post
-weight: 500
+weight: 51
 author: ["daniruiz",]
 ---
 
