@@ -2,7 +2,6 @@
 title: Adding Encrypted Persistence to a Kali Linux Live USB Drive
 description:
 icon:
-type: post
 weight: 150
 author: ["g0tmi1k",]
 tags: ["dojo",]

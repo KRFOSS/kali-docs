@@ -2,7 +2,6 @@
 title: Installing Tor Browser on Kali Linux
 description:
 icon:
-type: post
 weight:
 author: ["gad3r",]
 ---

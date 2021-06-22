@@ -2,7 +2,6 @@
 title: Kali NetHunter History
 description:
 icon:
-type: post
 weight: 500
 author: ["g0tmi1k",]
 ---

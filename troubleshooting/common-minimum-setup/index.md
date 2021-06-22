@@ -2,7 +2,6 @@
 title: Minimum Install Setup Information
 description:
 icon:
-type: post
 weight: 11
 author: ["gamb1t",]
 ---

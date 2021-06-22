@@ -2,7 +2,6 @@
 title: Penetration Testing Tools Policy
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

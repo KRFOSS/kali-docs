@@ -2,7 +2,6 @@
 title: Kali inside VirtualBox (Guest VM)
 description:
 icon:
-type: post
 weight: 210
 author: ["g0tmi1k",]
 ---

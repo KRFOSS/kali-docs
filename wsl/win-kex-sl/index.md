@@ -2,7 +2,6 @@
 title: Win-KeX SL
 description: Win-KeX Seamless Mode
 icon: ti-pin
-type: post
 weight:
 author: ["Re4son",]
 ---

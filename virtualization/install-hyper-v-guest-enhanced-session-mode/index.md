@@ -2,7 +2,6 @@
 title: Installing Hyper-V Enhanced Session Mode (Guest Tools)
 description:
 icon:
-type: post
 weight: 320
 author: ["mimura1133",]
 ---

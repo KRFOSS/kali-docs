@@ -2,7 +2,6 @@
 title: Kali Linux Metapackages
 description:
 icon:
-type: post
 weight: 5
 author: ["gamb1t", "g0tmi1k",]
 ---

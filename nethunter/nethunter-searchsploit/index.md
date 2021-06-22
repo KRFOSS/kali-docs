@@ -2,7 +2,6 @@
 title: NetHunter Exploit Database SearchSploit
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

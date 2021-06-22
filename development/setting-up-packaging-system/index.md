@@ -2,7 +2,6 @@
 title: Setting Up A System For Packaging
 description:
 icon:
-type: post
 weight: 10
 author: ["gamb1t",]
 ---

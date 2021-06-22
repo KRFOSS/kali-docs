@@ -2,7 +2,6 @@
 title: Digital Ocean
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

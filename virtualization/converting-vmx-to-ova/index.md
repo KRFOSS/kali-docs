@@ -2,7 +2,6 @@
 title: Converting VMX to an OVA
 description:
 icon:
-type: post
 weight: 400
 author: ["gamb1t",]
 ---

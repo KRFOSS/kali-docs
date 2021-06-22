@@ -2,7 +2,6 @@
 title: All about sudo
 description:
 icon:
-type: post
 weight: 6
 author: ["gamb1t",]
 ---

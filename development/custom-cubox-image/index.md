@@ -2,7 +2,6 @@
 title: Custom CuBox Image
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 ---

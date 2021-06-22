@@ -2,7 +2,6 @@
 title: Official Kali Linux Docker Images
 description:
 icon:
-type: post
 weight:
 author: ["rhertzog",]
 ---

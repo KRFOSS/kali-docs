@@ -2,7 +2,6 @@
 title: Using Kali Linux Docker Images
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

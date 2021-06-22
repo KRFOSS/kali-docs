@@ -2,7 +2,6 @@
 title: ODROID-C2
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/odroid-c2.sh

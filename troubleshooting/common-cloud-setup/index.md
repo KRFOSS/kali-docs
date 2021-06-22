@@ -2,7 +2,6 @@
 title: Common Cloud Based Setup Information
 description:
 icon:
-type: post
 weight: 11
 author: ["gamb1t",]
 ---

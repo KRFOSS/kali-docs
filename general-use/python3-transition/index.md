@@ -2,7 +2,6 @@
 title: Everything you need to know about the switch to Python 3
 description:
 icon:
-type: post
 weight: 15
 author: ["rhertzog",]
 ---

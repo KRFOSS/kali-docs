@@ -2,7 +2,6 @@
 title: NetHunter Bluetooth-Arsenal
 description:
 icon:
-type: post
 weight: 210
 author: ["yesimxev",]
 ---

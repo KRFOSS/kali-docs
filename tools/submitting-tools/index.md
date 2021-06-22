@@ -2,7 +2,6 @@
 title: Submitting tools to Kali
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

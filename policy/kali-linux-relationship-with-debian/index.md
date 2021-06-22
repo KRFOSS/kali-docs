@@ -2,7 +2,6 @@
 title: Kali's Relationship With Debian
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

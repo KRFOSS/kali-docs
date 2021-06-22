@@ -2,7 +2,6 @@
 title: NetHunter MAC Changer
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

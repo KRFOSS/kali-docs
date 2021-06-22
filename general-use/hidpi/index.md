@@ -2,7 +2,6 @@
 title: HiDPI (High Dots Per Inch) Display
 description:
 icon:
-type: post
 weight: 40
 author: ["g0tmi1k",]
 ---

@@ -2,7 +2,6 @@
 title: NetHunter BadUSB Attack
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

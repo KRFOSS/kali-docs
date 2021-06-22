@@ -2,7 +2,6 @@
 title: Installing NetHunter On the Gemini PDA
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

@@ -2,7 +2,6 @@
 title: AWS
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

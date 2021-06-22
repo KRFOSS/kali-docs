@@ -2,7 +2,6 @@
 title: Setting up RDP with Xfce
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

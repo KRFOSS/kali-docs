@@ -2,7 +2,6 @@
 title: NetHunter DuckHunter Attacks
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

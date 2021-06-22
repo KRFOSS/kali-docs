@@ -2,7 +2,6 @@
 title: NetHunter MANA Evil Access Point
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

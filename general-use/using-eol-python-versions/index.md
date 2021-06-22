@@ -2,7 +2,6 @@
 title: Using EoL Python Versions on Kali
 description:
 icon:
-type: post
 weight: 15
 author: ["gamb1t",]
 ---

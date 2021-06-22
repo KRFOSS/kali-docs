@@ -2,7 +2,6 @@
 title: Deploying Kali over Network PXE/iPXE Install
 description:
 icon:
-type: post
 weight: 400
 author: ["g0tmi1k",]
 ---

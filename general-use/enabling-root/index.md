@@ -3,7 +3,6 @@ title: Enabling Root
 description:
 icon:
 date: 2021-03-30
-type: post
 weight:
 author: ["gamb1t",]
 tags: ["",]

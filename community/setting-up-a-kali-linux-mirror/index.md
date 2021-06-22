@@ -2,7 +2,6 @@
 title: Setting Up a Kali Linux Mirror
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

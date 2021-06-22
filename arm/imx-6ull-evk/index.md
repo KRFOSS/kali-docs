@@ -2,7 +2,6 @@
 title: i.MX 6ULL EVK
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/i.mx-6ull-evk.sh

@@ -2,7 +2,6 @@
 title: How And Where To Get Help
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

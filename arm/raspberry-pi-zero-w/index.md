@@ -2,7 +2,6 @@
 title: Raspberry Pi Zero W
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-nexmon.sh

@@ -2,7 +2,6 @@
 title: Submitting Bugs for Kali Linux
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

@@ -2,7 +2,6 @@
 title: Updating Kali
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

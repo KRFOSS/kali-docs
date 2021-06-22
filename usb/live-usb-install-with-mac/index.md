@@ -2,7 +2,6 @@
 title: Making a Kali Bootable USB Drive (macOS/OS X)
 description:
 icon:
-type: post
 weight: 50
 author: ["g0tmi1k",]
 ---

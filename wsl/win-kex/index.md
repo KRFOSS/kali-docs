@@ -2,7 +2,6 @@
 title: Win-KeX
 description: Windows Subsystem for Linux 2 & Win-KeX
 icon: ti-pin
-type: post
 weight:
 author: ["Re4son",]
 ---

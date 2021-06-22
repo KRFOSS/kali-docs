@@ -2,7 +2,6 @@
 title: Get the latest unreleased features and bug fixes with Kali Bleeding Edge
 description:
 icon:
-type: post
 weight: 62
 author: ["rhertzog",]
 ---

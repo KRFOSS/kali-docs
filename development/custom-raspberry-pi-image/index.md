@@ -2,7 +2,6 @@
 title: Custom Raspberry Pi Image
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 ---

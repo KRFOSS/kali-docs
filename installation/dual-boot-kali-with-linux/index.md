@@ -2,7 +2,6 @@
 title: Dual Booting Kali with Linux
 description:
 icon:
-type: post
 weight: 200
 author: ["gamb1t",]
 ---

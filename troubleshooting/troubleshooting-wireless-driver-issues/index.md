@@ -2,7 +2,6 @@
 title: Troubleshooting Wireless Drivers
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

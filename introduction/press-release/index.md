@@ -2,7 +2,6 @@
 title: Kali Press Release
 description:
 icon:
-type: post
 weight: 449
 author: ["g0tmi1k",]
 ---

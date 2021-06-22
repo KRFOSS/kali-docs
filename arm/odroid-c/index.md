@@ -2,7 +2,6 @@
 title: ODROID-C0/C1/C1+
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/odroid-c.sh

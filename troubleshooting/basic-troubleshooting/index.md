@@ -2,7 +2,6 @@
 title: The Basics of Troubleshooting
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

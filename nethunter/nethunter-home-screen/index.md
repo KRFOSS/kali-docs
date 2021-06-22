@@ -2,7 +2,6 @@
 title: NetHunter Home Screen
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

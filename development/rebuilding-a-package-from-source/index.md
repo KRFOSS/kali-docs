@@ -2,7 +2,6 @@
 title: Rebuilding a Source Package
 description:
 icon:
-type: post
 weight: 60
 author: ["g0tmi1k",]
 ---

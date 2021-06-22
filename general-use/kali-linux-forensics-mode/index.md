@@ -2,7 +2,6 @@
 title: Kali Linux Forensics Mode
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

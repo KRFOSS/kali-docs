@@ -2,7 +2,6 @@
 title: Install NVIDIA GPU Drivers
 description:
 icon:
-type: post
 weight: 50
 author: ["g0tmi1k",]
 ---

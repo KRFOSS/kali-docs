@@ -2,7 +2,6 @@
 title: Installing snapd on Kali Linux
 description:
 icon:
-type: post
 weight:
 author: ["gad3r",]
 ---

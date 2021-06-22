@@ -2,7 +2,6 @@
 title: NetHunter USB-Arsenal
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

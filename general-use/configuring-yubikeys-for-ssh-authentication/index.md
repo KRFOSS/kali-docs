@@ -2,7 +2,6 @@
 title: Configuring Yubikeys for SSH Authentication
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

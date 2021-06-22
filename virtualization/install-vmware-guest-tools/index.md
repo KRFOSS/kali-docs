@@ -2,7 +2,6 @@
 title: Installing VMware Tools (Guest Tools)
 description:
 icon:
-type: post
 weight: 300
 author: ["g0tmi1k",]
 ---

@@ -2,7 +2,6 @@
 title: ODROID-U2/U3
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/odroid-u2.sh

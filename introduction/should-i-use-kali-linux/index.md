@@ -2,7 +2,6 @@
 title: Should I Use Kali Linux?
 description:
 icon:
-type: post
 weight: 20
 author: ["g0tmi1k",]
 ---

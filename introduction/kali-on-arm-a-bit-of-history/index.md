@@ -2,7 +2,6 @@
 title: Kali ARM History
 description:
 icon:
-type: post
 weight: 500
 author: ["steev",]
 ---

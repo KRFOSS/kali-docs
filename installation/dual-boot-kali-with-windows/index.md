@@ -2,7 +2,6 @@
 title: Dual Booting Kali with Windows
 description:
 icon:
-type: post
 weight: 220
 author: ["g0tmi1k",]
 ---

@@ -2,7 +2,6 @@
 title: Installing Kali on Mac Hardware
 description:
 icon:
-type: post
 weight: 110
 author: ["g0tmi1k",]
 ---

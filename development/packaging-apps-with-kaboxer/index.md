@@ -2,7 +2,6 @@
 title: Packaging Applications with Kaboxer
 description:
 icon:
-type: post
 weight: 100
 author: ["lolando", "rhertzog",]
 ---

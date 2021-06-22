@@ -2,7 +2,6 @@
 title: Installing VirtualBox on Kali (Host)
 description:
 icon:
-type: post
 weight: 110
 author: ["g0tmi1k",]
 ---

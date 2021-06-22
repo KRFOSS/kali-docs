@@ -2,7 +2,6 @@
 title: Kali Linux History
 description:
 icon:
-type: post
 weight: 450
 author: ["g0tmi1k",]
 ---

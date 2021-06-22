@@ -2,7 +2,6 @@
 title: Custom Beaglebone Black Image
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 ---

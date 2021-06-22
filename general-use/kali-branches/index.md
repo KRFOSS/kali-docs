@@ -2,7 +2,6 @@
 title: Kali Branches
 description:
 icon:
-type: post
 weight: 60
 author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
 ---

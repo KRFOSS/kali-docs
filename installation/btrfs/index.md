@@ -2,7 +2,6 @@
 title: BTRFS Install
 description:
 icon:
-type: post
 weight: 310
 author: ["re4son",]
 ---

@@ -2,7 +2,6 @@
 title: Updating Kali Linux on USB
 description:
 icon:
-type: post
 weight: 75
 author: ["gamb1t",]
 ---

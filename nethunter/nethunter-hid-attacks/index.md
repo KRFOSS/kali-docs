@@ -2,7 +2,6 @@
 title: NetHunter HID Keyboard Attacks
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

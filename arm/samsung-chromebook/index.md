@@ -2,7 +2,6 @@
 title: Samsung Chromebook (daisy_snow)
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-exynos.sh

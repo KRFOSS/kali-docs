@@ -2,7 +2,6 @@
 title: Kali Linux Xfce FAQ
 description:
 icon:
-type: post
 weight: 10
 author: ["re4son",]
 ---

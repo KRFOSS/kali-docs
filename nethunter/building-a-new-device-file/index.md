@@ -2,7 +2,6 @@
 title: Building a New Device File
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

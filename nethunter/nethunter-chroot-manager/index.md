@@ -2,7 +2,6 @@
 title: NetHunter Chroot Manager
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

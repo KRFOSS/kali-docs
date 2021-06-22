@@ -2,7 +2,6 @@
 title: Packages That Behave Differently With Non-root
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

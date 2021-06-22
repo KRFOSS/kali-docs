@@ -2,7 +2,6 @@
 title: Custom EfikaMX Image
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 ---

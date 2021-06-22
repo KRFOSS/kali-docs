@@ -2,7 +2,6 @@
 title: Introduction to packaging step-by-step example
 description:
 icon:
-type: post
 weight: 11
 author: ["gamb1t",]
 ---

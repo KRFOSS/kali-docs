@@ -2,7 +2,6 @@
 title: NanoPi2
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopi2.sh

@@ -2,7 +2,6 @@
 title: Custom Chromebook Image
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 ---

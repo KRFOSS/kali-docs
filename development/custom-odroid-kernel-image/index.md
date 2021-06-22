@@ -2,7 +2,6 @@
 title: Custom ODROID X2 U2 Image
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 ---

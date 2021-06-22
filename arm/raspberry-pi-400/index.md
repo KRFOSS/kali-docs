@@ -2,7 +2,6 @@
 title: Raspberry Pi 400
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-nexmon.sh

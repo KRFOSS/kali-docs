@@ -2,7 +2,6 @@
 title: Patching the Kernel
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

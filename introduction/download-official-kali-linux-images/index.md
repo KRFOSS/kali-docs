@@ -2,7 +2,6 @@
 title: Downloading Kali Linux
 description:
 icon:
-type: post
 weight: 50
 author: ["g0tmi1k", "gamb1t",]
 ---

@@ -2,7 +2,6 @@
 title: Installing VMware on Kali (Host)
 description:
 icon:
-type: post
 weight: 100
 author: ["g0tmi1k",]
 ---

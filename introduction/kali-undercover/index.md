@@ -2,7 +2,6 @@
 title: Kali Undercover
 description:
 icon:
-type: post
 weight: 100
 author: ["theGorkha",]
 ---

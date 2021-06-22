@@ -2,7 +2,6 @@
 title: Win-KeX Win
 description: Win-KeX Window Mode
 icon: ti-pin
-type: post
 weight:
 author: ["Re4son",]
 ---

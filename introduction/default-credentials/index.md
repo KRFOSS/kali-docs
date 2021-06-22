@@ -2,7 +2,6 @@
 title: Kali's Default Credentials
 description: What is Kali's password
 icon:
-type: post
 weight: 60
 author: ["g0tmi1k",]
 ---

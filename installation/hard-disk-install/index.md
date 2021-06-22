@@ -2,7 +2,6 @@
 title: Installing Kali Linux
 description:
 icon:
-type: post
 weight: 100
 author: ["gamb1t",]
 ---

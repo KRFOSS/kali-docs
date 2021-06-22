@@ -2,7 +2,6 @@
 title: Getting the best out of the Kali Bot
 description:
 icon:
-type: post
 weight: 21
 author: ["rhertzog",]
 ---

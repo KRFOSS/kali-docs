@@ -2,7 +2,6 @@
 title: Fixing DPI (Dots Per Inch) / Large Fonts
 description:
 icon:
-type: post
 weight: 40
 author: ["g0tmi1k",]
 ---

@@ -2,7 +2,6 @@
 title: Kali inside VMware (Guest VM)
 description:
 icon:
-type: post
 weight: 200
 author: ["g0tmi1k",]
 ---

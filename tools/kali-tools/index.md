@@ -2,7 +2,6 @@
 title: Kali Tools
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

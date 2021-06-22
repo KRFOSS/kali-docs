@@ -2,7 +2,6 @@
 title: Mini-X
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/mini-x.sh

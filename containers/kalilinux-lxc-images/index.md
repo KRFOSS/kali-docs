@@ -2,7 +2,6 @@
 title: Kali Linux LXC/LXD Images
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

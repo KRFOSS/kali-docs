@@ -2,7 +2,6 @@
 title: Installing VirtualBox Guest Addition (Guest Tools)
 description:
 icon:
-type: post
 weight: 310
 author: ["g0tmi1k",]
 ---

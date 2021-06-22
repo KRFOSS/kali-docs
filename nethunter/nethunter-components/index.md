@@ -2,7 +2,6 @@
 title: NetHunter Components
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---

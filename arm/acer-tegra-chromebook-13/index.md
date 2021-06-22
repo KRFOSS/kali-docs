@@ -2,7 +2,6 @@
 title: Acer Tegra Chromebook 13" (Nyan)
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-nyan.sh

@@ -2,7 +2,6 @@
 title: Custom MK/SS808 Image
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 ---

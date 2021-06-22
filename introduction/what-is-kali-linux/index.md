@@ -2,7 +2,6 @@
 title: What is Kali Linux?
 description:
 icon:
-type: post
 weight: 10
 author: ["g0tmi1k",]
 ---

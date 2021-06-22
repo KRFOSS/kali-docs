@@ -2,7 +2,6 @@
 title: Installing Docker on Kali Linux
 description:
 icon:
-type: post
 weight:
 author: ["gamb1t",]
 ---

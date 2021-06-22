@@ -2,7 +2,6 @@
 title: Dual Booting Kali with macOS/OS X
 description:
 icon:
-type: post
 weight: 210
 author: ["g0tmi1k",]
 ---

@@ -2,7 +2,6 @@
 title: Porting NetHunter to New Devices
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k",]
 ---

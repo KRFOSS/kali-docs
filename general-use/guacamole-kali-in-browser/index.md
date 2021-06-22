@@ -2,7 +2,6 @@
 title: Kali In The Browser (Guacamole)
 description:
 icon:
-type: post
 weight:
 author: ["g0tmi1k", "gamb1t",]
 ---

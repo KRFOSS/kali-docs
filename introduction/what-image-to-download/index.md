@@ -2,7 +2,6 @@
 title: Which Image Should I Download?
 description:
 icon:
-type: post
 weight: 40
 author: ["Re4son",]
 ---

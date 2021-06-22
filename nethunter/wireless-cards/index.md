@@ -2,7 +2,6 @@
 title: Wireless Cards and NetHunter
 description:
 icon:
-type: post
 weight:
 author: ["re4son",]
 ---
