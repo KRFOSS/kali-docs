@@ -2,7 +2,6 @@
 title: Kali NetHunter
 description: Kali on your Android phone
 icon: ti-mobile
-type: toc
 weight: 45
 author: ["Re4son",]
 ---
