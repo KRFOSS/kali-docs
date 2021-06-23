@@ -54,7 +54,7 @@ _At the time of writing, Etcher will use MBR. This is to allow for the most hard
 
 3. **Boot section** needs to point to point to the Kali Linux ISO file, which can be done by clicking the **SELECT** button
 
-4. Depending on your configuration, you can set the **Partiation scheme**, as well as **Target system**. If you are not sure, leave it as the default values.
+4. Depending on your configuration, you can set the **Partition scheme**, as well as **Target system**. If you are not sure, leave it as the default values.
 
 5. Click the **START** button once ready.
 
