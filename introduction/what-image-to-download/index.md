@@ -56,7 +56,7 @@ At this screen, you may wish to not install a desktop environment, then Kali Lin
 May wish to not to install any of the pre-defined software packages/bundles/collections ([metapackages](/docs/general-use/metapackages/)), giving you a finer degree of control of manually installing exactly what software you want. Alternatively you may want to be more prepared and install more than the default toolset.
 Please be aware, that there are more tools available in Kali which has be manually installed after the setup (as they all cannot be stored in the setup image).
 
-Overall, these extra offers of choices are for a more efficient installation experience meant for advanced users. Please be aware of there pitfalls
+Overall, these extra choices are for a more efficient installation experience, meant for advanced users. Please be aware of their pitfalls.
 
 - - -
 
