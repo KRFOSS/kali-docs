@@ -75,7 +75,7 @@ $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 or the command
 
 ```console
-$ gpg --keyserver hkp://keys.gnupg.net --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+$ gpg --keyserver hkps://keys.openpgp.org --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 ```
 
 Your output should look like this:
@@ -160,7 +160,7 @@ $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 or this command
 
 ```console
-$ gpg --keyserver hkp://keys.gnupg.net --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+$ gpg --keyserver hkps://keys.openpgp.org --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 ```
 
 Your output should look like this:
