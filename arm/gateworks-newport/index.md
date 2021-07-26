@@ -26,8 +26,6 @@ _This image is for the "Cavium OcteonTX" based boards._
 
 By default, the Kali Linux Gateworks Newport image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
- <!-- @steev: TODO: This is a community contributed image, so find out which specific Newport this is for as they have a number of them. -->
-
 ## Kali on the Gateworks Newport - User Instructions
 
 If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
