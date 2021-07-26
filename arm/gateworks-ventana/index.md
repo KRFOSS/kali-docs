@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/gateworks_ventana.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/gateworks-ventana.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: community
@@ -21,7 +21,7 @@ storage:
 
 The [Gateworks Ventana](https://www.gateworks.com/products/industrial-single-board-computers/imx6-single-board-computer-gateworks-ventana-family/) implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.
 
-_This image for the "Freescale" based._
+_This image is for the "NXP (formerly Freescale) i.MX6" based boards._
 
 By default, the Kali Linux Gateworks Ventana image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
@@ -53,4 +53,4 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 ## Kali on the Gateworks Ventana - Image Customization
 
-If you want to customize the Kali Gateworks Ventana image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `gateworks_ventana.sh`.
+If you want to customize the Kali Gateworks Ventana image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `gateworks-ventana.sh`.
