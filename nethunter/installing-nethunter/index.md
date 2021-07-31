@@ -37,7 +37,9 @@ If you devices is supported by NetHunter but not available as a pre-build image,
 Before the installation begins, you must enable _Developer mode_ on your device. This is done by navigating to _Settings_ -> _About_ and tapping on the _Build number_ field 7 times until you receive the notification that developer mode has been enabled. Go back to the main settings page and you will have a new section titled _Developer options_. Tap on the new _Developer options_ section and enable both the _Advanced Reboot_ and _Android Debugging_ options.
 
 &nbsp;
-## 3. - 5. Unlocking, rooting, and installing a custom recovery on your android device
+## 3. - 5. Unlockiimp@kali.org<details><summary>Click to expand</summary>
+
+</details>rooting, and installing a custom recovery on your android device
 
 NetHunter supports over 60 different devices running Android versions from Kitkat though to Android Q.
 Whilst we have standardised the NetHunter installation procedure, the steps to unlock, root, and install a custom recovery varies from device to device and even differs between Android versions.
