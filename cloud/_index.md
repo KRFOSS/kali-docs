@@ -1,6 +1,6 @@
 ---
 title: Cloud
-description: AWS, Azure, Digital Ocean & Linode
+description: AWS & Digital Ocean
 icon: ti-cloud
 weight: 40
 author: ["",]
