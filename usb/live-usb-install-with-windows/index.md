@@ -1,5 +1,5 @@
 ---
-title: Making a Kali Bootable USB Drive (Windows)
+title: Making a Kali Bootable USB Drive on Windows
 description:
 icon:
 weight: 50
@@ -31,9 +31,9 @@ The specifics of this procedure will vary depending on whether you're doing it o
 
 1. Plug your USB drive into an available USB port on your Windows PC, note which drive designator (e.g. "`G:\`") it uses once it mounts, and launch **Etcher**.
 
-2. Press **Flash from file**, and locate the Kali Linux ISO file to be imaged with.
+2. Click **Flash from file**, and locate the Kali Linux ISO file to be imaged with.
 
-3. Press **Select target** and check the list of options for the USB drive (e.g. "`G:\`", the manufacture and size).
+3. Click **Select target** and choose the USB drive you want to make bootable.
 
 4. Click the **Flash!** button once ready.
 
