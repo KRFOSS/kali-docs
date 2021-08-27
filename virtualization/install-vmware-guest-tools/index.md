@@ -6,7 +6,7 @@ weight: 300
 author: ["g0tmi1k",]
 ---
 
-Installing "Guest Tools", gives a better user experience with VMware VMs. This is why since Kali Linux 2019.3, during the [setup process](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) it should **detect if Kali Linux is inside a VM**. If it is, then **automatically install any additional tools** (in VMware case, `open-vm-tool`).
+Installing "Guest Tools", gives a better user experience with VMware VMs. This is why since Kali Linux 2019.3, during the [setup process](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) it should **detect if Kali Linux is inside a VM**. If it is, then **automatically install any additional tools** (in VMware case, `open-vm-tools` and `open-vm-tools-desktop`).
 
 As of September 2015, **VMware [recommends](https://blogs.vmware.com/vsphere/2015/09/open-vm-tools-ovt-the-future-of-vmware-tools-for-linux.html) using the distribution-specific [open-vm-tools](https://packages.debian.org/testing/open-vm-tools) (OVT)** instead of the VMware Tools package for guest machines.
 
