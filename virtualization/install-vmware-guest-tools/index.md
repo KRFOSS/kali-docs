@@ -6,9 +6,10 @@ weight: 300
 author: ["g0tmi1k",]
 ---
 
-Installing "Guest Tools", gives a better user experience with VMware VMs. This is why since Kali Linux 2019.3, during the [setup process](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) it should **detect if Kali Linux is inside a VM**. If it is, then **automatically install any additional tools** (in VMware case, `open-vm-tools` and `open-vm-tools-desktop`).
+Installing "Guest Tools", gives a better user experience with VMware VMs. This is why since Kali Linux 2019.3, during the [setup process](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) it should **detect if Kali Linux is inside a VM**. If it is, then **automatically install any additional tools** (in VMware case, `open-vm-tools` and `open-vm-tools-desktop`). The Guest Tools are also pre-installed in the Live image since Kali Linux 2021.3.
 
 As of September 2015, **VMware [recommends](https://blogs.vmware.com/vsphere/2015/09/open-vm-tools-ovt-the-future-of-vmware-tools-for-linux.html) using the distribution-specific [open-vm-tools](https://packages.debian.org/testing/open-vm-tools) (OVT)** instead of the VMware Tools package for guest machines.
+
 
 ## Open-VM-Tools
 
@@ -25,30 +26,18 @@ kali@kali:~$ sudo reboot -f
 kali@kali:~$
 ```
 
+
 ## Adding Support for Shared Folders When Using OVT
 
-Unfortunately, shared folders will not work out of the box. To enable this feature for your current session, you will need to execute the following script after logging in.
+Unfortunately, shared folders will not work out of the box, some additional scripts are needed. Those can be installed easily with `kali-tweaks`.
 
 ```console
-kali@kali:~$ cat <<EOF | sudo tee /usr/local/sbin/mount-shared-folders
-#!/bin/sh
-vmware-hgfsclient | while read folder; do
-  vmwpath="/mnt/hgfs/\${folder}"
-  echo "[i] Mounting \${folder}   (\${vmwpath})"
-  sudo mkdir -p "\${vmwpath}"
-  sudo umount -f "\${vmwpath}" 2>/dev/null
-  sudo vmhgfs-fuse -o allow_other -o auto_unmount ".host:/\${folder}" "\${vmwpath}"
-done
-sleep 2s
-EOF
-kali@kali:~$
-kali@kali:~$ sudo chmod +x /usr/local/sbin/mount-shared-folders
-kali@kali:~$
+kali@kali:~$ kali-tweaks
 ```
 
-- - -
+In the Kali Tweaks menu, select *Virtualization*, then *Install additional packages and scripts for VMware*. Congratulations, you now have two additional tools in your toolbox!
 
-All you then need todo is run.
+The first one is a little script to **mount the VMware Shared Folders**. Invoke it with:
 
 ```console
 kali@kali:~$ sudo mount-shared-folders
@@ -56,33 +45,10 @@ kali@kali:~$ sudo mount-shared-folders
 
 And with a bit of luck, checking `/mnt/hgfs/` you should see your shared folders.
 
-## Restarting OVT
-
-Some time to time, its not uncommon for OVT to stops functioning correctly (e.g. such as copy/paste between the host OS and guest VM stops working).
-
-By creating the following script, and then calling it when there is trouble, should fix a some issues.
-
-```console
-kali@kali:~$ cat <<EOF | sudo tee /usr/local/sbin/restart-vm-tools
-#!/bin/sh
-systemctl stop run-vmblock\\\\x2dfuse.mount
-killall -q -w vmtoolsd
-systemctl start run-vmblock\\\\x2dfuse.mount
-systemctl enable run-vmblock\\\\x2dfuse.mount
-vmware-user-suid-wrapper vmtoolsd -n vmusr 2>/dev/null
-vmtoolsd -b /var/run/vmroot 2>/dev/null
-EOF
-kali@kali:~$
-kali@kali:~$ sudo chmod +x /usr/local/sbin/restart-vm-tools
-kali@kali:~$
-```
-
-Afterwards just need to call it.
+The second script is a helper to **restart the VM tools**. Indeed, it's not uncommon for OVT to stops functioning correctly (e.g. such as copy/paste between the host OS and guest VM stops working). In this case, running this script can help to fix the issues:
 
 ```console
 kali@kali:~$ sudo restart-vm-tools
-...
-kali@kali:~$
 ```
 
 - - -
