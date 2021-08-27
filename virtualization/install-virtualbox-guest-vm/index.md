@@ -10,7 +10,7 @@ This guide is about virtualizing Kali Linux inside of VirtualBox, allowing you t
 
 You may wish to follow our other guide if you are trying to install VirtualBox on Kali Linux (as a [host](/docs/virtualization/install-virtualbox-host/)).
 
-The guide below is what we use to generate our [pre-made Kali Linux VirtualBox images](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/). You may alter this to your needs. We always generate the images using the [latest version of VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+The guide below is what we use to generate our [pre-made Kali Linux VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the [latest version of VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 {{% notice info %}}
 You may need to enable virtualization in your BIOS/UEFI for (e.g. Intel VT-x/AMD-V)

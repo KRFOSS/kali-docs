@@ -30,7 +30,7 @@ Building your own Kali Linux ISO, standard or customized, is [a very simple proc
 
 If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed. These image are available in a 64-bit (amd64), and 32-bit PAE (i\*86) formats.
 
-- [Official Kali Linux VMware Images](https://www.offensive-security.com/kali-linux-vmware-virtualbox-image-download/)
+- [Official Kali Linux VMware and VirtualBox Images](https://www.kali.org/get-kali/#kali-virtual-machines)
 
 ##### ARM Images
 
