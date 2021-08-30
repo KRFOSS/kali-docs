@@ -6,7 +6,7 @@ weight: 320
 author: ["jetbennett", "mimura1133",]
 ---
 
-Installing "Guest VM Packages", gives a better user experience with VMs in general. This is why since Kali Linux 2019.3, during the [setup process](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) it should **detect if Kali Linux is inside a VM**. If it is, then **automatically install any additional tools** (in Hyper-V's case, `hyperv-daemons`). The Kali Linux Live image also comes with hyperv-daemons pre-installed since kali Linux 2021.3.
+Installing "Guest VM Packages", gives a better user experience with VMs in general. This is why since Kali Linux 2019.3, during the [setup process](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) it should **detect if Kali Linux is inside a VM**. If it is, then **automatically install any additional tools** (in Hyper-V's case, `hyperv-daemons`). The Kali Linux Live image also comes with hyperv-daemons pre-installed since Kali Linux 2021.3.
 
 However this is not the end of the story, and more can be done to improve the experience afterwards. This is because Hyper-V can connect to Virtual Machines using **Remote Desktop Protocol** (RDP).
 
