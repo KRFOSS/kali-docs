@@ -15,10 +15,10 @@ $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 $ gpg --keyserver hkps://keys.openpgp.org --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 # ...and verify that the displayed fingerprint matches the one below
 $ gpg --fingerprint 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-pub rsa4096 2012-03-05 [SC] [expires: 2021-02-03]
-44C6 513A 8E4F B3D3 0875 F758 ED44 4FF0 7D8D 0BF6
-uid [ unknown] Kali Linux Repository <devel@kali.org>
-sub rsa4096 2012-03-05 [E] [expires: 2021-02-03]
+pub   rsa4096/0xED444FF07D8D0BF6 2012-03-05 [SC] [expires: 2023-01-16]
+      Key fingerprint = 44C6 513A 8E4F B3D3 0875  F758 ED44 4FF0 7D8D 0BF6
+uid                   [ unknown] Kali Linux Repository <devel@kali.org>
+sub   rsa4096/0xA8373E18FC0D0DCB 2012-03-05 [E] [expires: 2023-01-16]
 ```
 
 Color highlighted with "Copy as HTML" from gnome-terminal
@@ -29,10 +29,9 @@ Color highlighted with "Copy as HTML" from gnome-terminal
 <font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--keyserver</font> <font color="#2777ff">hkps://keys.openpgp.org</font> <font color="#9755B3">--recv-key</font> 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 # ...and verify that the displayed fingerprint matches the one below
 <font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--fingerprint</font> 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-pub rsa4096 2012-03-05 [SC] [expires: 2021-02-03]
-44C6 513A 8E4F B3D3 0875 F758 ED44 4FF0 7D8D 0BF6
+pub   rsa4096/0xED444FF07D8D0BF6 2012-03-05 [SC] [expires: 2023-01-16]
 uid [ unknown] Kali Linux Repository &lt;devel@kali.org&gt;
-sub rsa4096 2012-03-05 [E] [expires: 2021-02-03]
+sub   rsa4096/0xA8373E18FC0D0DCB 2012-03-05 [E] [expires: 2023-01-16]
 </code></pre>
 
 Once you have downloaded both **SHA256SUMS** and **SHA256SUMS.gpg**, you can verify the signature as follows:
