@@ -2,7 +2,6 @@
 title: 3D acceleration with Mesa 21 & Direct3D 12
 description: Enabled 3D acceleration for Kali Linux in WSL
 icon: ti-pin
-type: post
 weight:
 author: ["arnaudr",]
 ---

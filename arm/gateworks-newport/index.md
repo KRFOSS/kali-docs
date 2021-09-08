@@ -2,7 +2,6 @@
 title: Gateworks Newport
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/gateworks-newport.sh
