@@ -63,7 +63,7 @@ _At the time of writing, Etcher will use MBR. This is to allow for the most hard
 
 ![](Rufus2.png)
 
-_Note: If you select "DD Image" option, you can create another partition on the USB drive, allowing you to use the rest of the space. Start -> Run (Windows + R) -> `diskmgmt.msc` -> Locate the USB drive -> Right click in "Unallocated" -> New Simple Volume -> Follow the rest of the wizard with next, next, next..._
+_Note: If you select "DD Image" option, you can create another partition on the USB drive, allowing you to use the rest of the space. Start -> Run (Windows + R) -> `diskmgmt.msc` -> Locate the USB drive -> Right-click in "Unallocated" -> New Simple Volume -> Follow the rest of the wizard with next, next, next..._
 
 ![](Rufus3.png)
 
