@@ -3,7 +3,6 @@ title: Contributing run-time tests with autopkgtest
 description:
 icon:
 date: 2020-07-11
-type: post
 weight:
 author: ["gamb1t",]
 tags: ["",]
