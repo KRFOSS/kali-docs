@@ -4,7 +4,6 @@ description:
 icon:
 weight:
 author: ["re4son",]
-draft: true
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-pitail.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
