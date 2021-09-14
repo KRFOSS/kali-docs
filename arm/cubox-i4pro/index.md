@@ -23,7 +23,7 @@ SolidRun's [CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the 
 
 _This image for the "Freescale" based NOT the "Marvell" based (original)._
 
-By default, the Kali Linux CuBox-i4Pro image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux CuBox-i4Pro image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on CuBox-i4Pro - Build-Script Instructions
 

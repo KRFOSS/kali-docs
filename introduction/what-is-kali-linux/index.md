@@ -37,7 +37,7 @@ Tool count:
 - https://gitlab.com/kalilinux/packages/ + archived
 -->
 
-- **More than [600](/docs/policy/penetration-testing-tools-policy/) penetration testing tools included:** After reviewing every tool that was included in BackTrack, we eliminated a great number of tools that either simply did not work or which duplicated other tools that provided the same or similar functionality. Details on what's included are on the [Kali Tools](https://tools.kali.org/) site.
+- **More than [600](/docs/policy/penetration-testing-tools-policy/) penetration testing tools included:** After reviewing every tool that was included in BackTrack, we eliminated a great number of tools that either simply did not work or which duplicated other tools that provided the same or similar functionality. Details on what's included are on the [Kali Tools](https://www.kali.org/tools) site.
 - **Free (as in beer) and always will be:** Kali Linux, like BackTrack, is [completely free](/docs/policy/kali-linux-open-source-policy/) of charge and always will be. You will never, ever have to pay for Kali Linux.
 - **Open source Git tree:** We are committed to the open source development model and our [development tree](https://gitlab.com/kalilinux) is available for all to see. All of the source code which goes into Kali Linux is available for anyone who wants to tweak or rebuild [packages](https://pkg.kali.org/) to suit their specific needs.
 - **FHS compliant:** Kali adheres to the [Filesystem Hierarchy Standard](https://www.pathname.com/fhs/), allowing Linux users to easily locate binaries, support files, libraries, etc.

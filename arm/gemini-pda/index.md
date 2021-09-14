@@ -32,7 +32,7 @@ The page is left for historical value.
 
 The [Gemini PDA](https://planetcom.squarespace.com/device/) is a multi-boot Android smartphone with a keyboard that supports the installation of up to three operating systems side-by-side (currently any three of the following: Android, Sailfish, Debian, Kali Linux).
 
-By default, the Kali Linux Gemini PDA image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Gemini PDA image **does not** contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on the Gem PDA - User Instructions
 
@@ -128,7 +128,7 @@ After logging in for the first time, we recommend the following steps:
 ![](kali-gem_connman.png)
 
 - Run `bluetoothctl` on the command line to setup a mouse
-- This image comes with the [**kali-tools-top10** metapackage](https://tools.kali.org/kali-metapackages) pre-installed by default. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/) or by running:
+- This image comes with the [**kali-tools-top10** metapackage](https://www.kali.org/docs/general-use/metapackages/) pre-installed by default. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/) or by running:
 
 ```console
 kali@kali:~$ sudo apt update

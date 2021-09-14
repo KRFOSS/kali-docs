@@ -23,7 +23,7 @@ storage:
 
 The [Raspberry Pi Zero](https://www.raspberrypi.org/products/raspberry-pi-zero/) is a single core 1GHz, with 512MB of RAM. Unlike the [Raspberry Pi Zero W](/docs/arm/raspberry-pi-zero-w/), the Raspberry Pi Zero has **no networking** on the board, so you will need to use a USB adapter for networking. Kali Linux fits on an external microSD card.
 
-By default, the Kali Linux Raspberry Pi Zero image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Raspberry Pi Zero image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
 The Raspberry Pi images use [Re4son](https://twitter.com/re4sonkernel)'s kernel, which includes the drivers for external Wi-Fi cards, TFT displays, and the [nexmon](https://github.com/seemoo-lab/nexmon) firmware for the built-in wireless card on the [Raspberry Pi 3](/docs/arm/raspberry-pi-3/) and [4](/docs/arm/raspberry-pi-4/). You will not need to download it and install it, and doing so will likely be a downgrade over the current installed kernel.

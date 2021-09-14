@@ -132,7 +132,7 @@ You can see our hardware has been detected we are using **nvidia** rather than *
 
 ## Hashcat
 
-With the output displaying our driver and GPU correctly, we can now dive into benchmarking (using the CUDA toolkit). Before we get too far ahead, let's double check to make sure [hashcat](https://tools.kali.org/password-attacks/hashcat) and CUDA are working together.
+With the output displaying our driver and GPU correctly, we can now dive into benchmarking (using the CUDA toolkit). Before we get too far ahead, let's double check to make sure [hashcat](https://www.kali.org/tools/hashcat/) and CUDA are working together.
 
 ```console
 kali@kali:~$ sudo apt install -y hashcat

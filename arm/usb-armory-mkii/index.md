@@ -21,7 +21,7 @@ storage:
 
 The [USB Armory MKII](https://inversepath.com/usbarmory) from Inverse Path is an open source hardware design, implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.
 
-By default, the Kali Linux USB Armory MKII image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux USB Armory MKII image **does not** contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on USB Armory MKII - User Instructions
 

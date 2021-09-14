@@ -25,7 +25,7 @@ The [ODROID-U2](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G1
 The ODROID-U2 and ODROID-U3 hardware are based on the same basic platform, so the U2 image will work with the U3 without modification.
 {{% /notice %}}
 
-By default, the Kali Linux ODROID-U2/U3 image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux ODROID-U2/U3 image **does not** contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on ODROID-U2/U3 - Build-Script Instructions
 

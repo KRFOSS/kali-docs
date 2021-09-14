@@ -23,7 +23,7 @@ The [ODROID-C1](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G1
 
 <!--@g0tmi1k: What about the hardware in C0 & C1+-->
 
-By default, the Kali Linux ODROID-C images contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux ODROID-C images contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on ODROID-C0/C1/C1+ - Build-Script Instructions
 

@@ -30,7 +30,7 @@ The page is left for historical value.
 
 The EfikaMX is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system.
 
-By default, the Kali Linux EfikaMX image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux EfikaMX image **does not** contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on EfikaMX - User Instructions
 
