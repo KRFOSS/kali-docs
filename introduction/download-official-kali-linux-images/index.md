@@ -7,10 +7,8 @@ author: ["g0tmi1k", "gamb1t",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Never download Kali Linux images from anywhere other than the official sources.
-
-Always be sure to verify the SHA256 checksums of the file you've downloaded against our [official values](/docs/introduction/download-images-securely/).
-
+IMPORTANT! Never download Kali Linux images from anywhere other than the official sources.  
+Always be sure to verify the SHA256 checksums of the file you've downloaded against our [official values](/docs/introduction/download-images-securely/).  
 It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially.
 {{% /notice %}}
 
