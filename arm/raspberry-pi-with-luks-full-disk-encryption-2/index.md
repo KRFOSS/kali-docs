@@ -35,9 +35,9 @@ This might seem like a lot, but its really pretty straightforward. Once complete
 We first will download and image the latest Kali RPi3 image. If you're following along, be sure to know where you are imaging the file to.
 
 ```console
-kali@kali:~$ wget https://images.kali.org/arm-images/kali-linux-2021.2-rpi3-nexmon.img.xz
+kali@kali:~$ wget https://images.kali.org/arm-images/kali-linux-2021.3-rpi3-nexmon.img.xz
 kali@kali:~$
-kali@kali:~$ xzcat kali-linux-2021.2-rpi3-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+kali@kali:~$ xzcat kali-linux-2021.3-rpi3-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 Next we are going to get things ready for chroot. Let's create where we want to mount the SD card then mount it.
@@ -315,7 +315,7 @@ export _LUKSEXTRA=""
 
 
 # LINUX IMAGE FILE ------------------------------------------------------------
-export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2021.2-rpi4-nexmon-64.img.xz
+export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2021.3-rpi4-nexmon-64.img.xz
 export _IMAGESHA="f5e126f33d32882f526e16b5148bd8b84a4e7c351bdd0eb9cfe3da2176580181"
 
 # PACKAGE ACTIONS -------------------------------------------------------------

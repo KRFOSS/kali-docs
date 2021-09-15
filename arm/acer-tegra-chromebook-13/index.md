@@ -46,7 +46,7 @@ This process will wipe out your full-size SD card or USB drive. If you choose th
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-nyan.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-nyan.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your full-size SD card or USB drive speed, and the size of the Kali Linux image.

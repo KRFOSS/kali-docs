@@ -40,7 +40,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-pinebook-pro.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-pinebook-pro.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -62,7 +62,7 @@ This process will wipe out your eMMC module. If you choose the wrong storage dev
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-pinebook-pro.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
+$ xzcat kali-linux-2021.3-pinebook-pro.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your eMMC's speed, and the size of the Kali Linux image.
