@@ -10,7 +10,7 @@ This guide is about virtualizing Kali Linux inside of VMware, allowing you to ha
 
 If you are trying to [install VMware on Kali Linux (as a host)](/docs/virtualization/install-vmware-host/), please see our guide.
 
-The guide below is what we use to generate our [pre-made Kali Linux VMware images](https://www.kali.org/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the latest version of VMware Workstation, as Player and Fusion don't have the same level of functionally and controls over settings.
+The guide below is what we use to generate our [pre-made Kali Linux VMware images](/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the latest version of VMware Workstation, as Player and Fusion don't have the same level of functionally and controls over settings.
 
 {{% notice info %}}
 You will need to enable virtualization in your BIOS/UEFI for (e.g. Intel VT-x/AMD-V)

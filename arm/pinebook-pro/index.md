@@ -21,7 +21,7 @@ storage:
 
 The [Pinebook Pro](https://www.pine64.org/pinebook-pro/) has a Rockchip RK3399 SOC with Mali T860 MP4 GPU and 4GB LPDDR4 RAM. Kali Linux can run from either external microSD card, or the internal eMMC.
 
-By default, the Kali Linux Pinebook Pro image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Pinebook Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on the Pinebook Pro microSD card - User Instructions
 

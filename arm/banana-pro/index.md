@@ -21,7 +21,7 @@ storage:
 
 The [Banana Pro](http://www.lemaker.org/product-bananapro-specification.html) has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.
 
-By default, the Kali Linux Banana Pro image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Banana Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on Banana Pro - User Instructions
 

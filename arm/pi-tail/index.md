@@ -37,7 +37,7 @@ storage:
 
 ## Quick install and usage:
 
-1. [Download image from here](https://www.kali.org/get-kali/#kali-arm) and write to micro-sd card
+1. [Download image from here](/get-kali/#kali-arm) and write to micro-sd card
 2. Insert card into Raspberry Pi Zero W
 3. Connect: OTG adapter in smartphone, standard cable in Pi-Tail (power) to power up Pi-Tail
 4. On smartphone:

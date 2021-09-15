@@ -7,8 +7,10 @@ author: ["g0tmi1k", "gamb1t",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Never download Kali Linux images from anywhere other than the official sources. <br />
-Always be sure to verify the SHA256 checksums of the file you've downloaded against our <a href="https://www.kali.org/downloads/"> official values</a>.<br />
+IMPORTANT! Never download Kali Linux images from anywhere other than the official sources.
+
+Always be sure to verify the SHA256 checksums of the file you've downloaded against our [official values](/docs/introduction/download-images-securely/).
+
 It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially.
 {{% /notice %}}
 
@@ -30,7 +32,7 @@ Building your own Kali Linux ISO, standard or customized, is [a very simple proc
 
 If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed. These image are available in a 64-bit (amd64), and 32-bit PAE (i\*86) formats.
 
-- [Official Kali Linux VMware and VirtualBox Images](https://www.kali.org/get-kali/#kali-virtual-machines)
+- [Official Kali Linux VMware and VirtualBox Images](/get-kali/#kali-virtual-machines)
 
 ##### ARM Images
 

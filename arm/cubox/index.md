@@ -23,7 +23,7 @@ The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end,
 
 _This image for the "Marvell" based (original) NOT the "Freescale" based._
 
-By default, the Kali Linux CuBox image **does not** contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux CuBox image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on CuBox - Build-Script Instructions
 

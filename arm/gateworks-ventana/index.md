@@ -23,7 +23,7 @@ The [Gateworks Ventana](https://www.gateworks.com/products/industrial-single-boa
 
 _This image is for the "NXP (formerly Freescale) i.MX6" based boards._
 
-By default, the Kali Linux Gateworks Ventana image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Gateworks Ventana image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
  <!-- @steev: TODO: This is a community contributed image, so find out which specific ventana this is for as they have a number of them. -->
 

@@ -12,7 +12,7 @@ You must use **VirtualBox 4.2.xx or higher**  in order to take advantage of the 
 
 ## virtualbox-guest-x11
 
-Should you decide to [create your own VirtualBox installation of Kali Linux](/docs/virtualization/install-virtualbox-guest-vm/) _(rather than using our [pre-made VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines))_, and you want to force a manual reinstall of `virtualbox-guest-x11` (as something has gone wrong), first make sure you are [fully updated](/docs/general-use/updating-kali/), then enter the following.
+Should you decide to [create your own VirtualBox installation of Kali Linux](/docs/virtualization/install-virtualbox-guest-vm/) _(rather than using our [pre-made VirtualBox images](/get-kali/#kali-virtual-machines))_, and you want to force a manual reinstall of `virtualbox-guest-x11` (as something has gone wrong), first make sure you are [fully updated](/docs/general-use/updating-kali/), then enter the following.
 
 ```console
 kali@kali:~$ sudo apt update

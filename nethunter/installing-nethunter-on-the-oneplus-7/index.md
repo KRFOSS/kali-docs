@@ -57,7 +57,7 @@ author: ["re4son",]
   
 ## 4. Install NetHunter
   
-4.01	Download image from [our download page](https://www.kali.org/get-kali/#kali-mobile)  
+4.01	Download image from [our download page](/get-kali/#kali-mobile)  
 4.02    there is a bug in the current installer requireing to install the kernel separately, [download it here](https://build.nethunter.com/contributors/re4son/guacamole/kernel-nethunter-2021.3-oneplus7-oos-ten.zip)  
 4.03	reboot into recovery  
 4.04	install nethunter zip  

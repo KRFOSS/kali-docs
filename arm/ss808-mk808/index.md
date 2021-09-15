@@ -31,7 +31,7 @@ The page is left for historical value.
 <!-- @g0tmi1k: How does MK808 come into it -->
 The SainSmart SS808 is a **rockchip**-based ARM device that comes in various forms and flavors. It has a dual-core 1.6 GHz A9 processor with 1GB of RAM and runs Kali very well.
 
-By default, the Kali Linux SS808 image **does not** contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux SS808 image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on SS808 - User Instructions
 

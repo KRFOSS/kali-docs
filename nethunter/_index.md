@@ -52,7 +52,7 @@ A custom kernel can extend that functionality by adding additional network and U
 ![](NetHunter-App.png)
 Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter Lite & NetHunter).
 
-Beyond the [penetration testing tools](https://www.kali.org/tools) included in Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and many more.
+Beyond the [penetration testing tools](/tools) included in Kali Linux, NetHunter also supports several additional classes, such as **HID Keyboard Attacks**, **BadUSB attacks**, **Evil AP MANA attacks**, and many more.
 
 For more information about the moving parts that make up NetHunter, check out our [NetHunter Components](nethunter-components/) page. Kali NetHunter is an [Open-source project](/docs/policy/kali-linux-open-source-policy/) developed by [Offensive Security](https://www.offensive-security.com/) and the community.
 

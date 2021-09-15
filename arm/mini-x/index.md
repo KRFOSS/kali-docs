@@ -21,7 +21,7 @@ storage:
 
 The [Mini-X](http://www.minix.us/) is a dual core 1GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
 
-By default, the Kali Linux Mini-X image **does not** contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Mini-X image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on Mini-X - Build-Script Instructions
 

@@ -21,7 +21,7 @@ storage:
 
 The [CubieTruck](http://www.cubietruck.com/) (aka CubieBoard3) is a dual core 1GHz, with 2GB of RAM. Kali Linux fits on an external microSD card.
 
-By default, the Kali Linux CubieTruck image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux CubieTruck image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on CubieTruck - Build-Script Instructions
 

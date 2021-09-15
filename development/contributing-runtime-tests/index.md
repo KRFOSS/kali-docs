@@ -169,7 +169,7 @@ Once you learn and note what you can test about the tool, you should start to wr
 
 Given that Kali uses Gitlab, you should fork the [source package](https://gitlab.com/kalilinux/packages) where you want to add tests, and add your tests in a new branch. Our Gitlab CI configuration should run the autopkgtest, so you can have a look at the output of the pipelines to see whether your tests have been correctly run and whether they succeeded. If they do not work, you can iterate (adding more commits) until you are satisfied with your test scripts.
 
-Once you do get a completed green test, you should submit a merge request since your work is already on Gitlab. The [Save & Share](https://www.kali.org/docs/development/intro-to-packaging-example/#save--share) section of contributing to packages gives a good example of this.
+Once you do get a completed green test, you should submit a merge request since your work is already on Gitlab. The [Save & Share](/docs/development/intro-to-packaging-example/#save--share) section of contributing to packages gives a good example of this.
 
 For more information on the environment itself, the `autopkgtest-build-qemu` and `autopkgtest-virt-qemu` man pages are beneficial. As are the docs located at `/usr/share/doc/autopkgtest/`.
 

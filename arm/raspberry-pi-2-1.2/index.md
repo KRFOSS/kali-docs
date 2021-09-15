@@ -27,7 +27,7 @@ The Raspberry Pi 2 v1.2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB abo
 
 The [Raspberry Pi 2 v1.2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
 
-By default, the Kali Linux Raspberry Pi 2 v1.2 image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Raspberry Pi 2 v1.2 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
 The Raspberry Pi 2 v1.2 has a 64-bit processor and can run 64-bit images. This is the **only** revision of the Raspberry Pi 2 that can do so.<br />

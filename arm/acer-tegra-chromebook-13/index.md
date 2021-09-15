@@ -21,7 +21,7 @@ storage:
 
 The Acer Tegra Chromebook is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on Acer Tegra Chromebook. Boasting a Tegra K1 2.1GHz quad core processor and 4GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external full-size SD card on this machine which leaves the internal disk untouched.
 
-By default, the Kali Linux Acer Tegra Chromebook 13" image contains the [**kali-linux-default** metapackage](https://www.kali.org/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Acer Tegra Chromebook 13" image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on Acer Tegra Chromebook - Build-Script Instructions
 
