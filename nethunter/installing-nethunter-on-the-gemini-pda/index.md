@@ -18,7 +18,7 @@ author: ["re4son",]
 ## 1. Flash stock rooted Android
 
 The Gemini PDA ships with a non-rooted Android image which needs to be replaced.
-Either install the "Pentester Pro" image with rooted Android and Kali Linux partitions as detailed here: [Kali Linux Gemini PDA](/docs/arm/kali-linux-gem-pda/)
+Either install the "Pentester Pro" image with rooted Android and Kali Linux partitions as detailed here: [Kali Linux Gemini PDA](/docs/arm/gemini-pda/)
 
 ~~or create your own image if you prefer a different partition layout:
 [support.planetcom.co.uk/index.php/Linux_Flashing_Guide](https://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)~~

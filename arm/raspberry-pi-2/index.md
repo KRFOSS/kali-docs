@@ -20,7 +20,7 @@ storage:
 ---
 
 {{% notice info %}}
-If your Raspberry Pi 2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU, we suggest to follow the [Raspberry Pi 2 v1.2 documentation](docs/arm/raspberry-pi-2-1.2/). However if it says `Raspberry Pi 2 Model B V1.1`, keep reading
+If your Raspberry Pi 2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU, we suggest to follow the [Raspberry Pi 2 v1.2 documentation](/docs/arm/raspberry-pi-2-1.2/). However if it says `Raspberry Pi 2 Model B V1.1`, keep reading
 {{% /notice %}}
 
 By default, the Kali Linux Raspberry Pi 2 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).

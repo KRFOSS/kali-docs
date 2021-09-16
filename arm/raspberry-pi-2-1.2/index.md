@@ -22,7 +22,7 @@ storage:
 ---
 
 {{% notice info %}}
-The Raspberry Pi 2 v1.2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU. If your Raspberry Pi 2 does **NOT** have this, you should follow the [Raspberry Pi 2 documentation](docs/arm/raspberry-pi-2/)
+The Raspberry Pi 2 v1.2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU. If your Raspberry Pi 2 does **NOT** have this, you should follow the [Raspberry Pi 2 documentation](/docs/arm/raspberry-pi-2/)
 {{% /notice %}}
 
 The [Raspberry Pi 2 v1.2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) is a quad core 900MHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
