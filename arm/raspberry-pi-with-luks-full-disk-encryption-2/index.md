@@ -2,7 +2,7 @@
 title: Raspberry Pi - Full Disk Encryption
 description:
 icon:
-archived: true
+archived: "true"
 draft: true
 weight:
 author: ["gamb1t",]

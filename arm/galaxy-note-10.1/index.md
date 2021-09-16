@@ -2,7 +2,7 @@
 title: Samsung Galaxy Note 10.1
 description:
 icon:
-archived: true
+archived: "true"
 weight:
 author: ["steev",]
 build-script: N/A
