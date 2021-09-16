@@ -2,7 +2,7 @@
 title: Mini ISO Install
 description:
 icon:
-type: archived
+archived: true
 weight: 410
 author: ["gamb1t",]
 ---

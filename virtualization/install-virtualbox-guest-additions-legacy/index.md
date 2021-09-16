@@ -2,7 +2,7 @@
 title: Kali Linux & VirtualBox Guest Addition (Legacy)
 description:
 icon:
-type: archived
+archived: true
 weight: 310
 author: ["g0tmi1k",]
 ---

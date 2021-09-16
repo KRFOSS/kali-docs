@@ -2,7 +2,7 @@
 title: Raspberry Pi - Disk Encryption
 description:
 icon:
-type: archived
+archived: true
 weight:
 author: ["steev",]
 tags: ["dojo",]

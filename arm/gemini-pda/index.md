@@ -2,7 +2,7 @@
 title: Gemini PDA
 description:
 icon:
-type: archived
+archived: true
 weight:
 author: ["re4son",]
 build-script: N/A

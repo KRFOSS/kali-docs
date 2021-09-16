@@ -2,7 +2,7 @@
 title: EfikaMX
 description:
 icon:
-type: archived
+archived: true
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/efikamx.sh

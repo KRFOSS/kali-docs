@@ -2,7 +2,7 @@
 title: SS808/MK808
 description:
 icon:
-type: archived
+archived: true
 weight:
 author: ["steev",]
 build-script: N/A
