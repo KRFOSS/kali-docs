@@ -10,7 +10,7 @@ Do not attempt this in a VM. It is [possible in theory](https://mathiashueber.co
 
 This document explains how to install NVIDIA GPU drivers and CUDA support, allowing integration with popular penetration testing tools.
 
-**This guide is also for a dedicated card (desktops users), not Optimus (notebook users). We do not have the hardware in order to write up the guide. So we are looking for [community contribution](/docs/community/contribute/) to help out. If you have the hardware, and expertise, please [edit this guide](https://gitlab.com/kalilinux/documentation/kali-docs/edit/master/general-use/install-nvidia-drivers-on-kali-linux/index.md)!**
+**This guide is also for a dedicated card (desktops users) and Optimus (notebook users).
 
 ## Prerequisites
 
@@ -52,6 +52,37 @@ kali@kali:~$ lspci -s 07:00.0 -v
 
 kali@kali:~$
 ```
+For optimus (or laptops or notebooks):
+```
+┌──(kali@kali)-[~]
+└─$ lspci | grep -i vga
+00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
+```
+Well for primary it's always gonna give this same result, so don't worry and even upon using `lspci` maybe you don't see nvidia.
+So for nvidia, we need to install nvidia-detect using `sudo apt install nvidia-detect` and run it...
+```
+┌──(kali@kali)-[~]
+└─$ nvidia-detect     
+Detected NVIDIA GPUs:
+01:00.0 3D controller [0302]: NVIDIA Corporation GM108M [GeForce 940MX] [10de:134d] (rev a2)
+
+Checking card:  NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
+Uh oh. Failed to identify your Debian suite.
+
+┌──(kali@kali)-[~]
+└─$ lspci -s 01:00.0 -v
+01:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
+        Subsystem: Lenovo GM108M [GeForce 940MX]
+        Flags: bus master, fast devsel, latency 0, IRQ 132, IOMMU group 10
+        Memory at 93000000 (32-bit, non-prefetchable) [size=16M]
+        Memory at 80000000 (64-bit, prefetchable) [size=256M]
+        Memory at 90000000 (64-bit, prefetchable) [size=32M]
+        I/O ports at 5000 [size=128]
+        Capabilities: <access denied>
+        Kernel driver in use: nouveau
+        Kernel modules: nouveau
+```
+That's your nvidia card. and rest are same for both.
 
 Notice how `Kernel driver in use` & `Kernel modules` are using **nouveau**? This is the open source driver for nVidia. This guide covers installing the close source, from NVIDIA.
 
