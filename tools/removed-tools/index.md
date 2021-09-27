@@ -55,7 +55,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [ua-tester](https://pkg.kali.org/pkg/ua-tester) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/ua-tester/-/issues/1)) |
 | [vfeed](https://pkg.kali.org/pkg/vfeed) | 2019-09-10 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/vfeed/-/issues/1)) |
 | [volafox](https://pkg.kali.org/pkg/volafox) | 2020-04-09 | Python 2 |
-| [volatility](https://pkg.kali.org/pkg/volatility) / [volatility3](https://pkg.kali.org/pkg/volatility3) | 2020-10-06 | License change ([#1](https://github.com/volatilityfoundation/volatility3/issues/208), [#2](https://lists.fedoraproject.org/archives/list/legal@lists.fedoraproject.org/thread/OHECHDPLDJ7LLFUZXQMBBAXEXYTQMXOR/)) |
+| [volatility](https://pkg.kali.org/pkg/volatility) / [volatility3](https://pkg.kali.org/pkg/volatility3) | 2020-10-06 | License change ([#1](https://github.com/volatilityfoundation/volatility3/issues/208), [#2](https://lists.fedoraproject.org/archives/list/legal@lists.fedoraproject.org/thread/OHECHDPLDJ7LLFUZXQMBBAXEXYTQMXOR/), [#3](https://salsa.debian.org/pkg-security-team/volatility3)) |
 | [webhandler](https://pkg.kali.org/pkg/webhandler) | 2020-03-30 | Python 2 ([#1](https://github.com/lnxg33k/webhandler/issues/21), [#2](https://gitlab.com/kalilinux/packages/webhandler/-/issues/1)) |
 | [wifitap](https://pkg.kali.org/pkg/wifitap) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/wifitap/-/issues/1)) |
 | [wol-e](https://pkg.kali.org/pkg/wol-e) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/wol-e/-/issues/1)) |
