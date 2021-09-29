@@ -12,7 +12,7 @@ author: ["re4son",]
   
 1. Flash latest Android 10 with the unbrick tool
 2. Flash TWRP and Magisk
-3. Disable force ecryption of data partition
+3. Disable force encryption of data partition
 4. Install NetHunter
 5. Disable OnePlus update service
   
@@ -53,12 +53,12 @@ author: ["re4son",]
 3.04	install magisk  
 3.05	install Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip  
 3.06	reboot to system  
-3.07	set up phone but skip fingerprint or any other security. Set up up later (not sure if that re-encrypts the phone)  
+3.07	set up phone but skip fingerprint or any other security. Set up later (not sure if that re-encrypts the phone)  
   
 ## 4. Install NetHunter
   
 4.01	Download image from [our download page](/get-kali/#kali-mobile)  
-4.02    there is a bug in the current installer requireing to install the kernel separately, [download it here](https://build.nethunter.com/contributors/re4son/guacamole/kernel-nethunter-2021.3-oneplus7-oos-ten.zip)  
+4.02    there is a bug in the current installer requiring to install the kernel separately, [download it here](https://build.nethunter.com/contributors/re4son/guacamole/kernel-nethunter-2021.3-oneplus7-oos-ten.zip)  
 4.03	reboot into recovery  
 4.04	install nethunter zip  
 4.06    install magisk again  
