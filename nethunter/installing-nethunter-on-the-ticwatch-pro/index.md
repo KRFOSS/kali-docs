@@ -74,6 +74,10 @@ Init files are not being flashed, which will be patched in the future, so for no
 
 ### Enjoy Kali NetHunter on the TicWatch Pro
 
+## Download link
+
+https://www.kali.org/get-kali/#kali-mobile
+
 ## Additional supported apps
 
 - Drivedroid: use "adb install" to install the latest version
