@@ -41,6 +41,11 @@ Now you can simply build an updated Kali ISO _(with our default configuration)_ 
 ```console
 kali@kali:~$ cd live-build-config/
 kali@kali:~/live-build-config$ ./build.sh --verbose
+[...]
+***
+GENERATED KALI IMAGE: ./images/kali-linux-rolling-live-amd64.iso
+***
+kali@kali:~$
 ```
 
 The `build.sh` script will take a while to complete, as it downloads all of the required packages needed to create your ISO. Good time for a drink.
@@ -126,10 +131,30 @@ $ cat build.sh
 $
 ```
 
-At this point, we can build our ISO as normal
+At this point, we can build our ISO as normal:
 
 ```console
 $ ./build.sh --verbose
+```
+
+- - -
+
+## Re-building the Latest Kali Image
+
+By using the [kali-last-snapshot](https://www.kali.org/docs/general-use/kali-branches/) branch, you are able to re-create the latest distributed image. We can do this by using `--distribution kali-last-snapshot`:
+
+```console
+kali@kali:~$ time ./build.sh \
+  --verbose \
+  --installer \
+  --distribution kali-last-snapshot \
+  --version 2021.3 \
+  --subdir kali-2021.3
+[...]
+***
+GENERATED KALI IMAGE: ./images/kali-2021.3/kali-linux-2021.3-installer-amd64.iso
+***
+kali@kali:~$
 ```
 
 - - -
@@ -226,6 +251,36 @@ We can instruct the build-script to use a different mirror, by doing the followi
 ```console
 kali@kali:~/live-build-config$ echo "http://192.168.0.101/kali/" > .mirror
 kali@kali:~/live-build-config$ ./build.sh --verbose
+```
+
+- - -
+
+## Help Screen
+
+You can see all the available command-line options by doing `--help`:
+
+```console
+kali@kali:~/live-build-config$ ./build.sh --help
+Usage: ./build.sh <command1> [<command2>]
+
+  --distribution <arg>
+  --proposed-updates
+  --arch <arg>
+  --verbose
+  --debug
+  --salt
+  --installer
+  --live
+  --variant <arg>
+  --version <arg>
+  --subdir <arg>
+  --get-image-path
+  --no-clean
+  --clean
+  --help
+
+More information: https://www.kali.org/docs/development/live-build-a-custom-kali-iso/
+kali@bDesktop:~/live-build-config$
 ```
 
 - - -
