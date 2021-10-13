@@ -53,7 +53,7 @@ By default, it will generate a **Live Image**. If you want an **Installer Image*
 kali@kali:~/live-build-config$ ./build.sh --verbose --installer
 ```
 
-We are using the `--verbose` to output more on the screen rather than it being captured in just the `build.log` output. If you want even more output, you can use `--debug` instead, which will then give more information.
+We are using the `--verbose` to output more on the screen rather than it being captured in just the `build.log` output. If you want even more output, you can use `--debug` instead, which will then give even more information.
 
 - - -
 
