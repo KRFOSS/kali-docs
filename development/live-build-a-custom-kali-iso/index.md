@@ -261,7 +261,7 @@ You can see all the available command-line options by doing `--help`:
 
 ```console
 kali@kali:~/live-build-config$ ./build.sh --help
-Usage: ./build.sh <command1> [<command2>]
+Usage: ./build.sh [<option>...]
 
   --distribution <arg>
   --proposed-updates
