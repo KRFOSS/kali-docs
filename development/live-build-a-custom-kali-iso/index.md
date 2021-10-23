@@ -320,7 +320,7 @@ The above will be a "BIOS" boot. For a "UEFI" boot:
 ```console
 kali@kali:$ qemu-system-x86_64 \
   -enable-kvm \
-  -drive if=virtio,aio=threads,cache=unsafe,file=/tmp/kali-test.hdd.img \
+  -drive if=virtio,aio=threads,cache=unsafe,format=qcow2,file=/tmp/kali-test.hdd.img \
   -drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_CODE.fd \
   -drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_VARS.fd \
   -cdrom /home/kali/live-build-config/images/kali-linux-rolling-live-amd64.iso \
