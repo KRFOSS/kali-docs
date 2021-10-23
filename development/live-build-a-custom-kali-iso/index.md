@@ -302,7 +302,7 @@ Next we produce a hard disk to use:
 kali@kali:$ qemu-img create \
   -f qcow2 \
   /tmp/kali-test.hdd.img \
-  4G
+  20G
 ```
 
 Afterwards, to boot from the image produced _(we will be using the Live image on x64)_:
@@ -310,7 +310,7 @@ Afterwards, to boot from the image produced _(we will be using the Live image on
 ```console
 kali@kali:$ qemu-system-x86_64 \
   -enable-kvm \
-  -drive if=virtio,aio=threads,cache=unsafe,file=/tmp/kali-test.hdd.img \
+  -drive if=virtio,aio=threads,cache=unsafe,format=qcow2,file=/tmp/kali-test.hdd.img \
   -cdrom /home/kali/live-build-config/images/kali-linux-rolling-live-amd64.iso \
   -boot once=d
 ```
