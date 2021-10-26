@@ -646,7 +646,7 @@ For more information on building Python libraries, see the [Debian resource](htt
 Here is a quick overview of the **commands needed to build the package**.
 
 ```plaintext
-mkdir -p ~/kali/upstream/ ~/kali/packages/python-icmplib/ ~/kali/build-area/
+mkdir -p ~/kali/upstream/ ~/kali/build-area/ ~/kali/packages/python-icmplib/ 
 wget https://github.com/ValentinBELYN/icmplib/archive/v1.2.2.tar.gz -O ~/kali/upstream/python-icmplib_1.2.2.orig.tar.gz
 cd ~/kali/packages/python-icmplib/
 git init
