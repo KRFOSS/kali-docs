@@ -42,7 +42,7 @@ Everything that relates to us building a package will be using `~/kali/`. In the
 
 ## Downloading Tag Releases
 
-Because we are making a new package from scratch, we'll manually download the version of the tool we want to package up. If we were updating a package (and it was packaged correctly), there is a process to help speed it up. However, this will be covered in another guide.
+Because we are making a new package from scratch, we'll manually download the version of the tool we want to package up. If we were updating a package (and it was packaged correctly), there is a process to help speed it up. However, this will be covered in [another guide](/docs/development/advanced-packaging-example/).
 
 Going to the [GitHub's release page](https://github.com/instaloader/instaloader/releases), we can see the latest version (which at the time of writing is `4.4.4`). Here is the option to download `instaloader-v4.4.4-windows-standalone.zip`, as well as `Source Code (zip)`, and  `Source Code (tar.gz)`. We are interested in the `tar.gz` option.
 
