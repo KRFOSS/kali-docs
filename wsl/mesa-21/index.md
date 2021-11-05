@@ -2,9 +2,12 @@
 title: 3D acceleration with Mesa 21 & Direct3D 12
 description: Enabled 3D acceleration for Kali Linux in WSL
 icon: ti-pin
+archived: "true"
 weight:
 author: ["arnaudr",]
 ---
+
+**This page is obsolete**. Everything required to run Kali Linux in WSL is already available in Kali Rolling, there is no need to install packages from the `kali-experimental` branch.
 
 ## Content:
 
@@ -17,7 +20,7 @@ Mesa 3D is a fundamental part of the graphics stack that powers Kali Linux. The 
 
 Note that at the moment, GUI app support in WSL is not yet released to the public, it is only available as part of the "Insider Builds" of WSL. Also note that this is something very new and not widely tested.
 
-In this page, we describe the procedure to install Mesa 21 in Kali Linux. This version is not yet in Kali rolling, instead it must be installed from the Kali experimental repository.
+In this page, we describe the procedure to install the latest version of Mesa from the branch `kali-experimental` of Kali Linux.
 
 ## Installation Steps
 
