@@ -633,7 +633,7 @@ In theory, we should have a complete working package now with the exception of t
 
 ### Naming Packages
 
-Unlike our previous guides ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) where we use the same name for both **source package** and **binary package**, this time we will differ them.
+Unlike our previous guides ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/) where we use the same name for both **source package** and **binary package**, this time we will differ them.
 
 The naming convention for a **binary package is `python3-<package>`**, which is important to follow as it has a impact at a technical level. However a **source package can be `python-<package>`** (or even just `<package>`). It does not matter if this is not followed as it will not break anything if its not followed. See the [Debian resource](https://www.debian.org/doc/packaging-manuals/python-policy/ch-module_packages.html) for more information.
 
