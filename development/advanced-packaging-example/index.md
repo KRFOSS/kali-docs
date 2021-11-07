@@ -8,7 +8,7 @@ author: ["gamb1t", "g0tmi1k",]
 
 _This guide is accurate at the time of writing. As it references a lot of external resources out of our control, items may be different over time (as software gets updated)._
 
-**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)** is a **Python 3** application with multiple Python dependencies. At the time of writing, one of the dependencies(**[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**) is not in the Kali Linux repository. In this guide we will have to learn how to follow dependency chains, and fix anything required to ensure that the end package can be included. We will also create a patch, helper-script, as well as a [runtime test](/docs/development/contributing-runtime-tests/) for the package.
+**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)** is a **Python 3** application with multiple Python dependencies. At the time of writing, one of the dependencies (**[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**) is not in the Kali Linux repository. In this guide we will have to learn how to follow dependency chains, and fix anything required to ensure that the end package can be included. We will also create a patch, helper-script, as well as a [runtime test](/docs/development/contributing-runtime-tests/) for the package.
 
 We will assume we have already followed our [documentation on setting up a packaging environment](/docs/development/setting-up-packaging-system/) as well as our previous other packaging guides [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) as this will explain their contents.
 
