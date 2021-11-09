@@ -12,7 +12,7 @@ author: ["g0tmi1k",]
 
 Building a customized Kali Linux image is not as complex as you may be thinking. It is easy, fun, and rewarding! Kali Linux traditionally, has been a **Live Image**, but since [Kali 2020.1](/blog/kali-linux-2020-1-release/) an **Installer Image** was introduced. Both these images have [different functions](/docs/introduction/what-image-to-download/), and are also built in different ways.
 
-- Live Image - allows you to try Kali, without altering the system (making it create for [USB](/docs/usb/)). It is created using [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html)
+- Live Image - allows you to try Kali, without altering the system (making it great for [USB](/docs/usb/)). It is created using [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html)
 - Installer Image - allows for you to customize Kali by picking packaging during installation, such as picking the [desktop environment](/docs/general-use/switching-desktop-environments/) as well as what [metapackages](/docs/general-use/metapackages/) get installed. This image is powered by [simple-cdd](https://wiki.debian.org/Simple-CDD) _(which uses `debian-cd` to make `Debian-Installer`)_.
 
 You can configure virtually any aspect of your Kali ISO build, such as adding packages from outside of Kali network repositories, unattended installations to changing the default wallpaper. Our build-scripts provides a framework that uses a configuration set to automate and customize all aspects of building the images. The Kali Linux development team use the same build-scripts to produce the official Kali ISO releases.
