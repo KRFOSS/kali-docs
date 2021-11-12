@@ -19,8 +19,8 @@ author: ["yesimxev",]
 
 ## 1. Unlock the bootloader
 
-Download and extract the installation files into a folder. 
-Download link: 
+Download and extract the installation files into a folder.  
+Download link: https://build.nethunter.com/contributors/re4son/catfish/
 
 - Connect your watch to your PC with it's USB cable, and fire up a terminal. 
 - If you have set up your watch on the phone you can access settings, otherwise hold both buttons for a few seconds on the welcome screen.
