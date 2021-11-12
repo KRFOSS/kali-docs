@@ -41,7 +41,7 @@ storage:
 4. On smartphone:
    1. Enable hotpot with ssid = "sepultura" and password = "R4t4m4h4tt4"
    2. Install Hacker’s Keyboard, ConnectBot & VNC viewer (if desired)
-   3. Connect to 192.168.43.254, user kali/kali
+   3. Connect to 192.168.43.254, using [kali/kali](/docs/introduction/default-credentials/)
    4. run "mon0up" to set wifi interface into monitor mode (yes, while using it)
    5. run "airodump -i mon0", "kismet -c mon0", "wifite -i mon0" or anything you like
 5. Go wild
@@ -72,9 +72,10 @@ Enable "wifi hostspot" or "usb tethering"on your phone and the Pi-Tail should co
 
 Open ConnectBot on your mobile and connect to the Pi-Tail. Configure port forwarding and fire up a vnc viewer of your choice and you can enjoy kali linux in all it’s glory on the go.  
 
-Passwords:  
-ssh: root / toor  
-vnc: toortoor  
+[Passwords](/docs/introduction/default-credentials/):  
+
+- SSH: [kali/kali](/docs/introduction/default-credentials/)
+- VNC: toortoor  
   
 Default Wi-Fi:
 You can use the example config files. Just change your smartphone’s SSID to "sepultura" with the password "R4t4m4h4tt4" and your Pi-Tail will tether straight away.
@@ -85,4 +86,3 @@ More info in [/boot/Pi-Tail.README](https://github.com/Re4son/RPi-Tweaks/blob/ma
 
 Problems, questions, feedback? Join us in the forums:  
 https://forums.kali.org/  
-
