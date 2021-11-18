@@ -32,7 +32,7 @@ By default, the Kali Linux Raspberry Pi 2 v1.2 image contains the [**kali-linux-
 {{% notice info %}}
 The Raspberry Pi 2 v1.2 has a 64-bit processor and can run 64-bit images. This is the **only** revision of the Raspberry Pi 2 that can do so.<br />
 <br />
-Because it can run 64-bit images, you can choose either `Kali Linux RaspberryPi 2, 3, 4 and 400 (img.xz)` or `Kali Linux RaspberryPi 2 (v1.2), 3, 4 and 400 (64-Bit) (img.xz)` as the image to run, the latter being 64-bit.<br />
+Because it can run 64-bit images, you can choose either `Kali Linux Raspberry Pi 2, 3, 4 and 400 (32-bit) (img.xz)` or `Kali Linux Raspberry Pi 2 (v1.2), 3, 4 and 400 (64-bit) (img.xz)` as the image to run, the latter being 64-bit.<br />
 <br />
 We recommend using the 32-bit image on Raspberry Pi devices as that gets far more testing, and a lot of documentation out there expects you to be running RaspberryPi OS which is 32-bit.
 {{% /notice %}}
