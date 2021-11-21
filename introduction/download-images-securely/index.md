@@ -26,7 +26,7 @@ Color highlighted with "Copy as HTML" from gnome-terminal
 <pre><code class="nohighlight"><!-- New link hack
 --><font color="#367BF0">$</font> <font color="#5EBDAB">wget</font> <font color="#9755B3">-q</font> <font color="#9755B3">-O</font> <font color="#9755B3">-</font> <font color="#2777ff">https://archive.kali.org/archive-key.asc</font> <font color="#277FFF"><b>|</b></font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--import</font>
 # or...
-<font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--keyserver</font> <font color="#2777ff">hkps://keys.openpgp.org</font> <font color="#9755B3">--recv-key</font> 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+<font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--keyserver</font> <font color="#2777ff">hkps://keys.gnupg.net</font> <font color="#9755B3">--recv-key</font> 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 # ...and verify that the displayed fingerprint matches the one below
 <font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--fingerprint</font> 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 pub   rsa4096/0xED444FF07D8D0BF6 2012-03-05 [SC] [expires: 2023-01-16]
