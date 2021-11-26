@@ -200,7 +200,7 @@ A quick overview of each of those files:
 - `control` - is the metadata for the package (often seen with `apt`)
 - `copyright` - what is under what license. The package can be under something different to the work we have put in to create the package
 - `rules` - how to install the package
-- `debian/source` - is the source package format
+- `source/format` - is the source package format
 
 We now need to edit most of these to make sure the information is accurate. We can use what we found on GitHub to supply the correct info into the `debian/` files:
 
