@@ -23,7 +23,7 @@ The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end,
 
 _This image for the "Marvell" based (original) NOT the "Freescale" based._
 
-By default, the Kali Linux CuBox image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux CuBox image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on CuBox - Build-Script Instructions
 
@@ -47,7 +47,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-cubox.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-cubox.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

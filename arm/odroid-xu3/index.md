@@ -21,7 +21,7 @@ storage:
 
 The [ODROID-XU3](https://www.hardkernel.com/main/products/prdt_info.php?g_code=g140448267127) is an octacore development board. Boasting 4 A15 cores and 4 A7 cores and 4GB of RAM, the ODROID-XU3 is a fast ARM device. Kali Linux fits on an external microSD card or on an eMMC module.
 
-By default, the Kali Linux ODROID-XU3 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux ODROID-XU3 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on the ODROID-XU3 microSD card - User Instructions
 
@@ -40,7 +40,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-odroidxu3.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-odroidxu3.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -62,7 +62,7 @@ This process will wipe out your eMMC module. If you choose the wrong storage dev
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-odroidxu3.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
+$ xzcat kali-linux-2021.3-odroidxu3.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your eMMC's speed, and the size of the Kali Linux image.

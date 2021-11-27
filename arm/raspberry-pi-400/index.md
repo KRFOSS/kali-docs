@@ -23,11 +23,11 @@ storage:
 
 The [Raspberry Pi 400](https://www.raspberrypi.org/products/raspberry-pi-400/) has a quad core 1.8GHz processor, with 4GB of RAM, in a keyboard formfactor. Kali Linux runs on a microSD card.
 
-By default, the Kali Linux Raspberry Pi 400 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Raspberry Pi 400 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
 The Raspberry Pi400 has a 64-bit processor and can run 64-bit images.
-Because it can run 64-bit images, you can choose either `Kali Linux RaspberryPi 2, 3, 4 and 400 (img.xz)` or `Kali Linux RaspberryPi 2 (v1.2), 3, 4 and 400 (64-Bit) (img.xz)` as the image to run, the latter being 64-bit.<br />
+Because it can run 64-bit images, you can choose either `Kali Linux Raspberry Pi 2, 3, 4 and 400 (32-bit) (img.xz)` or `Kali Linux Raspberry Pi 2 (v1.2), 3, 4 and 400 (64-bit) (img.xz)` as the image to run, the latter being 64-bit.<br />
 <br />
 We recommend using the 32-bit image on Raspberry Pi devices as that gets far more testing, and a lot of documentation out there expects you to be running RaspberryPi OS which is 32-bit.
 {{% /notice %}}
@@ -53,13 +53,13 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 **or**
 
 ```console
-$ xzcat kali-linux-2021.2-rpi4-nexmon-64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-rpi4-nexmon-64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

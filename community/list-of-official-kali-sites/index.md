@@ -14,7 +14,7 @@ The sites listed below are the ONLY official outlets for the Kali Linux Distribu
 
 ### Public Websites
 
-**[www.kali.org](https://www.kali.org/)**
+**[www.kali.org](/)**
 
 The main [Kali Linux website](/) is our primary means of communicating news about the Kali Linux project, general introductory information, and general updates about the project and its ongoing development.
 Blog posts about new tools, features, Kali Linux tips, tricks, and tutorials can be found here. This should be _your one and only source_ to [download](/downloads/) the official Kali Linux distribution.
@@ -38,9 +38,9 @@ More information on submitting bug reports to the Kali Linux project can be foun
 
 This site is the Kali Linux project's [official git repository](https://gitlab.com/kalilinux) and is publicly accessible. Most users will never need to interact with it directly, but users who wish to more closely monitor the development of Kali Linux, or people who want to know when they should run `sudo apt full-upgrade -y`, can peruse or clone the repository.
 
-**[tools.kali.org](https://tools.kali.org/)**
+**[https://www.kali.org/tools](/tools)**
 
-The core of Kali Linux is the [comprehensive toolset](https://tools.kali.org/), drawn from many difference sources in the security and forensics software community. The tools site provides both an up-to-date listing of the tools which are available in Kali Linux, as well as provinding a quick reference to each of them. From here, the versions of the tools can be tracked against their upstream sources.
+The core of Kali Linux is the [comprehensive toolset](/tools), drawn from many difference sources in the security and forensics software community. The tools site provides both an up-to-date listing of the tools which are available in Kali Linux, as well as provinding a quick reference to each of them. From here, the versions of the tools can be tracked against their upstream sources.
 
 **[pkg.kali.org](https://pkg.kali.org/)**
 

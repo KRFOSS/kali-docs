@@ -2,7 +2,7 @@
 title: EfikaMX
 description:
 icon:
-type: archived
+archived: "true"
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/efikamx.sh
@@ -30,7 +30,7 @@ The page is left for historical value.
 
 The EfikaMX is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system.
 
-By default, the Kali Linux EfikaMX image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux EfikaMX image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on EfikaMX - User Instructions
 
@@ -49,7 +49,7 @@ This process will wipe out your full-size SD card. If you choose the wrong stora
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-2021.2-efikamx.img of=/dev/sdb bs=4M
+$ dd if=kali-linux-2021.3-efikamx.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

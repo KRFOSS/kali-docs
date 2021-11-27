@@ -27,7 +27,7 @@ The Raspberry Pi Zero W has `Raspberry Pi Zero W V1.1` printed on the **bottom**
 
 The [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) has a single core 1GHz, with 512MB of RAM. Kali Linux fits on an external microSD card. Unlike the [Raspberry Pi Zero](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero W **has** *w*ireless networking on the board.
 
-By default, the Kali Linux Raspberry Pi Zero W image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Raspberry Pi Zero W image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
 The Raspberry Pi images use [Re4son](https://twitter.com/re4sonkernel)'s kernel, which includes the drivers for external Wi-Fi cards, TFT displays, and the [nexmon](https://github.com/seemoo-lab/nexmon) firmware for the built-in wireless card on the [Raspberry Pi 3](/docs/arm/raspberry-pi-3/) and [4](/docs/arm/raspberry-pi-4/). You will not need to download it and install it, and doing so will likely be a downgrade over the current installed kernel.
@@ -50,7 +50,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-rpi0w-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-rpi0w-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

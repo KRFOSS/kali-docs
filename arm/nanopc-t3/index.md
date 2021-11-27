@@ -21,7 +21,7 @@ storage:
 
 The [NanoPC-T3](http://wiki.friendlyarm.com/wiki/index.php/NanoPC-T3) has an Samsung S5P6818, Octa Core Cortex™-A53 (ARMv8 64-bit) processor and either 1GB or 2GB DDR3 RAM. The NanoPC-T3 has an 8GB eMMC, which is too small for a default Kali installation, so we run from an external microSD card.
 
-By default, the Kali Linux NanoPC-T3 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux NanoPC-T3 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on NanoPC-T3 microSD card - User Instructions
 
@@ -40,7 +40,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-nanopi3.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-nanopi3.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

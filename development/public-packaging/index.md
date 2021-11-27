@@ -2,7 +2,7 @@
 title: Public Packaging
 description:
 icon:
-type: archived
+archived: "true"
 weight:
 author: ["gamb1t",]
 ---

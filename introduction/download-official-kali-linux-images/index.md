@@ -7,8 +7,8 @@ author: ["g0tmi1k", "gamb1t",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Never download Kali Linux images from anywhere other than the official sources. <br />
-Always be sure to verify the SHA256 checksums of the file you've downloaded against our <a href="https://www.kali.org/downloads/"> official values</a>.<br />
+IMPORTANT! Never download Kali Linux images from anywhere other than the official sources.  
+Always be sure to verify the SHA256 checksums of the file you've downloaded against our [official values](/docs/introduction/download-images-securely/).  
 It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially.
 {{% /notice %}}
 
@@ -30,7 +30,7 @@ Building your own Kali Linux ISO, standard or customized, is [a very simple proc
 
 If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed. These image are available in a 64-bit (amd64), and 32-bit PAE (i\*86) formats.
 
-- [Official Kali Linux VMware and VirtualBox Images](https://www.kali.org/get-kali/#kali-virtual-machines)
+- [Official Kali Linux VMware and VirtualBox Images](/get-kali/#kali-virtual-machines)
 
 ##### ARM Images
 
@@ -63,7 +63,7 @@ If you use this more complicated process and successfully validate your download
 
 If you're running on Linux, you probably already have [GPG](https://www.gnupg.org/) (GNU Privacy Guard) installed. If you're on Windows or macOS, you'll need to install the appropriate version for your platform.
 
-- If you're on a PC running Windows, download and install GPG4Win from [here](https://gpg4win.org/download.html). Certain versions of Windows do not have the native ability to calculate SHA256 checksums. To check this, you can open the command prompt and run `certutil -?`. If you do have this installed, you can run `certutil -hashfile kali-linux-2021.2-live-amd64.iso sha256` to verify your download. If you do not have `certutil` installed, you will also need a utility such as [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) or [Hashtab](http://implbits.com/products/hashtab/) to verify your download.
+- If you're on a PC running Windows, download and install GPG4Win from [here](https://gpg4win.org/download.html). Certain versions of Windows do not have the native ability to calculate SHA256 checksums. To check this, you can open the command prompt and run `certutil -?`. If you do have this installed, you can run `certutil -hashfile kali-linux-2021.3-live-amd64.iso sha256` to verify your download. If you do not have `certutil` installed, you will also need a utility such as [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) or [Hashtab](http://implbits.com/products/hashtab/) to verify your download.
 - If you're on a Macintosh running macOS, download and install GPGTools from [here](https://gpgtools.org/). Alternatively, if you have [Homebrew](https://brew.sh) installed, just run `brew install gnupg`
 
 Once you've installed GPG, you'll need to download and import a copy of the Kali Linux official key. Do this with the following command:
@@ -109,34 +109,34 @@ You're now set up to validate your Kali Linux download.
 
 If you downloaded the ISO directly from the downloads page, verify it using the following procedure.
 
-On Linux, or macOS, you can generate the SHA256 checksum from the ISO image you've downloaded with the following command (assuming that the ISO image is named "kali-linux-2021.2-live-amd64.iso", and is in your current directory):
+On Linux, or macOS, you can generate the SHA256 checksum from the ISO image you've downloaded with the following command (assuming that the ISO image is named "kali-linux-2021.3-live-amd64.iso", and is in your current directory):
 
 ```console
-$ shasum -a 256 kali-linux-2021.2-live-amd64.iso
+$ shasum -a 256 kali-linux-2021.3-live-amd64.iso
 ```
 
 The output should look like this:
 
 ```plaintext
-a6e11071179f5c3a8c5195123b505f0d991a5c845d22bcba0f4355be69c6d9e8  kali-linux-2021.2-live-amd64.iso
+e316b27025922e9f6bca0cacee6dde83dbfd4a549ad18026526f5824af639fc1  kali-linux-2021.3-live-amd64.iso
 ```
 
-The resulting SHA256 signature, "a6e11071179f5c3a8c5195123b505f0d991a5c845d22bcba0f4355be69c6d9e8", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2021.2 ISO image:
+The resulting SHA256 signature, "e316b27025922e9f6bca0cacee6dde83dbfd4a549ad18026526f5824af639fc1", can be seen to match the signature displayed in the "sha256sum" column on the official download page for the 64-bit Intel architecture Kali Linux 2021.3 ISO image:
 
-![](kali-download-iso-2021-2.png)
+![](kali-download-iso-2021-3.png)
 
 ##### Verify the Signature on the ISO Using the Included Signature File (Torrent Download)
 
-If you downloaded your copy of the Kali Linux ISO image via the torrents, in addition to the ISO file (e.g. kali-linux-2021.2-live-amd64.iso), there will be a second file containing the computed SHA256 signature for the ISO, with the extension ".txt.sha256sum" (e.g. kali-linux-2021.2-live-amd64.txt.sha256sum). You can use this file to verify the authenticity of your download on Linux or macOS with the following command:
+If you downloaded your copy of the Kali Linux ISO image via the torrents, in addition to the ISO file (e.g. kali-linux-2021.3-live-amd64.iso), there will be a second file containing the computed SHA256 signature for the ISO, with the extension ".txt.sha256sum" (e.g. kali-linux-2021.3-live-amd64.txt.sha256sum). You can use this file to verify the authenticity of your download on Linux or macOS with the following command:
 
 ```console
-$ grep kali-linux-2021.2-live-amd64.iso kali-linux-2021.2-live-amd64.txt.sha256sum | shasum -a 256 -c
+$ grep kali-linux-2021.3-live-amd64.iso kali-linux-2021.3-live-amd64.txt.sha256sum | shasum -a 256 -c
 ```
 
 If the image is successfully authenticated, the response will look like this:
 
 ```plaintext
-kali-linux-2021.2-live-amd64.iso: OK
+kali-linux-2021.3-live-amd64.iso: OK
 ```
 
 {{% notice info %}}
@@ -145,9 +145,9 @@ IMPORTANT! If you are unable to verify the authenticity of the Kali Linux image 
 
 ##### Verify the ISO Using the SHA256SUMS File
 
-This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2021.2, as of this writing):
+This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2021.3, as of this writing):
 
-- The ISO image itself (e.g. kali-linux-2021.2-live-amd64.iso)
+- The ISO image itself (e.g. kali-linux-2021.3-live-amd64.iso)
 - The file containing the calculated SHA256 hash for the ISO, SHA256SUMS
 - The signed version of that file, SHA256SUMS.gpg
 
@@ -199,16 +199,16 @@ gpg: Good signature from "Kali Linux Repository <devel@kali.org>" [full]
 If you do not get that "Good signature" message or if the key ID does not match, then you should stop and review whether you downloaded the images from a legitimate Kali Linux mirror. The failed verification strongly suggests that the image you have may have been tampered with.
 {{% /notice %}}
 
-If you did get the "Good signature" response, you can now be assured that the checksum in the SHA256SUMS file was actually provided by the Kali Linux development team. All that remains to be done to complete the verification is to validate that the signature you compute from the ISO you've downloaded matches the one in the SHA256SUMS file. You can do that on Linux or macOS with the following command (assuming that the ISO is named "kali-linux-2021.2-live-amd64.iso" and is in your working directory):
+If you did get the "Good signature" response, you can now be assured that the checksum in the SHA256SUMS file was actually provided by the Kali Linux development team. All that remains to be done to complete the verification is to validate that the signature you compute from the ISO you've downloaded matches the one in the SHA256SUMS file. You can do that on Linux or macOS with the following command (assuming that the ISO is named "kali-linux-2021.3-live-amd64.iso" and is in your working directory):
 
 ```console
-$ grep kali-linux-2021.2-live-amd64.iso SHA256SUMS | shasum -a 256 -c
+$ grep kali-linux-2021.3-live-amd64.iso SHA256SUMS | shasum -a 256 -c
 ```
 
 If the image is successfully authenticated, the response will look like this:
 
 ```plaintext
-kali-linux-2021.2-live-amd64.iso: OK
+kali-linux-2021.3-live-amd64.iso: OK
 ```
 
 {{% notice info %}}

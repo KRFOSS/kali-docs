@@ -13,7 +13,7 @@ As of September 2015, **VMware [recommends](https://blogs.vmware.com/vsphere/201
 
 ## Open-VM-Tools
 
-Should you decide to [create your own VMware installation of Kali Linux](/docs/virtualization/install-vmware-guest-vm/) _(rather than using our [pre-made VMware images](https://www.kali.org/get-kali/#kali-virtual-machines))_, and you want to force a manual reinstall of `open-vm-tools` (as something has gone wrong), first make sure you are [fully updated](/docs/general-use/updating-kali/), then enter the following.
+Should you decide to [create your own VMware installation of Kali Linux](/docs/virtualization/install-vmware-guest-vm/) _(rather than using our [pre-made VMware images](/get-kali/#kali-virtual-machines))_, and you want to force a manual reinstall of `open-vm-tools` (as something has gone wrong), first make sure you are [fully updated](/docs/general-use/updating-kali/), then enter the following.
 
 ```console
 kali@kali:~$ sudo apt update

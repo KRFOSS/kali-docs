@@ -20,10 +20,10 @@ storage:
 ---
 
 {{% notice info %}}
-If your Raspberry Pi 2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU, we suggest to follow the [Raspberry Pi 2 v1.2 documentation](docs/arm/raspberry-pi-2-1.2/). However if it says `Raspberry Pi 2 Model B V1.1`, keep reading
+If your Raspberry Pi 2 has `Raspberry Pi 2 Model B V1.2` printed on the PCB above the CPU, we suggest to follow the [Raspberry Pi 2 v1.2 documentation](/docs/arm/raspberry-pi-2-1.2/). However if it says `Raspberry Pi 2 Model B V1.1`, keep reading
 {{% /notice %}}
 
-By default, the Kali Linux Raspberry Pi 2 image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Raspberry Pi 2 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
 The Raspberry Pi images use [Re4son](https://twitter.com/re4sonkernel)'s kernel, which includes the drivers for external Wi-Fi cards, TFT displays, and the [nexmon](https://github.com/seemoo-lab/nexmon) firmware for the built-in wireless card on the [Raspberry Pi 3](/docs/arm/raspberry-pi-3/) and [4](/docs/arm/raspberry-pi-4/). You will not need to download it and install it, and doing so will likely be a downgrade over the current installed kernel.
@@ -46,7 +46,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD's speed, and the size of the Kali Linux image.

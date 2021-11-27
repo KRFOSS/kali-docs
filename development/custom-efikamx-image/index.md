@@ -6,7 +6,7 @@ weight:
 author: ["steev",]
 ---
 
-The following document describes our own method of creating a **custom Kali Linux EfikaMX ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on an EfikaMX](/docs/arm/kali-linux-efikamx/) article.
+The following document describes our own method of creating a **custom Kali Linux EfikaMX ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on an EfikaMX](/docs/arm/efikamx/) article.
 
 {{% notice info %}}
 You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".

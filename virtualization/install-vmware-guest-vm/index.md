@@ -10,7 +10,7 @@ This guide is about virtualizing Kali Linux inside of VMware, allowing you to ha
 
 If you are trying to [install VMware on Kali Linux (as a host)](/docs/virtualization/install-vmware-host/), please see our guide.
 
-The guide below is what we use to generate our [pre-made Kali Linux VMware images](https://www.kali.org/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the latest version of VMware Workstation, as Player and Fusion don't have the same level of functionally and controls over settings.
+The guide below is what we use to generate our [pre-made Kali Linux VMware images](/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the latest version of VMware Workstation, as Player and Fusion don't have the same level of functionally and controls over settings.
 
 {{% notice info %}}
 You will need to enable virtualization in your BIOS/UEFI for (e.g. Intel VT-x/AMD-V)
@@ -54,7 +54,7 @@ When you see the "Guest Operating System" screen, select "**Linux**", and then t
 The next screen is "Virtual Machine Name", which is where you name the VM. This name is also used as the filename (such as the configuration, hard disk and snapshot - which is not changed from this point).
 
 We are keeping it generic in this guide, by using "**Kali Linux**" (as Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/), and we [update Kali Linux](/docs/general-use/updating-kali/)).
-However for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vmware-ARCH`. Example: `kali-linux-2021.2-vmware-amd64`)_.
+However for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vmware-ARCH`. Example: `kali-linux-2021.3-vmware-amd64`)_.
 
 ![](vm-06.png)
 

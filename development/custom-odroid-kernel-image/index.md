@@ -6,7 +6,7 @@ weight:
 author: ["steev",]
 ---
 
-The following document describes our own method of creating a **custom Kali Linux ODROID image** and is targeted at developers. If you would like to install a pre-made Kali ODROID image, check our [Install Kali on ODROID](/docs/arm/kali-linux-odroid-x2u2/) article.
+The following document describes our own method of creating a **custom Kali Linux ODROID image** and is targeted at developers. If you would like to install a pre-made Kali ODROID image, check our [Install Kali on ODROID](/docs/arm/odroid-u/) article.
 
 {{% notice info %}}
 You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".

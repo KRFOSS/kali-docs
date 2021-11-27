@@ -21,7 +21,7 @@ storage:
 
 The [ASUS Chromebook Flip](https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/) is a quad core 1.8GHz, with 2GB or 4GB of RAM Chromebook with a 10.1" 10 point mult-touch touchscreen. Kali Linux fits on an external microSD card or USB drive.
 
-By default, the Kali Linux ASUS Chromebook Flip image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux ASUS Chromebook Flip image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on ASUS Chromebook Flip - Build-Script Instructions
 
@@ -45,7 +45,7 @@ This process will wipe out your microSD card or USB drive. If you choose the wro
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-veyron.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-veyron.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card or USB drive speed, and the size of the Kali Linux image.

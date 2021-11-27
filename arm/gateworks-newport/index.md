@@ -2,7 +2,6 @@
 title: Gateworks Newport
 description:
 icon:
-type: post
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/gateworks-newport.sh
@@ -24,7 +23,7 @@ The [Gateworks Newport](https://www.gateworks.com/products/industrial-single-boa
 
 _This image is for the "Cavium OcteonTX" based boards._
 
-By default, the Kali Linux Gateworks Newport image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Gateworks Newport image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on the Gateworks Newport - User Instructions
 

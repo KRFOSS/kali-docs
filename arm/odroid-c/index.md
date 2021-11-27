@@ -23,7 +23,7 @@ The [ODROID-C1](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G1
 
 <!--@g0tmi1k: What about the hardware in C0 & C1+-->
 
-By default, the Kali Linux ODROID-C images contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux ODROID-C images contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on ODROID-C0/C1/C1+ - Build-Script Instructions
 
@@ -47,7 +47,7 @@ This process will wipe out your microSD card or eMMC. If you choose the wrong st
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-odroidc.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-odroidc.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card or eMMC's speed, and the size of the Kali Linux image.

@@ -2,7 +2,7 @@
 title: Samsung Galaxy Note 10.1
 description:
 icon:
-type: archived
+archived: "true"
 weight:
 author: ["steev",]
 build-script: N/A
@@ -30,7 +30,7 @@ The page is left for historical value.
 
 The Samsung Galaxy Note 10.1 is a 10.1-inch tablet computer designed, developed, and marketed by Samsung. The tablet incorporates a 1.4 GHz quad-core Exynos processor and 2GB of RAM. The touch screen works surprisingly well with Kali as well as the wireless card, however Bluetooth and audio are not yet functional on this image.
 
-By default, the Kali Linux Samsung Galaxy Note 10.1 image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Samsung Galaxy Note 10.1 image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on Galaxy Note 10.1 - User Instructions
 

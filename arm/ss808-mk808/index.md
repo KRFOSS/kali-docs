@@ -2,7 +2,7 @@
 title: SS808/MK808
 description:
 icon:
-type: archived
+archived: "true"
 weight:
 author: ["steev",]
 build-script: N/A
@@ -31,7 +31,7 @@ The page is left for historical value.
 <!-- @g0tmi1k: How does MK808 come into it -->
 The SainSmart SS808 is a **rockchip**-based ARM device that comes in various forms and flavors. It has a dual-core 1.6 GHz A9 processor with 1GB of RAM and runs Kali very well.
 
-By default, the Kali Linux SS808 image **does not** contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux SS808 image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on SS808 - User Instructions
 
@@ -56,7 +56,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-2021.2-SS808.img of=/dev/sdb bs=4M
+$ dd if=kali-linux-2021.3-SS808.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

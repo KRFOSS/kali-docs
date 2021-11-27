@@ -23,7 +23,7 @@ SolidRun's [CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the 
 
 _This image for the "Freescale" based NOT the "Marvell" based (original)._
 
-By default, the Kali Linux CuBox-i4Pro image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux CuBox-i4Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on CuBox-i4Pro - Build-Script Instructions
 
@@ -47,7 +47,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-cubox-i.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-cubox-i.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

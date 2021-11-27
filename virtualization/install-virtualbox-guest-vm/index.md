@@ -10,7 +10,7 @@ This guide is about virtualizing Kali Linux inside of VirtualBox, allowing you t
 
 You may wish to follow our other guide if you are trying to install VirtualBox on Kali Linux (as a [host](/docs/virtualization/install-virtualbox-host/)).
 
-The guide below is what we use to generate our [pre-made Kali Linux VirtualBox images](https://www.kali.org/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the [latest version of VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+The guide below is what we use to generate our [pre-made Kali Linux VirtualBox images](/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the [latest version of VirtualBox](https://www.virtualbox.org/wiki/Downloads).
 
 {{% notice info %}}
 You may need to enable virtualization in your BIOS/UEFI for (e.g. Intel VT-x/AMD-V)
@@ -26,7 +26,7 @@ Upon starting up VirtualBox, select "New" (Machine -> New).
 
 The next screen is "Name and operating system" which is where you name the VM. This name is also used in any filenames (such as the configuration, hard disk and snapshot - which isn't changed from this point).
 
-We are keeping it generic in this guide (as Kali is a [rolling distribution](/docs/general-use/kali-branches/), and we update it), however for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vbox-ARCH`. Example: `kali-linux-2021.2-vbox-amd64`)_.
+We are keeping it generic in this guide (as Kali is a [rolling distribution](/docs/general-use/kali-branches/), and we update it), however for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vbox-ARCH`. Example: `kali-linux-2021.3-vbox-amd64`)_.
 
 For the "Type", we set it as `Linux`. For the "Version", we are going to be using the x64 desktop image, so we are going to select `Debian (64-bit)`.
 

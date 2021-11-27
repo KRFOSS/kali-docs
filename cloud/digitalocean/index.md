@@ -10,7 +10,7 @@ author: ["gamb1t",]
 
 However, one feature in particular sets them apart them from their competitors. A little while ago, they added support for [custom images](https://blog.digitalocean.com/custom-images/), which allows users to import virtual machine disks and use them as droplets. This is perfect for us as we can use our own version of Kali Linux in their cloud.
 
-While it might be possible to load the [official Kali Linux virtual images](https://www.kali.org/get-kali/#kali-virtual-machines), it wouldn't be very efficient. Instead, we'll build a lightweight Kali installation with the bare minimum to get it working.
+While it might be possible to load the [official Kali Linux virtual images](/get-kali/#kali-virtual-machines), it wouldn't be very efficient. Instead, we'll build a lightweight Kali installation with the bare minimum to get it working.
 
 ## Get the netboot ISO
 

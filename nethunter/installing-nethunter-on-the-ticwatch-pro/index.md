@@ -30,7 +30,9 @@ author: ["yesimxev",]
 
 Download and extract the installation files into a folder.
 Please note Magisk 21.0 is recommended, included in the following link.
+
 Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
+
 Download link for NetHunter zip. Scroll down to TicWatch for latest release: https://www.kali.org/get-kali/#kali-mobile
 
 - Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
@@ -72,6 +74,10 @@ However, there was space again after going through this tutorial without /data f
 
 ### Enjoy Kali NetHunter on the TicWatch Pro
 
+## Download link
+
+https://www.kali.org/get-kali/#kali-mobile
+
 ## Additional supported apps
 
 - Drivedroid: use "adb install" to install the latest version
@@ -96,7 +102,7 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 - Router Keygen (to be optimised)
 - WPS app (to be optimised)
 - Hijacker (if nexmon succeeds)
-- Mifare Classic Tool (not sure of compatible NFC chip yet, need to optimise app first)
+- Mifare Classic Tool (not sure of compatible NFC chip yet, need to be optimised first)
 
 ## Hardware limitations
 

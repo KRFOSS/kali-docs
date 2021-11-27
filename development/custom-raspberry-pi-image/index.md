@@ -6,7 +6,7 @@ weight:
 author: ["steev",]
 ---
 
-The following document describes our own method of creating a **custom Kali Linux Raspberry Pi ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on Raspberry Pi](/docs/arm/kali-linux-raspberry-pi/) article.
+The following document describes our own method of creating a **custom Kali Linux Raspberry Pi ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on Raspberry Pi](/docs/arm/raspberry-pi/) article.
 
 {{% notice info %}}
 You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".

@@ -6,7 +6,7 @@ weight:
 author: ["g0tmi1k",]
 ---
 
-In keeping with the [Kali Linux Network Services Policy](/docs/policy/kali-linux-network-service-policies/), no network services, _including_ database services, run on boot as a default, so there are a couple of steps that need to be taken in order to get [Metasploit](https://www.metasploit.com/) up and running with database support.
+In keeping with the [Kali Linux Network Services Policy](/docs/policy/kali-linux-network-service-policy/), no network services, _including_ database services, run on boot as a default, so there are a couple of steps that need to be taken in order to get [Metasploit](https://www.metasploit.com/) up and running with database support.
 
 ## Quick way
 

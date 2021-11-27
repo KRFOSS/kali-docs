@@ -2,7 +2,7 @@
 title: Kali Linux Default Passwords
 description:
 icon:
-type: archived
+archived: "true"
 weight:
 author: ["g0tmi1k",]
 ---

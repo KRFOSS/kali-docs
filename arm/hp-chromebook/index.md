@@ -25,7 +25,7 @@ The ChromiumOS code name for the HP ARM Chromebook is **daisy_spring**. We use *
 
 The [HP ARM Chromebook](https://www8.hp.com/ca/en/ads/chromebooks/specs.html) is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on the Chromebook. Boasting an Exynos 5250 1.7GHz dual core processor and 2GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an USB drive on this machine which leaves the internal disk untouched.
 
-By default, the Kali Linux HP ARM Chromebook image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux HP ARM Chromebook image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 ## Kali on HP ARM Chromebook - Build-Script Instructions
 
@@ -50,7 +50,7 @@ This process will wipe out your microSD card or USB drive. If you choose the wro
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-exynos.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-exynos.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card or USB drive speed, and the size of the Kali Linux image.

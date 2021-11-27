@@ -25,7 +25,7 @@ The early revisions of Raspberry Pi 1 (Original) boards have a full-size SD card
 
 The [Raspberry Pi 1 (Original)](https://raspberrypi.org/) is a low-cost, credit-card-sized ARM computer. Despite being a being less powerful than a "standard" laptop or desktop PC, its affordability makes it an excellent option for a tiny Linux system. The Raspberry Pi provides a full-size SD card slot for mass storage and will attempt to boot off that device when the board is powered on.
 
-By default, the Kali Linux Raspberry Pi image contains the [**kali-linux-default** metapackage](https://tools.kali.org/kali-metapackages) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+By default, the Kali Linux Raspberry Pi image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
 The Raspberry Pi images use [Re4son](https://twitter.com/re4sonkernel)'s kernel, which includes the drivers for external Wi-Fi cards, TFT displays, and the [nexmon](https://github.com/seemoo-lab/nexmon) firmware for the built-in wireless card on the [Raspberry Pi 3](/docs/arm/raspberry-pi-3/) and [4](/docs/arm/raspberry-pi-4/). You will not need to download it and install it, and doing so will likely be a downgrade over the current installed kernel.
@@ -48,7 +48,7 @@ This process will wipe out your full-size SD card. If you choose the wrong stora
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.2-rpi.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.3-rpi.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your full-size SD card's speed, and the size of the Kali Linux image.
