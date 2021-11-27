@@ -4,9 +4,8 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-nexmon.sh
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64.sh
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64-lite.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi-64bit.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -53,13 +52,13 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.3-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-rpi-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 **or**
 
 ```console
-$ xzcat kali-linux-2021.3-rpi4-nexmon-64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-rpi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -73,7 +72,7 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 The bluetooth service on the Raspberry Pi 400 needs a **uart helper service** before it works. To enable and start the bluetooth service run the following commands:
 
 ```console
-kali@kali:~$ sudo systemctl enable --now uart.service
+kali@kali:~$ sudo systemctl enable --now hciuart.service
 kali@kali:~$ sudo systemctl enable --now bluetooth.service
 ```
 
@@ -81,4 +80,4 @@ The wireless chip on the Raspberry Pi 400 is **NOT** supported by [nexmon](https
 
 ## Kali on Raspberry Pi400 - Image Customization
 
-If you want to customize the Kali Raspberry Pi400 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi3-nexmon.sh` (32-bit) or `rpi3-64.sh` (64-bit).
+If you want to customize the Kali Raspberry Pi400 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi.sh` (32-bit) or `rpi-64bit.sh` (64-bit).

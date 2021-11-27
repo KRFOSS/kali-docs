@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi1.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -48,7 +48,7 @@ This process will wipe out your full-size SD card. If you choose the wrong stora
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.3-rpi.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-rpi1-xfce-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your full-size SD card's speed, and the size of the Kali Linux image.
@@ -63,4 +63,4 @@ There is no wireless on the Raspberry Pi, so you will need to use an external de
 
 ## Kali on Raspberry Pi - Image Customization
 
-If you want to customize the Kali Raspberry Pi image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi.sh`.
+If you want to customize the Kali Raspberry Pi image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi1.sh`.

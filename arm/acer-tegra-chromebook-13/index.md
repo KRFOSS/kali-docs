@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-arm-nyan.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-nyan.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
@@ -25,7 +25,7 @@ By default, the Kali Linux Acer Tegra Chromebook 13" image contains the [**kali-
 
 ## Kali on Acer Tegra Chromebook - Build-Script Instructions
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-arm-nyan.sh`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-nyan.sh`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 

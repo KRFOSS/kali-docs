@@ -5,6 +5,7 @@ icon:
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi-zero-2-w.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi-zero-2-w-pitail.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
