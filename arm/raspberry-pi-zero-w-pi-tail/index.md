@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["re4son",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-pitail.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-pitail.sh, https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi-zero-2-w-pitail.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -23,7 +23,7 @@ storage:
 
 ![pi-tail-logo](images/pi-tail-logo.png)
 
-- Kali-Pi0 optimised for tethering
+- Kali-Pi Zero, or Zero 2 W optimised for tethering
 - Simple, one cable solution for Bluetooth and Wi-Fi tether
 - Image, configure, connect, boot up in two minutes from scratch
 - Just install ConnectBot and VNC viewer on your smartphone
@@ -36,7 +36,7 @@ storage:
 ## Quick install and usage:
 
 1. [Download image from here](/get-kali/#kali-arm) and write to micro-sd card
-2. Insert card into Raspberry Pi Zero W
+2. Insert card into Raspberry Pi Zero W or Zero 2 W
 3. Connect: OTG adapter in smartphone, standard cable in Pi-Tail (power) to power up Pi-Tail
 4. On smartphone:
    1. Enable hotpot with ssid = "sepultura" and password = "R4t4m4h4tt4"
