@@ -16,12 +16,16 @@ Please see the [network sources](/docs/general-use/kali-linux-sources-list-repos
 
 ## Kali Branches
 
-First are the main branches, which are the most frequently used, and the most stable. These are often seen as "safe".
+First are the *main branches*, which are the most frequently used, and the most stable. These are often seen as "safe".
 
 - **kali-rolling** is the main default branch that most should be using. It is being continuously updated, as it pulls from `kali-dev` after ensuring questionable packages are stable and combining them with packages from `kali-rolling-only`. From time to time, a package bug may slip into here, due to bugs in `debian-testing`.
 - **kali-last-snapshot** is a branch of Kali that can be used if users want a more standard feeling of software control. For every new release, we freeze the code and merge `kali-rolling` into `kali-last-snapshot`, at which point users will get all of the updates between [versioned releases](/releases/) (i.e. 2020.3 -> 2020.4). This often is more stable, as packages are not updated (until the next release as it's a "Point Release") and go thought our release testing. This is the "safest" option.
 
-Next are those that you will likely not need except in very special cases:
+Each of these branches provide a complete distribution of the Kali OS. You should be using either one or the other, but there's no point having both enabled at the same time.
+
+Next are the *partial branches*, which are meant to be used *in addition* to the the `kali-rolling` branch. They usually provide more recent versions of the packages that are found in kali-rolling, and at time they might even provide additional packages. These branches can't be used alone, as they don't contain a complete distribution of Kali.
+
+Note that the casual user will likely not need those branches, except in very special cases. The partial branches are:
 
 - **kali-experimental** is a staging area for work-in-progress packages.
 - **kali-bleeding-edge** contains packages that are [automatically updated from the upstream](/blog/bleeding-edge-kali-repositories/) git repositories. This branch has the potential to be very unstable.
@@ -76,7 +80,7 @@ Contrary to kali-dev, kali-rolling is expected to be of better quality because i
 Kali Rolling users are expected to have the following entries in their [/etc/apt/sources.list](/docs/general-use/kali-linux-sources-list-repositories/):
 
 ```plaintext
-deb http://http.kali.org/kali kali-rolling main non-free contrib
+deb http://http.kali.org/kali kali-rolling main contrib non-free
 ```
 
 ### The kali-dev Repository

@@ -14,8 +14,8 @@ On a standard, clean install of Kali Linux, with network access, you should have
 
 ```console
 kali@kali:~$ grep -v '#' /etc/apt/sources.list | sort -u
+deb http://http.kali.org/kali kali-rolling main contrib non-free
 
-deb http://http.kali.org/kali kali-rolling main non-free contrib
 kali@kali:~$
 ```
 
@@ -29,43 +29,75 @@ You will probably want to read the "switching branches" section to alter this.
 
 Since [Kali 2020.3](/blog/kali-linux-2020-3-release/), after Kali's setup is complete, network repositories will be enabled by default, even if there was no network access during installation.
 
-## Switching Branches/Regular Repositories
+## Switching Kali Main Branch
 
-Kali has various [different branches](/docs/general-use/kali-branches/) to choose from (please take the time to read which one would be the best option for your setup), and you may be able to switch or include additional repositories.
+Kali has two [main branches](/docs/general-use/kali-branches/) to choose from (please take the time to read which one would be the best option for your setup):
 
-**kali-rolling** (Default & frequently updated):
+- **kali-rolling** - default & frequently updated
+- **kali-last-snapshot** - point release so more "stable" & the "safest"
 
-```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee /etc/apt/sources.list
-```
-
-- - -
-
-**kali-last-snapshot** (Point release so more "stable" & the "safest"):
+Enabling the `kali-rolling` branch is done with the command:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main non-free contrib" | sudo tee /etc/apt/sources.list
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list
 ```
 
-- - -
-
-**kali-experimental** (Packages which are under testing - often used with the rolling repository):
+Enabling the `kali-last-snapshot` branch is done with the command:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main non-free contrib" | sudo tee /etc/apt/sources.list.d/kali-experimental.list
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main contrib non-free" | sudo tee /etc/apt/sources.list
 ```
+
+Note that such a change is effective only after running `sudo apt update`.
+
+## Enabling Kali Additional Branches
+
+Kali also proposes [additional branches](/docs/general-use/kali-branches/) for special cases. In theory, it's possible to enable those regardless of the main branch you use. In practice though, they are meant to be used in addition to `kali-rolling`. We discourage using it in addition to `kali-last-snapshot` unless you know exactly what you're doing. Those additional branches are:
+
+- **kali-experimental** - packages which are under testing or work in progress
+- **kali-bleeding-edge** - packages automatically updated from upstream git repositories
+
+Enabling or disabling those branches is best done using the command-line tool `kali-tweaks`, under the *Network Repositories* section:
+
+![](kali-tweaks-network-repositories.png)
+
+If you prefer, you can also enable those branches manually from the command-line. For example, enabling `kali-experimental` is done with the command:
+
+```console
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main contrib non-free" | sudo tee /etc/apt/sources.list.d/kali-experimental.list
+```
+
+Note that in the command above, we don't modify the file `/etc/apt/sources.list`, but instead we create a new file `/etc/apt/sources.list.d/kali-experimental.list`. This is a convention: the file `/etc/apt/sources.list` should only contain the main branch, while additional branches should go in `/etc/apt/sources.list.d/`, one branch per file.
+
+If you follow this convention, then disabling the `kali-experimental` branch is straightforward:
+
+```console
+kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-experimental.list
+```
+
+The branch `kali-bleeding-edge` can be enabled with a similar command, we just need to change the name of the branch:
+
+```console
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free" | sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list
+```
+
+To disable `kali-bleeding-edge`:
+
+```console
+kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-bleeding-edge.list
+```
+
 ## Sources.list Format
 
 ```plaintext
-deb   http://http.kali.org/kali   kali-rolling   main non-free contrib
-<Archive>   <Mirror>                <Branch>         <Component>
+deb   http://http.kali.org/kali   kali-rolling   main contrig non-free
+<Archive>   <Mirror>                <Branch>         <Components>
 ```
 
-
 - **Archive** is going to be `deb` (Regular Binary) or `deb-src` (Source), depending if you want a package or the source of the package.
-- **Mirror** should be `http.kali.org/kali` as this is our load balancer, which will direct you to best [mirror](/docs/community/kali-linux-mirrors/).
+- **Mirror** should be `http://http.kali.org/kali` as this is our load balancer, which will direct you to best [mirror](/docs/community/kali-linux-mirrors/).
 - **Branch** is what [version of Kali](/docs/general-use/kali-branches/) you wish to use.
-- **Component** is what packages you wish to use, based on the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract#guidelines). Kali defaults to everything.
+- **Components** are what packages you wish to use, based on the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract#guidelines). Kali defaults to everything.
 
 ## Default Offline Install Values
 
@@ -125,7 +157,7 @@ We have a list of [official Kali Linux mirrors](/docs/community/kali-linux-mirro
 By using a `deb` in the repositories, it will allow for binary packages to be downloaded. However, should you require the source to a package (so you can compile the package yourself if you so wish, or look into debugging a problem with a package), you can add `deb-src` as a extra line in the repositories.
 
 ```console
-kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee -a /etc/apt/sources.list
+kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
 ```
 
 We used `kali-rolling` for the [branch](/docs/general-use/kali-branches/) above, but you can select any value you wish.
