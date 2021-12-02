@@ -90,7 +90,7 @@ kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-bleeding-edge.list
 ## Sources.list Format
 
 ```plaintext
-deb   http://http.kali.org/kali   kali-rolling   main contrig non-free
+deb   http://http.kali.org/kali   kali-rolling   main contrib non-free
 <Archive>   <Mirror>                <Branch>         <Components>
 ```
 
