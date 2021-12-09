@@ -53,14 +53,14 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 For optimus (or laptops or notebooks):
-```
+```console
 ┌──(kali@kali)-[~]
 └─$ lspci | grep -i vga
 00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
 ```
 Well for primary it's always gonna give this same result, so don't worry and even upon using `lspci` maybe you don't see nvidia.
 So for nvidia, we need to install nvidia-detect using `sudo apt install nvidia-detect` and run it...
-```
+```console
 ┌──(kali@kali)-[~]
 └─$ nvidia-detect     
 Detected NVIDIA GPUs:
