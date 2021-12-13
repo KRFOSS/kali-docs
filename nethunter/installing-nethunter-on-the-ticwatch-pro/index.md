@@ -19,9 +19,6 @@ author: ["yesimxev",]
 
 ## 1. Unlock the bootloader
 
-Download and extract the installation files into a folder.  
-Download link: https://build.nethunter.com/contributors/re4son/catfish/
-
 - Connect your watch to your PC with it's USB cable, and fire up a terminal. 
 - If you have set up your watch on the phone you can access settings, otherwise hold both buttons for a few seconds on the welcome screen.
 - Enable developer settings by going to System -> About -> tap Build number 10 times
@@ -30,6 +27,13 @@ Download link: https://build.nethunter.com/contributors/re4son/catfish/
 - Unlock bootloader with "fastboot flashing unlock"
 
 ## 2. Flash vendor image, TWRP, optimized WearOS image and Magisk
+
+Download and extract the installation files into a folder.
+Please note Magisk 21.0 is recommended, included in the following link.
+
+Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
+
+Download link for NetHunter zip. Scroll down to TicWatch for latest release: https://www.kali.org/get-kali/#kali-mobile
 
 - Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
 - "fastboot flash vendor vendor.img"
@@ -58,10 +62,6 @@ However, there was space again after going through this tutorial without /data f
 
 - Select Install -> ADB Sideload
 - "adb sideload" NetHunter image
-
-Init files are not being flashed, which will be patched in the future, so for now, add a custom command to run at boot in AndroidSU terminal:
-- "chmod 666 /dev/hidg*"
-
 - Reboot 
 - Start NetHunter app & chroot
 - Reboot
@@ -102,7 +102,7 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 - Router Keygen (to be optimised)
 - WPS app (to be optimised)
 - Hijacker (if nexmon succeeds)
-- Mifare Classic Tool (not sure of compatible NFC chip yet, need to optimise app first)
+- Mifare Classic Tool (not sure of compatible NFC chip yet, need to be optimised first)
 
 ## Hardware limitations
 
