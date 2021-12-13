@@ -188,7 +188,7 @@ kali@kali:~$
 
 **The `user.name` and `user.email` must match your gpg key details (`gpg -k`) or you will get a "Secret Key Not Available" error later on:**
 
-We also want to enable a new git merge driver:
+We also want to enable a dedicated git merge driver for the `debian/changelog` files:
 
 ```console
 kali@kali:~$ cat <<EOF >> ~/.gitconfig
@@ -196,6 +196,10 @@ kali@kali:~$ cat <<EOF >> ~/.gitconfig
          name = debian/changelog merge driver
          driver = dpkg-mergechangelogs -m %O %A %B %A
 EOF
+kali@kali:~$
+kali@kali:~$ mdkir -p ~/.config/git
+kali@kali:~$
+kali@kali:~$ echo "debian/changelog merge=dpkg-mergechangelogs" >> ~/.config/git/attributes
 kali@kali:~$
 ```
 
