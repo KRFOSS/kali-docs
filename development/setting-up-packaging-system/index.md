@@ -241,7 +241,7 @@ kali@kali:~$
 kali@kali:~$ cat <<EOF> ~/.sbuildrc
 \$build_arch_all = 1;
 \$build_source = 1;
-\$run_lintian = 1;\
+\$run_lintian = 1;
 \$lintian_opts = ['-I'];
 EOF
 kali@kali:~$
