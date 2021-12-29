@@ -35,7 +35,7 @@ kali@kali:~$
 kali@kali:~$ sudo ln -s /usr/share/zoneinfo/US/Central /etc/localtime
 ```
 
-We are going to do a "standalone" installation, were there isn't a separate MySQL database host as well as not enabling any MFA _(as we are going to hide this behind a SSH tunnel)_:
+We are going to do a "standalone" installation, where there isn't a separate MySQL database host as well as not enabling any MFA _(as we are going to hide this behind a SSH tunnel)_:
 
 ```console
 kali@kali:~$ cd /tmp/guac-install/
