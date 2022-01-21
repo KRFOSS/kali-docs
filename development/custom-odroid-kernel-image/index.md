@@ -248,7 +248,7 @@ EOF
 
 #### 08. Install Mali Graphic Drivers (Optional)
 
-These steps are experimental and not fully tested yet. They should be preformed inside the Kali rootfs.
+These steps are experimental and not fully tested yet. They should be performed inside the Kali rootfs.
 
 ```console
 kali@kali:~$ # http://malideveloper.arm.com/develop-for-mali/drivers/open-source-mali-gpus-linux-exadri2-and-x11-display-drivers/

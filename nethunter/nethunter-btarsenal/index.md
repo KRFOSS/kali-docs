@@ -18,7 +18,7 @@ Bluetooth-Arsenal is the control centre for Bluetooth based attacks.
 
 Click on the hamburger menu item and select “Bluetooth Arsenal” to open the Bluetooth menu. Here you can start & stop the services, enable the interfaces, and scan for discoverable devices. Note that devices can be also found which is not in discovery mode, using the Redfang in the next page. BLE is not supported yet.
 
-Only first run: Tap on "Check and install" on the welcome popup to install dependecies. If you need to setup or update in the future, use the options menu at any time on the top right corner.
+Only first run: Tap on "Check and install" on the welcome popup to install dependencies. If you need to setup or update in the future, use the options menu at any time on the top right corner.
 
 &nbsp;
 

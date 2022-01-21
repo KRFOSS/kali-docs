@@ -185,7 +185,7 @@ License: GPL-2+
 kali@kali:~$
 ```
 
-There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debain it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed.
+There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debian it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed.
 
 ```console
 kali@kali:~/phpggc/debian$ vim watch

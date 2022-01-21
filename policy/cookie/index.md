@@ -4,7 +4,7 @@ type: single
 ---
 
 <!--
-Address needs to match whats on MailChimp
+Address needs to match what's on MailChimp
 -->
 
 #### Last Revised:

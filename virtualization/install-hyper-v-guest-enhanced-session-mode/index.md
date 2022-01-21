@@ -49,7 +49,7 @@ We can test to see if it's been a success by starting the virtual machine again,
 
 ![](kali-hyperv-step3.png)
 
-If this test doesn't succeed, you might need to reboot, either the Kali VM, either the Windows host. Do what's the most convenient for you, but if ever you're using the Kali Live image, keep in mind that rebooting means loosing all your changes: you'll have to redo the configuration step on Kali's side.
+If this test doesn't succeed, you might need to reboot, either the Kali VM, either the Windows host. Do what's the most convenient for you, but if ever you're using the Kali Live image, keep in mind that rebooting means losing all your changes: you'll have to redo the configuration step on Kali's side.
 
 
 ## Disabling Hyper-V Enhanced Session Mode
