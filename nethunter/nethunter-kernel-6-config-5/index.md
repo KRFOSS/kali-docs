@@ -1,5 +1,5 @@
 ---
-title: Configuring the Kernel - USB
+title: Configuring the 4.x Kernel - USB
 description:
 icon:
 weight:
@@ -22,6 +22,8 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 &nbsp;
 
 ### USB Gadget support
+
+Please note that kernels above 4.x version (most of the times) don't need any patches, we can simply enable in kernel config as seen below.
 
 Generic serial, CDC ACM, CDC ECM, and HID are required for various USB based attacks.
 
