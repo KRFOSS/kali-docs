@@ -114,7 +114,7 @@ When it comes to the "Disk File" screen, we accept the default value, which has 
 
 We are then presented the final screen for the VM setup wizard, which gives us an overview of the settings we picked.
 
-We are happy with whats shown to us, so we then press "**Finish**". If you try and "Customize Hardware" at this stage, before the VM is fully created, not every setting is visible.
+We are happy with what's shown to us, so we then press "**Finish**". If you try and "Customize Hardware" at this stage, before the VM is fully created, not every setting is visible.
 
 ![](vm-15.png)
 

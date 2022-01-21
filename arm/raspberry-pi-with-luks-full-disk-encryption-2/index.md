@@ -163,7 +163,7 @@ Now we need to create the initramfs. This is where the kernel versions from befo
 kali@kali:~$ mkinitramfs -o /boot/initramfs.gz 4.19.93-Re4son-v7+
 ```
 
-Now we want to ensure that we created the initramfs corectly. If there is no result, then something went wrong.
+Now we want to ensure that we created the initramfs correctly. If there is no result, then something went wrong.
 
 ```console
 kali@kali:~$ lsinitramfs /boot/initramfs.gz | grep cryptsetup
@@ -368,7 +368,7 @@ stage2_optional_hooks(){
 export _ROOTPASSWD="root_password"
 ```
 
-After you have made all the chages you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions.
+After you have made all the changes you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions.
 
 ```console
 kali@kali:~$ sudo ./cryptmypi.sh examples/kali-encrypted-basic

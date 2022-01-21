@@ -56,7 +56,7 @@ kali@kali:~$ echo 'systemctl enable ssh' >>  kali-config/common/hooks/01-start-s
 kali@kali:~$ chmod +x kali-config/common/hooks/01-start-ssh.chroot
 ```
 
-**0x04 - Next, we download a wallpaper** and overlay it. Notice how chroot overlayed files are placed in the _includes.chroot_ directory.
+**0x04 - Next, we download a wallpaper** and overlay it. Notice how chroot overlaid files are placed in the _includes.chroot_ directory.
 
 ```console
 kali@kali:~$ mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images/

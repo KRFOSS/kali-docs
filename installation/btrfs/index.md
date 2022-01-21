@@ -371,7 +371,7 @@ To roll back to a previous snapshot we have to remember two things:
 - The root "/" of the file system has been installed in a subvolume "/@" and not the root of the btrfs partition "/"
 - A snapshot is treated like just another subvolume
 
-Thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the curent root ("@") subvolume.
+Thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the current root ("@") subvolume.
 E.g.:
 
 ```console

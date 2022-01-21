@@ -59,7 +59,7 @@ Before starting the KeX server for the first time, click on *"SETUP LOCAL SERVER
 #### Start KeX
 To start KeX, click on *"START SERVER"*.
 To stop KeX, click on *"STOP SERVER"*.
-To display wether the server is running or not, click the refresh button.
+To display whether the server is running or not, click the refresh button.
 
 ![](NetHunter-KeX-40s.png)
 

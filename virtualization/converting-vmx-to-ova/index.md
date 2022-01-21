@@ -49,6 +49,6 @@ kali@kali:~$
 
 - - -
 
-Thats it!
+That's it!
 
 The OVA file can be now move and used where needed such as to ESXi _(if the in-built upload feature is not working)_ or migrate to VirtualBox _(You may need to install [Guest Addition](/docs/virtualization/install-virtualbox-guest-additions/) if so)_.

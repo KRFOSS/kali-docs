@@ -13,7 +13,7 @@ author: ["yesimxev",]
 1. Unlock the bootloader
 2. Flash vendor image, TWRP, optimized WearOS image and Magisk
 3. Launch Magisk app to finish the rooting process
-4. Resize system partiton in TWRP
+4. Resize system partition in TWRP
 5. Install NetHunter
 6. Set NetHunter watch face 
 
@@ -50,7 +50,7 @@ Download link for NetHunter zip. Scroll down to TicWatch for latest release: htt
 - Launch Magisk Manager
 - You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
-## 4. Resize system partiton in TWRP
+## 4. Resize system partition in TWRP
 
 Upon reflashing ROM after formatted /data, I discovered that the system will have 0 space left, so we need to resize for NetHunter apps, and files
 However, there was space again after going through this tutorial without /data format. In case if you have 0 space left:

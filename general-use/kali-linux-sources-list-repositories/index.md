@@ -103,7 +103,7 @@ deb   http://http.kali.org/kali   kali-rolling   main contrib non-free
 
 During the Kali setup process, if you don't have access to a network connection to reach a repository, you will perform an offline installation of Kali Linux. You will be limited to the packages & the version which is on the medium you installed Kali from. This will then configure Kali to continue to use this medium to install packages from, even after Kali has been installed.
 
-This means you will not get any updates to packages, or any new additional tools, which can be frustrating. You can see if you the offline media enabled if your values match up with whats below (or if you want to enable this option):
+This means you will not get any updates to packages, or any new additional tools, which can be frustrating. You can see if you the offline media enabled if your values match up with what's below (or if you want to enable this option):
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
@@ -134,7 +134,7 @@ Repeat this process for the rest of the CDs in your set.
 kali@kali:~$
 ```
 
-If your output matches whats above, please see the switching branch section, if you wish to receive updates.
+If your output matches what's above, please see the switching branch section, if you wish to receive updates.
 
 However, if you do have network connection, which has access to network repositories, it will be enabled for you. You don't need to do anything.
 
