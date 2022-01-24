@@ -13,7 +13,7 @@ However, if you would rather keep your communication as secure as possible using
 These settings can be changed easily using the `kali-tweaks` tool. Simply:
 
 - Open a terminal and run `kali-tweaks`. 
-- From there, select Hardening -> OpenSSL Configuration.
+- From there, select the _Hardening_ menu.
 - Now you can choose between **Wide Compatibility** _(the default)_ and **Strong Security**.
 
 _Note: This is achieved by changing the OpenSSL configuration through `/etc/ssl/openssl.cnf` and `/etc/ssl/kali.cnf`, so while it can restore access to some legacy services, it will not allow access to servers running protocols that are no longer compiled in the `libssl` library (for example SSLv3)._
