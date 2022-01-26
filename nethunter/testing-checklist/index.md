@@ -2,7 +2,7 @@
 title: Testing Checklist
 description:
 icon:
-weight:
+weight: 40
 author: ["g0tmi1k",]
 ---
 

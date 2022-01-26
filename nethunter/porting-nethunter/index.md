@@ -2,7 +2,7 @@
 title: Porting NetHunter to New Devices manually
 description:
 icon:
-weight:
+weight: 15
 author: ["g0tmi1k",yesimxev]
 ---
 

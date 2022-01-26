@@ -2,7 +2,7 @@
 title: Building NetHunter
 description:
 icon:
-weight:
+weight: 10
 author: ["g0tmi1k",]
 ---
 

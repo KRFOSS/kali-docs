@@ -2,7 +2,7 @@
 title: Configuring the Kernel - Network
 description:
 icon:
-weight:
+weight: 26
 author: ["re4son",]
 ---
 

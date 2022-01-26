@@ -2,7 +2,7 @@
 title: Porting NetHunter to New Devices with kernel builder
 description:
 icon:
-weight:
+weight: 17
 author: ["yesimxev]
 ---
 
