@@ -40,7 +40,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-nanopc-t-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-nanopc-t-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -59,4 +59,4 @@ If you want to change boot arguments/the kernel command line, you will need to i
 
 ## Kali on NanoPC-T3 - Image Customization
 
-If you want to customize the Kali NanoPC-T3 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `nanopi3.sh`.
+If you want to customize the Kali NanoPC-T3 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `nanopc-t.sh`.

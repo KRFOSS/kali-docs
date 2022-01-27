@@ -4,8 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi.sh
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi-64bit.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi-64-bit.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -31,7 +30,7 @@ By default, the Kali Linux Raspberry Pi 2 v1.2 image contains the [**kali-linux-
 {{% notice info %}}
 The Raspberry Pi 2 v1.2 has a 64-bit processor and can run 64-bit images. This is the **only** revision of the Raspberry Pi 2 that can do so.<br />
 <br />
-Because it can run 64-bit images, you can choose either `Kali Linux Raspberry Pi 2, 3, 4 and 400 (32-bit) (img.xz)` or `Kali Linux Raspberry Pi 2 (v1.2), 3, 4 and 400 (64-bit) (img.xz)` as the image to run, the latter being 64-bit.<br />
+Because it can run 64-bit images, you can choose either `Kali Linux RaspberryPi 2, 3, 4 and 400 (img.xz)` or `Kali Linux RaspberryPi 2 (v1.2), 3, 4 and 400 (64-Bit) (img.xz)` as the image to run, the latter being 64-bit.<br />
 <br />
 We recommend using the 32-bit image on Raspberry Pi devices as that gets far more testing, and a lot of documentation out there expects you to be running RaspberryPi OS which is 32-bit.
 {{% /notice %}}
@@ -57,13 +56,13 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-rpi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-raspberry-pi-xfce-armhf-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 **or**
 
 ```console
-$ xzcat kali-linux-2021.4-rpi4-nexmon-64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-raspberry-pi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -83,4 +82,4 @@ options mt76-usb disabe_usb_sg=1
 
 ## Kali on Raspberry Pi 2 v1.2 - Image Customization
 
-If you want to customize the Kali Raspberry Pi 2 v1.2 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi.sh` (32-bit) or `rpi-64bit.sh` (64-bit).
+If you want to customize the Kali Raspberry Pi 2 v1.2 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `raspberry-pi.sh` (32-bit) or `raspberry-pi-64-bit.sh` (64-bit).

@@ -25,7 +25,7 @@ By default, the Kali Linux Utilite Pro image contains the [**kali-linux-default*
 
 ## Kali on Utilite Pro - Build-Script Instructions
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `utilite.sh`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `utilite-pro.sh`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 
@@ -45,7 +45,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-utilite.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-utilite-pro-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

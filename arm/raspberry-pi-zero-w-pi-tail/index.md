@@ -4,8 +4,7 @@ description:
 icon:
 weight:
 author: ["re4son",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-pitail.sh
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi-zero-2-w-pitail.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi-zero-w-pitail.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -24,7 +23,7 @@ storage:
 
 ![pi-tail-logo](images/pi-tail-logo.png)
 
-- Kali-Pi Zero, or Zero 2 W optimised for tethering
+- Kali-Pi0 optimised for tethering
 - Simple, one cable solution for Bluetooth and Wi-Fi tether
 - Image, configure, connect, boot up in two minutes from scratch
 - Just install ConnectBot and VNC viewer on your smartphone
@@ -37,12 +36,12 @@ storage:
 ## Quick install and usage:
 
 1. [Download image from here](/get-kali/#kali-arm) and write to micro-sd card
-2. Insert card into Raspberry Pi Zero W or Zero 2 W
+2. Insert card into Raspberry Pi Zero W
 3. Connect: OTG adapter in smartphone, standard cable in Pi-Tail (power) to power up Pi-Tail
 4. On smartphone:
    1. Enable hotpot with ssid = "sepultura" and password = "R4t4m4h4tt4"
    2. Install Hacker’s Keyboard, ConnectBot & VNC viewer (if desired)
-   3. Connect to 192.168.43.254, using [kali/kali](/docs/introduction/default-credentials/)
+   3. Connect to 192.168.43.254, user root/toor
    4. run "mon0up" to set wifi interface into monitor mode (yes, while using it)
    5. run "airodump -i mon0", "kismet -c mon0", "wifite -i mon0" or anything you like
 5. Go wild
@@ -69,14 +68,13 @@ Pi-Tail checks during boot if ethernet gadget mode is enabled and if not, it wil
 
 During the boot process, Pi-Tail will pick up your network config and copy it across to the system partition. The effective config is copied back to /boot/interfaces.active and /boot/wpa_supplicant.active for offline troubleshooting.  
 
-Enable "wifi hotspot" or "usb tethering"on your phone and the Pi-Tail should connect automatically. Bluetooth works the other way: You have three minutes after boot up to pair with your Pi-Tail.
+Enable "wifi hostspot" or "usb tethering"on your phone and the Pi-Tail should connect automatically. Bluetooth works the other way: You have three minutes after boot up to pair with your Pi-Tail.
 
 Open ConnectBot on your mobile and connect to the Pi-Tail. Configure port forwarding and fire up a vnc viewer of your choice and you can enjoy kali linux in all it’s glory on the go.  
 
-[Passwords](/docs/introduction/default-credentials/):  
-
-- SSH: [kali/kali](/docs/introduction/default-credentials/)
-- VNC: toortoor  
+Passwords:  
+ssh: root / toor  
+vnc: toortoor  
   
 Default Wi-Fi:
 You can use the example config files. Just change your smartphone’s SSID to "sepultura" with the password "R4t4m4h4tt4" and your Pi-Tail will tether straight away.
@@ -87,3 +85,4 @@ More info in [/boot/Pi-Tail.README](https://github.com/Re4son/RPi-Tweaks/blob/ma
 
 Problems, questions, feedback? Join us in the forums:  
 https://forums.kali.org/  
+

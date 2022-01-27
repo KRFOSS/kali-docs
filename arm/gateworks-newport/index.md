@@ -51,4 +51,4 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 ## Kali on the Gateworks Newport - Image Customization
 
-If you want to customize the Kali Gateworks Newport image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `gateworks_newport.sh`.
+If you want to customize the Kali Gateworks Newport image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `gateworks-newport.sh`.

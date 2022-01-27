@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopineoplus2.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopi-neo-plus2.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -59,4 +59,4 @@ If you want to change boot arguments/the kernel command line, you will need to e
 
 ## Kali on NanoPi NEO Plus2 - Image Customization
 
-If you want to customize the Kali NanoPi NEO Plus2 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `nanopineoplus2.sh`.
+If you want to customize the Kali NanoPi NEO Plus2 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `nanopi-neo-plus2.sh`.

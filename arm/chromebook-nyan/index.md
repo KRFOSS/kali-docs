@@ -19,7 +19,7 @@ usb2:
 storage:
 ---
 
-The Acer Tegra Chromebook is an ultraportable laptop. It was quite a challenge, but we have a Kali image that runs great on Acer Tegra Chromebook. Boasting a Tegra K1 2.1GHz quad core processor and 4GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external full-size SD card on this machine which leaves the internal disk untouched.
+The Acer Tegra Chromebook is an ultraportable laptop. Boasting a Tegra K1 2.1GHz quad core processor and 4GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external full-size SD card on this machine which leaves the internal disk untouched.
 
 By default, the Kali Linux Acer Tegra Chromebook 13" image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
@@ -46,7 +46,7 @@ This process will wipe out your full-size SD card or USB drive. If you choose th
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-nyan.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-chromebook-nyan-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your full-size SD card or USB drive speed, and the size of the Kali Linux image.

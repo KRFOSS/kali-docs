@@ -4,8 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w.sh
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi0w-p4wnp1-aloa.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi-zero-w.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -24,7 +23,7 @@ storage:
 The Raspberry Pi Zero W has `Raspberry Pi Zero W V1.1` printed on the **bottom** of the PCB.
 {{% /notice %}}
 
-The [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w/) has a single core 1GHz, with 512MB of RAM. Kali Linux fits on an external microSD card. Unlike the [Raspberry Pi Zero](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero W **has** *w*ireless networking on the board.
+The [Raspberry Pi Zero W](https://www.raspberrypi.org/products/raspberry-pi-zero-w-/) has a single core 1GHz, with 512MB of RAM. Kali Linux fits on an external microSD card. Unlike the [Raspberry Pi Zero](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero W **has** *w*ireless networking on the board.
 
 By default, the Kali Linux Raspberry Pi Zero W image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
@@ -49,7 +48,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-rpi0w-xfce-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-raspberry-pi-zero-w-xfce-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -60,4 +59,4 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 ## Kali on Raspberry Pi Zero W - Image Customization
 
-If you want to customize the Kali Raspberry Pi Zero W image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi0w.sh`.
+If you want to customize the Kali Raspberry Pi Zero W image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `raspberry-pi-zero-w.sh`.

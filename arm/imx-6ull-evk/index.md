@@ -2,6 +2,7 @@
 title: i.MX 6ULL EVK
 description:
 icon:
+archived: "true"
 weight:
 author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/i.mx-6ull-evk.sh
@@ -43,7 +44,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-i.mx-6ull-evk.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-i.mx-6ull-evk-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card, and the size of the Kali Linux image.
