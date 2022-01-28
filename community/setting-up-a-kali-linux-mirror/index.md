@@ -17,19 +17,21 @@ If you want run a **private mirror**, see the dedicated section at the end.
 <!--
   # Prevriously/historic values 
   ## Kali
+  - 2022.1, the main package repository is about 1.3 TB
   - 2021.3, the main package repository is about 1.1 TB
   - 2021.1, the main package repository is about 1.1 TB
   - Early 2020, the main package repository is about 850 GB
   - 2015, the main package repository is about 450 GB
 
   ## Kali Images
+  - 2022.1, the ISO images repository is about 164 GB
   - 2021.3, the ISO images repository is about 120 GB
   - 2021.1, the ISO images repository is about 84 GB
   - Early 2020, the ISO images repository is about 110 GB
   - 2015, the ISO images repository is about 50 GB
 -->
 
-To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of early 2021, the main package repository is about 1.1 TB and the ISO images repository is about 120 GB but you can expect those numbers to grow regularly. A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
+To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of early 2022, the main package repository is about 1.3 TB and the ISO images repository is about 164 GB but you can expect those numbers to grow regularly. A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
 
 **Note on "Push Mirroring"** - The Kali Linux mirroring infrastructure uses SSH-based triggers to ping the mirrors when they need to be refreshed. This currently takes place 4 times a day.
 
