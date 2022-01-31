@@ -39,7 +39,7 @@ author: ["",]
 | [Pinebook](/docs/arm/pinebook/)                                                           | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/pinebook.sh)                        | x |   |   |
 | [Pinebook Pro](/docs/arm/pinebook-pro/)                                                   | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/pinebook-pro.sh)                    | x |   |   |
 | [Raspberry Pi 1 (Original)](/docs/arm/raspberry-pi/)                                      | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi1.sh)                   | x |   |   |
-| [Raspberry Pi 2](/docs/arm/raspberry-pi-2/)                                               | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi.sh)                    | x |   |   |
+| [Raspberry Pi 2 (1.1)](/docs/arm/raspberry-pi-2/)                                         | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi.sh)                    | x |   |   |
 | [Raspberry Pi 3](/docs/arm/raspberry-pi-3/)                                               | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi.sh)                    | x |   |   |
 | [Raspberry Pi 4](/docs/arm/raspberry-pi-4/)                                               | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi.sh)                    | x |   |   |
 | [Raspberry Pi 400](/docs/arm/raspberry-pi-400/)                                           | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi.sh)                    | x |   |   |
