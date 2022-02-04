@@ -41,7 +41,7 @@ So what are SSH host keys exactly? Those keys are required for the SSH server to
 
 Since these keys must be unique for each machine, they can't be embedded in pre-built Kali images such as the Kali Linux [VM images](/get-kali/#kali-virtual-machines) or the [ARM images](/get-kali/#kali-arm). It's usually up to the user to create those keys before running the SSH server for the first time. However, for most users who are not familiar with SSH, this is a hurdle, as they are not aware of this technical detail.
 
-To make it easier, Kali Linux now comes with a systemd service that takes care of that automatically, and generate those keys if they are missing. In practice, it's only during a first boot of a pre-built image that the service kicks in. On subsequent boots, the keys already exist and therefore nothing happens.
+To make it easier, Kali Linux now comes with a systemd service that takes care of that automatically, and generate those keys if they are missing. In theory, it's only during a first boot of a pre-built image that the service kicks in. On subsequent boots, the keys already exist and therefore nothing happens. This may not be the case for users who may remove these keys themselves.
 
 For those who are not comfortable with this automatic behavior, it's very simple and straightforward to disable it:
 
