@@ -10,6 +10,8 @@ author: ["re4son",]
 
 ### SDR
 
+**Please note some devices have the Digital TV support in a submenu, and some kernel 3.x versions don't support RF hardware by default.**
+
 Navigate to ***"Device Drivers -> Multimedia support"*** and configure the following items:
 
 - select ***"Digital TV support"***

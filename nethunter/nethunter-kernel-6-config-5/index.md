@@ -2,7 +2,7 @@
 title: Configuring the 3.x Kernel - USB
 description:
 icon:
-weight: 30
+weight: 32
 author: ["yesimxev",]
 ---
 
