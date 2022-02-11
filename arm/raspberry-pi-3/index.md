@@ -51,13 +51,13 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-raspberry-pi-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2021.4-raspberry-pi-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 **or**
 
 ```console
-$ xzcat kali-linux-2021.4-raspberry-pi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2021.4-raspberry-pi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD's speed, and the size of the Kali Linux image.
