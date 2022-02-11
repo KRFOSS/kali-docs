@@ -1,9 +1,9 @@
 ---
-title: Porting NetHunter to New Devices manually
+title: Porting NetHunter to New Devices with kernel builder
 description:
 icon:
-weight: 15
-author: ["g0tmi1k",yesimxev]
+weight: 17
+author: ["yesimxev]
 ---
 
 In order to port NetHunter to a new device, it's important to understand how NetHunter is separated. NetHunter is divided by the rootfs (also known as the chroot but will be referred to here as rootfs) and the kernel. For the most part, the rootfs is not important to your Android device as it only contains Kali Linux. The kernel is integral to getting things like Bluetooth, wireless USB, and HID keyboard (etc) working.
@@ -26,35 +26,30 @@ One of the reasons why Nexus was chosen is because all kernel sources are made a
 
 ## Making a Test Kernel
 
-Assuming you don't have a toolchain downloaded already, you can download it by running the following commands:
-
-For older devices that are not 64-bit, use:
+Assuming you don't have a toolchain downloaded already, you can begin by cloning our kernel builder to the root of your kernel's folder, and prepare the environment:
 
 ```console
-kali@kali:~$ git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7 toolchain
-kali@kali:~$ export ARCH=arm
-kali@kali:~$ export SUBARCH=arm
-kali@kali:~$ export CROSS_COMPILE=`pwd`/toolchain/bin/arm-eabi-
-kali@kali:~$ make your_device_codename
-kali@kali:~$ make -j$(nproc)
+kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel
+kali@kali:~$ cd kali-nethunter-kernel
 ```
 
-For 64-bit devices, use the appropriate toolchain:
+Find your best matching local.config example file, modify if necessary, and copy to kernel builder folder:
 
 ```console
-kali@kali:~$ git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 -b android10-release toolchain64
-kali@kali:~$ export ARCH=arm64
-kali@kali:~$ export SUBARCH=arm64
-kali@kali:~$ export CROSS_COMPILE=`pwd`/toolchain64/bin/aarch64-linux-android-
-kali@kali:~$ make your_device_codename                         
-kali@kali:~$ make -j$(nproc)
+kali@kali:~$ cp local.config.examples/local.config.example.sdm660 local.config
+kali@kali:~$ ./build.sh
 ```
 
-When ready you can build a test kernel installer. Add your device to your cloned devices repo as per the instructions, then build a zip:
-You can see how the device files are added, some has modules and additional patches, some don't. Mainly, your are fine with a boot image if you don't have modules, like [in this commit](#https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/commit/3665052d125e09e8652144a03056d9c396c3fc9e)
+![](nethunter-porting1.png)
 
+Select ***S. Setup Environment and download toolchains.***
+When ready, build your test kernel with ***2. Configure & compile kernel from scratch***
 
-```console
-kali@kali:~$ cd nethunter-installer
-kali@kali:~$ ./build.py -k -d your_device_codename --your_android_version 
-```
+Select your device's defconfig, then save and exit to start the building process.
+
+If the build was successful, add your device details like codename, boot_block, slot_device, etc with ***8. Edit Anykernel config***
+Create your first test kernel installer with ***6. Create Anykernel zip***
+
+Now flash your kernel to see it in action!
+
+Please note if you will continue and modify the kernel, you can use ***3. Configure & recompile kernel from previous run*** to save time.

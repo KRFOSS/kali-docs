@@ -1,12 +1,14 @@
 ---
-title: Configuring the Kernel - USB
+title: Configuring the 3.x Kernel - USB
 description:
 icon:
-weight:
-author: ["re4son",]
+weight: 30
+author: ["yesimxev",]
 ---
 
 ## Kernel Configuration cont.
+
+**If your kernel is above 4.x please skip to the [next page](nethunter-kernel-7-config-6/)**
 
 ### USB Modem
 
@@ -23,31 +25,8 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 
 ### USB Gadget support
 
-Generic serial, CDC ACM, CDC ECM, and HID are required for various USB based attacks.
+USB Gadget support is only possible with patches on 3.x kernels.
 
-Navigate to ***Device Drivers -> USB support -> USB Gadget Support*** and choose:
-
-- select ***"Generic serial bulk in/out"***
-  (CONFIG_USB_CONFIGFS_SERIAL=y)
-- select ***"Abstract Control Model (CDC ACM)"***
-  (CONFIG_USB_CONFIGFS_ACM=y)
-- select ***"Object Exchange Model (CDC OBEX)"***
-  (CONFIG_USB_CONFIGFS_OBEX=y)
-- select ***"Network Control Model (CDC NCM)"***
-  (CONFIG_USB_CONFIGFS_NCM=y)
-- select ***"Ethernet Control Model (CDC ECM)"***
-  (CONFIG_USB_CONFIGFS_ECM=y)
-- select ***"Ethernet Control Model (CDC ECM) subset"***
-  (CONFIG_USB_CONFIGFS_ECM_SUBSET=y)
-- select ***"RNDIS"***
-  (CONFIG_USB_CONFIGFS_RNDIS=y)
-- select ***"Ethernet Emulation Model (EEM)"***
-  (CONFIG_USB_CONFIGFS_EEM=y)
-- select ***"Mass Storage"***
-  (CONFIG_USB_CONFIGFS_MASS_STORAGE=y)
-
-![](nh-kernel-280-usb-2.png)
-
-&nbsp;
+Please refer to [patching kernel](nethunter-kernel-1-patching/) page.
 
 ## Exit, save, and build

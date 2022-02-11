@@ -2,7 +2,7 @@
 title: Configuring the Kernel - SDR
 description:
 icon:
-weight:
+weight: 30
 author: ["re4son",]
 ---
 

@@ -2,7 +2,7 @@
 title: Configuring the Kernel - Wifi
 description:
 icon:
-weight:
+weight: 28
 author: ["re4son",]
 ---
 
