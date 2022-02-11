@@ -26,9 +26,7 @@ One of the reasons why Nexus was chosen is because all kernel sources are made a
 
 ## Making a Test Kernel
 
-Assuming you don't have a toolchain downloaded already, you can begin by running the following commands:
-
-Clone our kernel builder to the root of your kernel's folder, and prepare the environment:
+Assuming you don't have a toolchain downloaded already, you can begin by cloning our kernel builder to the root of your kernel's folder, and prepare the environment:
 
 ```console
 kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel
@@ -42,10 +40,16 @@ kali@kali:~$ cp local.config.examples/local.config.example.sdm660 local.config
 kali@kali:~$ ./build.sh
 ```
 
-Select **S. Setup Environment and download toolchains.**
-When ready, build your test kernel with **2. Configure & compile kernel from scratch**
+![](nethunter-porting1.png)
 
-If the build was successful, add your device details like codename, boot_block, slot_device, etc with **8. Edit Anykernel config**
-Create your first test kernel installer with **6. Create Anykernel zip**
+Select ***S. Setup Environment and download toolchains.***
+When ready, build your test kernel with ***2. Configure & compile kernel from scratch***
 
-Please note if you will continue and modify the kernel, you can use **3. Configure & recompile kernel from previous run** to save time.
+Select your device's defconfig, then save and exit to start the building process.
+
+If the build was successful, add your device details like codename, boot_block, slot_device, etc with ***8. Edit Anykernel config***
+Create your first test kernel installer with ***6. Create Anykernel zip***
+
+Now flash your kernel to see it in action!
+
+Please note if you will continue and modify the kernel, you can use ***3. Configure & recompile kernel from previous run*** to save time.
