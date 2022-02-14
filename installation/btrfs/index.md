@@ -6,473 +6,325 @@ weight: 310
 author: ["re4son",]
 ---
 
-We are going to install Kali Linux to automatically create file system snapshots during apt operations so we can rollback the system after any failed upgrades.
+Have you ever wished you could travel back in time after deleting that all important customer report or installing a broken driver just before heading into the board meeting?
+Well, you better read on, because now you can!
+
+All it takes is to install Kali Linux version 2022.1 or newer with btrfs as file system and to enable snapshotting  after installation.
+
+You can even boot into any of your saved snapshots via the boot menu and easily rollback to a previous system state:
+
+![boot menu](./btrfs_001-boot menu1.png)
+
+
 
 #### Content
 
 - [Overview](#overview)
 - [Installation Steps](#kali-linux-btrfs-installation-steps)
 - [Usage](#usage)
-
-- - -
+  - [Modify snapper configurations](#modify-configurations) 
+  - [Create additional snapper configurations, e.g. for the home partition](#create-additional-configurations) 
+  - [Create a snapshot](#create-a-snapshot) 
+  - [List snapshots](#list-snapshots) 
+  - [Delete snapshots](#delete-snapshots) 
+  - [Get a diff of snapshots](#diff) 
+  - [Browse the content of snapshots](#browse-snapshots) 
+- [Example walkthrough of a full-system recovery](#full-recovery-from-an-unbootable-system)
 
 #### Overview
 
-[BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) is a modern Copy on Write (CoW) filesystem for Linux aimed at implementing advanced features such as pooling, snapshots, checksums, and integrated multi-device spanning. In particular, the [snapshot](https://btrfs.wiki.kernel.org/index.php/UseCases#Snapshots_and_subvolumes) support is what makes Btrfs attractive for Kali installations on bare metal. Virtualization solutions such as VMWare and Virtualbox provide their own snapshotting functionality and using btrfs in those environments is not really required.
+[btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page) is a modern Copy on Write (CoW) filesystem for Linux aimed at implementing advanced features such as pooling, snapshots, checksums, and integrated multi-device spanning. In particular, the [snapshot](https://btrfs.wiki.kernel.org/index.php/UseCases#Snapshots_and_subvolumes) support is what makes Btrfs attractive for Kali installations on bare metal. Virtualization solutions such as VMWare and Virtualbox provide their own snapshotting functionality and using btrfs in those environments is not really required.
 
-The snapshotting strategy of this walkthrough centres around a tool called "apt-btrfs-snapshot" from the Ubuntu repositories, which is a wrapper around "apt". This wrapper transparently hooks into the apt workflow and automatically creates snapshots before and after any apt operation. This neat little feature allows to easily rollback a system after a botched upgrade.
+The snapshotting strategy of this walk-through centres around a tool called "snapper" from our friends over at SUSE. Snapper transparently hooks into the apt workflow and automatically creates snapshots before and after any apt operation. This neat little feature allows to easily rollback a system after a botched upgrade.
 
-Snapper is another useful utility to create snapshots. We are preparing the Kali system for the use of snapper by creating a separate subvolume for its snapshots but we are not including the installation and usage of snapper in this walkthrough. Details about snapper can be found on the following website: [snapper.io/](http://snapper.io/)
+To top things off, we added [grub-btrfs](https://github.com/Antynea/grub-btrfs)  by [Antynea](https://github.com/Antynea) to automatically add a list of snapshots to the grub boot menu. 
+
+[Snapper-gui](https://github.com/ricardomv/snapper-gui) by [Ricardo Vieira](https://github.com/ricardomv) is another great tool we use to make our lives easier.
+
+  
 
 ##### Installation Overview
 
-Installing Kali Linux with snapshotting functionality is very similar to a standard installation with the following exceptions:
+Installing Kali Linux with snapshotting functionality is very similar to a standard installation except that we install it with btrfs as file system.
 
-1. We pause the installation midway to set up a btrfs partition and btrfs subvolumes on the command line using the tool "partman" before continuing the installation
-2. We adjust the fstab and move some folders to the new subvolumes before we reboot into the newly installed system
+After the installation, we will install some tools and create a default configuration for snapper.
+
+  
 
 ##### Partitioning Scheme
 
-We are going to use the following layout:
+When selecting "btrfs" as file system, the installer will automatically create the following subvolume layout:
 
 ```plaintext
 Mount Point         | Subvolume         | Description
 -------------------------------------------------------------------------
 /                   | @                 | The root filesystem incl. /boot
+/.snapshots         | @.snapshots       | Snapper's snapshot directory
 /home               | @home             | User home directories
 /root               | @root             | The root user's home directory
-/var/log            | @log              | Log files
-/.snapshots         | @snapshots        | Snapper's snapshot directory
+/var/log            | @var@log          | Log files
+/srv                | @srv              | Site-specific data served by this system
+/tmp                | @tmp              | Temporary files
+/usr/local          | @usr@local        | Tertiary hierarchy for local data
 ```
+
+  
 
 #### Kali Linux BTRFS Installation Steps
 
-##### Installation Prerequisites
 
-- A minimum of 20 GB disk space for the Kali Linux install.
-- RAM for i386 and amd64 architectures, minimum: 1GB, recommended: 2GB or more.
-- CD/DVD Drive / USB boot support
-
-##### Preparing for the Installation
-
-1. [Download Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-2. Burn the Kali Linux ISO to DVD or [Image Kali Linux Live to USB](/docs/usb/live-usb-install-with-windows/).
-3. Ensure that your computer is set to boot from CD/DVD/USB in your BIOS.
 
 ##### Kali Linux Installation Procedure
 
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Choose _Graphical Install_.
 
-2. The installation steps are identical to a standard Kali installation except a pause during the step where you choose a domain name as seen below.
+2. The installation steps are identical to a default Kali installation except changing "ext4" to "btrfs" as file system:
 
-![](btrfs-g-08-di.png)
+   At the "Partition Disk" screen, choose "Guided - use entire disk":
 
-- - -
-
-3. When prompted, pause the installation and switch to the second VT via `Ctrl + Alt + F2`.
-
-![](btrfs-g-09-cli.png)
-
-Press `enter` to activate that console and run `partman` to partition the hard disk.
-
-![](btrfs-g-11-cli.png)
+![](btrfs_020-part1.png)
 
 - - -
 
-4. First we create two partitions: swap and root.
-Choose `manual` under "Partitioning method" and press `enter`.
+​	Click "Continue":
 
-![](btrfs-g-12-partman.png)
+![](btrfs_020-part2.png)
 
-- - -
+​	Double-click on the "/" partition:
 
-5. Choose your hard disk:
-
-![](btrfs-g-13-partman.png)
+![](btrfs_020-part4.png)
 
 - - -
 
-6. Confirm to create a new partition table
+​	An choose "btrfs":
 
-![](btrfs-g-14-partman.png)
-
-- - -
-
-7. Next, select the newly defined "free space":
-
-![](btrfs-g-15-partman.png)
+![](btrfs_020-part5.png)
 
 - - -
 
-8. Select `Create a new partition`:
+​	Select "Done setting up the partition" and continue:
 
-![](btrfs-g-16-partman.png)
-
-- - -
-
-9. Pick the desired size for the swap partition:
-
-![](btrfs-g-17-partman.png)
+![](btrfs_020-part7.png)
 
 - - -
 
-10. Choose the preferred partition type:
+​	Select "Finish partitioning and write changes to disk" and continue with the installation.
 
-![](btrfs-g-18-partman.png)
-
-- - -
-
-11. The location of the swap partition is personal preference, we choose "end" here so it's out of the way
-
-![](btrfs-g-19-partman.png)
+![](btrfs_020-part8.png)
 
 - - -
 
-12. Choose "Done setting up the partition":
-
-![](btrfs-g-20-partman.png)
-
-- - -
-
-13. Next we repeat the procedure to setup the maim btrfs partition:
-
-![](btrfs-g-21-partman.png)
-
-- - -
-
-14. Let's create a new partition:
-
-![](btrfs-g-22-partman.png)
-
-- - -
-
-15. Use the rest of the available space:
-
-![](btrfs-g-23-partman.png)
-
-- - -
-
-16. Choose "Primary" as partition type:
-
-![](btrfs-g-24-partman.png)
-
-- - -
-
-17. Configure the following parameters and select `Done setting up the partition`:
-
-```plaintext
-Use as:          btrfs journaling file system
-Mount point:     /
-Bootable flag:   on
-```
-
-![](btrfs-g-25-partman.png)
-
-- - -
-
-18. Finish the partitioning and confirming to write the partition table to disk:
-
-![](btrfs-g-26-partman.png)
-
-![](btrfs-g-27-partman.png)
-
-- - -
-
-19. We return to the command line and can confirm that the new btrfs partition is mounted at /target:
-
-![](btrfs-g-28-postpartman.png)
-
-- - -
-
-20. Next we create the desired subvolumes:
+3. Login after installation and run the following commands in a terminal:
 
 ```console
-kali@kali:~$ btrfs subvolume create /target/@
-kali@kali:~$ btrfs subvolume create /target/@home
-kali@kali:~$ btrfs subvolume create /target/@log
-kali@kali:~$ btrfs subvolume create /target/@root
-kali@kali:~$ btrfs subvolume create /target/@snapshots
+# Set a secure root password or you'll struggle to log into a recovery shell 
+sudo passwd
+
+# Install some essential tools
+sudo apt update && sudo apt install btrfs-progs snapper snapper-gui grub-btrfs
+
+# Create the snapper configuration for the root filesystem "/"
+sudo cp /etc/snapper/config-templates/default /etc/snapper/configs/root
+sudo sed -i 's/^SNAPPER_CONFIGS=\"\"/SNAPPER_CONFIGS=\"root\"/' /etc/default/snapper
+
+# Prevent "updatedb" from indexing the snapshots, which would slow down the system
+sudo sed -i '/# PRUNENAMES=/ a PRUNENAMES = ".snapshots"' /etc/updatedb.conf
+
+# Reconfigure lightdm to allow booting into readn-only snapshots
+sudo sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
+
+# Reboot for the changes to take effect
+sudo reboot
 ```
 
-![](btrfs-g-30-postpartman.png)
+![](btrfs_025-setup1.png)
 
-- - -
+4. The first reboot will create the first automatic snapshot. Reboot again to find the new boot menu entry for this snapshot:
 
-21. Lastly we obtain the subvolume id from our new root subvolume "@" via
+![](btrfs_001-boot menu1.png)
 
-```console
-kali@kali:~$ btrfs subvolume list /target
-```
-
-here "257" - and we set that as out new default and unmount the partition
-
-```console
-kali@kali:~$ btrfs subvolume set-default 257 /target
-kali@kali:~$ umount /target
-```
-
-![](btrfs-g-33-postpartman.png)
-
-- - -
-
-22. Now can switch back to the graphical install via `Ctrl + Alt + F5` and continue with the installation:
-
-![](btrfs-g-08-di.png)
-
-- - -
-
-23. When we get to the partitioning phase, just skip through it and confirm that we are happy to use the existing file system:
-
-![](btrfs-g-38-di.png)
-
-![](btrfs-g-39-di.png)
-
-- - -
-
-24. If you wish you can switch back to VT 2 and confirm that the installer has indeed mounted our "@" subvolume as the temporary root for the installation "/target":
-
-![](btrfs-g-40-cli.png)
-
-- - -
-
-25. Returning back to VT 5 we can continue with our installation until we hit the final screen were we pause for one last time:
-
-![](btrfs-g-45-di.png)
-
-- - -
-
-26. Pressing `Ctrl + Alt + F2` we can return to VT2 and perform our post-installation steps:
-
-- Create temporary mount points
-- mount the subvolumes
-- move "/home", "/var/log", "/root" to their dedicated subvolumes:
-
-```console
-kali@kali:~$ mkdir -p /target/mnt/{root,home,log} /target/.snapshots
-kali@kali:~$
-kali@kali:~$ mount -t btrfs -o subvol=@root /dev/sda2 /target/mnt/root
-kali@kali:~$ mount -t btrfs -o subvol=@home /dev/sda2 /target/mnt/home
-kali@kali:~$ mount -t btrfs -o subvol=@log /dev/sda2 /target/mnt/log
-kali@kali:~$
-kali@kali:~$ mv /target/root/.* /target/mnt/root/
-kali@kali:~$ mv /target/home/* /target/mnt/home/
-kali@kali:~$ mv /target/var/log/* /target/mnt/log/
-kali@kali:~$
-kali@kali:~$ vim /target/etc/fstab
-```
-
-- - -
-
-27. After that we can edit fstab to mount each subvolume via `nano /target/etc/fstab`:
-
-```plaintext
-UUID=<UUID of btrfs partition> /               btrfs   defaults,subvol=@             0       0
-UUID=<UUID of btrfs partition> /home           btrfs   defaults,subvol=@home         0       0
-UUID=<UUID of btrfs partition> /var/log        btrfs   defaults,subvol=@log          0       0
-UUID=<UUID of btrfs partition> /root           btrfs   defaults,subvol=@root         0       0
-UUID=<UUID of btrfs partition> /.snapshots     btrfs   defaults,subvol=@snapshots    0       0
-```
-
-e.g.:
-
-![](btrfs-g-48-postinst.png)
-
-- - -
-
-28. Optionally we can configure "locate" to ignore the .snapshot folder used by snapper (if installed later)
-Add `PRUNENAMES = ".snapshots"` to `/target/etc/updatedb.conf`:
-
-![](btrfs-g-49-postinst.png)
-
-- - -
-
-29. As the last step we have to reset the "default-subvolume" to 5, as that is a requirement for "apt-btrfs-snapshot" to work properly:
-
-![](btrfs-g-50-postinst.png)
-
-- - -
-
-30. Installation is finished now and we can switch back to VT5 (`Ctrl + Alt + F5`) and reboot.
-
-![](btrfs-g-52-finish.png)
-
-- - -
-
-31. After the reboot we can log in and install some more tools we need.
-
-First let's install "btrfs-progs":
-
-```console
-kali@kali:~$ sudo apt install -y btrfs-progs
-```
-
-- - -
-
-32. Now we can download and install the "apt-btrfs-snapshot" tool from the Ubuntu repository
-
-```console
-kali@kali:~$ wget https://launchpad.net/ubuntu/+archive/primary/+files/apt-btrfs-snapshot_3.5.2_all.deb
-kali@kali:~$ sudo apt install ./apt-btrfs-snapshot_3.5.2_all.deb
-```
+![](btrfs_001-boot menu2.png)
 
 Congratulations, you have just installed a Kali system with automatic snapshotting functionality! Next, we will cover some basic usage examples.
 
+------
+
+
+
 #### Usage
 
-##### Create snapshots
+##### Modify configurations
 
-Snapshots are automatically created during apt operations. There are no additional steps required, e.g.:
+Out of the box Kali creates snapshots of the root directory to allow system rollbacks.
+Snapshots are automatically created during apt operations, at specified time intervals, and on every boot. The configuration can be changed via the "snapper-gui" tool. Just click on the little icon in the top left hand corner and select "Properties":
 
-![](btrfs-50-example-snapshot.png)
+![](btrfs-030-snapper-gui0.png)
+
+  ![](btrfs-030-snapper-gui3.png)
+
+------
+
+  
+
+##### Create additional configurations
+
+To create snapshots of your home directory, you can create a new configuration using snapper-gui.  
+Click on "New" -> "Create Configuration"
+
+![](btrfs-030-snapper-config1.png)
+
+![](btrfs-030-snapper-config2.png)
+
+------
+
+
+
+##### Create a snapshot
+
+To manually create a snapshot using snapper-gui, select the appropriate configuration tab (home in this case) and click "New" -> "Create Snapshot"
+
+![](btrfs-030-snapper-config3.png)
 
 - - -
 
 ##### List snapshots
 
-Firstly, a snapshot is also a subvolume, thus all snapshots also show up when listing btrfs subvolumes, e.g. via
+Snapshots are listed in the snapper-gui: 
 
-```console
-kali@kali:~$ sudo btrfs subvolume list /
-```
+![](btrfs-030-snapper-gui1.png)
 
-![](btrfs-51-example-subvolume-list.png)
 
-To list only the snapshots, we can use the following command:
-
-```console
-kali@kali:~$ sudo apt-btrfs-snapshot list
-```
-
-![](btrfs-52-example-snapshot-list.png)
 
 - - -
 
 ##### Delete snapshots
 
-The easiest way to delete a snapshot is by using the following command:
+The easiest way to delete a snapshot is by using the snapper command line tool:
 
 `sudo apt-btrfs-snapshot delete`
 
-![](btrfs-52-example-snapshot-delete.png)
+![](btrfs_040-snapperdelete01.png)
 
-Voila, it's gone:
+Voila, easy.
 
-![](btrfs-53-example-snapshot-list-after-delete.png)
+Now is probably the right time to flick through the snapper command line options via:
 
-There are more sophisticated ways to delete multiple snapshots, e.g. the following deletes all snapshots older than 2 days:
+`snapper --help`
 
-`sudo apt-btrfs-snapshot delete-older-than 2d`
+------
 
-Refer to the help output for all the different features of "apt-btrfs-snapshot"
+
 
 ##### Rollback
 
 To roll back to a previous snapshot we have to remember two things:
 - The root "/" of the file system has been installed in a subvolume "/@" and not the root of the btrfs partition "/"
-- A snapshot is treated like just another subvolume
+- A snapshot is treated like just another subvolume except that they are **read-only**
+- You can easily boot into your read-only snapshots to find the one you want to roll-back to.
 
 Thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the curent root ("@") subvolume.
 E.g.:
 
 ```console
-kali@kali:~$ # mount your root partition (replace "/dev/mmcblk2p2" with yours):
-kali@kali:~$ sudo mount /dev/mmcblk2p2 /mnt
+# get the device that contains your "/" subvolume and remember it for the next step:
+mount | grep 'subvol=/@)'
 
-kali@kali:~$ # Move the old root away:
-kali@kali:~$ sudo mv /mnt/@ /mnt/@_badroot
+# mount your root partition (replace "/dev/sda2" with yours from above):
+sudo mount /dev/sda2 -o subvol=/ /mnt
 
-kali@kali:~$ # Roll back to a previous snapshot:
-kali@kali:~$ sudo mv /mnt/@ /mnt/@apt-snapshot-2019-10-13_18:07:40 /mnt/@
-kali@kali:~$
-kali@kali:~$ sudo reboot -f
+# Move the old root away:
+sudo mv /mnt/@ /mnt/@_badroot
+
+# Roll back to a previous snapshot by creating a read-write copy of it as "@"":
+sudo btrfs subvolume snapshot /mnt/@.snapshots/XXXXX/snapshot /mnt/@
+
+# That's it, reboot:
+sudo reboot -f
 ```
 
-#### Full walkthrough from apt full-upgrade to rollback
+![](btrfs-50-rollback9.png)
 
-##### full-upgrade
+------
 
-After a new installation we don't have any snapshots yet as we can see via:
-`sudo apt-btrfs-snapshot list`
 
-![](btrfs-70-Rollback-01.png)
 
-Let's do a [full system upgrade](/docs/general-use/updating-kali/):
+##### Diff
 
-```console
-kali@kali:~$ sudo apt update
-kali@kali:~$ sudo apt full-upgrade -y
-```
+Snapper is chock-a-block with powerful features like diffs between snapshots:
 
-![](btrfs-72-Rollback-03.png)
+![](btrfs-60-diff1.png)
 
-We can observe that a snapshot is being created before any packages are installed:
+------
 
-![](btrfs-74-Rollback-05.png)
+##### Browse snapshots
 
-Once finished we can confirm that there are no more updates available:
+You can even browse the content of snapshots:
 
-![](btrfs-74-Rollback-05b.png)
+![](btrfs-70-browse1.png)
 
-If we list the snapshots again we can see the one that has just been created:
+------
 
-![](btrfs-75-Rollback-06.png)
+
+
+#### Full recovery from an unbootable system
+
+##### Boot into a last known good snapshot
+
+Let's assume that the last upgrade broke our machine. Every run of "apt install" creates to snapshots, one "pre" snapshot is created before the installation and one "post" snapshot is created after the installation.
+
+To undo the last "apt upgrade", we would boot into the last "pre" snapshot and check if everything is working again:
+
+![](btrfs-50-rollback1.png)
+
+Now you can login to the snapshot.  
+
+![](btrfs-50-rollback3.png)  
+
+Please note that the snapshot is read only and you might receive an error message from an applet or two after logging in. Just ignore that.
+
+Have a look around ensure that this is what you would like to roll-back to.
 
 ##### Rollback
 
 Remember that "/" itself is the subvolume "@". To rollback to a snapshot, all we have to do is replace "@" with the snapshot we want.
 
-1. First we have to mount the btrfs partition via:
+1. First we have to mount the physical partition that holds all our subvolumes. Let's find it first
 
-`sudo mount /dev/<your btrfs partition> /mnt`
+`mount | grep 'subvol='`
 
-If we list the content of that partition we can see all the subvolumes, including the snapshots:
+![](btrfs-50-rollback4.png)
 
-![](btrfs-77-Rollback-08.png)
+​	and then mount it (/dev/sda2 in this example:
+
+​	`sudo mount /dev/sda2 -o subvol=/ /mnt`
+
+​	If we list the content of that partition we can see all the subvolumes, including the one containing our snapshots:
+
+![](btrfs-50-rollback5.png)
 
 - - -
 
 2. Before we replace the current root with our snapshot, let's move "@" away just to be safe:
 
-`sudo mv /mnt/@ /mnt/@_badroot`
+   `sudo mv /mnt/@ /mnt/@_old`
 
-![](btrfs-78-Rollback-09.png)
-
-- - -
-
-3. Now we can pick the snapshot from before the last upgrade and rename it to "@":
-
-`sudo mv /mnt/@apt-snapshot-2019-10-21_23:50:26 /mnt/@`
-
-![](btrfs-79-Rollback-10.png)
-
-And that's all there is to it, here's the new "@":
-
-![](btrfs-80-Rollback-11.png)
-
-Let's reboot for the rollback to take effect:
-
-![](btrfs-81-Rollback-12.png)
+![](btrfs-50-rollback6.png)
 
 - - -
 
-##### Confirming that the rollback worked
+3. Now we can create a read-write snapshot of the current read-only snapshot (in this example we booted into the read-only snapshot "6" according to the query above):
 
-After the reboot, we can see that the snapshot is gone, because we rolled back to it:
+   `sudo btrfs subvolume snapshot /mnt/@.snapshots/6/snapshot /mnt/@`
 
-![](btrfs-82-Rollback-13.png)
+![](btrfs-50-rollback7.png)
 
-And if we issue another `sudo apt update`, we can see that we are back to where we were before the snapshot:
+And that's all there is to it, now we can reboot as if nothing ever happened to our beautiful machine:
 
-![](btrfs-83-Rollback-14.png)
+![](btrfs-50-rollback9.png)
 
-Once you confirmed that the system works you can delete the old "root" by mounting the btrfs partition and using the "btrfs subvolume delete" command:
+- - -
 
-```console
-kali@kali:~$ sudo mount /dev/<your btrfs partition> /mnt
-kali@kali:~$ sudo btrfs subvolume delete /mnt/@_badroot
-```
 
-![](btrfs-84-Rollback-15.png)
 
 - - -
 
@@ -480,5 +332,6 @@ kali@kali:~$ sudo btrfs subvolume delete /mnt/@_badroot
 
 - [Btrfs Wiki](https://btrfs.wiki.kernel.org/index.php/Main_Page)
 - [Btrfs Debian site](https://wiki.debian.org/Btrfs)
-- [apt-btrfs-snapshot](https://launchpad.net/ubuntu/+source/apt-btrfs-snapshot)
 - [Snapper](http://snapper.io/)
+- [Snapper-GUI](https://github.com/ricardomv/snapper-gui) 
+- [grub-btrfs](https://github.com/Antynea/grub-btrfs)
