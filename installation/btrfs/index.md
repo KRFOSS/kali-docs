@@ -13,7 +13,7 @@ All it takes is to install Kali Linux version 2022.1 or newer with btrfs as file
 
 You can even boot into any of your saved snapshots via the boot menu and easily rollback to a previous system state:
 
-![boot menu](./btrfs_001-boot menu1.png)
+![boot menu](btrfs_001-bootmenu1.png)
 
 
 
@@ -141,9 +141,9 @@ sudo reboot
 
 4. The first reboot will create the first automatic snapshot. Reboot again to find the new boot menu entry for this snapshot:
 
-![](btrfs_001-boot menu1.png)
+![](btrfs_001-bootmenu1.png)
 
-![](btrfs_001-boot menu2.png)
+![](btrfs_001-bootmenu2.png)
 
 Congratulations, you have just installed a Kali system with automatic snapshotting functionality! Next, we will cover some basic usage examples.
 
