@@ -26,6 +26,7 @@ author: ["Re4son",]
 - Unprivileged and Root session support
 - Shared clipboard for cut and paste support between Kali Linux and Windows apps
 - Multi-session support: root window & non-priv window & seamless sessions concurrently
+- Fully compatible with WSLg
 
 ![](win-kex-sl.png)
 
