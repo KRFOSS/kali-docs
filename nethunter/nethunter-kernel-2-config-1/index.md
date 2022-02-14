@@ -2,7 +2,7 @@
 title: Configuring the Kernel - General
 description:
 icon:
-weight:
+weight: 24
 author: ["re4son",]
 ---
 

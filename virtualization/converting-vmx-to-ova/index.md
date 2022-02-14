@@ -19,11 +19,11 @@ In order to convert from VMware's VMX to a OVA file, we will use [ovftool](https
 We will be using the [official Kali Linux VMWare image](/get-kali/#kali-virtual-machines) to convert. To start with unzip it to get access to the vmx within.
 
 ```console
-kali@kali:~$ 7z x kali-linux-2021.3-vmware-amd64.7z
+kali@kali:~$ 7z x kali-linux-2021.4-vmware-amd64.7z
 ...
 kali@kali:~$
 kali@kali:~$ ls kali-linux-*-vmware-amd64.vmwarevm/*vmx
-kali-linux-2021.3-vmware-amd64.vmwarevm/kali-linux-2021.3-vmware-amd64.vmx
+kali-linux-2021.4-vmware-amd64.vmwarevm/kali-linux-2021.4-vmware-amd64.vmx
 kali@kali:~$
 ```
 
@@ -33,7 +33,7 @@ We can now start to convert by doing the following.
 
 ```console
 kali@kali:~$ ovftool kali-linux-*-vmware-amd64.vmwarevm/*vmx kali-linux-rolling-amd64.ova
-Opening VMX source: kali-linux-2021.3-vmware-amd64.vmwarevm/kali-linux-2021.3-vmware-amd64.vmx
+Opening VMX source: kali-linux-2021.4-vmware-amd64.vmwarevm/kali-linux-2021.4-vmware-amd64.vmx
 Opening OVA target: kali-linux-rolling-amd64.ova
 Writing OVA package: kali-linux-rolling-amd64.ova
 ...
@@ -49,6 +49,6 @@ kali@kali:~$
 
 - - -
 
-Thats it!
+That's it!
 
 The OVA file can be now move and used where needed such as to ESXi _(if the in-built upload feature is not working)_ or migrate to VirtualBox _(You may need to install [Guest Addition](/docs/virtualization/install-virtualbox-guest-additions/) if so)_.

@@ -10,7 +10,7 @@ author: ["g0tmi1k",]
 
 Kali Linux is specifically geared to meet the requirements of professional penetration testing and security auditing. To achieve this, several core changes have been implemented in Kali Linux which reflect these needs:
 
-1. **Network services disabled by default:** Kali Linux contains systemd hooks that [disable network services](/docs/policy/kali-linux-network-service-policy/) by default. These hooks allow us to install various services on Kali Linux, while ensuring that our distribution remains secure by default, no matter what packages are installed. Additional services such as Bluetooth are also blacklisted by default.
+1. **Network services disabled by default:** Kali Linux contains systemd hooks that [disable network services](/docs/policy/kali-linux-network-service-policy/) by default. These hooks allow us to install various services on Kali Linux, while ensuring that our distribution remains secure by default, no matter what packages are installed. Additional services such as Bluetooth are also blocklisted by default.
 
 2. **Custom Linux kernel:** Kali Linux uses an upstream kernel, patched for wireless injection.
 

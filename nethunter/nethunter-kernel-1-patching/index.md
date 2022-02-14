@@ -2,7 +2,7 @@
 title: Patching the Kernel
 description:
 icon:
-weight:
+weight: 20
 author: ["re4son",]
 ---
 
@@ -13,7 +13,7 @@ We will continue from the [Porting NetHunter page](/docs/nethunter/porting-nethu
 ## Patching
 
 By default, we apply wifi injection patches and patches that add wifi drivers.
-Kernel versions older than 4.x will require HID keyboard / mouse patches.
+Kernel versions below 4.x will require HID keyboard / mouse patches. Some devices need additional patches to avoid build errors.
 We no longer need CD-ROM patches as all modern operating systems support being installed from USB storage devices, thus we can mount NetHunter as USB drive.
 
 In the Kernel-Builder, choose ***"Apply NetHunter kernel patches"***:
@@ -35,3 +35,5 @@ In the Kernel-Builder, choose ***"Apply NetHunter kernel patches"***:
 &nbsp;
 
 We recommend that you work in another terminal window in parallel and commit the changes to the kernel source after having applied each patch.
+
+**Every device's kernel is different. If the above patches fail, you can try to patch by hand. Even if the patches fail, the sources can be quite similar, so patching manually is possible in most cases.  If you succeed, feel free to add your patch to the [kernel builder's repo](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel).**

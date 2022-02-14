@@ -8,9 +8,9 @@ author: ["gamb1t", "g0tmi1k",]
 
 _This guide is accurate at the time of writing. As it references a lot of external resources out of our control, items may be different over time (as software gets updated)._
 
-**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)** is a **Python 3** application with multiple Python dependencies. At the time of writing, one of the dependencies(**[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**) is not in the Kali Linux repository. In this guide we will have to learn how to follow dependency chains, and fix anything required to ensure that the end package can be included. We will also create a patch, helper-script, as well as a [runtime test](/docs/development/contributing-runtime-tests/) for the package.
+**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)** is a **Python 3** application with multiple Python dependencies. At the time of writing, one of the dependencies (**[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**) is not in the Kali Linux repository. In this guide we will have to learn how to follow dependency chains, and fix anything required to ensure that the end package can be included. We will also create a patch, helper-script, as well as a [runtime test](/docs/development/contributing-runtime-tests/) for the package.
 
-We will assume we have already followed our [documentation on setting up a packaging environment](/docs/development/setting-up-packaging-system/) as well as our previous other packaging guides [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) as this will explain their contents.
+We will assume we have already followed our [documentation on setting up a packaging environment](/docs/development/setting-up-packaging-system/) as well as our previous other packaging guides [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/) as this will explain their contents.
 
 ## FinalRecon Code Overview
 
@@ -635,7 +635,7 @@ In theory, we should have a complete working package now with the exception of t
 
 Unlike our previous guides ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) where we use the same name for both **source package** and **binary package**, this time we will differ them.
 
-The naming convention for a **binary package is `python3-<package>`**, which is important to follow as it has a impact at a technical level. However a **source package can be `python-<package>`** (or even just `<package>`). It does not matter if this is not followed as it will not break anything if its not followed. See the [Debian resource](https://www.debian.org/doc/packaging-manuals/python-policy/ch-module_packages.html) for more information.
+The naming convention for a **binary package is `python3-<package>`**, which is important to follow as it has a impact at a technical level. However a **source package can be `python-<package>`** (or even just `<package>`). It does not matter if this is not followed as it will not break anything if its not followed. However, from a Kali team point of view we prefer and will use `python-<package>`. See this [Debian resource](https://www.debian.org/doc/packaging-manuals/python-policy/ch-module_packages.html) for more information.
 
 ### Cheat Sheet Packaging
 
@@ -646,7 +646,7 @@ For more information on building Python libraries, see the [Debian resource](htt
 Here is a quick overview of the **commands needed to build the package**.
 
 ```plaintext
-mkdir -p ~/kali/upstream/ ~/kali/packages/python-icmplib/ ~/kali/build-area/
+mkdir -p ~/kali/upstream/ ~/kali/build-area/ ~/kali/packages/python-icmplib/ 
 wget https://github.com/ValentinBELYN/icmplib/archive/v1.2.2.tar.gz -O ~/kali/upstream/python-icmplib_1.2.2.orig.tar.gz
 cd ~/kali/packages/python-icmplib/
 git init

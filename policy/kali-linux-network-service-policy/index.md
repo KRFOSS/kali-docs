@@ -37,16 +37,16 @@ insserv: warning: current start runlevel(s) (empty) of script `apt-cacher-ng' ov
 insserv: warning: current stop runlevel(s) (0 1 2 3 4 5 6) of script `apt-cacher-ng' overrides LSB defaults (0 1 6).
 ```
 
-#### Service whitelists and blacklists
+#### Service allowlists and blocklists
 
-Service whitelists and blacklists can be found in the **/usr/sbin/update-rc.d** file. You can edit this file to explicitly allow or deny services the ability to automatically start up at boot time.
+Service allowlists and blocklists can be found in the **/usr/sbin/update-rc.d** file. You can edit this file to explicitly allow or deny services the ability to automatically start up at boot time.
 
 ```console
 kali@kali:~$ tail -95 /usr/sbin/update-rc.d | more
 ...
 __DATA__
 #
-# List of blacklisted init scripts
+# List of blocklisted init scripts
 #
 apache2 disabled
 avahi-daemon disabled
@@ -56,7 +56,7 @@ dictd disabled
 ssh disabled
 ...
 #
-# List of whitelisted init scripts
+# List of allowlisted init scripts
 #
 acpid enabled
 acpi-fakekey enabled

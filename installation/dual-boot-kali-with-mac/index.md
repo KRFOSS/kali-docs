@@ -234,7 +234,7 @@ _Do not forget you may need to press and hold the [**Option (or Alt) ⌥** key d
 
 2. You can carry on following the [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), expect you will not have the option to select [desktop environment](/docs/general-use/switching-desktop-environments/) or [metapackages](/docs/general-use/metapackages/) as you are using the live image. Once the installation is done, **reboot**.
 
-By default, macOS/OS X will boot into itself, rather than any other operating system/install media. As we have done it already a few times, you need to hold the [Option (or Alt) ⌥ key](https://support.apple.com/en-us/HT201255). Whilst this "works", but its not ideal as it is easy to not boot anything other tha macOS/OS X. Enter rEFInd, a replacement boot manager (which can also have themes applied).
+By default, macOS/OS X will boot into itself, rather than any other operating system/install media. As we have done it already a few times, you need to hold the [Option (or Alt) ⌥ key](https://support.apple.com/en-us/HT201255). Whilst this "works", but its not ideal as it is easy to not boot anything other than macOS/OS X. Enter rEFInd, a replacement boot manager (which can also have themes applied).
 
 ![](boot-mac-kali.png)
 

@@ -35,7 +35,7 @@ kali@kali:~$
 kali@kali:~$ sudo ln -s /usr/share/zoneinfo/US/Central /etc/localtime
 ```
 
-We are going to do a "standalone" installation, were there isn't a separate MySQL database host as well as not enabling any MFA _(as we are going to hide this behind a SSH tunnel)_:
+We are going to do a "standalone" installation, where there isn't a separate MySQL database host as well as not enabling any MFA _(as we are going to hide this behind a SSH tunnel)_:
 
 ```console
 kali@kali:~$ cd /tmp/guac-install/
@@ -120,6 +120,6 @@ Next we will click on the "Connections" tab and click "New connection". We will 
 
 ![](guacamole-kali-in-browser-2.png)
 
-We make sure to set "Color depth" as we do so the colors come through properly. If set wrongly, some of the grays can turn purple or other colors.
+We make sure to set "Color depth" as we do so the colors come through properly. If set wrongly, some of the greys can turn purple or other colors.
 
 With all that done, you can go "Home" from the upper right drop-down and click on the new connection.

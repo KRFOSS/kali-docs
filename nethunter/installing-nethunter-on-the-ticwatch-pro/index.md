@@ -13,14 +13,11 @@ author: ["yesimxev",]
 1. Unlock the bootloader
 2. Flash vendor image, TWRP, optimized WearOS image and Magisk
 3. Launch Magisk app to finish the rooting process
-4. Resize system partiton in TWRP
+4. Resize system partition in TWRP
 5. Install NetHunter
 6. Set NetHunter watch face 
 
 ## 1. Unlock the bootloader
-
-Download and extract the installation files into a folder. 
-Download link: 
 
 - Connect your watch to your PC with it's USB cable, and fire up a terminal. 
 - If you have set up your watch on the phone you can access settings, otherwise hold both buttons for a few seconds on the welcome screen.
@@ -30,6 +27,13 @@ Download link:
 - Unlock bootloader with "fastboot flashing unlock"
 
 ## 2. Flash vendor image, TWRP, optimized WearOS image and Magisk
+
+Download and extract the installation files into a folder.
+Please note Magisk 21.0 is recommended, included in the following link.
+
+Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
+
+Download link for NetHunter zip. Scroll down to TicWatch for latest release: https://www.kali.org/get-kali/#kali-mobile
 
 - Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
 - "fastboot flash vendor vendor.img"
@@ -46,7 +50,7 @@ Download link:
 - Launch Magisk Manager
 - You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
-## 4. Resize system partiton in TWRP
+## 4. Resize system partition in TWRP
 
 Upon reflashing ROM after formatted /data, I discovered that the system will have 0 space left, so we need to resize for NetHunter apps, and files
 However, there was space again after going through this tutorial without /data format. In case if you have 0 space left:
@@ -58,10 +62,6 @@ However, there was space again after going through this tutorial without /data f
 
 - Select Install -> ADB Sideload
 - "adb sideload" NetHunter image
-
-Init files are not being flashed, which will be patched in the future, so for now, add a custom command to run at boot in AndroidSU terminal:
-- "chmod 666 /dev/hidg*"
-
 - Reboot 
 - Start NetHunter app & chroot
 - Reboot
@@ -73,6 +73,10 @@ Init files are not being flashed, which will be patched in the future, so for no
 - Select & Sync
 
 ### Enjoy Kali NetHunter on the TicWatch Pro
+
+## Download link
+
+https://www.kali.org/get-kali/#kali-mobile
 
 ## Additional supported apps
 
@@ -98,7 +102,7 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 - Router Keygen (to be optimised)
 - WPS app (to be optimised)
 - Hijacker (if nexmon succeeds)
-- Mifare Classic Tool (not sure of compatible NFC chip yet, need to optimise app first)
+- Mifare Classic Tool (not sure of compatible NFC chip yet, need to be optimised first)
 
 ## Hardware limitations
 

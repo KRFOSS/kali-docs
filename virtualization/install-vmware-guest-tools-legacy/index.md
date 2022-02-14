@@ -2,7 +2,7 @@
 title: VMware Tools for a Kali Guest (Legacy)
 description:
 icon:
-archived: true
+archived: "true"
 weight: 300
 author: ["g0tmi1k",]
 ---

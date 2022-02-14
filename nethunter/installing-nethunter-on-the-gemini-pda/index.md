@@ -38,7 +38,7 @@ Sometimes the magisk version shipped with an android image is not compatible wit
 If you are prompted with an error message that "Magisk Manager" is incompatible with the installed version of "Magisk", downgrade the manager app, upgrade magisk via TWRP, and upgrade the manager app again like this:
 - uninstall the existing Magisk Manager
 - download Magisk Manager v6.1.0 from [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)
-- goto "security" settings and turn on "allow installation of apps from unkown sources"
+- goto "security" settings and turn on "allow installation of apps from unknown sources"
 - install magisk manager apk from the download folder
 - open Magisk Manager, say "no" to update
 - disable "Check Updates" in "Settings"

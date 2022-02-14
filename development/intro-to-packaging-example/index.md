@@ -42,7 +42,7 @@ Everything that relates to us building a package will be using `~/kali/`. In the
 
 ## Downloading Tag Releases
 
-Because we are making a new package from scratch, we'll manually download the version of the tool we want to package up. If we were updating a package (and it was packaged correctly), there is a process to help speed it up. However, this will be covered in another guide.
+Because we are making a new package from scratch, we'll manually download the version of the tool we want to package up. If we were updating a package (and it was packaged correctly), there is a process to help speed it up. However, this will be covered in [another guide](/docs/development/advanced-packaging-example/).
 
 Going to the [GitHub's release page](https://github.com/instaloader/instaloader/releases), we can see the latest version (which at the time of writing is `4.4.4`). Here is the option to download `instaloader-v4.4.4-windows-standalone.zip`, as well as `Source Code (zip)`, and  `Source Code (tar.gz)`. We are interested in the `tar.gz` option.
 
@@ -151,7 +151,7 @@ Now we can generate the necessary files required to build a Debain-based package
 - `Library`
 - `Python`
 
-We are going to keep it simple, and go with "**S**ingle". Then accept whats on the screen with `Y`. If you would like more information about when to use what option, please see the [manpage for dh_make](https://manpages.debian.org/jessie/dh-make/dh_make.8.en.html).:
+We are going to keep it simple, and go with "**S**ingle". Then accept what's on the screen with `Y`. If you would like more information about when to use what option, please see the [manpage for dh_make](https://manpages.debian.org/jessie/dh-make/dh_make.8.en.html).:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ dh_make --file ~/kali/upstream/instaloader_4.4.4.orig.tar.gz -p instaloader_4.4.4
@@ -200,7 +200,7 @@ A quick overview of each of those files:
 - `control` - is the metadata for the package (often seen with `apt`)
 - `copyright` - what is under what license. The package can be under something different to the work we have put in to create the package
 - `rules` - how to install the package
-- `debian/source` - is the source package format
+- `source/format` - is the source package format
 
 We now need to edit most of these to make sure the information is accurate. We can use what we found on GitHub to supply the correct info into the `debian/` files:
 
@@ -848,7 +848,7 @@ With that, all the necessary `debian/` files are added. Time to build!
 
 Time to bundle everything into a file. We are going to use **sbuild** to create the package. This has its pros and cons. One of the pros is that if it builds here, it will also build elsewhere as its meant for build daemons. The down side is, it will require access to a network repository as it will try and handle detecting and installing any dependencies missing in the chroot, making it slower to build.
 
-If you don't want to use **sbuild**, just drop it from the arguments (e.g. `gbp buildpackage`), However, you will be required then to install whats in `debian/control` in the `Build-Depends` section (e..g `sudo apt install -y dh-python python3-all python3-setuptools python3-requests`).
+If you don't want to use **sbuild**, just drop it from the arguments (e.g. `gbp buildpackage`), However, you will be required then to install what's in `debian/control` in the `Build-Depends` section (e..g `sudo apt install -y dh-python python3-all python3-setuptools python3-requests`).
 
 So lets give sbuild a try:
 
@@ -860,7 +860,7 @@ kali@kali:~/kali/packages/instaloader$
 
 Oops! We haven't committed our changes to git. Shame on us.
 
-If we wanted to, we could bypass this by doing `gbp buildpackage --git-builder=sbuild --git-export=WC`, which would allow us to test out our values in `debian/` before commiting to it, rather than cluttering up the git history with various debugging/troubleshooting commits. Then when we have our package in a working state, we can then commit to git, and try again, like so:
+If we wanted to, we could bypass this by doing `gbp buildpackage --git-builder=sbuild --git-export=WC`, which would allow us to test out our values in `debian/` before committing to it, rather than cluttering up the git history with various debugging/troubleshooting commits. Then when we have our package in a working state, we can then commit to git, and try again, like so:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git status

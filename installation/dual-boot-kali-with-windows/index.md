@@ -3,7 +3,7 @@ title: Dual Booting Kali with Windows
 description:
 icon:
 weight: 220
-author: ["g0tmi1k",]
+author: ["g0tmi1k","agam778",]
 ---
 
 Installing Kali Linux next to a Windows installation has its benefits. However, you need to exercise caution during the setup process. First, make sure that you've backed up any important data on your Windows installation. Since you'll be modifying your hard drive, you'll want to store this backup on external media. Once you've completed the backup, we recommend you peruse our [Kali Linux Hard Disk install guide](/docs/installation/hard-disk-install/), which explains the normal procedure for a basic Kali Linux install.
@@ -36,9 +36,11 @@ Having a backup of your Linux files available is a good idea in the event someth
 
 Before we can install Kali Linux, there needs to be room on the hard disk. By **booting into a live Kali Linux session** with your chosen installation medium, we can resize the partition to our desired size, as the disk will not be in use because Kali Linux will all be in memory.
 
-1. To start resizing, make sure you **insert your Kali Linux installation medium** and **power on the device**. If needed, press any keyboard shortcuts for a "boot order menu" (depends on each manufacture) or boot into BIOS/UEFI and change the boot order to point to the installation medium first.
+1. Before Resizing the disk, Make Sure **Fast Startup is turned off** in Windows 10 so that we don't get an error while resizing the partition. If you don't know how to do that:- `Open Control Panel` > `Hardware and Sound` > `Power Options` > On the left, click `Choose what the power buttons do` > Then at the top, click `Change Settings that are currently unavailable` (This will ask for administrator permissions) > Now Unselect the `Turn on fast startup` option and click `Save Changes` at the bottom. Now you are ready to resize the partition.
 
-2. When the boot menu/options appears, you should see at least one new option. Depending on the manufacture, hardware, how the system is configured and install medium, you may see more options _(e.g. Can you boot into non-UEFI?)_.
+2. To start resizing, make sure you **insert your Kali Linux installation medium** and **power on the device**. If needed, press any keyboard shortcuts for a "boot order menu" (depends on each manufacture) or boot into BIOS/UEFI and change the boot order to point to the installation medium first.
+
+3. When the boot menu/options appears, you should see at least one new option. Depending on the manufacture, hardware, how the system is configured and install medium, you may see more options _(e.g. Can you boot into non-UEFI?)_.
 
 You may need to try a few different options in order to find success.
 

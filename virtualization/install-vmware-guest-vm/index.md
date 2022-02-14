@@ -54,7 +54,7 @@ When you see the "Guest Operating System" screen, select "**Linux**", and then t
 The next screen is "Virtual Machine Name", which is where you name the VM. This name is also used as the filename (such as the configuration, hard disk and snapshot - which is not changed from this point).
 
 We are keeping it generic in this guide, by using "**Kali Linux**" (as Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/), and we [update Kali Linux](/docs/general-use/updating-kali/)).
-However for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vmware-ARCH`. Example: `kali-linux-2021.3-vmware-amd64`)_.
+However for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vmware-ARCH`. Example: `kali-linux-2021.4-vmware-amd64`)_.
 
 ![](vm-06.png)
 
@@ -114,7 +114,7 @@ When it comes to the "Disk File" screen, we accept the default value, which has 
 
 We are then presented the final screen for the VM setup wizard, which gives us an overview of the settings we picked.
 
-We are happy with whats shown to us, so we then press "**Finish**". If you try and "Customize Hardware" at this stage, before the VM is fully created, not every setting is visible.
+We are happy with what's shown to us, so we then press "**Finish**". If you try and "Customize Hardware" at this stage, before the VM is fully created, not every setting is visible.
 
 ![](vm-15.png)
 

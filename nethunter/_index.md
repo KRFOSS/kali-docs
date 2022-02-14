@@ -3,7 +3,7 @@ title: Kali NetHunter
 description: Kali on your Android phone
 icon: ti-mobile
 weight: 45
-author: ["Re4son",]
+author: ["Re4son","yesimxev"]
 ---
 
 ##### Kali NetHunter is a free & Open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.
@@ -96,9 +96,9 @@ The full NetHunter experience requires a devices specific kernel that has been p
 The [NetHunter gitlab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Offensive Security publishes over 25 images for the most popular devices on the [NetHunter download page](https://www.offensive-security.com/kali-linux-nethunter-download/).
 The following live reports are generated automatically by GitLab CI:
 
-[List of quarterly published NetHunter images](https://stats.nethunter.com/nethunter-images.html)
+[List of quarterly published officialNetHunter images](https://stats.nethunter.com/nethunter-images.html)
+[List of unofficial NetHunter supported kernels](https://stats.nethunter.com/nethunter-kernels.html)
 [NetHunter kernel statistics](https://stats.nethunter.com/nethunter-kernelstats.html)
-[NetHunter kernel table with](https://stats.nethunter.com/nethunter-kernels.html)
 
 ## 3.0 Downloading NetHunter
 
@@ -142,11 +142,13 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - [**Custom Commands**](nethunter-custom-commands/) - Add your own custom commands and functions to the launcher.
 - [**MAC Changer**](nethunter-mac-changer/) - Change your Wi-Fi MAC address (only on certain devices)
 - [**KeX Manager**](nethunter-kex-manager/) - Set up an instant VNC session with your Kali chroot.
-- USB Arsenal - Control the USB gadget configurations
-- [**HID [Attacks]**](nethunter-hid-attacks/) - Various HID attacks, Teensy style.
+- [**USB Arsenal**](nethunter-usbarsenal/) - Control the USB gadget configurations
+- [**HID Attacks**](nethunter-hid-attacks/) - Various HID attacks, Teensy style.
 - [**DuckHunter HID**](nethunter-duckhunter/) - Rubber Ducky style HID attacks
 - [**BadUSB MITM Attack**](nethunter-badusb/) - Nuff said.
 - [**MANA Wireless Toolkit**](nethunter-mana-wireless/) - Setup a malicious Access Point at the click of a button.
+- [**Bluetooth Arsenal**](nethunter-btarsenal/) - Recon, spoof, listen to or inject audio to various Bluetooth devices.
+- [**Social Engineer Toolkit**](nethunter-set/) - Build your own phishing email template for Social Engineer Toolkit.
 - [**MITM Framework**](nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
 - [**NMap Scan**](nethunter-nmap/) - Quick Nmap scanner interface.
 - [**Metasploit Payload Generator**](nethunter-mpg/) - Generating Metasploit payloads on the fly.
@@ -160,18 +162,23 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 If you're interested in porting NetHunter to other Android devices, check out the following links. If your port works, make sure to tell us about it so we can include these kernels in our releases!
 
-1. [Getting Started](porting-nethunter/)
-2. Modifying a Kernel
-3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md)
+1. [Getting Started manually](porting-nethunter/)
+2. [Getting Started with kernel builder](porting-nethunter-kernel-builder/)
+2. [Patching a Kernel](nethunter-kernel-1-patching/)
+2. [Configuring a Kernel](nethunter-kernel-2-config-1/)
+3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)
 
 ## 9.0 Known Working Hardware
 
 1. [Wireless Cards](wireless-cards/)
 2. SDR - RTL-SDR (based on RTL2832U)
+3. Bluetooth adapters - Sena UD100 or generic CSR4.0 adapter
 
 ## 10.0 NetHunter Apps
 
 All apps can be installed through the NetHunter Store client.
+
+## 11.0 Useful Links
 
 1. The NetHunter Store App can be downloaded [here](https://store.nethunter.com/NetHunterStore.apk)
 2. The NetHunter Web Store can be found [here](https://store.nethunter.com/)

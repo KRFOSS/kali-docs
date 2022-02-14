@@ -4,9 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-nexmon.sh
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64.sh
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/rpi3-64-lite.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
@@ -53,13 +51,13 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.3-rpi4-nexmon.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-raspberry-pi-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 **or**
 
 ```console
-$ xzcat kali-linux-2021.3-rpi4-nexmon-64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2021.4-raspberry-pi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD's speed, and the size of the Kali Linux image.
@@ -83,7 +81,7 @@ By default, audio is routed via HDMI, so you won't hear audio via the 3.5mm audi
 0kali@kali:~$ $ sudo amixer -c 0 set numid=3 1
 ```
 
-## Kali on the Raspberry Pi - Examples
+## Kali on the Raspberry Pi 4 - Examples
 
 We love seeing users come up with their own images and sharing them.
 
@@ -91,4 +89,4 @@ As an example, there's a user-created project running Kali on a [**Raspberry Pi*
 
 ## Kali on Raspberry Pi 4 - Image Customization
 
-If you want to customize the Kali Raspberry Pi 4 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `rpi3-nexmon.sh` (32-bit) or `rpi3-64.sh` (64-bit).
+If you want to customize the Kali Raspberry Pi 4 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `raspberry-pi.sh` (32-bit) or `raspberry-pi-64-bit.sh` (64-bit).

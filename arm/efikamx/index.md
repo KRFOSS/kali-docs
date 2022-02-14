@@ -2,10 +2,10 @@
 title: EfikaMX
 description:
 icon:
-archived: true
+archived: "true"
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/efikamx.sh
+build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/archived/efikamx.sh
 headless: kali-desktop-xfce
 metapackage: N/A
 status: eol
@@ -49,7 +49,7 @@ This process will wipe out your full-size SD card. If you choose the wrong stora
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-2021.3-efikamx.img of=/dev/sdb bs=4M
+$ dd if=kali-linux-2021.4-efikamx.img of=/dev/sdb bs=4M
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
