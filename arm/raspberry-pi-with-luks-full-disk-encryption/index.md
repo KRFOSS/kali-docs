@@ -27,7 +27,7 @@ If all goes well, the RPi will boot and then LUKS will kick in and ask for a pas
 As always, all our ARM dev is done on a Kali amd64 machine and we've made sure that we have all the [dependencies](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/master/build-deps.sh) we need. We [download the latest Kali RPi3 image](https://www.offensive-security.com/kali-linux-arm-images/) (2019.4), extract it, and **dd** it to our SD card, which in our case showed up as /dev/sdb2 - adapt as necessary!
 
 ```console
-$ dd if=kali-linux-2021.4-rpi3-nexmon.img of=/dev/sdb bs=4M
+$ dd if=kali-linux-2022.1-rpi3-nexmon.img of=/dev/sdb bs=4M
 ```
 
 Once dd'd, we mount the various partitions and chroot into the Kali RPi3 image:
