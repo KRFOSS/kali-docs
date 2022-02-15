@@ -17,7 +17,7 @@ In this section, we will describe the process of installing Kali Linux on 32-bit
 
 #### Which Image to Choose
 
-The [Kali Linux download page](/downloads/) offers three different image types (**Installer**, **NetInstaller** and **Live**) for download, each available for both 32-bit and 64-bit architectures.
+The [Kali Linux download page](/downloads/) offers different image types (**Installer**, **NetInstaller** and **Live**) for download, each available for both 32-bit and 64-bit architectures. Additionally, there is an **Everything** flavor of the *Installer* and *Live* images, for 64-bit architectures only.
 
 **If in doubt, use the "Installer" image**. You will need to check your system architecture to know whether to get 32-bit or 64-bit. If you don't know it, you're best to research how to find out _(As a rule of thumb, if your machine's newer than 2005 you should be okay with amd64/x64/64-bit)_
 
@@ -40,6 +40,12 @@ This image **cannot be used to boot a live system** _(such as directly running K
 This image is for **running Kali Linux without installing it first** so it is perfect for running off a [USB drive](/docs/usb/) _(or a CD/DVD)_.
 
 You are able to install Kali Linux in its default configuration from this image but **you will not be able to choose** between **desktop environments** or to specify **additional [(meta)packages](/docs/general-use/metapackages/)** to install.
+
+##### Everything
+
+This image is meant for offline scenarios, when you want to use Kali Linux in a place that has no network connectivity. The image is *huge* (more than 9GB), as it contains nearly all of Kali's tools already. It's only available for the 64-bit architecture, and it can be downloaded via BitTorrent only.
+
+Kali "everything" is not exactly an image, it's a flavor. You can download either the **Installer Everything** image or the **Live Everything** image. In both case, all the tools are already there, no need for an Internet connection.
 
 - - -
 
