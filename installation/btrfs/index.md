@@ -39,7 +39,7 @@ The snapshotting strategy of this walk-through centres around a tool called "sna
 
 To top things off, we added [grub-btrfs](https://github.com/Antynea/grub-btrfs)  by [Antynea](https://github.com/Antynea) to automatically add a list of snapshots to the grub boot menu. 
 
-[Snapper-gui](https://github.com/ricardomv/snapper-gui) by [Ricardo Vieira](https://github.com/ricardomv) is another great tool we use to make our lives easier.
+[Snapper-gui](https://github.com/ricardomv/snapper-gui) by [Ricardo Vieira](https://github.com/ricardomv) is another great tool we use to make our lifes easier.
 
   
 
@@ -84,7 +84,6 @@ Mount Point         | Subvolume         | Description
 
 ![](btrfs_020-part1.png)
 
-- - -
 
 ​	Click "Continue":
 
@@ -94,19 +93,16 @@ Mount Point         | Subvolume         | Description
 
 ![](btrfs_020-part4.png)
 
-- - -
 
-​	An choose "btrfs":
+​	Choose "btrfs":
 
 ![](btrfs_020-part5.png)
 
-- - -
 
 ​	Select "Done setting up the partition" and continue:
 
 ![](btrfs_020-part7.png)
 
-- - -
 
 ​	Select "Finish partitioning and write changes to disk" and continue with the installation.
 
@@ -138,6 +134,7 @@ sudo reboot
 ```
 
 ![](btrfs_025-setup1.png)
+- - -
 
 4. The first reboot will create the first automatic snapshot. Reboot again to find the new boot menu entry for this snapshot:
 
@@ -324,9 +321,6 @@ And that's all there is to it, now we can reboot as if nothing ever happened to 
 
 - - -
 
-
-
-- - -
 
 #### References
 
