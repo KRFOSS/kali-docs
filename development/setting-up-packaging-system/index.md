@@ -1,5 +1,5 @@
 ---
-title: Setting Uup a system for packaging
+title: Setting up a system for packaging
 description:
 icon:
 weight: 10
