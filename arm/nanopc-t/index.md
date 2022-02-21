@@ -7,7 +7,7 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopc-t.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
-status: pre-generated
+status: build-scripts
 cpu:
 gpu:
 ram:
