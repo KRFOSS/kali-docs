@@ -35,6 +35,10 @@ The [HP ARM Chromebook](https://www8.hp.com/ca/en/ads/chromebooks/specs.html) is
 
 By default, the Kali Linux Samsung/HP Chromebook image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
+{{% notice info %}}
+The build script for the Exynos based Chromebooks has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
+
 ## Kali on Samsung/HP Chromebook - Build-Script Instructions
 
 Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-exynos.sh`.
