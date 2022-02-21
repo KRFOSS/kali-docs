@@ -23,6 +23,10 @@ The [Utilite Pro](http://www.compulab.co.il/utilite-computer/web/utilite-overvie
 
 By default, the Kali Linux Utilite Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
+{{% notice info %}}
+The build script for the Utilite Pro has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
+
 ## Kali on Utilite Pro - Build-Script Instructions
 
 Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `utilite-pro.sh`.
@@ -53,7 +57,3 @@ This process can take a while, depending on your PC, your microSD card's speed, 
 Once the _dd_ operation is complete, boot up the Utilite Pro with the microSD plugged in.
 
 You should be able to [log in to Kali](/docs/introduction/default-credentials/).
-
-## Kali on Utilite - Image Customization
-
-If you want to customize the Kali Utilite Pro image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `utilite-pro.sh`.
