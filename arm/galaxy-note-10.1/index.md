@@ -46,7 +46,7 @@ To install a pre-built image of the standard build of Kali Linux on your Galaxy 
 6. Get root on your Galaxy Note 10.1, change `/storage/sdcard0`, and backup your recovery partition:
 
 ```console
-$ dd if=/dev/block/mmcblk0p6 of=recovery.img_orig
+$ dd if=/dev/block/mmcblk0p6 of=recovery.img_orig conv=fsync
 ```
 
 7. **[dd](https://packages.debian.org/testing/dd)** the downloaded `recovery.img` image to the recovery partition:
@@ -56,7 +56,7 @@ $ dd if=/dev/block/mmcblk0p6 of=recovery.img_orig
 {{% /notice %}}
 
 ```console
-$ dd if=recovery.img of=/dev/block/mmcblk0p6
+$ dd if=recovery.img of=/dev/block/mmcblk0p6 conv=fsync
 ```
 
 8. Reboot your Galaxy Note 10.1 into recovery mode. You can do this by **turning it off**, then press and hold both the **power button** and the **volume up** button. Once you see the "Samsung Galaxy Note 10.1" text appear, **release the power button but keep pressing the volume up button**. This should boot you into Kali and auto-login into GNOME. The [root password](/docs/introduction/kali-linux-default-passwords/) is `changeme`

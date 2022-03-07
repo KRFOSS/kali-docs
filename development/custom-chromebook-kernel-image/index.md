@@ -28,7 +28,7 @@ Next, we create the physical image file that will hold our Chromebook rootfs and
 kali@kali:~$ sudo apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
 kali@kali:~$ mkdir -p ~/arm-stuff/images/
 kali@kali:~$ cd ~/arm-stuff/images/
-kali@kali:~$ dd if=/dev/zero of=kali-custom-chrome.img bs=4M count=7000
+kali@kali:~$ dd if=/dev/zero of=kali-custom-chrome.img conv=fsync bs=4M count=7000
 ```
 
 #### 03. Partition and Mount the Image File
@@ -199,8 +199,8 @@ kali@kali:~$ vbutil_kernel --pack /tmp/newkern-usb --keyblock /usr/share/vboot/d
 #### 06. Prepare the Boot Partition
 
 ```console
-kali@kali:~$ dd if=/tmp/newkern-sd of=$bootp1 # first boot partition for SD
-kali@kali:~$ dd if=/tmp/newkern-usb of=$bootp2 # second boot partition for USB
+kali@kali:~$ dd if=/tmp/newkern-sd of=$bootp1 conv=fsync # first boot partition for SD
+kali@kali:~$ dd if=/tmp/newkern-usb of=$bootp2 conv=fsync # second boot partition for USB
 kali@kali:~$
 kali@kali:~$ umount $rootp
 kali@kali:~$
@@ -211,7 +211,7 @@ kali@kali:~$ losetup -d $loopdevice
 #### 07. dd the Image and Mark the USB Drive Bootable
 
 ```console
-kali@kali:~$ dd if=kali-linux-chrome.img of=/dev/sdb bs=4M
+kali@kali:~$ dd if=kali-linux-chrome.img of=/dev/sdb conv=fsync bs=4M
 kali@kali:~$ cgpt repair /dev/sdb
 ```
 
