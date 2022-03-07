@@ -235,7 +235,7 @@ kali@kali:~$ dd if=kali-linux-odroid.img of=/dev/sdb bs=4M
 
 Once this operation is complete, connect your UART serial cable to the ODROID and boot it up with the microSD/SD card plugged in. Through the serial console, you will be able to log in to Kali (root / toor) and startx.
 
-If everything works and you want the ODROID to start on boot, make sure to use the "autologin" line in the inittab given above and add the following to your bash_profile:
+If everything works and you want the ODROID to start on boot, make sure to use the "autologin" line in the inittab given above and add the following to your `bash_profile`:
 
 ```console
 # If you don't have a .bash_profile, copy it from /etc/skel/.profile first
