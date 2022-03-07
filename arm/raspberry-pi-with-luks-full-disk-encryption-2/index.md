@@ -103,7 +103,7 @@ kali@kali:~$ echo -e 'crypt\t/dev/mmcblk0p2\tnone\tluks' > /etc/crypttab
 Now we do a little filesystem trickery. We create a fake LUKS filesystem which forces cryptsetup to be included.
 
 ```console
-kali@kali:~$ dd if=/dev/zero of=/tmp/fakeroot.img bs=4M count=20
+kali@kali:~$ dd if=/dev/zero of=/tmp/fakeroot.img conv=fsync bs=4M count=20
 kali@kali:~$ exit
 kali@kali:~$ cryptsetup luksFormat /mnt/chroot/tmp/fakeroot.img
 kali@kali:~$ cryptsetup luksOpen /mnt/chroot/tmp/fakeroot.img crypt
