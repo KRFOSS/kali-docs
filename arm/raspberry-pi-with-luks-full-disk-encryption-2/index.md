@@ -110,14 +110,14 @@ kali@kali:~$ cryptsetup luksOpen /mnt/chroot/tmp/fakeroot.img crypt
 kali@kali:~$ mkfs.ext4 /mnt/chroot/dev/mapper/crypt
 ```
 
-After that we need to copy over, or generate, an ssh key to be added to dropbear's authorized_keys file.
+After that we need to copy over, or generate, an ssh key to be added to dropbear's `authorized_keys` file.
 
 ```console
 kali@kali:~$ cp id_rsa.pub /mnt/chroot/
 kali@kali:~$ LANG=C chroot /mnt/chroot/
 ```
 
-Next we must add the following to /etc/dropbear-initramfs/authorized_keys:
+Next we must add the following to `/etc/dropbear-initramfs/authorized_keys`:
 
 ```console
 kali@kali:~$ vim /etc/dropbear-initramfs/authorized_keys
