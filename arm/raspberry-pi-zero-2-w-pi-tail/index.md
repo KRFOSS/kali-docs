@@ -1,5 +1,5 @@
 ---
-title: Pi-Tail
+title: Raspberry Pi-Tail Zero 2 W
 description:
 icon:
 weight:
