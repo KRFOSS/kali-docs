@@ -71,5 +71,4 @@ kali@kali:~$
 
 - `kali-linux-large`: Our previous default tools for amd64/i386 images
 - `kali-linux-everything`: Every metapackage and tool listed here
-- `kali-tools-top10`: The most commonly used tools
 - `kali-desktop-live`: Used during a live session when booted from the image
