@@ -11,12 +11,12 @@ status: pre-generated
 cpu:
 gpu:
 ram:
-ethernet:
+ethernet: no
 wifi:
 bluetooth:
 usb3:
 usb2:
-storage:
+storage: ["sdcard", "emmc", "nvme"]
 ---
 
 The [Pinebook Pro](https://www.pine64.org/pinebook-pro/) has a Rockchip RK3399 SOC with Mali T860 MP4 GPU and 4GB LPDDR4 RAM. Kali Linux can run from either external microSD card, or the internal eMMC.

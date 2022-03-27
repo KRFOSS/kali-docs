@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: N/A
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Exynos 4412"
+cores: 4
+gpu: "Mali 400"
+ram: LPDDR2
+ram-size: ["1GB", "2GB"]
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 2
+storage: ["sdcard", "emmc"]
 ---
 
 The [ODROID-U2](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G135341370451) is a tricky piece of hardware as console output is not a given. Ideally, when purchasing an ODROID-U2, you should also get a USB UART cable, used for serial debugging of the boot process.

@@ -8,15 +8,17 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
+cpu: "Samsung S5P 4418"
+cores: 4
 gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+ram: DDR3
+ram-size: 1GB
+ethernet: 1
+wifi: "2.4GHz b/g/n"
+bluetooth: yes
+usb3: no
+usb2: 1
+storage: sdcard
 ---
 
 The [NanoPi2](http://nanopi.io/nanopi2.html) is a quad core 1.9GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.

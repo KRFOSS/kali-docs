@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Amlogic S805"
+cores: 4
+gpu: "Mali 450MP2"
+ram: DDR3
+ram-size: 1GB 
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 4
+storage: ["sdcard", "emmc"]
 ---
 
 The [ODROID-C1](https://www.hardkernel.com/shop/odroid-c1-2/) is a quad core 1.5GHz Cortex A5, with 1GB of RAM development board. Kali Linux fits on an external microSD card or on an eMMC module.

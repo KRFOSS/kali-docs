@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: N/A
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Marvell Armada 510 (88AP510)"
+cores: 1
+gpu: Vivante
+ram: DDR3
+ram-size: 2GB
+ethernet: 1
+ethernet-speed: 1000
+wifi: "2.4GHz a/b/g/n"
+bluetooth: yes
+usb3: no
+usb2: 2
+storage: ["sdcard", "esata"]
 ---
 
 The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system and it can do far more than act as a media PC.

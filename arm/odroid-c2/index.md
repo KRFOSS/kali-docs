@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Amlogic S905"
+cores: 4
+gpu: "Mali T450"
+ram: DDR3
+ram-size: 2GB
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 4
+storage: ["sdcard", "emmc"]
 ---
 
 The [ODROID-C2](https://wiki.odroid.com/odroid-c2/odroid-c2) has an Amlogic S905, Quad Core Cortex™-A53 (ARMv8 64-bit) processor with Triple Core Mali-450 GPU and 2GB DDR3 (32-bit / 912Mhz) of RAM. Kali Linux can run from either an external microSD card, or an eMMC module.

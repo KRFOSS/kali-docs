@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "i.MX6 Quad"
+cores: 4
+gpu: Vivante
+ram: DDR3
+ram-size: 2GB
+ethernet: 1
+ethernet-speed: 1000
+wifi: "2.4GHz a/b/g/n"
+bluetooth: yes
+usb3: no
+usb2: 2
+storage: ["sdcard", "emmc"]
 ---
 
 SolidRun's [CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the "world's smallest computer". The specifications are Quad core i.MX6 1GHZ processor, 2GB RAM, Gigabit ethernet, eSata port, and microSD card slot.

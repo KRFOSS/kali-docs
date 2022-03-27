@@ -9,15 +9,6 @@ build-script: N/A
 headless: kali-desktop-xfce
 metapackage: N/A
 status: eol
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
 ---
 
 {{% notice info %}}

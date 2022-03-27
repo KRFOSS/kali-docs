@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+soc: "allwinner-a20 (sun7i)"
+cpu: cortex-a7
+cores: 2
+gpu: mali-400MP2
+ram: DDR3
+ram-siz: 1GB
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 2
+storage: ["sdcard","sata"]
 ---
 
 The [Banana Pi](http://www.banana-pi.org/m1.html) has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.

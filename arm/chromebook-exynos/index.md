@@ -8,15 +8,16 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Exynos 5 Octa 5420"
+gpu: Mali-T628MP6
+ram: DDR3L
+ram-size: 4GB
+ethernet: no
+wifi: "2.4GHz b/g/n"
+bluetooth: yes
+usb3: 1
+usb2: 1
+storage: ["sdcard","emmc"]
 ---
 
 {{% notice info %}}

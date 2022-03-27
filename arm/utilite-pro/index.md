@@ -7,16 +7,7 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/utilite-pro.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
-status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+status: eol
 ---
 
 The [Utilite Pro](http://www.compulab.co.il/utilite-computer/web/utilite-overview) is a quad core 1.2GHz Cortex A9, with 2GB of RAM. Kali Linux fits on an external microSD card.

@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: BCM2836
+cores: 4
+gpu: "Broadcom VideoCore IV"
+ram: DDR3
+ram-size: 1GB
+ethernet: yes
+ethernet-speed: 1GB
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 4
+storage: sdcard
 ---
 
 {{% notice info %}}

@@ -8,15 +8,17 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: N/A
 status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "IMX6ULZ"
+cores: 1
+gpu: Vivante
+ram: DDR3
+ram-size: ["512MB", "1GB"]
+ethernet: no
+wifi: no
+bluetooth: yes
+usb3: no
+usb2: 2
+storage: ["sdcard", "emmc"]
 ---
 
 The [USB Armory MKII](https://inversepath.com/usbarmory) from Inverse Path is an open source hardware design, implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.

@@ -9,15 +9,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: community
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: iMX6ULL
+cores: 1
+gpu: Vivante
+ram: DDR3L
+ram-size: 1GB
+ethernet: 2
+ethernet-speed: 100
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 2
+storage: sdcard
 ---
 
 <!-- @steev: TODO: This is a community contributed image, so we don't know that much about it, nor do we test it. -->
