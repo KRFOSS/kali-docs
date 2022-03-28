@@ -8,6 +8,7 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: eol
+kernel: kali
 ---
 
 The [Trimslice](http://www.compulab.co.il/utilite-computer/web/trim-slice) is a dual core 1GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.

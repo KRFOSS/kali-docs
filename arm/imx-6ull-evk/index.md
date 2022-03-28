@@ -21,6 +21,7 @@ bluetooth: no
 usb3: no
 usb2: 2
 storage: sdcard
+kernel: custom
 ---
 
 <!-- @steev: TODO: This is a community contributed image, so we don't know that much about it, nor do we test it. -->

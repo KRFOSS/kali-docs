@@ -19,6 +19,7 @@ bluetooth: yes
 usb3: no
 usb2: 1
 storage: sdcard
+kernel: custom
 ---
 
 The [NanoPi2](http://nanopi.io/nanopi2.html) is a quad core 1.9GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.

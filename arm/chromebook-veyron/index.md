@@ -19,6 +19,7 @@ bluetooth: yes
 usb3: no
 usb2: 2
 storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [ASUS Chromebook Flip](https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/) is a quad core 1.8GHz, with 2GB or 4GB of RAM Chromebook with a 10.1" 10 point mult-touch touchscreen. Kali Linux fits on an external microSD card or USB drive.

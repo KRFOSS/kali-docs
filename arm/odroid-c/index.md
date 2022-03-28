@@ -20,6 +20,7 @@ bluetooth: no
 usb3: no
 usb2: 4
 storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [ODROID-C1](https://www.hardkernel.com/shop/odroid-c1-2/) is a quad core 1.5GHz Cortex A5, with 1GB of RAM development board. Kali Linux fits on an external microSD card or on an eMMC module.

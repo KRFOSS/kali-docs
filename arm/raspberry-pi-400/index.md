@@ -20,6 +20,7 @@ bluetooth: yes
 usb3: 2
 usb2: 1
 storage: ["sdcard", "usb"]
+kernel: custom
 ---
 
 The [Raspberry Pi 400](https://www.raspberrypi.org/products/raspberry-pi-400/) has a quad core 1.8GHz processor, with 4GB of RAM, in a keyboard formfactor. Kali Linux runs on a microSD card.

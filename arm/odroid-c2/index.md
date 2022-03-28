@@ -20,6 +20,7 @@ bluetooth: no
 usb3: no
 usb2: 4
 storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [ODROID-C2](https://wiki.odroid.com/odroid-c2/odroid-c2) has an Amlogic S905, Quad Core Cortex™-A53 (ARMv8 64-bit) processor with Triple Core Mali-450 GPU and 2GB DDR3 (32-bit / 912Mhz) of RAM. Kali Linux can run from either an external microSD card, or an eMMC module.

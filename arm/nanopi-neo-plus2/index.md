@@ -20,6 +20,7 @@ bluetooth: yes
 usb3: no
 usb2: 2
 storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [NanoPi NEO Plus2](http://nanopi.io/nanopi-neo-plus2.html) has an Allwinner H5, Quad Core Cortex™-A53 (ARMv8 64-bit) processor with Triple Core Mali-450 MP4 GPU and 1GB DDR3 RAM. The NanoPi NEO Plus2 has an 8GB eMMC, which is too small for a default Kali installation, so we run from an external microSD card.

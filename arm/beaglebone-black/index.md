@@ -21,6 +21,7 @@ bluetooth: no
 usb3: no
 usb2: 1
 storage: sdcard
+kernel: custom
 ---
 
 The [BeagleBone Black](http://beagleboard.org/BLACK) is a low-cost, community-supported ARM-based development platform aimed at developers and hobbyists. The BeagleBone Black runs a 1GHz Cortex-A8 CPU and includes hardware-based floating point and 3D acceleration; while much lower-powered than a desktop or laptop system, its affordability makes it an excellent option for a tiny Linux system.

@@ -19,6 +19,7 @@ bluetooth: yes
 usb3: no
 usb2: 1
 storage: ["sdcard", "usb"]
+kernel: custom
 ---
 
 {{% notice info %}}

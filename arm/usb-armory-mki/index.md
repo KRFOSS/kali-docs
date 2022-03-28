@@ -19,6 +19,7 @@ bluetooth: no
 usb3: no
 usb2: 1
 storage: sdcard
+kernel: custom
 ---
 
 The [USB Armory MKI](https://inversepath.com/usbarmory_mark-one.html) from Inverse Path is an open source hardware design, implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.

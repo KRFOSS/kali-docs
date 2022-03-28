@@ -21,6 +21,7 @@ bluetooth: no
 usb3: no
 usb2: 2
 storage: ["sdcard","sata"]
+kernel: custom
 ---
 
 The [Banana Pi](http://www.banana-pi.org/m1.html) has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.

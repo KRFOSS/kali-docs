@@ -19,6 +19,7 @@ bluetooth: yes
 usb3: no
 usb2: 2
 storage: ["sdcard", "emmc"]
+kernel: kali
 ---
 
 The [Pinebook](https://www.pine64.org/pinebook/) has an Allwinner A64 Quad Core SOC with Mali 400 MP2 GPU, and 2GB LPDDR3 RAM. Kali Linux can run from either microSD card, or the internal eMMC.

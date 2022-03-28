@@ -20,6 +20,7 @@ bluetooth: yes
 usb3: no
 usb2: 2
 storage: ["sdcard", "esata"]
+kernel: custom
 ---
 
 The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system and it can do far more than act as a media PC.

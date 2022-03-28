@@ -20,6 +20,7 @@ bluetooth: yes
 usb3: no
 usb2: 2
 storage: ["sdcard", "sata"]
+kernel: custom
 ---
 
 The [CubieTruck](http://www.cubietruck.com/) (aka CubieBoard3) is a dual core 1GHz, with 2GB of RAM. Kali Linux fits on an external microSD card.

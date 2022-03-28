@@ -20,6 +20,7 @@ bluetooth: no
 usb3: no
 usb2: 1
 storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [Gateworks Newport](https://www.gateworks.com/products/industrial-single-board-computers/octeon-tx-single-board-computers-gateworks-newport/) implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.

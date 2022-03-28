@@ -20,6 +20,7 @@ bluetooth: no
 usb3: no
 usb2: 2
 storage: ["sdcard", "emmc", "sata"]
+kernel: custom
 ---
 
 The [CubieBoard2](http://cubieboard.org/model/cb2/) is a dual core 1.4GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.

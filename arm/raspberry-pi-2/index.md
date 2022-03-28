@@ -20,6 +20,7 @@ bluetooth: no
 usb3: no
 usb2: 4
 storage: sdcard
+kernel: custom
 ---
 
 {{% notice info %}}

@@ -19,6 +19,7 @@ bluetooth: yes
 usb3: no
 usb2: 4
 storage: ["sdcard", "usb"]
+kernel: custom
 ---
 
 The [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) has a quad core 1.2GHz processor, with 1GB of RAM. Kali Linux fits on an external microSD card.

@@ -21,6 +21,7 @@ usb3: no
 usb2: 1
 pcie: "6 mPCIe"
 storage: ["sdcard", "msata"]
+kernel: custom
 ---
 
 The [Gateworks Ventana](https://www.gateworks.com/products/industrial-single-board-computers/imx6-single-board-computer-gateworks-ventana-family/) implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.

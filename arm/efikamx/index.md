@@ -9,6 +9,7 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: N/A
 status: eol
+kernel: custom
 ---
 
 {{% notice info %}}

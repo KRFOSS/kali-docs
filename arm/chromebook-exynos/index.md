@@ -18,6 +18,7 @@ bluetooth: yes
 usb3: 1
 usb2: 1
 storage: ["sdcard","emmc"]
+kernel: custom
 ---
 
 {{% notice info %}}
