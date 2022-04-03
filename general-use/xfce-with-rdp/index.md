@@ -28,12 +28,12 @@ For AWS, we must be sure to allow our IP to access the proper ports when we set 
 To use the script we do the following:
 
 ```console
-# If on Docker
+# If on Docker, run the following command first:
 
 ┌──(root㉿182156129)-[~]
 └─$ apt update && apt install -y wget kali-linux-headless
 
-# Otherwise
+# Once complete, continue. Otherwise run the following:
 
 ┌──(kali㉿kali)-[~]
 └─$ wget https://gitlab.com/kalilinux/build-scripts/kali-wsl-chroot/-/raw/master/xfce4.sh
@@ -88,7 +88,7 @@ After you set up Xfce and RDP, you need to start the service:
 
 In the case of AWS, you will need to change the password to the default 'kali' account before connecting. This can be done with the following command:
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ echo kali:kali | sudo chpasswd
 
@@ -98,7 +98,7 @@ In the case of AWS, you will need to change the password to the default 'kali' a
 
 If you are using Docker, you will need to create a new user. You can do this with adduser
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ adduser kali
 ...
