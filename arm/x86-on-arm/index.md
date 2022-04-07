@@ -9,7 +9,7 @@ To run x86 code we are going to utilize [qemu-user-static](https://wiki.debian.o
 
 #### Install necessary packages
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt update
 
@@ -46,7 +46,7 @@ Please keep in mind that more libraries may need to be installed depending on wh
 
 #### Running x86 code
 
-```
+```console
 # Before qemu-user-static install
 
 ┌──(kali㉿kali)-[~]
@@ -71,7 +71,7 @@ TARGET SPECIFICATION:
 
 If there is a downloaded binary that is x86 that is not automatically being ran under `qemu-user-static`, you can invoke it with the following command:
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ qemu-x86_x64-static my_x86_code
 
