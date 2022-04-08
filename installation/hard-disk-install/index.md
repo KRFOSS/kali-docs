@@ -45,6 +45,8 @@ We will be wiping any existing data on the hard disk, so please backup any impor
 
 4. Ensure that your computer is set to boot from CD/DVD/USB in your BIOS/UEFI.
 
+5. In the UEFI settings, ensure that Secure Boot is disabled. The Kali Linux kernel is not signed and will not be recognized by Secure Boot.
+
 ### Kali Linux Installation Procedure
 
 #### Boot
