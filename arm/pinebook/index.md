@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: cortex-a53
+cores: 4 
+gpu: "Mali 400MP2"
+ram: DDR3
+ram-size: 2GB
+ethernet: no
+wifi: "2.4GHz b/g/n"
+bluetooth: yes
+usb3: no
+usb2: 2
+storage: ["sdcard", "emmc"]
+kernel: kali
 ---
 
 The [Pinebook](https://www.pine64.org/pinebook/) has an Allwinner A64 Quad Core SOC with Mali 400 MP2 GPU, and 2GB LPDDR3 RAM. Kali Linux can run from either microSD card, or the internal eMMC.
@@ -40,7 +43,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-pinebook-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-pinebook-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -62,7 +65,7 @@ This process will wipe out your eMMC module. If you choose the wrong storage dev
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-pinebook-xfce-arm64.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
+$ xzcat kali-linux-2022.1-pinebook-xfce-arm64.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your eMMC's speed, and the size of the Kali Linux image.

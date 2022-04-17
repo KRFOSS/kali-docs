@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: BCM2835
+cores: 1
+gpu: "Broadcom VideoCore IV"
+ram: DDR3
+ram-size: ["256MB", "512MB"]
+ethernet: 1
+ethernet-speed: 100
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 4
+storage: sdcard
+kernel: custom
 ---
 
 {{% notice info %}}
@@ -48,7 +52,7 @@ This process will wipe out your full-size SD card. If you choose the wrong stora
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-raspberry-pi1-xfce-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-raspberry-pi1-xfce-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your full-size SD card's speed, and the size of the Kali Linux image.

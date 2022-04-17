@@ -2,7 +2,7 @@
 title: Configuring the 4.x Kernel - USB
 description:
 icon:
-weight: 32
+weight: 34
 author: ["re4son",]
 ---
 

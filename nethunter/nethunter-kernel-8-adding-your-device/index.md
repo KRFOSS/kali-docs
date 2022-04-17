@@ -2,7 +2,7 @@
 title: Adding your device
 description:
 icon:
-weight: 34
+weight: 36
 author: ["yesimxev",]
 ---
 

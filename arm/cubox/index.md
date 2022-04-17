@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: N/A
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Marvell Armada 510 (88AP510)"
+cores: 1
+gpu: Vivante
+ram: DDR3
+ram-size: 2GB
+ethernet: 1
+ethernet-speed: 1000
+wifi: "2.4GHz a/b/g/n"
+bluetooth: yes
+usb3: no
+usb2: 2
+storage: ["sdcard", "esata"]
+kernel: custom
 ---
 
 The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end, low cost ARM computer. Despite its less-than-stellar specifications, its affordability makes it an excellent option for a tiny Linux system and it can do far more than act as a media PC.
@@ -24,6 +28,10 @@ The [CuBox](https://www.solid-run.com/product/cubox-carrier-base/) is a low end,
 _This image for the "Marvell" based (original) NOT the "Freescale" based._
 
 By default, the Kali Linux CuBox image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the CuBox has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on CuBox - Build-Script Instructions
 
@@ -47,7 +55,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-cubox-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-cubox-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

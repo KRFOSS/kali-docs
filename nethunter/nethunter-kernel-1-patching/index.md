@@ -36,4 +36,4 @@ In the Kernel-Builder, choose ***"Apply NetHunter kernel patches"***:
 
 We recommend that you work in another terminal window in parallel and commit the changes to the kernel source after having applied each patch.
 
-**Every device's kernel is different. If the current patches fail, you can try to patch by hand. If you succeed, feel free to add your patch to the [kernel builder's repo](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel).**
+**Every device's kernel is different. If the above patches fail, you can try to patch by hand. Even if the patches fail, the sources can be quite similar, so patching manually is possible in most cases.  If you succeed, feel free to add your patch to the [kernel builder's repo](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel).**

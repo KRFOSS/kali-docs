@@ -7,21 +7,17 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/mini-x.sh
 headless: kali-desktop-xfce
 metapackage: N/A
-status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+status: eol
+kernel: custom
 ---
 
 The [Mini-X](http://www.minix.us/) is a dual core 1GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
 
 By default, the Kali Linux Mini-X image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the Mini-X has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on Mini-X - Build-Script Instructions
 
@@ -45,7 +41,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-mini-x-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-mini-x-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

@@ -11,12 +11,13 @@ status: pre-generated
 cpu:
 gpu:
 ram:
-ethernet:
+ethernet: no
 wifi:
 bluetooth:
 usb3:
 usb2:
-storage:
+storage: ["sdcard", "emmc", "nvme"]
+kernel: custom
 ---
 
 The [Pinebook Pro](https://www.pine64.org/pinebook-pro/) has a Rockchip RK3399 SOC with Mali T860 MP4 GPU and 4GB LPDDR4 RAM. Kali Linux can run from either external microSD card, or the internal eMMC.
@@ -40,7 +41,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-pinebook-pro-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-pinebook-pro-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -62,7 +63,7 @@ This process will wipe out your eMMC module. If you choose the wrong storage dev
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-pinebook-pro-xfce-arm64.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
+$ xzcat kali-linux-2022.1-pinebook-pro-xfce-arm64.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your eMMC's speed, and the size of the Kali Linux image.

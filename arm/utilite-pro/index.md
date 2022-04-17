@@ -7,21 +7,17 @@ author: ["steev",]
 build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/utilite-pro.sh
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
-status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+status: eol
+kernel: custom
 ---
 
 The [Utilite Pro](http://www.compulab.co.il/utilite-computer/web/utilite-overview) is a quad core 1.2GHz Cortex A9, with 2GB of RAM. Kali Linux fits on an external microSD card.
 
 By default, the Kali Linux Utilite Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the Utilite Pro has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on Utilite Pro - Build-Script Instructions
 
@@ -45,7 +41,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-utilite-pro-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-utilite-pro-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -53,7 +49,3 @@ This process can take a while, depending on your PC, your microSD card's speed, 
 Once the _dd_ operation is complete, boot up the Utilite Pro with the microSD plugged in.
 
 You should be able to [log in to Kali](/docs/introduction/default-credentials/).
-
-## Kali on Utilite - Image Customization
-
-If you want to customize the Kali Utilite Pro image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `utilite-pro.sh`.

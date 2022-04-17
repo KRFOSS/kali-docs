@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "i.MX6 Quad"
+cores: 4
+gpu: Vivante
+ram: DDR3
+ram-size: 2GB
+ethernet: 1
+ethernet-speed: 1000
+wifi: "2.4GHz a/b/g/n"
+bluetooth: yes
+usb3: no
+usb2: 2
+storage: ["sdcard", "emmc"]
+kernel: kali
 ---
 
 SolidRun's [CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the "world's smallest computer". The specifications are Quad core i.MX6 1GHZ processor, 2GB RAM, Gigabit ethernet, eSata port, and microSD card slot.
@@ -24,6 +28,10 @@ SolidRun's [CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/) is the 
 _This image for the "Freescale" based NOT the "Marvell" based (original)._
 
 By default, the Kali Linux CuBox-i4Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the CuBox-i4Pro has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on CuBox-i4Pro - Build-Script Instructions
 
@@ -47,7 +55,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-cubox-i4pro-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-cubox-i4pro-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

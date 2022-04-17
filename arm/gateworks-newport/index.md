@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: community
-cpu:
+cpu: "Cavium OcteonTX CN8120"
+cores: 2
 gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+ram: DD4
+ram-size: 1GB
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 1
+storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [Gateworks Newport](https://www.gateworks.com/products/industrial-single-board-computers/octeon-tx-single-board-computers-gateworks-newport/) implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.
@@ -40,7 +44,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-gateworks-newport-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-gateworks-newport-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

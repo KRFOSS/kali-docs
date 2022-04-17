@@ -1,5 +1,5 @@
 ---
-title: Pi-Tail
+title: Raspberry Pi-Tail Zero 2 W
 description:
 icon:
 weight:
@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: BCM2710A1
+cores: 4
+gpu: "Broadcom VideoCore IV"
+ram: DDR3
+ram-size: 512MB
+ethernet: no
+wifi: "2.4GHz/5GHz"
+bluetooth: yes
+usb3: no
+usb2: 1
+storage: ["sdcard", "usb"]
+kernel: custom
 ---
 
 # Pi-Tail

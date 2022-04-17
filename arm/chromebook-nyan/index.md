@@ -8,20 +8,26 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Tegra K1"
+gpu: "NVIDIA Kepler"
+ram: DDR3L
+ram-size: 4GB
+ethernet: no
+wifi: "2.4GHz a/c"
+bluetooth: yes
+usb3: 2
+usb2: 0
+storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The Acer Tegra Chromebook is an ultraportable laptop. Boasting a Tegra K1 2.1GHz quad core processor and 4GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external full-size SD card on this machine which leaves the internal disk untouched.
 
 By default, the Kali Linux Acer Tegra Chromebook 13" image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the Nyan based Chromebooks has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on Acer Tegra Chromebook - Build-Script Instructions
 
@@ -46,7 +52,7 @@ This process will wipe out your full-size SD card or USB drive. If you choose th
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-chromebook-nyan-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-chromebook-nyan-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your full-size SD card or USB drive speed, and the size of the Kali Linux image.

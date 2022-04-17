@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
+cpu: "Samsung S5P 4418"
+cores: 4
 gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+ram: DDR3
+ram-size: 1GB
+ethernet: 1
+wifi: "2.4GHz b/g/n"
+bluetooth: yes
+usb3: no
+usb2: 1
+storage: sdcard
+kernel: custom
 ---
 
 The [NanoPi2](http://nanopi.io/nanopi2.html) is a quad core 1.9GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
@@ -45,7 +48,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-nanopi2-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-nanopi2-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

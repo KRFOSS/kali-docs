@@ -9,15 +9,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: community
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: iMX6ULL
+cores: 1
+gpu: Vivante
+ram: DDR3L
+ram-size: 1GB
+ethernet: 2
+ethernet-speed: 100
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 2
+storage: sdcard
+kernel: custom
 ---
 
 <!-- @steev: TODO: This is a community contributed image, so we don't know that much about it, nor do we test it. -->
@@ -28,7 +32,7 @@ By default, the Kali Linux i.MX 6ULL EVK image contains the [**kali-linux-defaul
 
 ## Kali on the i.MX 6ULL EVK - Build-Script Instructions
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `i.mx-6ull-evk.sh`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `imx-6ull-evk.sh`.
 
 Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 
@@ -44,7 +48,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-i.mx-6ull-evk-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-imx-6ull-evk-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card, and the size of the Kali Linux image.

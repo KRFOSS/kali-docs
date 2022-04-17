@@ -8,15 +8,20 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: community
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: i.MX6
+cores: 4
+gpu: Vivante
+ram: DDR3
+ram-size: 1GB
+ethernet: 2
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 1
+pcie: "6 mPCIe"
+storage: ["sdcard", "msata"]
+kernel: custom
 ---
 
 The [Gateworks Ventana](https://www.gateworks.com/products/industrial-single-board-computers/imx6-single-board-computer-gateworks-ventana-family/) implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.
@@ -42,7 +47,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-gateworks-ventana-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-gateworks-ventana-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

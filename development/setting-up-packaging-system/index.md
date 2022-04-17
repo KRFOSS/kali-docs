@@ -1,5 +1,5 @@
 ---
-title: Setting Uup a system for packaging
+title: Setting up a system for packaging
 description:
 icon:
 weight: 10
@@ -22,7 +22,7 @@ We will install tools that we will use later for packaging. [`packaging-dev`](ht
 kali@kali:~$ sudo apt update
 [...]
 kali@kali:~$
-kali@kali:~$ sudo apt install -y packaging-dev apt-file gitk mr
+kali@kali:~$ sudo apt install -y packaging-dev sbuild apt-file gitk mr
 [...]
 kali@kali:~$
 ```

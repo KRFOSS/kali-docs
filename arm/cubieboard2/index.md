@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: cortex-a7
+cpu-cores: 2
+gpu: Mali400MP2
+ram: DDR3
+ram-size: 1GB
+ethernet: 1
+ethernet-speed: 100
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 2
+storage: ["sdcard", "emmc", "sata"]
+kernel: custom
 ---
 
 The [CubieBoard2](http://cubieboard.org/model/cb2/) is a dual core 1.4GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
@@ -45,7 +49,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-cubieboard2-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-cubieboard2-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

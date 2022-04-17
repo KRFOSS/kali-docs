@@ -8,15 +8,17 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Exynos 5 Octa 5420"
+gpu: Mali-T628MP6
+ram: DDR3L
+ram-size: 4GB
+ethernet: no
+wifi: "2.4GHz b/g/n"
+bluetooth: yes
+usb3: 1
+usb2: 1
+storage: ["sdcard","emmc"]
+kernel: custom
 ---
 
 {{% notice info %}}
@@ -34,6 +36,10 @@ The Samsung ARM Chromebooks are ultraportable laptops. Boasting an Exynos 5250 1
 The [HP ARM Chromebook](https://www8.hp.com/ca/en/ads/chromebooks/specs.html) is also an ultraportable laptop. It also hasan Exynos 5250 1.7GHz dual core processor and 2GB of RAM, the Chromebook is an equally fast ARM laptop. Kali Linux fits on an USB drive on this machine which means the internal disk is untouched.
 
 By default, the Kali Linux Samsung/HP Chromebook image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the Exynos based Chromebooks has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on Samsung/HP Chromebook - Build-Script Instructions
 
@@ -58,7 +64,7 @@ This process will wipe out your microSD card or USB drive. If you choose the wro
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-chromebook-exynos-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-chromebook-exynos-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card or USB drive speed, and the size of the Kali Linux image.

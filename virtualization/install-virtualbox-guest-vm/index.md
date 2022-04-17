@@ -26,7 +26,7 @@ Upon starting up VirtualBox, select "New" (Machine -> New).
 
 The next screen is "Name and operating system" which is where you name the VM. This name is also used in any filenames (such as the configuration, hard disk and snapshot - which isn't changed from this point).
 
-We are keeping it generic in this guide (as Kali is a [rolling distribution](/docs/general-use/kali-branches/), and we update it), however for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vbox-ARCH`. Example: `kali-linux-2021.4-vbox-amd64`)_.
+We are keeping it generic in this guide (as Kali is a [rolling distribution](/docs/general-use/kali-branches/), and we update it), however for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vbox-ARCH`. Example: `kali-linux-2022.1-vbox-amd64`)_.
 
 For the "Type", we set it as `Linux`. For the "Version", we are going to be using the x64 desktop image, so we are going to select `Debian (64-bit)`.
 

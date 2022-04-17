@@ -35,9 +35,9 @@ This might seem like a lot, but its really pretty straightforward. Once complete
 We first will download and image the latest Kali RPi3 image. If you're following along, be sure to know where you are imaging the file to.
 
 ```console
-$ wget https://images.kali.org/arm-images/kali-linux-2021.4-raspberry-pi-xfce-armhf.img.xz
+$ wget https://images.kali.org/arm-images/kali-linux-2022.1-raspberry-pi-xfce-armhf.img.xz
 $
-$ xzcat kali-linux-2021.4-raspberry-pi-xfce-armhf-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-raspberry-pi-xfce-armhf-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 Next we are going to get things ready for chroot. Let's create where we want to mount the SD card then mount it.
@@ -103,21 +103,21 @@ kali@kali:~$ echo -e 'crypt\t/dev/mmcblk0p2\tnone\tluks' > /etc/crypttab
 Now we do a little filesystem trickery. We create a fake LUKS filesystem which forces cryptsetup to be included.
 
 ```console
-kali@kali:~$ dd if=/dev/zero of=/tmp/fakeroot.img bs=4M count=20
+kali@kali:~$ dd if=/dev/zero of=/tmp/fakeroot.img conv=fsync bs=4M count=20
 kali@kali:~$ exit
 kali@kali:~$ cryptsetup luksFormat /mnt/chroot/tmp/fakeroot.img
 kali@kali:~$ cryptsetup luksOpen /mnt/chroot/tmp/fakeroot.img crypt
 kali@kali:~$ mkfs.ext4 /mnt/chroot/dev/mapper/crypt
 ```
 
-After that we need to copy over, or generate, an ssh key to be added to dropbear's authorized_keys file.
+After that we need to copy over, or generate, an ssh key to be added to dropbear's `authorized_keys` file.
 
 ```console
 kali@kali:~$ cp id_rsa.pub /mnt/chroot/
 kali@kali:~$ LANG=C chroot /mnt/chroot/
 ```
 
-Next we must add the following to /etc/dropbear-initramfs/authorized_keys:
+Next we must add the following to `/etc/dropbear-initramfs/authorized_keys`:
 
 ```console
 kali@kali:~$ vim /etc/dropbear-initramfs/authorized_keys
@@ -315,8 +315,8 @@ export _LUKSEXTRA=""
 
 
 # LINUX IMAGE FILE ------------------------------------------------------------
-export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2021.4-rpi4-nexmon-64.img.xz
-export _IMAGESHA="f5e126f33d32882f526e16b5148bd8b84a4e7c351bdd0eb9cfe3da2176580181"
+export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2022.1-raspberry-pi-arm64.img.xz
+export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
 # PACKAGE ACTIONS -------------------------------------------------------------
 export _PKGSPURGE=""

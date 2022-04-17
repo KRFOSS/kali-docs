@@ -16,65 +16,48 @@ For ease of use, please use a root account. This can be done with "sudo su".
 {{% /notice %}}
 
 ```console
-kali@kali:~$ dd if=kali-linux-2021.4-live-amd64.iso of=/dev/sdb bs=4M
+kali@kali:~$ dd if=kali-linux-2022.1-live-amd64.iso of=/dev/sdb conv=fsync bs=4M
 ```
 
-**0x02 - Create and format an additional partition on the USB drive**. In our example, we create a persistent partition of about 7 GB in size:
+**0x02 - Create and format an additional partition on the USB drive**. In our example, we create a persistent partition in the empty space above the Kali Live partitions.
 
 ```console
-kali@kali:~$ parted
-GNU Parted 2.3
-Using /dev/sda
-Welcome to GNU Parted! Type 'help' to view a list of commands.
-
-(parted) print devices
-/dev/sda (480GB)
-/dev/sdb (31.6GB)
-
-(parted) select /dev/sdb
-Using /dev/sdb
-
-(parted) print
-Model: SanDisk SanDisk Ultra (scsi)
-Disk /dev/sdb: 31.6GB
-Sector size (logical/physical): 512B/512B
-Partition Table: msdos
-
-Number  Start   End     Size    Type     File system  Flags
- 1      32.8kB  2988MB  2988MB  primary               boot, hidden
- 2      2988MB  3050MB  64.9MB  primary  fat16
-
-(parted) mkpart primary 3050 10000
-(parted) quit
-Information: You may need to update /etc/fstab.
+kali@kali:~$ fdisk /dev/sdb <<< $(printf "n\np\n\n\n\nw")
 ```
 
-**0x04 - Encrypt the partition with LUKS:**
+When fdisk completes, the new partition should have been created at `/dev/sdb3`; this can be verified with the command `lsblk`.
+
+**0x03 - Encrypt the partition with LUKS:**
 
 ```console
 kali@kali:~$ cryptsetup --verbose --verify-passphrase luksFormat /dev/sdb3
 ```
 
-**0x05 - Open the encrypted partition:**
+**0x04 - Open the encrypted partition:**
 
 ```console
 kali@kali:~$ cryptsetup luksOpen /dev/sdb3 my_usb
 ```
 
-**0x06 - Create an ext3 filesystem and label it**:
+**0x05 - Create an ext3 filesystem and label it**:
 
 ```console
-kali@kali:~$ mkfs.ext3 /dev/mapper/my_usb
+kali@kali:~$ mkfs.ext3 -L persistence /dev/mapper/my_usb
 kali@kali:~$ e2label /dev/mapper/my_usb persistence
 ```
 
-**0x07 - Mount the partition and create your persistence.conf so changes persist across reboots:**
+**0x06 - Mount the partition and create your persistence.conf so changes persist across reboots:**
 
 ```console
 kali@kali:~$ mkdir -p /mnt/my_usb
 kali@kali:~$ mount /dev/mapper/my_usb /mnt/my_usb
 kali@kali:~$ echo "/ union" > /mnt/my_usb/persistence.conf
 kali@kali:~$ umount /dev/mapper/my_usb
+```
+
+**0x07 - Close the encrypted partition:**
+
+```console
 kali@kali:~$ cryptsetup luksClose /dev/mapper/my_usb
 ```
 

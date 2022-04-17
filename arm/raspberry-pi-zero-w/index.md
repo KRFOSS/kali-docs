@@ -8,15 +8,18 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: BCM2835
+cores: 1
+gpu: "Broadcom VideoCore IV"
+ram: DDR3
+ram-size: 512MB
+ethernet: no
+wifi: "2.4GHz/5GHz"
+bluetooth: yes
+usb3: no
+usb2: 1
+storage: sdcard
+kernel: custom
 ---
 
 {{% notice info %}}
@@ -48,7 +51,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-raspberry-pi-zero-w-xfce-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2022.1-raspberry-pi-zero-w-xfce-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

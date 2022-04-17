@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: iMX6Solo
+cores: 1
+gpu: Vivante
+ram: DDR3
+ram-size: 1GB 
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 4
+storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [RIoTboard](http://riotboard.org/) is a Cortex A9 1GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.
@@ -45,7 +49,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-riotboard-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-riotboard-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

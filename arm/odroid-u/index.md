@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: N/A
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Exynos 4412"
+cores: 4
+gpu: "Mali 400"
+ram: LPDDR2
+ram-size: ["1GB", "2GB"]
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 2
+storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
 The [ODROID-U2](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G135341370451) is a tricky piece of hardware as console output is not a given. Ideally, when purchasing an ODROID-U2, you should also get a USB UART cable, used for serial debugging of the boot process.
@@ -26,6 +30,10 @@ The ODROID-U2 and ODROID-U3 hardware are based on the same basic platform, so th
 {{% /notice %}}
 
 By default, the Kali Linux ODROID-U2/U3 image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the ODROID-U2/U3 has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on ODROID-U2/U3 - Build-Script Instructions
 
@@ -49,7 +57,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-odroid-u-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-odroid-u-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

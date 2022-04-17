@@ -8,15 +8,19 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: BCM2711
+cores: 4
+gpu: "Broadcom VideoCore VI"
+ram: LPDDR4
+ram-size: 4GB
+ethernet: yes
+ethernet-speed: 1000
+wifi: "2.4GHz/5GHz"
+bluetooth: yes
+usb3: 2
+usb2: 1
+storage: ["sdcard", "usb"]
+kernel: custom
 ---
 
 The [Raspberry Pi 400](https://www.raspberrypi.org/products/raspberry-pi-400/) has a quad core 1.8GHz processor, with 4GB of RAM, in a keyboard formfactor. Kali Linux runs on a microSD card.
@@ -51,13 +55,13 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-raspberry-pi-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-raspberry-pi-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 **or**
 
 ```console
-$ xzcat kali-linux-2021.4-raspberry-pi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-raspberry-pi-xfce-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

@@ -8,22 +8,30 @@ build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/
 headless: kali-desktop-xfce
 metapackage: kali-linux-default
 status: build-scripts
-cpu:
-gpu:
-ram:
-ethernet:
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage:
+cpu: "Amlogic S805"
+cores: 4
+gpu: "Mali 450MP2"
+ram: DDR3
+ram-size: 1GB 
+ethernet: 1
+ethernet-speed: 1000
+wifi: no
+bluetooth: no
+usb3: no
+usb2: 4
+storage: ["sdcard", "emmc"]
+kernel: custom
 ---
 
-The [ODROID-C1](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G141578608433) is a quad core 1.5GHz Cortex A5, with 1GB of RAM development board. Kali Linux fits on an external microSD card or on an eMMC module.
+The [ODROID-C1](https://www.hardkernel.com/shop/odroid-c1-2/) is a quad core 1.5GHz Cortex A5, with 1GB of RAM development board. Kali Linux fits on an external microSD card or on an eMMC module.
 
-<!--@g0tmi1k: What about the hardware in C0 & C1+-->
+The ODROID-C0 and ODROID-C1+ are both essentiall the same base hardware, but with changed peripherals, so we can use the same image for all 3 of the devices.
 
 By default, the Kali Linux ODROID-C images contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+
+{{% notice info %}}
+The build script for the ODROID-C0/C1/C1+ has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+{{% /notice %}}
 
 ## Kali on ODROID-C0/C1/C1+ - Build-Script Instructions
 
@@ -47,7 +55,7 @@ This process will wipe out your microSD card or eMMC. If you choose the wrong st
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2021.4-odroid-c-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.1-odroid-c-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card or eMMC's speed, and the size of the Kali Linux image.
