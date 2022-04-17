@@ -120,7 +120,7 @@ sudo passwd
 sudo apt update && sudo apt install btrfs-progs snapper snapper-gui grub-btrfs
 
 # Create the snapper configuration for the root filesystem "/"
-sudo cp /etc/snapper/config-templates/default /etc/snapper/configs/root
+sudo cp /usr/share/snapper/config-templates/default /etc/snapper/configs/root
 sudo sed -i 's/^SNAPPER_CONFIGS=\"\"/SNAPPER_CONFIGS=\"root\"/' /etc/default/snapper
 
 # Prevent "updatedb" from indexing the snapshots, which would slow down the system
