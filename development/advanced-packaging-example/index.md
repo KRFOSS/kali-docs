@@ -247,7 +247,7 @@ We could search each one manually by repeating the above process for all items i
 During this process, we will notice **one dependency which does not have an entry (`icmplib`)**.
 
 ```console
-kali@kali:~/kali/packages/finalrecon$ cat requirements.txt | while read; do
+kali@kali:~/kali/packages/finalrecon$ cat requirements.txt | while read x; do
   apt-cache search $x | grep -i "python3-$x -" \
     || echo --MISSING $x--;
 done
