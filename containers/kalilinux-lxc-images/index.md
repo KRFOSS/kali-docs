@@ -137,25 +137,25 @@ kali@kali:~$ lxc profile create gui
 kali@kali:~$ cat lxdguiprofile.txt | lxc profile edit gui
 kali@kali:~$ lxc profile list
 kali@kali:~$ lxc launch --profile default --profile gui images:kali/current/amd64    gui-kali
-kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
 ```
 
 ![](080_Ubuntu_KaliGuiSetup.png)
 3 - Install additional packages inside the container via
 
 ```console
-kali@kali:~$ lxc exec my-kali -- apt update
-kali@kali:~$ lxc exec my-kali -- apt install -y kali-linux-default
+kali@kali:~$ lxc exec gui-kali -- apt update
+kali@kali:~$ lxc exec gui-kali -- apt install -y kali-linux-default
+kali@kali:~$ lxc exec gui-kali -- apt install -y kali-desktop-xfce
 ```
 
 4 - Create non-root user - "kali" in this example:
 
 ```console
-kali@kali:~$ lxc exec my-kali -- adduser kali
-kali@kali:~$ lxc exec my-kali -- usermod -aG sudo kali
-kali@kali:~$ lxc exec my-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
-kali@kali:~$ lxc exec my-kali -- echo "export DISPLAY=:0" >> /home/kali/.bashrc
-kali@kali:~$ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
+kali@kali:~$ lxc exec gui-kali -- adduser kali
+kali@kali:~$ lxc exec gui-kali -- usermod -aG sudo kali
+kali@kali:~$ lxc exec gui-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.bashrc
+kali@kali:~$ lxc exec gui-kali -- echo "export DISPLAY=:0" >> /home/kali/.bashrc
+kali@kali:~$ lxc exec gui-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 ```
 
 5 - Start Kali Xfce panel via
@@ -170,9 +170,9 @@ Customise the panel as desired.
 
 ##### Container management:
 
-- Start: `lxc start my-kali`
-- Stop: `lxc stop my-kali`
-- Remove: `lxc destroy my-kali`
+- Start: `lxc start gui-kali`
+- Stop: `lxc stop gui-kali`
+- Remove: `lxc destroy gui-kali`
 
 - - -
 
