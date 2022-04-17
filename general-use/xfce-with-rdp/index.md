@@ -108,3 +108,23 @@ If you are using Docker, you will need to create a new user. You can do this wit
 ```
 
 You can then connect with a RDP client to that system. Keep in mind the port that is being used. If you used the script, the port would be 3390. In the case of WSL and Docker, the IP would be 127.0.0.1:3390 that you would wish to connect to from your windows system (or the host systems IP from a separate computer). In the case of AWS, the IP would be the same as you use to connect via SSH.
+
+{{% notice info %}}
+
+You may encounter the error `Authentication Required to Create Managed Color Device` when trying to connect. Do the following to fix this issue.
+
+{{% /notice %}}
+
+```
+┌──(kali㉿kali)-[~]
+└─$ cat <<EOF | sudo tee /etc/polkit-1/localauthority/50-local.d/45-allow-colord.pkla
+[Allow Colord all Users]
+Identity=unix-user:*
+Action=org.freedesktop.color-manager.create-device;org.freedesktop.color-manager.create-profile;org.freedesktop.color-manager.delete-device;org.freedesktop.color-manager.delete-profile;org.freedesktop.color-manager.modify-device;org.freedesktop.color-manager.modify-profile
+ResultAny=no
+ResultInactive=no
+ResultActive=yes
+EOF
+┌──(kali㉿kali)-[~]
+└─$
+```
