@@ -81,7 +81,7 @@ kali@kali:~$ sudo systemctl enable --now bluetooth.service
 By default, audio is routed via HDMI, so you won't hear audio via the 3.5mm audio jack. You can run the following command in order to redirect the output:
 
 ```console
-0kali@kali:~$ $ sudo amixer -c 0 set numid=3 1
+kali@kali:~$ $ sudo amixer -c 0 set numid=3 1
 ```
 
 ## Kali on the Raspberry Pi 4 - Examples
