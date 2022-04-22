@@ -25,7 +25,9 @@ The first action we will take, will be to look at [FinalRecon's source code](htt
 
 ### Missing Tag Releases
 
-As FinalRecon does [not have a tag release](https://github.com/thewhiteh4t/FinalRecon/releases)) we will have to create our own upstream tar file. Looking to see what branches there are, we discover there is just one (there isn't a stable/production one, or is there a beta/deployment/staging one). As a result, we will use whatever is the latest commit on the main branch until the author does a tag release. _We can auto open up an issue request and/or email them seeing if they will response to such an act_.
+As FinalRecon does [not have a tag release](https://github.com/thewhiteh4t/FinalRecon/releases) we will have to create our own upstream tar file. Looking to see what branches there are, we discover there is just one (there isn't a stable/production one, or is there a beta/deployment/staging one). As a result, we will use whatever is the latest commit on the main branch until the author does a tag release. _We can auto open up an issue request and/or email them seeing if they will response to such an act_.
+
+Note that having a "tagged" release is preferred when doing Debian packaging. End users often want something that is "stable", and which has been fully tested. It's also easier for the distribution to know when to update the package: we just wait for upstream to release something, which is a clear signal that the code is ready to be used. So when it's possible, we favor packaging a tagged release over the latest Git commit.
 
 ### License
 
@@ -48,136 +50,140 @@ For the **long description** we will also use a modified version of the first li
 If we were to look all over the GitHub we would not find an email address. We could look in `git log` and view the email addresses associated, however these do not seem to be solid as there are multiple for "thewhiteh4t" _(at least 3)_. Instead, we do more digging. We notice that there is a YouTube video demo linked in the `README.md`, if we go to the YouTube channel's [about page](https://www.youtube.com/c/thewhiteh4t/about) we can **view an email address** for business inquiries (which does not match to any in the git log). This will be a good choice to use as the contact information.
 With that said all said, not having a contact information is not an essential part , so if we were unable to find one we could still continue to package.
 
-## Tag Releases
+## Setting Up The Environment
 
-Having a "tagged" release, is preferred when doing Debian packaging. When handling anything "upstream", having a newer tag release, will feed back into the packaging eco-system to signal there is a newer version available (thus the package should be updated).
+We will assume that we have already followed our [documentation on setting up a packing environment](/docs/development/setting-up-packaging-system/).
 
-It is possible to do it without tag releases. Such as using version-control systems (e.g. git), but it is not preferred. There are various reasons why:
-
-- Different coding styles
-  - Some people will use a single branch, and develop/test code here
-- End users often want something that is "stable", and which has been fully tested signed off
-  - Frequent minor updates
-- Based on the filename, only the date is used (`YYYYMMDD`). Time is not used (`HHMMSS`)
-  - If there are multiple commits in a single day, may get inconsistencies
-
-### Creating a Compressed Tar File
-
-As FinalRecon does [not have a tag release](https://github.com/thewhiteh4t/FinalRecon/releases) we will have to create our own upstream tar file. We will use whatever is the latest on the main branch and this will be imported into our package. We have two ways of doing it, either by:
-
-- **Creating a [Git archive](https://manpages.debian.org/experimental/git-man/git-archive.1.en.html)**
-- **wget** to download a snapshot of the latest commit
-
-As we are manually creating the upstream file, we need to make sure to give it the right filename to use _(to match Debian standards)_, as it will help `gbp` later on. We need to make sure to name the file using the following format `<packagename>_0~<date-YYYYMMDD>.orig.tar.gz`:
-
-- `<packagename>` is hopefully what will be detected in `gbp` for the package name. This should be the name of the tool
-- `_` is the separator between name and version.
-- `0~` is handy to have for if/when upstream does a "tagged release", making their version greater than ours, making it an easy update path (as the date format is a really large number)
-- `<date-YYYYMMDD>` is the date format stamp: "YearYearYearYearMonthMonthDayDay"
-- `.orig` is to show its untouched original upstream source code
-- `.tar.gz` is a compressed file
-
-We will do the long way by doing using Git to pull down the latest source code from [FinalRecon's GitHub's page](https://github.com/thewhiteh4t/FinalRecon), and create a compressed archive afterwards.
+Let's set up our directories now for this package:
 
 ```console
-kali@kali:~$ git clone https://github.com/thewhiteh4t/FinalRecon ~/kali/upstream/finalrecon/
-...
-kali@kali:~$
-kali@kali:~$ cd ~/kali/upstream/finalrecon/
-kali@kali:~/kali/upstream/finalrecon$
-kali@kali:~/kali/upstream/finalrecon$ git archive --format=tar master \
-  | gzip -c \
-  > ~/kali/upstream/finalrecon_0~$( date '+%Y%m%d' ).orig.tar.gz
-kali@kali:~/kali/upstream/finalrecon$
-kali@kali:~/kali/upstream/finalrecon$ ls -l ~/kali/upstream/finalrecon_*.orig.tar.gz
--rw-r--r-- 1 kali kali 101K Nov  8 07:07 /home/kali/kali/upstream/finalrecon_0~20201108.orig.tar.gz
-kali@kali:~/kali/upstream/finalrecon$
-kali@kali:~/kali/upstream/finalrecon$ file ~/kali/upstream/finalrecon_*.orig.tar.gz
-/home/kali/kali/upstream/finalrecon_0~20201108.orig.tar.gz: gzip compressed data, from Unix, original size modulo 2^32 317440
-kali@kali:~/kali/upstream/finalrecon$
-```
-
-{{% notice info %}}
-The `wget` method would be to get the URL from GitHub and then run the following command.
-
-```console
-kali@kali:~$ mkdir -p ~/kali/upstream/
-kali@kali:~$
-kali@kali:~$ wget \
-  -O ~/kali/upstream/finalrecon_0~$( date '+%Y%m%d' ).orig.tar.gz \
-  https://github.com/thewhiteh4t/FinalRecon/archive/master.tar.gz
-...
+kali@kali:~$ mkdir -p ~/kali/packages/finalrecon/ ~/kali/upstream/
 kali@kali:~$
 ```
 
-GitHub UI changes over time. Currently you can find the URL by click in the green "Code" button, "HTTPS", and using "Download ZIP". It is a undocumented feature, but you can download as a tar.gz instead, by replacing the requested filename.
-{{% /notice %}}
+## Downloading Git Snapshot
+
+We're going to download an archive of the upstream source code. Since upstream didn't tag any release yet, we'll package the latest Git commit on the main branch. There are different (many?) ways to do that, and in this example we will use `uscan` for the task. `uscan` is able to download a Git repository, pack it into a `.tar.gz` archive, and come up with a meaningful (and somewhat standard) version string.
+
+This last point is important: a Debian package must have a version, however a Git commit doesn't have a version _per se_. So we need to associate a version with a Git commit, and there are **many ways to get that wrong**. So rather than deciding by ourselves what the package version should be, we'll let the tooling (`uscan` in this case) do that for us.
+
+In order to use uscan, we need a `watch` file. This file is usually part of the packaging files, and located in `debian/watch`.
+
+Let's start by entering the working directory, and then create the `debian` dir:
+
+```console
+kali@kali:~$ cd ~/kali/packages/finalrecon/
+kali@kali:~/kali/packages/finalrecon$
+kali@kali:~/kali/packages/finalrecon$ mkdir debian
+kali@kali:~/kali/packages/finalrecon$
+```
+
+And now let's create the `watch` file. The purpose of the watch file is to provide instructions to find the latest upstream release online. In this particular case though, upstream didn't provide any tagged release yet, so we'll configure the watch file to track the latest Git commit on the main branch.
+
+```console
+kali@kali:~/kali/packages/finalrecon$ vim debian/watch
+kali@kali:~/kali/packages/finalrecon$
+kali@kali:~/kali/packages/finalrecon$ cat debian/watch
+version=4
+opts="mode=git, pgpmode=none" \
+  https://github.com/thewhiteh4t/FinalRecon HEAD
+kali@kali:~/kali/packages/finalrecon$
+```
+
+At this point, we have enough to run uscan to download and pack the latest Git commit from upstream:
+
+```console
+kali@kali:~/kali/packages/finalrecon$ uscan --destdir ~/kali/upstream/ --force-download \
+    --package finalrecon --upstream-version 0~0 --watchfile debian/watch
+uscan: Newest version of finalrecon on remote site is 0.0~git20201107.0d41eb6, local version is 0~0
+uscan:  => Newer package available from:
+        => https://github.com/thewhiteh4t/FinalRecon HEAD
+uscan warn: Missing debian/source/format, switch compression to gzip
+Successfully repacked ~/kali/upstream/finalrecon-0.0~git20201107.0d41eb6.tar.xz as ~/kali/upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz.
+```
+
+This command warrants some explanations. Since at this point we run uscan from an almost empty directory, we need to be explicit about what we want to do. In particular:
+
+- `--watchfile` tells uscan where is the watch file that we want it to use.
+- `--package` is used to give the package name.
+- `--upstream-version` is actually the "current upstream version". In general, uscan works by comparing the latest version found online with the version that is currently packaged, and it downloads the latest upstream version only if it's newer than the current version. However here there's no "current version" since we're creating a new package, so we tell uscan that the current version is `0~0`, ie. the lowest version possible, so that whatever version found online is deemed higher than that.
+- `--destdir` tells uscan where to save the download files.
+- `--force-download` overrides uscan's guess of what it should do: we want it to download the latest upstream version.
+
+To be sure, we can have a look in the `~/kali/upstream` directory to check what files landed there:
+
+```console
+kali@kali:~/kali/packages/finalrecon$ ls ~/kali/upstream
+finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz  finalrecon-0.0~git20201107.0d41eb6.tar.xz
+```
+
+uscan packed the code from Git in a `.tar.xz` file, and for some reason (see the line starting with `uscan warn:` above), it repacked in as a `.tar.gz`. We don't really care about the compression, we're fine with both `.gz`  and `.xz`. What matters is that we'll use the file which name ends with `.orig.tar.*`, so we're going to use the `.tar.gz`.
+
+uscan came up with a funny-looking (and rather complicated) version string: `0.0~git20201107.0d41eb6`. Why is that?
+- `0.0~` is the lowest starting point for a version string. It's handy to start from there, so that whenever upstream does a "tagged release", whatever they choose, it will be greater than our version. So we'll be able to use it for the package version "as is".
+- `git` is informative, and it obviously refers to the VCS used by upstream (examples of other VCS: `svn` or `bzr`).
+- `20201107` is the date (`YYYYMMDD` aka. ISO-8601 format) of the upstream commit that we package. Having the date part of the version string is needed so that whenever we'll want to import a new Git snapshot, the date will be newer, and the new version string will be sorted above by the package manager (version strings must ALWAYS go ascending).
+- `0d41eb6` is the Git commit. It's informative, and it's a non-ambiguous way to know exactly what upstream code is included in the package. Without it, a developer who wants to know what Git commit was packaged would rely on the date, and if there's more than one commit on this date, it wouldn't be clear what commit exactly was packaged. Additionally, this is an UTC date, while usual tools or web browser usuall show dates in local time: another source of error for those who rely on the date only. So having the Git commit part of the version string is really useful for developers (maybe not so much for users).
+
+Alright, we hope that you appreciated this overwhelming amount of information. Let's move on and keep working on the package.
 
 ## Creating Package Source Code
 
-Now that the prerequisites are done, we can go to the working directory of where we will be making this package and create an **empty Git repository**. This is where we will house our packaging work, and save anything we make.
+We are now going to create a new **empty Git repository**:
 
 ```console
-kali@kali:~/kali/upstream/finalrecon$ mkdir -p ~/kali/packages/finalrecon/
-kali@kali:~/kali/upstream/finalrecon$
-kali@kali:~/kali/upstream/finalrecon$ cd ~/kali/packages/finalrecon/
-kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git init
-Initialized empty Git repository in /home/kali/packages/finalrecon/.git/
-kali@kali:~/kali/packages/finalrecon$
-kali@kali:~/kali/packages/finalrecon$ git status
-On branch master
-
-No commits yet
-
-nothing to commit (create/copy files and use "git add" to track)
+Initialized empty Git repository in /home/kali/kali/packages/finalrecon/.git/
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-- - -
-
-### Importing Upstream Package
-
-We can now **import the upstream `.tar.gz`** file we previously created into the empty Git repository we just made.
-
-When prompted, we accept any default values _(or use the flag `--no-interactive`)_.
+We can now **import** the `.tar.gz` we previously downloaded into the empty Git repository we just created. When prompted, we remember to accept the default values _(or use the flag `--no-interactive`)_.
 
 ```console
-kali@kali:~/kali/packages/finalrecon$ gbp import-orig ~/kali/upstream/finalrecon_*.orig.tar.gz --debian-branch=kali/master
-What will be the source package name? [finalrecon]
-What is the upstream version? [0~20201108]
-gbp:info: Importing '../finalrecon_0~20201108.orig.tar.gz' to branch 'upstream'...
+kali@kali:~/kali/packages/finalrecon$ gbp import-orig ~/kali/upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz
+What will be the source package name? [finalrecon] 
+What is the upstream version? [0.0~git20201107.0d41eb6] 
+gbp:info: Importing '../upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz' to branch 'upstream'...
 gbp:info: Source package is finalrecon
-gbp:info: Upstream version is 0~20201108
-gbp:info: Successfully imported version 0~20201108 of ../finalrecon_0~20201108.orig.tar.gz
+gbp:info: Upstream version is 0.0~git20201107.0d41eb6
+gbp:info: Successfully imported version 0.0~git20201107.0d41eb6 of /home/kali/kali/upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz
 kali@kali:~/kali/packages/finalrecon$
-kali@kali:~/kali/packages/finalrecon$ git status
-On branch kali/master
-nothing to commit, working tree clean
+```
+
+We remember to **change the default branch**, from `master` to `kali/master` (as `master` is for upstream development), then **delete the old branch**.
+_We also run a quick `git branch -v` to visually see the change:_
+
+```console
+kali@kali:~/kali/packages/finalrecon$ git checkout -b kali/master
+Switched to a new branch 'kali/master'
+kali@kali:~/kali/packages/finalrecon$
+kali@kali:~/kali/packages/finalrecon$ git branch -D master
+Deleted branch master (was 95b196b).
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git branch -v
-* kali/master  f1c4c9f New upstream version 0~20201108
-  pristine-tar 69f689f pristine-tar data for finalrecon_0~20201108.orig.tar.gz
-  upstream     f1c4c9f New upstream version 0~20201108
+* kali/master  bd003d7 New upstream version 0.0~git20201107.0d41eb6
+  pristine-tar 2413cfe pristine-tar data for finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz
+  upstream     bd003d7 New upstream version 0.0~git20201107.0d41eb6
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-- - -
+We can now **populate the `debian/` folder** with its related files. We will manually specify the upstream `.tar.gz` file _(as it is not located in `../`, but instead `~/kali/upstream/`)_. We will also set the package name to use in the same naming convention as before _(`<packagename>_<version>` as is Debian standards)_.
 
-We can now **generate the `debian/` folder** with its related files. We will manually specify the upstream `.tar.gz` file _(as it is not located in `../`, but instead `~/kali/upstream/`)_. We will also set the package name to use in the same naming convention as before _(`<packagename>_<date-YYYYMMDD>` as is Debian standards)_.
+Note that we need to use the option `--addmissing` as there's already a `debian/` directory (we created it above for the only purpose of having a watch file).
 
 Afterwards we will remove any example files that get automatically generated, as they are not used.
 
 ```console
-kali@kali:~/kali/packages/finalrecon$ dh_make --file ~/kali/upstream/finalrecon_*.orig.tar.gz -p finalrecon_0~$( date '+%Y%m%d' ) --single -y
+kali@kali:~/kali/packages/finalrecon$ dh_make --file ~/kali/upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz -p finalrecon_0.0~git20201107.0d41eb6 --addmissing --single -y
 Maintainer Name     : Joseph O'Gorman
 Email-Address       : gamb1t@kali.org
-Date                : Sun, 08 Nov 2020 07:09:41 +0000
+Date                : Fri, 22 Apr 2022 11:33:33 +0000
 Package Name        : finalrecon
-Version             : 0~20201108
+Version             : 0.0~git20201107.0d41eb6
 License             : blank
 Package Type        : single
 Currently there is not top level Makefile. This may require additional tuning
+File watch.ex exists, skipping
 Done. Please edit the files in the debian/ subdirectory now.
 
 kali@kali:~/kali/packages/finalrecon$
@@ -187,18 +193,35 @@ kali@kali:~/kali/packages/finalrecon$ git status
 On branch kali/master
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-        debian/
+	debian/
 
 nothing added to commit but untracked files present (use "git add" to track)
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ ls debian/
-changelog  control  copyright  rules  source
+changelog  control  copyright  rules  source  watch
+kali@kali:~/kali/packages/finalrecon$
+```
+
+At this point, we have the base packaging files in place, and it feels like a good idea to commit before starting some real work:
+
+```console
+kali@kali:~/kali/packages/finalrecon$ git add debian/
+kali@kali:~/kali/packages/finalrecon$
+kali@kali:~/kali/packages/finalrecon$ git commit -m "Initial packaging files"
+[kali/master 52042da] Initial packaging files
+ 6 files changed, 93 insertions(+)
+ create mode 100644 debian/changelog
+ create mode 100644 debian/control
+ create mode 100644 debian/copyright
+ create mode 100755 debian/rules
+ create mode 100644 debian/source/format
+ create mode 100644 debian/watch
 kali@kali:~/kali/packages/finalrecon$
 ```
 
 - - -
 
-We can now start to populate the files in the `debian/` folder to make sure the information is accurate. We can use what we found from before on [FinalRecon's GitHub](https://github.com/thewhiteh4t/FinalRecon) to supply the correct information. To recap, we need to make sure we got the following bits of information to locate:
+We can now start to edit the files in the `debian/` folder to make sure the information is accurate. We can use what we found from before on [FinalRecon's GitHub](https://github.com/thewhiteh4t/FinalRecon) to supply the correct information. To recap, we need to make sure we got the following bits of information to locate:
 
 - Dependencies
 - Description
@@ -300,18 +323,18 @@ We will now perform what are our standard changes ([#1 (Instaloader)](/docs/deve
 kali@kali:~/kali/packages/finalrecon$ vim debian/changelog
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/changelog
-finalrecon (0~20201108-0kali1) kali-dev; urgency=medium
+finalrecon (0.0~git20201107.0d41eb6-0kali1) kali-dev; urgency=medium
 
   * Initial release
 
- -- Joseph O'Gorman <gamb1t@kali.org>  Sun, 08 Nov 2020 07:09:41 +0000
+ -- Joseph O'Gorman <gamb1t@kali.org>  Fri, 22 Apr 2022 11:33:33 +0700
 kali@kali:~/kali/packages/finalrecon$
 ```
 
 {{% notice info %}}
 You could also use `dch -r` or `gbp dch` to edit the file, rather than `vim`.
 
-You will need to update the version to make the same date as used previously
+You will need to update the version to make the same date as used previously.
 {{% /notice %}}
 
 ### Control
@@ -443,17 +466,21 @@ Beware that the "dh" line needs to be indented by a single tabulation character,
 
 ### Watch
 
-This watch file should be in theory be easy. However as there are no tag releases at the moment we cannot account for potential future issues.
+The watch file was already covered at the beginning of this example, and is configured to track the latest Git commit on the main branch.
 
-We will go with the **[Debian standard watch file for GitHub](https://wiki.debian.org/debian/watch)**.
+You can also add the **[common configuration for GitHub](https://wiki.debian.org/debian/watch)**, but leave it commented out, so that whenever upstream will issue a release, everything is ready in your watch file and you'll just need to uncomment it.
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/watch
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ cat debian/watch
-version=4
-opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/finalrecon-$1\.tar\.gz/ \
-  https://github.com/thewhiteh4t/FinalRecon/tags .*/v?(\d\S+)\.tar\.gz
+version=4                                       
+opts=mode=git,pgpmode=none \
+  https://github.com/thewhiteh4t/FinalRecon HEAD
+
+# Use the following when upstream starts to tag releases:
+#opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/finalrecon-$1\.tar\.gz/ \
+#  https://github.com/thewhiteh4t/FinalRecon/tags .*/v?(\d\S+)\.tar\.gz
 kali@kali:~/kali/packages/finalrecon$
 ```
 
@@ -524,10 +551,10 @@ gbp:info: On 'patch-queue/kali/master', switching to 'kali/master'
 gbp:info: Generating patches from git (kali/master..patch-queue/kali/master)
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git branch -v
-* kali/master             f1c4c9f New upstream version 0~20201108
+* kali/master             bd003d7 New upstream version 0.0~git20201107.0d41eb6
   patch-queue/kali/master 2935f22 disable ver_check
-  pristine-tar            69f689f pristine-tar data for finalrecon_0~20201108.orig.tar.gz
-  upstream                f1c4c9f New upstream version 0~20201108
+  pristine-tar            2413cfe pristine-tar data for finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz
+  upstream                bd003d7 New upstream version 0.0~git20201107.0d41eb6
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ ls debian/patches/
 disable-requirements-check.patch  disable-ver_check.patch  series
@@ -803,7 +830,7 @@ kali@kali:~/kali/packages/finalrecon$ gbp buildpackage \
 ...
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ ls -lah ~/kali/build-area/finalrecon_*.deb
--rw-rw-r-- 1 kali kali 83K Nov  8 07:44 /home/kali/kali/build-area/finalrecon_0~20201108-0kali1_all.deb
+-rw-rw-r-- 1 kali kali 83K Nov  8 07:44 /home/kali/kali/build-area/finalrecon_0.0~git20201107.0d41eb6-0kali1_all.deb
 kali@kali:~/kali/packages/finalrecon$
 ```
 
@@ -827,8 +854,8 @@ If you fail to do install the package, you may end up with the following mess.
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo dpkg -i ~/kali/build-area/finalrecon_*.deb
 (Reading database ... 167589 files and directories currently installed.)
-Preparing to unpack .../finalrecon_0~20201108-0kali1_all.deb ...
-Unpacking finalrecon (0~20201108-0kali1) over (0~20201108-0kali1) ...
+Preparing to unpack .../finalrecon_0.0~git20201107.0d41eb6-0kali1_all.deb ...
+Unpacking finalrecon (0.0~git20201107.0d41eb6-0kali1) over (0.0~git20201107.0d41eb6-0kali1) ...
 dpkg: dependency problems prevent configuration of finalrecon:
  finalrecon depends on python3-ipwhois; however:
   Package python3-ipwhois is not installed.
@@ -886,7 +913,7 @@ kali@kali:~/kali/packages/finalrecon$ sudo dpkg -i ~/kali/build-area/finalrecon_
 ...
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ dpkg -l | grep final
-ii  finalrecon                           0~20201108-0kali1               all          A fast and simple python script for web reconnaissance
+ii  finalrecon                           0.0~git20201107.0d41eb6-0kali1               all          A fast and simple python script for web reconnaissance
 kali@kali:~/kali/packages/finalrecon$
 ```
 
