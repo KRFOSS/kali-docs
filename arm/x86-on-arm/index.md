@@ -50,8 +50,27 @@ Please keep in mind that more libraries may need to be installed depending on wh
 # Before qemu-user-static install
 
 ┌──(kali㉿kali)-[~]
-└─$ nmap
-zsh: exec format error: nmap
+└─$ sudo dpkg --add-architecture amd64
+
+┌──(kali㉿kali)-[~]
+└─$
+
+┌──(kali㉿kali)-[~]
+└─$ sudo apt install -y powershell
+
+┌──(kali㉿kali)-[~]
+└─$
+
+┌──(kali㉿kali)-[~]
+└─$ file /opt/microsoft/powershell/7/pwsh
+/opt/microsoft/powershell/7/pwsh: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=9c3feab2531f770c71d023f031faf37758181701, stripped
+
+┌──(kali㉿kali)-[~]
+└─$
+
+┌──(kali㉿kali)-[~]
+└─$ pwsh
+zsh: exec format error: pwsh
 
 ┌──(kali㉿kali)-[~]
 └─$
@@ -59,14 +78,22 @@ zsh: exec format error: nmap
 # After qemu-user-static install
 
 ┌──(kali㉿kali)-[~]
-└─$ nmap
-Nmap 7.92 ( https://nmap.org )
-Usage: nmap [Scan Type(s)] [Options] {target specification}
-TARGET SPECIFICATION:
-...
+└─$ sudo apt install -y qemu-user-static binfmt-support
 
 ┌──(kali㉿kali)-[~]
 └─$
+
+┌──(kali㉿kali)-[~]
+└─$ pwsh
+PowerShell 7.1.3
+Copyright (c) Microsoft Corporation.
+
+https://aka.ms/powershell
+Type 'help' to get help.
+
+
+┌──(kali㉿kali)-[/home/kali]
+└─PS>
 ```
 
 If there is a downloaded binary that is x86 that is not automatically being ran under `qemu-user-static`, you can invoke it with the following command:
