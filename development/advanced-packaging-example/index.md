@@ -335,17 +335,17 @@ Maintainer: Kali Developers <devel@kali.org>
 Uploaders: Joseph O'Gorman <gamb1t@kali.org>
 Build-Depends: debhelper-compat (= 12),
                dh-python,
-               python3-all,
-               python3-requests,
-               python3-ipwhois,
-               python3-bs4,
-               python3-lxml,
-               python3-dnslib,
-               python3-aiohttp,
                python3-aiodns,
+               python3-aiohttp,
+               python3-all,
+               python3-bs4,
+               python3-dnslib,
+               python3-icmplib,
+               python3-ipwhois,
+               python3-lxml,
                python3-psycopg2,
+               python3-requests,
                python3-tldextract,
-               python3-icmplib
 Standards-Version: 4.5.0
 Homepage: https://github.com/thewhiteh4t/FinalRecon
 Vcs-Browser: https://gitlab.com/kalilinux/packages/finalrecon
@@ -355,16 +355,16 @@ Package: finalrecon
 Architecture: all
 Depends: ${misc:Depends},
          ${python3:Depends},
-         python3-requests,
-         python3-ipwhois,
-         python3-bs4,
-         python3-lxml,
-         python3-dnslib,
-         python3-aiohttp,
          python3-aiodns,
+         python3-aiohttp,
+         python3-bs4,
+         python3-dnslib,
+         python3-icmplib,
+         python3-ipwhois,
+         python3-lxml,
          python3-psycopg2,
+         python3-requests,
          python3-tldextract,
-         python3-icmplib
 Description: A fast and simple python script for web reconnaissance
  A fast and simple python script for web reconnaissance that follows
  a modular structure and provides detailed information on various areas.

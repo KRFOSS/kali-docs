@@ -10,7 +10,7 @@ author: ["gamb1t",]
 
 [Photon](https://github.com/s0md3v/Photon) is a **Python3** application with multiple dependencies. This makes it a more interesting package than [Instaloader](/docs/development/intro-to-packaging-example/) as potentially more work is involved.
 
-## GitHub Overview
+## Photon Code Overview
 
 Like before with [Instaloader](/docs/development/intro-to-packaging-example/) we will first take a look at [their GitHub page](https://github.com/s0md3v/photon) to see what information we can acquire. In this case we notice the following:
 
@@ -27,7 +27,7 @@ We assume we have already followed our [documentation on setting up a packing en
 Let's set up our directories now for this package:
 
 ```console
-kali@kali:~$ mkdir -p ~/kali/packages/photon/
+kali@kali:~$ mkdir -p ~/kali/packages/photon/ ~/kali/upstream
 kali@kali:~$
 ```
 
@@ -58,8 +58,7 @@ Initialized empty Git repository in /home/kali/packages/photon/.git/
 kali@kali:~/kali/packages/photon$
 ```
 
-We can now **import** the `.tar.gz` we previously downloaded into the empty Git repository we just created.
-When prompted, we remember to accept the default values:
+We can now **import** the `.tar.gz` we previously downloaded into the empty Git repository we just created. When prompted, we remember to accept the default values:
 
 ```console
 kali@kali:~/kali/packages/photon$ gbp import-orig ~/kali/upstream/photon_1.3.0.orig.tar.gz
@@ -276,8 +275,8 @@ Build-Depends: debhelper-compat (= 12),
                python3-all,
                python3-requests,
                python3-socks,
+               python3-tld,
                python3-urllib3,
-               python3-tld
 Standards-Version: 4.5.0
 Homepage: https://github.com/s0md3v/Photon
 Vcs-Browser: https://gitlab.com/kalilinux/packages/photon
@@ -289,8 +288,8 @@ Depends: ${python3:Depends},
          ${misc:Depends},
          python3-requests,
          python3-socks,
+         python3-tld,
          python3-urllib3,
-         python3-tld
 Description: Incredibly fast crawler designed for open source intelligence
  This package includes a fast and flexible crawler designed for open source
  intelligence (OSINT).
@@ -315,8 +314,8 @@ In `Build-Depends` now, this is a Python3 Package so we need to add in:
 - **python3-all**
 - **python3-requests**
 - **python3-socks**
-- **python3-urllib3**
 - **python3-tld**
+- **python3-urllib3**
 
 For this package however, as we do not have a **setup.py** file, we will make a small change compared to [Instaloader](/docs/development/intro-to-packaging-example/). This change is that we do not include the build dependency of `python3-setuptools`. We will still include `python3-all`, and that is for a separate reason. We will also include all of the dependencies that are for the package. We do this to ensure that a test suite can be ran if there is one.
 
@@ -349,7 +348,7 @@ kali@kali:~/kali/packages/photon$
 
 As we can see, `python3-urllib3` suggests the python3 module **cryptography**, which we can tell from the previous list will have us require `python3-all`. This is sufficient to include `python3-all`.
 
-In `Depends` we change **${shlibs:Depends}** to **${python3:Depends}** like before and add in the `apt` names that we found previously (`python3-requests`,`python3-socks`,`python3-urllib3` &`python3-tld`).
+In `Depends` we change **${shlibs:Depends}** to **${python3:Depends}** like before and add in the `apt` names that we found previously (`python3-requests`, `python3-socks`, `python3-tld` & `python3-urllib3`).
 
 ### Copyright
 

@@ -10,7 +10,7 @@ author: ["gamb1t",]
 
 [Instaloader](https://github.com/instaloader/instaloader/) is a **Python 3** application with a single dependency (Python's `requests`). This makes it a relatively simple package, however not as straightforward as only packaging up a shell script would be. Because of the learning opportunities and simplicity, this makes it a good introduction package.
 
-## GitHub Overview
+## Instaloader Code Overview
 
 The first thing we do is look at the application's [GitHub page](https://github.com/instaloader/instaloader/). A few things stand out which we take a note of:
 
@@ -514,8 +514,8 @@ Uploaders: Joseph O'Gorman <gamb1t@kali.org>
 Build-Depends: debhelper-compat (= 12),
                dh-python,
                python3-all,
+               python3-requests,
                python3-setuptools,
-               python3-requests
 Standards-Version: 4.5.0
 Homepage: https://instaloader.github.io/
 Vcs-Browser: https://gitlab.com/kalilinux/packages/instaloader
@@ -525,7 +525,7 @@ Package: instaloader
 Architecture: all
 Depends: ${python3:Depends},
          ${misc:Depends},
-         python3-requests
+         python3-requests,
 Description: Download media along with their metadata from Instagram
  Downloads public and private profiles, hashtags, user stories, feeds
    and saved media
