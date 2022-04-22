@@ -202,6 +202,22 @@ A quick overview of each of those files:
 - `rules` - how to install the package
 - `source/format` - is the source package format
 
+At this point, we have the base packaging files in place, and it feels like a good idea to commit before starting some real work:
+
+```console
+kali@kali:~/kali/packages/instaloader$ git add debian/
+kali@kali:~/kali/packages/instaloader$
+kali@kali:~/kali/packages/instaloader$ git commit -m "Initial packaging files"
+[kali/master 52042da] Initial packaging files
+ 5 files changed, 93 insertions(+)
+ create mode 100644 debian/changelog
+ create mode 100644 debian/control
+ create mode 100644 debian/copyright
+ create mode 100755 debian/rules
+ create mode 100644 debian/source/format
+kali@kali:~/kali/packages/instaloader$
+```
+
 We now need to edit most of these to make sure the information is accurate. We can use what we found on GitHub to supply the correct info into the `debian/` files:
 
 - License

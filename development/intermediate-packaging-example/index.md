@@ -119,6 +119,22 @@ As a quick refresher of what each of these files are for:
 - `debian/rules` - **how to build** the software and turn it into a package
 - `debian/source/format` - is the **source package** format
 
+At this point, we have the base packaging files in place, and it feels like a good idea to commit before starting some real work:
+
+```console
+kali@kali:~/kali/packages/photon$ git add debian/
+kali@kali:~/kali/packages/photon$
+kali@kali:~/kali/packages/photon$ git commit -m "Initial packaging files"
+[kali/master 52042da] Initial packaging files
+ 5 files changed, 93 insertions(+)
+ create mode 100644 debian/changelog
+ create mode 100644 debian/control
+ create mode 100644 debian/copyright
+ create mode 100755 debian/rules
+ create mode 100644 debian/source/format
+kali@kali:~/kali/packages/photon$
+```
+
 We now need to edit each one to make sure the information is accurate. We can use what we found on [GitHub](https://github.com/s0md3v/photon) to supply the correct info into the `debian/` files:
 
 - License
