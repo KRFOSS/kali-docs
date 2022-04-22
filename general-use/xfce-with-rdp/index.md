@@ -23,6 +23,8 @@ Before we can start the process of setting up Xfce and RDP, we must first acknow
 
 `docker run -p 3390:3390 --expose=3390 --tty --interactive kalilinux/kali-rolling /bin/bash`
 
+For additional usage on Docker, such as how to resume an exited container, please read [using Kali Docker images](/docs/containers/using-kali-docker-images).
+
 For AWS, we must be sure to allow our IP to access the proper ports when we set up the machine.
 
 To use the script we do the following:
@@ -30,8 +32,8 @@ To use the script we do the following:
 ```console
 # If on Docker, run the following command first:
 
-┌──(root㉿182156129)-[~]
-└─$ apt update && apt install -y wget kali-linux-headless
+┌──(root㉿182156129)-[/]
+└─$ apt update && DEBIAN_FRONTEND=noninteractive apt install -y wget kali-linux-headless
 
 # Once complete, continue. Otherwise run the following:
 
