@@ -20,7 +20,7 @@ All variants are supported (TicWatch Pro 3 GPS/LTE/Ultra GPS/Ultra LTE) with a g
 
 ## 1. Unlock the bootloader
 
-- Connect your watch to your PC with it's USB cable, and fire up a terminal. 
+- Connect your watch to your PC with a DIY USB cable or a [3D printed data dock](https://social.thangs.com/m/59021), and fire up a terminal. 
 - If you have set up your watch on the phone you can access settings, otherwise hold both buttons for a few seconds on the welcome screen.
 - Enable developer settings by going to System -> About -> tap Build number 10 times
 - Enable ADB, re-plug USB and accept debug from PC
@@ -32,22 +32,22 @@ All variants are supported (TicWatch Pro 3 GPS/LTE/Ultra GPS/Ultra LTE) with a g
 Please note Magisk 24.3 is recommended.
 
 - Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
-- Disable vbmeta verification (download vbmeta): "fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img"
-- "fastboot flash recovery recovery.img"
+- Disable vbmeta verification: "fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img"
+- Flash recovery "fastboot flash recovery recovery.img"
 - Boot into recovery by selecting it with the side buttons (switch with bottom one, select with upper button)
 - Select Wipe -> Advanced Wipe -> select Format Data
 - Reboot to recovery
 - Select "Install -> ADB Sideload"
-- "adb sideload OneOS.zip"
-- "adb sideload MobvoiAPPS.zip"
+- Flash OneOS with "adb sideload"
+- Flash Mobvoi Apps with "adb sideload"
 - Make a copy of your Magisk apk file to Magisk-v24.3.zip
-- "adb sideload Magisk-v24.3.zip"
-- "adb sideload Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip"
+- Flash Magisk with "adb sideload"
+- Flash Disabler with "adb sideload"
 - Reboot & do initial setup (pair with your phone through WearOS app)
 
 ## 3. Finalise Magisk app to finish the rooting process
 
-- "adb install Magisk-v24.3.apk"
+- Finalise Magisk installation with app "adb install Magisk-v24.3.apk"
 - Launch Magisk Manager
 - You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
@@ -55,7 +55,7 @@ Please note Magisk 24.3 is recommended.
 
 - Reboot to recovery
 - Select Install -> ADB Sideload
-- "adb sideload" NetHunter image
+- Flash NetHunter image with "adb sideload"
 - Reboot 
 - Start NetHunter app & chroot
 - Reboot
@@ -70,12 +70,12 @@ Please note Magisk 24.3 is recommended.
 
 ## Downloads
 
-Download link for [Magisk](https://github.com/topjohnwu/Magisk/releases/download/v24.3/Magisk-v24.3.apk)
-Download link for [TWRP images](https://wear.revtechs.me/en/help)
-Download link for [ROM and Mobvoi package](https://wear.revtechs.me/en/download)
-Download ling for [vbmeta image](https://wear.revtechs.me/recovery/vbmeta.img)
-Download link for [dm-verity disabler](https://build.nethunter.com/contributors/re4son/guacamole/Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip)
-Download link for [WearOS NetHunter zip](https://www.kali.org/get-kali/#kali-mobile)
+- [Magisk](https://github.com/topjohnwu/Magisk/releases/download/v24.3/Magisk-v24.3.apk)
+- [TWRP images](https://wear.revtechs.me/en/help)
+- [OneOS ROM and Mobvoi package](https://wear.revtechs.me/en/download)
+- [vbmeta image](https://wear.revtechs.me/recovery/vbmeta.img)
+- [dm-verity disabler](https://build.nethunter.com/contributors/re4son/guacamole/Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip)
+- [WearOS NetHunter zip](https://www.kali.org/get-kali/#kali-mobile)
 
 ## Additional supported apps
 
