@@ -1,23 +1,22 @@
 ---
-title: Installing NetHunter On the TicWatch Pro
+title: Installing NetHunter On the TicWatch Pro 3
 description:
 icon:
 weight:
 author: ["yesimxev",]
 ---
 
-![](NetHunter-TicWatch.png)
+![](NetHunter-TicWatchPro3.png)
 
-All variants are supported (TicWatch Pro, Pro 2020, Pro 4G/LTE)
+All variants are supported (TicWatch Pro 3 GPS/LTE/Ultra GPS/Ultra LTE) with a generic installer as of now.
 
-# From unpacking to running NetHunter in 6 steps:
+# From unpacking to running NetHunter in 5 steps:
 
 1. Unlock the bootloader
-2. Flash vendor image, TWRP, optimized WearOS image and Magisk
-3. Launch Magisk app to finish the rooting process
-4. Resize system partition in TWRP
-5. Install NetHunter
-6. Set NetHunter watch face 
+2. Flash TWRP, WearOS image, Magisk, dm-verity disabler
+3. Finalise Magisk app to finish the rooting process
+4. Install NetHunter
+5. Set NetHunter watch face 
 
 ## 1. Unlock the bootloader
 
@@ -26,49 +25,42 @@ All variants are supported (TicWatch Pro, Pro 2020, Pro 4G/LTE)
 - Enable developer settings by going to System -> About -> tap Build number 10 times
 - Enable ADB, re-plug USB and accept debug from PC
 - Reboot into bootloader with "adb reboot bootloader" from the terminal 
-- Unlock bootloader with "fastboot flashing unlock"
+- Unlock bootloader with "fastboot oem unlock"
 
-## 2. Flash vendor image, TWRP, optimized WearOS image and Magisk
+## 2. Flash TWRP, WearOS image, Magisk, dm-verity disabler
 
-Download and extract the installation files into a folder.
-Please note Magisk 21.0 is recommended, included in the following link.
-
-Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
-
-Download link for NetHunter zip. Scroll down to TicWatch for latest release: https://www.kali.org/get-kali/#kali-mobile
+Please note Magisk 24.3 is recommended.
 
 - Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
-- "fastboot flash vendor vendor.img"
-- "fastboot flash recovery tic-watch-pro-recovery.img"
+- Disable vbmeta verification (download vbmeta): "fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img"
+- "fastboot flash recovery recovery.img"
 - Boot into recovery by selecting it with the side buttons (switch with bottom one, select with upper button)
-- Select Wipe -> Advanced Wipe -> select Data, Cache
+- Select Wipe -> Advanced Wipe -> select Format Data
+- Reboot to recovery
 - Select "Install -> ADB Sideload"
-- "adb sideload 2-ROM-PWDD.190617.074-AUG-09.zip"
-- "adb sideload Magisk-v21.0.zip"
+- "adb sideload OneOS.zip"
+- "adb sideload MobvoiAPPS.zip"
+- Make a copy of your Magisk apk file to Magisk-v24.3.zip
+- "adb sideload Magisk-v24.3.zip"
+- "adb sideload Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip"
 - Reboot & do initial setup (pair with your phone through WearOS app)
 
-## 3. Launch Magisk app to finish the rooting process
+## 3. Finalise Magisk app to finish the rooting process
 
+- "adb install Magisk-v24.3.apk"
 - Launch Magisk Manager
 - You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
-## 4. Resize system partition in TWRP
+## 4. Install NetHunter
 
-Upon reflashing ROM after formatted /data, I discovered that the system will have 0 space left, so we need to resize for NetHunter apps, and files
-However, there was space again after going through this tutorial without /data format. In case if you have 0 space left:
-- Again enable ADB 
-- "adb reboot recovery"
-- Select Wipe -> next page -> File System Options - select System - Resize to have ~175MB free on /system
-
-## 5. Install NetHunter
-
+- Reboot to recovery
 - Select Install -> ADB Sideload
 - "adb sideload" NetHunter image
 - Reboot 
 - Start NetHunter app & chroot
 - Reboot
 
-## 6. Set NetHunter watch face
+## 5. Set NetHunter watch face
 
 - Install Facer onto your phone from Play Store
 - Search for NetHunter
@@ -76,14 +68,17 @@ However, there was space again after going through this tutorial without /data f
 
 ### Enjoy Kali NetHunter on the TicWatch Pro
 
-## Download link
+## Downloads
 
-https://www.kali.org/get-kali/#kali-mobile
+Download link for [Magisk](https://github.com/topjohnwu/Magisk/releases/download/v24.3/Magisk-v24.3.apk)
+Download link for [TWRP images](https://wear.revtechs.me/en/help)
+Download link for [ROM and Mobvoi package](https://wear.revtechs.me/en/download)
+Download ling for [vbmeta image](https://wear.revtechs.me/recovery/vbmeta.img)
+Download link for [dm-verity disabler](https://build.nethunter.com/contributors/re4son/guacamole/Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip)
+Download link for [WearOS NetHunter zip](https://www.kali.org/get-kali/#kali-mobile)
 
 ## Additional supported apps
 
-- Drivedroid: use "adb install" to install the latest version
-Download link: https://store.nethunter.com/repo/com.softwarebakery.drivedroid_105000.apk
 - TotalCommander: useful for selecting eg. a Ducky script, use "adb install" method
 Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
@@ -94,7 +89,6 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 - MAC Changer
 - HID Attacks
 - DuckHunter
-- Bad USB
 - Nmap Scan
 - WPS Attacks
 
