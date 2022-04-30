@@ -51,7 +51,7 @@ kali@kali:~$ e2label /dev/mapper/my_usb persistence
 ```console
 kali@kali:~$ mkdir -p /mnt/my_usb
 kali@kali:~$ mount /dev/mapper/my_usb /mnt/my_usb
-kali@kali:~$ echo "/ union" > /mnt/my_usb/persistence.conf
+kali@kali:~$ echo "/ union" | sudo tee /mnt/my_usb/persistence.conf
 kali@kali:~$ umount /dev/mapper/my_usb
 ```
 
