@@ -173,7 +173,7 @@ sudo sed -i '/# PRUNENAMES=/ a PRUNENAMES = ".snapshots"' /etc/updatedb.conf
     ![](btrfs_025-setup1.png)
 - - -
 
-4. The first reboot will create the first automatic snapshot. Reboot again to find the new boot menu entry for this snapshot:
+5. The first reboot will create the first automatic snapshot. Reboot again to find the new boot menu entry for this snapshot:
 
 ![](btrfs_001-bootmenu1.png)
 
