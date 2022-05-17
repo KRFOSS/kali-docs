@@ -43,10 +43,10 @@ Consider yourself warned.
 2. Now, plug your USB drive into an available USB port on your system, and run the same command, "sudo fdisk -l" a second time. Now, the output will look something (again, _not exactly_) like this, showing an additional device which wasn't there previously, in this example "/dev/sdb", a 16GB USB drive:
 
 ![](FinderScreenSnapz002.png)
-3. Proceed to (carefully!) image the Kali ISO file on the USB device. The example command below assumes that the ISO image you're writing is named "kali-linux-2022.1-live-amd64.iso" and is in your current working directory. The blocksize parameter can be increased, and while it may speed up the operation of the dd command, it can occasionally produce unbootable USB drives, depending on your system and a lot of different factors. The recommended value, "bs=4M", is conservative and reliable. Additionally, the parameter "conv=fsync" makes sure that the data is physically written to the USB drives before the commands returns.
+3. Proceed to (carefully!) image the Kali ISO file on the USB device. The example command below assumes that the ISO image you're writing is named "kali-linux-2022.2-live-amd64.iso" and is in your current working directory. The blocksize parameter can be increased, and while it may speed up the operation of the dd command, it can occasionally produce unbootable USB drives, depending on your system and a lot of different factors. The recommended value, "bs=4M", is conservative and reliable. Additionally, the parameter "conv=fsync" makes sure that the data is physically written to the USB drives before the commands returns.
 
 ```console
-kali@kali:~$ dd if=kali-linux-2022.1-live-amd64.iso of=/dev/sdb conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-2022.2-live-amd64.iso of=/dev/sdb conv=fsync bs=4M
 ```
 
 Imaging the USB drive can take a good amount of time, over ten minutes or more is not unusual, as the sample output below shows. Be patient!
@@ -54,9 +54,9 @@ Imaging the USB drive can take a good amount of time, over ten minutes or more i
 The `dd` command provides no feedback until it's completed, but if your drive has an access indicator, you'll probably see it flickering from time to time. The time to `dd` the image across will depend on the speed of the system used, USB drive itself, and USB port it's inserted into. Once `dd` has finished imaging the drive, it will output something that looks like this:
 
 ```plaintext
-5823+1 records in
-5823+1 records out
-3053371392 bytes (3.1 GB) copied, 746.211 s, 4.1 MB/s
+893+1 records in
+893+1 records out
+3748147200 bytes (3.7 GB, 3.5 GiB) copied, 998.442 s, 3.8 MB/s
 ```
 
 That's it, really!
@@ -70,13 +70,13 @@ Alternatively there are a few other options available for imaging.
 The first option is `dd` with a status indicator. This is only available on newer systems however. To do this, we simply add the `status` flag.
 
 ```console
-kali@kali:~$ dd if=kali-linux-2022.1-live-amd64.iso of=/dev/sdb conv=fsync bs=4M status=progress
+kali@kali:~$ dd if=kali-linux-2022.2-live-amd64.iso of=/dev/sdb conv=fsync bs=4M status=progress
 ```
 
 Another option is to use `pv`. We can also use the `size` flag here to get an approximate timer. Change the size depending on the image being used.
 
 ```console
-kali@kali:~$ dd if=kali-linux-2022.1-live-amd64.iso | pv -s 2.8G | dd of=/dev/sdb conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-2022.2-live-amd64.iso | pv -s 2.8G | dd of=/dev/sdb conv=fsync bs=4M
 ```
 
 #### Creating a Bootable Kali USB Drive on Linux (Etcher)

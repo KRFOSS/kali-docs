@@ -1,5 +1,5 @@
 ---
-title: BTRFS Install (Kali Unkaputtbar)
+title: BTRFS Install
 description:
 icon:
 weight: 310
@@ -125,55 +125,18 @@ sudo sed -i 's/^SNAPPER_CONFIGS=\"\"/SNAPPER_CONFIGS=\"root\"/' /etc/default/sna
 
 # Prevent "updatedb" from indexing the snapshots, which would slow down the system
 sudo sed -i '/# PRUNENAMES=/ a PRUNENAMES = ".snapshots"' /etc/updatedb.conf
+
+# Reconfigure lightdm to allow booting into readn-only snapshots
+sudo sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
+
+# Reboot for the changes to take effect
+sudo reboot
 ```
 
-4. We need to tweak the desktop managers to work in read only snapshots. Pick your DE from the following:
-
-    GNOME:
-    ```console
-    # Reconfigure gdm to allow booting into read-only snapshots
-    # GDM needs to have write access to "/var/lib/gdm3" and "/var/lib/AccountService" during login.
-    # We have to create additional subvolumes for them:
-      
-    mount # Pick your main partition, </dev/sda1> in our example, replace </dev/sda1> it with yours
-    sudo mount </dev/sda1> /mnt
-    sudo btrfs subvolume create /mnt/@var@lib@gdm3
-    sudo btrfs subvolume create /mnt/@var@lib@AccountsService
-
-    sudo mv /var/lib/gdm3/* /var/lib/gdm3/.*/mnt/@var@lib@gdm3
-    sudo mv /var/lib/AccountsService/* /var/lib/AccountsService/.* /mnt/@var@lib@AccountsService/
-
-    sudo vi /etc/fstab # Add the following (substitute the <UUID> with yours)
-
-    # /var/lib/gdm3 was on /dev/sda1 during installation
-    UUID=<dc1ca012-9349-4fcf-b761-ca323379b019> /var/lib/gdm3   btrfs   defaults,subvol=@var@lib@gdm3 0       0
-    
-    # /var/lib/AccountsService was on /dev/sda1 during installation
-    UUID=<dc1ca012-9349-4fcf-b761-ca323379b019> /var/lib/AccountsService   btrfs   defaults,subvol=@var@lib@AccountsService 0       0
-
-    # Reboot for the changes to take effect
-    sudo reboot
-    ```
-
-    KDE:
-    ```console
-    # KDE works out of the box, just reboot and enjoy
-    
-    sudo reboot
-    ```
-
-    XFCE:
-    ```console
-    # Reconfigure lightdm to allow booting into read-only snapshots
-    sudo sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
-
-    sudo reboot
-    ```
-
-    ![](btrfs_025-setup1.png)
+![](btrfs_025-setup1.png)
 - - -
 
-5. The first reboot will create the first automatic snapshot. Reboot again to find the new boot menu entry for this snapshot:
+4. The first reboot will create the first automatic snapshot. Reboot again to find the new boot menu entry for this snapshot:
 
 ![](btrfs_001-bootmenu1.png)
 

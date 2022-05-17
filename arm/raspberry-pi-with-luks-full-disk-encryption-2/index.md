@@ -35,9 +35,9 @@ This might seem like a lot, but its really pretty straightforward. Once complete
 We first will download and image the latest Kali RPi3 image. If you're following along, be sure to know where you are imaging the file to.
 
 ```console
-$ wget https://images.kali.org/arm-images/kali-linux-2022.1-raspberry-pi-xfce-armhf.img.xz
+$ wget https://images.kali.org/arm-images/kali-linux-2022.2-raspberry-pi-xfce-armhf.img.xz
 $
-$ xzcat kali-linux-2022.1-raspberry-pi-xfce-armhf-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.2-raspberry-pi-xfce-armhf-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 Next we are going to get things ready for chroot. Let's create where we want to mount the SD card then mount it.
@@ -315,7 +315,7 @@ export _LUKSEXTRA=""
 
 
 # LINUX IMAGE FILE ------------------------------------------------------------
-export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2022.1-raspberry-pi-arm64.img.xz
+export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2022.2-raspberry-pi-arm64.img.xz
 export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
 # PACKAGE ACTIONS -------------------------------------------------------------

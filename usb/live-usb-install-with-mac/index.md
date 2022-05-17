@@ -51,10 +51,10 @@ Consider yourself warned.
 $ diskutil unmountDisk /dev/disk6
 ```
 
-5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2022.1-live-amd64.iso". We will replace /dev/disk6 with /dev/rdisk6 to improve the write speeds:
+5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2022.2-live-amd64.iso". We will replace /dev/disk6 with /dev/rdisk6 to improve the write speeds:
 
 ```console
-$ sudo dd if=kali-linux-2022.1-live-amd64.iso of=/dev/rdisk6 bs=4m
+$ sudo dd if=kali-linux-2022.2-live-amd64.iso of=/dev/rdisk6 bs=4m
 ```
 
 {{% notice info %}}
@@ -66,9 +66,9 @@ Imaging the USB drive can take a good amount of time, over half an hour is not u
 The dd command provides no feedback until it's completed, but if your drive has an access indicator, you'll probably see it flickering from time to time. The time to `dd` the image across will depend on the speed of the system used, USB drive itself, and USB port it's inserted into. Once dd has finished imaging the drive, it will output something that looks like this:
 
 ```plaintext
-2911+1 records in
-2911+1 records out
-3053371392 bytes transferred in 2151.132182 secs (1419425 bytes/sec)
+893+1 records in
+893+1 records out
+3748147200 bytes transferred in 915.043994 secs (4096139 bytes/sec)
 ```
 
 And that's it!

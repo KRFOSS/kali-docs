@@ -41,7 +41,7 @@ This process will wipe out your full-size SD card. If you choose the wrong stora
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-2022.1-efikamx.img of=/dev/sdb conv=fsync bs=4M
+$ dd if=kali-linux-2022.2-efikamx.img of=/dev/sdb conv=fsync bs=4M
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
