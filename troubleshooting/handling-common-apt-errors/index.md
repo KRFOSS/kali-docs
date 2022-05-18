@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["gamb1t","rhertzog",]
+draft: true
 ---
 
 This page is due for more content as issues come up that need addressing. If you have an issue with APT that is not addressed in this page, please create a [merge request](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests) with the steps to solve the problem or address it, or an [issue](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues) if you are unaware of how to solve the problem but would like to see it added to this page.
