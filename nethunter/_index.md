@@ -12,17 +12,17 @@ author: ["Re4son","yesimxev"]
 
 ## Content:
 
-- [Overview](#Overview)
-- [NetHunter Editons](#1-0-nethunter-editions)
-- [NetHunter Supported Devices and ROMs](#2-0-nethunter-supported-devices-and-roms)
-- [Downloading NetHunter](#3-0-downloading-nethunter)
-- [Building NetHunter](#4-0-building-nethunter)
-- [Installing NetHunter](#5-0-installing-nethunter-on-top-of-android)
-- [Post Installation Setup](#6-0-post-installation-setup)
-- [Kali NetHunter Attacks and Features](#7-0-kali-nethunter-attacks-and-features)
-- [Porting NetHunter to New Devices](#8-0-porting-nethunter-to-new-devices)
-- [Known Working Hardware](#9-0-known-working-hardware)
-- [NetHunter App](#10-0-nethunter-app)
+- [Overview](#overview)
+- [NetHunter Editons](#10-nethunter-editions)
+- [NetHunter Supported Devices and ROMs](#20-nethunter-supported-devices-and-roms)
+- [Downloading NetHunter](#30-downloading-nethunter)
+- [Building NetHunter](#40-building-nethunter)
+- [Installing NetHunter](#50-installing-nethunter-on-top-of-android)
+- [Post Installation Setup](#60-post-installation-setup)
+- [Kali NetHunter Attacks and Features](#70-kali-nethunter-attacks-and-features)
+- [Porting NetHunter to New Devices](#80-porting-nethunter-to-new-devices)
+- [Known Working Hardware](#90-known-working-hardware)
+- [NetHunter App](#100-nethunter-apps)
 
 ## Overview
 
@@ -117,7 +117,7 @@ You can find additional instructions on using the NetHunter installer builder or
 
 Now that you've either downloaded a NetHunter image or built one yourself, the next steps are to prepare your Android device and then install the image. "Preparing your Android device" includes:
 
-- **unlocking** your device and **updating it to stock** AOSP or LineageOS (CM). (Check point [2.0](#20-supported-devices-and-roms) for supported roms)
+- **unlocking** your device and **updating it to stock** AOSP or LineageOS (CM). (Check point [2.0](#20-nethunter-supported-devices-and-roms) for supported roms)
 - **installing [Team Win Recovery Project](https://twrp.me/)** as a custom recovery.
 - **installing [Magisk](https://github.com/topjohnwu/Magisk)** to root the device
 - disabling force encryption may be required if TWRP cannot access the data partition
