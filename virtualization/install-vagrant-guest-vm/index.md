@@ -2,7 +2,7 @@
 title: Kali inside Vagrant (Guest VM)
 description:
 icon:
-weight:
+weight: 200
 author: ["gamb1t",]
 ---
 
@@ -18,7 +18,7 @@ If we are on Windows, we will need to follow the previous link and download the 
 
 If we are on a Debian-based Linux system (like Kali Linux), we likely have the `vagrant` package available for download:
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt search vagrant
 Sorting... Done
@@ -59,7 +59,7 @@ Now that we have our hypervisor and Vagrant installed, we can pull our first con
 
 We must be in a command line and create a new folder/directory that is empty. For this guide we will be using a Kali Linux host system, however the commands that start with `vagrant` will be the same no matter what host is being used.
 
-```
+```console
 ┌──(kali㉿kali)-[~/vagrant]
 └─$ vagrant init kalilinux/rolling
 A `Vagrantfile` has been placed in this directory. You are now
@@ -87,7 +87,7 @@ We can see it is a very minimal configuration file, however this will start up a
 
 To start this machine, we will run the following command:
 
-```
+```console
 ┌──(kali㉿kali)-[~/vagrant]
 └─$ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
@@ -169,7 +169,7 @@ end
 
 Which we can then load into a running Vagrant instance by running the following command:
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ vagrant reload
 
@@ -179,7 +179,7 @@ Which we can then load into a running Vagrant instance by running the following 
 
 If we want to re-provision our VM, which normally only runs the first time the machine boots, we can do one of the following commands:
 
-```
+```console
 vagrant provision  # provision the powered on VM
 vagrant up --provision  # when VM is powered off, power it on then provision
 vagrant reload --provision  # reboot the VM then provision

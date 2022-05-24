@@ -2,7 +2,7 @@
 title: Kali inside Parallels (Guest VM)
 description:
 icon:
-weight: 200
+weight: 195
 author: ["steev",]
 ---
 
