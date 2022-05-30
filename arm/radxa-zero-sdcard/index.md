@@ -42,7 +42,7 @@ To install a pre-built image of the standard build of Kali Linux on your Raspber
 2. Download _and validate_ the `Kali Radxa Zero` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
-In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
+In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct device path**.
 
 {{% notice info %}}
 This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.

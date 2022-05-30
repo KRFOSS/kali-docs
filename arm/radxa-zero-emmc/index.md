@@ -127,7 +127,7 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 Linux (sdcard boot, write to eMMC):
 
 {{% notice info %}}
-You cannot use the Radxa Zero **sdcard** image on the eMMC, and vice versa.  The bootloader is written to different spots depending on eMMC and sdcard and they are **not** interchangeable.
+You cannot use the Radxa Zero **sdcard** image on the eMMC, and vice versa.  The bootloader is written to different locations depending on eMMC and sdcard and they are **not** interchangeable.
 {{% /notice %}}
 
 With this mode, we first boot the Radxa Zero from a microSD card, and simply use the **[dd](https://packages.debian.org/testing/dd)** utility to write an image to the eMMC.
@@ -138,7 +138,7 @@ With this mode, we first boot the Radxa Zero from a microSD card, and simply use
 4. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to the eMMC device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 
-In our example, we assume the storage device is located at `/dev/mmcblk0`. Do _not_ simply copy these value, **change this to the correct drive path**.
+In our example, we assume the storage device is located at `/dev/mmcblk0`. Do _not_ simply copy these value, **change this to the correct device path**.
 
 {{% notice info %}}
 This process will wipe out your whatever is on your eMMC. If you choose the wrong storage device, you may wipe out your computers hard disk.
