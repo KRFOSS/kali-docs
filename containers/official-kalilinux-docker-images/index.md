@@ -21,6 +21,4 @@ And those that you will likely not need except in very special cases:
 - [kalilinux/kali-experimental](https://hub.docker.com/r/kalilinux/kali-experimental) is exactly like `kalilinux/kali-rolling` with the `kali-experimental` repository enabled. Might be useful to test some not-yet-ready updates uploaded to "kali-experimental" by Kali developers who are looking for feedback.
 - [kalilinux/kali-dev](https://hub.docker.com/r/kalilinux/kali-dev) is an image tracking the `kali-dev` repository used by Kali developers to merge updates coming from Debian and changes maintained by Kali Linux. It can be useful to rebuild (or do test rebuild of) Kali packages.
 
-Please note, [kalilinux/kali-linux-docker](https://hub.docker.com/r/kalilinux/kali-linux-docker) is the former official image, it's **no longer updated**. **Don't use it**.
-
 If you want to improve our official Docker images, have a look at the [kali-docker project](https://gitlab.com/kalilinux/build-scripts/kali-docker/) in [our GitLab](https://gitlab.com/kalilinux). We use [GitLab CI](https://gitlab.com/kalilinux/build-scripts/kali-docker/pipelines) to automate the build of our Docker images.
