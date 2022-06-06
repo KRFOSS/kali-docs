@@ -3,12 +3,12 @@ title: Kali Linux Metapackages
 description:
 icon:
 weight: 5
-author: ["gamb1t", "g0tmi1k",]
+author: ["gamb1t", "g0tmi1k", "daniruiz"]
 ---
 
 # What are metapackages
 
-[Metapackages](/docs/general-use/metapackages/) are used to install many packages at one time, created as a list of dependencies on other packages. Kali Linux uses these in a few ways. One way is allowing users to decide how many packages out of the total Kali list they would like to install. Need just enough to use Linux? Want enough to conduct Pentests? Perhaps nearly every package available in Kali?
+[Metapackages](/tools/kali-meta/) are used to install many packages at one time, created as a list of dependencies on other packages. Kali Linux uses these in a few ways. One way is allowing users to decide how many packages out of the total Kali list they would like to install. Need just enough to use Linux? Want enough to conduct Pentests? Perhaps nearly every package available in Kali?
 
 To install a metapackage we first need to update and then install the desired package:
 
@@ -50,6 +50,7 @@ kali@kali:~$
 - `kali-tools-sdr`: Software-Defined Radio tools
 - `kali-tools-voip`: Voice over IP tools
 - `kali-tools-windows-resources`: Any resources which can be executed on a Windows hosts
+- `kali-linux-labs`: Environments for learning and practising on
 
 ## Menu
 
