@@ -8,7 +8,7 @@ author: ["yesimxev",]
 
 ## Kernel Configuration cont.
 
-**If your kernel is above 4.x please skip to the [next page](nethunter-kernel-7-config-6/)**
+**If your kernel is above 4.x please skip to the [next page](/docs/nethunter/nethunter-kernel-7-config-6/)**
 
 ### USB Modem
 
@@ -27,6 +27,6 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 
 USB Gadget support is only possible with patches on 3.x kernels.
 
-Please refer to [patching kernel](nethunter-kernel-1-patching/) page.
+Please refer to [patching kernel](/docs/nethunter/nethunter-kernel-1-patching/) page.
 
 ## Exit, save, and build

@@ -22,7 +22,7 @@ storage: sdcard
 kernel: custom
 ---
 
-The [Raspberry Pi Zero](https://www.raspberrypi.org/products/raspberry-pi-zero/) is a single core 1GHz, with 512MB of RAM. Unlike the [Raspberry Pi Zero W](/docs/arm/raspberry-pi-zero-w-/), the Raspberry Pi Zero has **no networking** on the board, so you will need to use a USB adapter for networking. Kali Linux fits on an external microSD card.
+The [Raspberry Pi Zero](https://www.raspberrypi.org/products/raspberry-pi-zero/) is a single core 1GHz, with 512MB of RAM. Unlike the [Raspberry Pi Zero W](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero has **no networking** on the board, so you will need to use a USB adapter for networking. Kali Linux fits on an external microSD card.
 
 By default, the Kali Linux Raspberry Pi Zero image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
