@@ -6,7 +6,7 @@ weight:
 author: ["steev",]
 ---
 
-The following document describes our own method of creating a **custom Kali Linux Samsung Chromebook ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on Samsung Chromebook](/docs/arm/samsung-chromebook/) article.
+The following document describes our own method of creating a **custom Kali Linux Samsung Chromebook ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on Samsung Chromebook](/docs/arm/chromebook-exynos/) article.
 
 {{% notice info %}}
 In this guide, we create an image with two boot partitions - one containing a kernel hard-coded to boot from the SD card and the other containing a kernel hard-coded to boot from USB. Depending on your USB storage media type, make sure to mark the relevant boot partition with higher priority after you dd the image to your USB device as instructed in the last stages of this guide.
