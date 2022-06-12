@@ -13,10 +13,10 @@ All variants are supported (TicWatch Pro, Pro 2020, Pro 4G/LTE)
 # From unpacking to running NetHunter in 6 steps:
 
 1. Unlock the bootloader
-2. Flash vendor image, TWRP, optimized WearOS image and Magisk
-3. Launch Magisk app to finish the rooting process
-4. Resize system partition in TWRP
-5. Install NetHunter
+2. Flash vendor image, TWRP, and optimized WearOS
+3. Resize system partition in TWRP
+4. Flash and launch Magisk app to finish the rooting process
+5. Flash NetHunter
 6. Set NetHunter watch face 
 
 ## 1. Unlock the bootloader
@@ -25,45 +25,44 @@ All variants are supported (TicWatch Pro, Pro 2020, Pro 4G/LTE)
 - If you have set up your watch on the phone you can access settings, otherwise hold both buttons for a few seconds on the welcome screen.
 - Enable developer settings by going to System -> About -> tap Build number 10 times
 - Enable ADB, re-plug USB and accept debug from PC
-- Reboot into bootloader with "adb reboot bootloader" from the terminal 
-- Unlock bootloader with "fastboot flashing unlock"
+- Reboot into bootloader with `adb reboot bootloader` from the terminal 
+- Unlock bootloader with `fastboot flashing unlock`
 
-## 2. Flash vendor image, TWRP, optimized WearOS image and Magisk
+## 2. Flash vendor image, TWRP, and optimized WearOS
 
 Download and extract the installation files into a folder.
 Please note Magisk 21.0 is recommended, included in the following link.
 
 Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
 
-Download link for NetHunter zip. Scroll down to TicWatch for latest release: https://www.kali.org/get-kali/#kali-mobile
-
-- Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
-- "fastboot flash vendor vendor.img"
-- "fastboot flash recovery tic-watch-pro-recovery.img"
+- Again enable ADB, and reboot to bootloader with `adb reboot bootloader`
+- `fastboot flash vendor vendor.img`
+- `fastboot flash recovery ticwatch-pro-twrp.img`
 - Boot into recovery by selecting it with the side buttons (switch with bottom one, select with upper button)
-- Select Wipe -> Advanced Wipe -> select Data, Cache
-- Select "Install -> ADB Sideload"
-- "adb sideload 2-ROM-PWDD.190617.074-AUG-09.zip"
-- "adb sideload Magisk-v21.0.zip"
+- Select "Wipe -> next page -> Format Data"
+- Reboot to Recovery
+- Select "Install -> ADB Sideload" and tick "Wipe Dalvik Cache, Wipe Cache"
+- `adb sideload 2-ROM-PWDD.190617.074-AUG-09.zip`
 - Reboot & do initial setup (pair with your phone through WearOS app)
 
-## 3. Launch Magisk app to finish the rooting process
+## 3. Resize system partition in TWRP
 
+- Again enable ADB
+- "adb reboot recovery"
+- Select Wipe -> next page -> File System Options - select System - Resize (to have ~175MB free on /system instead of 0)
+
+## 4. Flash and launch Magisk app to finish the rooting process
+
+- `adb sideload Magisk-v21.0.zip`
+- Reboot to System
 - Launch Magisk Manager
 - You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
-## 4. Resize system partition in TWRP
+## 5. Flash NetHunter
 
-Upon reflashing ROM after formatted /data, I discovered that the system will have 0 space left, so we need to resize for NetHunter apps, and files
-However, there was space again after going through this tutorial without /data format. In case if you have 0 space left:
-- Again enable ADB 
-- "adb reboot recovery"
-- Select Wipe -> next page -> File System Options - select System - Resize to have ~175MB free on /system
-
-## 5. Install NetHunter
-
+- `adb reboot recovery`
 - Select Install -> ADB Sideload
-- "adb sideload" NetHunter image
+- `adb sideload` NetHunter image
 - Reboot 
 - Start NetHunter app & chroot
 - Reboot
@@ -72,19 +71,20 @@ However, there was space again after going through this tutorial without /data f
 
 - Install Facer onto your phone from Play Store
 - Search for NetHunter
+- Install Facer companion app to watch
 - Select & Sync
 
 ### Enjoy Kali NetHunter on the TicWatch Pro
 
 ## Download link
 
-https://www.kali.org/get-kali/#kali-mobile
+https://build.nethunter.com/contributors/re4son/catfish/https://build.nethunter.com/contributors/re4son/catfish/nethunter-2022.2b-ticwatchpro-wearos-kalifs-nano.zip
 
 ## Additional supported apps
 
-- Drivedroid: use "adb install" to install the latest version
+- Drivedroid: use `adb install` to install the latest version
 Download link: https://store.nethunter.com/repo/com.softwarebakery.drivedroid_105000.apk
-- TotalCommander: useful for selecting eg. a Ducky script, use "adb install" method
+- TotalCommander: useful for selecting eg. a Ducky script, use `adb install` method
 Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 ## Supported features

@@ -62,11 +62,11 @@ Please note Magisk 24.3 is recommended.
 
 ## 5. Set NetHunter watch face
 
-- Install Facer onto your phone from Play Store
+- Install Facer onto your phone and watch from Play Store
 - Search for NetHunter
 - Select & Sync
 
-### Enjoy Kali NetHunter on the TicWatch Pro
+### Enjoy Kali NetHunter on the TicWatch Pro 3
 
 ## Downloads
 
@@ -75,9 +75,9 @@ Please note Magisk 24.3 is recommended.
 - [OneOS ROM and Mobvoi package](https://wear.revtechs.me/en/download)
 - [vbmeta image](https://wear.revtechs.me/recovery/vbmeta.img)
 - [dm-verity disabler](https://build.nethunter.com/contributors/re4son/guacamole/Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip)
-- [WearOS NetHunter zip](https://www.kali.org/get-kali/#kali-mobile)
+- [WearOS NetHunter zip](https://build.nethunter.com/contributors/re4son/catfish/nethunter-2022.2b-generic-armhf-kalifs-nano.zip)
 
-## Additional supported apps
+## Additional recommended apps
 
 - TotalCommander: useful for selecting eg. a Ducky script, use "adb install" method
 Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
@@ -102,4 +102,5 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 ## Hardware limitations
 
-- Power resource is not enough for any external adapters
+- Power resource is not enough for any external adapters, although this kernel might support Y cable in the future!
+
