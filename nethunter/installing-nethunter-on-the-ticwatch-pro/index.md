@@ -25,8 +25,8 @@ All variants are supported (TicWatch Pro, Pro 2020, Pro 4G/LTE)
 - If you have set up your watch on the phone you can access settings, otherwise hold both buttons for a few seconds on the welcome screen.
 - Enable developer settings by going to System -> About -> tap Build number 10 times
 - Enable ADB, re-plug USB and accept debug from PC
-- Reboot into bootloader with "adb reboot bootloader" from the terminal 
-- Unlock bootloader with "fastboot flashing unlock"
+- Reboot into bootloader with `adb reboot bootloader` from the terminal 
+- Unlock bootloader with `fastboot flashing unlock`
 
 ## 2. Flash vendor image, TWRP, and optimized WearOS
 
@@ -35,14 +35,14 @@ Please note Magisk 21.0 is recommended, included in the following link.
 
 Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
 
-- Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
-- "fastboot flash vendor vendor.img"
-- "fastboot flash recovery ticwatch-pro-twrp.img"
+- Again enable ADB, and reboot to bootloader with `adb reboot bootloader`
+- `fastboot flash vendor vendor.img`
+- `fastboot flash recovery ticwatch-pro-twrp.img`
 - Boot into recovery by selecting it with the side buttons (switch with bottom one, select with upper button)
 - Select "Wipe -> next page -> Format Data"
 - Reboot to Recovery
-- Select "Install -> ADB Sideload" and tick "Wipe Dalvik Cache, Wipe Cache
-- "adb sideload 2-ROM-PWDD.190617.074-AUG-09.zip"
+- Select "Install -> ADB Sideload" and tick "Wipe Dalvik Cache, Wipe Cache"
+- `adb sideload 2-ROM-PWDD.190617.074-AUG-09.zip`
 - Reboot & do initial setup (pair with your phone through WearOS app)
 
 ## 3. Resize system partition in TWRP
@@ -53,16 +53,16 @@ Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/con
 
 ## 4. Flash and launch Magisk app to finish the rooting process
 
-- "adb sideload Magisk-v21.0.zip"
+- `adb sideload Magisk-v21.0.zip`
 - Reboot to System
 - Launch Magisk Manager
 - You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
 ## 5. Flash NetHunter
 
-- "adb reboot recovery"
+- `adb reboot recovery`
 - Select Install -> ADB Sideload
-- "adb sideload" NetHunter image
+- `adb sideload` NetHunter image
 - Reboot 
 - Start NetHunter app & chroot
 - Reboot
@@ -82,9 +82,9 @@ https://build.nethunter.com/contributors/re4son/catfish/https://build.nethunter.
 
 ## Additional supported apps
 
-- Drivedroid: use "adb install" to install the latest version
+- Drivedroid: use `adb install` to install the latest version
 Download link: https://store.nethunter.com/repo/com.softwarebakery.drivedroid_105000.apk
-- TotalCommander: useful for selecting eg. a Ducky script, use "adb install" method
+- TotalCommander: useful for selecting eg. a Ducky script, use `adb install` method
 Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 ## Supported features
