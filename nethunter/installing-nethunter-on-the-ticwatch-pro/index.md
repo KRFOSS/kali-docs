@@ -35,8 +35,6 @@ Please note Magisk 21.0 is recommended, included in the following link.
 
 Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
 
-Download link for NetHunter zip. Scroll down to TicWatch for latest release: https://www.kali.org/get-kali/#kali-mobile
-
 - Again enable ADB, and reboot to bootloader with "adb reboot bootloader"
 - "fastboot flash vendor vendor.img"
 - "fastboot flash recovery ticwatch-pro-twrp.img"
@@ -80,7 +78,7 @@ Download link for NetHunter zip. Scroll down to TicWatch for latest release: htt
 
 ## Download link
 
-https://www.kali.org/get-kali/#kali-mobile
+https://build.nethunter.com/contributors/re4son/catfish/
 
 ## Additional supported apps
 
