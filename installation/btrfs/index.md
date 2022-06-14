@@ -235,11 +235,11 @@ Snapshots are listed in the snapper-gui:
 
 The easiest way to delete a snapshot is by using the snapper command line tool:
 
-`sudo apt-btrfs-snapshot delete`
+`sudo snapper delete <number-or-number-range>`
 
 ![](btrfs_040-snapperdelete01.png)
 
-Voila, easy.
+Voilà, easy.
 
 Now is probably the right time to flick through the snapper command line options via:
 
@@ -256,7 +256,8 @@ To roll back to a previous snapshot we have to remember two things:
 - A snapshot is treated like just another subvolume except that they are **read-only**
 - You can easily boot into your read-only snapshots to find the one you want to roll-back to.
 
-Thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the curent root ("@") subvolume.
+Thus all we have to do is mount the btrfs partition and replace the current root subvolume "@" with the last snapshot. To be safe we'll backup the current root ("@") subvolume.
+
 E.g.:
 
 ```console
