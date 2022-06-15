@@ -18,7 +18,7 @@ Of course, you can select whichever desktop environment you wish. It is worth me
 
 Now that we are installed and logged in, there are a few things we should do. Keep in mind, these should always be done, not just for a daily use case! Let's first change the root user's password:
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo su
 [sudo] password for kali:
@@ -37,7 +37,7 @@ passwd: password updated successfully
 
 After this we can make sure our system is up-to-date:
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt update && sudo apt upgrade -y
 ....
@@ -51,7 +51,7 @@ After this we can make sure our system is up-to-date:
 
 We can now finish off our setup by making sure kali-tweaks is configured properly:
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ kali-tweaks
 ```

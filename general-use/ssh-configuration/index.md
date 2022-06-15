@@ -26,7 +26,7 @@ Since the release of [Kali Linux 2022.1](/blog/kali-linux-2022-1-release/), the 
 
 So what are SSH host keys exactly? Those keys are required for the SSH server to be functional. They are supposed to be unique for each machine. Those keys can be found under `/etc/ssh` and are named `ssh_host_*_key`. This is how it usually looks like:
 
-```
+```console
 kali@kali:~$ ls -l /etc/ssh/ssh_host_*
 -rw------- 1 root root 1373 Feb  3 23:50 /etc/ssh/ssh_host_dsa_key
 -rw-r--r-- 1 root root  599 Feb  3 23:50 /etc/ssh/ssh_host_dsa_key.pub
@@ -44,6 +44,6 @@ To make it easier, Kali Linux now comes with a systemd service that takes care o
 
 For those who are not comfortable with this automatic behavior, it's very simple and straightforward to disable it:
 
-```
+```console
 kali@kali:~$ sudo systemctl disable regenerate-ssh-host-keys.service
 ```

@@ -31,7 +31,7 @@ Adding autopkgtests to a source package is a matter of creating a `debian/tests/
 
 Have a look a the [official documentation of those control files](https://salsa.debian.org/ci-team/autopkgtest/-/blob/master/doc/README.package-tests.rst) to gain a good idea of what we are doing and what's possible. A lot of the options are explained quite well, and through active experimentation and learning can be utilized in helpful ways, but for now we will stick to some of the basics. Lets take a look at their example control file.
 
-```
+```plaintext
 Tests: fred, bill, bongo
 Depends: pkg1, pkg2 [amd64] | pkg3 (>= 3)
 Restrictions: needs-root, breaks-testbed
@@ -41,7 +41,7 @@ We can break this down pretty quickly. There are three test scripts: fred, bill,
 
 Looking at another example that they have:
 
-```
+```plaintext
 Test-Command: foo-cli --list --verbose
 Depends: foo
 Restrictions: needs-root
@@ -70,7 +70,7 @@ The [cloud_enum](https://gitlab.com/kalilinux/packages/cloud-enum/-/tree/kali/ma
 
 <p class="codeblock-label">cloud_enum control file</p>
 
-```
+```plaintext
 Test-Command: cloud_enum --help
 Depends: @
 Restrictions: superficial
@@ -80,7 +80,7 @@ Whereas the [python-pip](https://gitlab.com/kalilinux/packages/python-pip/-/tree
 
 <p class="codeblock-label">python-pip control file</p>
 
-```
+```plaintext
 Tests: pip3-root.sh
 Restrictions: needs-root
 
@@ -94,7 +94,7 @@ With includes a test that looks like:
 
 <p class="codeblock-label">python-pip pip3-user.sh test file</p>
 
-```
+```plaintext
 #!/bin/sh
 
 export HOME=$AUTOPKGTEST_TMP
@@ -132,7 +132,7 @@ We did just throw a bunch of text and code at you all to look at without much ex
 
 Looking more closely at the `cloud_enum` control file, we have three things going on.
 
-```
+```plaintext
 Test-Command: cloud_enum --help
 Depends: @
 Restrictions: superficial
@@ -141,13 +141,13 @@ The first thing we do is tell what command we are running. Because this is just 
 
 The next control file we will learn from is [pytest-factoryboy's](https://gitlab.com/kalilinux/packages/pytest-factoryboy/-/tree/kali/master/debian/tests).
 
-```
+```plaintext
 Tests: test3-pytest-factoryboy
 Depends: @, python3-pytest-pep8
 ```
 As we can see, it depends on a python module. This python module will help us to test the tool, as we can see being done in the test:
 
-```
+```plaintext
 #!/bin/sh
 set -e
 cp -r tests "$AUTOPKGTEST_TMP/" && cd "$AUTOPKGTEST_TMP"
@@ -179,19 +179,19 @@ If it is needed to run the tests locally, it is luckily fairly straightforward b
 
 We first download the actual testing software and also `vmdb2` which is to create the disk images to be used for the tests.
 
-```
+```console
 kali@kali:~$ sudo apt install -y autopkgtest vmdb2
 ```
 
 We then need to make a directory that can store our images and data.
 
-```
+```console
 kali@kali:~$ sudo mkdir /srv/autopkgtest-images/
 ```
 
 The following command creates a kali-rolling based image that is compatible with autopkgtests, we can now use this image for future tests.
 
-```
+```console
 kali@kali:~$ sudo autopkgtest-build-qemu kali-rolling /srv/autopkgtest-images/kali-rolling.img http://http.kali.org/kali
 ```
 
