@@ -7,7 +7,7 @@ weight: 410
 author: ["gamb1t",]
 ---
 
-**This image is dated**. We would now recommend using [Kali Linux "NetInstaller" images](/downloads/) instead.
+**This image is dated**. We would now recommend using [Kali Linux "NetInstaller" images](/get-kali-/) instead.
 
 The reasoning behind favouring NetInstaller is, when the [Kali Linux kernel](https://pkg.kali.org/pkg/linux) gets updated, it breaks the mini ISO image. This means you will have to re-download the mini image again.
 

@@ -24,7 +24,7 @@ All the programs packaged with the operating system were evaluated for suitabili
 
 ### Pricing and Availability
 
-Like its [predecessors](/docs/introduction/kali-linux-history/), Kali Linux is completely free and always will be. Offensive Security is committed to supporting the [Open-source](/docs/policy/kali-linux-open-source-policy/) community with the ongoing development of Kali Linux. The development tree and [all sources](https://gitlab.com/kalilinux) are available for those who wish to tweak and rebuild packages. Kali Linux is available immediately for download from [kali.org/downloads/](/downloads/).
+Like its [predecessors](/docs/introduction/kali-linux-history/), Kali Linux is completely free and always will be. Offensive Security is committed to supporting the [Open-source](/docs/policy/kali-linux-open-source-policy/) community with the ongoing development of Kali Linux. The development tree and [all sources](https://gitlab.com/kalilinux) are available for those who wish to tweak and rebuild packages. Kali Linux is available immediately for download from [kali.org/downloads/](/get-kali-/).
 
 ### About Kali Linux
 
