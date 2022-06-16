@@ -78,7 +78,7 @@ The following table illustrates the differences in functionality:
 | Metasploit with DB |         No         |      Yes       |    Yes    |
 |   NetHunter App    |         No         |      Yes       |    Yes    |
 |   Requires TWRP    |         No         |      Yes       |    Yes    |
-|   Requires Root    |         No         |       No       |    Yes    |
+|   Requires Root    |         No         |      Yes       |    Yes    |
 |   WiFi Injection   |         No         |       No       |    Yes    |
 |    HID attacks     |         No         |       No       |    Yes    |
 
