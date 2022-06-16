@@ -43,7 +43,7 @@ Next time you login after a reboot you will have the Xfce theme, if you did not 
 
 **Q:** How can I get a Kali Linux image with GNOME instead of Xfce?
 
-**A:**  Just download the Kali GNOME image from [kali.org/downloads/](/downloads/)
+**A:**  Just download the Kali GNOME image from [kali.org/downloads/](/get-kali/)
 
 &nbsp;
 &nbsp;

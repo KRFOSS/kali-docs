@@ -148,7 +148,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - [**BadUSB MITM Attack**](nethunter-badusb/) - Nuff said.
 - [**MANA Wireless Toolkit**](nethunter-mana-wireless/) - Setup a malicious Access Point at the click of a button.
 - [**Bluetooth Arsenal**](nethunter-btarsenal/) - Recon, spoof, listen to or inject audio to various Bluetooth devices.
-- [**Social Engineer Toolkit**](nethunter-set/) - Build your own phishing email template for Social Engineer Toolkit.
+<!--- [**Social Engineer Toolkit**](nethunter-set/) - Build your own phishing email template for Social Engineer Toolkit.-->
 - [**MITM Framework**](nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
 - [**NMap Scan**](nethunter-nmap/) - Quick Nmap scanner interface.
 - [**Metasploit Payload Generator**](nethunter-mpg/) - Generating Metasploit payloads on the fly.
