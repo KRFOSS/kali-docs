@@ -22,7 +22,7 @@ If you're not sure of the architecture of the system you want to run Kali on, on
 
 The Kali Linux images are available both as directly downloadable ".iso/.img" files or via ".torrent" files.
 
-- [Official Kali ISOs for Intel-based PCs](/downloads/)
+- [Official Kali ISOs for Intel-based PCs](/get-kali/)
 
 Building your own Kali Linux ISO, standard or customized, is [a very simple process](/docs/development/live-build-a-custom-kali-iso/).
 
