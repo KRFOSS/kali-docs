@@ -17,7 +17,7 @@ The sites listed below are the ONLY official outlets for the Kali Linux Distribu
 **[www.kali.org](/)**
 
 The main [Kali Linux website](/) is our primary means of communicating news about the Kali Linux project, general introductory information, and general updates about the project and its ongoing development.
-Blog posts about new tools, features, Kali Linux tips, tricks, and tutorials can be found here. This should be _your one and only source_ to [download](/get-kali-/) the official Kali Linux distribution.
+Blog posts about new tools, features, Kali Linux tips, tricks, and tutorials can be found here. This should be _your one and only source_ to [download](/get-kali/) the official Kali Linux distribution.
 
 **[kali.org/docs/](/docs/)**
 

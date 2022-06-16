@@ -6,7 +6,7 @@ weight: 70
 author: ["steev",]
 ---
 
-Although you can [download pre-rolled Kali ARM images](/get-kali-/) from our download area, there may be applications which will require building your own custom bootstrapped Kali rootfs for ARM.
+Although you can [download pre-rolled Kali ARM images](/get-kali/) from our download area, there may be applications which will require building your own custom bootstrapped Kali rootfs for ARM.
 
 The following procedure shows an example of building a fairly generic Kali **armhf** rootfs. If you wish to build for **armel**, use that value rather than "armhf" when you export the **architecture** environment variable.
 
