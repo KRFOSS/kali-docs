@@ -6,7 +6,7 @@ weight: 40
 author: ["Re4son",]
 ---
 
-In this section, we will describe the process of installing Kali Linux on 32-bit and 64-bit hardware using the images published on the [Kali Linux download page](/downloads/).
+In this section, we will describe the process of installing Kali Linux on 32-bit and 64-bit hardware using the images published on the [Kali Linux download page](/get-kali/).
 
 #### Content
 
