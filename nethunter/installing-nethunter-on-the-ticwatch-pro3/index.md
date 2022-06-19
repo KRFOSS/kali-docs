@@ -42,7 +42,7 @@ Please note Magisk 24.3 is recommended.
 - Flash Mobvoi Apps with `adb sideload`
 - Make a copy of your Magisk apk file to Magisk-v24.3.zip
 - Flash Magisk with `adb sideload`
-- Flash Disabler with `adb sideload`
+- Flash Disabler with `adb push disabler.zip /sdcard/` and Install via TWRP
 - Reboot & do initial setup (pair with your phone through WearOS app)
 
 ## 3. Finalise Magisk app to finish the rooting process
