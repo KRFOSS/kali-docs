@@ -78,7 +78,7 @@ Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/con
 
 ## Download link
 
-https://build.nethunter.com/contributors/re4son/catfish/https://build.nethunter.com/contributors/re4son/catfish/nethunter-2022.2b-ticwatchpro-wearos-kalifs-nano.zip
+https://build.nethunter.com/contributors/re4son/catfish/nethunter-2022.2b-ticwatchpro-wearos-kalifs-nano.zip
 
 ## Additional supported apps
 
