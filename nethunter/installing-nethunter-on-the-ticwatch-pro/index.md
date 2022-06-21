@@ -48,7 +48,7 @@ Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/con
 ## 3. Resize system partition in TWRP
 
 - Again enable ADB
-- "adb reboot recovery"
+- `adb reboot recovery`
 - Select Wipe -> next page -> File System Options - select System - Resize (to have ~175MB free on /system instead of 0)
 
 ## 4. Flash and launch Magisk app to finish the rooting process
@@ -61,6 +61,7 @@ Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/con
 ## 5. Flash NetHunter
 
 - `adb reboot recovery`
+- Make sure that the system partition is mounted: Mount -> System (make sure that "mount as RO" is disabled)
 - Select Install -> ADB Sideload
 - `adb sideload` NetHunter image
 - Reboot 
