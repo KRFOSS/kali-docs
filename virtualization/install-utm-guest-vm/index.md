@@ -18,7 +18,7 @@ We will select Virtualize, as we will be using a [Kali Apple M1 installer](https
 
 ![](utm-setup-3.png)
 
-From here, we will select "Linux" which will again bring us to the next page:
+From here, we will select "Other" which will again bring us to the next page:
 
 ![](utm-setup-4.png)
 
