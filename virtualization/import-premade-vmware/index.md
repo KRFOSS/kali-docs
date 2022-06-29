@@ -2,7 +2,7 @@
 title: Import Pre-Made Kali VMWare VM
 description:
 icon:
-weight: 211
+weight: 206
 author: ["gamb1t",]
 ---
 
