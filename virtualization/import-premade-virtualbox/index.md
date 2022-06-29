@@ -1,5 +1,5 @@
 ---
-title: Import Pre-made Kali VirtualBox VM
+title: Import Pre-Made Kali VirtualBox VM
 description:
 icon:
 weight: 216
