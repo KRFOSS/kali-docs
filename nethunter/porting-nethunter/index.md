@@ -3,7 +3,7 @@ title: Porting NetHunter to New Devices manually
 description:
 icon:
 weight: 15
-author: ["g0tmi1k",yesimxev]
+author: ["g0tmi1k", "yesimxev",]
 ---
 
 In order to port NetHunter to a new device, it's important to understand how NetHunter is separated. NetHunter is divided by the rootfs (also known as the chroot but will be referred to here as rootfs) and the kernel. For the most part, the rootfs is not important to your Android device as it only contains Kali Linux. The kernel is integral to getting things like Bluetooth, wireless USB, and HID keyboard (etc) working.

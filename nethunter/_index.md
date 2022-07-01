@@ -3,7 +3,7 @@ title: Kali NetHunter
 description: Kali on your Android phone
 icon: ti-mobile
 weight: 45
-author: ["Re4son","yesimxev"]
+author: ["Re4son", "yesimxev",]
 ---
 
 ##### Kali NetHunter is a free & Open-source **Mobile Penetration Testing Platform** for Android devices, based on Kali Linux.

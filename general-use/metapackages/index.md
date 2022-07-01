@@ -3,7 +3,7 @@ title: Kali Linux Metapackages
 description:
 icon:
 weight: 5
-author: ["gamb1t", "g0tmi1k", "daniruiz"]
+author: ["gamb1t", "g0tmi1k", "daniruiz",]
 ---
 
 # What are metapackages

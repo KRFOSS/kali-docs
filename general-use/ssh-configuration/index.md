@@ -3,7 +3,7 @@ title: SSH Configuration
 description:
 icon:
 weight:
-author: ["arnaudr"]
+author: ["arnaudr",]
 ---
 
 ## SSH client: Wide Compatibility vs Strong Security

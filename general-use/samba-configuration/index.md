@@ -3,7 +3,7 @@ title: Samba Configuration
 description:
 icon:
 weight:
-author: ["arnaudr"]
+author: ["arnaudr",]
 ---
 
 Since our release of [Kali Linux 2021.4](/blog/kali-linux-2021-4-release/), the Samba client has been configured for **wider compatibility** to allow Kali to talk to as many Samba servers as possible. This means that legacy protocols _(such as LANMAN1, LANMAN2 and NT1)_ are **enabled by default**. This is a change from standard behavior, as these are disabled to enforce communication over more secure channels. As a result of this change tools used inside of Kali will be able to communicate using these outdated methods. _This is done to help increase Kali's ability to talk to older, obsolete Samba servers that are still using these older protocols. Older services using this may be at end of life, thus increasing the chances of discovering vulnerabilities or other problems_.

@@ -3,7 +3,7 @@ title: Adding Persistence to a Kali Linux Live USB Drive
 description:
 icon:
 weight: 100
-author: ["g0tmi1k","daniruiz"]
+author: ["g0tmi1k", "daniruiz",]
 ---
 
 Kali Linux "Live" has two options in the default boot menu which enable persistence - the preservation of data on the "Kali Live" USB drive - across reboots of "Kali Live". This can be an extremely useful enhancement, and enables you to retain documents, collected testing results, configurations, etc., when running Kali Linux "Live" from the USB drive, even across different systems. The persistent data is stored in its own partition on the USB drive, which can also be optionally LUKS-encrypted.
