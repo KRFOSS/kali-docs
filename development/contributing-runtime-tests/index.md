@@ -12,7 +12,7 @@ og_description:
 
 ## Why Kali could benefit from your help
 
-With Kali Linux being a rolling distribution it will occasionally have packages that break due to changes in their dependencies. To best combat this, we have set up [automated runtime tests](https://autopkgtest.kali.org) that have to be passed in order to allow the packages to migrate into [kali-rolling](/docs/general-use/kali-branches/). However, most packages at this time don't have a comprehensive autopkgtest associated with it causing this process to not reach its full potential. This is where the community can help us, by contributing test for packages that lack them.
+With Kali Linux being a rolling distribution it will occasionally have packages that break due to changes in their dependencies. To best combat this, we have set up [automated runtime tests](https://autopkgtest.kali.org/) that have to be passed in order to allow the packages to migrate into [kali-rolling](/docs/general-use/kali-branches/). However, most packages at this time don't have a comprehensive autopkgtest associated with it causing this process to not reach its full potential. This is where the community can help us, by contributing test for packages that lack them.
 
 ### A bit of autopkgtest background
 

@@ -18,7 +18,7 @@ the Kali Bot can do its job.
 The Kali Bot is actually an instance of the [Debian Janitor
 Bot](https://salsa.debian.org/jelmer/debian-janitor/) developed by Jelmer
 Vernooij. Our instance runs on
-[janitor.kali.org](https://janitor.kali.org) and controls the
+[janitor.kali.org](https://janitor.kali.org/) and controls the
 [kali-bot](https://gitlab.com/kali-bot) Gitlab account to be able to
 push changes and submit [merge
 requests](https://gitlab.com/groups/kalilinux/packages/-/merge_requests)
@@ -118,7 +118,7 @@ didn't do what you expected.
 
 ### Discovering the web interface
 
-The [basic web interface](https://janitor.kali.org) shows you the result
+The [basic web interface](https://janitor.kali.org/) shows you the result
 of the latest run of each task on each package and gives some factual
 information about the result and about how to access the build result.
 

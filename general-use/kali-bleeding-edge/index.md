@@ -52,7 +52,7 @@ developer and don't really want to build a git version of the tool just
 for this.
 
 Thankfully, you remember the kali-bleeding-edge repository
-and after a quick check on [pkg.kali.org](https://pkg.kali.org) you
+and after a quick check on [pkg.kali.org](https://pkg.kali.org/) you
 notice that the Kali bot already prepared an updated package. You
 quickly install it and reply to the upstream developer with the desired
 confirmation (or further information).
@@ -131,7 +131,7 @@ versions in the same day, and `<commit>` is a short commit identifier).
 The Debian revision contains `~jan+nus<X>` indicating that this is
 a "new uptsream snapshot" (`nus`) that was created by the [Janitor
 Bot](https://salsa.debian.org/jelmer/debian-janitor) (which powers the
-[Kali Bot](https://janitor.kali.org)). The tilde ensures that this
+[Kali Bot](https://janitor.kali.org/)). The tilde ensures that this
 sorts lower than any subsequent manual release of the same version.
 
 Be aware that once you have installed a package from kali-bleeding-edge,

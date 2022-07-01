@@ -38,7 +38,7 @@ The second, more risky, way to fix this is to run `apt full-upgrade` instead, wh
 
 This will likely happen more often when using kali-dev or kali-experimental, and may happen for two reasons. The first is that the package is still being tested, and this will make its way into the repo soon. The second is that there are conflicts with some dependencies, and these will need to be resolved first.
 
-To figure out which may be the case in your situation, you can look up the package's page on Debian's side or if it belongs to Kali see if there are any bug reports on [bugs.kali.org](https://bugs.kali.org). Either way, the issue will be sorted out and will likely be resolved within a couple of weeks in most cases.
+To figure out which may be the case in your situation, you can look up the package's page on Debian's side or if it belongs to Kali see if there are any bug reports on [bugs.kali.org](https://bugs.kali.org/). Either way, the issue will be sorted out and will likely be resolved within a couple of weeks in most cases.
 
 ##### A package is trying to overwrite a file and causing an error
 
