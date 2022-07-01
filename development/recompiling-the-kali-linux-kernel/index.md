@@ -36,7 +36,7 @@ The following NEW packages will be installed:
 0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
 Need to get 95.4 MB of archives.
 After this operation, 95.8 MB of additional disk space will be used.
-...
+[...]
 kali@kali:~$ ls /usr/src
 linux-config-4.9  linux-patch-4.9-rt.patch.xz  linux-source-4.9.tar.xz
 ```
@@ -72,7 +72,7 @@ Once the kernel configuration is ready, a simple **make deb-pkg** will generate 
 ```console
 kali@kali:~/kernel$ make clean
 kali@kali:~/kernel$ make deb-pkg LOCALVERSION=-custom KDEB_PKGVERSION=$(make kernelversion)-1
-...
+[...]
 kali@kali:~/kernel$ ls ../*.deb
 ../linux-headers-4.9.0-kali1-custom_4.9.2-1_amd64.deb
 ../linux-image-4.9.0-kali1-custom_4.9.2-1_amd64.deb

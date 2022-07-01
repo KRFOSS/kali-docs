@@ -22,7 +22,7 @@ If we are on a Debian-based Linux system (like Kali Linux), we likely have the `
 kali@kali:~$ sudo apt search vagrant
 Sorting... Done
 Full Text Search... Done
-...
+[...]
 vagrant/kali-dev,kali-dev,kali-rolling,kali-rolling,now 2.2.19+dfsg-1 all [installed]
   Tool for building and distributing virtualized development environments
 
@@ -90,7 +90,7 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Adding box 'kalilinux/rolling' (v2022.2.0) for provider: virtualbox
     default: Downloading: https://vagrantcloud.com/kalilinux/boxes/rolling/versions/2022.2.0/providers/virtualbox.box
 ==> default: Successfully added box 'kalilinux/rolling' (v2022.2.0) for 'virtualbox'!
-...
+[...]
 ==> default: Machine booted and ready!
 ==> default: Checking for guest additions in VM...
 ==> default: Mounting shared folders...

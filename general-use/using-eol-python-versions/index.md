@@ -14,7 +14,7 @@ Python 2 is no longer being maintained in the Debian repositories. This means th
 
 ```console
 kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
-...
+[...]
 kali@kali:~$
 ```
 
@@ -22,7 +22,7 @@ We will next be quickly running the bash install script. If `ZSH` is the default
 
 ```console
 kali@kali:~$ curl https://pyenv.run | bash
-...
+[...]
 kali@kali:~$
 ```
 

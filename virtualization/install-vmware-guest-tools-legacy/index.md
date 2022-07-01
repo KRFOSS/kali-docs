@@ -21,13 +21,13 @@ First, we need to make sure to install any package and also make a local copy of
 
 ```console
 kali@kali:~$ sudo apt update
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo apt install -y git gcc make linux-headers-$( uname -r )
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo git clone https://github.com/rasa/vmware-tools-patches.git /opt/vmware-tools-patches/
-...
+[...]
 kali@kali:~$
 ```
 

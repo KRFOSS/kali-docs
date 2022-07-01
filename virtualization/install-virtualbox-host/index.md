@@ -18,10 +18,10 @@ Before trying to install VirtualBox, please make sure your version of Kali Linux
 
 ```console
 kali@kali:~$ sudo apt update
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo apt full-upgrade -y
-...
+[...]
 kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 kali@kali:~$
@@ -35,7 +35,7 @@ The first thing we are going to do is import VirtualBox's repository key.
 kali@kali:~$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- \
   | gpg --dearmor \
   | sudo tee /usr/share/keyrings/virtualbox-archive-keyring.gpg
-...
+[...]
 kali@kali:~$
 ```
 
@@ -59,7 +59,7 @@ As we have altered our network repository, we need to re-build the cache.
 
 ```console
 kali@kali:~$ sudo apt update
-...
+[...]
 kali@kali:~$
 ```
 
@@ -69,7 +69,7 @@ As VirtualBox has various kernel modules (e.g. `vboxdrv`, `vboxnetflt` and `vbox
 
 ```console
 kali@kali:~$ sudo apt install -y dkms
-...
+[...]
 kali@kali:~$
 ```
 
@@ -79,7 +79,7 @@ Now its time to install VirtualBox itself (along with its Extension Pack to expa
 
 ```console
 kali@kali:~$ sudo apt install -y virtualbox virtualbox-ext-pack
-...
+[...]
 kali@kali:~$
 ```
 

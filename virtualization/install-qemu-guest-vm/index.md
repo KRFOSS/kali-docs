@@ -12,7 +12,7 @@ To get a Debian based system prepared for this, we can simply run the following 
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install virt-manager -y
-...
+[...]
 ```
 
 This will pull in all of the necessary packages and will allow us to create our VM just fine.

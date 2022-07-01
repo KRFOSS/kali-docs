@@ -236,7 +236,7 @@ kali@kali:~/kali/packages/instaloader$ cat LICENSE
 The MIT License (MIT)
 
 Copyright (c) 2016-2019 Alexander Graf and André Koch-Kramer.
-...
+[...]
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -288,7 +288,7 @@ kali@kali:~/kali/packages/instaloader$ git clone https://github.com/instaloader/
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cd /tmp/instaloader/
 kali@kali:/tmp/instaloader$ git --no-pager log -s --format="%ae" | sort -u | grep -v '@users.noreply.github.com'
-...
+[...]
 kali@kali:/tmp/instaloader$
 kali@kali:/tmp/instaloader$ cd ~/kali/packages/instaloader/
 kali@kali:~/kali/packages/instaloader$
@@ -328,7 +328,7 @@ Next we spot `setup.py`, which contains a lot of useful information:
 ```console
 kali@kali:~/kali/packages/instaloader$ cat setup.py
 #!/usr/bin/env python3
-...
+[...]
 if sys.version_info < (3, 5):
     sys.exit('Instaloader requires Python >= 3.5.')
 
@@ -336,7 +336,7 @@ requirements = ['requests>=2.4']
 
 if platform.system() == 'Windows' and sys.version_info < (3, 6):
     requirements.append('win_unicode_console')
-...
+[...]
     url='https://instaloader.github.io/',
     license='MIT',
     author='Alexander Graf, André Koch-Kramer',
@@ -346,7 +346,7 @@ if platform.system() == 'Windows' and sys.version_info < (3, 6):
     long_description=open(os.path.join(SRC, 'README.rst')).read(),
     install_requires=requirements,
     python_requires='>=3.5',
-...
+[...]
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -428,7 +428,7 @@ kali@kali:~/kali/packages/instaloader$ apt-cache show python3-requests
 Package: python3-requests
 Source: requests
 Version: 2.23.0+dfsg-2
-...
+[...]
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -770,17 +770,17 @@ So let's do a quick check to see if its working right:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ uscan -vv --no-download
-...
+[...]
 uscan info: Found the following matching hrefs on the web page (newest first):
    /instaloader/instaloader/archive/v4.4.4rc3.tar.gz (4.4.4rc3) index=4.4.4rc3-1
    /instaloader/instaloader/archive/v4.4.4rc2.tar.gz (4.4.4rc2) index=4.4.4rc2-1
    /instaloader/instaloader/archive/v4.4.4rc1.tar.gz (4.4.4rc1) index=4.4.4rc1-1
    /instaloader/instaloader/archive/v4.4.4.tar.gz (4.4.4) index=4.4.4-1
    /instaloader/instaloader/archive/v4.4.3.tar.gz (4.4.3) index=4.4.3-1
-...
+[...]
     $newversion  = 4.4.4rc3
     $lastversion = 4.4.4
-...
+[...]
 uscan: Newest version of instaloader on remote site is 4.4.4rc3, local version is 4.4.4
 uscan:    => Newer package available from
       https://github.com/instaloader/instaloader/archive/v4.4.4rc3.tar.gz
@@ -813,7 +813,7 @@ opts=uversionmangle=s/(\d)[_\.\-\+]?((RC|rc|pre|dev|beta|alpha|a)\d*)$// \
   https://github.com/instaloader/instaloader/tags .*/v?(\d\S+)\.tar\.gz
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ uscan -vv --no-download
-...
+[...]
 uscan info: Newest version of instaloader on remote site is 4.4.4, local version is 4.4.4
 uscan info:    => Package is up to date for from
       https://github.com/instaloader/instaloader/archive/v4.4.4.tar.gz
@@ -936,25 +936,25 @@ gbp:info: Exporting 'HEAD' to '/home/kali/kali/build-area/instaloader-tmp'
 gbp:info: Moving '/home/kali/kali/build-area/instaloader-tmp' to '/home/kali/kali/build-area/instaloader-4.4.4'
 gbp:info: Performing the build
 dh clean --with python3 --buildsystem=pybuild
-...
+[...]
 
 +------------------------------------------------------------------------------+
 | Package contents                                                             |
 +------------------------------------------------------------------------------+
 
-...
+[...]
 
 Install lintian build dependencies (apt-based resolver)
 -------------------------------------------------------
 
-...
+[...]
 
 E: instaloader source: source-is-missing docs/_static/bootstrap-4.1.3.bundle.min.js
 W: instaloader: binary-without-manpage usr/bin/instaloader
 I: instaloader source: testsuite-autopkgtest-missing
 
 I: Lintian run was successful.
-...
+[...]
 
 +------------------------------------------------------------------------------+
 | Summary                                                                      |
@@ -1006,9 +1006,9 @@ To fix this error `E: instaloader source: source-is-missing docs/_static/bootstr
 
 ```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search beautifier js
-...
+[...]
 jsbeautifier - JavaScript unobfuscator and beautifier
-...
+[...]
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ sudo apt install -y jsbeautifier
 kali@kali:~/kali/packages/instaloader$
@@ -1026,24 +1026,24 @@ We can now rebuild the package with the same command and see that it was success
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
-...
+[...]
 
 +------------------------------------------------------------------------------+
 | Package contents                                                             |
 +------------------------------------------------------------------------------+
 
-...
+[...]
 
 Install lintian build dependencies (apt-based resolver)
 -------------------------------------------------------
 
-...
+[...]
 
 W: instaloader: binary-without-manpage usr/bin/instaloader
 I: instaloader source: testsuite-autopkgtest-missing
 
 I: Lintian run was successful.
-...
+[...]
 kali@kali:~/kali/packages/instaloader$
 ```
 

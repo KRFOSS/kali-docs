@@ -42,7 +42,7 @@ If you don't have yet an account dedicated for the mirrors, create such an accou
 ```console
 $ sudo adduser --disabled-password archvsync
 Adding user 'archvsync' ...
-...
+[...]
 Is the information correct? [Y/n]
 ```
 

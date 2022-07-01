@@ -134,7 +134,7 @@ Maintainer: Debian Chromium Team <chromium@packages.debian.org>
 Architecture: amd64
 Source: chromium-browser
 Version: 76.0.3809.100-1
-...
+[...]
 kali@kali:~$
 ```
 

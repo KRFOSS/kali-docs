@@ -340,7 +340,7 @@ As stated previously, `python3-all` is still included. This is due to its relian
 ```console
 kali@kali:~/kali/packages/photon$ find /usr/lib/python3.8/ -name '*.so'
 /usr/lib/python3.8/lib-dynload/_codecs_hk.cpython-38-x86_64-linux-gnu.so
-...
+[...]
 /usr/lib/python3.8/dist-packages/cryptography/hazmat/bindings/_openssl.abi3.so
 /usr/lib/python3.8/config-3.8-x86_64-linux-gnu/libpython3.8.so
 kali@kali:~/kali/packages/photon$
@@ -575,7 +575,7 @@ gbp:info: Moving '/home/kali/kali/build-area/photon-tmp' to '/home/kali/kali/bui
 gbp:info: Performing the build
 dh clean --with python3
    dh_clean
-...
+[...]
 Processing triggers for libc-bin (2.30-8) ...
 W: photon: binary-without-manpage usr/bin/photon
 

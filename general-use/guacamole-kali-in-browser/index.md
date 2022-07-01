@@ -40,7 +40,7 @@ We are going to do a "standalone" installation, where there isn't a separate MyS
 ```console
 kali@kali:~$ cd /tmp/guac-install/
 kali@kali:/tmp/guac-install$ sudo ./guac-install.sh --nomfa --installmysql --mysqlpwd S3cur3Pa$$w0rd --guacpwd P@s$W0rD
-...
+[...]
 Cleanup install files...
 
 Installation Complete

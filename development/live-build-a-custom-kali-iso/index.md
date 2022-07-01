@@ -107,13 +107,13 @@ At this point, depending on the host OS and its version, we may need to edit `bu
 
 ```console
 $ cat build.sh
-...
+[...]
 		ver_debootstrap=$(dpkg-query -f '${Version}' -W debootstrap)
 		if dpkg --compare-versions "$ver_debootstrap" lt "1.0.97"; then
 			echo "ERROR: You need debootstrap (>= 1.0.97), you have $ver_debootstrap" >&2
 			exit 1
 		fi
-...
+[...]
 $
 ```
 
@@ -121,13 +121,13 @@ With the above change made, `build.sh` should look similar:
 
 ```console
 $ cat build.sh
-...
+[...]
 		ver_debootstrap=$(dpkg-query -f '${Version}' -W debootstrap)
 		if dpkg --compare-versions "$ver_debootstrap" lt "1.0.97"; then
 			echo "ERROR: You need debootstrap (>= 1.0.97), you have $ver_debootstrap" >&2
 			#exit 1
 		fi
-...
+[...]
 $
 ```
 

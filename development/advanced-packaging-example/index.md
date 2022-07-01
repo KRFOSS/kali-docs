@@ -537,14 +537,14 @@ kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git add finalrecon.py
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git commit -m "disable requirements check"
-...
+[...]
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ vim finalrecon.py
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git add finalrecon.py
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ git commit -m "disable ver_check"
-...
+[...]
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ gbp pq export
 gbp:info: On 'patch-queue/kali/master', switching to 'kali/master'
@@ -827,7 +827,7 @@ kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ gbp buildpackage \
   --git-builder=sbuild --git-export=WC \
   --extra-package=$HOME/kali/build-area/python3-icmplib_1.2.2-0kali1_all.deb
-...
+[...]
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ ls -lah ~/kali/build-area/finalrecon_*.deb
 -rw-rw-r-- 1 kali kali 83K Nov  8 07:44 /home/kali/kali/build-area/finalrecon_0.0~git20201107.0d41eb6-0kali1_all.deb
@@ -844,7 +844,7 @@ kali@kali:~/kali/packages/finalrecon$ dpkg-checkbuilddeps
 dpkg-checkbuilddeps: error: Unmet build dependencies: python3-ipwhois python3-dnslib python3-aiohttp python3-aiodns python3-psycopg2 python3-tldextract
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ sudo apt -y build-dep .
-...
+[...]
 kali@kali:~/kali/packages/finalrecon$
 ```
 
@@ -910,7 +910,7 @@ Our package has been built and dependencies have been installed. Its now time to
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo dpkg -i ~/kali/build-area/finalrecon_*.deb
-...
+[...]
 kali@kali:~/kali/packages/finalrecon$
 kali@kali:~/kali/packages/finalrecon$ dpkg -l | grep final
 ii  finalrecon                           0.0~git20201107.0d41eb6-0kali1               all          A fast and simple python script for web reconnaissance

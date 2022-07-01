@@ -105,9 +105,9 @@ kali@kali:~$ sudo vim /etc/lightdm/lightdm-gtk-greeter.conf
 kali@kali:~$
 kali@kali:~$ cat /etc/lightdm/lightdm-gtk-greeter.conf
 [greeter]
-...
+[...]
 xft-dpi = 180
-...
+[...]
 kali@kali:~$
 ```
 

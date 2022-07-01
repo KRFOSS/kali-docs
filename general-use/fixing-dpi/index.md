@@ -78,9 +78,9 @@ kali@kali:~$ sudo apt install -y edid-decode
 kali@kali:~$
 kali@kali:~$ xrandr --props | edid-decode -c -s
 EDID version: 1.3
-...
+[...]
 Maximum image size: 16 cm x 9 cm
-...
+[...]
 Warnings:
 
 Block 0 (Base Block):
@@ -210,7 +210,7 @@ We can now edit the configuration file, to include the following two lines in th
 kali@kali:~$ sudo vim /usr/share/X11/xorg.conf.d/20-nvidia.conf
 kali@kali:~$
 kali@kali:~$ cat /usr/share/X11/xorg.conf.d/20-nvidia.conf
-...
+[...]
 Section "Device"
     Identifier     "Device0"
     Driver         "nvidia"
@@ -218,7 +218,7 @@ Section "Device"
     Option         "UseEdidDpi" "False"
     Option         "DPI" "99 x 99"
 EndSection
-...
+[...]
 kali@kali:~$
 kali@kali:~$ xfce4-session-logout --logout
 kali@kali:~$

@@ -34,9 +34,9 @@ kali@kali:~$ sudo ls /root
 [sudo] password for kali:
 hello
 kali@kali:~$ sudo apt install -y kali-grant-root
-...
+[...]
 kali@kali:~$ sudo dpkg-reconfigure kali-grant-root
-...
+[...]
 kali@kali:~$ sudo ls /root
 hello
 kali@kali:~$

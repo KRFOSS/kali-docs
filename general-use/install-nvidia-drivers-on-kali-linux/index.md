@@ -149,7 +149,7 @@ kali@kali:~$ lspci | grep -i vga
 07:00.0 VGA compatible controller: NVIDIA Corporation GP106 [GeForce GTX 1060 6GB] (rev a1)
 kali@kali:~$
 kali@kali:~$ lspci -s 07:00.0 -v
-...
+[...]
         Kernel driver in use: nvidia
         Kernel modules: nvidia
 
@@ -240,7 +240,7 @@ Speed.#1.........: 14350.4 MH/s (46.67ms) @ Accel:64 Loops:1024 Thr:1024 Vec:8
 
 Hashmode: 100 - SHA1
 Speed.#1.........:  4800.5 MH/s (69.83ms) @ Accel:32 Loops:1024 Thr:1024 Vec:1
-...
+[...]
 Started: Tue Jul 21 17:12:39 2020
 Stopped: Tue Jul 21 17:16:10 2020
 kali@kali:~$
@@ -265,7 +265,7 @@ Number of platforms                               1
   Platform Extensions function suffix             NV
 
   Platform Name                                   NVIDIA CUDA
-...
+[...]
 kali@kali:~$
 kali@kali:~$ clinfo | wc -l
 116
@@ -332,18 +332,18 @@ GPU 00000000:07:00.0
     Persistence Mode                : Disabled
     Accounting Mode                 : Disabled
     Accounting Mode Buffer Size     : 4000
-...
+[...]
     Temperature
         GPU Current Temp            : 49 C
         GPU Shutdown Temp           : 102 C
         GPU Slowdown Temp           : 99 C
-...
+[...]
     Clocks
         Graphics                    : 139 MHz
         SM                          : 139 MHz
         Memory                      : 405 MHz
         Video                       : 544 MHz
-...
+[...]
     Processes
         Process ID                  : 815
             Type                    : G

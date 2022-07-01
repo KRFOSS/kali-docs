@@ -20,7 +20,7 @@ We will be using the [official Kali Linux VMWare image](/get-kali/#kali-virtual-
 
 ```console
 kali@kali:~$ 7z x kali-linux-2022.2-vmware-amd64.7z
-...
+[...]
 kali@kali:~$
 kali@kali:~$ ls kali-linux-*-vmware-amd64.vmwarevm/*vmx
 kali-linux-2022.2-vmware-amd64.vmwarevm/kali-linux-2022.2-vmware-amd64.vmx
@@ -36,7 +36,7 @@ kali@kali:~$ ovftool kali-linux-*-vmware-amd64.vmwarevm/*vmx kali-linux-rolling-
 Opening VMX source: kali-linux-2022.2-vmware-amd64.vmwarevm/kali-linux-2022.2-vmware-amd64.vmx
 Opening OVA target: kali-linux-rolling-amd64.ova
 Writing OVA package: kali-linux-rolling-amd64.ova
-...
+[...]
 Transfer Completed
 Completed successfully
 kali@kali:~$

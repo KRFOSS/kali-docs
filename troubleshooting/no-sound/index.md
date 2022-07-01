@@ -21,7 +21,7 @@ If this package is installed, we will want to uninstall it and then reboot.
 
 ```console
 kali@kali:~$ sudo apt purge --autoremove pipewire-pulse
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo reboot
 ```

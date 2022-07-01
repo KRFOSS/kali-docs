@@ -12,7 +12,7 @@ We first need to extract the VMWare image:
 
 ```console
 kali@kali:~$ 7z x kali-linux-2022.2-vmware-amd64.7z
-...
+[...]
 kali@kali:~$
 ```
 

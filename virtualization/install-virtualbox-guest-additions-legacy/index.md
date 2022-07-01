@@ -21,10 +21,10 @@ Start up your Kali Linux virtual machine, open a terminal window and issue the f
 
 ```console
 kali@kali:~$ sudo apt update
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo apt install -y linux-headers-$( uname -r )
-...
+[...]
 kali@kali:~$
 ```
 

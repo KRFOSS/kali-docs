@@ -14,7 +14,7 @@ First, we need to install **[dnsmasq](https://packages.debian.org/testing/dnsmas
 
 ```console
 kali@kali:~$ sudo apt install -y dnsmasq
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo vim /etc/dnsmasq.conf
 kali@kali:~$

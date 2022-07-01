@@ -378,7 +378,7 @@ During the installation, you will get a prompt saying about automatically runnin
  │                                                                      │
  └──────────────────────────────────────────────────────────────────────┘
 
-...
+[...]
 
 ShimSource is none
 Installing rEFInd on Linux....

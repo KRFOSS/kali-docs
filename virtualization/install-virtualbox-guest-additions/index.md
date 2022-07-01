@@ -16,10 +16,10 @@ Should you decide to [create your own VirtualBox installation of Kali Linux](/do
 
 ```console
 kali@kali:~$ sudo apt update
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo apt install -y --reinstall virtualbox-guest-x11
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo reboot -f
 kali@kali:~$

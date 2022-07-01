@@ -15,11 +15,11 @@ The following example can be seen when attempting to install a tool which would 
 
 ```console
 kali@kali:~$ sudo apt install -y apt-cacher-ng
-...
+[...]
 Setting up apt-cacher-ng (0.7.11-1) ...
 update-rc.d: We have no instructions for the apt-cacher-ng init script.
 update-rc.d: It looks like a network service, we disable it.
-...
+[...]
 kali@kali:~$
 ```
 
@@ -43,7 +43,7 @@ Service allowlists and blocklists can be found in the **/usr/sbin/update-rc.d** 
 
 ```console
 kali@kali:~$ tail -95 /usr/sbin/update-rc.d | more
-...
+[...]
 __DATA__
 #
 # List of blocklisted init scripts
@@ -54,7 +54,7 @@ bluetooth disabled
 cups disabled
 dictd disabled
 ssh disabled
-...
+[...]
 #
 # List of allowlisted init scripts
 #
@@ -63,5 +63,5 @@ acpi-fakekey enabled
 acpi-support enabled
 alsa-utils enabled
 anacron enabled
-...
+[...]
 ```

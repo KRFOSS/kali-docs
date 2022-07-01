@@ -17,10 +17,10 @@ Should you decide to [create your own VMware installation of Kali Linux](/docs/v
 
 ```console
 kali@kali:~$ sudo apt update
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo apt install -y --reinstall open-vm-tools-desktop fuse
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo reboot -f
 kali@kali:~$

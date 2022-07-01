@@ -18,10 +18,10 @@ Before trying to install VMware, please make sure your version of Kali Linux is 
 
 ```console
 kali@kali:~$ sudo apt update
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo apt full-upgrade -y
-...
+[...]
 kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 kali@kali:~$
@@ -35,7 +35,7 @@ Alternatively, you can do the following command line method.
 
 ```console
 kali@kali:~$ sudo apt install -y curl
-...
+[...]
 kali@kali:~$
 kali@kali:~$ curl -L https://www.vmware.com/go/getworkstation-linux \
   > ~/Downloads/vmware.bin
@@ -165,7 +165,7 @@ kali@kali:~$ vmware
 An up-to-date "libaio" or "libaio1" package from your system is preferred.
 kali@kali:~$
 kali@kali:~$ sudo apt install -y libaio1
-...
+[...]
 kali@kali:~$
 ```
 
@@ -179,7 +179,7 @@ From time to time, things may not go right. There could be a number of reasons w
 
 ```console
 kali@kali:~$ sudo apt install -y build-essential linux-headers-$( uname -r ) vlan libaio1
-...
+[...]
 kali@kali:~$
 ```
 
@@ -193,13 +193,13 @@ A common issue is because the setup file for VMware isn't supporting the latest 
 
 ```console
 kali@kali:~$ sudo apt install -y git
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo git clone \
   -b workstation-$( grep player.product.version /etc/vmware/config | sed '/.*\"\(.*\)\".*/ s//\1/g' ) \
   https://github.com/mkubecek/vmware-host-modules.git \
   /opt/vmware-host-modules/
-...
+[...]
 kali@kali:~$
 kali@kali:~$ cd /opt/vmware-host-modules/
 kali@kali:/opt/vmware-host-modules$ sudo make
@@ -269,10 +269,10 @@ If VMware is unsuccessful, we can dig a little further by running the following.
 
 ```console
 kali@kali:~$ sudo vmware-modconfig --console --install-all
-...
+[...]
 kali@kali:~$
 kali@kali:~$ sudo vmware-modconfig --console --install-all 2>&1 | grep error
-...
+[...]
 kali@kali:~$
 ```
 
