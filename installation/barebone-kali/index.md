@@ -19,41 +19,30 @@ Of course, you can select whichever desktop environment you wish. It is worth me
 Now that we are installed and logged in, there are a few things we should do. Keep in mind, these should always be done, not just for a daily use case! Let's first change the root user's password:
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ sudo su
+kali@kali:~$ sudo su
 [sudo] password for kali:
-┌──(root㉿kali)-[/home/kali]
-└─#
-
-┌──(root㉿kali)-[/home/kali]
-└─# passwd
+root@kali:/home/kali#
+root@kali:/home/kali# passwd
 New password:
 Retype new password:
 passwd: password updated successfully
 
-┌──(root㉿kali)-[/home/kali]
-└─#
+root@kali:/home/kali#
 ```
 
 After this we can make sure our system is up-to-date:
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ sudo apt update && sudo apt upgrade -y
+kali@kali:~$ sudo apt update && sudo apt upgrade -y
 ....
-
-┌──(kali㉿kali)-[~]
-└─$
-
-┌──(kali㉿kali)-[~]
-└─$ [ -f /var/run/reboot-required ] && sudo reboot -f
+kali@kali:~$
+kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 ```
 
 We can now finish off our setup by making sure kali-tweaks is configured properly:
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ kali-tweaks
+kali@kali:~$ kali-tweaks
 ```
 
 What we are looking for are changes required in 'Hardening', unchecking any options to make our system more secure.

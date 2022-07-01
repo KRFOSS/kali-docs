@@ -12,8 +12,7 @@ This page is due for more content as issues come up that need addressing. If you
 ##### Package is to be installed, however it is not going to be
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ sudo apt upgrade
+kali@kali:~$ sudo apt upgrade
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done

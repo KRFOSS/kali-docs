@@ -11,12 +11,9 @@ Importing the [Kali VMWare image](/get-kali/#kali-virtual-machines) is very easy
 We first need to extract the VMWare image:
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ 7z x kali-linux-2022.2-vmware-amd64.7z
+kali@kali:~$ 7z x kali-linux-2022.2-vmware-amd64.7z
 ...
-
-┌──(kali㉿kali)-[~]
-└─$
+kali@kali:~$
 ```
 
 If we are using Windows we can instead use the [official 7z app](https://www.7-zip.org/).

@@ -19,8 +19,7 @@ If we are on Windows, we will need to follow the previous link and download the 
 If we are on a Debian-based Linux system (like Kali Linux), we likely have the `vagrant` package available for download:
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ sudo apt search vagrant
+kali@kali:~$ sudo apt search vagrant
 Sorting... Done
 Full Text Search... Done
 ...
@@ -44,9 +43,7 @@ vagrant-mutate/kali-dev,kali-dev,kali-rolling,kali-rolling 1.2.0-4.1 all
 
 vagrant-sshfs/kali-dev,kali-dev,kali-rolling,kali-rolling 1.3.6-1 all
   vagrant plugin that adds synced folder support with sshfs
-
-┌──(kali㉿kali)-[~]
-└─$
+kali@kali:~$
 ```
 
 Otherwise, we should follow the instructions on Vagrant's download page.
@@ -60,18 +57,14 @@ Now that we have our hypervisor and Vagrant installed, we can pull our first con
 We must be in a command line and create a new folder/directory that is empty. For this guide we will be using a Kali Linux host system, however the commands that start with `vagrant` will be the same no matter what host is being used.
 
 ```console
-┌──(kali㉿kali)-[~/vagrant]
-└─$ vagrant init kalilinux/rolling
+kali@kali:~/vagrant$ vagrant init kalilinux/rolling
 A `Vagrantfile` has been placed in this directory. You are now
 ready to `vagrant up` your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
 
-┌──(kali㉿kali)-[~/vagrant]
-└─$
-
-┌──(kali㉿kali)-[~/vagrant]
-└─$ cat Vagrantfile | grep -v '#'
+kali@kali:~/vagrant$
+kali@kali:~/vagrant$ cat Vagrantfile | grep -v '#'
 
 Vagrant.configure("2") do |config|
 
@@ -79,8 +72,7 @@ Vagrant.configure("2") do |config|
 
 end
 
-┌──(kali㉿kali)-[~/vagrant]
-└─$
+kali@kali:~/vagrant$
 ```
 
 We can see it is a very minimal configuration file, however this will start up a VM with the latest release of Kali Linux and take up approximately 10GB after being downloaded and started.
@@ -88,8 +80,7 @@ We can see it is a very minimal configuration file, however this will start up a
 To start this machine, we will run the following command:
 
 ```console
-┌──(kali㉿kali)-[~/vagrant]
-└─$ vagrant up
+kali@kali:~/vagrant$ vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Box 'kalilinux/rolling' could not be found. Attempting to find and install...
     default: Box Provider: virtualbox
@@ -105,11 +96,9 @@ Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Mounting shared folders...
     default: /vagrant => /home/morales/vagrant
 
-┌──(kali㉿kali)-[~/vagrant]
-└─$
+kali@kali:~/vagrant$
 
-┌──(kali㉿kali)-[~/vagrant]
-└─$ vagrant ssh
+kali@kali:~/vagrant$ vagrant ssh
 Linux kali 5.16.0-kali7-amd64 #1 SMP PREEMPT Debian 5.16.18-1kali1 (2022-04-01) x86_64
 
 The programs included with the Kali GNU/Linux system are free software;
@@ -118,21 +107,15 @@ individual files in /usr/share/doc/*/copyright.
 
 Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-┌──(vagrant㉿kali)-[~]
-└─$
+kali@kali:~$
+kali@kali:~$ exit
 
-┌──(vagrant㉿kali)-[~]
-└─$ exit
+kali@kali:~/vagrant$
 
-┌──(kali㉿kali)-[~/vagrant]
-└─$
-
-┌──(kali㉿kali)-[~/vagrant]
-└─$ vagrant halt
+kali@kali:~/vagrant$ vagrant halt
 ==> default: Attempting graceful shutdown of VM...
 
-┌──(kali㉿kali)-[~/vagrant]
-└─$
+kali@kali:~/vagrant$
 ```
 
 If we want to tweak our configuration file we can do something like the following:
@@ -170,11 +153,8 @@ end
 Which we can then load into a running Vagrant instance by running the following command:
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ vagrant reload
-
-┌──(kali㉿kali)-[~]
-└─$
+kali@kali:~$ vagrant reload
+kali@kali:~$
 ```
 
 If we want to re-provision our VM, which normally only runs the first time the machine boots, we can do one of the following commands:

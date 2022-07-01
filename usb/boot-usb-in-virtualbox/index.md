@@ -13,11 +13,8 @@ To get started we first will need to download the [Oracle VM VirtualBox Extensio
 After this we will need to be sure to add our account to the `vboxusers` group if we are on Linux.
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ sudo usermod -aG vboxusers $USER
-
-┌──(kali㉿kali)-[~]
-└─$
+kali@kali:~$ sudo usermod -aG vboxusers $USER
+kali@kali:~$
 ```
 
 We then have to log out and log back in. We can now continue with USB 2.0/3.0 access. Lets start with a fresh opening of VirtualBox.

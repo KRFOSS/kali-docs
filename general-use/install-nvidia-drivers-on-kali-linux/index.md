@@ -54,23 +54,20 @@ kali@kali:~$
 ```
 For optimus (or laptops or notebooks):
 ```console
-┌──(kali@kali)-[~]
-└─$ lspci | grep -i vga
+kali@kali:~$ lspci | grep -i vga
 00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
 ```
 Well for primary it's always gonna give this same result, so don't worry and even upon using `lspci` maybe you don't see nvidia.
 So for nvidia, we need to install nvidia-detect using `sudo apt install nvidia-detect` and run it...
 ```console
-┌──(kali@kali)-[~]
-└─$ nvidia-detect     
+kali@kali:~$ nvidia-detect
 Detected NVIDIA GPUs:
 01:00.0 3D controller [0302]: NVIDIA Corporation GM108M [GeForce 940MX] [10de:134d] (rev a2)
 
 Checking card:  NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
 Uh oh. Failed to identify your Debian suite.
 
-┌──(kali@kali)-[~]
-└─$ lspci -s 01:00.0 -v
+kali@kali:~$ lspci -s 01:00.0 -v
 01:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
         Subsystem: Lenovo GM108M [GeForce 940MX]
         Flags: bus master, fast devsel, latency 0, IRQ 132, IOMMU group 10

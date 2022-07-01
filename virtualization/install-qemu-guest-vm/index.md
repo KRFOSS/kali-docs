@@ -11,8 +11,7 @@ We understand there are a lot of options for interfacing with KVM and QEMU to cr
 To get a Debian based system prepared for this, we can simply run the following command:
 
 ```console
-┌──(kali㉿kali)-[~]
-└─$ sudo apt update && sudo apt install virt-manager -y
+kali@kali:~$ sudo apt update && sudo apt install virt-manager -y
 ...
 ```
 
