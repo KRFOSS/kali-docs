@@ -8,10 +8,10 @@ author: ["g0tmi1k",]
 
 Our favourite way, and the fastest method, for getting up and running with Kali Linux is to run it "live" from a USB drive. This method has several advantages:
 
-- It's non-destructive — it makes no changes to the host system's hard drive or installed OS, and to go back to normal operations, you simply remove the "Kali Live" USB drive and restart the system.
-- It's portable — you can carry Kali Linux in your pocket and have it running in minutes on an available system
-- It's customizable — you can [roll your own custom Kali Linux ISO image](/docs/development/live-build-a-custom-kali-iso/) and put it onto a USB drive using the same procedures
-- It's potentially persistent — with a bit of extra effort, you can configure your Kali Linux "live" USB drive to have [persistent storage](/docs/usb/usb-persistence/), so the data you collect is saved across reboots
+- It's non-destructive - it makes no changes to the host system's hard drive or installed OS, and to go back to normal operations, you simply remove the "Kali Live" USB drive and restart the system.
+- It's portable - you can carry Kali Linux in your pocket and have it running in minutes on an available system
+- It's customizable - you can [roll your own custom Kali Linux ISO image](/docs/development/live-build-a-custom-kali-iso/) and put it onto a USB drive using the same procedures
+- It's potentially persistent - with a bit of extra effort, you can configure your Kali Linux "live" USB drive to have [persistent storage](/docs/usb/usb-persistence/), so the data you collect is saved across reboots
 
 In order to do this, we first need to create a bootable USB drive which has been set up from an ISO image of Kali Linux.
 
@@ -29,7 +29,7 @@ The specifics of this procedure will vary depending on whether you're doing it o
 
 #### Creating a Bootable Kali USB Drive on Linux (DD)
 
-Creating a bootable Kali Linux USB drive in a Linux environment is easy. Once you've downloaded and verified your Kali ISO file, you can use the `dd` command to copy it over to your USB drive using the following procedure. Note that you'll need to be running as root, or to execute the `dd` command with sudo. The following example assumes a Linux Mint 17.1 desktop — depending on the distro you're using, a few specifics may vary slightly, but the general idea should be very similar. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/sdb.
+Creating a bootable Kali Linux USB drive in a Linux environment is easy. Once you've downloaded and verified your Kali ISO file, you can use the `dd` command to copy it over to your USB drive using the following procedure. Note that you'll need to be running as root, or to execute the `dd` command with sudo. The following example assumes a Linux Mint 17.1 desktop - depending on the distro you're using, a few specifics may vary slightly, but the general idea should be very similar. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/sdb.
 
 {{% notice info %}}
 WARNING: Although the process of imaging Kali Linux onto a USB drive is very easy, you can just as easily overwrite a disk drive you didn't intend to with dd if you do not understand what you are doing, or if you specify an incorrect output path. Double-check what you're doing before you do it, it'll be too late afterwards.
@@ -37,7 +37,7 @@ WARNING: Although the process of imaging Kali Linux onto a USB drive is very eas
 Consider yourself warned.
 {{% /notice %}}
 
-1. First, you'll need to identify the device path to use to write the image to your USB drive. **_Without_** the USB drive inserted into a port, execute the command `sudo fdisk -l` at a command prompt in a terminal window (if you don't use elevated privileges with fdisk, you won't get any output). You'll get output that will look something (_not exactly_) like this, showing a single drive — "/dev/sda" — containing three partitions (/dev/sda1, /dev/sda2, and /dev/sda5):
+1. First, you'll need to identify the device path to use to write the image to your USB drive. **_Without_** the USB drive inserted into a port, execute the command `sudo fdisk -l` at a command prompt in a terminal window (if you don't use elevated privileges with fdisk, you won't get any output). You'll get output that will look something (_not exactly_) like this, showing a single drive - "/dev/sda" - containing three partitions (/dev/sda1, /dev/sda2, and /dev/sda5):
 
 ![](Parallels-DesktopScreenSnapz007.png)
 2. Now, plug your USB drive into an available USB port on your system, and run the same command, "sudo fdisk -l" a second time. Now, the output will look something (again, _not exactly_) like this, showing an additional device which wasn't there previously, in this example "/dev/sdb", a 16GB USB drive:

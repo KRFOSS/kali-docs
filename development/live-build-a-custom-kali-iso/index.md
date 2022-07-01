@@ -23,7 +23,7 @@ Ideally, you should build your custom Kali ISO from **within a pre-existing Kali
 
 ## Kali Environment
 
-#### Getting Ready — Setting Up The build-script Kali System
+#### Getting Ready - Setting Up The build-script Kali System
 
 We first need to prepare the Kali ISO build environment by installing and setting up the required packages with the following commands:
 

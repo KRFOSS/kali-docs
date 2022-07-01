@@ -8,10 +8,10 @@ author: ["g0tmi1k",]
 
 Our favourite way, and the fastest method, for getting up and running with Kali Linux is to run it "live" from a USB drive. This method has several advantages:
 
-- It's non-destructive — it makes no changes to the host system's hard drive or installed OS, and to go back to normal operations, you simply remove the "Kali Live" USB drive and restart the system.
-- It's portable — you can carry Kali Linux in your pocket and have it running in minutes on an available system
-- It's customizable — you can [roll your own custom Kali Linux ISO image](/docs/development/live-build-a-custom-kali-iso/) and put it onto a USB drive using the same procedures
-- It's potentially persistent — with a bit of extra effort, you can configure your Kali Linux "live" USB drive to have [persistent storage](/docs/usb/usb-persistence/), so the data you collect is saved across reboots
+- It's non-destructive - it makes no changes to the host system's hard drive or installed OS, and to go back to normal operations, you simply remove the "Kali Live" USB drive and restart the system.
+- It's portable - you can carry Kali Linux in your pocket and have it running in minutes on an available system
+- It's customizable - you can [roll your own custom Kali Linux ISO image](/docs/development/live-build-a-custom-kali-iso/) and put it onto a USB drive using the same procedures
+- It's potentially persistent - with a bit of extra effort, you can configure your Kali Linux "live" USB drive to have [persistent storage](/docs/usb/usb-persistence/), so the data you collect is saved across reboots
 
 In order to do this, we first need to create a bootable USB drive which has been set up from an ISO image of Kali Linux.
 
@@ -45,7 +45,7 @@ Consider yourself warned.
 3. Plug in your USB device to your Apple computer's USB port and run the command `diskutil list` a second time. Your USB drive's path will most likely be the last one. In any case, it will be one which wasn't present before. In this example, you can see that there is now a **/dev/disk6** which wasn't previously present.
 
 ![](TerminalScreenSnapz011.png)
-4. Unmount the drive (assuming, for this example, the USB drive is **/dev/disk6** — _do **not** simply copy this, verify the correct path on your own system!_):
+4. Unmount the drive (assuming, for this example, the USB drive is **/dev/disk6** - _do **not** simply copy this, verify the correct path on your own system!_):
 
 ```console
 $ diskutil unmountDisk /dev/disk6
