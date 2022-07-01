@@ -48,7 +48,7 @@ In order for DigitalOcean to configure the system for us, we need to install the
 ```console
 kali@kali:~$ sudo apt install -y cloud-init
 kali@kali:~$ echo 'datasource_list: [ ConfigDrive, DigitalOcean, NoCloud, None ]' > /etc/cloud/cloud.cfg.d/99_digitalocean.cfg
-kali@kali:~$ sudo systemctl enable cloud-init
+kali@kali:~$ sudo systemctl enable cloud-init --now
 ```
 
 ### Prepare for SSH
@@ -57,7 +57,7 @@ Since we will need to use SSH to connect to the system on DigitalOcean, the ***o
 
 ```console
 kali@kali:~$ sudo apt install -y openssh-server
-kali@kali:~$ sudo systemctl enable ssh.service
+kali@kali:~$ sudo systemctl enable ssh.service --now
 ```
 
 When creating a standard droplet, you can choose to use SSH keys or not. However, when using custom images, this isn't an option and using SSH keys is mandatory. For this reason, DigitalOcean requires us to remove the root password:
