@@ -33,17 +33,17 @@ kali@kali:~$ sudo su
 Make sure that your installation of Kali Linux is up to date:
 
 ```console
-root@kali:$ apt update
-[…]
-root@kali:$
-root@kali:$ apt upgrade
-[…]
+root@kali:~# apt update
+[...]
+root@kali:~#
+root@kali:~# apt upgrade
+[...]
 ```
 
 Add the `kali-experimental` suite to your APT sources:
 
 ```console
-root@kali:$ cat << 'EOF' > /etc/apt/sources.list.d/kali-experimental.list
+root@kali:~# cat << 'EOF' > /etc/apt/sources.list.d/kali-experimental.list
 deb http://http.kali.org/kali kali-experimental main contrib non-free
 EOF
 ```
@@ -51,15 +51,15 @@ EOF
 Update again so that APT knows about Kali experimental:
 
 ```console
-root@kali:$ apt update
-[…]
+root@kali:~# apt update
+[...]
 ```
 
 And now we can upgrade the graphics stack, ie. Mesa and DRM:
 
 ```console
-root@kali:$ apt install -t kali-experimental '?upgradable ?source-package("mesa|libdrm")'
-[…]
+root@kali:~# apt install -t kali-experimental '?upgradable ?source-package("mesa|libdrm")'
+[...]
 The following additional packages will be installed:
   libdrm-amdgpu1 libllvm12
 The following NEW packages will be installed:

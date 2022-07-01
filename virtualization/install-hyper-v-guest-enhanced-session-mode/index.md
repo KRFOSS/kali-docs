@@ -36,7 +36,7 @@ First, log out of the current Kali's session:
 
 On the Windows host now: disconnect the Kali VM, open a PowerShell (with Administrator privileges) and issue the following command:
 
-```console
+```PowerShell
 > Set-VM "(YOUR VM NAME HERE)" -EnhancedSessionTransportType HVSocket
 ```
 

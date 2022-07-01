@@ -54,7 +54,7 @@ can get it with Git:
 ```console
 kali@kali:~$ git clone https://gitlab.com/kalilinux/tools/kaboxer.git
 Cloning into 'kaboxer'...
-[…]
+[...]
 
 kali@kali:~$ cd kaboxer/hello-kbx
 ```
@@ -70,7 +70,7 @@ required privileges. You can check with the command `groups`:
 
 ```console
 kali@kali:~$ groups
-[…] kaboxer […]
+[...] kaboxer [...]
 ```
 
 If your current user is not part of the `kaboxer` group, then you should
@@ -181,7 +181,7 @@ container with the following command:
 
 ```console
 kali@kali:~$ kaboxer run hello-cli
-[…]
+[...]
 PermissionError: [Errno 13] Permission denied: '/var/lib/hello-kbx'
 ```
 
@@ -232,14 +232,14 @@ a few files to enable the integration with Kaboxer:
 ```console
 kali@kali:~$ cat debian/control
 Source: hello-kbx
-[…]
+[...]
 Build-Depends: debhelper-compat (= 13), kaboxer
-[…]
+[...]
 
 Package: hello-cli-kbx
 Architecture: all
 Depends: ${misc:Depends}
-[…]
+[...]
 
 kali@kali:~$ cat debian/rules
 #!/usr/bin/make -f
@@ -257,7 +257,7 @@ the `kaboxer.yaml` file to point to it:
 
 ```console
 kali@kali:~$ cat kaboxer.yaml
-[…]
+[...]
 container:
   type: docker
   origin:
@@ -302,7 +302,7 @@ across containers. For instance, assuming we want to make the
 ```yaml
 components:
   default:
-    […]
+    [...]
     mounts:
       - source: /var/lib/hello-kbx
         target: /data
@@ -318,7 +318,7 @@ will be accessible from outside the container):
 ```yaml
 components:
   default:
-    […]
+    [...]
     publish_ports:
       - 8123
 ```
@@ -340,9 +340,9 @@ the following:
 
 ```yaml
 components:
-  […]
+  [...]
   gui:
-    […]
+    [...]
     reuse_container: true
 ```
 
@@ -358,7 +358,7 @@ network:
 ```yaml
 components:
   default:
-    […]
+    [...]
     networks:
       - hello-kbx
 ```
@@ -386,7 +386,7 @@ tools" and "Wireless Attacks" categories:
 
 ```yaml
 application:
-  […]
+  [...]
   categories: Utility;06-02-bluetooth-tools;06-wireless-attacks
 ```
 

@@ -43,7 +43,7 @@ If the drive is not auto-mounted, `ls /dev` before and after plugging it in shou
 On my Xubuntu 20.04 LTS machine, the first USB pen drive is associated with `/dev/sda`, and so in order to copy the ISO image to the pen drive,
 
 ```console
-sudo dd if=kali-linux-2021.4-installer-amd64.iso of=/dev/sda status=progress
+$ sudo dd if=kali-linux-2021.4-installer-amd64.iso of=/dev/sda status=progress
 ```
 
 (Note that on Ubuntu like systems, rather than working under the `root` user, you can issue commands with root privileges by calling them via `sudo`)
@@ -53,7 +53,7 @@ sudo dd if=kali-linux-2021.4-installer-amd64.iso of=/dev/sda status=progress
 We also need the ISO image of the [Xubuntu 20.04 LTS Live Installer](https://xubuntu.org/download) on a second USB pen drive. In my case, the ISO image file is called `xubuntu-20.04-desktop-amd64.iso`. In the same fashion, this goes to a second USB pen drive (at least 4GB in size). Unplug the first USB pen drive and plug in the second one.
 
 ```console
-sudo dd if=xubuntu-20.04-desktop-amd64.iso of=/dev/sda status=progress
+$ sudo dd if=xubuntu-20.04-desktop-amd64.iso of=/dev/sda status=progress
 ```
 
 ### Partitioning the Target USB Drive
@@ -77,50 +77,50 @@ The main partition can be as big as you like. If you require additional partitio
 Rather than using `gdisk`, we can alternatively repartition the target USB drive from the command line:
 
 ```console
-sgdisk --zap-all /dev/sda
-sgdisk --new=1:0:+4096M /dev/sda
-sgdisk --new=2:0:+2M /dev/sda
-sgdisk --new=3:0:+128M /dev/sda
-sgdisk --new=4:0:+8192M /dev/sda
-sgdisk --new=5:0:0 /dev/sda
-sgdisk --typecode=1:8301 --typecode=2:ef02 --typecode=3:ef00 --typecode=4:8200 --typecode=5:8300 /dev/sda
-sgdisk --change-name=1:/boot --change-name=2:GRUB --change-name=3:EFI-SP 00change-name=4:swap --change-name=5:rootfs /dev/sda
-sgdisk --hybrid 1:2:3 /dev/sda
-sgdisk --print /dev/sda
+$ sgdisk --zap-all /dev/sda
+$ sgdisk --new=1:0:+4096M /dev/sda
+$ sgdisk --new=2:0:+2M /dev/sda
+$ sgdisk --new=3:0:+128M /dev/sda
+$ sgdisk --new=4:0:+8192M /dev/sda
+$ sgdisk --new=5:0:0 /dev/sda
+$ sgdisk --typecode=1:8301 --typecode=2:ef02 --typecode=3:ef00 --typecode=4:8200 --typecode=5:8300 /dev/sda
+$ sgdisk --change-name=1:/boot --change-name=2:GRUB --change-name=3:EFI-SP 00change-name=4:swap --change-name=5:rootfs /dev/sda
+$ sgdisk --hybrid 1:2:3 /dev/sda
+$ sgdisk --print /dev/sda
 ```
 (Note that the size hint `:0` for partition 5 indicates that we request all the remaining free space)
 
 Next, we set up luks encryption for the partitions 1,4 and 5. Note that the boot loader `grub2` can mount only luks, version 1.
 
 ```console
-sudo cryptsetup luksFormat --type=luks1 /dev/sda1
-sudo cryptsetup luksFormat /dev/sda4
-sudo cryptsetup luksFormat /dev/sda5
+$ sudo cryptsetup luksFormat --type=luks1 /dev/sda1
+$ sudo cryptsetup luksFormat /dev/sda4
+$ sudo cryptsetup luksFormat /dev/sda5
 ```
 
 Since the keys to unlock partitions 4 and 5 will be placed in the initial RAM disk on the `/boot` partition, we can set the same passphrase for all three partitions. Using different phrases would not increase security. We now unlock the three partitions,
 
 ```console
-sudo cryptsetup open /dev/sda1 LUKS_BOOT
-sudo cryptsetup open /dev/sda4 LUKS_SWAP
-sudo cryptsetup open /dev/sda5 LUKS_ROOT
+$ sudo cryptsetup open /dev/sda1 LUKS_BOOT
+$ sudo cryptsetup open /dev/sda4 LUKS_SWAP
+$ sudo cryptsetup open /dev/sda5 LUKS_ROOT
 ```
 
 The command `ls /dev/mapper` then shows the three devices associated with the unlocked partitions. We can now format the partitions 1,3,4 and 5, aka create filesystems on them.
 
 ```console
-sudo mkfs.ext4 -L boot /dev/mapper/LUKS_BOOT
-sudo mkfs.vfat -F 16 -n EFI-SP /dev/sda3
-sudo mkswap -L swap /dev/mapper/LUKS_SWAP
-sudo mkfs.btrfs -L root /dev/mapper/LUKS_ROOT
+$ sudo mkfs.ext4 -L boot /dev/mapper/LUKS_BOOT
+$ sudo mkfs.vfat -F 16 -n EFI-SP /dev/sda3
+$ sudo mkswap -L swap /dev/mapper/LUKS_SWAP
+$ sudo mkfs.btrfs -L root /dev/mapper/LUKS_ROOT
 ```
 
 Finally, we remove the mapped devices (and our machine forgets how to decrypt the partitions):
 
 ```console
-sudo cryptsetup close LUKS_BOOT
-sudo cryptsetup close LUKS_SWAP
-sudo cryptsetup close LUKS_ROOT
+$ sudo cryptsetup close LUKS_BOOT
+$ sudo cryptsetup close LUKS_SWAP
+$ sudo cryptsetup close LUKS_ROOT
 ```
 ## Installation of Kali Linux 2021.4
 
@@ -146,9 +146,9 @@ Do not execute *Detect disks*. Rather press [Ctrl]+[Alt]+[F3] and then [Enter] i
 We unlock the three encrypted partitions:
 
 ```console
-cryptsetup open /dev/sdb1 LUKS_BOOT
-cryptsetup open /dev/sdb4 LUKS_SWAP
-cryptsetup open /dev/sdb5 LUKS_ROOT
+$ cryptsetup open /dev/sdb1 LUKS_BOOT
+$ cryptsetup open /dev/sdb4 LUKS_SWAP
+$ cryptsetup open /dev/sdb5 LUKS_ROOT
 ```
 ### Partitioning
 
@@ -173,28 +173,28 @@ The debian installer has created the subvolume `@rootfs` on the `btrfs` partitio
 create further subvolumes, `@` for the default subvolume, `@home`, `@root`, `@snapshots` and `@var`, and we set `@` to be the default:
 
 ```console
-mkdir /mnt/point
-mount -o subvol=/ /dev/mapper/LUKS_ROOT /mnt/point
-cd /mnt/point
-btrfs subvolume create @
-btrfs subvolume create @home
-btrfs subvolume create @root
-btrfs subvolume create @snapshots
-btrfs subvolume list .
-btrfs subvolume set-default 257 . # where 257 is the subvolume ID that was displayed for @
-cd /
-umount /mnt/point
-umount /target/boot/efi # only required when booted in EFI mode
-umount /target/boot
-umount /target
-mount -o subvol=@ /dev/mapper/LUKS_ROOT /target
-mkdir /target/boot
-mkdir /target/etc
-mkdir /target/media
-mkdir /target/snapshots
-mount /dev/mapper/LUKS_BOOT /target/boot
-mount -o subvol=@rootfs /dev/mapper/LUKS_ROOT /mnt/point
-cp /mnt/point/etc/fstab /target/etc/fstab
+$ mkdir /mnt/point
+$ mount -o subvol=/ /dev/mapper/LUKS_ROOT /mnt/point
+$ cd /mnt/point
+$ btrfs subvolume create @
+$ btrfs subvolume create @home
+$ btrfs subvolume create @root
+$ btrfs subvolume create @snapshots
+$ btrfs subvolume list .
+$ btrfs subvolume set-default 257 . # where 257 is the subvolume ID that was displayed for @
+$ cd /
+$ umount /mnt/point
+$ umount /target/boot/efi # only required when booted in EFI mode
+$ umount /target/boot
+$ umount /target
+$ mount -o subvol=@ /dev/mapper/LUKS_ROOT /target
+$ mkdir /target/boot
+$ mkdir /target/etc
+$ mkdir /target/media
+$ mkdir /target/snapshots
+$ mount /dev/mapper/LUKS_BOOT /target/boot
+$ mount -o subvol=@rootfs /dev/mapper/LUKS_ROOT /mnt/point
+$ cp /mnt/point/etc/fstab /target/etc/fstab
 ```
 
 Here, the `btrfs subvolume list` shows the subvolume IDs on the current volume, and we use the number assigned to `@` in the subsequent `set-default` command.
@@ -227,11 +227,11 @@ with the UUID we just wrote down. This allows the installation to locate and mou
 (in which only one line says `LUKS_BOOT` instead of `LUKS_ROOT`). In the editor `nano`, we press [Ctrl]+[o] in order to save the file, confirm with [Enter] and then [Ctrl]+[x] to quit the editor. Now we remove the top level subvolume and mount the correct EFI partition in the appropriate place:
 
 ```console
-umount /mnt/point
-mkdir /target/boot/efi
-mount /dev/sdb3 /target/boot/efi
-mount -o subvol=@home /dev/mapper/LUKS_ROOT /target/home
-mount -o subvol=@root /dev/mapper/LUKS_ROOT /target/root
+$ umount /mnt/point
+$ mkdir /target/boot/efi
+$ mount /dev/sdb3 /target/boot/efi
+$ mount -o subvol=@home /dev/mapper/LUKS_ROOT /target/home
+$ mount -o subvol=@root /dev/mapper/LUKS_ROOT /target/root
 ```
 
 If you have created further btrfs subvolumes that might be affected by the installation, mount them here as well.
@@ -257,9 +257,9 @@ Then back to the root console with [Ctrl]+[Alt]+[F3] in order to make sure that 
 We change root to the newly installed system, mount all partitions and subvolumes,
 
 ```console
-for n in dev proc sys run etc/resolv.conf; do mount --bind /$n /target/$n; done
-chroot /target
-mount -a
+$ for n in dev proc sys run etc/resolv.conf; do mount --bind /$n /target/$n; done
+$ chroot /target
+$ mount -a
 ```
 
 If the `mount -a` reports errors, this might be due to typos in the file system table we modified above.
@@ -267,26 +267,26 @@ If the `mount -a` reports errors, this might be due to typos in the file system 
 The `/etc/resolv.conf` is there in order not to lose the DNS information that the installer obtained when we set up the network. On the target system, we install all tools in order to install and update `grub2` as well as to add decryption tools to the initial RAM disk:
 
 ```console
-apt-get install grub-common grub-efi-amd64 os-prober
-apt-get install cryptsetup-initramfs
+$ apt-get install grub-common grub-efi-amd64 os-prober
+$ apt-get install cryptsetup-initramfs
 ```
 
 In the following, we create a random luks key file which is able to unlock the three encrypted partitions and set up a few configuration files before the initial RAM disk is composed.
 
 ```console
-echo "KEYFILE_PATTERN=/etc/luks/*.keyfile" >>/etc/cryptsetup-initramfs/conf-hook
-echo "UMASK=0077" >>/etc/initramfs-tools/initramfs.conf
-mkdir /etc/luks
-dd if=/dev/urandom of=/etc/luks/boot_os.keyfile bs=4096 count=1
-chmod u=rx,go-rwx /etc/luks
-chmod u=r,go-rwx /etc/luks/boot_os.keyfile
-cryptsetup luksAddKey /dev/sdb1 /etc/luks/boot_os.keyfile
-cryptsetup luksAddKey /dev/sdb4 /etc/luks/boot_os.keyfile
-cryptsetup luksAddKey /dev/sdb5 /etc/luks/boot_os.keyfile
-echo "LUKS_BOOT UUID=$(blkid -s UUID -o value /dev/sdb1) /etc/luks/boot_os.keyfile luks,discard" >>/etc/crypttab
-echo "LUKS_SWAP UUID=$(blkid -s UUID -o value /dev/sdb4) /etc/luks/boot_os.keyfile luks,discard" >>/etc/crypttab
-echo "LUKS_ROOT UUID=$(blkid -s UUID -o value /dev/sdb5) /etc/luks/boot_os.keyfile luks,discard" >>/etc/crypttab
-/usr/sbin/update-initramfs -u -k all
+$ echo "KEYFILE_PATTERN=/etc/luks/*.keyfile" >>/etc/cryptsetup-initramfs/conf-hook
+$ echo "UMASK=0077" >>/etc/initramfs-tools/initramfs.conf
+$ mkdir /etc/luks
+$ dd if=/dev/urandom of=/etc/luks/boot_os.keyfile bs=4096 count=1
+$ chmod u=rx,go-rwx /etc/luks
+$ chmod u=r,go-rwx /etc/luks/boot_os.keyfile
+$ cryptsetup luksAddKey /dev/sdb1 /etc/luks/boot_os.keyfile
+$ cryptsetup luksAddKey /dev/sdb4 /etc/luks/boot_os.keyfile
+$ cryptsetup luksAddKey /dev/sdb5 /etc/luks/boot_os.keyfile
+$ echo "LUKS_BOOT UUID=$(blkid -s UUID -o value /dev/sdb1) /etc/luks/boot_os.keyfile luks,discard" >>/etc/crypttab
+$ echo "LUKS_SWAP UUID=$(blkid -s UUID -o value /dev/sdb4) /etc/luks/boot_os.keyfile luks,discard" >>/etc/crypttab
+$ echo "LUKS_ROOT UUID=$(blkid -s UUID -o value /dev/sdb5) /etc/luks/boot_os.keyfile luks,discard" >>/etc/crypttab
+$ /usr/sbin/update-initramfs -u -k all
 ```
 
 During the boot process, `grub2` will detect that there is an encrypted `/boot` partition. It will ask for a passphrase (the one that we associated with `/boot` right in the beginning). The `/boot` partition then contains a kernel with initial RAM disk that contains the key file we just created and which can be used to unlock all our encrypted partitions.
@@ -317,22 +317,22 @@ Note that the Xubuntu live system will try to mount the three luks partitions. C
 We unlock the encrypted partitions and mount the required ones by hand,
 
 ```console
-sudo -i
-cryptsetup open /dev/sdb1 LUKS_BOOT
-cryptsetup open /dev/sdb5 LUKS_ROOT
-cd /
-mkdir /target
-mount /dev/mapper/LUKS_ROOT /target
-mount /dev/mapper/LUKS_BOOT /target/boot
-mount /dev/sdb3 /target/boot/efi
+$ sudo -i
+$ cryptsetup open /dev/sdb1 LUKS_BOOT
+$ cryptsetup open /dev/sdb5 LUKS_ROOT
+$ cd /
+$ mkdir /target
+$ mount /dev/mapper/LUKS_ROOT /target
+$ mount /dev/mapper/LUKS_BOOT /target/boot
+$ mount /dev/sdb3 /target/boot/efi
 ```
 
 Then we change root to our new unfinished installation and mount everything:
 
 ```console
-for n in dev dev/pts proc sys sys/firmware/efi/efivars run etc/resolv.conf; do mount --bind /$n /target/$n; done
-chroot /target
-mount -a
+$ for n in dev dev/pts proc sys sys/firmware/efi/efivars run etc/resolv.conf; do mount --bind /$n /target/$n; done
+$ chroot /target
+$ mount -a
 ```
 
 Now we merely need to `nano /etc/default/grub` and add a line 
@@ -344,8 +344,8 @@ GRUB_ENABLE_CRYPTODISK=y
 Save the file by [Ctrl]+[o] and [Enter] and quit the editor by [Ctrl]+[x]. Then we install `grub2` in removable mode by,
 
 ```console
-grub-install --removable /dev/sdb
-update-grub
+$ grub-install --removable /dev/sdb
+$ update-grub
 ```
 Presumably there is an error that there is no grub drive for the partition that carries the Xubuntu live system. We can safely ignore that. We press [Ctrl]+[d] in order to leave the `chroot` session and then use the graphical interface of Xubuntu in order to shut down the computer. The installation on our USB drive is complete.
 
@@ -378,42 +378,42 @@ Compilation of custom kernel works as described in [these Kali instructions](/do
 Starting with the installation performed so far, we need the following packages:
 
 ```console
-sudo apt-get install build-essential libncurses5-dev fakeroot xz-utils libelf-dev libssl-dev dwarves
+$ sudo apt-get install build-essential libncurses5-dev fakeroot xz-utils libelf-dev libssl-dev dwarves
 ```
 
 We install the current kernel sources and unpack them inside `~/src` as follows,
 
 ```console
-sudo apt-get install linux-source-5.15
-mkdir ~/src
-cd ~/src
-tar -xzf /usr/src/linux-source-5.15.tar.xz
+$ sudo apt-get install linux-source-5.15
+$ mkdir ~/src
+$ cd ~/src
+$ tar -xzf /usr/src/linux-source-5.15.tar.xz
 ```
 If you have a custom kernel configuration file, copy it to `~/src/linux-source-5.15/.config`. In order to use the configuration of the running kernel as a starting point, we obtain the configuration from the `/boot` partition,
 
 ```console
-cp /boot/config-5.14.0-kali4-amd64 ~/src/linux-source-5.15/.config
+$ cp /boot/config-5.14.0-kali4-amd64 ~/src/linux-source-5.15/.config
 ```
 
 The kernel is then configured as usual with 
 
 ```console
-cd ~/src/linux-source-5.15
-make menuconfig
+$ cd ~/src/linux-source-5.15
+$ make menuconfig
 ```
 
 and compiled as follows. Note that we build the Debian style kernel packages here which automatically takes care of all patches, etc.
 
 ```console
-make clean
-make deb-pkg LOCALVERSION=-custom KDEB_PKGVERSION=$(make kernelversion)-1
-ls ../*.deb
+$ make clean
+$ make deb-pkg LOCALVERSION=-custom KDEB_PKGVERSION=$(make kernelversion)-1
+$ ls ../*.deb
 ```
 
 It suffices to install the newly created Debian kernel package. It includes an initial RAM disk which is able to decrypt the luks encrypted partitions and places everything on the `/boot` partition for `grub2` to find. The precise version of the kernel depends on the update status of your Kali 2021.4 at the time when you last upgraded and unpacked the sources. The above `ls ../*.deb` command shows the full names of the produced Debian packages.
 
 ```console
-sudo dpkg -i ~/src/linux-image-5.15.5-custom_5.15.5-1_amd64.deb
+$ sudo dpkg -i ~/src/linux-image-5.15.5-custom_5.15.5-1_amd64.deb
 ```
 
 It is not necessary to re-install `grub2` or to make any other manual adjustments. The encrypted boot procesudure still works.

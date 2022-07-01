@@ -160,9 +160,9 @@ kali@kali:~$
 If we want to re-provision our VM, which normally only runs the first time the machine boots, we can do one of the following commands:
 
 ```console
-vagrant provision  # provision the powered on VM
-vagrant up --provision  # when VM is powered off, power it on then provision
-vagrant reload --provision  # reboot the VM then provision
+$ vagrant provision  # provision the powered on VM
+$ vagrant up --provision  # when VM is powered off, power it on then provision
+$ vagrant reload --provision  # reboot the VM then provision
 ```
 
 There are a lot more configuration options that can be found in [Vagrant's docs](https://www.vagrantup.com/docs/vagrantfile/machine_settings).

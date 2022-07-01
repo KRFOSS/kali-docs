@@ -17,6 +17,7 @@ You can even boot into any of your saved snapshots via the boot menu and easily 
 ![boot menu](btrfs_001-bootmenu1.png)
 
 #### Content
+
 - [Content](#content)
 - [Overview](#overview)
   - [Installation Overview](#installation-overview)
@@ -38,6 +39,7 @@ You can even boot into any of your saved snapshots via the boot menu and easily 
 - [References](#references)
 
 #### Overview
+
 [btrfs](https://btrfs.wiki.kernel.org/index.php/Main_Page) is a modern Copy on Write (CoW) filesystem for Linux aimed at implementing advanced features such as pooling, snapshots, checksums, and integrated multi-device spanning. In particular, the [snapshot](https://btrfs.wiki.kernel.org/index.php/UseCases#Snapshots_and_subvolumes) support is what makes btrfs attractive for Kali installations on bare metal. Virtualization solutions such as VMWare and Virtualbox provide their own snapshotting functionality and using btrfs in those environments is not really required.
 
 The snapshotting strategy of this walk-through centres around a tool called "snapper" from our friends over at SUSE. Snapper transparently hooks into the apt workflow and automatically creates snapshots before and after any apt operation. This neat little feature allows to easily rollback a system after a botched upgrade.
@@ -47,11 +49,13 @@ To top things off, we added [grub-btrfs](https://github.com/Antynea/grub-btrfs) 
 [Snapper-gui](https://github.com/ricardomv/snapper-gui) by [Ricardo Vieira](https://github.com/ricardomv) is another great tool we use to make our lifes easier.
 
 ##### Installation Overview
+
 Installing Kali Linux with snapshotting functionality is very similar to a standard installation except that we install it with btrfs as file system.
 
 After the installation, we will install some tools and create a default configuration for snapper.
 
 ##### Partitioning Scheme
+
 When selecting "btrfs" as file system, the installer will automatically create the following subvolume layout:
 
 ```plaintext
@@ -68,7 +72,9 @@ Mount Point         | Subvolume         | Description
 ```
 
 #### Kali Linux BTRFS Installation Steps
+
 ##### Kali Linux Installation Procedure
+
 1. To start your installation, boot with your chosen installation medium. You should be greeted with the Kali Boot screen. Choose _Graphical Install_.
 2. The installation steps are identical to a default Kali installation except changing "ext4" to "btrfs" as file system:
 
@@ -102,17 +108,17 @@ Select "Finish partitioning and write changes to disk" and continue with the ins
 
 ```console
 # Set a secure root password or you'll struggle to log into a recovery shell
-sudo passwd
+$ sudo passwd
 
 # Install some essential tools
-sudo apt update && sudo apt install btrfs-progs snapper snapper-gui grub-btrfs
+$ sudo apt update && sudo apt install btrfs-progs snapper snapper-gui grub-btrfs
 
 # Create the snapper configuration for the root filesystem "/"
-sudo cp /usr/share/snapper/config-templates/default /etc/snapper/configs/root
-sudo sed -i 's/^SNAPPER_CONFIGS=\"\"/SNAPPER_CONFIGS=\"root\"/' /etc/default/snapper
+$ sudo cp /usr/share/snapper/config-templates/default /etc/snapper/configs/root
+$ sudo sed -i 's/^SNAPPER_CONFIGS=\"\"/SNAPPER_CONFIGS=\"root\"/' /etc/default/snapper
 
 # Prevent "updatedb" from indexing the snapshots, which would slow down the system
-sudo sed -i '/# PRUNENAMES=/ a PRUNENAMES = ".snapshots"' /etc/updatedb.conf
+$ sudo sed -i '/# PRUNENAMES=/ a PRUNENAMES = ".snapshots"' /etc/updatedb.conf
 ```
 
 4. We need to tweak the desktop managers to work in read only snapshots. Pick your DE from the following:
@@ -124,15 +130,15 @@ GNOME:
 # GDM needs to have write access to "/var/lib/gdm3" and "/var/lib/AccountService" during login.
 # We have to create additional subvolumes for them:
 
-mount # Pick your main partition, </dev/sda1> in our example, replace </dev/sda1> it with yours
-sudo mount </dev/sda1> /mnt
-sudo btrfs subvolume create /mnt/@var@lib@gdm3
-sudo btrfs subvolume create /mnt/@var@lib@AccountsService
+$ mount # Pick your main partition, </dev/sda1> in our example, replace </dev/sda1> it with yours
+$ sudo mount </dev/sda1> /mnt
+$ sudo btrfs subvolume create /mnt/@var@lib@gdm3
+$ sudo btrfs subvolume create /mnt/@var@lib@AccountsService
 
-sudo mv /var/lib/gdm3/* /var/lib/gdm3/.*/mnt/@var@lib@gdm3
-sudo mv /var/lib/AccountsService/* /var/lib/AccountsService/.* /mnt/@var@lib@AccountsService/
+$ sudo mv /var/lib/gdm3/* /var/lib/gdm3/.*/mnt/@var@lib@gdm3
+$ sudo mv /var/lib/AccountsService/* /var/lib/AccountsService/.* /mnt/@var@lib@AccountsService/
 
-sudo vi /etc/fstab # Add the following (substitute the <UUID> with yours)
+$ sudo vi /etc/fstab # Add the following (substitute the <UUID> with yours)
 
 # /var/lib/gdm3 was on /dev/sda1 during installation
 UUID=<dc1ca012-9349-4fcf-b761-ca323379b019> /var/lib/gdm3   btrfs   defaults,subvol=@var@lib@gdm3 0       0
@@ -141,24 +147,23 @@ UUID=<dc1ca012-9349-4fcf-b761-ca323379b019> /var/lib/gdm3   btrfs   defaults,sub
 UUID=<dc1ca012-9349-4fcf-b761-ca323379b019> /var/lib/AccountsService   btrfs   defaults,subvol=@var@lib@AccountsService 0       0
 
 # Reboot for the changes to take effect
-sudo reboot
+$ sudo reboot
 ```
 
 KDE:
 
 ```console
 # KDE works out of the box, just reboot and enjoy
-
-sudo reboot
+$ sudo reboot
 ```
 
 XFCE:
 
 ```console
 # Reconfigure lightdm to allow booting into read-only snapshots
-sudo sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
-
-sudo reboot
+$ sudo sed -i 's/^#user-authority-in-system-dir=false/user-authority-in-system-dir=true/' /etc/lightdm/lightdm.conf
+$
+$ sudo reboot
 ```
 
    ![](btrfs_025-setup1.png)
@@ -176,7 +181,9 @@ Congratulations, you have just installed a Kali system with automatic snapshotti
 ---
 
 #### Usage
+
 ##### Modify configurations
+
 Out of the box Kali creates snapshots of the root directory to allow system rollbacks.
 Snapshots are automatically created during apt operations, at specified time intervals, and on every boot. The configuration can be changed via the "snapper-gui" tool. Just click on the little icon in the top left hand corner and select "Properties":
 
@@ -187,6 +194,7 @@ Snapshots are automatically created during apt operations, at specified time int
 ---
 
 ##### Create additional configurations
+
 To create snapshots of your home directory, you can create a new configuration using snapper-gui.
 
 Click on "New" -> "Create Configuration"
@@ -198,6 +206,7 @@ Click on "New" -> "Create Configuration"
 ---
 
 ##### Create a snapshot
+
 To manually create a snapshot using snapper-gui, select the appropriate configuration tab (home in this case) and click "New" -> "Create Snapshot"
 
 ![](btrfs-030-snapper-config3.png)
@@ -205,6 +214,7 @@ To manually create a snapshot using snapper-gui, select the appropriate configur
 ---
 
 ##### List snapshots
+
 Snapshots are listed in the snapper-gui:
 
 ![](btrfs-030-snapper-gui1.png)
@@ -212,12 +222,13 @@ Snapshots are listed in the snapper-gui:
 Alternatively, snapshots on all configurations can be viewed using the `snapper` command line tool:
 
 ```console
-sudo snapper list -a
+$ sudo snapper list -a
 ```
 
 ---
 
 ##### Delete snapshots
+
 The easiest way to delete a snapshot is by using the snapper command line tool:
 
 `sudo snapper delete <number-or-number-range>`
@@ -264,6 +275,7 @@ sudo reboot -f
 ---
 
 ##### Diff
+
 Snapper is chock-a-block with powerful features like diffs between snapshots:
 
 ![](btrfs-60-diff1.png)
@@ -278,7 +290,9 @@ You can even browse the content of snapshots:
 ---
 
 #### Full recovery from an unbootable system
+
 ##### Boot into a last known good snapshot
+
 Let's assume that the last upgrade broke our machine. Every run of "apt install" creates to snapshots, one "pre" snapshot is created before the installation and one "post" snapshot is created after the installation.
 
 To undo the last "apt upgrade", we would boot into the last "pre" snapshot and check if everything is working again:
@@ -294,6 +308,7 @@ Please note that the snapshot is read only and you might receive an error messag
 Have a look around ensure that this is what you would like to roll-back to.
 
 ##### Rollback
+
 Remember that "/" itself is the subvolume "@". To rollback to a snapshot, all we have to do is replace "@" with the snapshot we want.
 
 1. First we have to mount the physical partition that holds all our subvolumes. Let's find it first
@@ -302,11 +317,11 @@ Remember that "/" itself is the subvolume "@". To rollback to a snapshot, all we
 
 ![](btrfs-50-rollback4.png)
 
-​and then mount it (/dev/sda2 in this example:
+and then mount it (/dev/sda2 in this example:
 
-​`sudo mount /dev/sda2 -o subvol=/ /mnt`
+`sudo mount /dev/sda2 -o subvol=/ /mnt`
 
-​If we list the content of that partition we can see all the subvolumes, including the one containing our snapshots:
+If we list the content of that partition we can see all the subvolumes, including the one containing our snapshots:
 
 ![](btrfs-50-rollback5.png)
 

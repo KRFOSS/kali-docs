@@ -23,11 +23,11 @@ For more information, please see: <https://www.kali.org/docs/arm/>
 An example workflow to build a _[Raspberry Pi 4](/docs/arm/raspberry-pi-4/) Kali Linux image_ would look like:
 
 ```console
-cd ~/
-git clone https://gitlab.com/kalilinux/build-scripts/kali-arm
-cd ~/kali-arm/
-sudo ./common.d/build_deps.sh
-sudo ./raspberry-pi.sh
+$ cd ~/
+$ git clone https://gitlab.com/kalilinux/build-scripts/kali-arm
+$ cd ~/kali-arm/
+$ sudo ./common.d/build_deps.sh
+$ sudo ./raspberry-pi.sh
 ```
 
 - Depending on your system hardware & network connectivity, will depend on how long it will take to build _(4 core CPU, 8GB RAM, SSD inside a VM takes using a [local repo](/docs/community/setting-up-a-kali-linux-mirror/) about 100 minutes per script)_

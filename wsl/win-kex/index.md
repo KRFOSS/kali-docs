@@ -47,7 +47,7 @@ All installation steps, up to the point where we install Win-Kex, are also expla
 
 - Open PowerShell as administrator and run:
 
-```console
+```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
 
@@ -55,7 +55,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-L
 
 - Open PowerShell as administrator and run:
 
-```console
+```powershell
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```

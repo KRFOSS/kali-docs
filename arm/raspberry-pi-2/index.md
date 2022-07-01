@@ -63,7 +63,7 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 If you are on the 5.10 kernel, you can use mt76 chipset USB Wi-Fi devices, but they require creating a configuration file in `/etc/modprobe.d` with the following contents:
 
-```console
+```plaintext
 # Load mt76usb without using scatter-gather which doesn't work on the RPi2 or RPi3 USB chipset
 options mt76-usb disabe_usb_sg=1
 ```

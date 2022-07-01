@@ -71,7 +71,7 @@ At this point we should have the following partition structure:
 kali@kali:~$ parted /dev/sdb print
 ```
 
-We can add additional persistence stores to the USB drive, both encrypted or not…and choose which persistence store we want to load, at boot time. Let's create one more additional non-encrypted store. We'll label and call it "work".
+We can add additional persistence stores to the USB drive, both encrypted or not... and choose which persistence store we want to load, at boot time. Let's create one more additional non-encrypted store. We'll label and call it "work".
 
 **0x01 - Create an additional, 4th partition which will hold the "work" data**. We'll give it another 5GB of space:
 
