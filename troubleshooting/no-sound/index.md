@@ -8,7 +8,7 @@ author: ["gamb1t",]
 
 As of writing there are some issues with sound being disabled that can occur. To fix this is pretty easy. We first look to see if `pipewire-pulse` is installed.
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ apt list --installed | grep pipewire-pulse
 
@@ -22,7 +22,7 @@ pipewire-pulse/kali-rolling,now 0.3.51-1 amd64 [installed,automatic]
 
 If this package is installed, we will want to uninstall it and then reboot.
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt purge --autoremove pipewire-pulse
 ...
