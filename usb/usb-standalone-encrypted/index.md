@@ -173,7 +173,7 @@ The debian installer has created the subvolume `@rootfs` on the `btrfs` partitio
 create further subvolumes, `@` for the default subvolume, `@home`, `@root`, `@snapshots` and `@var`, and we set `@` to be the default:
 
 ```console
-$ mkdir /mnt/point/
+$ mkdir -p /mnt/point/
 $ mount -o subvol=/ /dev/mapper/LUKS_ROOT /mnt/point
 $ cd /mnt/point/
 $ btrfs subvolume create @
@@ -188,10 +188,10 @@ $ umount /target/boot/efi # only required when booted in EFI mode
 $ umount /target/boot
 $ umount /target
 $ mount -o subvol=@ /dev/mapper/LUKS_ROOT /target
-$ mkdir /target/boot
-$ mkdir /target/etc
-$ mkdir /target/media
-$ mkdir /target/snapshots
+$ mkdir -p /target/boot
+$ mkdir -p /target/etc
+$ mkdir -p /target/media
+$ mkdir -p /target/snapshots
 $ mount /dev/mapper/LUKS_BOOT /target/boot
 $ mount -o subvol=@rootfs /dev/mapper/LUKS_ROOT /mnt/point
 $ cp /mnt/point/etc/fstab /target/etc/fstab
@@ -228,7 +228,7 @@ with the UUID we just wrote down. This allows the installation to locate and mou
 
 ```console
 $ umount /mnt/point
-$ mkdir /target/boot/efi
+$ mkdir -p /target/boot/efi
 $ mount /dev/sdb3 /target/boot/efi
 $ mount -o subvol=@home /dev/mapper/LUKS_ROOT /target/home
 $ mount -o subvol=@root /dev/mapper/LUKS_ROOT /target/root
@@ -276,7 +276,7 @@ In the following, we create a random luks key file which is able to unlock the t
 ```console
 $ echo "KEYFILE_PATTERN=/etc/luks/*.keyfile" >>/etc/cryptsetup-initramfs/conf-hook
 $ echo "UMASK=0077" >>/etc/initramfs-tools/initramfs.conf
-$ mkdir /etc/luks
+$ mkdir -p /etc/luks
 $ dd if=/dev/urandom of=/etc/luks/boot_os.keyfile bs=4096 count=1
 $ chmod u=rx,go-rwx /etc/luks
 $ chmod u=r,go-rwx /etc/luks/boot_os.keyfile
@@ -321,7 +321,7 @@ $ sudo -i
 $ cryptsetup open /dev/sdb1 LUKS_BOOT
 $ cryptsetup open /dev/sdb5 LUKS_ROOT
 $ cd /
-$ mkdir /target
+$ mkdir -p /target
 $ mount /dev/mapper/LUKS_ROOT /target
 $ mount /dev/mapper/LUKS_BOOT /target/boot
 $ mount /dev/sdb3 /target/boot/efi
@@ -385,7 +385,7 @@ We install the current kernel sources and unpack them inside `~/src` as follows,
 
 ```console
 $ sudo apt-get install linux-source-5.15
-$ mkdir ~/src/
+$ mkdir -p ~/src/
 $ cd ~/src/
 $ tar -xzf /usr/src/linux-source-5.15.tar.xz
 ```
