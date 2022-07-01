@@ -42,7 +42,7 @@ kali@kali:~$ ./build.sh
 
 ![](nethunter-porting1.png)
 
-Select ***S. Setup Environment and download toolchains.***
+Select ***S. Setup Environment and download toolchains***.
 When ready, build your test kernel with ***2. Configure & compile kernel from scratch***
 
 Select your device's defconfig, then save and exit to start the building process.

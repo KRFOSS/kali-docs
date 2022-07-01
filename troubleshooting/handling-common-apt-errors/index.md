@@ -3,7 +3,7 @@ title: Handling common APT problems
 description:
 icon:
 weight:
-author: ["gamb1t","rhertzog",]
+author: ["gamb1t", "rhertzog",]
 draft: true
 ---
 

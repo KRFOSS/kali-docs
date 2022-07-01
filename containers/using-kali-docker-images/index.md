@@ -22,7 +22,7 @@ kali@kali:~$
 
 Please note, that this does not allow for systemd functionality, which would allow access to items such as `systemctl`. There are ways to get systemd to work with Docker, however they include modifying the Dockerfile and `docker run` flags. At this time this will not be covered.
 
-Please also note, **all the images below do not come with the "default" [metapackage](/docs/general-use/metapackages/).** You will need to `apt update && apt -y install kali-linux-headless`.
+Please also note, **all the images below do not come with the "default" [metapackage](/docs/general-use/metapackages/)**. You will need to `apt update && apt -y install kali-linux-headless`.
 
 To resume an exited container we will complete the following:
 

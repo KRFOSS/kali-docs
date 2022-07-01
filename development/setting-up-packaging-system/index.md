@@ -195,7 +195,7 @@ kali@kali:~$ git config --global commit.gpgsign true
 kali@kali:~$
 ```
 
-**The `user.name` and `user.email` must match your gpg key details (`gpg -k`) or you will get a "Secret Key Not Available" error later on.**
+**The `user.name` and `user.email` must match your gpg key details (`gpg -k`) or you will get a "Secret Key Not Available" error later on**.
 **Be sure to put your own key id in `user.signingkey`. In this example we can see from `gpg -k` that our key is `ABC123DE45678F90123G4567HIJK890LM12345N6`**
 
 We also want to enable a dedicated git merge driver for the `debian/changelog` files.

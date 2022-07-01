@@ -3,7 +3,7 @@ title: Dual Booting Kali with Windows
 description:
 icon:
 weight: 220
-author: ["g0tmi1k","agam778",]
+author: ["g0tmi1k", "agam778",]
 ---
 
 Installing Kali Linux next to a Windows installation has its benefits. However, you need to exercise caution during the setup process. First, make sure that you've backed up any important data on your Windows installation. Since you'll be modifying your hard drive, you'll want to store this backup on external media. Once you've completed the backup, we recommend you peruse our [Kali Linux Hard Disk install guide](/docs/installation/hard-disk-install/), which explains the normal procedure for a basic Kali Linux install.
