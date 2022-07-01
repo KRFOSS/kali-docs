@@ -6,7 +6,7 @@ weight: 206
 author: ["gamb1t",]
 ---
 
-Importing the [Kali VMWare image](https://www.kali.org/get-kali/#kali-virtual-machines) is very easy.
+Importing the [Kali VMWare image](/get-kali/#kali-virtual-machines) is very easy.
 
 We first need to extract the VMWare image:
 

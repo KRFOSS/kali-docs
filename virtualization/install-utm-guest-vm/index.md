@@ -14,7 +14,7 @@ To install and set up a UTM VM it is pretty straightforward. We first download [
 
 ![](utm-setup-2.png)
 
-We will select Virtualize, as we will be using a [Kali Apple M1 installer](https://www.kali.org/get-kali/#kali-bare-metal) iso which will bring us to the next page:
+We will select Virtualize, as we will be using a [Kali Apple M1 installer](/get-kali/#kali-bare-metal) iso which will bring us to the next page:
 
 ![](utm-setup-3.png)
 

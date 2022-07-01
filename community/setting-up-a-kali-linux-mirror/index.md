@@ -8,7 +8,7 @@ author: ["g0tmi1k",]
 
 ## How to Set Up a Public Kali Linux Mirror
 
-The explanations below are of interest to you if you want to contribute a publicly accessible mirror and if you want to integrate it in one of the mirror redirectors (http.kali.org and cdimage.kali.org).
+The explanations below are of interest to you if you want to contribute a publicly accessible mirror and if you want to integrate it in one of the mirror redirectors (<http.kali.org> and <cdimage.kali.org>).
 
 If you want run a **private mirror**, see the dedicated section at the end.
 

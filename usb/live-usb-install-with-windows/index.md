@@ -57,7 +57,7 @@ _At the time of writing, Etcher will use MBR. This is to allow for the most hard
 4. Depending on your configuration, you can set the **Partition scheme**, as well as **Target system**. If you are not sure, leave it as the default values.
 
 {{% notice info %}}
-While you can easily create a persistent live usb with the integrated options in rufus by increasing the persistence slider, this is not the officially supported method (check [Adding Persistence to a Kali Linux Live USB Drive](https://www.kali.org/docs/usb/usb-persistence/)), as it doesn't work for all images, like the **Kali Everything Live ISO** introduced in release 2022.1.
+While you can easily create a persistent live usb with the integrated options in rufus by increasing the persistence slider, this is not the officially supported method (check [Adding Persistence to a Kali Linux Live USB Drive](/docs/usb/usb-persistence/)), as it doesn't work for all images, like the **Kali Everything Live ISO** introduced in release 2022.1.
 {{% /notice %}}
 
 5. Click the **START** button once ready.

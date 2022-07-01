@@ -141,7 +141,7 @@ $ ./build.sh --verbose
 
 ## Re-building the Latest Kali Image
 
-By using the [kali-last-snapshot](https://www.kali.org/docs/general-use/kali-branches/) branch, you are able to re-create the latest distributed image. We can do this by using `--distribution kali-last-snapshot`:
+By using the [kali-last-snapshot](/docs/general-use/kali-branches/) branch, you are able to re-create the latest distributed image. We can do this by using `--distribution kali-last-snapshot`:
 
 ```console
 kali@kali:~$ time ./build.sh \

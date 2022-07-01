@@ -35,7 +35,7 @@ Creating such an installation is a bit tricky and involves quite a bit of manual
 
 ### Kali Linux 2021.4 Bare Metal Installer
 
-First, we obtain the ISO image of the [Kali Linux 2021.4 Bare Metal Installer](https://www.kali.org/get-kali/#kali-bare-metal). In my case, the ISO image file is called `kali-linux-2021.4-installer-amd64.iso`. We work on an existing Linux machine. In my case, this is an Ubuntu 20.04 LTS.
+First, we obtain the ISO image of the [Kali Linux 2021.4 Bare Metal Installer](/get-kali/#kali-bare-metal). In my case, the ISO image file is called `kali-linux-2021.4-installer-amd64.iso`. We work on an existing Linux machine. In my case, this is an Ubuntu 20.04 LTS.
 
 We insert a blank USB pen drive of at least 4GB and copy the image onto that pen drive as follows. Once we plug in the USB pen drive, we need to find out which block device it corresponds to. Usually this will be `/dev/sdx` where `x`is a one of the letters `a`, `b`, and so on. If our Linux distribution auto-mounts the USB pen drive, `df`, `mount` or `lsblk` will reveal the device file it is associated with. Then make sure the drive is unmounted before you proceed (e.g. `sudo umount /dev/sdxn` where `n` stands for the numbers of all partitions of the drive that have been auto-mounted).
 If the drive is not auto-mounted, `ls /dev` before and after plugging it in should reveal the device file name.
@@ -373,7 +373,7 @@ Finally, although the installation allows to to /suspend to disk/ (/hibernate/),
 
 ### Compilation of a Custom Kernel
 
-Compilation of custom kernel works as described in [these Kali instructions](https://www.kali.org/docs/development/recompiling-the-kali-linux-kernel/) with only minor adjustments.
+Compilation of custom kernel works as described in [these Kali instructions](/docs/development/recompiling-the-kali-linux-kernel/) with only minor adjustments.
 
 Starting with the installation performed so far, we need the following packages:
 

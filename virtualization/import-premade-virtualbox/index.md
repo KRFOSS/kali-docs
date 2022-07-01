@@ -6,7 +6,7 @@ weight: 211
 author: ["gamb1t",]
 ---
 
-Importing the [Kali VirtualBox image](https://www.kali.org/get-kali/#kali-virtual-machines) is a four step after we have it downloaded.
+Importing the [Kali VirtualBox image](/get-kali/#kali-virtual-machines) is a four step after we have it downloaded.
 
 We first launch VirtualBox:
 
