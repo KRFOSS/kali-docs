@@ -173,9 +173,9 @@ The debian installer has created the subvolume `@rootfs` on the `btrfs` partitio
 create further subvolumes, `@` for the default subvolume, `@home`, `@root`, `@snapshots` and `@var`, and we set `@` to be the default:
 
 ```console
-$ mkdir /mnt/point
+$ mkdir /mnt/point/
 $ mount -o subvol=/ /dev/mapper/LUKS_ROOT /mnt/point
-$ cd /mnt/point
+$ cd /mnt/point/
 $ btrfs subvolume create @
 $ btrfs subvolume create @home
 $ btrfs subvolume create @root
@@ -385,8 +385,8 @@ We install the current kernel sources and unpack them inside `~/src` as follows,
 
 ```console
 $ sudo apt-get install linux-source-5.15
-$ mkdir ~/src
-$ cd ~/src
+$ mkdir ~/src/
+$ cd ~/src/
 $ tar -xzf /usr/src/linux-source-5.15.tar.xz
 ```
 If you have a custom kernel configuration file, copy it to `~/src/linux-source-5.15/.config`. In order to use the configuration of the running kernel as a starting point, we obtain the configuration from the `/boot` partition,
@@ -398,7 +398,7 @@ $ cp /boot/config-5.14.0-kali4-amd64 ~/src/linux-source-5.15/.config
 The kernel is then configured as usual with 
 
 ```console
-$ cd ~/src/linux-source-5.15
+$ cd ~/src/linux-source-5.15/
 $ make menuconfig
 ```
 
