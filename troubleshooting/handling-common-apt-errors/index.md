@@ -13,7 +13,7 @@ This page is due for more content as issues come up that need addressing. If you
 
 ```console
 ┌──(kali㉿kali)-[~]
-└─$ sudo apt upgrade                                                                                   100 ⨯
+└─$ sudo apt upgrade
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done

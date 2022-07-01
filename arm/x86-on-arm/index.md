@@ -39,7 +39,6 @@ To run x86 code we are going to utilize [qemu-user-static](https://wiki.debian.o
 
 ┌──(kali㉿kali)-[~]
 └─$
-
 ```
 
 Please keep in mind that more libraries may need to be installed depending on what package is being ran. In some cases these libraries will be installed automatically with the package install, however in others some research must be done to learn what is missing.
