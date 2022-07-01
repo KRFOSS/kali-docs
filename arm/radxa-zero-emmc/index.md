@@ -100,10 +100,10 @@ We will need to download a few files from Radxa's website as well as install the
   - You can release the button when the power LED turns on
 5. Verify that the computer sees the Radxa Zero in maskrom mode via `lsusb`
   - lsusb
-  ```console
-  kali@kali:~$ lsusb | grep Amlogic
-  Bus 001 Device 048: ID 1b8e:c003 Amlogic, Inc. GX-CHIP
-  ```
+```console
+kali@kali:~$ lsusb | grep Amlogic
+Bus 001 Device 048: ID 1b8e:c003 Amlogic, Inc. GX-CHIP
+```
 6. sudo boot-g12.py radxa-zero-erase-emmc.bin 
 7. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to the newly presented USB device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
