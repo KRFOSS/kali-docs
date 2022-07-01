@@ -211,7 +211,7 @@ Snapshots are listed in the snapper-gui:
 
 Alternatively, snapshots on all configurations can be viewed using the `snapper` command line tool:
 
-```
+```console
 sudo snapper list -a
 ```
 

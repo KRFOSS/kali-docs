@@ -41,7 +41,7 @@ sudo ./raspberry-pi.sh
 
 On any build script, add `--help`. Example:
 
-```
+```console
 $ ./raspberry-pi.sh --help
  Usage commands:
 # Architectures (arm64, armel, armhf)
@@ -73,13 +73,13 @@ $
 
 Editing `builder.txt`, will allow for custom values, such as using a local LAN mirror:
 
-```
+```console
 $ echo 'mirror="http://192.168.1.100/kali"' > ./builder.txt
 ```
 
 A full list of values you can set:
 
-```
+```plaintext
 # Version Kali release
 #version=${version:-$(cat .release)}
 

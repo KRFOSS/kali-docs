@@ -76,7 +76,7 @@ kali@kali:~$ groups
 If your current user is not part of the `kaboxer` group, then you should
 grant the group membership with the following command:
 
-```
+```console
 kali@kali:~$ sudo adduser $USER kaboxer
 ```
 

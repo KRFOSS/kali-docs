@@ -137,7 +137,7 @@ permitted by applicable law.
 
 If we want to tweak our configuration file we can do something like the following:
 
-```
+```plaintext
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 

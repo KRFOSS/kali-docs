@@ -11,7 +11,7 @@ This page is due for more content as issues come up that need addressing. If you
 
 ##### Package is to be installed, however it is not going to be
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt upgrade                                                                                   100 ⨯
 Reading package lists... Done
