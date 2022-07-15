@@ -14,7 +14,7 @@ Kali Linux operates off of a network of [community](/docs/community/kali-linux-m
 
 Now that we know how this happens we can determine which mirror we are actually getting sent to ourselves. We can do this in a couple of different ways. The first is to simply click [download](/get-kali/) and then in the downloads tab right click the download and copy the URL. This works for the majority of web browsers. The second option is to use `curl`:
 
-```
+```console
 kali@kali:~$ curl https://cdimage.kali.org/kali-2022.2/kali-linux-2022.2-installer-amd64.iso
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
 <html><head>
@@ -37,7 +37,7 @@ If the download speed is noticeably slow or the mirror is not working, we would 
 
 We can use `wget` to download the iso file and learn just how fast the download is taking. If we are on Windows, we can either get the download speed from the web browser or install [wget for Windows](https://medium.com/nerd-for-tech/using-wget-command-in-windows-10-environment-d766b8f526e9)
 
-```
+```console
 kali@kali:~$ wget https://kali.download/base-images/kali-2022.2/kali-linux-2022.2-installer-amd64.iso
 --2022-07-15 15:56:17--  https://kali.download/base-images/kali-2022.2/kali-linux-2022.2-installer-amd64.iso
 Resolving kali.download (kali.download)... 104.18.103.100, 104.18.102.100, 2606:4700::6812:6764, ...
@@ -55,7 +55,7 @@ As we can see we are downloading at about 31.6MB/s and we are using the mirror l
 
 Lets look at another example, this time with a connection from France:
 
-```
+```console
 kali@kali:~$ curl https://cdimage.kali.org/kali-2022.2/kali-linux-2022.2-installer-amd64.iso
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
 <html><head>
