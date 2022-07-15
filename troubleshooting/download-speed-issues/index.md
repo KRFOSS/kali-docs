@@ -8,7 +8,7 @@ author: ["gamb1t",]
 
 ### How our downloads work
 
-Kali Linux operates off of a network of [community](/docs/community/kali-linux-mirrors/) and official mirrors. What this means is that when you click to [download](/get-kali/) Kali Linux there are some steps that are done before you actually begin the download. First you hit [cdimage.kali.org](http://cdimage.kali.org/README.mirrorlist) which is our redirector. This determines where the request is coming from and will send you to one of the closest mirrors to that location. For example, if you are in the US you may get send to Berkley University's mirror. After this you are sent to the mirror it determines to be best and your download request is submitted to it, and your download actually begins.
+Kali Linux operates off of a network of [community](/docs/community/kali-linux-mirrors/) and official mirrors. What this means is that when you click to [download](/get-kali/) Kali Linux there are some steps that are done before you actually begin the download. First you hit [cdimage.kali.org](http://cdimage.kali.org/README.mirrorlist) which is our redirector. This determines where the request is coming from and will send you to one of the best mirrors for your situation. For example, if you are in the US you may get send to Berkley University's mirror. After you are sent to the best mirror your download request is submitted to it, and your download actually begins.
 
 ### Determining which mirror we are at
 
@@ -84,4 +84,4 @@ Now that we know the download speed and the mirror link we can submit a [bug rep
 
 ### Using a different mirror
 
-We can consult back to the [community](/docs/community/kali-linux-mirrors/) mirrors and utilize a different mirror to see if our download speed improves. To do this we simply will copy the mirror link we want to use from the list and then change "README" to be `kali-2022.2/kali-linux-2022.2-installer-amd64.iso` or whichever download link we are using. We can see this in the previous section, right after `kali-images/`.
+We can consult back to the [community](/docs/community/kali-linux-mirrors/) mirrors and manually select a different mirror to see if our download speed improves. To do this we simply will copy the mirror link we want to use from the list and then change "README" to be `kali-2022.2/kali-linux-2022.2-installer-amd64.iso` or whichever download link we are using. We can see this in the previous section, right after `kali-images/`.
