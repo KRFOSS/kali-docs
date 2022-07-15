@@ -180,6 +180,10 @@ IMPORTANT! If you are unable to verify the authenticity of the Kali Linux image 
 
 ##### Verify the ISO Using the SHA256SUMS File
 
+{{% notice info %}}
+If using Powershell on Windows you may receive a fully uppercase result. This can cause an error when comparing the two sums. Send this result through a [converter](https://convertcase.net/) to get a proper result.
+{{% /notice %}}
+
 This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2022.2, as of this writing):
 
 - The ISO image itself (e.g. kali-linux-2022.2-live-amd64.iso)
