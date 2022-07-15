@@ -8,13 +8,27 @@ author: ["gamb1t",]
 
 There are two options when it comes to deploying a Kali Linux Linode instance. We will quickly cover both and then explain how to go about setting up them.
 
+- Kali as a distribution
+    - [Kali as a distribution info](Kali-as-a-distribution)
+    - [Kali as a distribution configuration](Kali-as-a-Distribution-configuration)
+- Kali from the Marketplace
+    - [Kali from the Marketplace info](Kali-from-the-Marketplace)
+    - [Kali from the Marketplace configuration](Kali-from-the-Marketplace-configuration)
+
 ### Kali as a distribution
 
-You can get a bare Kali install, with only [kali-linux-core](/docs/general-use/metapackages/) installed, by creating a Linode instance and selecting Kali as the distribution. This can be useful if there is only a couple tools that are going to be used, and allows finer control over the system. This in turn also helps reduce operating cost!
+This is a bare Kali install, with only [kali-linux-core](/docs/general-use/metapackages/) installed, got by creating a Linode instance and selecting Kali as the distribution. This can be useful if there is only a couple tools that are going to be used, and allows finer control over the system. This in turn also helps reduce operating cost! If you change your mind later and want the normal set of tools, they are always installable with our [metapackages](/docs/general-use/metapackages/). Just run the following:
+
+```console
+kali@kali:~$ sudo apt update && sudo apt install kali-linux-default -y
+...
+
+kali@kali:~$
+```
 
 ### Kali from the Marketplace
 
-The alternative option is to run ["Deploy This App"](https://www.linode.com/marketplace/apps/kali-linux/kali-linux/) from the Linode marketplace. This will create a Linode instance and, depending on the options selected during configuration, will install a Kali Linux instance with certain [metapackages](/docs/general-use/metapackages/) installed. This may take about an hour to complete. This option is good if you may not know ahead of time what may be needed or just want to have the familiar Kali Linux environment.
+The alternative option is to run ["Deploy This App"](https://www.linode.com/marketplace/apps/kali-linux/kali-linux/) from the Linode marketplace. This will create a Linode instance and, depending on the options selected during configuration, will install a Kali Linux instance with certain [metapackages](/docs/general-use/metapackages/) installed. Keep in mind this may take some time before Linode's scripts run and installs everything. This option is good if you may not know ahead of time what may be needed or just want to have the familiar Kali Linux environment.
 
 Keep in mind that both these options are free to create, with the only cost being the standard running cost of the instance. Now lets set up these systems.
 
