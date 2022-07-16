@@ -11,55 +11,65 @@ There are two options when it comes to deploying a Kali Linux Linode instance. W
 - [Kali as a Distribution](#kali-as-a-distribution)
 - [Kali from the Marketplace](#kali-from-the-marketplace)
 
-### Kali as a distribution
+Keep in mind that both these options are free to create, with the only cost being the standard running cost of the instance. Now lets set up these systems!
 
-This is a bare Kali install, with only [kali-linux-core](/docs/general-use/metapackages/) installed, got by creating a Linode instance and selecting Kali as the distribution. This can be useful if there is only a couple tools that are going to be used, and allows finer control over the system. This in turn also helps reduce operating cost! If you change your mind later and want the normal set of tools, they are always installable with our [metapackages](/docs/general-use/metapackages/). Just run the following:
+![Create](linode-1.png)
+
+## Kali as a Distribution
+
+By creating a Linode instance and selecting Kali as the distribution, this will create a [bare-bones Kali](/docs/installation/barebone-kali/) install, with only [kali-linux-core](/docs/general-use/metapackages/) installed. This can be useful if there is only a selected amount of tools that are going to be used, so this allows finer control over the system. Plus this in turn also helps reduce operating cost!
+
+### Kali as a Distribution Configuration
+
+We want to first select Kali Linux in the drop down for "Image":
+
+![Drop-down](distribution-02.png)
+
+From there we customize based off of personal preference. Here is an example configuration:
+
+![Hardware](linode-2.png)
+
+One very important field is "Root Password". What we set here will determine the password we use during SSH _(unless you also select a public key)_. Once ready we can select "Create Linode" again and then wait for provisioning to complete.
+
+![Configuration](linode-3.png)
+
+Once complete we can use the SSH Access command to connect to our instance:
+
+![running](linode-4.png)
+
+- - -
+
+### Kali Default Tools In Linode
+
+If you change your mind later and want the traditional set of tools which you commonly find with the desktop version of Kali Linux, they are always installable with our [metapackages](/docs/general-use/metapackages/). You just need to run the following:
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install kali-linux-default -y
-...
-
+[...]
 kali@kali:~$
 ```
 
-### Kali from the Marketplace
+## Kali from the Marketplace
 
 The alternative option is to run ["Deploy This App"](https://www.linode.com/marketplace/apps/kali-linux/kali-linux/) from the Linode marketplace. This will create a Linode instance and, depending on the options selected during configuration, will install a Kali Linux instance with certain [metapackages](/docs/general-use/metapackages/) installed. Keep in mind this may take some time before Linode's scripts run and installs everything. This option is good if you may not know ahead of time what may be needed or just want to have the familiar Kali Linux environment.
 
-Keep in mind that both these options are free to create, with the only cost being the standard running cost of the instance. Now lets set up these systems.
+### Kali from the Marketplace Configuration
 
-For both instances we start off with the same view:
+When selecting "Create Linode" we will want to select "Marketplace" at the top of the webpage. From here, we can see Kali Linux listed as the third option (at the time of writing):
 
-![](linode-1.png)
+![Marketplace](linode-5.png)
 
-After selecting "Create Linode" we are met with the choice of either creating a bare Kali install or using the marketplace. Lets first create a bare Kali install.
+After selecting Kali Linux we will scroll down and notice some configuration options specific to Kali:
 
-### Kali as a Distribution configuration
+![Settings](linode-6.png)
 
-We want to first select Kali Linux in the drop down for "Image." From there we customize based off of personal preference. Here is an example configuration:
+As mentioned previously, these will determine what [metapackages](/docs/general-use/metapackages/) are installed as well as will setup VNC access automatically. These options should be configured according to your needs to prevent too many resources being taken up:
 
-![](linode-2.png)
+![Hardware](linode-7.png)
 
-![](linode-3.png)
+From here we will have standard Linode configuration settings:
 
-One very important field is "Root Password." What we set here will determine the password we use during SSH. If we forget this password we will lose access to this instance and have to re-create it. Once ready we can select "Create Linode" again and then wait for provisioning to complete. Once complete we can use the SSH Access command to connect to our instance.
+![Configuration](linode-8.png)
 
-![](linode-4.png)
-
-### Kali from the Marketplace configuration
-
-After selecting "Create Linode" we will want to select "Marketplace" at the top of the webpage. From here, we can see Kali Linux listed as the third option.
-
-![](linode-5.png)
-
-After selecting Kali Linux we will scroll down and notice some configuration options specific to Kali.
-
-![](linode-6.png)
-
-As mentioned previously, these will determine what [metapackages](/docs/general-use/metapackages/) are installed as well as will setup VNC access automatically. These options should be configured according to our needs to prevent too many resources being taken up. From here we will have standard Linode configuration settings.
-
-![](linode-7.png)
-
-![](linode-8.png)
-
-After configuring these settings we can select "Create Linode" and wait for provisioning to complete. Once complete we can use the SSH Access command to connect to our instance. Be sure to wait about an hour or so before use to allow Linode to automatically configure the system as we selected it.
+Lastly, select "Create Linode" and wait for provisioning to complete.
+As stated before, please allow some time for Linode's scripts to run. When they have, you will be able to use the SSH Access command to connect to our instance.
