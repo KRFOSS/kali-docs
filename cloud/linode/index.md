@@ -8,12 +8,8 @@ author: ["gamb1t",]
 
 There are two options when it comes to deploying a Kali Linux Linode instance. We will quickly cover both and then explain how to go about setting up them.
 
-- Kali as a distribution
-    - [Kali as a distribution info](Kali-as-a-distribution)
-    - [Kali as a distribution configuration](Kali-as-a-Distribution-configuration)
-- Kali from the Marketplace
-    - [Kali from the Marketplace info](Kali-from-the-Marketplace)
-    - [Kali from the Marketplace configuration](Kali-from-the-Marketplace-configuration)
+- [Kali as a Distribution](#kali-as-a-distribution)
+- [Kali from the Marketplace](#kali-from-the-marketplace)
 
 ### Kali as a distribution
 
