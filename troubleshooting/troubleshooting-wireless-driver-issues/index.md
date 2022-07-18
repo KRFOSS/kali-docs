@@ -22,7 +22,7 @@ Carefully read carefully ANY error message as they will VERY OFTEN tell you what
 - Is the device plugged in?
 - Does it show up on **lsusb** or **lspci** (with the exception of phones)? You might want to update pci ids and usb ids
 - Does **dmesg** contain any information about the driver loading and/or failing
-- Is Kali a VM? Then, unless your card is USB, it will not be useable (VMWare/VirtualBox/QEMU will virtualize EVERY PCI device). Is it attached to the VM?
+- Is Kali a VM? Then, unless your card is USB, it will not be useable (VMware/VirtualBox/QEMU will virtualize EVERY PCI device). Is it attached to the VM?
 - If there is nothing in **dmesg** and it's not in a VM, then you might want to try the latest _compat-wireless_ (and sometimes, you'll need firmware) -> check on Linux-Wireless drivers
 
 ### 2. Interface But Can't Do Anything

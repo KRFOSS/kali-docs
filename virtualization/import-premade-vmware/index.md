@@ -1,14 +1,14 @@
 ---
-title: Import Pre-Made Kali VMWare VM
+title: Import Pre-Made Kali VMware VM
 description:
 icon:
 weight: 206
 author: ["gamb1t",]
 ---
 
-Importing the [Kali VMWare image](/get-kali/#kali-virtual-machines) is very easy.
+Importing the [Kali VMware image](/get-kali/#kali-virtual-machines) is very easy.
 
-We first need to extract the VMWare image:
+We first need to extract the VMware image:
 
 ```console
 kali@kali:~$ 7z x kali-linux-2022.2-vmware-amd64.7z
@@ -18,7 +18,7 @@ kali@kali:~$
 
 If we are using Windows we can instead use the [official 7z app](https://www.7-zip.org/).
 
-We then launch VMWare:
+We then launch VMware:
 
 ![](import-vmware-1.png)
 

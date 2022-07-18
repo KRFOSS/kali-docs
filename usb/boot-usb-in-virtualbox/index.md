@@ -1,5 +1,5 @@
 ---
-title: USB Boot in Virtualbox
+title: USB Boot in VirtualBox
 description:
 icon:
 weight: 205

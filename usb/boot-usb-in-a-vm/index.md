@@ -1,5 +1,5 @@
 ---
-title: USB Boot in VMWare
+title: USB Boot in VMware
 description:
 icon:
 weight: 200

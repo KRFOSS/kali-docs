@@ -10,7 +10,7 @@ Vagrant is, according to their [website](https://www.vagrantup.com/), "a tool fo
 
 #### System Setup
 
-In order to properly use Vagrant we need two things. Vagrant itself, and a supported hyper-visor. The Kali Vagrant file supports two, VirtualBox and VMWare.
+In order to properly use Vagrant we need two things. Vagrant itself, and a supported hyper-visor. The Kali Vagrant file supports two, VirtualBox and VMware.
 
 We first will download [Vagrant](https://www.vagrantup.com/downloads).
 

@@ -16,7 +16,7 @@ In order to convert from VMware's VMX to a OVA file, we will use [ovftool](https
 
 - - -
 
-We will be using the [official Kali Linux VMWare image](/get-kali/#kali-virtual-machines) to convert. To start with unzip it to get access to the vmx within.
+We will be using the [official Kali Linux VMware image](/get-kali/#kali-virtual-machines) to convert. To start with unzip it to get access to the vmx within.
 
 ```console
 kali@kali:~$ 7z x kali-linux-2022.2-vmware-amd64.7z
