@@ -2,7 +2,7 @@
 title: Import Pre-Made Kali VirtualBox VM (weekly)
 description:
 icon:
-weight: 206
+weight: 212
 author: ["gamb1t",]
 ---
 
