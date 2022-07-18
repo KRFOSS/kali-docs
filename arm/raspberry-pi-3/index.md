@@ -78,12 +78,18 @@ kali@kali:~$ sudo systemctl enable --now hciuart.service
 kali@kali:~$ sudo systemctl enable --now bluetooth.service
 ```
 
-If you are on the 5.10 kernel, you can use mt76 chipset USB Wi-Fi devices, but they require creating a configuration file in `/etc/modprobe.d` with the following contents:
+If you are on the 5.10 or higher kernel, you can use mt76 chipset USB Wi-Fi devices, but they require creating a configuration file in `/etc/modprobe.d` with the following contents:
 
 ```plaintext
 # Load mt76usb without using scatter-gather which doesn't work on the RPi2 or RPi3 USB chipset
 options mt76-usb disabe_usb_sg=1
 ```
+
+## Kali on Raspberry Pi 3 Headless - Tips and Tricks
+
+You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
+
+You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`.  It will prompt you for the wireless network's password.  You can add the password to the command as you run it, but keep in mind that if you do, your wifi network password will be in your user's shell history.
 
 ## Kali on Raspberry Pi 3 - Image Customization
 
