@@ -3,7 +3,7 @@ title: Import Pre-Made Kali VirtualBox VM (weekly)
 description:
 icon:
 weight: 212
-author: ["gamb1t",]
+author: ["gamb1t", "arnaudr"]
 ---
 
 Importing the [Kali VirtualBox weekly image](/get-kali/#kali-virtual-machines) is very easy.
