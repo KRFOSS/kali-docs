@@ -88,8 +88,8 @@ Linux (maskrom mode):
 
 We will need to download a few files from Radxa's website as well as install the Amlogic boot tool in order to write to the eMMC with the Radxa Zero in maskrom mode.
 
-[radxa-zero-erase-emmc.bin](https://dl.radxa.com/zero/images/loader/radxa-zero-erase-emmc.bin) - automatically erases the eMMC, then presents the eMMC as a USB storage device.
-[rz-udisk-loader.bin](https://dl.radxa.com/zero/images/loader/rz-udisk-loader.bin) - expose the eMMC device as a USB Mass Storage device.
+ - [radxa-zero-erase-emmc.bin](https://dl.radxa.com/zero/images/loader/radxa-zero-erase-emmc.bin) - automatically erases the eMMC, then presents the eMMC as a USB storage device.
+ - [rz-udisk-loader.bin](https://dl.radxa.com/zero/images/loader/rz-udisk-loader.bin) - expose the eMMC device as a USB Mass Storage device.
 
 1. sudo apt update
 2. sudo apt install python3-pip
