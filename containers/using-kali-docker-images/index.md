@@ -9,7 +9,7 @@ author: ["gamb1t",]
 To use the [Kali Linux Docker image](/docs/containers/official-kalilinux-docker-images/), we will do the following commands:
 
 ```console
-kali@kali:~$ docker pull kalilinux/kali-rolling
+kali@kali:~$ docker pull docker.io/kalilinux/kali-rolling
 kali@kali:~$
 kali@kali:~$ docker run --tty --interactive kalilinux/kali-rolling /bin/bash
 ┌──(root㉿e4ae79503654)-[/]
