@@ -26,10 +26,10 @@ kali@kali:~$
 kali@kali:~$ podman pull kalilinux/kali-rolling
 kali@kali:~$
 kali@kali:~$ podman run --tty --interactive kalilinux/kali-rolling /bin/bash
-┌──(root㉿e4ae79503654)-[/]
+┌──(root㉿7df5f0dbe6b7)-[/]
 └─#
 
-┌──(root㉿e4ae79503654)-[/]
+┌──(root㉿7df5f0dbe6b7)-[/]
 └─# exit
 kali@kali:~$
 ```
@@ -54,7 +54,7 @@ After you execute the following command you will attach to the Podman container,
 ```console
 kali@kali:~$ podman attach 7df5f0dbe6b7
 
-┌──(root㉿d36922fa21e8)-[/]
+┌──(root㉿7df5f0dbe6b7)-[/]
 └─#
 ```
 
