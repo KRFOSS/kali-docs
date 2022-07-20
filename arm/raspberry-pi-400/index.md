@@ -81,6 +81,12 @@ kali@kali:~$ sudo systemctl enable --now bluetooth.service
 
 The wireless chip on the Raspberry Pi 400 is **NOT** supported by [nexmon](https://github.com/seemoo-lab/nexmon), so if you are planning on doing wireless attacks or research, you will need to use an external wireless device.
 
+# Kali on Raspberry Pi400 Headless - Tips and Tricks
+
+You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
+
+You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`.  It will prompt you for the wireless network's password.  You can add the password to the command as you run it, but keep in mind that if you do, your wifi network password will be in your user's shell history.
+
 ## Kali on Raspberry Pi400 - Image Customization
 
 If you want to customize the Kali Raspberry Pi400 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `raspberry-pi.sh` (32-bit) or `raspberry-pi-64-bit.sh` (64-bit).

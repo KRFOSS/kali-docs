@@ -84,6 +84,12 @@ By default, audio is routed via HDMI, so you won't hear audio via the 3.5mm audi
 kali@kali:~$ $ sudo amixer -c 0 set numid=3 1
 ```
 
+# Kali on Raspberry Pi 4 Headless - Tips and Tricks
+
+You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
+
+You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`.  It will prompt you for the wireless network's password.  You can add the password to the command as you run it, but keep in mind that if you do, your wifi network password will be in your user's shell history.
+
 ## Kali on the Raspberry Pi 4 - Examples
 
 We love seeing users come up with their own images and sharing them.

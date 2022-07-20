@@ -60,6 +60,12 @@ Once the _dd_ operation is complete, boot up the Raspberry Pi Zero 2 W with the 
 
 You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
+# Kali on Raspberry Pi Zero 2 W Headless - Tips and Tricks
+
+You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
+
+You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`.  It will prompt you for the wireless network's password.  You can add the password to the command as you run it, but keep in mind that if you do, your wifi network password will be in your user's shell history.
+
 ## Kali on Raspberry Pi Zero 2 W - Image Customization
 
 If you want to customize the Kali Raspberry Pi Zero 2 W image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `raspberry-pi-zero-2-w.sh`.
