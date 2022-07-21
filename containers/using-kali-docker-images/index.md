@@ -11,7 +11,7 @@ To use the [Kali Linux Docker image](/docs/containers/official-kalilinux-docker-
 ```console
 kali@kali:~$ docker pull docker.io/kalilinux/kali-rolling
 kali@kali:~$
-kali@kali:~$ docker run --tty --interactive kalilinux/kali-rolling /bin/bash
+kali@kali:~$ docker run --tty --interactive kalilinux/kali-rolling
 ┌──(root㉿e4ae79503654)-[/]
 └─#
 
@@ -45,3 +45,11 @@ kali@kali:~$ docker attach d36922fa21e8
 ```
 
 This will resume the container in whatever state you left it after running the initial `docker run` command or the last `docker start` and `docker attach` sequence.
+
+Finally, if you're done with the container you can remove it with the following command:
+
+```console
+kali@kali:~$ docker rm d36922fa21e8
+d36922fa21e8
+kali@kali:~$
+```

@@ -19,7 +19,7 @@ To use the Kali Linux Podman image, we will do the following commands:
 ```console
 kali@kali:~$ podman pull kali-rolling
 kali@kali:~$
-kali@kali:~$ podman run --tty --interactive kali-rolling /bin/bash
+kali@kali:~$ podman run --tty --interactive kali-rolling
 ┌──(root㉿7df5f0dbe6b7)-[/]
 └─#
 
@@ -53,3 +53,11 @@ kali@kali:~$ podman attach 7df5f0dbe6b7
 ```
 
 This will resume the container in whatever state you left it after running the initial `podman run` command or the last `podman start` and `podman attach` sequence.
+
+Finally, if you're done with the container you can remove it with the following command:
+
+```console
+kali@kali:~$ podman rm 7df5f0dbe6b7
+7df5f0dbe6b7
+kali@kali:~$
+```
