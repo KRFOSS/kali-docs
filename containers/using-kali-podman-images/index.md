@@ -6,26 +6,20 @@ weight:
 author: ["gamb1t",]
 ---
 
+Podman has very nice documentation on [how to install it](https://podman.io/getting-started/installation) on various systems. We recommend to follow the official documentation, however for a Debian-based system it is a very simple command.
+
+```
+kali@kali:~$ sudo apt update && sudo apt install -y podman
+...
+kali@kali:~$
+```
+
 To use the Kali Linux Podman image, we will do the following commands:
 
 ```console
-kali@kali:~$ echo "unqualified-search-registries = ['registry.fedoraproject.org', 'registry.access.redhat.com', 'registry.centos.org', 'docker.io']" | sudo tee -i /etc/containers/registries.conf
+kali@kali:~$ podman pull kali-rolling
 kali@kali:~$
-kali@kali:~$ tail /etc/containers/registries.conf
-# [[registry.mirror]]
-# location = "example-mirror-1.local/mirrors/foo"
-# insecure = true
-# # Given the above, a pull of example.com/foo/image:latest will try:
-# # 1. example-mirror-0.local/mirror-for-foo/image:latest
-# # 2. example-mirror-1.local/mirrors/foo/image:latest
-# # 3. internal-registry-for-example.net/bar/image:latest
-# # in order, and use the first one that exists.
-
-unqualified-search-registries = ['registry.fedoraproject.org', 'registry.access.redhat.com', 'registry.centos.org', 'docker.io']
-kali@kali:~$
-kali@kali:~$ podman pull kalilinux/kali-rolling
-kali@kali:~$
-kali@kali:~$ podman run --tty --interactive kalilinux/kali-rolling /bin/bash
+kali@kali:~$ podman run --tty --interactive kali-rolling /bin/bash
 ┌──(root㉿7df5f0dbe6b7)-[/]
 └─#
 
