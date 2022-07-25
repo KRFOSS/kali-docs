@@ -77,7 +77,7 @@ ssh:
    -`root` / `toor`
    -`kali` / `kali`
   
-Default Wi-Fi password: 
+Wi-Fi: 
    -`MaMe82-P4wnP1`
 
 You can find more info at the project's [README](https://github.com/RoganDawes/P4wnP1_aloa/blob/master/README.md) on Github.  
