@@ -70,16 +70,15 @@ The `root` user has the default password of `toor`.
 
 ## How it works:
 
-
-
 You can configure the P4wnP1 A.L.O.A via CLI or webclient.  The CLI is written in Go, so it is able to be run anywhere that Go supports.  You can compile the CLI from the git sources at https://github.com/RoganDawes/P4wnP1_aloa
 
 Passwords:  
 ssh: 
-      `root` / `toor`
-      `kali` / `kali`
+   -`root` / `toor`
+   -`kali` / `kali`
   
-Default Wi-Fi password: `MaMe82-P4wnP1`
+Default Wi-Fi password: 
+   -`MaMe82-P4wnP1`
 
 You can find more info at the project's [README](https://github.com/RoganDawes/P4wnP1_aloa/blob/master/README.md) on Github.  
 
