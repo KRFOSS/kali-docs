@@ -74,8 +74,9 @@ You can configure the P4wnP1 A.L.O.A via CLI or webclient.  The CLI is written i
 
 Passwords:  
 ssh: 
-   -`root` / `toor`
-   -`kali` / `kali`
+   - `root` / `toor`
+
+   - `kali` / `kali`
   
 Wi-Fi: 
    -`MaMe82-P4wnP1`
