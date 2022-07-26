@@ -6,30 +6,38 @@ weight: 50
 author: ["g0tmi1k",]
 ---
 
-Do not attempt this in a VM. It is [possible in theory](https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/), however this likely will not work and we do not recommend that users attempt this.
+This document explains how to install NVIDIA GPU drivers and CUDA support, allowing integration with popular penetration testing tools. We will **not** be using **nouveau**, being the open-source driver for NVIDIA, instead we will installing the close-source from NVIDIA.
 
-This document explains how to install NVIDIA GPU drivers and CUDA support, allowing integration with popular penetration testing tools.
+This will cover a **[dedicated card (desktops users)](#dedicated)** and **[optimus (laptops and notebook users)](#optimus)**.
 
-**This guide is also for a dedicated card (desktops users) and Optimus (notebook users).
+We recommend that you do **not** attempt this in a Virtual Machine. It is [possible](https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/), however its not straight forward, and should only be done if you have a deep understanding of Linux. It is not covered in this guide, as there are too many items to cover for everyone's environment and setup.
 
 ## Prerequisites
 
-First, you'll need to ensure that your card supports [CUDA](https://developer.nvidia.com/cuda-gpus).
+First, you'll need to ensure that your NVIDIA card supports [CUDA](https://developer.nvidia.com/cuda-gpus).
 
 {{% notice info %}}
 GPUs with a <a href="https://developer.nvidia.com/cuda-gpus">CUDA compute capability</a> > 5.0 are recommended, but GPUs with less will still work.
 {{% /notice %}}
 
-Afterwards, make sure you have [`contrib` & `non-free` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is [fully up-to-date](/docs/general-use/updating-kali/).
+- - -
+
+Afterwards, make sure you have [`contrib` & `non-free` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is [fully up-to-date](/docs/general-use/updating-kali/):
 
 ```console
+kali@kali:~$ grep "contrib non-free" /etc/apt/sources.list
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+kali@kali:~$
 kali@kali:~$ sudo apt update
+[...]
 kali@kali:~$
 kali@kali:~$ sudo apt -y full-upgrade -y
+[...]
 kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
-kali@kali:~$
 ```
+
+## Dedicated cards
 
 Let's determine the exact GPU installed, and check the kernel modules it's using:
 
@@ -52,14 +60,24 @@ kali@kali:~$ lspci -s 07:00.0 -v
 
 kali@kali:~$
 ```
-For optimus (or laptops or notebooks):
+
+## Optimus cards
+
+For optimus (laptops and notebooks), you will not see NVIDIA for the primary card. You may also not even see NVIDIA listed at all. You can see what the primary card is by doing:
+
 ```console
 kali@kali:~$ lspci | grep -i vga
 00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
+kali@kali:~$
 ```
-Well for primary it's always gonna give this same result, so don't worry and even upon using `lspci` maybe you don't see nvidia.
-So for nvidia, we need to install nvidia-detect using `sudo apt install nvidia-detect` and run it...
+
+- - -
+
+To detect the NVIDIA card, we need to install `nvidia-detect`:
+
 ```console
+kali@kali:~$ sudo apt install -y nvidia-detect
+[...]
 kali@kali:~$ nvidia-detect
 Detected NVIDIA GPUs:
 01:00.0 3D controller [0302]: NVIDIA Corporation GM108M [GeForce 940MX] [10de:134d] (rev a2)
@@ -67,6 +85,7 @@ Detected NVIDIA GPUs:
 Checking card:  NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
 Uh oh. Failed to identify your Debian suite.
 
+kali@kali:~$
 kali@kali:~$ lspci -s 01:00.0 -v
 01:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
         Subsystem: Lenovo GM108M [GeForce 940MX]
@@ -78,20 +97,18 @@ kali@kali:~$ lspci -s 01:00.0 -v
         Capabilities: <access denied>
         Kernel driver in use: nouveau
         Kernel modules: nouveau
+kali@kali:~$
 ```
-That's your nvidia card. and rest are same for both.
-
-Notice how `Kernel driver in use` & `Kernel modules` are using **nouveau**? This is the open source driver for nVidia. This guide covers installing the close source, from NVIDIA.
 
 {{% notice info %}}
-There is a package called `nvidia-detect` which will fail to detect the driver due to Kali being a [rolling distribution](/docs/general-use/kali-branches/) and requires a stable release.
+They `nvidia-detect` package may fail in places due to Kali being a [rolling distribution](/docs/general-use/kali-branches/) as it requires a stable release.
 {{% /notice %}}
 
 ## Installation
 
-Once the system has rebooted from doing an OS upgrade, we will proceed to install the **Drivers**, and the **CUDA toolkit** _(allowing for tool to take advantage of the GPU)_.
+Notice how `Kernel driver in use` & `Kernel modules` from `lspci` are using **nouveau**, signalling the open-source driver for NVIDIA cards. We are now going to switch to the close-source **drivers**, and the **CUDA toolkit** _(allowing for tool to take advantage of the GPU)_.
 
-During installation of the drivers the system created new kernel modules, so a reboot is required:
+During installation of the drivers the system created new kernel modules, so its best for to-do a reboot:
 
 ```console
 kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
@@ -113,16 +130,16 @@ kali@kali:~$ sudo reboot -f
 kali@kali:~$
 ```
 
-## DPI/PPI
+## Dots Per Inch (DPI) & Pixels Per Unch PPI
 
-Upon Kali starting back up, certain things may appear different than what is expected.
+Upon Kali starting back up, certain things may appear different than what is expected:
 
-- If certain things are **smaller**, this could because of [HiDPI](/docs/general-use/hidpi/).
-- However, if certain things are **larger**, this could because the [DPI](/docs/general-use/fixing-dpi/) is incorrect.
+- If certain things are **smaller**, this could because of [HiDPI](/docs/general-use/hidpi/)
+- However, if certain things are **larger**, this could because the [DPI](/docs/general-use/fixing-dpi/) is incorrect
 
 ## Verify Driver Installation
 
-Now that our system should be ready to go, we need to verify the drivers have been loaded correctly. We can quickly verify this by running the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) tool.
+Now that our system should be ready to go, we need to verify the drivers have been loaded correctly. We can quickly verify this by running the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) tool and `lspci` once again:
 
 ```console
 kali@kali:~$ nvidia-smi
@@ -156,11 +173,11 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 
-You can see our hardware has been detected we are using **nvidia** rather than **nouveau** drive now.
+You can see our hardware has been detected we are using **nvidia** rather than **nouveau** drive now!
 
 ## Hashcat
 
-With the output displaying our driver and GPU correctly, we can now dive into benchmarking (using the CUDA toolkit). Before we get too far ahead, let's double check to make sure [hashcat](/tools/hashcat/) and CUDA are working together.
+With the output displaying our driver and GPU correctly, we can now dive into benchmarking (using the CUDA toolkit). Before we get too far ahead, let's double check to make sure [hashcat](/tools/hashcat/) and CUDA are working together:
 
 ```console
 kali@kali:~$ sudo apt install -y hashcat
@@ -250,7 +267,7 @@ There are a multitude of configurations to improve cracking speed, not mentioned
 
 ## Troubleshooting
 
-In the event setup isn't going as planned, we'll install [clinfo](https://packages.debian.org/testing/clinfo) for detailed troubleshooting information.
+In the event setup isn't going as planned, we'll install [clinfo](https://packages.debian.org/testing/clinfo) for detailed troubleshooting information:
 
 ```console
 kali@kali:~$ sudo apt install -y clinfo
@@ -274,7 +291,7 @@ kali@kali:~$
 
 #### OpenCL Loaders
 
-It may be necessary to check for additional packages that may be conflicting with our setup. Let's first check to see what **OpenCL Loader** we have installed. The NVIDIA OpenCL Loader and the generic OpenCL Loader will both work for our system.
+It may be necessary to check for additional packages that may be conflicting with our setup. Let's first check to see what **OpenCL Loader** we have installed. The NVIDIA OpenCL Loader and the generic OpenCL Loader will both work for our system:
 
 ```console
 kali@kali:~$ dpkg -l |  grep -i icd
@@ -296,7 +313,7 @@ kali@kali:~$ sudo apt remove mesa-opencl-icd
 kali@kali:~$
 ```
 
-Since we have determined that we have a compatible ICD loader installed, we can easily determine which loader is currently being used.
+Since we have determined that we have a compatible ICD loader installed, we can easily determine which loader is currently being used:
 
 ```console
 kali@kali:~$ clinfo | grep -i "icd loader"
@@ -312,7 +329,7 @@ As expected, our setup is using the open source loader that was installed earlie
 
 #### Querying GPU Information
 
-We'll use [nvidia-smi](https://packages.debian.org/testing/nvidia-smi) once again, but with a much more verbose output.
+We'll use [nvidia-smi](https://packages.debian.org/testing/nvidia-smi) once again, but with a much more verbose output:
 
 ```console
 kali@kali:~$ nvidia-smi -i 0 -q
@@ -356,7 +373,7 @@ GPU 00000000:07:00.0
 kali@kali:~$
 ```
 
-It looks like our GPU is being recognized correctly, so let's use [glxinfo](https://dri.freedesktop.org/wiki/glxinfo/) to determine if 3D Rendering is enabled.
+It looks like our GPU is being recognized correctly, so let's use [glxinfo](https://dri.freedesktop.org/wiki/glxinfo/) to determine if 3D Rendering is enabled:
 
 ```console
 kali@kali:~$ sudo apt install -y mesa-utils
