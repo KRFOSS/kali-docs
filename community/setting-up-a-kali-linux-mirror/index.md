@@ -118,7 +118,11 @@ $ chmod 0644 ~/.ssh/authorized_keys
 
 If you have not unpacked the ftpsync.tar.gz in the home directory, then you must adjust accordingly the `~/bin/ftpsync` path, which is hard-coded in `.ssh/authorized_keys`.
 
+## Making it Public - Getting in Contact
+
 Now you must send an email to [devel@kali.org](mailto:devel@kali.org) with all the details concerning your mirrors (including user/port to use for SSH push access, public hostname, etc.) so that you can be added in the main mirror list and so that we can open up your rsync access on archive.kali.org. Please indicate clearly who should be contacted in case of problems (or if changes must be made/coordinated to the mirror setup).
+
+#### Initial Sync
 
 Instead of waiting for the first push from archive.kali.org, you should run an initial rsync with a mirror close to you, using the mirror list linked above to select one. Assuming that you picked ftp.halifax.rwth-aachen.de, here's what you can run as your dedicated mirror user:
 
