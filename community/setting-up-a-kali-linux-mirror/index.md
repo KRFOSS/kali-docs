@@ -15,7 +15,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
 ### Requirements
 
 <!--
-  # Prevriously/historic values 
+  # Previously/historic values
   ## Kali
   - 2022.1, the main package repository is about 1.3 TB
   - 2021.3, the main package repository is about 1.1 TB
