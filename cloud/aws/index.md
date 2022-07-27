@@ -24,9 +24,9 @@ kali@kali:~$ sudo apt update && sudo apt install -y kali-linux-headless
 
 If someone would like to use a GUI, they can do this through SSH forwarding. We have two options, the first is to use `ssh -X` to forward X11 and use GUI applications one at a time, or we can use RDP and forward the traffic over SSH. To set up RDP, we will run the [RDP with Xfce](/docs/general-use/xfce-with-rdp/) script used for WSL. After this, we can tunnel with `ssh -N -L 3390:127.0.0.1:3390` and connect using any remote desktop client to `127.0.0.1:3390`.
 
-### Nvidia drivers
+### NVIDIA drivers
 
-Another common utility is to use GPUs for cracking. This can be done as well through the AWS instance, however we must be careful to install the Nvidia packages after everything is [up-to-date](/docs/general-use/updating-kali/) and the proper Linux headers are installed:
+Another common utility is to use GPUs for cracking. This can be done as well through the AWS instance, however we must be careful to install the NVIDIA packages after everything is [up-to-date](/docs/general-use/updating-kali/) and the proper Linux headers are installed:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -36,9 +36,16 @@ kali@kali:~$
 kali@kali:~$ sudo apt install -y linux-headers-5.7.0-kali3-cloud-amd64
 kali@kali:~$
 kali@kali:~$ sudo reboot -f
-kali@kali:~$
+```
+
+Reconnect to the session.
+
+```
 kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
 kali@kali:~$
 kali@kali:~$ sudo reboot -f
-kali@kali:~$
 ```
+
+Reconnect again.
+
+For more information on [NVIDIA drivers, check here](https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/).
