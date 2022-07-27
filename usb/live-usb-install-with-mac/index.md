@@ -54,11 +54,17 @@ $ diskutil unmountDisk /dev/disk6
 5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2022.2-live-amd64.iso". We will replace /dev/disk6 with /dev/rdisk6 to improve the write speeds:
 
 ```console
-$ sudo dd if=kali-linux-2022.2-live-amd64.iso of=/dev/rdisk6 bs=4m
+$ sudo dd if=kali-linux-2022.2-live-amd64.iso of=/dev/rdisk6 bs=4M
 ```
 
 {{% notice info %}}
-Increasing the blocksize (bs) will speed up the write progress, but will also increase the chances of creating a bad USB drive. Using the given value on macOS/OS X has produced reliable images consistently.
+There is a chance you may receive an error when running the above command, that you will receive the following error:
+
+```plaintext
+dd: invalid number: '4M'
+```
+
+If this is the case, please change the `4M` to be `4m`. Additionally, increasing the blocksize (bs) will speed up the write progress, but will also increase the chances of creating a bad USB drive. Using the given value on macOS/OS X has produced reliable images consistently.
 {{% /notice %}}
 
 Imaging the USB drive can take a good amount of time, over half an hour is not unusual, as the sample output below shows. Be patient!
