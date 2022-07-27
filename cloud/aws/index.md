@@ -17,7 +17,7 @@ After configuring the official Kali Linux image you can connect to the instance 
 After connection a user may realize that the image is quite sparse. This is to allow for customization and reduced image size. To get the default Kali tool set we can utilize [Kali's metapackages](/docs/general-use/metapackages/). Alternatively, we can install specific tools as they are needed. The following command will utilize the `kali-linux-headless` metapackage and get us a nice and quick setup:
 
 ```console
-kali@kali:~$ apt update && apt install -y kali-linux-headless
+kali@kali:~$ sudo apt update && sudo apt install -y kali-linux-headless
 ```
 
 ### Graphical User Interface (GUI)
