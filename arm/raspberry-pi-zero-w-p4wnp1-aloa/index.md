@@ -24,15 +24,15 @@ kernel: custom
 
 # P4wnP1 A.L.O.A
 
+{{% notice info %}}
+The P4wnP1 A.L.O.A. image only supports the RaspberryPi Zero W,  due to the [Nexmon firmware fork](https://github.com/rogandawes/nexmon_wifi_covert_channel) and associated [kernel patches](https://github.com/re4son/re4son-raspberrypi-linux/tree/rpi-4.14.80-re4son-p4wnp1) to make it work. 
+{{% /notice %}}
+
 ## Introduction
 
 The RaspberryPi Zero W P4wnP1 A.L.O.A. (A Little Offensive Application) image is a highly customized version of Kali Linux.  It is the successor to the [P4wnP1](https://p4wnp1.readthedocs.io/en/latest/) project.  The original P4wnP1 was written in bash scripts, and P4wnP1 A.L.O.A. is its continuation, rewritten in Go, although you can still use bash scripts with it as well.  It allows you to connect the RaspberryPi to a computer, and send commands, or use its networking, all without having to interact with it, athough you can do that too!
 
 The P4wnP1 A.L.O.A software includes a number of features that the original P4wnP1 had such as Plug & Play USB device emulation, and WiFi via a modified copy of the Nexmon firmware which allows for KARMA attacks, WiFi covert channel, and while monitor mode is included, it is **NOT** supported, but also adds HIDScript which is similar to [DuckyScript](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript) for payloads but based on JavaScript, and Bluetooth support.
-
-{{% notice info %}}
-Currently the P4wnP1 A.L.O.A. image only supports the RaspberryPi Zero W.  While there is now [Nexmon](https://github.com/seemoo-lab/nexmon) firmware for the Raspberry Pi Zero 2 W, that firmware does not include the WiFi covert channel support.
-{{% /notice %}}
 
 - - -
 
