@@ -14,6 +14,10 @@ kali@kali:~$ sudo apt update && sudo apt install -y podman
 kali@kali:~$
 ```
 
+{{% notice info %}}
+The Kali images are in the [containers shortnames list](https://github.com/containers/shortnames). This allows the functionality of only calling `kali-rolling`, rather than using the full image name `docker.io/kalilinux/kali-rolling`. This works if the host system provides an up-to-date shortnames list in `/etc/containers/registries.conf.d/shortnames.conf`. As we are using Kali Linux, which does, we can utilize this functionality.
+{{% /notice %}}
+
 To use the Kali Linux Podman image, we will do the following commands:
 
 ```console
