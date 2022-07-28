@@ -105,7 +105,7 @@ kali@kali:~$
 
 **Please remember to change "First Last <email@domain.com>" to be your name and email**.
 
-The next step is to add the SSH key to your GitLab account. This can be done in the [keys section](https://gitlab.com/profile/keys). Run the commands below to put the key in the copy-paste buffer and paste it on GitLab's web page.
+The next step is to add the SSH key to your GitLab account. This can be done in the [keys section](https://gitlab.com/-/profile/keys). Run the commands below to put the key in the copy-paste buffer and paste it on GitLab's web page.
 
 ```console
 kali@kali:~$ sudo apt install -y xclip
