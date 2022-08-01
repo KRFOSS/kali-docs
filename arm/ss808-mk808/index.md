@@ -32,7 +32,7 @@ If you're unfamiliar with the details of [downloading and validating a Kali Linu
 If all you want to do is to install Kali on your SS808, follow instructions below:
 
 1. Get a fast microSD card with at least 8GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali Raspberry SS808` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
+2. Download _and validate_ the `Kali Raspberry SS808` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 4. Download the [MK808-Finless-1-6-Custom-ROM](https://forum.freaktab.com/?3207-NEW-MK808-Finless-1-6-Custom-ROM) to a Windows machine and extract the zip file.
 5. Read the README file of the MK808 Finless ROM tool, then install the required Windows drivers.
