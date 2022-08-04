@@ -93,7 +93,7 @@ The Kernel specific chapters are only applicable to the NetHunter edition.
 
 NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.
 The full NetHunter experience requires a devices specific kernel that has been purpose built for Kali NetHunter.
-The [NetHunter gitlab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Offensive Security publishes over 25 images for the most popular devices on the [NetHunter download page](https://www.offensive-security.com/kali-linux-nethunter-download/).
+The [NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Kali Linux publishes over 25 images for the most popular devices on the [NetHunter download page](/get-kali/).
 The following live reports are generated automatically by GitLab CI:
 
 [List of quarterly published officialNetHunter images](https://stats.nethunter.com/nethunter-images.html)
@@ -104,7 +104,7 @@ The following live reports are generated automatically by GitLab CI:
 
 Official release NetHunter images for your specific supported device can be download from the Offensive Security NetHunter project page located at the following URL:
 
-- [offensive-security.com/kali-linux-nethunter-download/](https://www.offensive-security.com/kali-linux-nethunter-download/)
+- [kali.org/get-kali/](/get-kali/)
 
 Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
 

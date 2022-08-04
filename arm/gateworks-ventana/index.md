@@ -39,7 +39,7 @@ If you're unfamiliar with the details of [downloading and validating a Kali Linu
 To install a pre-built image of the standard build of Kali Linux on your Ventana, follow these instructions:
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali Ventana` image from the [downloads](https://www.offensive-security.com/kali-linux-arm-images/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
+2. Download _and validate_ the `Kali Ventana` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card. In our example, we use a microSD which is located at `/dev/sdb`. **_Change this as needed._**
 
 {{% notice info %}}

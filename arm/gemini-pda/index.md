@@ -40,7 +40,7 @@ Operating systems aren't installed but flashed using the Smart Phone Flash tool 
 
 ### 1. Download and Extract the Firmware
 
-The Kali Linux Gemini image can be downloaded from the [ARM images](https://www.offensive-security.com/kali-linux-arm-images/) page. The folder contains all files required for a complete re-flash of the Gemini PDA with bootloader, a rooted Android partition and Kali-Linux.
+The Kali Linux Gemini image can be downloaded from the [ARM images](/get-kali/) page. The folder contains all files required for a complete re-flash of the Gemini PDA with bootloader, a rooted Android partition and Kali-Linux.
 
 {{% notice info %}}
 If you would like a different partition layout, follow [the official flashing guide](https://support.planetcom.co.uk/index.php/Linux_Flashing_Guide). Make sure that the Linux partition is at least 6GB.<br />

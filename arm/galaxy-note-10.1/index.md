@@ -32,7 +32,7 @@ To install a pre-built image of the standard build of Kali Linux on your Galaxy 
 
 1. You'll need **at least 7GB free** on your internal full-size SD card for our image.
 2. Root your Samsung Galaxy Note 10.1 if you have not already done so.
-3.Download _and validate_ the `Kali Galaxy Note 10.1` image from the [downloads](https://www.offensive-security.com/kali-linux-vmware-arm-image-download/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
+3.Download _and validate_ the `Kali Galaxy Note 10.1` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 4. Rename the downloaded Kali image to `linux.img` and copy it to `/storage/sdcard0`.
 5. Download our `recovery.img` file from here and copy it to `/storage/sdcard0`.
 6. Get root on your Galaxy Note 10.1, change `/storage/sdcard0`, and backup your recovery partition:
