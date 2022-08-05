@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi Zero W P4wnP1 A.L.O.A (A Little Offensive Application)
+title: Raspberry Pi Zero W P4wnP1 A.L.O.A
 description:
 icon:
 weight:
