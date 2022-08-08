@@ -4,22 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: pre-generated
-cpu: BCM2711
-cores: 4
-gpu: "Broadcom VideoCore VI"
-ram: ["1GB", "2GB", "4GB", 8GB"]
-ethernet: 1
-ethernet-speed: 1000
-wifi: "2.4GHz/5GHz b/g/n/ac"
-bluetooth: yes
-usb3: 2
-usb2: 2
-storage: ["sdcard", "usb"]
-kernel: custom
 ---
 
 The [Raspberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) has a quad core 1.5GHz processor, with 2GB, 4GB or 8GB of RAM, depending on model. Kali Linux runs on a microSD card.

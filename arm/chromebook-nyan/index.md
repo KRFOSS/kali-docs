@@ -4,21 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-nyan.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-cpu: "Tegra K1"
-gpu: "NVIDIA Kepler"
-ram: DDR3L
-ram-size: 4GB
-ethernet: no
-wifi: "2.4GHz a/c"
-bluetooth: yes
-usb3: 2
-usb2: 0
-storage: ["sdcard", "emmc"]
-kernel: custom
 ---
 
 The Acer Tegra Chromebook is an ultraportable laptop. Boasting a Tegra K1 2.1GHz quad core processor and 4GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external full-size SD card on this machine which leaves the internal disk untouched.

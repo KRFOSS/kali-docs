@@ -4,23 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi-64-bit.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: pre-generated
-cpu: BCM2837
-cores: 4
-gpu: "Broadcom VideoCore IV"
-ram: DDR3
-ram-size: 1GB
-ethernet: 1
-ethernet-speed: 1000
-wifi: no
-bluetooth: no
-usb3: no
-usb2: 4
-storage: sdcard
-kernel: custom
 ---
 
 {{% notice info %}}

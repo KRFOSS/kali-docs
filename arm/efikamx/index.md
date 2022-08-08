@@ -5,11 +5,6 @@ icon:
 archived: "true"
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/archived/efikamx.sh
-headless: kali-desktop-xfce
-metapackage: N/A
-status: eol
-kernel: custom
 ---
 
 {{% notice info %}}

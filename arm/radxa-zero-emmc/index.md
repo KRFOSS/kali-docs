@@ -4,23 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/radxa-zero-sdcard.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-cpu: "Amlogic S905Y2"
-cores: 4
-gpu: "Mali G31 MP2"
-ram: LPDDR4
-ram-size: ["512MB", "1GB", "2GB", "4GB"]
-ethernet: no
-wifi: "2.4GHz/5GHz"
-bluetooth: yes
-usb3: no
-usb2: 1
-storage: ["emmc", "sdcard"]
-kernel: custom
-draft: false
 ---
 
 The [Radxa Zero](https://wiki.radxa.com/Zero) has a quad core 1.8GHz, with 512MB, 1GB, 2GB, or 4GB of LPDDR4 RAM. There are multiple eMMC versions available, we recommend at least 32GB.

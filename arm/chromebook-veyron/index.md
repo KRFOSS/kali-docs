@@ -4,22 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/chromebook-veyron.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-cpu: "Rockchip RK3328"
-cpu-speed: "1.8GHz"
-gpu: "Mali T760"
-ram: DDR3
-ram-size: 2GB
-ethernet: no
-wifi: "2.4GHz a/c"
-bluetooth: yes
-usb3: no
-usb2: 2
-storage: ["sdcard", "emmc"]
-kernel: custom
 ---
 
 The [ASUS Chromebook Flip](https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/) is a quad core 1.8GHz, with 2GB or 4GB of RAM Chromebook with a 10.1" 10 point mult-touch touchscreen. Kali Linux fits on an external microSD card or USB drive.

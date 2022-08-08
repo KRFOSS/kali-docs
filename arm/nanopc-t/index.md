@@ -4,23 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/nanopc-t.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-cpu: "Samsung S5P 6818"
-cores: 8
-gpu: "Mali MP400"
-ram: DDR3
-ram-size: 1GB
-ethernet: 1
-ethernet-speed: 1000
-wifi: "2.4GHz b/g/n"
-bluetooth: yes
-usb3: no
-usb2: 2
-storage: ["sdcard", "emmc"]
-kernel: custom
 ---
 
 The [NanoPC-T3](http://wiki.friendlyarm.com/wiki/index.php/NanoPC-T3) has an Samsung S5P6818, Octa Core Cortex™-A53 (ARMv8 64-bit) processor and either 1GB or 2GB DDR3 RAM. The NanoPC-T3 has an 8GB eMMC, which is too small for a default Kali installation, so we run from an external microSD card.
