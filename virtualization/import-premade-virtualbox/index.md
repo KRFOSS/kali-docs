@@ -1,17 +1,17 @@
 ---
-title: Import Pre-Made Kali VirtualBox VM (weekly)
+title: Import Pre-Made Kali VirtualBox VM
 description:
 icon:
-weight: 212
+weight: 211
 author: ["gamb1t", "arnaudr"]
 ---
 
-Importing the [Kali VirtualBox weekly image](/get-kali/#kali-virtual-machines) is very easy.
+Importing the [Kali VirtualBox image](/get-kali/#kali-virtual-machines) is very easy.
 
 We first need to extract the VirtualBox image:
 
 ```console
-kali@kali:~$ 7z x kali-linux-2022-W28-virtualbox-amd64.7z
+kali@kali:~$ 7z x kali-linux-2022.3-virtualbox-amd64.7z
 [...]
 kali@kali:~$
 ```
