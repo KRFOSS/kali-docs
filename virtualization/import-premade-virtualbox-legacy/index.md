@@ -1,10 +1,15 @@
 ---
-title: Import Pre-Made Kali VirtualBox VM
+title: Import Pre-Made Kali VirtualBox VM (Legacy)
 description:
 icon:
-weight: 211
+archived: "true"
+weight: 300
 author: ["gamb1t",]
 ---
+
+**This page is dated**. You can find the **latest version** here: [Install Pre-Made Kali VirtualBox VM](/docs/virtualization/import-premade-virtualbox/).
+
+- - -
 
 Importing the [Kali VirtualBox image](/get-kali/#kali-virtual-machines) is a four step after we have it downloaded.
 
