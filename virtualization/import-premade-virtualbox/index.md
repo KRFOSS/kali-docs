@@ -3,25 +3,31 @@ title: Import Pre-Made Kali VirtualBox VM
 description:
 icon:
 weight: 211
-author: ["gamb1t",]
+author: ["gamb1t", "arnaudr"]
 ---
 
-Importing the [Kali VirtualBox image](/get-kali/#kali-virtual-machines) is a four step after we have it downloaded.
+Importing the [Kali VirtualBox image](/get-kali/#kali-virtual-machines) is very easy.
 
-We first launch VirtualBox:
+We first need to extract the VirtualBox image:
 
-![](import-vbox-1.png)
+```console
+kali@kali:~$ 7z x kali-linux-2022.3-virtualbox-amd64.7z
+[...]
+kali@kali:~$
+```
 
-From here we will be wanting to select 'Import':
+If we are using Windows we can instead use the [official 7z app](https://www.7-zip.org/).
 
-![](import-vbox-2.png)
+We then launch VirtualBox:
 
-We select the file we downloaded earlier and then we are able to continue forward:
+![](import-vbox-weekly-1.png)
 
-![](import-vbox-3.png)
+From here we will be wanting to select 'Add'. We then navigate to the location our VM is downloaded and find the `.vbox` file:
 
-We can verify the settings that will be set here, and if we need to change any we can. Once we are happy we can select 'Import':
+![](import-vbox-weekly-2.png)
 
-![](import-vbox-4.png)
+We select this then we are able to continue forward:
 
-We now just need to agree to the license agreement, and then we are all done. From here we can boot the VM and use it as normal. Remember the default login is kali for the user and kali for the password!
+![](import-vbox-weekly-3.png)
+
+We can verify the settings that will be set here, and if we need to change any we can. Once we are happy we can select boot the VM and use it as normal. Remember the default login is kali for the user and kali for the password!
