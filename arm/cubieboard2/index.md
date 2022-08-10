@@ -4,23 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/cubieboard2.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-cpu: cortex-a7
-cpu-cores: 2
-gpu: Mali400MP2
-ram: DDR3
-ram-size: 1GB
-ethernet: 1
-ethernet-speed: 100
-wifi: no
-bluetooth: no
-usb3: no
-usb2: 2
-storage: ["sdcard", "emmc", "sata"]
-kernel: custom
 ---
 
 The [CubieBoard2](http://cubieboard.org/model/cb2/) is a dual core 1.4GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.

@@ -4,24 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/banana-pro.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-soc: "allwinner-a20 (sun7i)"
-cpu: cortex-a7
-cores: 2
-gpu: mali-400MP2
-ram: DDR3
-ram-size: 1GB
-ethernet: 1
-ethernet-speed: 1000
-wifi: "2.4GHz b/g/n"
-bluetooth: no
-usb3: no
-usb2: 2
-storage: ["sdcard", "sata"]
-kernel: kali
 ---
 
 The [Banana Pro](http://www.lemaker.org/product-bananapro-specification.html) has a dual core 1GHz Cortex™-A7 processor with a Mali400MP2 GPU and 1GB DDR3 RAM. Kali Linux can run from an external microSD card.

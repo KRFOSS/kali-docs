@@ -4,23 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/riotboard.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-cpu: iMX6Solo
-cores: 1
-gpu: Vivante
-ram: DDR3
-ram-size: 1GB 
-ethernet: 1
-ethernet-speed: 1000
-wifi: no
-bluetooth: no
-usb3: no
-usb2: 4
-storage: ["sdcard", "emmc"]
-kernel: custom
 ---
 
 The [RIoTboard](http://riotboard.org/) is a Cortex A9 1GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.

@@ -4,11 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/mini-x.sh
-headless: kali-desktop-xfce
-metapackage: N/A
-status: eol
-kernel: custom
 ---
 
 The [Mini-X](http://www.minix.us/) is a dual core 1GHz, with 1GB of RAM. Kali Linux fits on an external microSD card.

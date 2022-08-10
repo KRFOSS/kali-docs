@@ -4,23 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/cubietruck.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-cpu: cortex-a7
-cores: 2
-gpu: Mali400MP2
-ram: DDR3
-ram-size: 1GB
-ethernet: 1
-ethernet-speed: 1000
-wifi: AP6210
-bluetooth: yes
-usb3: no
-usb2: 2
-storage: ["sdcard", "sata"]
-kernel: custom
 ---
 
 The [CubieTruck](http://www.cubietruck.com/) (aka CubieBoard3) is a dual core 1GHz, with 2GB of RAM. Kali Linux fits on an external microSD card.

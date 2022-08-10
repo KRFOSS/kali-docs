@@ -4,22 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi-zero-w.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: pre-generated
-cpu: BCM2835
-cores: 1
-gpu: "Broadcom VideoCore IV"
-ram: DDR3
-ram-size: 512MB
-ethernet: no
-wifi: no
-bluetooth: no
-usb3: no
-usb2: 1
-storage: sdcard
-kernel: custom
 ---
 
 The [Raspberry Pi Zero](https://www.raspberrypi.org/products/raspberry-pi-zero/) is a single core 1GHz, with 512MB of RAM. Unlike the [Raspberry Pi Zero W](/docs/arm/raspberry-pi-zero/), the Raspberry Pi Zero has **no networking** on the board, so you will need to use a USB adapter for networking. Kali Linux fits on an external microSD card.

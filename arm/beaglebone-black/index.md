@@ -4,24 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/beaglebone-black.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: build-scripts
-soc: am335x
-cpu: cortex-a8
-cpu-speed: 1GHz
-gpu: SGX530
-ram: DDR3
-ram-size: 512MB
-ethernet: 1
-ethernet-speed: 100
-wifi: no
-bluetooth: no
-usb3: no
-usb2: 1
-storage: sdcard
-kernel: custom
 ---
 
 The [BeagleBone Black](http://beagleboard.org/BLACK) is a low-cost, community-supported ARM-based development platform aimed at developers and hobbyists. The BeagleBone Black runs a 1GHz Cortex-A8 CPU and includes hardware-based floating point and 3D acceleration; while much lower-powered than a desktop or laptop system, its affordability makes it an excellent option for a tiny Linux system.

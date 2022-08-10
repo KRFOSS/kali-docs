@@ -5,11 +5,6 @@ icon:
 archived: "true"
 weight:
 author: ["re4son",]
-build-script: N/A
-headless: kali-desktop-xfce
-metapackage: N/A
-status: eol
-kernel: custom
 ---
 
 {{% notice info %}}

@@ -59,3 +59,4 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [webhandler](https://pkg.kali.org/pkg/webhandler) | 2020-03-30 | Python 2 ([#1](https://github.com/lnxg33k/webhandler/issues/21), [#2](https://gitlab.com/kalilinux/packages/webhandler/-/issues/1)) |
 | [wifitap](https://pkg.kali.org/pkg/wifitap) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/wifitap/-/issues/1)) |
 | [wol-e](https://pkg.kali.org/pkg/wol-e) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/wol-e/-/issues/1)) |
+| [xprobe](https://pkg.kali.org/pkg/xprobe) | 2022-08-09 | Unmaintained and obsolete tool ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1016899)) |

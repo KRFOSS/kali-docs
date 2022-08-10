@@ -4,20 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/pinebook-pro.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: pre-generated
-cpu:
-gpu:
-ram:
-ethernet: no
-wifi:
-bluetooth:
-usb3:
-usb2:
-storage: ["sdcard", "emmc", "nvme"]
-kernel: custom
 ---
 
 The [Pinebook Pro](https://www.pine64.org/pinebook-pro/) has a Rockchip RK3399 SOC with Mali T860 MP4 GPU and 4GB LPDDR4 RAM. Kali Linux can run from either external microSD card, or the internal eMMC.

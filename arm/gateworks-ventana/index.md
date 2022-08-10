@@ -4,24 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/gateworks-ventana.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: community
-cpu: i.MX6
-cores: 4
-gpu: Vivante
-ram: DDR3
-ram-size: 1GB
-ethernet: 2
-ethernet-speed: 1000
-wifi: no
-bluetooth: no
-usb3: no
-usb2: 1
-pcie: "6 mPCIe"
-storage: ["sdcard", "msata"]
-kernel: custom
 ---
 
 The [Gateworks Ventana](https://www.gateworks.com/products/industrial-single-board-computers/imx6-single-board-computer-gateworks-ventana-family/) implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.

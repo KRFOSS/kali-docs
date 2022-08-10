@@ -4,22 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/pinebook.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: pre-generated
-cpu: cortex-a53
-cores: 4 
-gpu: "Mali 400MP2"
-ram: DDR3
-ram-size: 2GB
-ethernet: no
-wifi: "2.4GHz b/g/n"
-bluetooth: yes
-usb3: no
-usb2: 2
-storage: ["sdcard", "emmc"]
-kernel: kali
 ---
 
 The [Pinebook](https://www.pine64.org/pinebook/) has an Allwinner A64 Quad Core SOC with Mali 400 MP2 GPU, and 2GB LPDDR3 RAM. Kali Linux can run from either microSD card, or the internal eMMC.

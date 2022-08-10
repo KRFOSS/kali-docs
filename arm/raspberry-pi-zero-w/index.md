@@ -4,22 +4,6 @@ description:
 icon:
 weight:
 author: ["steev",]
-build-script: https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/raspberry-pi-zero-w.sh
-headless: kali-desktop-xfce
-metapackage: kali-linux-default
-status: pre-generated
-cpu: BCM2835
-cores: 1
-gpu: "Broadcom VideoCore IV"
-ram: DDR3
-ram-size: 512MB
-ethernet: no
-wifi: "2.4GHz/5GHz"
-bluetooth: yes
-usb3: no
-usb2: 1
-storage: sdcard
-kernel: custom
 ---
 
 {{% notice info %}}
