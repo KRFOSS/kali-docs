@@ -74,8 +74,8 @@ First, we prepare the system by ensuring it is fully updated, then proceed to do
 $ sudo apt update
 $ sudo apt full-upgrade -y
 $
-$ wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2020.2_all.deb
-$ wget https://http.kali.org/kali/pool/main/l/live-build/live-build_20210407_all.deb
+$ wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2022.1_all.deb
+$ wget https://http.kali.org/kali/pool/main/l/live-build/live-build_20220505_all.deb
 ```
 
 _Note: You may need to check that`kali-archive-keyring_20YY.X_all.deb` & `live-build_20YYMMDD_all.deb` are the latest files._
@@ -85,8 +85,8 @@ With that completed, we install some additional dependencies and the previously 
 ```console
 $ sudo apt install -y git live-build simple-cdd cdebootstrap curl
 $
-$ sudo dpkg -i kali-archive-keyring_2020.2_all.deb
-$ sudo dpkg -i live-build_20210407_all.deb
+$ sudo dpkg -i kali-archive-keyring_2022.1_all.deb
+$ sudo dpkg -i live-build_20220505_all.deb
 ```
 
 With the environment all prepared, we start the process by setting up the build-script profile and clone out the build config:
@@ -148,11 +148,11 @@ kali@kali:~$ time ./build.sh \
   --verbose \
   --installer \
   --distribution kali-last-snapshot \
-  --version 2022.2 \
-  --subdir kali-2022.2
+  --version 2022.3 \
+  --subdir kali-2022.3
 [...]
 ***
-GENERATED KALI IMAGE: ./images/kali-2022.2/kali-linux-2022.2-installer-amd64.iso
+GENERATED KALI IMAGE: ./images/kali-2022.3/kali-linux-2022.3-installer-amd64.iso
 ***
 kali@kali:~$
 ```

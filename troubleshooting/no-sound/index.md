@@ -1,5 +1,5 @@
 ---
-title: No sound on Kali 2022.2
+title: No sound on Kali 2022.3
 description:
 icon:
 weight: 5000

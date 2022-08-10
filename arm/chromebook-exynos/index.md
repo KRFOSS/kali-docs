@@ -49,7 +49,7 @@ This process will wipe out your microSD card or USB drive. If you choose the wro
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2022.2-chromebook-exynos-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2022.3-chromebook-exynos-xfce-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card or USB drive speed, and the size of the Kali Linux image.

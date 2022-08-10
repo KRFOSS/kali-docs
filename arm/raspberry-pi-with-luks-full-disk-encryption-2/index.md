@@ -40,12 +40,12 @@ If you're following along, be sure to know where you are imaging the file to, an
 
 We will be creating our drop box machine on an existing Kali installation. It should be very easy to use other Debian-based distributions, and pretty straight forward for other OSes (except Windows users!)
 
-We first will [download](/get-kali/#kali-arm) the [latest stable](/releases/) Kali RPi image. At the time of writing, that's [Kali 2022.2](/blog/kali-linux-2022-2-release/).
+We first will [download](/get-kali/#kali-arm) the [latest stable](/releases/) Kali RPi image. At the time of writing, that's [Kali 2022.2](/blog/kali-linux-2022.2-release/).
 We have also chosen the 64-bit image, as we have more than 4GB of RAM, and are not using any [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/) (Hardware Attached on Top). The steps for 32-bit would be the same, after adjusting filenames:
 
 ```console
-$ wget https://kali.download/arm-images/kali-2022.2/kali-linux-2022.2-raspberry-pi-arm64.img.xz
-$ xzcat kali-linux-2022.2-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
+$ wget https://kali.download/arm-images/kali-2022.3/kali-linux-2022.3-raspberry-pi-arm64.img.xz
+$ xzcat kali-linux-2022.3-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
 ```
 
 - - -
@@ -654,7 +654,7 @@ export _LUKSEXTRA=""
 
 
 # LINUX IMAGE FILE ------------------------------------------------------------
-export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2022.2-raspberry-pi-arm64.img.xz
+export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2022.3-raspberry-pi-arm64.img.xz
 export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
 # PACKAGE ACTIONS -------------------------------------------------------------
