@@ -6,6 +6,13 @@ weight: 105
 author: ["gamb1t",]
 ---
 
+{{% notice info %}}
+You need to be on the 22H2 release of the VMWare Technical Preview.
+If you are not on at least Player Version e.x.p. (20191287) then you need to update.
+
+Due to a limitation of the VMWare updater software, if you are on an earlier version, it will report that there are no updates available.  You need to go to VMWare's website and download and install manually.
+{{% /notice %}}
+
 At the time of writing VMware is still offering Apple Silicon support through their Public Tech Preview for free. This is subject to change when Apple Silicon support is added to their main lineup, however until then the steps to get started are pretty straightforward.
 
 We will first go to [Get Fusion M1](https://www.vmware.com/go/get-fusion-m1) which will auto-redirect us to the most current Tech Preview. From here we will want to download the first file, which is the `.dmg`.
