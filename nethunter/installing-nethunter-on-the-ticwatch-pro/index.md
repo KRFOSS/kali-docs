@@ -37,7 +37,7 @@ Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/con
 
 - Again enable ADB, and reboot to bootloader with `adb reboot bootloader`
 - `fastboot flash vendor vendor.img`
-- `fastboot flash recovery ticwatch-pro-twrp.img`
+- `fastboot flash recovery twrp-3.4.0-0-catfish.img`
 - Boot into recovery by selecting it with the side buttons (switch with bottom one, select with upper button)
 - Select "Wipe -> next page -> Format Data"
 - Reboot to Recovery
@@ -61,7 +61,7 @@ Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/con
 ## 5. Flash NetHunter
 
 - `adb reboot recovery`
-- Make sure that the system partition is mounted: Mount -> System (make sure that "mount as RO" is disabled)
+- Make sure that the system partition is mounted: Mount -> System (make sure that "mount as RO" is disabled), some users report /system is not being mounted by NetHunter installer
 - Select Install -> ADB Sideload
 - `adb sideload` NetHunter image
 - Reboot 
