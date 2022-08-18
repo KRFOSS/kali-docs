@@ -15,7 +15,7 @@ Due to a limitation of the VMWare updater software, if you are on an earlier ver
 
 At the time of writing VMware is still offering Apple Silicon support through their Public Tech Preview for free. This is subject to change when Apple Silicon support is added to their main lineup, however until then the steps to get started are pretty straightforward.
 
-We will first go to [Get Fusion M1](https://www.vmware.com/go/get-fusion-m1) which will auto-redirect us to the most current Tech Preview. From here we will want to download the first file, which is the `.dmg`.
+We will first go to ~~[Get Fusion M1](https://www.vmware.com/go/get-fusion-m1) which will auto-redirect us to the most current Tech Preview~~ (At the time of writing this page is out of date, the current version is [22H2](https://customerconnect.vmware.com/downloads/get-download?downloadGroup=FUS-PUBTP-22H2)). From here we will want to download the first file, which is the `.dmg`.
 
 ![](install-silicon-vmware-1.png)
 
