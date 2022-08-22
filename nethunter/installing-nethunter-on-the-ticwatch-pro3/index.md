@@ -3,7 +3,6 @@ title: Installing NetHunter On the TicWatch Pro 3
 description:
 icon:
 weight:
-draft: true
 author: ["yesimxev",]
 ---
 
@@ -30,7 +29,7 @@ All variants are supported (TicWatch Pro 3 GPS/LTE/Ultra GPS/Ultra LTE) with a g
 
 ## 2. Flash TWRP, WearOS image, Magisk, dm-verity disabler
 
-Please note Magisk 24.3 is recommended.
+Please note that Magisk 24.3 is recommended.
 
 - Again enable ADB, and reboot to bootloader with `adb reboot bootloader`
 - Disable vbmeta verification: `fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img`
@@ -42,7 +41,7 @@ Please note Magisk 24.3 is recommended.
 - Flash OneOS with `adb sideload`
 - Flash Mobvoi Apps with `adb sideload`
 - Make a copy of your Magisk apk file to Magisk-v24.3.zip
-- Flash Magisk with `adb sideload`
+- Flash Magisk with `adb sideload Magisk-v24.3.zip`
 - Flash Disabler with `adb push disabler.zip /sdcard/` and Install via TWRP
 - Reboot & do initial setup (pair with your phone through WearOS app)
 
@@ -71,11 +70,12 @@ Please note Magisk 24.3 is recommended.
 
 ## Downloads
 
-- [Magisk](https://github.com/topjohnwu/Magisk/releases/download/v24.3/Magisk-v24.3.apk)
-- [TWRP images](https://wear.revtechs.me/en/help)
-- [OneOS ROM and Mobvoi package](https://wear.revtechs.me/en/download)
-- [vbmeta image](https://wear.revtechs.me/recovery/vbmeta.img)
-- [dm-verity disabler](https://build.nethunter.com/contributors/re4son/guacamole/Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip)
+- [Magisk](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Magisk-v24.3.apk)
+- [TWRP image for rover](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rover_recovery.img)
+- [TWRP image for rubyfish](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rubyfish_recovery.img)
+- [OneOS ROM and Mobvoi package](https://wear.revtechs.me/en/download) (not required if you want to stick with stock Wear OS)
+- [vbmeta image](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/vbmeta.img)
+- [dm-verity disabler](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Disable-DM-Verity.zip)
 - [WearOS NetHunter zip](https://build.nethunter.com/contributors/re4son/catfish/nethunter-2022.2b-generic-armhf-kalifs-nano.zip)
 
 ## Additional recommended apps
