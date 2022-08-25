@@ -40,7 +40,7 @@ kali@kali:~$ sudo reboot -f
 
 Reconnect to the session.
 
-```
+```console
 kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
 kali@kali:~$
 kali@kali:~$ sudo reboot -f
