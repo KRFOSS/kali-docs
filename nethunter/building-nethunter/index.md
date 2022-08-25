@@ -67,7 +67,7 @@ kali@kali:~/kali-nethunter/nethunter-installer$
 To build an Android 10 image with Kalifs for a OnePlus 7 device, we would run **build.py** as follows:
 
 ```console
-kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -d oneplus7-oos --ten --fs full
+kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -d oneplus7-oos --ten -fs full
 ```
 
 To build an app and scripts updater image for a OnePlus 7 device, we would run **build.py** as follows:
