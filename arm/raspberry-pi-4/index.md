@@ -58,7 +58,7 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 The bluetooth service on the Raspberry Pi 4 needs a **uart helper service** before it works. To enable and start the bluetooth service run the following commands:
 
 ```console
-kali@kali:~$ sudo systemctl enable --now uart.service
+kali@kali:~$ sudo systemctl enable --now hciuart.service
 kali@kali:~$ sudo systemctl enable --now bluetooth.service
 ```
 
