@@ -16,7 +16,7 @@ kali@kali:~$ 7z x kali-linux-2022.3-vmware-amd64.7z
 kali@kali:~$
 ```
 
-If we are using Windows we can instead use the [official 7z app](https://www.7-zip.org/).
+If we are using Windows we can instead use the [official 7z app](https://www.7-zip.org/). Note if we are on Windows 11 the option will be hidden behind the context menu "Show more options".
 
 We then launch VMware:
 
