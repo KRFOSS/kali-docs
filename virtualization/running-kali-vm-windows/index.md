@@ -12,7 +12,7 @@ An antivirus signature is a sequence of bytes that are contained within a progra
 
 Although the antivirus program is doing its job, there are some ways that we can protect our Kali Linux Virtual Machine from being quarantined by the host Antivirus Software. This process will focus on implementing these exclusions with Windows Security: 
 
-# Setting an Exclusion Folder in Windows Security
+## Setting an Exclusion Folder in Windows Security
 
 {{% notice info %}}
 This process will work on Windows 10 and Windows 11
@@ -38,5 +38,5 @@ In Windows you can stop Windows Security from alerting you or blocking your virt
 
 Now that the folder is set as an exclusion, Windows Security will not scan the folder that contains your Kali Linux Virtual Machine. 
 
-# References
+## References
 - https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26#:~:text=Go%20to%20Start%20%3E%20Settings%20%3E%20Update,%2C%20file%20types%2C%20or%20process
