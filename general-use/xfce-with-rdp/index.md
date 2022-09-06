@@ -6,7 +6,7 @@ weight:
 author: ["gamb1t",]
 ---
 
-Kali Linux is supported on many different devices and systems. On some of those systems, you may only get a bare bones install and occasionally may not have direct access to a GUI such as with WSL or Docker. One simple way to get access to a GUI for Kali is by installing Xfce and setting up RDP. This can be done either manually or with the script provided [here](https://gitlab.com/kalilinux/recipes/kali-scripts/-/blob/main/xfce4.sh), and can be seen below.
+Kali Linux is supported on many different devices and systems. On some of those systems, you may only get a bare-bones install and occasionally may not have direct access to a GUI such as with WSL or Docker. One simple way to get access to a GUI for Kali is by installing Xfce and setting up RDP. This can be done either manually or with the script provided [here](https://gitlab.com/kalilinux/recipes/kali-scripts/-/blob/main/xfce4.sh), and can be seen below.
 
 ```plaintext
 #!/bin/sh
