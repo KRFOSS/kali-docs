@@ -40,7 +40,7 @@ If you're following along, be sure to know where you are imaging the file to, an
 
 We will be creating our drop box machine on an existing Kali installation. It should be very easy to use other Debian-based distributions, and pretty straight forward for other OSes (except Windows users!)
 
-We first will [download](/get-kali/#kali-arm) the [latest stable](/releases/) Kali RPi image. At the time of writing, that's [Kali 2022.2](/blog/kali-linux-2022.2-release/).
+We first will [download](/get-kali/#kali-arm) the [latest stable](/releases/) Kali RPi image. At the time of writing, that's [Kali 2022.2](/blog/kali-linux-2022-2-release/).
 We have also chosen the 64-bit image, as we have more than 4GB of RAM, and are not using any [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/) (Hardware Attached on Top). The steps for 32-bit would be the same, after adjusting filenames:
 
 ```console
