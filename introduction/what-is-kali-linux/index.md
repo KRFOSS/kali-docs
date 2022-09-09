@@ -8,10 +8,11 @@ author: ["g0tmi1k",]
 
 ### About Kali Linux
 
-[Kali Linux](/) _(formerly known as [BackTrack Linux](https://www.backtrack-linux.org/))_ is an [open-source](/docs/policy/kali-linux-open-source-policy/), [Debian-based Linux](/docs/policy/kali-linux-relationship-with-debian/) distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains [several hundred tools](/docs/policy/penetration-testing-tools-policy/) targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
-Kali Linux is a multi platform solution, accessible and freely available to information security professionals and hobbyists.
+[Kali Linux](/) _(formerly known as [BackTrack Linux](https://www.backtrack-linux.org/))_ is an [open-source](/docs/policy/kali-linux-open-source-policy/), [Debian-based Linux](/docs/policy/kali-linux-relationship-with-debian/) distribution aimed at advanced Penetration Testing and Security Auditing. It [does this by](/features/) providing common tools, configurations, and automations which allows the user to focus on the task that needs to be completed, not the surrounding activity.
 
-Kali Linux was released on the [13th March 2013](/docs/introduction/press-release/) as a complete, top-to-bottom rebuild of [BackTrack Linux](https://www.backtrack-linux.org/), adhering completely to [Debian](https://www.debian.org/) development standards.
+Kali Linux contains industry specific modifications as well as [several hundred tools](/docs/policy/penetration-testing-tools-policy/) targeted towards various Information Security tasks, such as Penetration Testing, Security Research, Computer Forensics, Reverse Engineering, Vulnerability Management and Red Team Testing.
+
+Kali Linux is a multi-platform solution, accessible and freely available to information security professionals and hobbyists.
 
 ### Kali Linux Features
 
