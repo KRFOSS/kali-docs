@@ -8,22 +8,8 @@ author: ["g0tmi1k",]
 
 ### About Kali Linux
 
-<!--
-> Kali Linux's purpose is to provide an open-source platform for penetration testing and other security assessment activity. It does this by providing common tools, configurations, and automations which allows the user to focus on the task that needs to be completed, not the surrounding activity. 
-> At the core, Kali's base is an open-source Debian-based Linux distribution with industry specific modifications and configurations along with a custom tool repository. Our repository contains several hundred tools targeted towards various Information Security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering. 
-> Kali Linux is a multi-platform solution, with multiple "flavors" available from Bare Metal, Virtual Machines, ARM systems, Android, Cloud, Containers, WSL and so on. This makes it accessible and freely available to Information Security professionals and hobbyists.
-> Kali Linux provides and open-source set of documentation that is user modifiable to cover everything from the base Operating System usage to specific tools that are included in the repository. Success is measured by how well the platform solves the problem set it is targeting, as evidenced by user report bugs and feature requests. 
-
-> Kali Linux is an open-source, Debian-based Linux distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains several hundred tools targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
-
-> Kali Linux is an open-source, Debian-based Linux distribution geared towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
-
-> Kali Linux, The Most Advanced Penetration Testing Distribution. Ever.
-
-> Kali Linux was founded upon the belief that to arrive at the best defensive strategy requires testers to put themselves in the shoes of potential attackers. To make it easier and more accessible for security professionals to test the effectiveness of risk mitigation strategies, Kali Linux provides an all-in-one solution, combining 400+ penetration testing and security auditing programs with a Linux operating system, including Nmap for port and vulnerability scanning, Aircrack-ng for testing the security of wireless networks, Wireshark for monitoring network traffic, and Metasploit for network penetration testing. Like its predecessor BackTrack Linux, Kali Linux is completely free and always will be thanks to the support of Offensive Security.
--->
-
-[Kali Linux](/) _(formerly known as [BackTrack Linux](https://www.backtrack-linux.org/))_ is an [open-source](/docs/policy/kali-linux-open-source-policy/), [Debian-based Linux](/docs/policy/kali-linux-relationship-with-debian/) distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains [several hundred tools](/docs/policy/penetration-testing-tools-policy/) targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering. Kali Linux is a multi platform solution, accessible and freely available to information security professionals and hobbyists.
+[Kali Linux](/) _(formerly known as [BackTrack Linux](https://www.backtrack-linux.org/))_ is an [open-source](/docs/policy/kali-linux-open-source-policy/), [Debian-based Linux](/docs/policy/kali-linux-relationship-with-debian/) distribution aimed at advanced Penetration Testing and Security Auditing. Kali Linux contains [several hundred tools](/docs/policy/penetration-testing-tools-policy/) targeted towards various information security tasks, such as Penetration Testing, Security Research, Computer Forensics and Reverse Engineering.
+Kali Linux is a multi platform solution, accessible and freely available to information security professionals and hobbyists.
 
 Kali Linux was released on the [13th March 2013](/docs/introduction/press-release/) as a complete, top-to-bottom rebuild of [BackTrack Linux](https://www.backtrack-linux.org/), adhering completely to [Debian](https://www.debian.org/) development standards.
 
