@@ -6,9 +6,9 @@ weight:
 author: ["gamb1t",]
 ---
 
-Podman has very nice documentation on [how to install it](https://podman.io/getting-started/installation) on various systems. We recommend to follow the official documentation, however for a Debian-based system it is a very simple command.
+Podman has very nice documentation on [how to install it](https://podman.io/getting-started/installation) on various systems. We recommend to follow the official documentation, however for a Debian-based system it is a very simple command:
 
-```
+```console
 kali@kali:~$ sudo apt update && sudo apt install -y podman
 ...
 kali@kali:~$
