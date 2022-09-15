@@ -16,7 +16,7 @@ Proxmox has two ways of accessing a nested environment. The first is through vir
 
 We will go over the steps and discuss some of the changes that can be made.
 
-- Download the latest ISO from [get Kali](/get-kali/#kali-bare-metal)
+- Download the latest ISO from [get Kali](/get-kali/#kali-installer-images)
 - Select "Create VM"
 - Assign the VM a name and ID
 - Select the ISO we downloaded previously
