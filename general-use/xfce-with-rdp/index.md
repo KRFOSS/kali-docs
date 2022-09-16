@@ -35,7 +35,7 @@ To use the script we do the following:
 # If on Docker, run the following command first before continuing:
 root@182156129:/$ apt update && DEBIAN_FRONTEND=noninteractive apt install -y wget kali-linux-headless
 
-kali@kali:~$ wget https://gitlab.com/kalilinux/recipes/kali-scripts/-/blob/main/xfce4.sh
+kali@kali:~$ wget https://gitlab.com/kalilinux/recipes/kali-scripts/-/raw/main/xfce4.sh
 kali@kali:~$
 kali@kali:~$ chmod +x xfce4.sh
 kali@kali:~$
