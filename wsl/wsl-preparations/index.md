@@ -57,7 +57,7 @@ Get-ItemPropertyValue `
 
 The output will either be a `1` or a `2`. If it is two then we can leave it be. Otherwise we run the following command:
 
-```
+```plaintext
 wsl --set-default-version 2
 ```
 
@@ -76,7 +76,7 @@ Next we download an update for Windows from the following:
 
 Now we launch Powershell as administrator and run the following command:
 
-```
+```plaintext
 wsl --set-default-version 2
 ```
 
