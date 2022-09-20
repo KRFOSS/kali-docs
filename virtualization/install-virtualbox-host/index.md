@@ -3,7 +3,7 @@ title: Installing VirtualBox on Kali (Host)
 description:
 icon:
 weight: 110
-author: ["Rclev4Sec",]
+author: ["g0tmi1k", "Rclev4Sec",]
 ---
 
 You can install VirtualBox **on** Kali Linux, allowing you to use virtual machines (VMs) inside of Kali Linux. However if you are wanting to install Kali Linux **as** a VM, you want our [Kali Linux Guest VirtualBox](/docs/virtualization/install-virtualbox-guest-vm/) guide.
@@ -19,8 +19,10 @@ Before trying to install VirtualBox, please make sure your version of Kali Linux
 ```console
 kali@kali:~$ sudo apt update
 [...]
+kali@kali:~$
 kali@kali:~$ sudo apt full-upgrade -y
 [...]
+kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 kali@kali:~$
 ```
