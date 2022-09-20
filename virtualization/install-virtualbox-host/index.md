@@ -3,7 +3,7 @@ title: Installing VirtualBox on Kali (Host)
 description:
 icon:
 weight: 110
-author: ["g0tmi1k",]
+author: ["Rclev4Sec",]
 ---
 
 You can install VirtualBox **on** Kali Linux, allowing you to use virtual machines (VMs) inside of Kali Linux. However if you are wanting to install Kali Linux **as** a VM, you want our [Kali Linux Guest VirtualBox](/docs/virtualization/install-virtualbox-guest-vm/) guide.
@@ -19,10 +19,8 @@ Before trying to install VirtualBox, please make sure your version of Kali Linux
 ```console
 kali@kali:~$ sudo apt update
 [...]
-kali@kali:~$
 kali@kali:~$ sudo apt full-upgrade -y
 [...]
-kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 kali@kali:~$
 ```
@@ -32,9 +30,9 @@ kali@kali:~$
 The first thing we are going to do is import VirtualBox's repository key.
 
 ```console
-kali@kali:~$ wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- \
-  | gpg --dearmor \
-  | sudo tee /usr/share/keyrings/virtualbox-archive-keyring.gpg
+kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox_2016.gpg
+[...]
+kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox.gpg
 [...]
 kali@kali:~$
 ```
@@ -48,8 +46,7 @@ Our CPU architecture is amd64. You may need to alter the example below if yours 
 One thing to bear in mind, [Kali Linux is based on Debian](/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/) (even though Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/)). At the time of writing, its "buster":
 
 ```console
-kali@kali:~$ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/virtualbox-archive-keyring.gpg] http://download.virtualbox.org/virtualbox/debian buster contrib" \
-  | sudo tee /etc/apt/sources.list.d/virtualbox.list
+kali@kali:~$ echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bullseye contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 kali@kali:~$
 ```
 
