@@ -19,6 +19,14 @@ kali@kali:~$ sudo apt install -y kali-linux-default
 kali@kali:~$
 ```
 
+Alternatively we can use `kali-tweaks` to install metapackage groups for us. We first run the following command:
+
+```
+kali@kali:~$ kali-tweaks
+```
+
+From here we will navigate into the "Metapackages" tab. Now we just select which metapackages we want and then we cant hit "Apply" then "OK" and finally supply our password.
+
 ## System
 
 - `kali-linux-core`: Base Kali Linux System – core items that are always included
