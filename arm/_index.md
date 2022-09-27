@@ -6,6 +6,9 @@ weight: 30
 author: ["",]
 ---
 
+For a device, image and kernel overview, see [arm.kali.org](https://arm.kali.org/)
+
+<!--
 | Device | [Build Script](https://gitlab.com/kalilinux/build-scripts/kali-arm/) | [Official Image](/get-kali/) | Community Image | Retired Image |
 |--------|--------------|----------------|-----------------|---------------|
 | [Banana Pi](/docs/arm/banana-pi/)                                                         | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/banana-pi.sh)                       | x |   |   |
@@ -57,3 +60,4 @@ author: ["",]
 | [USB Armory MKI](/docs/arm/usb-armory-mki/)                                               | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/usb-armory-mki.sh)                  |   | x |   |
 | [USB Armory MKII](/docs/arm/usb-armory-mkii/)                                             | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/usb-armory-mkii.sh)                 |   | x |   |
 | [Utilite Pro](/docs/arm/utilite-pro/)                                                     | [link](https://gitlab.com/kalilinux/build-scripts/kali-arm/-/blob/master/utilite-pro.sh)                     |   | x |   |
+-->
