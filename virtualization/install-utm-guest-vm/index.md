@@ -38,4 +38,20 @@ We again will skip changing anything on this page, however if you want a shared 
 
 ![](utm-setup-8.png)
 
-Now we are at the summary and we can re-name our VM to be "Kali Linux". Once complete, we will hit save and then press the play button. From here we can proceed to [install Kali as normal](/docs/installation/hard-disk-install/).
+Now we are at the summary and we can re-name our VM to be "Kali Linux". Once complete, we will hit save and then press the settings button. Due to a bug in the current UTM version, we will have to install Kali in console only mode.
+
+![](utm-setup-9.png)
+
+From here we can navigate to "Display" and set it to "Console only":
+
+![](utm-setup-10.png)
+
+Now we can save and press play on the VM. Once prompted, we select "Install":
+
+![](utm-setup-11.png)
+
+Once the install is finished we can go back to the settings and re-enable "Full Graphics":
+
+![](utm-setup-12.png)
+
+We can now use our VM like normal.
