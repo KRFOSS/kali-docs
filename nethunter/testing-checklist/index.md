@@ -41,7 +41,7 @@ Beginning a checklist for testing new devices:
 
 - External WiFi support
 
-    - Plugin device, run commands: `ifconig wlan1 up && wifite`
+    - Plugin device, run commands: `ifconfig wlan1 up && wifite`
         - Does wifite see wlan1?
     - Run commands (assume wlan1 up): `airmon-ng start wlan1 && airodump-ng mon0`
         - Check for errors
