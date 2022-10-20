@@ -49,7 +49,7 @@ Going to the [GitHub's release page](https://github.com/instaloader/instaloader/
 We will use `wget` and make sure to format its name appropriately according to Debian's standards for source packages (take note of `.orig.tar.gz`):
 
 ```console
-kali@kali:~$ wget https://github.com/instaloader/instaloader/archive/v4.4.4.tar.gz -O ~/kali/upstream/instaloader_4.4.4.orig.tar.gz
+kali@kali:~$ wget https://github.com/instaloader/instaloader/archive/refs/tags/v4.4.4.tar.gz  -O ~/kali/upstream/instaloader_4.4.4.orig.tar.gz
 kali@kali:~$
 ```
 
@@ -169,6 +169,8 @@ Currently there is not top level Makefile. This may require additional tuning
 Done. Please edit the files in the debian/ subdirectory now.
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ rm debian/*.docs debian/README* debian/*.ex debian/*.EX
+kali@kali:~/kali/packages/instaloader$
+kali@kali:~/kali/packages/instaloader$ rm -r debian/upstream
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -454,11 +456,11 @@ More information on the subject can be found on the [Debian documentation](https
 
 ### Changelog
 
-If we followed the documentation on [setting up a packaging environment](/docs/development/setting-up-packaging-system/), the only values we will need to alter would be **distribution** (from `unstable` to `kali-dev`), **version** (from `4.4.4-1` to `4.4.4-0kali1`) and the **log entry**:
+If we followed the documentation on [setting up a packaging environment](/docs/development/setting-up-packaging-system/), the only values we will need to alter would be **distribution** (from `UNRELEASED` to `kali-dev`), **version** (from `4.4.4-1` to `4.4.4-0kali1`) and the **log entry**:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat debian/changelog
-instaloader (4.4.4-1) unstable; urgency=medium
+instaloader (4.4.4-1) UNRELEASED; urgency=medium
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
 
@@ -489,17 +491,21 @@ Source: instaloader
 Section: unknown
 Priority: optional
 Maintainer: Joseph O'Gorman <gamb1t@kali.org>
-Build-Depends: debhelper-compat (= 12)
-Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13)
+Standards-Version: 4.6.1
 Homepage: <insert the upstream URL, if relevant>
 #Vcs-Browser: https://salsa.debian.org/debian/instaloader
 #Vcs-Git: https://salsa.debian.org/debian/instaloader.git
 
 Package: instaloader
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+ <Insert long description, indented with spaces.>
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -527,21 +533,24 @@ Section: misc
 Priority: optional
 Maintainer: Kali Developers <devel@kali.org>
 Uploaders: Joseph O'Gorman <gamb1t@kali.org>
-Build-Depends: debhelper-compat (= 12),
-               dh-python,
-               python3-all,
-               python3-requests,
-               python3-setuptools,
-Standards-Version: 4.5.0
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-python,
+ python3-all,
+ python3-requests,
+ python3-setuptools,
+Standards-Version: 4.6.1
 Homepage: https://instaloader.github.io/
 Vcs-Browser: https://gitlab.com/kalilinux/packages/instaloader
 Vcs-Git: https://gitlab.com/kalilinux/packages/instaloader.git
 
 Package: instaloader
 Architecture: all
-Depends: ${python3:Depends},
-         ${misc:Depends},
-         python3-requests,
+Depends:
+ python3-requests,
+ ${misc:Depends},
+ ${python3:Depends},
 Description: Download media along with their metadata from Instagram
  Downloads public and private profiles, hashtags, user stories, feeds
    and saved media
@@ -553,7 +562,7 @@ Description: Download media along with their metadata from Instagram
 kali@kali:~/kali/packages/instaloader$
 ```
 
-NOTE: The `Build-Depends` & `Depends` are indented with tabs (and end with commas), but the `Description` is spaces.
+NOTE: The `Build-Depends` & `Depends` are indented with one space (and end with commas). The `Description` is also indentend with one space.
 
 There is a lot going on here, so lets point out a few things
 
@@ -587,21 +596,25 @@ Below is the skeleton template output (with comments removed):
 ```console
 kali@kali:~/kali/packages/instaloader$ grep -v '#' debian/copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: <url://example.com>
 Upstream-Name: instaloader
 Upstream-Contact: <preferred name and address to reach the upstream project>
-Source: <url://example.com>
 
-Files: *
-Copyright: <years> <put author's name and email here>
-           <years> <likewise for another author>
+Files:
+ *
+Copyright:
+ <years> <put author's name and email here>
+ <years> <likewise for another author>
 License: <special license>
  <Put the license of the package here indented by 1 space>
  <This follows the format of Description: lines in control file>
  .
  <Including paragraphs>
 
-Files: debian/*
-Copyright: 2020 Joseph O'Gorman <gamb1t@kali.org>
+Files:
+ debian/*
+Copyright:
+ 2020 Joseph O'Gorman <gamb1t@kali.org>
 License: GPL-2+
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
@@ -615,7 +628,7 @@ License: GPL-2+
  .
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <https://www.gnu.org/licenses/>
- .
+Comment:
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
 
@@ -630,12 +643,13 @@ kali@kali:~/kali/packages/instaloader$ vim debian/copyright
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: instaloader
 Source: https://github.com/instaloader/instaloader
+Upstream-Name: instaloader
 
 Files: *
-Copyright: 2016-2020 Alexander Graf <mail@agraf.me>
-           2016-2020 André Koch-Kramer <koch-kramer@web.de>
+Copyright:
+ 2016-2020 Alexander Graf <mail@agraf.me>
+ 2016-2020 André Koch-Kramer <koch-kramer@web.de>
 License: MIT
 
 Files: debian/*
@@ -684,29 +698,31 @@ The output of the template looks like the following:
 ```console
 kali@kali:~/kali/packages/instaloader$ cat debian/rules
 #!/usr/bin/make -f
-# See debhelper(7) (uncomment to enable)
-# output every command that modifies files on the build system.
+
+# See debhelper(7) (uncomment to enable).
+# Output every command that modifies files on the build system.
 #export DH_VERBOSE = 1
 
 
-# see FEATURE AREAS in dpkg-buildflags(1)
+# See FEATURE AREAS in dpkg-buildflags(1).
 #export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-# see ENVIRONMENT in dpkg-buildflags(1)
-# package maintainers to append CFLAGS
+# See ENVIRONMENT in dpkg-buildflags(1).
+# Package maintainers to append CFLAGS.
 #export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
-# package maintainers to append LDFLAGS
+# Package maintainers to append LDFLAGS.
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
 
 %:
-  dh $@
+	dh $@
 
 
-# dh_make generated override targets
-# This is example for Cmake (See https://bugs.debian.org/641051 )
+# dh_make generated override targets.
+# This is an example for Cmake (see <https://bugs.debian.org/641051>).
 #override_dh_auto_configure:
-# dh_auto_configure -- #  -DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
+#	dh_auto_configure -- \
+#	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
 
 kali@kali:~/kali/packages/instaloader$
 ```
@@ -716,7 +732,7 @@ Other than the shebang (`#!/usr/bin/make -f`), there is only two other lines whi
 
 ```plaintext
 %:
-  dh $@
+	dh $@
 ```
 
 Which is a wildcard (`%`), and feed in all the arguments into `dh`.
@@ -730,10 +746,10 @@ kali@kali:~/kali/packages/instaloader$ cat debian/rules
 #!/usr/bin/make -f
 
 #export DH_VERBOSE = 1
-export PYBUILD_NAME=instaloader
+export PYBUILD_NAME = instaloader
 
 %:
-        dh $@ --with python3 --buildsystem=pybuild
+	dh $@ --with python3 --buildsystem=pybuild
 kali@kali:~/kali/packages/instaloader$
 ```
 
@@ -949,11 +965,11 @@ Install lintian build dependencies (apt-based resolver)
 
 [...]
 
-E: instaloader source: source-is-missing docs/_static/bootstrap-4.1.3.bundle.min.js
-W: instaloader: binary-without-manpage usr/bin/instaloader
-I: instaloader source: testsuite-autopkgtest-missing
+E: instaloader source: source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]
+W: instaloader: no-manual-page [usr/bin/instaloader]
 
-I: Lintian run was successful.
+E: Lintian run failed (runtime error)
+
 [...]
 
 +------------------------------------------------------------------------------+
@@ -968,7 +984,7 @@ Distribution: kali-dev
 Host Architecture: amd64
 Install-Time: 37
 Job: /home/kali/kali/build-area/instaloader_4.4.4-0kali1.dsc
-Lintian: warn
+Lintian: error
 Machine Architecture: amd64
 Package: instaloader
 Package-Time: 45
@@ -1002,27 +1018,42 @@ We have output!
 
 For more information, see [Debian's documentation](https://www.debian.org/doc/manuals/maint-guide/checkit.en.html).
 
-To fix this error `E: instaloader source: source-is-missing docs/_static/bootstrap-4.1.3.bundle.min.js`, which will make sure the package is a higher standard, we can resolve this by expanding the minified JavaScript (Beautifier/Unminify) file and put it into a new directory in `debian/` called `missing-sources`:
+Let's try to understand the error `E: instaloader source: source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]`:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ apt-cache search beautifier js
-[...]
-jsbeautifier - JavaScript unobfuscator and beautifier
-[...]
-kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ sudo apt install -y jsbeautifier
-kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ mkdir -p debian/missing-sources/
-kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ js-beautify docs/_static/bootstrap-4.1.3.bundle.min.js > debian/missing-sources/bootstrap-4.1.3.bundle.js
-kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ git add debian/missing-sources/
-kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ git commit -m "Unminify JS to make lintian happy"
+kali@kali:~/kali/packages/instaloader$ lintian-explain-tags source-is-missing
+N:
+E: source-is-missing
+N: 
+N:   The source of the following file is missing. Lintian checked a few possible paths to find the source, and did not find it.
+N:   
+N:   Please repack your package to include the source or add it to "debian/missing-sources" directory.
+N:   
+N:   Please note, that very-long-line-length-in-source-file tagged files are likely tagged source-is-missing. It is a feature not a bug.
+N: 
+N:   Visibility: error
+N:   Show-Always: no
+N:   Check: files/source-missing
+N: 
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We can now rebuild the package with the same command and see that it was successful with no error
+The issue with the file `docs/_static/bootstrap-4.1.3.bundle.min.js` is that it's a minified Javascript. It's not human readable, it can't be modified, therefore it's not considered as a source file. As Lintian suggests, we can provide the source for this file in `debian/missing-sources`. All we need to do is to find this file somewhere. After a bit of research, we find in on jsDeliver, a CDN dedicated to Javascript libraries. Let's download it and add it to the missing sources. We use the same filename, except that we remove the `.min` part in the extension:
+
+```console
+kali@kali:~/kali/packages/instaloader$ mkdir debian/missing-sources/
+kali@kali:~/kali/packages/instaloader$
+kali@kali:~/kali/packages/instaloader$ wget https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.bundle.js -O debian/missing-sources/bootstrap-4.1.3.bundle.js
+kali@kali:~/kali/packages/instaloader$
+kali@kali:~/kali/packages/instaloader$ git add debian/missing-sources/
+kali@kali:~/kali/packages/instaloader$
+kali@kali:~/kali/packages/instaloader$ git commit -m "Add the source of bootstrap-4.1.3.bundle.min.js"
+kali@kali:~/kali/packages/instaloader$
+```
+
+Note that this file is distributed under the MIT license, and all the files in our package are already distributed under the MIT license (cf. `debian/copyright`), therefore we don't need to mention this new file in `debian/copyright`: it's already covered.
+
+We can now rebuild the package with the same command and see that it was successful with no error:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
@@ -1039,15 +1070,12 @@ Install lintian build dependencies (apt-based resolver)
 
 [...]
 
-W: instaloader: binary-without-manpage usr/bin/instaloader
-I: instaloader source: testsuite-autopkgtest-missing
+W: instaloader: no-manual-page [usr/bin/instaloader]
 
 I: Lintian run was successful.
 [...]
 kali@kali:~/kali/packages/instaloader$
 ```
-
-A way we can improve this package is to automate this stage by unminify the JavaScript file, but this will be covered in another guide.
 
 ## Manual Install
 
@@ -1087,7 +1115,7 @@ On branch kali/master
 nothing to commit, working tree clean
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ git branch -v
-* kali/master  10a9e96 Unminify JS to make lintian happy
+* kali/master  10a9e96 Add the source of bootstrap-4.1.3.bundle.min.js
   pristine-tar 439fe30 pristine-tar data for instaloader_4.4.4.orig.tar.gz
   upstream     494f718 New upstream version 4.4.4
 kali@kali:~/kali/packages/instaloader$
