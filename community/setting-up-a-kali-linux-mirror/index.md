@@ -87,11 +87,11 @@ Starting rsync daemon: rsync.
 
 Configuration of your web server and FTP server are outside the scope of this article. Ideally, you should export the mirrors at `http://yourmirror.net/kali` and `http://yourmirror.net/kali-images` (and do the same for the FTP protocol, if you're supporting it).
 
-Now comes interesting part: the configuration of the dedicated user that will handle the SSH trigger and the actual mirroring. You should first unpack [ftpsync.tar.gz](http://archive.kali.org/ftpsync.tar.gz) in the user's account:
+Now comes interesting part: the configuration of the dedicated user that will handle the SSH trigger and the actual mirroring. You should first unpack [ftpsync.tar.gz](https://archive.kali.org/ftpsync.tar.gz) in the user's account:
 
 ```console
 $ sudo su - archvsync
-$ wget http://archive.kali.org/ftpsync.tar.gz
+$ wget https://archive.kali.org/ftpsync.tar.gz
 $ tar zxf ftpsync.tar.gz
 ```
 
@@ -104,7 +104,7 @@ $ grep -E '^[^#]' etc/ftpsync-kali.conf
 MIRRORNAME=`hostname -f`
 TO="/srv/mirrors/kali/"
 RSYNC_PATH="kali"
-RSYNC_HOST=archive.kali.org
+RSYNC_HOST="archive.kali.org"
 ```
 
 ### Set Up the SSH Keys
@@ -114,8 +114,8 @@ The last step is to setup the `.ssh/authorized_keys` file so that archive.kali.o
 ```console
 $ mkdir -p ~/.ssh/
 $ chmod 0700 ~/.ssh/
-$ wget -O - -q http://archive.kali.org/pushmirror.pub >> ~/.ssh/authorized_keys
-$ chmod 0644 ~/.ssh/authorized_keys
+$ wget -O - -q https://archive.kali.org/pushmirror.pub >> ~/.ssh/authorized_keys
+$ chmod 0600 ~/.ssh/authorized_keys
 ```
 
 If you have not unpacked the ftpsync.tar.gz in the home directory, then you must adjust accordingly the `~/bin/ftpsync` path, which is hard-coded in `.ssh/authorized_keys`.
@@ -124,7 +124,7 @@ If you have not unpacked the ftpsync.tar.gz in the home directory, then you must
 
 Now you must send an email to [devel@kali.org](mailto:devel@kali.org) with all the details concerning your mirrors (including user/port to use for SSH push access, public hostname, etc.) so that you can be added in the main mirror list and so that we can open up your rsync access on archive.kali.org. Please indicate clearly who should be contacted in case of problems (or if changes must be made/coordinated to the mirror setup).
 
-#### Initial Sync
+### Initial Sync
 
 Instead of waiting for the first push from archive.kali.org, you should run an initial rsync with a mirror close to you, using the mirror list linked above to select one. Assuming that you picked ftp.halifax.rwth-aachen.de, here's what you can run as your dedicated mirror user:
 
@@ -144,14 +144,14 @@ If you limit network traffic, please make sure the following has been allowed to
 
 ### Set Up cron to Manually Mirror ISO Images
 
-The ISO images repository does not use push mirroring so you must schedule a daily rsync run. We provide a bin/mirror-kali-images script, which is ready to use that you can add in the crontab of your dedicated user. You just have to configure etc/mirror-kali-images.conf.
+The ISO images repository does not use push mirroring so you must schedule a daily rsync run. We provide a `bin/mirror-kali-images` script, which is ready to use that you can add in the crontab of your dedicated user. You just have to configure `etc/mirror-kali-images.conf`.
 
 ```console
 $ sudo su - archvsync
 $ cp etc/mirror-kali-images.conf.sample etc/mirror-kali-images.conf
 $ vim etc/mirror-kali-images.conf
 $ grep -E '^[^#]' etc/mirror-kali-images.conf
-TO=/srv/mirrors/kali-images/
+TO="/srv/mirrors/kali-images/"
 $ crontab -e
 $ crontab -l
 # m h dom mon dow command
