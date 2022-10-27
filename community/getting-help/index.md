@@ -12,7 +12,7 @@ If you believe something is missing or could be improved, please submit an issue
 
 ## Local Documentation
 
-The first item that should always be checked when an issue is encountered is the man page. Man pages will contain helpful information such as command switches available and what they do, descriptions on parts of the tool, and additional man pages that can be read. To access a man page, type `man` followed by the command that you are requiring assistance on. Keep in mind not every command will have a man page. In those cases, try running the command followed by `--help`, `-h`, or `-H`.
+The first item that should always be checked when an issue is encountered is the man page. Man pages will contain helpful information such as command switches available and what they do, descriptions on parts of the tool, and additional man pages that can be read. To access a man page, type `man` followed by the command that you are requiring assistance on. Keep in mind not every command will have a man page. In those cases, try running the command followed by `--help`, `-help`, `-h`, or `-H`.
 
 One thing to note about man pages is that sometimes names will conflict with other commands. In these cases it is helpful to know the organization structure:
 
