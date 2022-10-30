@@ -20,7 +20,7 @@ Navigate to ***"Networking support → Bluetooth subsystem support → Bluetooth
   (CONFIG_BT_HCIBTUSB_RTL=y)
 - select ***"HCI UART driver"***
   (CONFIG_BT_HCIUART=y)
-- select ***"HCI UART H4 driver"***
+- select ***"UART (H4) protocol support"***
   (CONFIG_BT_HCIUART_H4=y)
 - select ***"HCI BCM203x USB driver"***
   (CONFIG_BT_HCIBCM203X=y)
@@ -28,7 +28,7 @@ Navigate to ***"Networking support → Bluetooth subsystem support → Bluetooth
   (CONFIG_BT_HCIBPA10X=y)
 - select ***"HCI BlueFRITZ! USB driver"***
   CONFIG_BT_HCIBFUSB=y)
-- select ***"HCI VHCI driver"***
+- select ***"HCI VHCI (Virtual HCI device) driver"***
   (CONFIG_BT_HCIVHCI=y)
 
 ![](nh-kernel-bluetooth-140.png)
