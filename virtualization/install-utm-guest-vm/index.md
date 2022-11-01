@@ -42,15 +42,16 @@ Now we are at the summary and we can re-name our VM to be "Kali Linux". Once com
 
 ![](utm-setup-9.png)
 
-From here we can navigate to "Display" and set it to "Console only":
+From here we can add the device "Serial" under "Devices":
 
 ![](utm-setup-10.png)
+![](utm-setup-10.5.png)
 
 Now we can save and press play on the VM. Once prompted, we select "Install":
 
 ![](utm-setup-11.png)
 
-Once the install is finished we can go back to the settings and re-enable "Full Graphics":
+Once the install is finished we can go back to the settings and remove the "Serial" device by right-clicking and selecting "Remove":
 
 ![](utm-setup-12.png)
 
