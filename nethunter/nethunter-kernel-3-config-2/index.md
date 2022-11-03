@@ -3,7 +3,7 @@ title: Configuring the Kernel - Network
 description:
 icon:
 weight: 26
-author: ["re4son",]
+author: ["re4son","yesimxev"]
 ---
 
 ## Kernel Configuration cont.
@@ -20,14 +20,27 @@ Navigate to ***"Networking support → Bluetooth subsystem support → Bluetooth
   (CONFIG_BT_HCIBTUSB_RTL=y)
 - select ***"HCI UART driver"***
   (CONFIG_BT_HCIUART=y)
+- select ***"UART (H4) protocol support"***
+  (CONFIG_BT_HCIUART_H4=y)
 - select ***"HCI BCM203x USB driver"***
   (CONFIG_BT_HCIBCM203X=y)
 - select ***"HCI BPA10x USB driver"***
   (CONFIG_BT_HCIBPA10X=y)
 - select ***"HCI BlueFRITZ! USB driver"***
   CONFIG_BT_HCIBFUSB=y)
+- select ***"HCI VHCI (Virtual HCI device) driver"***
+  (CONFIG_BT_HCIVHCI=y)
 
 ![](nh-kernel-bluetooth-140.png)
+
+&nbsp;
+
+Navigate to ***"Device Drivers → Staging -> Android "*** and configure the following items:
+
+- select ***"Android Binder IPC Driver"*** 
+  (CONFIG_ANDROID_BINDER_IPC=y)
+
+![](nh-kernel-bluetooth-binderfs-145.png)
 
 &nbsp;
 
