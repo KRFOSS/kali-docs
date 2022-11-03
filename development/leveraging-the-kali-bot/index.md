@@ -139,8 +139,8 @@ group.
 
 There's a scheduler that will regularly trigger all possible jobs
 on all possible packages (the allowed combinations are defined
-in the [policy.conf
-file](https://gitlab.com/kalilinux/internal/janitor.kali.org/-/blob/master/policy.conf)
+in the [publish-policy.json
+file](https://gitlab.com/kalilinux/internal/janitor.kali.org/-/blob/master/publish-policy.json)
 - that file is only accessible to Kali developers). You can see the [resulting
 queue](https://janitor.kali.org/cupboard/queue).
 
@@ -157,20 +157,7 @@ considered "ready" and it will appear in the [corresponding web
 page](https://janitor.kali.org/cupboard/ready) until it has been
 merged in the target repository (or until it has become obsolete).
 
-At this point in time (May 2021), the changes are not yet
-automatically "published" to the target repository, Kali developers have
-to review and approve the changes made by the bot. This is done through
-the [review web page](https://janitor.kali.org/cupboard/review) where you
-can go through all [pending
-reviews](https://janitor.kali.org/cupboard/ready?review_status=unreviewed),
-one by one. But it can also be made from the page dedicated to each job if
-you want to review a specific package that you want to process in
-priority.
-
-<!-- TODO: Not sure how the review from the job page works. Filed
-https://salsa.debian.org/jelmer/debian-janitor/-/issues/221 -->
-
-Once approved, the change will be put in a queue to be published.
+Once built, the change will be put in a queue to be published.
 It will usually happen soon but it can be delayed due to rate limits
 (the bot publishes results at a slow pace so that any mistake can be
 caught before it has impacted too many repositories, and so that
@@ -210,8 +197,8 @@ the changelog with `gbp dch`.
 
 You can reproduce all this locally by running `debian-svp new-upstream
 --debian-revision=0kali1 --require-uscan --refresh-patches --dry-run
---diff <package>` on a kali-rolling system with the appropriate `deb-src`
-line in APT's sources.list (and with `silver-platter` installed).
+--skip-empty --diff <package>` on a kali-rolling system with the appropriate
+`deb-src` line in APT's sources.list (and with `silver-platter` installed).
 
 <!-- TODO: where can we look at the changes made to the packaging
 git repository? is there any way to run it in a pre-existing
@@ -226,7 +213,7 @@ The main downside at the current time is that the bot will thus do nothing
 if there's a new upstream release that doesn't build with the current
 packaging (because we need to update our packaging rules). How to improve
 this situation is tracked in [this
-ticket](https://salsa.debian.org/jelmer/debian-janitor/-/issues/204).
+ticket](https://github.com/jelmer/janitor/issues/93).
 
 ### Things to know about fresh-snapshots
 
@@ -257,9 +244,10 @@ that can be accessed in
 
 ### So why didn't the Kali Bot do its job?
 
-* Maybe it did, but the job has not been approved yet. Check the
-  list of changes which are [ready to be published but
-  unreviewed](https://janitor.kali.org/cupboard/ready?review_status=unreviewed).
+* Maybe it did build the changes, but the job has not been published yet
+  due to rate-limiting. Check the
+  list of changes which are
+  [ready to be published](https://janitor.kali.org/cupboard/ready).
 * Maybe it failed, have a look at the logs of the jobs for the package
   that you are interested in. The `/cupboard/pkg/<package>` URL should be
   your starting point (ex:
@@ -269,7 +257,7 @@ that can be accessed in
 * If you find something odd, that doesn't make sense or that looks wrong,
   feel free to report it to [devel@kali.org](mailto:devel@kali.org) or
   [directly to the janitor
-  maintainer](https://salsa.debian.org/jelmer/debian-janitor/-/issues/new)
+  maintainer](https://github.com/jelmer/janitor/issues/new)
   if you think that it's a generic issue with the bot.
 
 ## Special thanks
