@@ -30,8 +30,6 @@ We want to enable modules in _Enable Loadable Module Support_ just in case there
 
 - select ***"Module unloading"***
   (CONFIG_MODULE_UNLOAD=y)
-- select ***"Module versioning support"***
-  (CONFIG_MODULE_UNLOAD=y)
 - select ***"Forced module unloading"***
   (CONFIG_MODULE_FORCE_UNLOAD=y)
 - select ***"Module versioning support"***
