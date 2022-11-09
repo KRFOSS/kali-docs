@@ -39,10 +39,10 @@ kali@kali:~$ cryptsetup --verbose --verify-passphrase luksFormat /dev/sdb3
 kali@kali:~$ cryptsetup luksOpen /dev/sdb3 my_usb
 ```
 
-**0x05 - Create an ext3 filesystem and label it**:
+**0x05 - Create an ext4 filesystem and label it**:
 
 ```console
-kali@kali:~$ mkfs.ext3 -L persistence /dev/mapper/my_usb
+kali@kali:~$ mkfs.ext4 -L persistence /dev/mapper/my_usb
 kali@kali:~$ e2label /dev/mapper/my_usb persistence
 ```
 
@@ -99,7 +99,7 @@ Information: You may need to update /etc/fstab.
 **0x02 - Format the fourth partition, label it "work"**:
 
 ```console
-kali@kali:~$ mkfs.ext3 /dev/sdb4
+kali@kali:~$ mkfs.ext4 /dev/sdb4
 kali@kali:~$ e2label /dev/sdb4 work
 ```
 
