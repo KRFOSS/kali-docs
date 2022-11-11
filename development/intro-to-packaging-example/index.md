@@ -466,7 +466,7 @@ instaloader (4.4.4-1) UNRELEASED; urgency=medium
 
  -- Joseph O'Gorman <gamb1t@kali.org>  Thu, 02 Jul 2020 17:59:47 -0400
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ vim debian/changelog
+kali@kali:~/kali/packages/instaloader$ nano debian/changelog
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/changelog
 instaloader (4.4.4-0kali1) kali-dev; urgency=medium
@@ -525,7 +525,7 @@ So we can see a few things that need updating:
 Most of this we have now figured out from before, so it should make it easier to fill in. We went ahead and created a remote empty git repository on our GitLab account. In our example, this is the end result:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ vim debian/control
+kali@kali:~/kali/packages/instaloader$ nano debian/control
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/control
 Source: instaloader
@@ -639,7 +639,7 @@ The original tool's author has ownership on their work, and the work we have put
 After updating it, it looks like the following:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ vim debian/copyright
+kali@kali:~/kali/packages/instaloader$ nano debian/copyright
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
@@ -740,7 +740,7 @@ Which is a wildcard (`%`), and feed in all the arguments into `dh`.
 What needs to go here now starts to depend on the program and how complex it is. As our program is a python application we are going to have to tell it to build with `python3`. We also need to tell it to use `pybuild` to build, as we have a `setup.py` file included in the source of the application. If there was not a `setup.py` file, we would not add this flag. We also need to tell PyBuild the name of the application. This looks like:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ vim debian/rules
+kali@kali:~/kali/packages/instaloader$ nano debian/rules
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/rules
 #!/usr/bin/make -f
@@ -771,7 +771,7 @@ opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/<project>-$1\.tar\.gz/ \
 So lets now alter it to fit our needs:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ vim debian/watch
+kali@kali:~/kali/packages/instaloader$ nano debian/watch
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/watch
 version=4
@@ -821,7 +821,7 @@ However, we need to edit it a bit to fit Instaloader. This can be figured out th
 Let's see how it works:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ vim debian/watch
+kali@kali:~/kali/packages/instaloader$ nano debian/watch
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/watch
 version=4
@@ -844,7 +844,7 @@ Success!
 Everything we have done so far would just be for building the package, but we haven't said how to install the application.
 
 ```console
-kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install
+kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.install
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/instaloader.install
 instaloader.py usr/share/instaloader/
@@ -859,13 +859,13 @@ We can go forward with this, but it may not behave like we were expecting. This 
 ```console
 kali@kali:~/kali/packages/instaloader$ mkdir -p debian/helper-script/
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ vim debian/helper-script/instaloader
+kali@kali:~/kali/packages/instaloader$ nano debian/helper-script/instaloader
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/helper-script/instaloader
 #!/bin/sh
 exec python3 /usr/share/instaloader/instaloader.py "$@"
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install
+kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.install
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/instaloader.install
 instaloader.py usr/share/instaloader/
@@ -1038,22 +1038,23 @@ N:
 kali@kali:~/kali/packages/instaloader$
 ```
 
-The issue with the file `docs/_static/bootstrap-4.1.3.bundle.min.js` is that it's a minified Javascript. It's not human readable, it can't be modified, therefore it's not considered as a source file. As Lintian suggests, we can provide the source for this file in `debian/missing-sources`. All we need to do is to find this file somewhere. After a bit of research, we find in on jsDeliver, a CDN dedicated to Javascript libraries. Let's download it and add it to the missing sources. We use the same filename, except that we remove the `.min` part in the extension:
+The issue with the file `docs/_static/bootstrap-4.1.3.bundle.min.js` is that it's a minified Javascript. It's not human readable, it can't be modified, therefore it's not considered as a source file. As Lintian suggests, we can provide the source for this file in `debian/missing-sources`, however as we do not have the source handy we should explore other options. For this guide we will focus on Lintian overrides. Because the offending file is in the `docs` directory, which, if we investigate the included files, is what Instaloader uses to host their [documentation site](https://instaloader.github.io/) pages, we can ignore this file and tell Lintian to as well.
 
-```console
-kali@kali:~/kali/packages/instaloader$ mkdir debian/missing-sources/
+To do this we will create the file `instaloader.lintian-overrides` located in the `debian` directory. From here we can copy and paste the error message from the `:` on. While we are here, we may as well ignore the warning about `no-manual-page`. Here is our resulting file:
+
+```
+kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.lintian-overrides
+
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ wget https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.bundle.js -O debian/missing-sources/bootstrap-4.1.3.bundle.js
-kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ git add debian/missing-sources/
-kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ git commit -m "Add the source of bootstrap-4.1.3.bundle.min.js"
+
+kali@kali:~/kali/packages/instaloader$ cat debian/instaloader.lintian-overrides
+source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]
+no-manual-page [usr/bin/instaloader]
+
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Note that this file is distributed under the MIT license, and all the files in our package are already distributed under the MIT license (cf. `debian/copyright`), therefore we don't need to mention this new file in `debian/copyright`: it's already covered.
-
-We can now rebuild the package with the same command and see that it was successful with no error:
+We can now commit our changes and rebuild the package with the same command and see if it was successful with no error:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
@@ -1070,9 +1071,68 @@ Install lintian build dependencies (apt-based resolver)
 
 [...]
 
-W: instaloader: no-manual-page [usr/bin/instaloader]
+Running lintian...
+E: instaloader source: source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]
+I: instaloader: unused-override source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js] [usr/share/lintian/overrides/instaloader:2]
+N: 0 hints overridden; 1 unused override
+
+E: Lintian run failed (runtime error)
+
+[...]
+kali@kali:~/kali/packages/instaloader$
+```
+
+Uh oh! It looks like it still failed, and that it didn't even use our override for the `source-is-missing` error! If we look closer, we can see a difference between the previous warning we were getting about `no-manual-page` and `source-is-missing`. The section before the `:`, telling us the level of error and the package name, includes `source` in our `source-is-missing` error. This is because the issue resides in the _source package_, or the imported package, rather than the output, or the _binary package_. To solve this we will need to create a new `source` directory in `debian/` and a new `lintian-overrides` file. Lets do that now:
+
+```
+kali@kali:~/kali/packages/instaloader$ mkdir debian/source/
+
+kali@kali:~/kali/packages/instaloader$
+
+kali@kali:~/kali/packages/instaloader$ nano debian/source/lintian-overrides
+
+kali@kali:~/kali/packages/instaloader$
+
+kali@kali:~/kali/packages/instaloader$ cat debian/source/lintian-overrides
+source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]
+
+kali@kali:~/kali/packages/instaloader$
+```
+
+Don't forget to remove the override from our previous file as well!
+
+```
+kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.lintian-overrides
+
+kali@kali:~/kali/packages/instaloader$
+
+kali@kali:~/kali/packages/instaloader$ cat debian/instaloader.lintian-overrides
+no-manual-page [usr/bin/instaloader]
+
+kali@kali:~/kali/packages/instaloader$
+```
+
+We can once more commit our changes and rebuild the package and see it was successful with no error:
+
+```console
+kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
+[...]
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+[...]
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+[...]
+
+Running lintian...
 
 I: Lintian run was successful.
+
 [...]
 kali@kali:~/kali/packages/instaloader$
 ```
@@ -1115,7 +1175,7 @@ On branch kali/master
 nothing to commit, working tree clean
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ git branch -v
-* kali/master  10a9e96 Add the source of bootstrap-4.1.3.bundle.min.js
+* kali/master  10a9e96 Use lintian-override to clear all warnings and errors
   pristine-tar 439fe30 pristine-tar data for instaloader_4.4.4.orig.tar.gz
   upstream     494f718 New upstream version 4.4.4
 kali@kali:~/kali/packages/instaloader$
