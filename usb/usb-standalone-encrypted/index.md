@@ -84,7 +84,7 @@ $ sgdisk --new=3:0:+128M /dev/sda
 $ sgdisk --new=4:0:+8192M /dev/sda
 $ sgdisk --new=5:0:0 /dev/sda
 $ sgdisk --typecode=1:8301 --typecode=2:ef02 --typecode=3:ef00 --typecode=4:8200 --typecode=5:8300 /dev/sda
-$ sgdisk --change-name=1:/boot --change-name=2:GRUB --change-name=3:EFI-SP 00change-name=4:swap --change-name=5:rootfs /dev/sda
+$ sgdisk --change-name=1:/boot --change-name=2:GRUB --change-name=3:EFI-SP --change-name=4:swap --change-name=5:rootfs /dev/sda
 $ sgdisk --hybrid 1:2:3 /dev/sda
 $ sgdisk --print /dev/sda
 ```
