@@ -98,7 +98,7 @@ The following live reports are generated automatically by GitLab CI:
 
 [List of quarterly published officialNetHunter images](https://nethunter.kali.org/images.html)
 [List of unofficial NetHunter supported kernels](https://nethunter.kali.org/kernels.html)
-[NetHunter kernel statistics](https://nethunter.kali.org/kernelstats.html)
+[NetHunter kernel statistics](https://nethunter.kali.org/kernel-stats.html)
 
 ## 3.0 Downloading NetHunter
 
