@@ -48,7 +48,7 @@ Parallels does not recognize the OS on the ISO, so we will choose **Continue** t
 
 - - -
 
-Once we have clicked **Continue**, we want to choose **Ubuntu** from the drop down list.  Normally we would choose **Debian** however, there is a bug with the Parallels Tools, that does not occur when using **Ubuntu**.
+Once we have clicked **Continue**, we want to choose **Ubuntu** from the drop down list. Normally we would choose **Debian** however, there is a bug with the Parallels Tools, that does not occur when using **Ubuntu**.
 
 ![](parallels-09.png)
 ![](parallels-10.png)

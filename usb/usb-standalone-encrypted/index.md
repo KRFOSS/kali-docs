@@ -369,7 +369,7 @@ I am not an expert on the Debian style installer that was used, but it seems tha
 
 I performed a test installation on a Chinese made no-name Intel Core i5-10210U based laptop with integrated Intel graphics and sound, and I do have working sound on that machine. But when I boot the same installation on a Lenovo T14 AMD Gen 1 (AMD Ryzen 5 Pro 4650U with integrated Radeon graphics and Realtek ALC257 audio), then sound does not work. So you have to expect that some hardware specific manual configuration will be necessary. Fortunately, in my case, both ethernet and WLAN work out of the box on any hardware that I have tried so far.
 
-Finally, although the installation allows to to /suspend to disk/ (/hibernate/), you cannot expect it to function when you put the system to sleep (/suspend/) on one hardware and then try to wake it up (/resume/) on a different machine.  
+Finally, although the installation allows to to /suspend to disk/ (/hibernate/), you cannot expect it to function when you put the system to sleep (/suspend/) on one hardware and then try to wake it up (/resume/) on a different machine.
 
 ### Compilation of a Custom Kernel
 

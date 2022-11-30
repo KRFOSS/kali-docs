@@ -28,7 +28,7 @@ In Windows you can stop Windows Security from alerting you or blocking your virt
 
 ![](run-kali-vm-windows-2.png)
 
-3.  Select  "Add an exclusion". A drop down menu will appear and then you can select files, folders, file types, or process. If you select the folder exclusion will apply to all subfolders within the folder as well.
+3. Select  "Add an exclusion". A drop down menu will appear and then you can select files, folders, file types, or process. If you select the folder exclusion will apply to all subfolders within the folder as well.
 
 ![](run-kali-vm-windows-3.png)
 

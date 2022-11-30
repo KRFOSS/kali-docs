@@ -147,7 +147,7 @@ Alternatively, if this issue is occurring in a VM disable 3D acceleration in the
 
 **Q:** How can I setup a different input method not available through "*Settings -> Keyboard -> Layout*", e.g. Japanese (Anthy)?
 
-**A:**  You can install ibus to configure different input methods, for Anthy you also have to install ibus-anthy, i.e.  via
+**A:**  You can install ibus to configure different input methods, for Anthy you also have to install ibus-anthy, i.e. via
 
 `sudo apt install -y ibus ibus-anthy`
 

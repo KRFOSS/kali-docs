@@ -14,7 +14,7 @@ We try to remain as informal as possible but there _are_ some rules and we'd app
 
 ### Registered nickname
 
-We do require that users use a registered nickname on IRC.  Once you are connected to the OFTC irc network, you can `/msg NickServ HELP REGISTER` for instructions on registering your nickname.
+We do require that users use a registered nickname on IRC. Once you are connected to the OFTC irc network, you can `/msg NickServ HELP REGISTER` for instructions on registering your nickname.
 
 ### How to Treat Other Users
 

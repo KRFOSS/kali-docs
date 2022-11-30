@@ -11,7 +11,7 @@ The [Pinebook](https://www.pine64.org/pinebook/) has an Allwinner A64 Quad Core 
 By default, the Kali Linux Pinebook image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
-With kernels newer than 5.19, the built-in Wi-Fi adapter no longer works.  You will need to use an USB Wi-Fi adapter.
+With kernels newer than 5.19, the built-in Wi-Fi adapter no longer works. You will need to use an USB Wi-Fi adapter.
 {{% /notice %}}
 
 ## Kali on the Pinebook microSD card - User Instructions

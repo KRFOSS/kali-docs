@@ -13,7 +13,7 @@ The ODROID-C0 and ODROID-C1+ are both essentiall the same base hardware, but wit
 By default, the Kali Linux ODROID-C images contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
-The build script for the ODROID-C0/C1/C1+ has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+The build script for the ODROID-C0/C1/C1+ has not been converted to the new style, so builds may fail. If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
 {{% /notice %}}
 
 ## Kali on ODROID-C0/C1/C1+ - Build-Script Instructions

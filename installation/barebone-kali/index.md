@@ -2,7 +2,7 @@
 title: Bare-bones Kali
 description:
 icon:
-weight: 
+weight:
 author: ["gamb1t",]
 ---
 

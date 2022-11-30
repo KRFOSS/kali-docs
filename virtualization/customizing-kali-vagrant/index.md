@@ -2,7 +2,7 @@
 title: Customizing a Kali Vagrant Vagrantfile
 description:
 icon:
-weight: 
+weight:
 author: ["gamb1t",]
 ---
 

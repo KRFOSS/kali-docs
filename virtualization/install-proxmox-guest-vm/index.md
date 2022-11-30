@@ -2,7 +2,7 @@
 title: Kali inside Proxmox (Guest VM)
 description:
 icon:
-weight: 
+weight:
 author: ["gamb1t",]
 ---
 

@@ -13,7 +13,7 @@ _This image for the "Marvell" based (original) NOT the "Freescale" based._
 By default, the Kali Linux CuBox image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
-The build script for the CuBox has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+The build script for the CuBox has not been converted to the new style, so builds may fail. If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
 {{% /notice %}}
 
 ## Kali on CuBox - Build-Script Instructions

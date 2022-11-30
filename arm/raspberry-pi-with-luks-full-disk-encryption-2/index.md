@@ -98,7 +98,7 @@ We want to ensure we are on the latest kernel before we get started, so lets als
 
 ### Boot options
 
-Next we are going to edit `/boot/cmdline.txt` and change the root path. We will want to change the root path to be `/dev/mapper/crypt`, and then we will add in `cryptdevice=PARTUUID=$partuuid:crypt` right after that.  The reason for this is that the kernel needs to know where the root filesystem is, in order to mount it and use it, and since we are encrypting the rootfs later in the post, during boot time it can't see the unencrypted device either, because of the encryption! While we are changing the name here to "crypt", you can call it whatever you want, really. The `/boot/cmdline.txt` file on a RaspberryPi device is used to pass the kernel command line options.
+Next we are going to edit `/boot/cmdline.txt` and change the root path. We will want to change the root path to be `/dev/mapper/crypt`, and then we will add in `cryptdevice=PARTUUID=$partuuid:crypt` right after that. The reason for this is that the kernel needs to know where the root filesystem is, in order to mount it and use it, and since we are encrypting the rootfs later in the post, during boot time it can't see the unencrypted device either, because of the encryption! While we are changing the name here to "crypt", you can call it whatever you want, really. The `/boot/cmdline.txt` file on a RaspberryPi device is used to pass the kernel command line options.
 The end result should look like this:
 
 ```console
@@ -116,7 +116,7 @@ dwc_otg.fiq_fix_enable=2 console=serial0,115200 kgdboc=serial0,115200 console=tt
 
 We now need to update the `/etc/fstab` file, this is a configuration file on the system that contains all available disks, disk partitions, and what options to use when handling them.
 
-Currently it is populated with the UUID of the root filesystem, and we need it to point at the encrypted filesystem that we will be making.  In this example, we've commented out what the previous root device's UUID, and point at `/dev/mapper/crypt` which is what our encrypted filesystem will mount as, once we create it.
+Currently it is populated with the UUID of the root filesystem, and we need it to point at the encrypted filesystem that we will be making. In this example, we've commented out what the previous root device's UUID, and point at `/dev/mapper/crypt` which is what our encrypted filesystem will mount as, once we create it.
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -147,7 +147,7 @@ Because this file doesn't exist, we will create the `/etc/crypttab` file, and fi
 
 - - -
 
-Now we do a little file-system trickery. We create a fake LUKS file-system which will allow cryptsetup to be included in the initramfs because it sees an encrypted partition.  When you format any LUKS partitions, you will be prompted for a password, and while normally you will use a strong password, because we are only using this as a hack to include cryptsetup into our initramfs, the password you create at this prompt will not be needed or used past these steps, so you can set it to something short/quick to type.  This will happen at the `cryptsetup luksFormat` step, and you will be prompted for the password you set during `cryptsetup luksFormat` when you run the `cryptsetup luksOpen` step.
+Now we do a little file-system trickery. We create a fake LUKS file-system which will allow cryptsetup to be included in the initramfs because it sees an encrypted partition. When you format any LUKS partitions, you will be prompted for a password, and while normally you will use a strong password, because we are only using this as a hack to include cryptsetup into our initramfs, the password you create at this prompt will not be needed or used past these steps, so you can set it to something short/quick to type. This will happen at the `cryptsetup luksFormat` step, and you will be prompted for the password you set during `cryptsetup luksFormat` when you run the `cryptsetup luksOpen` step.
 
 {{% notice info %}}
 You will not see any input being typed when entering the password
@@ -354,11 +354,11 @@ Now we enable cryptsetup:
 ┌──(root㉿kali)-[/]
 └─# tail /etc/cryptsetup-initramfs/conf-hook
 #
-# Whether to include the askpass binary to the initramfs image.  askpass
+# Whether to include the askpass binary to the initramfs image. askpass
 # is required for interactive passphrase prompts, and ASKPASS=y (the
 # default) is implied when the hook detects that same device needs to be
 # unlocked interactively (i.e., not via keyfile nor keyscript) at
-# initramfs stage.  Setting ASKPASS=n also skips `cryptroot-unlock`
+# initramfs stage. Setting ASKPASS=n also skips `cryptroot-unlock`
 # inclusion as it requires the askpass executable.
 
 #ASKPASS=y
@@ -443,7 +443,7 @@ etc/unlock.sh
 
 ### Disable services
 
-Before we can backup, we have to ensure that `rpi-resizerootfs` is disabled.  This is a service we typically run on all of our ARM devices that resizes the root filesystem partition to increase the size of the partition to the full size of the storage device it is on.  Since we are doing this step manually, we want to disable it, so it doesn't potentially delete our root filesystem and re-make it.
+Before we can backup, we have to ensure that `rpi-resizerootfs` is disabled. This is a service we typically run on all of our ARM devices that resizes the root filesystem partition to increase the size of the partition to the full size of the storage device it is on. Since we are doing this step manually, we want to disable it, so it doesn't potentially delete our root filesystem and re-make it.
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -627,7 +627,7 @@ export _KERNEL_VERSION_FILTER="v8+"
 # HOSTNAME
 #   Each element of the hostname must be from 1 to 63 characters long and
 #   the entire hostname, including the dots, can be at most 253
-#   characters long.  Valid characters for hostnames are ASCII(7) letters
+#   characters long. Valid characters for hostnames are ASCII(7) letters
 #   from a to z, the digits from 0 to 9, and the hyphen (-)
 export _HOSTNAME="kali-encrypted-basic"
 

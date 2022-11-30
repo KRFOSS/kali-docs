@@ -11,7 +11,7 @@ The [Utilite Pro](http://www.compulab.co.il/utilite-computer/web/utilite-overvie
 By default, the Kali Linux Utilite Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
 {{% notice info %}}
-The build script for the Utilite Pro has not been converted to the new style, so builds may fail.  If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+The build script for the Utilite Pro has not been converted to the new style, so builds may fail. If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
 {{% /notice %}}
 
 ## Kali on Utilite Pro - Build-Script Instructions

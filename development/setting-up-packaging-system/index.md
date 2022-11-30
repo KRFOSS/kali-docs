@@ -86,7 +86,7 @@ some other action (type on the keyboard, move the mouse, utilize the
 disks) during the prime generation; this gives the random number
 generator a better chance to gain enough entropy.
 
-Not enough random bytes available.  Please do some other work to give
+Not enough random bytes available. Please do some other work to give
 the OS a chance to collect more entropy! (Need 284 more bytes)
 
 gpg: /home/packaging/.gnupg/trustdb.gpg: trustdb created

@@ -81,7 +81,7 @@ of the interpreter that will be used to execute the script.
 
 If the interpreter is `/usr/bin/python`, you should read the documentation
 to see whether the script can run with Python 3. If yes, then you should
-update the shebang line to point to `/usr/bin/python3`.  Otherwise you
+update the shebang line to point to `/usr/bin/python3`. Otherwise you
 should update it to point to `/usr/bin/python2`.
 
 Good shebang lines that can be kept:

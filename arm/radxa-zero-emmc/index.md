@@ -110,14 +110,14 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 Linux (sdcard boot, write to eMMC):
 
 {{% notice info %}}
-You cannot use the Radxa Zero **sdcard** image on the eMMC, and vice versa.  The bootloader is written to different locations depending on eMMC and sdcard and they are **not** interchangeable.
+You cannot use the Radxa Zero **sdcard** image on the eMMC, and vice versa. The bootloader is written to different locations depending on eMMC and sdcard and they are **not** interchangeable.
 {{% /notice %}}
 
 With this mode, we first boot the Radxa Zero from a microSD card, and simply use the **[dd](https://packages.debian.org/testing/dd)** utility to write an image to the eMMC.
 
 1. Follow the [Radxa Zero (sdcard)](/docs/arm/radxa-zero-sdcard/) instructions
 2. Connect the Radxa Zero to a wireless network
-3. Copy the image file you want to use to the microSD card.  Keep in mind that you will need enough free space on the microSD card
+3. Copy the image file you want to use to the microSD card. Keep in mind that you will need enough free space on the microSD card
 4. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to the eMMC device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 

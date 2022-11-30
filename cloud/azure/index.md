@@ -2,7 +2,7 @@
 title: Azure
 description:
 icon:
-weight: 
+weight:
 author: ["gamb1t",]
 ---
 
