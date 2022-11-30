@@ -466,7 +466,7 @@ instaloader (4.4.4-1) UNRELEASED; urgency=medium
 
  -- Joseph O'Gorman <gamb1t@kali.org>  Thu, 02 Jul 2020 17:59:47 -0400
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ nano debian/changelog
+kali@kali:~/kali/packages/instaloader$ vim debian/changelog
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/changelog
 instaloader (4.4.4-0kali1) kali-dev; urgency=medium
@@ -525,7 +525,7 @@ So we can see a few things that need updating:
 Most of this we have now figured out from before, so it should make it easier to fill in. We went ahead and created a remote empty git repository on our GitLab account. In our example, this is the end result:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ nano debian/control
+kali@kali:~/kali/packages/instaloader$ vim debian/control
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/control
 Source: instaloader
@@ -639,7 +639,7 @@ The original tool's author has ownership on their work, and the work we have put
 After updating it, it looks like the following:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ nano debian/copyright
+kali@kali:~/kali/packages/instaloader$ vim debian/copyright
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/copyright
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
@@ -740,7 +740,7 @@ Which is a wildcard (`%`), and feed in all the arguments into `dh`.
 What needs to go here now starts to depend on the program and how complex it is. As our program is a python application we are going to have to tell it to build with `python3`. We also need to tell it to use `pybuild` to build, as we have a `setup.py` file included in the source of the application. If there was not a `setup.py` file, we would not add this flag. We also need to tell PyBuild the name of the application. This looks like:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ nano debian/rules
+kali@kali:~/kali/packages/instaloader$ vim debian/rules
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/rules
 #!/usr/bin/make -f
@@ -771,7 +771,7 @@ opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/<project>-$1\.tar\.gz/ \
 So lets now alter it to fit our needs:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ nano debian/watch
+kali@kali:~/kali/packages/instaloader$ vim debian/watch
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/watch
 version=4
@@ -821,7 +821,7 @@ However, we need to edit it a bit to fit Instaloader. This can be figured out th
 Let's see how it works:
 
 ```console
-kali@kali:~/kali/packages/instaloader$ nano debian/watch
+kali@kali:~/kali/packages/instaloader$ vim debian/watch
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/watch
 version=4
@@ -844,7 +844,7 @@ Success!
 Everything we have done so far would just be for building the package, but we haven't said how to install the application.
 
 ```console
-kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.install
+kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/instaloader.install
 instaloader.py usr/share/instaloader/
@@ -859,13 +859,13 @@ We can go forward with this, but it may not behave like we were expecting. This 
 ```console
 kali@kali:~/kali/packages/instaloader$ mkdir -p debian/helper-script/
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ nano debian/helper-script/instaloader
+kali@kali:~/kali/packages/instaloader$ vim debian/helper-script/instaloader
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/helper-script/instaloader
 #!/bin/sh
 exec python3 /usr/share/instaloader/instaloader.py "$@"
 kali@kali:~/kali/packages/instaloader$
-kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.install
+kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install
 kali@kali:~/kali/packages/instaloader$
 kali@kali:~/kali/packages/instaloader$ cat debian/instaloader.install
 instaloader.py usr/share/instaloader/
@@ -1043,7 +1043,7 @@ The issue with the file `docs/_static/bootstrap-4.1.3.bundle.min.js` is that it'
 To do this we will create the file `instaloader.lintian-overrides` located in the `debian` directory. From here we can copy and paste the error message from the `:` on. While we are here, we may as well ignore the warning about `no-manual-page`. Here is our resulting file:
 
 ```
-kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.lintian-overrides
+kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.lintian-overrides
 
 kali@kali:~/kali/packages/instaloader$
 
@@ -1089,7 +1089,7 @@ kali@kali:~/kali/packages/instaloader$ mkdir debian/source/
 
 kali@kali:~/kali/packages/instaloader$
 
-kali@kali:~/kali/packages/instaloader$ nano debian/source/lintian-overrides
+kali@kali:~/kali/packages/instaloader$ vim debian/source/lintian-overrides
 
 kali@kali:~/kali/packages/instaloader$
 
@@ -1102,7 +1102,7 @@ kali@kali:~/kali/packages/instaloader$
 Don't forget to remove the override from our previous file as well!
 
 ```
-kali@kali:~/kali/packages/instaloader$ nano debian/instaloader.lintian-overrides
+kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.lintian-overrides
 
 kali@kali:~/kali/packages/instaloader$
 

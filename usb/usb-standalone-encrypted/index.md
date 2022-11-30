@@ -205,7 +205,7 @@ We have created the subvolume `@` as the one to be mounted on `/` by default, fo
 
 The `umount /target/boot/efi` is required only when the installation medium was booted in EFI mode. The key point here is that even though we are installing to a USB drive, the EFI partition mounted so far is the EFI partition of the internal harddisk of the computer. This wrong mount would cause serious trouble later when we install a boot loader.
 
-Then we call `blkid -s PARTUUID -o value /dev/sdb3` in order to find out the UUID of the EFI partition on the target USB drive and write it down on paper. We call `nano /target/etc/fstab` in order to adapt the file system table as follows.
+Then we call `blkid -s PARTUUID -o value /dev/sdb3` in order to find out the UUID of the EFI partition on the target USB drive and write it down on paper. We call `vim /target/etc/fstab` in order to adapt the file system table as follows.
 
 Firstly, in the line for `/`, we change `subvol=@rootfs` to `subvol=@`. We also add a line
 
@@ -335,7 +335,7 @@ $ chroot /target
 $ mount -a
 ```
 
-Now we merely need to `nano /etc/default/grub` and add a line 
+Now we merely need to `vim /etc/default/grub` and add a line
 
 ```plaintext
 GRUB_ENABLE_CRYPTODISK=y
@@ -361,7 +361,7 @@ On some older UEFI machines, however, we are thrown into a `grub2` shell. Nevert
 
 Kali Linux is very conservative about network connections, and so your new installation probably needs some further setup. If you intend to boot the USB drive on different machines, you will probably set up networking on a case by case basis.
 
-If you wish to place WLAN under the control of the `NetworkManager` in the graphical interface, you need to `sudo nano /etc/NetworkManager/NetworkManager.conf` and under `[ifupdown]` set `managed=true`. I think `sudo systemctl restart NetworkManager` ought to suffice, but somehow I recall that it worked only after rebooting.
+If you wish to place WLAN under the control of the `NetworkManager` in the graphical interface, you need to `sudo vim /etc/NetworkManager/NetworkManager.conf` and under `[ifupdown]` set `managed=true`. I think `sudo systemctl restart NetworkManager` ought to suffice, but somehow I recall that it worked only after rebooting.
 
 ### Hardware Limitations
 
