@@ -13,7 +13,7 @@ author: ["Re4son", "yesimxev",]
 ## Content:
 
 - [Overview](#overview)
-- [NetHunter Editons](#10-nethunter-editions)
+- [NetHunter Editions](#10-nethunter-editions)
 - [NetHunter Supported Devices and ROMs](#20-nethunter-supported-devices-and-roms)
 - [Downloading NetHunter](#30-downloading-nethunter)
 - [Building NetHunter](#40-building-nethunter)
@@ -96,9 +96,9 @@ The full NetHunter experience requires a devices specific kernel that has been p
 The [NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Kali Linux publishes over 25 images for the most popular devices on the [NetHunter download page](/get-kali/).
 The following live reports are generated automatically by GitLab CI:
 
-[List of quarterly published officialNetHunter images](https://nethunter.kali.org/nethunter-images.html)
-[List of unofficial NetHunter supported kernels](https://nethunter.kali.org/nethunter-kernels.html)
-[NetHunter kernel statistics](https://nethunter.kali.org/nethunter-kernelstats.html)
+[List of quarterly published officialNetHunter images](https://nethunter.kali.org/images.html)
+[List of unofficial NetHunter supported kernels](https://nethunter.kali.org/kernels.html)
+[NetHunter kernel statistics](https://nethunter.kali.org/kernelstats.html)
 
 ## 3.0 Downloading NetHunter
 

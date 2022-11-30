@@ -23,9 +23,9 @@ Installing NetHunter requires the following steps:
 ## 1. NetHunter support and pre-built images
 
 You can confirm that your device and Android version is supported via our gitlab live reports:
-[List of quarterly published NetHunter images](https://nethunter.kali.org/nethunter-images.html)
-[NetHunter kernel statistics](https://nethunter.kali.org/nethunter-kernelstats.html)
-[NetHunter kernel table with](https://nethunter.kali.org/nethunter-kernels.html)
+[List of quarterly published NetHunter images](https://nethunter.kali.org/images.html)
+[NetHunter kernel statistics](https://nethunter.kali.org/kernelstats.html)
+[NetHunter kernel table with](https://nethunter.kali.org/kernels.html)
 
 The NetHunter team builds and publishes images for a selected list of devices, on the [official NetHunter download page](/get-kali/).
 
