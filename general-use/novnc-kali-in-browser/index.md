@@ -45,7 +45,7 @@ We can see it is using port 5900.
 Afterwards we get noVNC running (this will open `8081/TCP`):
 
 ```console
-kali@kali:~$ /usr/share/novnc/utils/launch.sh --listen 8081 --vnc localhost:5900
+kali@kali:~$ /usr/share/novnc/utils/novnc_proxy --listen 8081 --vnc localhost:5900
 ```
 
 ![](novnc-kali-in-browser-1.png)
