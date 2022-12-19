@@ -21,7 +21,7 @@ kali@kali:~$
 
 Alternatively we can use `kali-tweaks` to install metapackage groups for us. We first run the following command:
 
-```
+```console
 kali@kali:~$ kali-tweaks
 ```
 
