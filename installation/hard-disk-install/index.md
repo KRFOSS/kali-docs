@@ -57,9 +57,10 @@ In this example, we chose the Graphical install.
 ![](boot-installer.png)
 
 {{% notice info %}}
-If you're using the **live** image instead, you will see another mode, **Live**, which is also the default boot option.<br />
-![](boot-live.png)
+If you're using the **live** image instead, you will see another mode, **Live**, which is also the default boot option.
 {{% /notice %}}
+
+![](boot-live.png)
 
 #### Language
 
