@@ -10,11 +10,18 @@ author: ["gamb1t", "g0tmi1k", "daniruiz",]
 
 [Metapackages](/tools/kali-meta/) are used to install many packages at one time, created as a list of dependencies on other packages. Kali Linux uses these in a few ways. One way is allowing users to decide how many packages out of the total Kali list they would like to install. Need just enough to use Linux? Want enough to conduct Pentests? Perhaps nearly every package available in Kali?
 
-To install a metapackage we first need to update and then install the desired package:
+To install a metapackage, we are going to first update the system. While not mandatory, this step is highly recommended to make sure the metapackages can be installed without any unexpected side-effects. The procedure to update Kali is documented in details on the page [Updating Kali](updating-kali), but in short, it boils down to two commands:
 
 ```console
 kali@kali:~$ sudo apt update
 kali@kali:~$
+kali@kali:~$ sudo apt full-upgrade -y
+kali@kali:~$
+```
+
+The step above might take a while, depending on how many packages need to be updated. After it's complete, installing a metapackage (`kali-linux-default` in this example) is simply a running one command:
+
+```console
 kali@kali:~$ sudo apt install -y kali-linux-default
 kali@kali:~$
 ```
