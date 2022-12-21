@@ -19,7 +19,7 @@ kali@kali:~$ sudo apt full-upgrade -y
 kali@kali:~$
 ```
 
-The step above might take a while, depending on how many packages need to be updated. After it's complete, installing a metapackage (`kali-linux-default` in this example) is simply a running one command:
+The step above might take a while, depending on how many packages need to be updated. After it's complete, installing a metapackage (`kali-linux-default` in this example) is simply a matter of running one command:
 
 ```console
 kali@kali:~$ sudo apt install -y kali-linux-default
