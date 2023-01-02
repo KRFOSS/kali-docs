@@ -52,7 +52,7 @@ _At the time of writing, Etcher will use MBR. This is to allow for the most hard
 
 2. With **Device**, check the dropdown list of options for the USB drive (e.g. "`G:\`" and size).
 
-3. **Boot section** needs to point to point to the Kali Linux ISO file, which can be done by clicking the **SELECT** button
+3. **Boot selection** needs to point to point to the Kali Linux ISO file, which can be done by clicking the **SELECT** button
 
 4. Depending on your configuration, you can set the **Partition scheme**, as well as **Target system**. If you are not sure, leave it as the default values.
 
