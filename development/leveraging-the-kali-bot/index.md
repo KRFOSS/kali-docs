@@ -139,8 +139,7 @@ group.
 
 There's a scheduler that will regularly trigger all possible jobs
 on all possible packages (the allowed combinations are defined
-in the [publish-policy.json
-file](https://gitlab.com/kalilinux/internal/janitor.kali.org/-/blob/master/publish-policy.json)
+in the publish-policy.json file.
 - that file is only accessible to Kali developers). You can see the [resulting
 queue](https://janitor.kali.org/cupboard/queue).
 
