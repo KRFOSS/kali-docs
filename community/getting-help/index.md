@@ -69,6 +69,6 @@ When possible, create a VM just for the purpose of learning something, and try a
 
 ## Reporting
 
-Always remember to report bugs to where they should be. Kali Linux manages certain packages, and Debian manages others. If the tool creator's GitHub/GitLab cannot be found then reporting to Kali Linux or Debian would be a good replacement, however in the majority of cases the GitHub/GitLab will be able to be found. Doing `apt show package` will list a homepage which may link to the GitHub/Gitlab. In the case that either their homepage does not or the `apt show` does not show a homepage, Google will likely produce results.
+Always remember to report bugs to where they should be. Kali Linux manages certain packages, and Debian manages others. If the tool creator's GitHub/GitLab cannot be found then reporting to Kali Linux or Debian would be a good replacement, however in the majority of cases the GitHub/GitLab will be able to be found. Doing `apt show package` will list a homepage which may link to the GitHub/GitLab. In the case that either their homepage does not or the `apt show` does not show a homepage, Google will likely produce results.
 
 In the case of reporting a bug to Kali Linux, we have a doc on just [that topic](/docs/community/submitting-issues-kali-bug-tracker/).

@@ -167,9 +167,9 @@ The next step after learning about a tool's purpose is to figure out what you wi
 
 Once you learn and note what you can test about the tool, you should start to write the test using the best practices and tips given earlier. There are many available resources that stem from those resources, and lots more packages that have solid tests that you can learn from example with if need be.
 
-Given that Kali uses Gitlab, you should fork the [source package](https://gitlab.com/kalilinux/packages) where you want to add tests, and add your tests in a new branch. Our Gitlab CI configuration should run the autopkgtest, so you can have a look at the output of the pipelines to see whether your tests have been correctly run and whether they succeeded. If they do not work, you can iterate (adding more commits) until you are satisfied with your test scripts.
+Given that Kali uses GitLab, you should fork the [source package](https://gitlab.com/kalilinux/packages) where you want to add tests, and add your tests in a new branch. Our GitLab CI configuration should run the autopkgtest, so you can have a look at the output of the pipelines to see whether your tests have been correctly run and whether they succeeded. If they do not work, you can iterate (adding more commits) until you are satisfied with your test scripts.
 
-Once you do get a completed green test, you should submit a merge request since your work is already on Gitlab. The [Save & Share](/docs/development/intro-to-packaging-example/#save--share) section of contributing to packages gives a good example of this.
+Once you do get a completed green test, you should submit a merge request since your work is already on GitLab. The [Save & Share](/docs/development/intro-to-packaging-example/#save--share) section of contributing to packages gives a good example of this.
 
 For more information on the environment itself, the `autopkgtest-build-qemu` and `autopkgtest-virt-qemu` man pages are beneficial. As are the docs located at `/usr/share/doc/autopkgtest/`.
 
@@ -197,4 +197,4 @@ kali@kali:~$ sudo autopkgtest-build-qemu kali-rolling /srv/autopkgtest-images/ka
 
 Now to run your tests, all you have to do is run the following command: `autopkgtest ~/packages/mytest/ -- qemu /srv/autopkgtest-images/kali-rolling.img` and point to the directory that contains the package you want to test.
 
-There are many other variations which will potentially be needed, and can be found at /usr/share/doc/autopkgtest/README.running-tests.html. It is encouraged to use the Gitlab CI however, as many things have the potential to go wrong with local tests and it is easier to get help if needed when using Gitlab.
+There are many other variations which will potentially be needed, and can be found at /usr/share/doc/autopkgtest/README.running-tests.html. It is encouraged to use the GitLab CI however, as many things have the potential to go wrong with local tests and it is easier to get help if needed when using GitLab.
