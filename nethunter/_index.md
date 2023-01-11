@@ -102,11 +102,11 @@ The following live reports are generated automatically by GitLab CI:
 
 ## 3.0 Downloading NetHunter
 
-Official release NetHunter images for your specific supported device can be download from the Offensive Security NetHunter project page located at the following URL:
+Official release NetHunter images for your specific supported device can be download from the Kali Linux page located at the following URL:
 
 - [kali.org/get-kali/](/get-kali/)
 
-Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the Offensive Security NetHunter download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
+Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
 
 ## 4.0 Building NetHunter
 
