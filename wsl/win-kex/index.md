@@ -67,7 +67,7 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 - Open PowerShell as administrator and run:
 `wsl --set-default-version 2`
 
-- Install Kali Linux from the Microsoft Store
+- Install Kali Linux from the Microsoft Store: [https://apps.microsoft.com/store/detail/kali-linux/9PKR34TNCV07]
 
   Note: to upgrade an existing WSL1 kali-linux installation, type:
   `wsl --set-version kali-linux 2`
