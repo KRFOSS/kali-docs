@@ -47,7 +47,7 @@ In order for DigitalOcean to configure the system for us, we need to install the
 
 ```console
 kali@kali:~$ sudo apt install -y cloud-init
-kali@kali:~$ echo 'datasource_list: [ ConfigDrive, DigitalOcean, NoCloud, None ]' > /etc/cloud/cloud.cfg.d/99_digitalocean.cfg
+kali@kali:~$ sudo sh -c "echo 'datasource_list: [ ConfigDrive, DigitalOcean, NoCloud, None ]' > /etc/cloud/cloud.cfg.d/99_digitalocean.cfg"
 kali@kali:~$ sudo systemctl enable cloud-init --now
 ```
 
