@@ -154,7 +154,7 @@ If you're not sure which you want, you want "**All files in one partition**".
 
 If enabled in the previous step, Kali Linux will now start to perform a secure wipe of the hard disk, before asking you for a LVM password.
 
-Please sure a strong password, else you will have to agree to the warning about a weak passphrase.
+Please be sure a strong password is used, or else you will be prompted with a weak passphrase warning.
 
 {{% notice info %}}
 This wipe may take "a while" (hours) depending on the size and speed of the drive.<br />
