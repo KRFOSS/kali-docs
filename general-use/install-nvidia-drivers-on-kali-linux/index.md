@@ -39,7 +39,7 @@ kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 
 ## Dedicated cards
 
-let's determine the exact GPU installed, and check the kernel modules it's using. Take note, the `lspci` command contains a unique PCI bus address. Be sure to include the correct address `lspci -s XX.XX.X -v`:
+Let's determine the exact GPU installed, and check the kernel modules it's using. Take note, the `lspci` command contains a unique PCI bus address. Be sure to include the correct address `lspci -s XX.XX.X -v`:
 
 ```console
 kali@kali:~$ lspci | grep -i vga

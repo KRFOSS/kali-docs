@@ -7,7 +7,7 @@ author: ["g0tmi1k",]
 ---
 
 {{% notice info %}}
-IMPORTANT! Newer Mac hardware (e.g. T2/M1 & Apple Silicon) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
+IMPORTANT! Newer Mac hardware (e.g. T2/Apple Silicon) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
 The model & year of the device will determine how successful your experience will be.<br />
 {{% /notice %}}
 
