@@ -6,10 +6,6 @@ weight: 216
 author: ["gamb1t",]
 ---
 
-{{% notice info %}}
-It should be noted that if another hypervisor is available, it would be best to use that. UTM is quite slow compared to other Mac hypervisors.
-{{% /notice %}}
-
 To install and set up a UTM VM it is pretty straightforward. We first download [UTM](https://mac.getutm.app/) and then launch the app. After this we can click create VM and start the short process:
 
 ![](utm-setup-2.png)
