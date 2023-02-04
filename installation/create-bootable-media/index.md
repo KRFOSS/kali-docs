@@ -16,7 +16,7 @@ author: ["gamb1t",]
 
 ## Kali Linux USB Install Procedure
 
-The specifics of this procedure will vary depending on whether you're doing it on a Windows, Linux, or macOS/OS X system.
+The specifics of this procedure will vary depending on whether you're doing it on a [Windows](#creating-a-bootable-kali-usb-drive-on-windows-etcher), [Linux](#creating-a-bootable-kali-usb-drive-on-linux-dd), or [macOS/OS X](#creating-a-bootable-kali-usb-drive-on-macosos-x-dd) system.
 
 #### Creating a Bootable Kali USB Drive on Linux (DD)
 
@@ -24,7 +24,6 @@ Creating a bootable Kali Linux USB drive in a Linux environment is easy. Once yo
 
 {{% notice info %}}
 WARNING: Although the process of imaging Kali Linux onto a USB drive is very easy, you can just as easily overwrite a disk drive you didn't intend to with dd if you do not understand what you are doing, or if you specify an incorrect output path. Double-check what you're doing before you do it, it'll be too late afterwards.
-
 Consider yourself warned.
 {{% /notice %}}
 
@@ -58,7 +57,6 @@ macOS/OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an m
 
 {{% notice info %}}
 WARNING: Although the process of imaging Kali on a USB drive is very easy, you can just as easily overwrite a disk drive you didn't intend to with dd if you do not understand what you are doing, or if you specify an incorrect output path. Double-check what you're doing before you do it, it'll be too late afterwards.
-
 Consider yourself warned.
 {{% /notice %}}
 
@@ -90,7 +88,6 @@ dd: invalid number: '4M'
 ```
 
 If this is the case, please change the `4M` to be `4m`. Additionally, increasing the blocksize (bs) will speed up the write progress, but will also increase the chances of creating a bad USB drive. Using the given value on macOS/OS X has produced reliable images consistently.
-
 Another potential error will be that `status=progress` does not work on your version of macOS. If this is the case, remove this section and instead use `CTRL+T` to measure status.
 {{% /notice %}}
 
