@@ -6,6 +6,10 @@ weight: 50
 author: ["g0tmi1k",]
 ---
 
+{{% notice info %}}
+Live boot currently is not supported. The following documentation assumes an installed version of Kali Linux, whether that is a VM or bare-metal.
+{{% /notice %}}
+
 This document explains how to install NVIDIA GPU drivers and CUDA support, allowing integration with popular penetration testing tools. We will **not** be using **nouveau**, being the open-source driver for NVIDIA, instead we will installing the close-source from NVIDIA.
 
 This will cover a **[dedicated card (desktops users)](#dedicated)** and **[optimus (laptops and notebook users)](#optimus)**.
