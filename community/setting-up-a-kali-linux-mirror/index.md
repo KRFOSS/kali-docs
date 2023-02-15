@@ -8,7 +8,7 @@ author: ["g0tmi1k",]
 
 ## How to Set Up a Public Kali Linux Mirror
 
-The explanations below are of interest to you if you want to contribute a publicly accessible mirror and if you want to integrate it in one of the mirror redirectors (<http.kali.org> and <cdimage.kali.org>).
+The explanations below are of interest to you if you want to contribute a publicly accessible mirror and if you want to integrate it in one of the mirror redirectors (<https://http.kali.org> and <https://cdimage.kali.org>).
 
 If you want run a **private mirror**, see the dedicated section at the end.
 
@@ -16,30 +16,38 @@ If you want run a **private mirror**, see the dedicated section at the end.
 
 <!--
   # Previously/historic values
-  ## /Kali
-  - 2022.3, the main package repository is about 429G TB
-  - 2022.1, the main package repository is about 1.3 TB
-  - 2021.3, the main package repository is about 1.1 TB
-  - 2021.1, the main package repository is about 1.1 TB
-  - Early 2020, the main package repository is about 850 GB
-  - 2015, the main package repository is about 450 GB
+  #
+  # NB: the package repository can grow 250 GB bigger during a release cycle,
+  # as kali-rolling diverges from kali-last-snapshot. Make sure to check the
+  # size *before* a release, in order to get the upper bound. It's the upper
+  # bound that mirror operators want to know.
+  # 
+  ## /kali, aka. the main package repository
+  - 2023-02-15 : 711 GB
+  - 2022.3     : 429 GB
+  - 2022.1     : 1.3 TB
+  - 2021.3     : 1.1 TB
+  - 2021.1     : 1.1 TB
+  - Early 2020 : 850 GB
+  - 2015       : 450 GB
 
-  ## /Kali-Images
-  - 2022.3, the ISO images repository is about 157 GB
-  - 2022.1, the ISO images repository is about 164 GB
-  - 2021.3, the ISO images repository is about 120 GB
-  - 2021.1, the ISO images repository is about 84 GB
-  - Early 2020, the ISO images repository is about 110 GB
-  - 2015, the ISO images repository is about 50 GB
+  ## /kali-images, aka. the images and ISOs repository
+  - 2023-02-15 : 132 GB
+  - 2022.3     : 157 GB
+  - 2022.1     : 164 GB
+  - 2021.3     : 120 GB
+  - 2021.1     :  84 GB
+  - Early 2020 : 110 GB
+  - 2015       :  50 GB
 -->
 
-To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of early 2022, the main package repository is about 450 GB and the ISO images repository is about 160 GB but you can expect those numbers to grow regularly. A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
+To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of early 2023, the main package repository is about 750 GB and the images repository is about 150 GB but you can expect those numbers to fluctuate, and grow slowly over time. A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
 
 **Note on "Push Mirroring"** - The Kali Linux mirroring infrastructure uses SSH-based triggers to ping the mirrors when they need to be refreshed. This currently takes place 4 times a day.
 
 ### Create a User Account for the Mirror
 
-If you don't have yet an account dedicated for the mirrors, create such an account (here we call it "archvsync"):
+If you don't have yet an account dedicated for the mirrors, create such an account (here we call it `archvsync`):
 
 ```console
 $ sudo adduser --disabled-password archvsync
@@ -95,7 +103,7 @@ $ wget https://archive.kali.org/ftpsync.tar.gz
 $ tar zxf ftpsync.tar.gz
 ```
 
-Now we need to create a configuration file. We start from a template and we edit at least the _MIRRORNAME_, _TO_, _RSYNC_PATH_, and _RSYNC_HOST_ parameters:
+Now we need to create a configuration file. We start from a template and we edit at least the `MIRRORNAME`, `TO`, `RSYNC_PATH`, and `RSYNC_HOST` parameters:
 
 ```console
 $ cp etc/ftpsync.conf.sample etc/ftpsync-kali.conf
@@ -158,7 +166,7 @@ $ crontab -l
 39 3 * * * ~/bin/mirror-kali-images
 ```
 
-Please adjust the precise time so that archive.kali.org doesn't get overloaded by too many mirrors at the same time.
+_Please adjust the precise time_ so that archive.kali.org doesn't get overloaded by too many mirrors at the same time.
 
 ## How to Set Up a Private Kali Linux Mirror
 
