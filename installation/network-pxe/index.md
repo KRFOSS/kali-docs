@@ -54,9 +54,9 @@ kali@kali:~$ sudo mkdir -p /tftpboot/
 kali@kali:~$
 
 # 64-bit:
-kali@kali:~$ sudo wget http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/netboot.tar.gz -P /tftpboot/
+kali@kali:~$ sudo wget https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/netboot.tar.gz -P /tftpboot/
 # 32-bit:
-kali@kali:~$ sudo wget http://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/netboot.tar.gz -P /tftpboot/
+kali@kali:~$ sudo wget https://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/netboot.tar.gz -P /tftpboot/
 
 kali@kali:~$ sudo tar -zxpf /tftpboot/netboot.tar.gz -C /tftpboot
 kali@kali:~$
@@ -84,7 +84,7 @@ arch=amd64
 ## We remove the previous directory containing the PXE image and download the newest version
 rm -rf $tftp/
 mkdir -p $tftp/
-wget http://http.kali.org/kali/dists/kali-rolling/main/installer-$arch/current/images/netboot/netboot.tar.gz -P $tftp/
+wget https://http.kali.org/kali/dists/kali-rolling/main/installer-$arch/current/images/netboot/netboot.tar.gz -P $tftp/
 tar -zxpf /tftpboot/netboot.tar.gz -C $tftp
 rm -f $tftp/netboot.tar.gz
 ```
@@ -124,7 +124,7 @@ COPY dnsmasq.conf /etc/dnsmasq.conf
 
 RUN mkdir -p /tftpboot/
 
-RUN wget http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/netboot.tar.gz -P /tftpboot/
+RUN wget https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/netboot.tar.gz -P /tftpboot/
 
 RUN tar -zxpf /tftpboot/netboot.tar.gz -C /tftpboot
 
