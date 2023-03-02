@@ -240,7 +240,7 @@ atftpd atftpd/use_inetd boolean false
 
 To incorporate this into our initrd to automatically run we must do the following:
 
-```plaintext
+```console
 kali@kali:~$ gunzip initrd.gz
 kali@kali:~$ echo preseed.cfg | cpio -H newc -o -A -F initrd
 kali@kali:~$ gzip initrd
