@@ -74,7 +74,7 @@ Now that you've completed installing Kali Linux, it's time to customize your sys
 
 One last thing we need to do if we want to use this system in the future is set up a cron job to pull in the new Netboot images regularly in case of kernel updates. We will create a simple script for this purpose named pxe.sh:
 
-```plaintext
+```bash
 #!/bin/sh
 
 ## We input our desired path for the PXE image to be saved to
@@ -107,7 +107,7 @@ kali@kali:~$
 
 The docker file we will use looks like the following:
 
-```plaintext
+```dockerfile
 FROM kalilinux/kali-rolling
 
 ENV HOME /root
@@ -147,10 +147,10 @@ dhcp-option=6,8.8.8.8,8.8.4.4
 
 We run the following commands to create our Docker container. Please note `--privileged=true` and `--network host` is necessary for the port mapping to work properly:
 
-```
-docker build --tag="kali/systemd" .
-docker run -it -d --privileged=true --network host kali/systemd /sbin/init
-docker exec -it docker-container-id bash
+```console
+kali@kali:~$ docker build --tag="kali/systemd" .
+kali@kali:~$ docker run -it -d --privileged=true --network host kali/systemd /sbin/init
+kali@kali:~$ docker exec -it docker-container-id bash
 ```
 
 #### Post-startup
@@ -241,10 +241,10 @@ atftpd atftpd/use_inetd boolean false
 To incorporate this into our initrd to automatically run we must do the following:
 
 ```plaintext
-gunzip initrd.gz
-echo preseed.cfg | cpio -H newc -o -A -F initrd
-gzip initrd
-systemctl restart dnsmasq
+kali@kali:~$ gunzip initrd.gz
+kali@kali:~$ echo preseed.cfg | cpio -H newc -o -A -F initrd
+kali@kali:~$ gzip initrd
+kali@kali:~$ systemctl restart dnsmasq
 ```
 
 ## Using netbootxyz to host our PXE files
