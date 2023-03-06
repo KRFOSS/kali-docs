@@ -10,7 +10,7 @@ Podman has very nice documentation on [how to install it](https://podman.io/gett
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install -y podman
-...
+[...]
 kali@kali:~$
 ```
 

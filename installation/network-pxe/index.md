@@ -95,9 +95,9 @@ We can now add it to a cron job.
 
 ```console
 kali@kali:~$ sudo crontab -e
-...
+[...]
 0 5 * * 2 /opt/tftpboot.sh
-...
+[...]
 kali@kali:~$
 ```
 
