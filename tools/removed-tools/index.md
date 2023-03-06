@@ -49,6 +49,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [sparta](https://pkg.kali.org/pkg/sparta) | 2020-01-06 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sparta/-/issues/1)) |
 | [sslcaudit](https://pkg.kali.org/pkg/sslcaudit) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sslcaudit/-/issues/1)) |
 | [sslstrip](https://pkg.kali.org/pkg/sslstrip) | 2020-03-10 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sslstrip/-/issues/1)) |
+| [starkiller](https://pkg.kali.org/pkg/starkiller) | 2023-03-03 | Included in powershell-empire ([#1](https://github.com/BC-SECURITY/Starkiller#getting-started)) |
 | [tinfoleak](https://pkg.kali.org/pkg/tinfoleak) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/tinfoleak/-/issues/1)) |
 | [travispy](https://pkg.kali.org/pkg/travispy) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/travispy/-/issues/1)) |
 | [u3-pwn](https://pkg.kali.org/pkg/u3-pwn) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/u3-pwn/-/issues/1)) |
