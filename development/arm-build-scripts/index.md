@@ -125,7 +125,7 @@ A full list of values you can set:
 #replace_mirror="http://http.kali.org/kali"
 
 # Use packages from the listed components of the archive.
-#components="main,contrib,non-free"
+#components="main,contrib,non-free,non-free-firmware"
 
 # Suite to use, valid options are:
 # kali-rolling, kali-dev, kali-dev-only, kali-last-snapshot

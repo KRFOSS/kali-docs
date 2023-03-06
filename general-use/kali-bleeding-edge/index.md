@@ -84,7 +84,7 @@ in a reasonable way. How do you enable that repository? Easy:
 
 ```console
 kali@kali:~$ sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list <<END
-deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free
+deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free non-free-firmware
 END
 kali@kali:~$ sudo apt update
 [...]

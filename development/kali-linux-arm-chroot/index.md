@@ -20,14 +20,14 @@ The intention in this article is more to provide a high-level overview of how th
 
 ```console
 kali@kali:~$ cat <<EOF > kali-$architecture/etc/apt/sources.list
-deb http://http.kali.org/kali kali-rolling main non-free contrib
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 EOF
 ```
 
 This simply amounts to creating a new file, `~/arm-stuff/rootfs/kali-armhf/etc/apt/sources.list`, with the contents:
 
 ```plaintext
-deb http://http.kali.org/kali kali-rolling main non-free contrib
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 ```
 
 ### Real-World Custom Kali Linux Builds for ARM Devices
@@ -119,7 +119,7 @@ kali@kali:~$ cd ~/arm-stuff/rootfs/
 kali@kali:~$ LANG=C chroot kali-$architecture /debootstrap/debootstrap --second-stage
 kali@kali:~$
 cat <<EOF > kali-$architecture/etc/apt/sources.list
-deb http://http.kali.org/kali kali-rolling main non-free contrib
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 EOF
 kali@kali:~$
 kali@kali:~$ echo "kali" > kali-$architecture/etc/hostname

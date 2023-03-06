@@ -221,7 +221,7 @@ We also will need to set up sbuild. Although this isn't too difficult, it does r
 kali@kali:~$ sudo mkdir -p /srv/chroots/
 kali@kali:~$
 kali@kali:~$ cd /srv/chroots/
-kali@kali:/srv/chroots$ sudo sbuild-createchroot --keyring=/usr/share/keyrings/kali-archive-keyring.gpg --arch=amd64 --components=main,contrib,non-free --include=kali-archive-keyring kali-dev kali-dev-amd64-sbuild http://http.kali.org/kali
+kali@kali:/srv/chroots$ sudo sbuild-createchroot --keyring=/usr/share/keyrings/kali-archive-keyring.gpg --arch=amd64 --components=main,contrib,non-free,non-free-firmware --include=kali-archive-keyring kali-dev kali-dev-amd64-sbuild http://http.kali.org/kali
 kali@kali:/srv/chroots$
 ```
 

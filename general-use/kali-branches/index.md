@@ -80,7 +80,7 @@ Contrary to kali-dev, kali-rolling is expected to be of better quality because i
 Kali Rolling users are expected to have the following entries in their [/etc/apt/sources.list](/docs/general-use/kali-linux-sources-list-repositories/):
 
 ```plaintext
-deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 ```
 
 ### The kali-dev Repository

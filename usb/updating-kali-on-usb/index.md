@@ -18,8 +18,7 @@ First ensure that `etc/apt/sources.list` is properly populated.
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
-deb http://http.kali.org/kali kali-rolling main contrib non-free
-deb-src http://http.kali.org/kali kali-rolling main contrib non-free
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 kali@kali:~$
 ```
 

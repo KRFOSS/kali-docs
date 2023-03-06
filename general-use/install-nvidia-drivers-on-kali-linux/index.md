@@ -26,11 +26,11 @@ GPUs with a <a href="https://developer.nvidia.com/cuda-gpus">CUDA compute capabi
 
 - - -
 
-Afterwards, make sure you have [`contrib` & `non-free` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is [fully up-to-date](/docs/general-use/updating-kali/):
+Afterwards, make sure you have [`contrib` & `non-free*` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is [fully up-to-date](/docs/general-use/updating-kali/):
 
 ```console
 kali@kali:~$ grep "contrib non-free" /etc/apt/sources.list
-deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 kali@kali:~$
 kali@kali:~$ sudo apt update
 [...]

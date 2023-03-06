@@ -14,7 +14,7 @@ On a standard, clean install of Kali Linux, with network access, you should have
 
 ```console
 kali@kali:~$ grep -v '#' /etc/apt/sources.list | sort -u
-deb http://http.kali.org/kali kali-rolling main contrib non-free
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 
 kali@kali:~$
 ```
@@ -39,13 +39,13 @@ Kali has two [main branches](/docs/general-use/kali-branches/) to choose from (p
 Enabling the `kali-rolling` branch is done with the command:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
 ```
 
 Enabling the `kali-last-snapshot` branch is done with the command:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main contrib non-free" | sudo tee /etc/apt/sources.list
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
 ```
 
 Note that such a change is effective only after running `sudo apt update`.
@@ -64,7 +64,7 @@ Enabling or disabling those branches is best done using the command-line tool `k
 If you prefer, you can also enable those branches manually from the command-line. For example, enabling `kali-experimental` is done with the command:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main contrib non-free" | sudo tee /etc/apt/sources.list.d/kali-experimental.list
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/kali-experimental.list
 ```
 
 Note that in the command above, we don't modify the file `/etc/apt/sources.list`, but instead we create a new file `/etc/apt/sources.list.d/kali-experimental.list`. This is a convention: the file `/etc/apt/sources.list` should only contain the main branch, while additional branches should go in `/etc/apt/sources.list.d/`, one branch per file.
@@ -78,7 +78,7 @@ kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-experimental.list
 The branch `kali-bleeding-edge` can be enabled with a similar command, we just need to change the name of the branch:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free" | sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list
+kali@kali:~$ echo "deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list
 ```
 
 To disable `kali-bleeding-edge`:
@@ -90,8 +90,8 @@ kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-bleeding-edge.list
 ## Sources.list Format
 
 ```plaintext
-deb   http://http.kali.org/kali   kali-rolling   main contrib non-free
-<Archive>   <Mirror>                <Branch>         <Components>
+deb   http://http.kali.org/kali   kali-rolling   main contrib non-free non-free-firmware
+<Archive>   <Mirror>                <Branch>                <Components>
 ```
 
 - **Archive** is going to be `deb` (Regular Binary) or `deb-src` (Source), depending if you want a package or the source of the package.
@@ -157,7 +157,7 @@ We have a list of [official Kali Linux mirrors](/docs/community/kali-linux-mirro
 By using a `deb` in the repositories, it will allow for binary packages to be downloaded. However, should you require the source to a package (so you can compile the package yourself if you so wish, or look into debugging a problem with a package), you can add `deb-src` as a extra line in the repositories.
 
 ```console
-kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
+kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
 ```
 
 We used `kali-rolling` for the [branch](/docs/general-use/kali-branches/) above, but you can select any value you wish.
