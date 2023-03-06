@@ -29,7 +29,6 @@ This might sound like a lot, but it's rather straightforward even if there are a
 
 Then down the road when we are done with whatever it is we are wanting to do, the only thing left is to retrieve it ...at our leisure!
 
-
 - - -
 
 ## Installing Kali Linux on RPi
@@ -403,7 +402,6 @@ Keep in mind the kernel versions may change, however the name will not:
 Keep in mind the kernel versions (`5.15.44`) may change, however the kernel name (`Re4son-v8l+`) will not.
 {{% /notice %}}
 
-
 - - -
 
 Now we need to create the `initramfs`. This is where the kernel version comes into play:
@@ -494,7 +492,6 @@ $ sudo mount /dev/mapper/crypt /mnt/encrypted/
 $ sudo rsync -avh /mnt/backup/* /mnt/encrypted/
 $ sync
 ```  
-
 
 - - -
 

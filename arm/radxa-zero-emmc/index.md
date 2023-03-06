@@ -90,7 +90,6 @@ Bus 001 Device 048: ID 1b8e:c003 Amlogic, Inc. GX-CHIP
 6. sudo boot-g12.py radxa-zero-erase-emmc.bin
 7. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to the newly presented USB device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
-
 In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct device path**.
 
 {{% notice info %}}
@@ -119,7 +118,6 @@ With this mode, we first boot the Radxa Zero from a microSD card, and simply use
 2. Connect the Radxa Zero to a wireless network
 3. Copy the image file you want to use to the microSD card. Keep in mind that you will need enough free space on the microSD card
 4. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to the eMMC device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
-
 
 In our example, we assume the storage device is located at `/dev/mmcblk0`. Do _not_ simply copy these value, **change this to the correct device path**.
 

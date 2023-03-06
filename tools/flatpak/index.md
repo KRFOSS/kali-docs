@@ -40,7 +40,6 @@ kali@kali:~$ cp -a /usr/share/themes/* ~/.themes/
 kali@kali:~$ sudo flatpak override --filesystem=~/.themes/
 ```
 
-
 ###### Reference
 
 - [Flatpak](https://flatpak.org/)

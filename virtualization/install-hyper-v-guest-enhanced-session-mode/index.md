@@ -14,7 +14,6 @@ This article will help you to enable the **[Enhanced Session Mode](https://techc
 
 ![](kali-hyper-v-enhancedmode.png)
 
-
 ## Configurating Kali
 
 To configure Kali for Hyper-V Enhanced Session Mode, run `kali-tweaks`:
@@ -24,7 +23,6 @@ kali@kali:~$ kali-tweaks
 ```
 
 In the menu, select *Virtualization*, then *Configure the system for Hyper-V enhanced session mode*. And that's all there is to do on Kali's side.
-
 
 ## Changing the Setting of the Virtual Machine
 
@@ -42,7 +40,6 @@ On the Windows host now: disconnect the Kali VM, open a PowerShell (with Adminis
 
 ![](kali-hyperv-step2.png)
 
-
 ## Test and Troubleshooting
 
 We can test to see if it's been a success by starting the virtual machine again, and check if you can see the following screen when trying to use xrdp.
@@ -50,7 +47,6 @@ We can test to see if it's been a success by starting the virtual machine again,
 ![](kali-hyperv-step3.png)
 
 If this test doesn't succeed, you might need to reboot, either the Kali VM, either the Windows host. Do what's the most convenient for you, but if ever you're using the Kali Live image, keep in mind that rebooting means losing all your changes: you'll have to redo the configuration step on Kali's side.
-
 
 ## Disabling Hyper-V Enhanced Session Mode
 
@@ -63,7 +59,6 @@ kali@kali:~$ kali-tweaks
 ```
 
 In the *Virtualization* menu, you will find a setting to disabled Hyper-V Enhanced Session Mode.
-
 
 ## Further notes
 

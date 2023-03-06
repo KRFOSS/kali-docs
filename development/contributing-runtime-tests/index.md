@@ -61,7 +61,6 @@ A few other important restrictions that should be remembered (but do look throug
 - `isolation-machine` - The test will likely interact with the container/VM in a way that would typically result in an error, such as rebooting or interacting with the kernel.
 - `needs-internet` - The test will need unrestricted access to the internet.
 
-
 ### Learning by examples
 
 There are a few things to learn about with autopkgtests that we can see in action already. We will look at what tests can look like, what types are more beneficial, and a few tricks that we can see.
