@@ -19,7 +19,7 @@ For ease of use, please use a root account. This can be done with "sudo su".
 kali@kali:~$ dd if=kali-linux-2022.4-live-amd64.iso of=/dev/sdb conv=fsync bs=4M
 ```
 
-**0x02 - Create and format an additional partition on the USB drive**. In our example, we create a persistent partition in the empty space above the Kali Live partitions.
+**0x02 - Create and format an additional partition on the USB drive**. In our example, we create a persistent partition in the empty space above the Kali Live partitions:
 
 ```console
 kali@kali:~$ fdisk /dev/sdb <<< $(printf "n\np\n\n\n\nw")

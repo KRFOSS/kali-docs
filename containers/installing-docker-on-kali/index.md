@@ -6,7 +6,7 @@ weight:
 author: ["gamb1t", "elreydetoda",]
 ---
 
-To install Docker on Kali you need to remember that there is already a package named "docker", therefore Docker has to be installed under a different name. If you install `docker` you will not end up with the container version. The version we will be installing is named `docker.io`. All commands are the same however, so running `docker` on the command line will be the appropriate command.
+To install Docker on Kali you need to remember that there is already a package named "docker", therefore Docker has to be installed under a different name. If you install `docker` you will not end up with the container version. The version we will be installing is named `docker.io`. All commands are the same however, so running `docker` on the command line will be the appropriate command:
 
 ```console
 kali@kali:~$ sudo apt update

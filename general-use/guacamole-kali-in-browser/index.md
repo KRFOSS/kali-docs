@@ -27,7 +27,7 @@ kali@kali:~$
 IMPORTANT! If you are in the Eastern time zone, you will have to change to a different one. There is a bug with Apache that does not see EDT as a valid time zone.
 {{% /notice %}}
 
-To fix this issue, we will change our time zone to be Central time.
+To fix this issue, we will change our time zone to be Central time:
 
 ```console
 kali@kali:~$ sudo rm /etc/localtime
@@ -98,7 +98,7 @@ All the services are up and running correctly.
 
 Next is to enable VNC service on Kali.
 
-We are going to use TigerVNC.
+We are going to use TigerVNC:
 
 ```console
 kali@kali:~$ sudo apt install -y tigervnc-standalone-server

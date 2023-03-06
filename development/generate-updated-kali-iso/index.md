@@ -20,7 +20,7 @@ Next, we clone the Kali `cdimage` Git repository as follows:
 kali@kali:~$ git clone git://gitlab.com/kalilinux/build-scripts/live-build-config.git
 ```
 
-Now you can change to the `live` directory under `cdimage.kali.org` and build your ISO.
+Now you can change to the `live` directory under `cdimage.kali.org` and build your ISO:
 
 ```console
 kali@kali:~$ cd live-build-config/

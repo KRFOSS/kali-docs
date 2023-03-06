@@ -20,7 +20,7 @@ kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-con
 kali@kali:~$ cd live-build-config/
 ```
 
-**0x01 - Overwrite the default Kali package list**, including only the packages you want. In the video, we simply edited the list and changed a few package names.
+**0x01 - Overwrite the default Kali package list**, including only the packages you want. In the video, we simply edited the list and changed a few package names:
 
 ```console
 kali@kali:~$ cat <<EOF > kali-config/variant-default/package-lists/kali.list.chroot
@@ -37,7 +37,7 @@ openssh-server
 EOF
 ```
 
-**0x02 - Add a customised syslinux boot entry** which includes a boot parameter for a custom preseed file.
+**0x02 - Add a customised syslinux boot entry** which includes a boot parameter for a custom preseed file:
 
 ```console
 kali@kali:~$ cat <<EOF > kali-config/common/includes.binary/isolinux/install.cfg
@@ -56,7 +56,7 @@ kali@kali:~$ echo 'systemctl enable ssh' >>  kali-config/common/hooks/01-start-s
 kali@kali:~$ chmod +x kali-config/common/hooks/01-start-ssh.chroot
 ```
 
-**0x04 - Next, we download a wallpaper** and overlay it. Notice how chroot overlaid files are placed in the _includes.chroot_ directory.
+**0x04 - Next, we download a wallpaper** and overlay it. Notice how chroot overlaid files are placed in the _includes.chroot_ directory:
 
 ```console
 kali@kali:~$ mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images/
@@ -78,7 +78,7 @@ kali@kali:~$ mkdir -p kali-config/common/packages.chroot/
 kali@kali:~$ mv Nessus-*amd64.deb kali-config/common/packages.chroot/
 ```
 
-**0x07 - Now you can proceed to build your ISO**, this process may take a while depending on your hardware and internet speeds. Once completed, your ISO can be found in the live-build root directory.
+**0x07 - Now you can proceed to build your ISO**, this process may take a while depending on your hardware and internet speeds. Once completed, your ISO can be found in the live-build root directory:
 
 ```console
 kali@kali:~$ ./build.sh -v

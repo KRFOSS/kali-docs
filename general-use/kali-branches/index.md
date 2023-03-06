@@ -44,7 +44,7 @@ Note that the casual user will likely not need those branches, except in very sp
 
 ## Mapping
 
-Below is a diagram showing the relationship between the branches.
+Below is a diagram showing the relationship between the branches:
 
 ```plaintext
 debian-experimental -> debian-unstable -> debian-testing -> kali-dev -> kali-rolling -> kali-last-snapshot

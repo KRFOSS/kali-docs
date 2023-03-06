@@ -47,7 +47,7 @@ kali@kali:~$ podman start 7df5f0dbe6b7
 kali@kali:~$
 ```
 
-After you execute the following command you will attach to the Podman container, however you must press return once to fully see the prompt.
+After you execute the following command you will attach to the Podman container, however you must press return once to fully see the prompt:
 
 ```console
 kali@kali:~$ podman attach 7df5f0dbe6b7

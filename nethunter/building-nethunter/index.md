@@ -6,7 +6,7 @@ weight: 10
 author: ["g0tmi1k",]
 ---
 
-Those of you who want to build a Kali NetHunter image from our GitLab repository may do so using our Python build scripts.
+Those of you who want to build a Kali NetHunter image from our GitLab repository may do so using our Python build scripts:
 
 ```console
 kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project

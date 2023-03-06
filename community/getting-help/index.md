@@ -32,7 +32,7 @@ Another helpful tool to have is `pinfo`. Certain programs may have a manual writ
 
 Packages also typically have specific documentation that they put out along with their tool. This can be found most commonly in **/usr/share/doc/_package_**. In other cases, the documentation might be in a separate package. Commonly this will be **_package_-doc**.
 
-Should you need access to a command and you cannot remember the name of that command, `apropos` will help you find it. It returns the command name and man page section. It searches through the summary of man pages looking for the key words that you supply, which is also what is presented.
+Should you need access to a command and you cannot remember the name of that command, `apropos` will help you find it. It returns the command name and man page section. It searches through the summary of man pages looking for the key words that you supply, which is also what is presented:
 
 ```console
 kali@kali:~$ apropos "copy file"

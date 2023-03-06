@@ -841,7 +841,7 @@ Success!
 
 ## .Install & Helper-Scripts
 
-Everything we have done so far would just be for building the package, but we haven't said how to install the application.
+Everything we have done so far would just be for building the package, but we haven't said how to install the application:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install

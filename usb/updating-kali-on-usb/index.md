@@ -14,7 +14,7 @@ In order to properly [update Kali Linux](/docs/general-use/updating-kali/) on a 
 
 The best way to update Kali on a USB is to follow the same way you would on a full install.
 
-First ensure that `etc/apt/sources.list` is properly populated.
+First ensure that `etc/apt/sources.list` is properly populated:
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
@@ -22,7 +22,7 @@ deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmwa
 kali@kali:~$
 ```
 
-After that we can run the following commands which will upgrade us to the [latest Kali version](/docs/general-use/updating-kali/).
+After that we can run the following commands which will upgrade us to the [latest Kali version](/docs/general-use/updating-kali/):
 
 ```console
 kali@kali:~$ sudo apt update

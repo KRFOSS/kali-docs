@@ -121,7 +121,7 @@ This can be doing using either the command line, or graphical (using Disk Utilit
 
 1. To get to command line access: **Spotlight->Terminal**
 
-2. By using `diskutil list`, we can see our disk we want to resize is `disk0s2`, and it is \~500GB.
+2. By using `diskutil list`, we can see our disk we want to resize is `disk0s2`, and it is \~500GB:
 
 ```console
 $ diskutil list
@@ -145,7 +145,7 @@ $
 
 - - -
 
-3. We want to reduce the 500GB to be 400GB. This would give Kali Linux 100GB (we recommend at least 20 GB).
+3. We want to reduce the 500GB to be 400GB. This would give Kali Linux 100GB (we recommend at least 20 GB):
 
 ```console
 $ sudo diskutil apfs resizeContainer disk0s2 400g
@@ -200,7 +200,7 @@ $
 
 - - -
 
-4. Quickly checking `diskutil list` again, we can see it has been successful.
+4. Quickly checking `diskutil list` again, we can see it has been successful:
 
 ```console
 $ diskutil list
@@ -252,7 +252,7 @@ rEFInd cannot easily be downloaded when in recovery mode, as there is limited sp
 
 At the time of this writing, the latest version of [rEFInd](https://sourceforge.net/projects/refind/) is **0.12.0**.
 
-1. We will start off by downloading rEFInd, check its a valid zip file, and then extract.
+1. We will start off by downloading rEFInd, check its a valid zip file, and then extract:
 
 ```console
 $ curl -s -L https://sourceforge.net/projects/refind/files/0.12.0/refind-bin-0.12.0.zip -o ~/Downloads/refind.zip
@@ -358,7 +358,7 @@ kali@kali:~$ sudo apt install -y refind
 
 - - -
 
-During the installation, you will get a prompt saying about automatically running rEFInd. We recommend you press **yes**, otherwise you will need to run `sudo dpkg-reconfigure refind` (or `sudo refind-install`) afterwards.
+During the installation, you will get a prompt saying about automatically running rEFInd. We recommend you press **yes**, otherwise you will need to run `sudo dpkg-reconfigure refind` (or `sudo refind-install`) afterwards:
 
 ```console
  ┌────────────────────────┤ Configuring refind ├────────────────────────┐
@@ -410,7 +410,7 @@ If you wish, you can alter rEFInd in various ways now, including:
 
 #### macOS/OS X El Capitan
 
-If you wish to make any of these alterations, this can be done by editing rEFInd's configuration file. If you are using macOS/OS X El Capitan (10.11) or later, you need to mount the EFI boot volume first to access the file. This is done by doing the following.
+If you wish to make any of these alterations, this can be done by editing rEFInd's configuration file. If you are using macOS/OS X El Capitan (10.11) or later, you need to mount the EFI boot volume first to access the file. This is done by doing the following:
 
 ```console
 $ cd ~/Downloads/refind-bin-*/
@@ -427,7 +427,7 @@ $
 
 #### macOS/OS X Yosemite
 
-If you are using macOS/OS X Yosemite (10.10) or earlier, the configuration file is located here as no mounting is required.
+If you are using macOS/OS X Yosemite (10.10) or earlier, the configuration file is located here as no mounting is required:
 
 ```console
 $ sudo vim /EFI/refind/refind.conf
@@ -436,7 +436,7 @@ $ s
 
 #### Kali Linux
 
-On Kali Linux, the configuration file is found in the following location.
+On Kali Linux, the configuration file is found in the following location:
 
 ```console
 kali@kali:~$ sudo vim /boot/efi/EFI/refind/refind.conf

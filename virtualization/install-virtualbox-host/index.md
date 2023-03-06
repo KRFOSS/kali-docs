@@ -14,7 +14,7 @@ VirtualBox is free and open source. There are a few other software such as QEMU,
 
 ### Preparation
 
-Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine.
+Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -29,7 +29,7 @@ kali@kali:~$
 
 ### Download
 
-The first thing we are going to do is import VirtualBox's repository key.
+The first thing we are going to do is import VirtualBox's repository key:
 
 ```console
 kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox_2016.gpg
@@ -54,7 +54,7 @@ kali@kali:~$
 
 - - -
 
-As we have altered our network repository, we need to re-build the cache.
+As we have altered our network repository, we need to re-build the cache:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -64,7 +64,7 @@ kali@kali:~$
 
 - - -
 
-As VirtualBox has various kernel modules (e.g. `vboxdrv`, `vboxnetflt` and `vboxnetadp`), we need to make sure they are kept up-to-date when Kali Linux's kernel gets updated. This can be achieved using [dkms](https://packages.debian.org/testing/dkms).
+As VirtualBox has various kernel modules (e.g. `vboxdrv`, `vboxnetflt` and `vboxnetadp`), we need to make sure they are kept up-to-date when Kali Linux's kernel gets updated. This can be achieved using [dkms](https://packages.debian.org/testing/dkms):
 
 ```console
 kali@kali:~$ sudo apt install -y dkms
@@ -74,7 +74,7 @@ kali@kali:~$
 
 ### Setup
 
-Now its time to install VirtualBox itself (along with its Extension Pack to expand VirtualBox's advanced features).
+Now its time to install VirtualBox itself (along with its Extension Pack to expand VirtualBox's advanced features):
 
 ```console
 kali@kali:~$ sudo apt install -y virtualbox virtualbox-ext-pack
@@ -86,7 +86,7 @@ kali@kali:~$
 
 When prompted, read and accept the license.
 
-You can now find VirtualBox in the menu or start it via the command line.
+You can now find VirtualBox in the menu or start it via the command line:
 
 ```console
 kali@kali:~$ virtualbox

@@ -22,7 +22,7 @@ Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as d
 
 #### 02. Create the Image File
 
-Next, we create the physical image file that will hold our Chromebook rootfs and boot images.
+Next, we create the physical image file that will hold our Chromebook rootfs and boot images:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
@@ -74,7 +74,7 @@ kali@kali:~$ mount $rootp root
 
 #### 04. Copy and Modify the Kali rootfs
 
-Copy over the Kali rootfs you bootstrapped earlier using **[rsync](https://packages.debian.org/testing/rsync)** to the mounted image.
+Copy over the Kali rootfs you bootstrapped earlier using **[rsync](https://packages.debian.org/testing/rsync)** to the mounted image:
 
 ```console
 kali@kali:~$ cd ~/arm-stuff/images/
@@ -151,7 +151,7 @@ fdt = "fdt@1";
 EOF
 ```
 
-Patch the kernel, in our case, with wireless injection patches.
+Patch the kernel, in our case, with wireless injection patches:
 
 ```console
 kali@kali:~$ mkdir -p ../patches/
@@ -161,7 +161,7 @@ kali@kali:~$ patch -p1 < ../patches/negative.patch
 kali@kali:~$ patch -p1 < ../patches/mac80211.patch
 ```
 
-Configure, then cross-compile the Chromium kernel as shown below.
+Configure, then cross-compile the Chromium kernel as shown below:
 
 ```console
 kali@kali:~$ export ARCH=arm
@@ -224,7 +224,7 @@ kali@kali:~$ cgpt add -i 1 -S 1 -T 5 -P 10 -l KERN-A /dev/sdb
 kali@kali:~$ cgpt add -i 2 -S 1 -T 5 -P 5 -l KERN-B /dev/sdb
 ```
 
-To see your partition list and order, use the command **cgpt show**.
+To see your partition list and order, use the command **cgpt show**:
 
 ```console
 kali@kali:~$ cgpt show /dev/sdb

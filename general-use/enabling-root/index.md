@@ -37,7 +37,7 @@ The next thing we need to decide is if we are wanting to use root via SSH or thr
 
 ### Enabling root for SSH
 
-If we look at `/etc/ssh/sshd_config` we will see a **PermitRootLogin** line. We will want to change this line to match our use case.
+If we look at `/etc/ssh/sshd_config` we will see a **PermitRootLogin** line. We will want to change this line to match our use case:
 
 ```console
 kali@kali:~$ grep PermitRootLogin /etc/ssh/sshd_config
@@ -60,7 +60,7 @@ If we have set up SSH key based login for the root account, then we can simply u
 
 ### Enabling root for GNOME and KDE login
 
-We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GNOME GDM3 and the KDE login prompt. This step is not necessary when using other desktop environments.
+We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GNOME GDM3 and the KDE login prompt. This step is not necessary when using other desktop environments:
 
 ```console
 kali@kali:~$ sudo apt -y install kali-root-login

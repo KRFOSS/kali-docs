@@ -16,7 +16,7 @@ It's important to set up a development environment. The easiest way to go about 
 
 #### Installing packages
 
-We will install tools that we will use later for packaging. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev) is a metapackage, and will install many of the proper packages that are needed.
+We will install tools that we will use later for packaging. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev) is a metapackage, and will install many of the proper packages that are needed:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -33,7 +33,7 @@ Packaging needs to be done on a non-root user with sudo privileges. _The default
 
 you **must** log out of your account and switch to the new user _(rather than using `su`)_. This is done as some pieces (such as variables that are set) of the following setup require you to be on that account, `su` will not work.
 
-Next, we should generate SSH and GPG keys. These are important for packaging as they will allow us to access our files on GitLab easily and ensure the work is ours. This step is not always necessary, however it is helpful in certain cases. You will know if you need to set up a GPG key, however we recommend setting up an SSH key as it will make the packaging process quicker.
+Next, we should generate SSH and GPG keys. These are important for packaging as they will allow us to access our files on GitLab easily and ensure the work is ours. This step is not always necessary, however it is helpful in certain cases. You will know if you need to set up a GPG key, however we recommend setting up an SSH key as it will make the packaging process quicker:
 
 ```console
 kali@kali:~$ ssh-keygen -t rsa
@@ -105,7 +105,7 @@ kali@kali:~$
 
 **Please remember to change "First Last <email@domain.com>" to be your name and email**.
 
-The next step is to add the SSH key to your GitLab account. This can be done in the [keys section](https://gitlab.com/-/profile/keys). Run the commands below to put the key in the copy-paste buffer and paste it on GitLab's web page.
+The next step is to add the SSH key to your GitLab account. This can be done in the [keys section](https://gitlab.com/-/profile/keys). Run the commands below to put the key in the copy-paste buffer and paste it on GitLab's web page:
 
 ```console
 kali@kali:~$ sudo apt install -y xclip
@@ -117,7 +117,7 @@ kali@kali:~$
 
 #### Setting up files
 
-We now need to set up git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html).
+We now need to set up git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html):
 
 ```console
 kali@kali:~$ cat <<EOF > ~/.gbp.conf
@@ -151,7 +151,7 @@ kali@kali:~$
 
 We enable `pristine-tar` by default as we will use this tool to (efficiently) store a copy of the upstream tarball in the Git repository. We also set `export-dir` so that package builds happen outside of the git checkout directory.
 
-Below, we're customizing some useful tools provided by the `devscripts` package.
+Below, we're customizing some useful tools provided by the `devscripts` package:
 
 ```console
 kali@kali:~$ gpg -k
@@ -176,7 +176,7 @@ kali@kali:~$
 
 **Be sure to put your own key id in `DEBSIGN_KEYID`. In this example we can see from `gpg -k` that our key is `ABC123DE45678F90123G4567HIJK890LM12345N6`**
 
-You may also want to add the following to your git config.
+You may also want to add the following to your git config:
 
 ```console
 kali@kali:~$ gpg -k
@@ -198,7 +198,7 @@ kali@kali:~$
 **The `user.name` and `user.email` must match your gpg key details (`gpg -k`) or you will get a "Secret Key Not Available" error later on**.
 **Be sure to put your own key id in `user.signingkey`. In this example we can see from `gpg -k` that our key is `ABC123DE45678F90123G4567HIJK890LM12345N6`**
 
-We also want to enable a dedicated git merge driver for the `debian/changelog` files.
+We also want to enable a dedicated git merge driver for the `debian/changelog` files:
 
 ```console
 kali@kali:~$ cat <<EOF >> ~/.gitconfig
@@ -215,7 +215,7 @@ kali@kali:~$
 
 #### sbuild
 
-We also will need to set up sbuild. Although this isn't too difficult, it does require some extra setup.
+We also will need to set up sbuild. Although this isn't too difficult, it does require some extra setup:
 
 ```console
 kali@kali:~$ sudo mkdir -p /srv/chroots/
@@ -225,7 +225,7 @@ kali@kali:/srv/chroots$ sudo sbuild-createchroot --keyring=/usr/share/keyrings/k
 kali@kali:/srv/chroots$
 ```
 
-Once that is done, we need to edit `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*`, note that "\*" is used as it will generate the last bit randomly. Alternatively, use TAB auto-completion.
+Once that is done, we need to edit `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*`, note that "\*" is used as it will generate the last bit randomly. Alternatively, use TAB auto-completion:
 
 ```console
 kali@kali:~$ echo "source-root-groups=root,sbuild" | sudo tee -a /etc/schroot/chroot.d/kali-dev-amd64-sbuild*
@@ -243,7 +243,7 @@ source-root-groups=root,sbuild
 kali@kali:~$
 ```
 
-Finally, we just need to add our user to the group and do one last change.
+Finally, we just need to add our user to the group and do one last change:
 
 ```console
 kali@kali:~$ sudo sbuild-adduser $USER
@@ -261,13 +261,13 @@ _Reboot_
 
 #### apt-cacher-ng
 
-When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy, such as apt-cacher-ng.
+When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy, such as apt-cacher-ng:
 
 ```console
 kali@kali:~$ sudo apt install -y apt-cacher-ng
 ```
 
-Check the version that was installed. If it's below `0.6.1-1`, Kali is not supported out of the box, and there's a little config to do.
+Check the version that was installed. If it's below `0.6.1-1`, Kali is not supported out of the box, and there's a little config to do:
 
 ```console
 kali@kali:~$ echo "http://http.kali.org/kali/" | sudo tee /etc/apt-cacher-ng/kali_mirrors
@@ -288,7 +288,7 @@ In the snippet above, note that:
 - The file `kali_mirrors` lists all the mirrors for which apt-cacher-ng will cache the requests. In this list, there should be at least the mirror that you used with the command `sbuild-createchroot` above.
 - The file `backends_kali` lists the mirror that apt-cacher-ng will actually use to download packages. You should set it to a mirror that is close to you.
 
-Finally, we just need to add a line of configuration inside our chroot, so that apt is configured to use the proxy.
+Finally, we just need to add a line of configuration inside our chroot, so that apt is configured to use the proxy:
 
 ```console
 kali@kali:~$ sudo sbuild-shell source:kali-dev-amd64-sbuild

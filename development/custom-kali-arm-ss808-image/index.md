@@ -18,7 +18,7 @@ Build yourself a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as desc
 
 ### 02. Create the Image File
 
-Next, we create the physical image file which will hold our MK/SS808 rootfs and boot images.
+Next, we create the physical image file which will hold our MK/SS808 rootfs and boot images:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils sharutils
@@ -54,7 +54,7 @@ kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 
 ### 05. Compile the rk3066 Kernel and Modules
 
-If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following steps.
+If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following steps:
 
 ```console
 kali@kali:~$ sudo apt install -y xz-utils
@@ -109,7 +109,7 @@ kali@kali:~$ losetup -d $loopdevice
 
 ### 07. dd the Image to a USB device
 
-Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed**.
+Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed**:
 
 ```console
 kali@kali:~$ dd if=kali-linux-ss808.img of=/dev/sdb conv=fsync bs=4M

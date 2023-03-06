@@ -38,7 +38,7 @@ dhcp-option=6,8.8.8.8,8.8.4.4
 
 - - -
 
-With the edits in place, the dnsmasq service needs to be restarted in order for the changes to take effect.
+With the edits in place, the dnsmasq service needs to be restarted in order for the changes to take effect:
 
 ```console
 kali@kali:~$ sudo systemctl restart dnsmasq
@@ -47,7 +47,7 @@ kali@kali:~$
 
 ### Download Kali PXE Netboot Images
 
-Now, we need to create a directory to hold the Kali Linux Netboot image and download the image we wish to serve.
+Now, we need to create a directory to hold the Kali Linux Netboot image and download the image we wish to serve:
 
 ```console
 kali@kali:~$ sudo mkdir -p /tftpboot/
@@ -91,7 +91,7 @@ rm -f $tftp/netboot.tar.gz
 
 We save this script to `/opt` and are sure to set it's permissions so you can only edit it with **root** or **sudo**. An example of this is to set the file to `770` or `700` with chmod, and set it to `root:root` with chown.
 
-We can now add it to a cron job.
+We can now add it to a cron job:
 
 ```console
 kali@kali:~$ sudo crontab -e

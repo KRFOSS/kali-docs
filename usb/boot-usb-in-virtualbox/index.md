@@ -10,7 +10,7 @@ To get started we first will need to download the [Oracle VM VirtualBox Extensio
 
 ![](virtualbox-usb-boot-7.png)
 
-After this we will need to be sure to add our account to the `vboxusers` group if we are on Linux.
+After this we will need to be sure to add our account to the `vboxusers` group if we are on Linux:
 
 ```console
 kali@kali:~$ sudo usermod -aG vboxusers $USER

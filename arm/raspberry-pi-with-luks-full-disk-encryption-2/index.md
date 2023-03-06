@@ -116,7 +116,7 @@ dwc_otg.fiq_fix_enable=2 console=serial0,115200 kgdboc=serial0,115200 console=tt
 
 We now need to update the `/etc/fstab` file, this is a configuration file on the system that contains all available disks, disk partitions, and what options to use when handling them.
 
-Currently it is populated with the UUID of the root filesystem, and we need it to point at the encrypted filesystem that we will be making. In this example, we've commented out what the previous root device's UUID, and point at `/dev/mapper/crypt` which is what our encrypted filesystem will mount as, once we create it.
+Currently it is populated with the UUID of the root filesystem, and we need it to point at the encrypted filesystem that we will be making. In this example, we've commented out what the previous root device's UUID, and point at `/dev/mapper/crypt` which is what our encrypted filesystem will mount as, once we create it:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -138,7 +138,7 @@ LABEL=BOOT      /boot           vfat    defaults          0       2
 
 When using encrypted partitions, we need to edit, or create, if it doesn't exist, the `/etc/crypttab` file, which is used by cryptsetup to know what options are needed in order to unlock the encrypted device. 
 
-Because this file doesn't exist, we will create the `/etc/crypttab` file, and fill it with the options we need.
+Because this file doesn't exist, we will create the `/etc/crypttab` file, and fill it with the options we need:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -443,7 +443,7 @@ etc/unlock.sh
 
 ### Disable services
 
-Before we can backup, we have to ensure that `rpi-resizerootfs` is disabled. This is a service we typically run on all of our ARM devices that resizes the root filesystem partition to increase the size of the partition to the full size of the storage device it is on. Since we are doing this step manually, we want to disable it, so it doesn't potentially delete our root filesystem and re-make it.
+Before we can backup, we have to ensure that `rpi-resizerootfs` is disabled. This is a service we typically run on all of our ARM devices that resizes the root filesystem partition to increase the size of the partition to the full size of the storage device it is on. Since we are doing this step manually, we want to disable it, so it doesn't potentially delete our root filesystem and re-make it:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -570,7 +570,7 @@ $ sudo cryptsetup luksClose crypt
 
 # LUKS NUKE
 
-Should a user also want [LUKS NUKE](/blog/nuke-kali-linux-luks/), all they need to do is run the following command.
+Should a user also want [LUKS NUKE](/blog/nuke-kali-linux-luks/), all they need to do is run the following command:
 
 ```console
 kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password
@@ -580,7 +580,7 @@ kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password
 
 Now how about we get this automated? Thanks to Richard Nelson (unixabg), anyone who wants to get this all set up in much less time than the manual method and much easier, can!
 
-First things first, let's clone [unixabg's cryptmypi](https://github.com/unixabg/cryptmypi) script repository.
+First things first, let's clone [unixabg's cryptmypi](https://github.com/unixabg/cryptmypi) script repository:
 
 ```console
 kali@kali:~$ git clone https://github.com/unixabg/cryptmypi.git
@@ -598,7 +598,7 @@ Next let's list available Kali examples to build:
 kali@kali:~$ ls -aFl examples/ | grep kali
 ```
 
-Now we need to edit the cryptmypi.conf on the example you wish to build. These settings will be personal, but let's just give you all an example.
+Now we need to edit the cryptmypi.conf on the example you wish to build. These settings will be personal, but let's just give you all an example:
 
 ```console
 kali@kali:~$ cat kali-encrypted-basic/cryptmypi.conf
@@ -707,7 +707,7 @@ stage2_optional_hooks(){
 export _ROOTPASSWD="root_password"
 ```
 
-After you have made all the chages you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions.
+After you have made all the chages you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions:
 
 ```console
 kali@kali:~$ sudo ./cryptmypi.sh examples/kali-encrypted-basic

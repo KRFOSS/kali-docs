@@ -35,7 +35,7 @@ kali@kali:~$ docker start d36922fa21e8
 kali@kali:~$
 ```
 
-After you execute the following command you will attach to the Docker container, however you must press return once to fully see the prompt.
+After you execute the following command you will attach to the Docker container, however you must press return once to fully see the prompt:
 
 ```console
 kali@kali:~$ docker attach d36922fa21e8

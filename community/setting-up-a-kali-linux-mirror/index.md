@@ -152,7 +152,7 @@ If you limit network traffic, please make sure the following has been allowed to
 
 ### Set Up cron to Manually Mirror ISO Images
 
-The ISO images repository does not use push mirroring so you must schedule a daily rsync run. We provide a `bin/mirror-kali-images` script, which is ready to use that you can add in the crontab of your dedicated user. You just have to configure `etc/mirror-kali-images.conf`.
+The ISO images repository does not use push mirroring so you must schedule a daily rsync run. We provide a `bin/mirror-kali-images` script, which is ready to use that you can add in the crontab of your dedicated user. You just have to configure `etc/mirror-kali-images.conf`:
 
 ```console
 $ sudo su - archvsync

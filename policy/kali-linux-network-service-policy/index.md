@@ -39,7 +39,7 @@ insserv: warning: current stop runlevel(s) (0 1 2 3 4 5 6) of script `apt-cacher
 
 #### Service allowlists and blocklists
 
-Service allowlists and blocklists can be found in the **/usr/sbin/update-rc.d** file. You can edit this file to explicitly allow or deny services the ability to automatically start up at boot time.
+Service allowlists and blocklists can be found in the **/usr/sbin/update-rc.d** file. You can edit this file to explicitly allow or deny services the ability to automatically start up at boot time:
 
 ```console
 kali@kali:~$ tail -95 /usr/sbin/update-rc.d | more

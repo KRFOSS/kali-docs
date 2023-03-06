@@ -10,7 +10,7 @@ In December of 2019 we released a [blog post](/blog/python-2-end-of-life/) talki
 
 ## pyenv
 
-Python 2 is no longer being maintained in the Debian repositories. This means that we must find a way to work around this issue. `pyenv` solves this problem by allowing us to install multiple versions of Python that do not conflict with each other. Currently it is not in the Debian or Kali repository, so we will need to install it from source. Thankfully, there is a handy [installation script](https://github.com/pyenv/pyenv-installer) that the authors have released. Let's go through the installation and setup together.
+Python 2 is no longer being maintained in the Debian repositories. This means that we must find a way to work around this issue. `pyenv` solves this problem by allowing us to install multiple versions of Python that do not conflict with each other. Currently it is not in the Debian or Kali repository, so we will need to install it from source. Thankfully, there is a handy [installation script](https://github.com/pyenv/pyenv-installer) that the authors have released. Let's go through the installation and setup together:
 
 ```console
 kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
@@ -18,7 +18,7 @@ kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-de
 kali@kali:~$
 ```
 
-We will next be quickly running the bash install script. If `ZSH` is the default shell we will have to edit the `.zshrc` file after this.
+We will next be quickly running the bash install script. If `ZSH` is the default shell we will have to edit the `.zshrc` file after this:
 
 ```console
 kali@kali:~$ curl https://pyenv.run | bash
@@ -26,7 +26,7 @@ kali@kali:~$ curl https://pyenv.run | bash
 kali@kali:~$
 ```
 
-If we are using `ZSH` then we will now add the proper lines to our `.zshrc`.
+If we are using `ZSH` then we will now add the proper lines to our `.zshrc`:
 
 ```console
 kali@kali:~$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc

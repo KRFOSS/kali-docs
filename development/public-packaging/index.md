@@ -71,7 +71,7 @@ kali@kali:~/phpggc$
 ```
 
 #### Working with a release
-To get the release, we follow a similar process as to when there is no release. We first get the latest release tar.gz link and output the file to the proper Debian format.
+To get the release, we follow a similar process as to when there is no release. We first get the latest release tar.gz link and output the file to the proper Debian format:
 
 ```console
 kali@kali:~$ wget -O phpggc_1.0.1.orig.tar.gz https://gitlab.com/PackageAllTheThings/phpggc/archive/v1.0.1.tar.gz
@@ -90,7 +90,7 @@ kali@kali:~/phpggc$
 
 ## Creating the Debian files
 
-First we need to generate the base Debian files and remove some of the ones that won't be needed. When prompted we select single for the package type, and assuming everything else is correct, the default values for the rest.
+First we need to generate the base Debian files and remove some of the ones that won't be needed. When prompted we select single for the package type, and assuming everything else is correct, the default values for the rest:
 
 ```console
 kali@kali:~/phpggc$ dh_make -p phpggc_0.20191028
@@ -100,7 +100,7 @@ kali@kali:~/phpggc/debian$ rm *.ex *.EX README.* *.docs
 kali@kali:~/phpggc/debian$
 ```
 
-Next we will need to edit some of the files with the proper information.
+Next we will need to edit some of the files with the proper information:
 
 ```console
 kali@kali:~/phpggc/debian$ vim control
@@ -148,7 +148,7 @@ phpggc (0.20191028-0kali1) kali-dev; urgency=medium
 kali@kali:~$
 ```
 
-Be sure to set kali-dev rather than unstable before urgency, otherwise there will be issues later from sbuild. You can remove everything after "Initial release". We also use a Debian revision of "-0kali1" instead of the default "-1" to avoid conflicts with a version that would be used by an upstream Debian package.
+Be sure to set kali-dev rather than unstable before urgency, otherwise there will be issues later from sbuild. You can remove everything after "Initial release". We also use a Debian revision of "-0kali1" instead of the default "-1" to avoid conflicts with a version that would be used by an upstream Debian package:
 
 ```console
 kali@kali:~/phpggc/debian$ vim copyright
@@ -185,7 +185,7 @@ License: GPL-2+
 kali@kali:~$
 ```
 
-There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debian it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed.
+There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debian it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed:
 
 ```console
 kali@kali:~/phpggc/debian$ vim watch
@@ -208,7 +208,7 @@ This file will _watch_ for any changes in the released version number of the ups
 
 ## Final touches
 
-If we built the package now, it would not be installed. To fix this, let's create an .install file and a helper script. The reason we are creating these two files is that they both will work the majority of the time. In some cases, the different ways, like using a symlink, may not work and changes will have to be made. As we can't account for every scenario now, we will go with what works the majority of the time.
+If we built the package now, it would not be installed. To fix this, let's create an .install file and a helper script. The reason we are creating these two files is that they both will work the majority of the time. In some cases, the different ways, like using a symlink, may not work and changes will have to be made. As we can't account for every scenario now, we will go with what works the majority of the time:
 
 ```console
 kali@kali:~/phpggc/debian$ mkdir -p helper-script/
@@ -252,7 +252,7 @@ This may take a little bit, and in the end a few things can occur. If lintian sa
 
 ## Menu icon
 
-If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop` file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one.
+If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop` file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one:
 
 ```console
 kali@kali:~$ vim desktop-files/phpggc.desktop
@@ -273,7 +273,7 @@ kali@kali:~$
 
 # Submitting to the tracker
 
-Just one last thing to do; submit it to us! To do this, lets head over to [Kali's issue tracker](https://bugs.kali.org/). We are going to want to submit a new issue with the category "New Tool Requests". For the title we will call it "phpggc: a library of unserialize() payloads along with a tool to generate them" and for the description we will include that list from earlier.
+Just one last thing to do; submit it to us! To do this, lets head over to [Kali's issue tracker](https://bugs.kali.org/). We are going to want to submit a new issue with the category "New Tool Requests". For the title we will call it "phpggc: a library of unserialize() payloads along with a tool to generate them" and for the description we will include that list from earlier:
 
 ```plaintext
 - [Name] - PHPGGC

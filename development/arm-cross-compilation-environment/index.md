@@ -18,13 +18,13 @@ Compiling kernels and generating images usually comes at the cost of disk space.
 
 ### Install Dependencies
 
-Start off by installing the required dependencies for ARM cross-compilation.
+Start off by installing the required dependencies for ARM cross-compilation:
 
 ```console
 kali@kali:~$ sudo apt install -y git-core gnupg flex bison gperf libesd0-dev build-essential zip curl libncurses5-dev zlib1g-dev gcc-multilib g++-multilib
 ```
 
-If you are running a 64-bit Kali Linux system, add i386 architecture support to your development environment as follows.
+If you are running a 64-bit Kali Linux system, add i386 architecture support to your development environment as follows:
 
 ```console
 kali@kali:~$ dpkg --add-architecture i386
@@ -34,7 +34,7 @@ kali@kali:~$ sudo apt install -y ia32-libs
 
 ### Download Linaro Toolchain
 
-Download the Linaro cross-compiler from our Git repository.
+Download the Linaro cross-compiler from our Git repository:
 
 ```console
 kali@kali:~$ cd ~/
@@ -45,7 +45,7 @@ kali@kali:~$ git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4
 
 ### Set Environment Variables
 
-To use the Linaro cross-compiler, you will need to set the following environment variables in your session.
+To use the Linaro cross-compiler, you will need to set the following environment variables in your session:
 
 ```console
 kali@kali:~$ export ARCH=arm

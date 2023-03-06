@@ -26,7 +26,7 @@ deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmwa
 kali@kali:~$
 ```
 
-After that we can run the following commands which will [upgrade us to the latest Kali version](/docs/general-use/updating-kali/).
+After that we can run the following commands which will [upgrade us to the latest Kali version](/docs/general-use/updating-kali/):
 
 ```console
 kali@kali:~$ sudo apt update

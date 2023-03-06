@@ -29,7 +29,7 @@ We encourage users to spend some time looking through these after finishing read
 
 Adding autopkgtests to a source package is a matter of creating a `debian/tests/control` file: that file describes all the tests that have to be run. Just like `debian/control`, it uses a set of entries structured like mail headers (e.g. `Field-Name: some value`). In the simplest case, the test can be fully described in the control file, but for most non-trivial tests, you will just reference an external test script that you will just put alongside in `debian/tests/`.
 
-Have a look a the [official documentation of those control files](https://salsa.debian.org/ci-team/autopkgtest/-/blob/master/doc/README.package-tests.rst) to gain a good idea of what we are doing and what's possible. A lot of the options are explained quite well, and through active experimentation and learning can be utilized in helpful ways, but for now we will stick to some of the basics. Lets take a look at their example control file.
+Have a look a the [official documentation of those control files](https://salsa.debian.org/ci-team/autopkgtest/-/blob/master/doc/README.package-tests.rst) to gain a good idea of what we are doing and what's possible. A lot of the options are explained quite well, and through active experimentation and learning can be utilized in helpful ways, but for now we will stick to some of the basics. Lets take a look at their example control file:
 
 ```plaintext
 Tests: fred, bill, bongo
@@ -130,7 +130,7 @@ It is apparent that there is a big difference between the two. Both will technic
 
 We did just throw a bunch of text and code at you all to look at without much explanation, as it was important to note the differences before getting too involved. But lets take a step back now and look more closely at this.
 
-Looking more closely at the `cloud_enum` control file, we have three things going on.
+Looking more closely at the `cloud_enum` control file, we have three things going on:
 
 ```plaintext
 Test-Command: cloud_enum --help
@@ -139,7 +139,7 @@ Restrictions: superficial
 ```
 The first thing we do is tell what command we are running. Because this is just a superficial test, we do not tell it to run a script and instead just do one line to test if it outputs the help. We then tell it to depend on the same dependencies that the package depends on, by using '@'. Should the test need other dependencies, we can list them here. In another test we will look at, this will be seen in action. We finally tell it that yes, this test is just a superficial one. We could tell it other things, like that `cloud_enum` needs root, or that after running this test the testing environment will need to be scrapped.
 
-The next control file we will learn from is [pytest-factoryboy's](https://gitlab.com/kalilinux/packages/pytest-factoryboy/-/tree/kali/master/debian/tests).
+The next control file we will learn from is [pytest-factoryboy's](https://gitlab.com/kalilinux/packages/pytest-factoryboy/-/tree/kali/master/debian/tests):
 
 ```plaintext
 Tests: test3-pytest-factoryboy
@@ -177,19 +177,19 @@ For more information on the environment itself, the `autopkgtest-build-qemu` and
 
 If it is needed to run the tests locally, it is luckily fairly straightforward but needs some preparation.
 
-We first download the actual testing software and also `vmdb2` which is to create the disk images to be used for the tests.
+We first download the actual testing software and also `vmdb2` which is to create the disk images to be used for the tests:
 
 ```console
 kali@kali:~$ sudo apt install -y autopkgtest vmdb2
 ```
 
-We then need to make a directory that can store our images and data.
+We then need to make a directory that can store our images and data:
 
 ```console
 kali@kali:~$ sudo mkdir /srv/autopkgtest-images/
 ```
 
-The following command creates a kali-rolling based image that is compatible with autopkgtests, we can now use this image for future tests.
+The following command creates a kali-rolling based image that is compatible with autopkgtests, we can now use this image for future tests:
 
 ```console
 kali@kali:~$ sudo autopkgtest-build-qemu kali-rolling /srv/autopkgtest-images/kali-rolling.img http://http.kali.org/kali

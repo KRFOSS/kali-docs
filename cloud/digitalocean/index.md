@@ -32,7 +32,7 @@ During the installation, it will prompt for software preferences. For the sake o
 
 ## Update the System
 
-When installation is complete and after rebooting, we login at the console and [update the system](/docs/general-use/updating-kali/).
+When installation is complete and after rebooting, we login at the console and [update the system](/docs/general-use/updating-kali/):
 
 ```console
 kali@kali:~$ sudo apt update
@@ -83,7 +83,7 @@ kali@kali:~$ rm -rf /var/log/*
 kali@kali:~$ history -c
 ```
 
-At this point, our virtual machine is ready so we run 'poweroff' to shutdown the system.
+At this point, our virtual machine is ready so we run 'poweroff' to shutdown the system:
 
 ```console
 kali@kali:~$ poweroff
@@ -91,7 +91,7 @@ kali@kali:~$ poweroff
 
 ## Uploading
 
-In the virtual machine folder, locate the ***.vmdk*** file, then compress it using bzip2, gzip, or zip in preparation for uploading to DigitalOcean.
+In the virtual machine folder, locate the ***.vmdk*** file, then compress it using bzip2, gzip, or zip in preparation for uploading to DigitalOcean:
 
 ```console
 $ bzip2 kali.vmdk
@@ -135,7 +135,7 @@ Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 ```
 
-Now we have a nice, minimal Kali Linux installation that we can deploy and customize as needed.
+Now we have a nice, minimal Kali Linux installation that we can deploy and customize as needed:
 
 ```console
 kali@kali-s-1vcpu-1gb-nyc3-01:~$ lsb_release -a

@@ -54,7 +54,7 @@ We next need to download a hypervisor. For the purposes of this guide we will do
 
 Now that we have our hypervisor and Vagrant installed, we can pull our first configuration file.
 
-We must be in a command line and create a new folder/directory that is empty. For this guide we will be using a Kali Linux host system, however the commands that start with `vagrant` will be the same no matter what host is being used.
+We must be in a command line and create a new folder/directory that is empty. For this guide we will be using a Kali Linux host system, however the commands that start with `vagrant` will be the same no matter what host is being used:
 
 ```console
 kali@kali:~/vagrant$ vagrant init kalilinux/rolling

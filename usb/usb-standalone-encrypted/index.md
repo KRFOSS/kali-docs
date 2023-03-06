@@ -50,7 +50,7 @@ $ sudo dd if=kali-linux-2021.4-installer-amd64.iso of=/dev/sda status=progress
 
 ### Xubuntu 20.04 LTS Installer
 
-We also need the ISO image of the [Xubuntu 20.04 LTS Live Installer](https://xubuntu.org/download) on a second USB pen drive. In my case, the ISO image file is called `xubuntu-20.04-desktop-amd64.iso`. In the same fashion, this goes to a second USB pen drive (at least 4GB in size). Unplug the first USB pen drive and plug in the second one.
+We also need the ISO image of the [Xubuntu 20.04 LTS Live Installer](https://xubuntu.org/download) on a second USB pen drive. In my case, the ISO image file is called `xubuntu-20.04-desktop-amd64.iso`. In the same fashion, this goes to a second USB pen drive (at least 4GB in size). Unplug the first USB pen drive and plug in the second one:
 
 ```console
 $ sudo dd if=xubuntu-20.04-desktop-amd64.iso of=/dev/sda status=progress
@@ -60,7 +60,7 @@ $ sudo dd if=xubuntu-20.04-desktop-amd64.iso of=/dev/sda status=progress
 
 Finally, we insert the USB drive on which we wish to perform the Kali Linux 2021.4 installation. I use a 128GB NVMe M.2 SSD in an USB 3.1 gen 2 enclosure for this purpose. Disconnect the second pen drive and connect the target USB drive. Similarly to the above, find out which device `/dev/sdx` the target USB drive corresponds to and make sure that none of its partitions are mounted. In my case, the target USB drive is again associated with `/dev/sda`.
 
-We then use `sudo gdisk /dev/sda` in order to create the following partitions.
+We then use `sudo gdisk /dev/sda` in order to create the following partitions:
 
 ```plaintext
 /dev/sda1,   4.0 GiB, type 8301, Linux reserved, will become /boot
@@ -90,7 +90,7 @@ $ sgdisk --print /dev/sda
 ```
 (Note that the size hint `:0` for partition 5 indicates that we request all the remaining free space)
 
-Next, we set up luks encryption for the partitions 1,4 and 5. Note that the boot loader `grub2` can mount only luks, version 1.
+Next, we set up luks encryption for the partitions 1,4 and 5. Note that the boot loader `grub2` can mount only luks, version 1:
 
 ```console
 $ sudo cryptsetup luksFormat --type=luks1 /dev/sda1
@@ -106,7 +106,7 @@ $ sudo cryptsetup open /dev/sda4 LUKS_SWAP
 $ sudo cryptsetup open /dev/sda5 LUKS_ROOT
 ```
 
-The command `ls /dev/mapper` then shows the three devices associated with the unlocked partitions. We can now format the partitions 1,3,4 and 5, aka create filesystems on them.
+The command `ls /dev/mapper` then shows the three devices associated with the unlocked partitions. We can now format the partitions 1,3,4 and 5, aka create filesystems on them:
 
 ```console
 $ sudo mkfs.ext4 -L boot /dev/mapper/LUKS_BOOT
@@ -213,7 +213,7 @@ Firstly, in the line for `/`, we change `subvol=@rootfs` to `subvol=@`. We also 
 PARTUUID=<whatever> /boot/efi vfat umask=0077 0 1
 ```
 
-with the UUID we just wrote down. This allows the installation to locate and mount the correct EFI partition irrespectively of any device number. Then we add lines in order to mount the `btrfs` subvolumes we just created. I have also added mount options that are useful for working with SSDs. In my case, the other lines thus read as follows.
+with the UUID we just wrote down. This allows the installation to locate and mount the correct EFI partition irrespectively of any device number. Then we add lines in order to mount the `btrfs` subvolumes we just created. I have also added mount options that are useful for working with SSDs. In my case, the other lines thus read as follows:
 
 ```plaintext
 /dev/mapper/LUKS_ROOT /               btrfs   defaults,noatime,ssd,compress=lzo,subvol=@              0 0
@@ -271,7 +271,7 @@ $ apt-get install grub-common grub-efi-amd64 os-prober
 $ apt-get install cryptsetup-initramfs
 ```
 
-In the following, we create a random luks key file which is able to unlock the three encrypted partitions and set up a few configuration files before the initial RAM disk is composed.
+In the following, we create a random luks key file which is able to unlock the three encrypted partitions and set up a few configuration files before the initial RAM disk is composed:
 
 ```console
 $ echo "KEYFILE_PATTERN=/etc/luks/*.keyfile" >>/etc/cryptsetup-initramfs/conf-hook
@@ -402,7 +402,7 @@ $ cd ~/src/linux-source-5.15/
 $ make menuconfig
 ```
 
-and compiled as follows. Note that we build the Debian style kernel packages here which automatically takes care of all patches, etc.
+and compiled as follows. Note that we build the Debian style kernel packages here which automatically takes care of all patches, etc:
 
 ```console
 $ make clean
@@ -410,7 +410,7 @@ $ make deb-pkg LOCALVERSION=-custom KDEB_PKGVERSION=$(make kernelversion)-1
 $ ls ../*.deb
 ```
 
-It suffices to install the newly created Debian kernel package. It includes an initial RAM disk which is able to decrypt the luks encrypted partitions and places everything on the `/boot` partition for `grub2` to find. The precise version of the kernel depends on the update status of your Kali 2021.4 at the time when you last upgraded and unpacked the sources. The above `ls ../*.deb` command shows the full names of the produced Debian packages.
+It suffices to install the newly created Debian kernel package. It includes an initial RAM disk which is able to decrypt the luks encrypted partitions and places everything on the `/boot` partition for `grub2` to find. The precise version of the kernel depends on the update status of your Kali 2021.4 at the time when you last upgraded and unpacked the sources. The above `ls ../*.deb` command shows the full names of the produced Debian packages:
 
 ```console
 $ sudo dpkg -i ~/src/linux-image-5.15.5-custom_5.15.5-1_amd64.deb

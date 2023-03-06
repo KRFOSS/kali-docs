@@ -28,7 +28,7 @@ In this example, we'll create a new partition to store our persistent data into,
 1. First, begin by imaging the latest Kali Linux ISO (currently [2022.4](/get-kali/)) to your USB drive as described in [this article](/docs/usb/live-usb-install-with-windows/). We're going to assume that the two partitions created by the imaging are `/dev/sdb1` and `/dev/sdb2`. This can be verified with the command `lsblk`.
 
 2. Create and format an additional partition on the USB drive.
-First, let's create the new partition in the empty space above our Kali Live partitions. We have to do this from the command line as gparted will read the imaged ISO as a large block.
+First, let's create the new partition in the empty space above our Kali Live partitions. We have to do this from the command line as gparted will read the imaged ISO as a large block:
 
 ```console
 kali@kali:~$ usb=/dev/sdb
@@ -38,7 +38,7 @@ kali@kali:~$ sudo fdisk $usb <<< $(printf "n\np\n\n\n\nw")
 
 When fdisk completes, the new partition should have been created at `/dev/sdb3`; again, this can be verified with the command `lsblk`.
 
-3. Next, create an **ext4** file system in the partition and label it `persistence`.
+3. Next, create an **ext4** file system in the partition and label it `persistence`:
 
 ```console
 kali@kali:~$ usb=/dev/sdb
@@ -46,7 +46,7 @@ kali@kali:~$
 kali@kali:~$ sudo mkfs.ext4 -L persistence ${usb}3
 ```
 
-4. Create a mount point, mount the new partition there, and then create the configuration file to enable persistence. Finally, unmount the partition.
+4. Create a mount point, mount the new partition there, and then create the configuration file to enable persistence. Finally, unmount the partition:
 
 ```console
 kali@kali:~$ usb=/dev/sdb

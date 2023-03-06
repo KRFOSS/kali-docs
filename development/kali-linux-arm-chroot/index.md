@@ -71,7 +71,7 @@ The build described here is both minimal and generic. A small number of basic pa
 
 ### Install Required Tools and Dependencies
 
-This is a general set-up task, and should only ever need to be done once.
+This is a general set-up task, and should only ever need to be done once:
 
 ```console
 kali@kali:~$ sudo apt install -y debootstrap qemu-user-static
@@ -79,7 +79,7 @@ kali@kali:~$ sudo apt install -y debootstrap qemu-user-static
 
 ### Enable Cross-Compilation
 
-In order to enable the Linaro cross-compilation, you will need to set these environment variable at the beginning of every session.
+In order to enable the Linaro cross-compilation, you will need to set these environment variable at the beginning of every session:
 
 ```console
 kali@kali:~$ export ARCH=arm
@@ -88,7 +88,7 @@ kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-lin
 
 ### Define Architecture and Custom Packages
 
-This is where you define some environment variables for your required ARM architecture (armel vs armhf) and list the [packages](https://pkg.kali.org/) to be installed in your image. These will be used throughout this article, so make sure to modify them to your needs.
+This is where you define some environment variables for your required ARM architecture (armel vs armhf) and list the [packages](https://pkg.kali.org/) to be installed in your image. These will be used throughout this article, so make sure to modify them to your needs:
 
 ```console
 kali@kali:~$ export packages="xfce4 kali-menu wpasupplicant kali-defaults initramfs-tools u-boot-tools nmap openssh-server"
@@ -99,7 +99,7 @@ kali@kali:~$ export architecture="armhf"
 
 #### Set Up the Base rootfs
 
-As our starting point, we'll create a standard directory structure and use **debootstrap** to install a base ARM rootfs from the Kali Linux repositories. We then copy over **qemu-arm-static**, an ARM emulator, from our host machine into the rootfs in order to initiate the 2nd stage chroot.
+As our starting point, we'll create a standard directory structure and use **debootstrap** to install a base ARM rootfs from the Kali Linux repositories. We then copy over **qemu-arm-static**, an ARM emulator, from our host machine into the rootfs in order to initiate the 2nd stage chroot:
 
 ```console
 kali@kali:~$ mkdir -p ~/arm-stuff/kernel # should have already been created when setting up x-compilation
@@ -112,7 +112,7 @@ kali@kali:~$ cp /usr/bin/qemu-arm-static kali-$architecture/usr/bin/
 
 #### 2nd Stage chroot
 
-First, we'll chroot into our newly-created base rootfs, use **debootstrap** a second time to construct our second-stage rootfs, and configure base image settings such as repositories (in `/etc/apt/sources.list`), host name (in `/etc/hostname`), default network interfaces and behavior (in `/etc/network/interfaces` and `/etc/resolv.conf`), etc. Change these to suit your requirements.
+First, we'll chroot into our newly-created base rootfs, use **debootstrap** a second time to construct our second-stage rootfs, and configure base image settings such as repositories (in `/etc/apt/sources.list`), host name (in `/etc/hostname`), default network interfaces and behavior (in `/etc/network/interfaces` and `/etc/resolv.conf`), etc. Change these to suit your requirements:
 
 ```console
 kali@kali:~$ cd ~/arm-stuff/rootfs/
@@ -140,7 +140,7 @@ Now, we're ready to assemble our third-stage chroot.
 
 #### 3rd Stage chroot
 
-This is where your specific customizations come in. Your **$packages** list is installed, as are keymaps, a default kali user password of "kali" is set, and other configuration changes and fixes are applied.
+This is where your specific customizations come in. Your **$packages** list is installed, as are keymaps, a default kali user password of "kali" is set, and other configuration changes and fixes are applied:
 
 ```console
 kali@kali:~$ export MALLOC_CHECK_=0 # workaround for LP: #520465
@@ -187,7 +187,7 @@ rm -f /third-stage
 EOF
 ```
 
-Now, we'll run it from within our second-stage chroot.
+Now, we'll run it from within our second-stage chroot:
 
 ```console
 kali@kali:~$ chmod +x kali-$architecture/third-stage
@@ -196,7 +196,7 @@ kali@kali:~$ LANG=C chroot kali-$architecture /third-stage
 
 ### Manual Configuration Within the chroot
 
-If you need to make any further modifications in your rootfs environment, you can do so by manually chrooting into it with the following command and making any needed changes.
+If you need to make any further modifications in your rootfs environment, you can do so by manually chrooting into it with the following command and making any needed changes:
 
 ```console
 kali@kali:~$ LANG=C chroot kali-$architecture
@@ -210,7 +210,7 @@ kali@kali:~$ exit
 
 ### Cleanup
 
-Lastly, we create and run a cleanup script in our chroot to free up space used by cached files and run any other cleanup jobs we may require, and unmount the directories we were using in our rootfs.
+Lastly, we create and run a cleanup script in our chroot to free up space used by cached files and run any other cleanup jobs we may require, and unmount the directories we were using in our rootfs:
 
 ```console
 kali@kali:~$ cat <<EOF > kali-$architecture/cleanup

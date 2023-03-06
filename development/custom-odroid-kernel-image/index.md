@@ -18,7 +18,7 @@ Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as d
 
 #### 02. Create the Image File
 
-Next, we create the physical image file which will hold our ODROID rootfs and boot images.
+Next, we create the physical image file which will hold our ODROID rootfs and boot images:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils uboot-mkimage
@@ -48,7 +48,7 @@ kali@kali:~$ mount $rootp root
 
 #### 04. Copy and Modify the Kali rootfs
 
-Copy over the Kali rootfs you bootstrapped earlier using **rsync** to the mounted image.
+Copy over the Kali rootfs you bootstrapped earlier using **rsync** to the mounted image:
 
 ```console
 kali@kali:~$ cd ~/arm-stuff/images/
@@ -56,13 +56,13 @@ kali@kali:~$ rsync -HPavz ~/arm-stuff/rootfs/kali-armhf/ root
 kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 ```
 
-Edit the **~/arm-stuff/images/root/etc/inittab** file and locate the "Example how to put a getty on a serial line".
+Edit the **~/arm-stuff/images/root/etc/inittab** file and locate the "Example how to put a getty on a serial line":
 
 ```console
 kali@kali:~$ vim root/etc/inittab
 ```
 
-Add the following line to the end of that section.
+Add the following line to the end of that section:
 
 ```plaintext
 T1:12345:respawn:/sbin/agetty 115200 ttySAC1 vt100
@@ -74,7 +74,7 @@ If you want the serial console to autologin as root, use the following line inst
 T1:12345:respawn:/bin/login -f root ttySAC1 /dev/ttySAC1 >&1
 ```
 
-Now, make sure there is a _ttySAC1_ entry in the **~/arm-stuff/images/root/etc/udev/links.conf** file.
+Now, make sure there is a _ttySAC1_ entry in the **~/arm-stuff/images/root/etc/udev/links.conf** file:
 
 ```console
 kali@kali:~$ vim root/etc/udev/links.conf
@@ -88,7 +88,7 @@ M console c 5 1
 M ttySAC1 c 5 1
 ```
 
-Add _ttySAC_ entries in the **~/arm-stuff/images/root/etc/udev/links.conf** file.
+Add _ttySAC_ entries in the **~/arm-stuff/images/root/etc/udev/links.conf** file:
 
 ```console
 kali@kali:~$ cat <<EOF >> root/etc/securetty
@@ -98,7 +98,7 @@ ttySAC2
 EOF
 ```
 
-Place a basic xorg.conf file in the rootfs.
+Place a basic xorg.conf file in the rootfs:
 
 ```console
 kali@kali:~$ cat <<EOF > root/etc/X11/xorg.conf
@@ -148,7 +148,7 @@ kali@kali:~$ cd odroid/
 kali@kali:~$ touch .scmversion
 ```
 
-Configure, then cross-compile the ODROID kernel.
+Configure, then cross-compile the ODROID kernel:
 
 ```console
 kali@kali:~$ export ARCH=arm
@@ -171,7 +171,7 @@ kali@kali:~$ make -j $(cat /proc/cpuinfo|grep processor | wc -l)
 kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root/
 ```
 
-Chroot into the rootfs and create an [initrd](https://en.wikipedia.org/wiki/Initrd). Make sure to use the correct kernel version/extraversion for the **mkinitramfs** command. In our case, it was "3.8.13".
+Chroot into the rootfs and create an [initrd](https://en.wikipedia.org/wiki/Initrd). Make sure to use the correct kernel version/extraversion for the **mkinitramfs** command. In our case, it was "3.8.13":
 
 ```console
 kali@kali:~$ LANG=C chroot ~/arm-stuff/images/root/
@@ -186,14 +186,14 @@ kali@kali:~$ exit
 
 #### 06. Prepare the Boot Partition
 
-Copy the kernel and generated initrd file to the mounted boot partition as shown below.
+Copy the kernel and generated initrd file to the mounted boot partition as shown below:
 
 ```console
 kali@kali:~$ mv ~/arm-stuff/images/root/uInitrd ~/arm-stuff/images/boot/
 kali@kali:~$ cp arch/arm/boot/zImage ~/arm-stuff/images/boot/
 ```
 
-Dump a **boot.txt** file, which contains required boot parameters for the ODROID in the boot partition.
+Dump a **boot.txt** file, which contains required boot parameters for the ODROID in the boot partition:
 
 ```console
 kali@kali:~$ cat <<EOF > ~/arm-stuff/images/boot/boot.txt
@@ -205,13 +205,13 @@ boot
 EOF
 ```
 
-Generate a `boot.scr` file, which is required to boot the ODROID.
+Generate a `boot.scr` file, which is required to boot the ODROID:
 
 ```console
 kali@kali:~$ mkimage -A arm -T script -C none -n "Boot.scr for ODROID" -d ~/arm-stuff/images/boot/boot.txt ~/arm-stuff/images/boot/boot.scr
 ```
 
-Unmount the root and boot partitions, then umount the loop device.
+Unmount the root and boot partitions, then umount the loop device:
 
 ```console
 kali@kali:~$ cd ~/arm-stuff/images/
@@ -227,7 +227,7 @@ kali@kali:~$ cd ../
 kali@kali:~$ losetup -d $loopdevice
 ```
 
-Now, image the file onto your USB storage device. Our device is **/dev/sdb**. Change this as needed.
+Now, image the file onto your USB storage device. Our device is **/dev/sdb**. Change this as needed:
 
 ```console
 kali@kali:~$ dd if=kali-linux-odroid.img of=/dev/sdb conv=fsync bs=4M
@@ -248,7 +248,7 @@ EOF
 
 #### 08. Install Mali Graphic Drivers (Optional)
 
-These steps are experimental and not fully tested yet. They should be performed inside the Kali rootfs.
+These steps are experimental and not fully tested yet. They should be performed inside the Kali rootfs:
 
 ```console
 kali@kali:~$ # http://malideveloper.arm.com/develop-for-mali/drivers/open-source-mali-gpus-linux-exadri2-and-x11-display-drivers/

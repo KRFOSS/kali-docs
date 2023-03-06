@@ -220,7 +220,7 @@ Homepage: https://github.com/Anorov/PySocks
 kali@kali:~/kali/packages/photon$
 ```
 
-Keeping this in mind, lets find **urllib3** and **tld**.
+Keeping this in mind, lets find **urllib3** and **tld**:
 
 ```console
 kali@kali:~/kali/packages/photon$ apt-cache search python3 | grep urllib3
@@ -488,7 +488,7 @@ gbp:info: 0 patches listed in 'debian/patches/series' imported on 'patch-queue/k
 kali@kali:~/kali/packages/photon$
 ```
 
-We first will create a separate branch where we can work freely. With this command, any patches that are already created will be automatically imported and applied.
+We first will create a separate branch where we can work freely. With this command, any patches that are already created will be automatically imported and applied:
 
 ```console
 kali@kali:~/kali/packages/photon$ vim photon.py
@@ -499,7 +499,7 @@ kali@kali:~/kali/packages/photon$ git commit -m "disable update option"
 kali@kali:~/kali/packages/photon$
 ```
 
-After we make our changes we will do a commit. The commit message will be the title of the patch.
+After we make our changes we will do a commit. The commit message will be the title of the patch:
 
 ```console
 kali@kali:~/kali/packages/photon$ gbp pq export

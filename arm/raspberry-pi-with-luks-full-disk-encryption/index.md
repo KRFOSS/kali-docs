@@ -62,19 +62,19 @@ kali@kali:~$ ls -l /lib/modules/ | awk -F" " '{print $9}'
 4.9.59-Re4son-Kali-Pi+
 ```
 
-We then use that version info to generate an initial initramfs file.
+We then use that version info to generate an initial initramfs file:
 
 ```console
 kali@kali:~$ mkinitramfs -o /boot/initramfs.gz 4.9.59-Re4son-Kali-Pi+
 ```
 
-We change the default root password.
+We change the default root password:
 
 ```console
 kali@kali:~$ sudo passwd root
 ```
 
-Next, we modify the boot parameters in cmdline.txt and config.txt.
+Next, we modify the boot parameters in cmdline.txt and config.txt:
 
 ```console
 kali@kali:~$ vim /boot/cmdline.txt
@@ -109,19 +109,19 @@ kali@kali:~$ cat kali-luks-unlock.pub > /mnt/chroot/etc/dropbear-initramfs/autho
 kali@kali:~$ chmod 0600 /mnt/chroot/etc/dropbear-initramfs/authorized_keys
 ```
 
-And limit the SSH connection to allow interaction with the cryptroot application only.
+And limit the SSH connection to allow interaction with the cryptroot application only:
 
 ```console
 kali@kali:~$ vim /etc/dropbear-initramfs/authorized_keys
 ```
 
-We paste the following **before** the ssh public key begins.
+We paste the following **before** the ssh public key begins:
 
 ```plaintext
 command="/scripts/local-top/cryptroot && kill -9 `ps | grep -m 1 'cryptroot' | cut -d ' ' -f 3`"
 ```
 
-Then to ensure we get cryptsetup in the initramfs, we edit the cryptsetup initramfs hook.
+Then to ensure we get cryptsetup in the initramfs, we edit the cryptsetup initramfs hook:
 
 ```console
 kali@kali:~$ echo "CRYPTSETUP=y" >> /etc/cryptsetup-initramfs/conf-hook
@@ -162,7 +162,7 @@ sleep 5
 Do NOT add the "..." they are a placeholder to mean there is more stuff there, that we aren't editing.
 {{% /notice %}}
 
-Save the file then regenerate the initramfs and exit the chroot. You can ignore the cryptsetup and device-mapper warnings.
+Save the file then regenerate the initramfs and exit the chroot. You can ignore the cryptsetup and device-mapper warnings:
 
 ```console
 kali@kali:~$ mkinitramfs -o /boot/initramfs.gz 4.9.59-Re4son-Kali-Pi+
@@ -187,14 +187,14 @@ Once the backup is done, we unmount everything:
 kali@kali:~$ umount /mnt/chroot
 ```
 
-Now we delete the existing 2nd partition on the SD card and recreate an empty one, which we will set up for LUKS encryption.
+Now we delete the existing 2nd partition on the SD card and recreate an empty one, which we will set up for LUKS encryption:
 
 ```console
 kali@kali:~$ echo -e "d\n2\nw" | fdisk /dev/sdb
 kali@kali:~$ echo -e "n\np\n2\n\n\nw" | fdisk /dev/sdb
 ```
 
-Unplug your SD card and plug it back in to have the new partitions register, then start setting up your encrypted partition.
+Unplug your SD card and plug it back in to have the new partitions register, then start setting up your encrypted partition:
 
 ```console
 kali@kali:~$ cryptsetup -v -y --cipher aes-xts-plain64 --key-size 256 luksFormat /dev/sdb2
@@ -202,7 +202,7 @@ kali@kali:~$ cryptsetup -v luksOpen /dev/sdb2 crypt_sdcard
 kali@kali:~$ mkfs.ext4 /dev/mapper/crypt_sdcard
 ```
 
-Once ready, we restore the rootfs backup to the now encrypted partition.
+Once ready, we restore the rootfs backup to the now encrypted partition:
 
 ```console
 kali@kali:~$ mkdir -p /mnt/encrypted
@@ -213,7 +213,7 @@ kali@kali:~$ rm -rf /mnt/backup
 kali@kali:~$ sync
 ```
 
-Then we unmount and close the volume.
+Then we unmount and close the volume:
 
 ```console
 kali@kali:~$ cryptsetup luksClose /dev/mapper/crypt_sdcard

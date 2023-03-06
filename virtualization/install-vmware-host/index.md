@@ -14,7 +14,7 @@ VMware Workstation & Fusion is a commercial software (there is VMware Player whi
 
 ### Preparation
 
-Before trying to install VMware, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine.
+Before trying to install VMware, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -31,7 +31,7 @@ kali@kali:~$
 
 To start with, you will need to download VMware. You can do this by going to [VMware's download page](https://www.vmware.com/uk/products/workstation-pro/). At the time of writing, the latest version is `15.5.1-15018445`.
 
-Alternatively, you can do the following command line method.
+Alternatively, you can do the following command line method:
 
 ```console
 kali@kali:~$ sudo apt install -y curl
@@ -50,7 +50,7 @@ kali@kali:~$
 
 - - -
 
-When everything is up-to-date, and ready to go, make sure the file is executable and then call it.
+When everything is up-to-date, and ready to go, make sure the file is executable and then call it:
 
 ```console
 kali@kali:~$ chmod +x ~/Downloads/vmware.bin
@@ -66,7 +66,7 @@ kali@kali:~$
 
 We can see we have installed **VMware Workstation 15.5.1**. The version number may be needed later on.
 
-After the installer is installed, you should be able to just run `vmware` to continue setup.
+After the installer is installed, you should be able to just run `vmware` to continue setup:
 
 ```console
 kali@kali:~$ vmware
@@ -157,7 +157,7 @@ If you now wish, you are able to [install Kali Linux in a VMware VM](/docs/virtu
 
 If you see the following problem, upon trying to run `vmware`.
 
-Try installing the [libaio1](https://packages.debian.org/testing/libaio1) package.
+Try installing the [libaio1](https://packages.debian.org/testing/libaio1) package:
 
 ```console
 kali@kali:~$ vmware
@@ -175,7 +175,7 @@ Then the next time you start `vmware`, it should of gone away.
 
 #### Missing Packages
 
-From time to time, things may not go right. There could be a number of reasons why VMware may not install. The first thing to check would be you have all the necessary packages installed.
+From time to time, things may not go right. There could be a number of reasons why VMware may not install. The first thing to check would be you have all the necessary packages installed:
 
 ```console
 kali@kali:~$ sudo apt install -y build-essential linux-headers-$( uname -r ) vlan libaio1
@@ -189,7 +189,7 @@ Try running `vmware` again, and see if now setup continues.
 
 #### Too Newer Kernel
 
-A common issue is because the setup file for VMware isn't supporting the latest kernels, which could be an issue as Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/) and receives frequent updates. If this is the case, we can patch VMware modules to support this.
+A common issue is because the setup file for VMware isn't supporting the latest kernels, which could be an issue as Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/) and receives frequent updates. If this is the case, we can patch VMware modules to support this:
 
 ```console
 kali@kali:~$ sudo apt install -y git
@@ -216,7 +216,7 @@ If you are still having issues, you may need to restart your Kali Linux before t
 
 #### vmware-host-modules + Kernel Updates
 
-As VMware has various kernel modules, we need to make sure they are kept up-to-date and re-patched when Kali Linux's kernel gets updated. This can be achieved by the steps in the [following guide](https://docs.fedoraproject.org/en-US/quick-docs/how-to-use-vmware/).
+As VMware has various kernel modules, we need to make sure they are kept up-to-date and re-patched when Kali Linux's kernel gets updated. This can be achieved by the steps in the [following guide](https://docs.fedoraproject.org/en-US/quick-docs/how-to-use-vmware/):
 
 ```console
 kali@kali:~$ sudo tee /etc/kernel/install.d/99-vmmodules.install <<EOF
@@ -265,7 +265,7 @@ kali@kali:~$
 
 #### Still can't start up VMware? vmware-modconfi
 
-If VMware is unsuccessful, we can dig a little further by running the following.
+If VMware is unsuccessful, we can dig a little further by running the following:
 
 ```console
 kali@kali:~$ sudo vmware-modconfig --console --install-all

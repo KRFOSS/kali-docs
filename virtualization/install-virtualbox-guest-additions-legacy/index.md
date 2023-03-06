@@ -17,7 +17,7 @@ You must use **VirtualBox 4.2.xx or higher** in order to take advantage of the i
 
 ## Preparing
 
-Start up your Kali Linux virtual machine, open a terminal window and issue the following command to install the Linux kernel headers.
+Start up your Kali Linux virtual machine, open a terminal window and issue the following command to install the Linux kernel headers:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -38,7 +38,7 @@ This will mount the Guest Additions ISO in the virtual CD drive in your Kali Lin
 
 ## Installing
 
-From a terminal window, copy the `VboxLinuxAdditions.run` file from the Guest Additions CD-ROM to a path on your local system. Ensure it is **executable and run** the file to begin the installation.
+From a terminal window, copy the `VboxLinuxAdditions.run` file from the Guest Additions CD-ROM to a path on your local system. Ensure it is **executable and run** the file to begin the installation:
 
 ```console
 kali@kali:~$ cp /media/cdrom/VBoxLinuxAdditions.run ~/Downloads/

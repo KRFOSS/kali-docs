@@ -85,7 +85,7 @@ kali@kali:~$
 
 ## Initialize the Metasploit PostgreSQL Database
 
-With **PostgreSQL** up and running, we next need to create and initialize the **msf** database.
+With **PostgreSQL** up and running, we next need to create and initialize the **msf** database:
 
 ```console
 kali@kali:~$ sudo msfdb init
@@ -100,7 +100,7 @@ kali@kali:~$
 
 ## Launch msfconsole in Kali
 
-Now that the **PostgreSQL** service is up and running and the database is initialized, you can launch **msfconsole** and verify database connectivity with the **db_status** command as shown below.
+Now that the **PostgreSQL** service is up and running and the database is initialized, you can launch **msfconsole** and verify database connectivity with the **db_status** command as shown below:
 
 ```console
 kali@kali:~$ msfconsole -q
