@@ -143,10 +143,10 @@ Vagrant.configure("2") do |config|
   end
 
   # Provision the machine with a shell script
-  config.vm.provision "shell", inline: <<-SHELL
+  config.vm.provision "shell", inline: <<-EOF
     sudo apt update
     sudo apt install -y crowbar
-  SHELL
+  EOF
 end
 ```
 

@@ -219,7 +219,7 @@ If you are still having issues, you may need to restart your Kali Linux before t
 As VMware has various kernel modules, we need to make sure they are kept up-to-date and re-patched when Kali Linux's kernel gets updated. This can be achieved by the steps in the [following guide](https://docs.fedoraproject.org/en-US/quick-docs/how-to-use-vmware/).
 
 ```console
-kali@kali:~$ cat<<EOF | sudo tee /etc/kernel/install.d/99-vmmodules.install
+kali@kali:~$ sudo tee /etc/kernel/install.d/99-vmmodules.install <<EOF
 #!/bin/bash
 
 export LANG=C

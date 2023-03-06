@@ -83,9 +83,9 @@ Ok. You have been warned and you promised to use kali-bleeding-edge
 in a reasonable way. How do you enable that repository? Easy:
 
 ```console
-kali@kali:~$ sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list <<END
+kali@kali:~$ sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list <<EOF
 deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free non-free-firmware
-END
+EOF
 kali@kali:~$ sudo apt update
 [...]
 ```
