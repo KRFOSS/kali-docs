@@ -43,7 +43,7 @@ root@kali:~# apt upgrade
 Add the `kali-experimental` suite to your APT sources:
 
 ```console
-root@kali:~# cat << 'EOF' > /etc/apt/sources.list.d/kali-experimental.list
+root@kali:~# cat <<EOF > /etc/apt/sources.list.d/kali-experimental.list
 deb http://http.kali.org/kali kali-experimental main contrib non-free non-free-firmware
 EOF
 ```

@@ -120,7 +120,7 @@ kali@kali:~$
 We now need to set up git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html).
 
 ```console
-kali@kali:~$ cat <<EOF> ~/.gbp.conf
+kali@kali:~$ cat <<EOF > ~/.gbp.conf
 [DEFAULT]
 pristine-tar = True
 cleaner = /bin/true
@@ -161,7 +161,7 @@ pub   rsa2048 2019-01-01 [SC] [expires: 2021-12-21]
 uid           [ultimate] First Last <email@domain.com>
 sub   rsa2048 2019-01-01 [E] [expires: 2021-12-21]
 kali@kali:~$
-kali@kali:~$ cat <<EOF> ~/.devscripts
+kali@kali:~$ cat <<EOF > ~/.devscripts
 DEBRELEASE_UPLOADER=dput
 DEBRELEASE_DEBS_DIR=$HOME/kali/build-area/
 DEBCHANGE_RELEASE_HEURISTIC=changelog
@@ -248,7 +248,7 @@ Finally, we just need to add our user to the group and do one last change.
 ```console
 kali@kali:~$ sudo sbuild-adduser $USER
 kali@kali:~$
-kali@kali:~$ cat <<EOF> ~/.sbuildrc
+kali@kali:~$ cat <<EOF > ~/.sbuildrc
 \$build_arch_all = 1;
 \$build_source = 1;
 \$run_lintian = 1;
