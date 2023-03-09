@@ -47,7 +47,7 @@ $ ./raspberry-pi.sh --help
 # Architectures (arm64, armel, armhf)
 ./raspberry-pi.sh --arch arm64 or ./raspberry-pi.sh -a armhf
 
-# Desktop manager (xfce, gnome, kde, i3, i3-gaps, lxde, mate, e17 or none)
+# Desktop manager (xfce, gnome, kde, i3, lxde, mate, e17 or none)
 ./raspberry-pi.sh --desktop kde or ./raspberry-pi.sh --desktop=kde
 
 # Minimal image - no desktop manager
