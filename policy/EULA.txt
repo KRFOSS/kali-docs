@@ -4,7 +4,7 @@ Kali Linux(TM)
 This agreement governs the download, installation or use of the Software
 (as defined below) and any updates to the Software, regardless of the
 delivery mechanism. The Software is a collective work under U.S.
-Copyright Law.  Subject to the following terms, Offensive Security grants to
+Copyright Law.  Subject to the following terms, OffSec grants to
 the user ("User") a license to this collective work pursuant to the GNU
 General Public License version 2.  By downloading, installing or using
 the Software, User agrees to the terms of this agreement.
@@ -25,15 +25,15 @@ component.
 
 2.  INTELLECTUAL PROPERTY RIGHTS.  The Software and each of its
 components, including the source code, documentation, appearance,
-structure and organization are copyrighted by Offensive Security and
+structure and organization are copyrighted by OffSec and
 others and are protected under copyright and other laws.  Title to
 the Software and any component, or to any copy, modification, or
 merged portion shall remain with the aforementioned, subject to the
-applicable license.  The "Kali Linux" trademark is a trademark of Offensive
-Security ("Offensive Security") in the U.S. and other countries and is used by
+applicable license.  The "Kali Linux" trademark is a trademark of
+OffSec in the U.S. and other countries and is used by
 permission.  This agreement permits User to distribute unmodified
 copies of Software using the Kali Linux trademark on the condition that
-User follows Offensive Security's trademark guidelines located at
+User follows OffSec's trademark guidelines located at
 https://www.kali.org/docs/policy/trademark/.  User must
 abide by these trademark guidelines when distributing the Software,
 regardless of whether the Software has been modified.  If User modifies the
@@ -46,7 +46,7 @@ PERMITTED UNDER APPLICABLE LAW, THE SOFTWARE AND THE COMPONENTS ARE
 PROVIDED AND LICENSED "AS IS" WITHOUT WARRANTY OF ANY KIND,
 EXPRESSED OR IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF
 MERCHANTABILITY, NON-INFRINGEMENT OR FITNESS FOR A PARTICULAR
-PURPOSE.  Neither the Kali Linux Project nor Offensive Security warrants that the
+PURPOSE.  Neither the Kali Linux Project nor OffSec warrants that the
 functions contained in the Software will meet User's requirements or
 that the operation of the Software will be entirely error free or
 appear precisely as described in the accompanying documentation.
@@ -89,6 +89,6 @@ regard to any conflict of laws provisions, except that the United
 Nations Convention on the International Sale of Goods shall not
 apply.
 
-All rights reserved.  "Offensive Security" and "Kali Linux" are trademarks of
-Offensive Security.  "Linux" is a registered trademark of Linus Torvalds.
+All rights reserved.  "OffSec" and "Kali Linux" are trademarks of
+OffSec.  "Linux" is a registered trademark of Linus Torvalds.
 All other trademarks are the property of their respective owners.

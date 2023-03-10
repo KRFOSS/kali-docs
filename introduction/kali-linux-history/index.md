@@ -39,7 +39,7 @@ Below is a rough overview of how Kali Linux came to be:
 - 2006-05-26 - [BackTrack v1 FINAL](https://web.archive.org/web/20080626100030/http://www.remote-exploit.org/backtrack_download_veryold.html)
   - https://secmaniac.blogspot.com/2006/05/backtrack-security-final-release.html
 - 2006-10-13 - [BackTrack v2 BETA #1](https://web.archive.org/web/20080626100030/http://www.remote-exploit.org/backtrack_download_veryold.html)
-  - https://web.archive.org/web/20061027172529/http://www.offensive-security.com/downloads.html
+  - https://web.archive.org/web/20061027172529/http://www.offsec.com/downloads.html
   - https://secmaniac.blogspot.com/2006/10/backtrack-v20-public-beta-has-been.html
 - 2006-11-19 - [BackTrack v2 BETA #2](https://web.archive.org/web/20070202024932/http://www.remote-exploit.org/backtrack_download.html)
 - 2007-03-06 - [BackTrack v2 FINAL](https://web.archive.org/web/20090529075045/http://www.remote-exploit.org:80/backtrack_devlog.html)
@@ -50,7 +50,7 @@ Below is a rough overview of how Kali Linux came to be:
 - 2008-06-19 - [BackTrack v3 FINAL](https://web.archive.org/web/20090529075045/http://www.remote-exploit.org:80/backtrack_devlog.html)
 - 2009-02-11 - [BackTrack v4 BETA](https://web.archive.org/web/20090523080314/http://www.remote-exploit.org/backtrack_download.html)
 - 2010-01-09 - [BackTrack v4 FINAL](https://web.archive.org/web/20100114220541/http://www.backtrack-linux.org/backtrack/backtrack4-release/)
-  - https://www.offensive-security.com/backtrack/backtrack-4-final-release/
+  - https://www.offsec.com/backtrack/backtrack-4-final-release/
 - 2010-08-04 - [BackTrack v4 R1](https://web.archive.org/web/20101130093002/http://www.backtrack-linux.org/backtrack/backtrack-4-r1-public-release/)
 - 2010-11-19 - [BackTrack v4 R2](https://web.archive.org/web/20110128024129/http://www.backtrack-linux.org/backtrack/backtrack-4-r2-download/)
 - 2011-05-10 - [BackTrack v5 FINAL](https://web.archive.org/web/20120226060247/http://www.backtrack-linux.org/backtrack/backtrack-5-release/)
