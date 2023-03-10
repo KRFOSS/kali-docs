@@ -12,14 +12,14 @@ Address needs to match what's on MailChimp
 
 - - -
 
-Our Cookie Policy (the "Cookie Policy") describes the different cookies used in connection with websites owned and controlled by Offensive Security, 230 Park Avenue 3rd Floor West, New York. ("Offensive Security" or "us"), from which you are accessing this Cookie Policy (the "Site"). Offensive Security determines the means and purposes of the personal data processing described in this Cookie Policy and is therefore the data controller for the purposes of the EU General Data Protection Regulation (or GDPR).
+Our Cookie Policy (the "Cookie Policy") describes the different cookies used in connection with websites owned and controlled by OffSec, 230 Park Avenue 3rd Floor West, New York. ("OffSec" or "us"), from which you are accessing this Cookie Policy (the "Site"). OffSec determines the means and purposes of the personal data processing described in this Cookie Policy and is therefore the data controller for the purposes of the EU General Data Protection Regulation (or GDPR).
 
 Depending on the Site you are accessing, our [privacy notice](/docs/policy/privacy/) applies in addition to this [Cookie Policy](/docs/policy/cookie/).
 
 If you have questions, please contact us by email at **privacy at offensive-Security dot com** or write to us at:
 
 ```plaintext
-Offensive Security
+OffSec
 230 Park Avenue 3rd Floor West
 New York, NY 10169.
 ```
