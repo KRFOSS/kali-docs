@@ -248,4 +248,4 @@ UUID: E9E67EE1-C02E-481C-BA3F-18E721515DBB
 kali@kali:~$
 ```
 
-Once this operation is complete, boot up your Samsung Chromebook with the SD/USB device plugged in. At the developer mode boot screen, hit CTRL+u to boot from from your USB storage device. Log in to Kali (root / toor) and startx.
+Once this operation is complete, boot up your Samsung Chromebook with the SD/USB device plugged in. At the developer mode boot screen, hit CTRL+u to boot from from your USB storage device. Log in to Kali (`root` / `toor`) and `startx`.

@@ -100,8 +100,8 @@ The multi-boot mechanism works as follows. Starting from a switched off Gemini, 
 The [default credentials](/docs/introduction/default-credentials/) for the device are:
 
 {{% notice info %}}
-**root** / **toor**
-**kali** / **kali**
+**`root`** / **`toor`**
+**`kali`** / **`kali`**
 {{% /notice %}}
 
 After logging in for the first time, we recommend the following steps:
