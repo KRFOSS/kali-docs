@@ -121,7 +121,7 @@ If there is no network access with DHCP service detected, you may need to manual
 
 In our guide, we are using a clean disk, so we have four options to pick from. We will select **Guided - the entire disk**, as this is the single boot installation for Kali Linux, so we do not want any other operating systems installed, so we are happy to wipe the disk.
 
-If there is an pre-existing data on the disk, you will have have an extra option _(Guided - use the largest continuous free space)_ than the example below. This would instruct the setup not to alter any existing data, which is perfect for for dual-booting into another operating system. As this is not the case in this example, it is not visible.
+If there is an pre-existing data on the disk, you will have have an extra option _(Guided - use the largest continuous free space)_ than the example below. This would instruct the setup not to alter any existing data, which is perfect for dual-booting into another operating system. As this is not the case in this example, it is not visible.
 
 Experienced users can use the "Manual" partitioning method for more granular configuration options, which is covered more in our [BTRFS guide](/docs/installation/btrfs/).
 
