@@ -33,10 +33,10 @@ Consider yourself warned.
 2. Now, plug your USB drive into an available USB port on your system, and run the same command, "sudo fdisk -l" a second time. Now, the output will look something (again, _not exactly_) like this, showing an additional device which wasn't there previously, in this example "/dev/sdb", a 16GB USB drive:
 
 ![](FinderScreenSnapz002.png)
-3. Proceed to (carefully!) image the Kali ISO file on the USB device. The example command below assumes that the ISO image you're writing is named "kali-linux-2022.4-installer-amd64.iso" and is in your current working directory. The blocksize parameter can be increased, and while it may speed up the operation of the dd command, it can occasionally produce unbootable USB drives, depending on your system and a lot of different factors. The recommended value, "bs=4M", is conservative and reliable. Additionally, the parameter "conv=fsync" makes sure that the data is physically written to the USB drives before the commands returns:
+3. Proceed to (carefully!) image the Kali ISO file on the USB device. The example command below assumes that the ISO image you're writing is named "kali-linux-2023.1-installer-amd64.iso" and is in your current working directory. The blocksize parameter can be increased, and while it may speed up the operation of the dd command, it can occasionally produce unbootable USB drives, depending on your system and a lot of different factors. The recommended value, "bs=4M", is conservative and reliable. Additionally, the parameter "conv=fsync" makes sure that the data is physically written to the USB drives before the commands returns:
 
 ```console
-kali@kali:~$ dd if=kali-linux-2022.4-installer-amd64.iso of=/dev/sdb conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-2023.1-installer-amd64.iso of=/dev/sdb conv=fsync bs=4M
 ```
 
 Imaging the USB drive can take a good amount of time, over ten minutes or more is not unusual, as the sample output below shows. Be patient!
@@ -74,10 +74,10 @@ Consider yourself warned.
 $ diskutil unmountDisk /dev/disk6
 ```
 
-5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2022.4-installer-amd64.iso". We will replace /dev/disk6 with /dev/rdisk6 to improve the write speeds:
+5. Proceed to (carefully!) image the Kali ISO file on the USB device. The following command assumes that your USB drive is on the path /dev/disk6, and you're in the same directory with your Kali Linux ISO, which is named "kali-linux-2023.1-installer-amd64.iso". We will replace /dev/disk6 with /dev/rdisk6 to improve the write speeds:
 
 ```console
-$ sudo dd if=kali-linux-2022.4-installer-amd64.iso of=/dev/rdisk6 bs=4M status=progress
+$ sudo dd if=kali-linux-2023.1-installer-amd64.iso of=/dev/rdisk6 bs=4M status=progress
 ```
 
 {{% notice info %}}
