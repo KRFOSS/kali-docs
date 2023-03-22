@@ -14,7 +14,7 @@ Occasionally there is a new upstream update for someone's favorite tool that we 
 
 ### Packaging New Tools
 
-With the number of tools out there that users want to see in Kali, there is no way we can get them all on our own. A perk of us being on GitLab is that we can easily accept packages submitted by users, to learn more check out our [Public Packaging page](/docs/development/public-packaging/). If you would like to help but don't know of a package that should be done, we [have a list that can be chosen from](https://bugs.kali.org/search.php?project_id=1&category_id=Queued%20Tool%20Addition&sticky=on&sort=id&dir=ASC&per_page=9999&hide_status=80&match_type=0). A great example of a user-contributed package is our implementation of [i3-gaps](https://gitlab.com/kalilinux/packages/i3-gaps-dotfiles) which is help maintained by [Arszilla](https://gitlab.com/Arszilla).
+With the number of tools out there that users want to see in Kali, there is no way we can get them all on our own. A perk of us being on GitLab is that we can easily accept packages submitted by users, to learn more check out our [Public Packaging page](/docs/development/public-packaging/). If you would like to help but don't know of a package that should be done, we [have a list that can be chosen from](https://bugs.kali.org/search.php?project_id=1&category_id=Queued%20Tool%20Addition&sticky=on&sort=id&dir=ASC&per_page=9999&hide_status=80&match_type=0). A great example of a user-contributed package is [i3-dotfiles](https://gitlab.com/kalilinux/packages/i3-dotfiles) which is help maintained by [Arszilla](https://gitlab.com/Arszilla).
 
 ### Autopkgtests
 
