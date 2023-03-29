@@ -53,11 +53,11 @@ appear precisely as described in the accompanying documentation.
 USE OF THE SOFTWARE IS AT USER'S OWN RISK.
 
 4.  LIMITATION OF REMEDIES AND LIABILITY. TO THE MAXIMUM EXTENT
-PERMITTED BY APPLICABLE LAW, KALI LINUX PROJECT AND OFFENSIVE SECURITY WILL NOT BE
-LIABLE TO USER FOR ANY DAMAGES, INCLUDING INCIDENTAL OR
+PERMITTED BY APPLICABLE LAW, KALI LINUX PROJECT AND OFFSEC SERVICES LIMITED
+WILL NOT BE LIABLE TO USER FOR ANY DAMAGES, INCLUDING INCIDENTAL OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST SAVINGS ARISING OUT OF
 THE USE OR INABILITY TO USE THE SOFTWARE, EVEN IF KALI LINUX OR
-OFFENSIVE SECURITY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+OFFSEC SERVICES LIMITED HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
 
 5.  EXPORT CONTROL.  By downloading Kali Linux software, you
 acknowledge that you understand all of the following: Kali Linux
@@ -90,5 +90,5 @@ Nations Convention on the International Sale of Goods shall not
 apply.
 
 All rights reserved.  "OffSec" and "Kali Linux" are trademarks of
-OffSec.  "Linux" is a registered trademark of Linus Torvalds.
+OffSec Services Limited.  "Linux" is a registered trademark of Linus Torvalds.
 All other trademarks are the property of their respective owners.

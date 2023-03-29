@@ -16,7 +16,7 @@ Our Cookie Policy (the "Cookie Policy") describes the different cookies used in 
 
 Depending on the Site you are accessing, our [privacy notice](/docs/policy/privacy/) applies in addition to this [Cookie Policy](/docs/policy/cookie/).
 
-If you have questions, please contact us by email at **privacy at offensive-Security dot com** or write to us at:
+If you have questions, please contact us by email at **privacy at offsec dot com** or write to us at:
 
 ```plaintext
 OffSec
