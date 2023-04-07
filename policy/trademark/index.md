@@ -41,7 +41,11 @@ You may make t-shirts, desktop wallpaper, or other merchandise with OffSec marks
 If you have any questions or comments, or wish to report misuse of the OffSec trademarks, please [contact us](/contact/).
 
 <!--
+## Trademark
 - Kali (US): https://branddb.wipo.int/en/reports/brand/US502017087525001
 - Kali (WIPO): https://branddb.wipo.int/en/reports/brand/WO500000001403359
 - OffSec: https://branddb.wipo.int/en/reports/brand/WO500000001527743
+
+## Copyright:
+- Kali dragon: VA0002130167: https://publicrecords.copyright.gov/detailed-record/30471023
 -->
