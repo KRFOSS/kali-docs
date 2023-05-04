@@ -56,3 +56,5 @@ kali@kali:~$ sudo mount ${usb}3 /mnt/my_usb
 kali@kali:~$ echo "/ union" | sudo tee /mnt/my_usb/persistence.conf
 kali@kali:~$ sudo umount ${usb}3
 ```
+
+We can now reboot into "Live USB Persistance." Keep in mind we will need to select this boot option every time we wish to have our work stored.
