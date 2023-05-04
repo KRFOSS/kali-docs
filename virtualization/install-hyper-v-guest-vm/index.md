@@ -33,4 +33,4 @@ From here we can either select 'Connect' if we are confident in Windows's select
 
 ![](hyper-v-cpu-settings.png)
 
-In the case of this machine, the only change needed was for the number of virtual processors. We dropped it down from 6 to 4. We are then ready to connect to our VM and continue [setup like normal](/docs/installation/hard-disk-install/)
+In the case of this machine, the only change needed was for the number of virtual processors. We dropped it down from 6 to 2. We are then ready to connect to our VM and continue [setup like normal](/docs/installation/hard-disk-install/)
