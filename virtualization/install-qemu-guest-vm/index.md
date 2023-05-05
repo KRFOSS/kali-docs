@@ -2,7 +2,7 @@
 title: Kali inside QEMU/LibVirt with virt-manager (Guest VM)
 description:
 icon:
-weight: 217
+weight: 218
 author: ["gamb1t",]
 ---
 

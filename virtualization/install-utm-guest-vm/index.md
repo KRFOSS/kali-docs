@@ -2,7 +2,7 @@
 title: Kali inside UTM (Guest VM)
 description:
 icon:
-weight: 216
+weight: 217
 author: ["gamb1t",]
 ---
 
