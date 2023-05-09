@@ -1,30 +1,13 @@
 ---
-title: No sound on Kali 2022.3
+title: No sound on Kali 2023.2
 description:
 icon:
-archived: "true"
 weight: 5000
-author: ["gamb1t",]
+author: ["arnaudr", "gamb1t",]
 ---
 
-As of writing there are some issues with sound being disabled that can occur. To fix this is pretty easy. We first look to see if `pipewire-pulse` is installed:
+Starting version 2023.2, Kali Linux uses [PipeWire](https://pipewire.org/) to manage its audio, for both the XFCE desktop and GNOME desktop. Before that, Kali Linux used another sound server named [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/). (Note: for those who use Kali's KDE desktop: PulseAudio is still in charge)
 
-```console
-kali@kali:~$ apt list --installed | grep pipewire-pulse
+The change should be seamless, as PipeWire provides a compatibility layer (a service named `pipewire-pulse`). Therefore legacy applications that were designed to work with PulseAudio should keep working as if nothing happened, blissfully unaware of the change.
 
-WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
-
-pipewire-pulse/kali-rolling,now 0.3.51-1 amd64 [installed,automatic]
-kali@kali:~$
-```
-
-If this package is installed, we will want to uninstall it and then reboot:
-
-```console
-kali@kali:~$ sudo apt purge --autoremove pipewire-pulse
-[...]
-kali@kali:~$
-kali@kali:~$ sudo reboot
-```
-
-This should then get a working audio setup.
+This being said: if you encounter some audio issues after upgrading to Kali 2023.2, please reach out on [Kali's bugtracker](https://bugs.kali.org) so we can help troubleshoot the issue.
