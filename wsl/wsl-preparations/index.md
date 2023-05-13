@@ -519,7 +519,7 @@ uid=1000(kali) gid=1000(kali) groups=1000(kali),4(adm),24(cdrom),27(sudo),30(dip
 
 ### Import AppxBundle
 
-We can use our [WSL build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-wsl-chroot) to generate a WSL app which can be imported to WSL.
+We can use our [WSL build-scripts](https://gitlab.com/kalilinux/build-scripts/kali-wsl-rootfs) to generate a WSL app which can be imported to WSL.
 As creating the AppxBundle is out of scope for this guide we will already assume it has been created.
 
 Because it is self-signed certificate, run the `Install.ps1` to setup the machine.
