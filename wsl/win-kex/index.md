@@ -53,7 +53,7 @@ Win-KeX supports the following three modes.
 
 ### Window Mode
 
-![Window Mode](win-kex-wm.png)
+![Window Mode](win-kex-win.png)
 
 To start Win-KeX in Window mode with sound support, run either:
 

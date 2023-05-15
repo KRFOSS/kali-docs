@@ -14,7 +14,7 @@ Seamless mode removes the visual segregation between Linux and Window apps and o
 
 Win-KeX utilises [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/) to achieve seamless desktop integration.
 
-![](win-kex-sl.png)
+![](../win-kex/win-kex-sl.png)
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ When starting Win-KeX SL for the first time, ensure to select **Public networks*
 
 This will start Win-KeX in seamless mode:
 
-![](win-kex-sl.png)
+![](../win-kex/win-kex-sl.png)
 
 The Kali panel is placed at the top of the screen and the Windows Start menu at the bottom.
 

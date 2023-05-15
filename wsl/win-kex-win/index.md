@@ -14,7 +14,7 @@ Window mode helps keeping the Windows and Kali environments visually apart.
 
 Win-KeX utilises [TigerVNC](https://tigervnc.org/) for its client and server components.
 
-![](win-kex-full.png)
+![](../win-kex/win-kex-full.png)
 
 ## Usage
 
@@ -29,7 +29,7 @@ Win-KeX utilises [TigerVNC](https://tigervnc.org/) for its client and server com
 
 This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
 
-![](win-kex.png)
+![](../win-kex/win-kex-win.png)
 
 ### Start Root Session
 
@@ -53,7 +53,7 @@ This will start the Win-KeX server as root and launch the Win-KeX client in full
 - To start Win-KeX with sound support, add `--sound` or `-s`, e.g.: `kex --win --sound`
 - When starting Win-KeX with sounds support for the first time, ensure to select **Public networks** when asked for authorisation to allow traffic through the Windows Defender firewall
 
-![](win-kex-pulseaudio_firewall.png)
+![](../win-kex-sl/win-kex-pulseaudio_firewall.png)
 
 ### Multiscreen Support
 

@@ -36,7 +36,7 @@ Tick "Don't ask me again" and confirm the following warnings:
 
 This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
 
-![](win-kex.png)
+![](../win-kex/win-kex-esm.png)
 
 ### Start Root Session
 
