@@ -2,7 +2,7 @@
 title: Win-KeX Enhanced Session Mode
 description: Win-KeX ESM (Enhanced Session Mode)
 icon: ti-pin
-weight: 60
+weight: 50
 author: ["Re4son",]
 ---
 
