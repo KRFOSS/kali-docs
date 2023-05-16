@@ -74,8 +74,8 @@ kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
 3 - Install additional packages inside the container via
 
 ```console
-kali@kali:~$ xc exec my-kali -- apt update
-kali@kali:~$ xc exec my-kali -- apt install -y kali-linux-default kali-desktop-xfce
+kali@kali:~$ lxc exec my-kali -- apt update
+kali@kali:~$ lxc exec my-kali -- apt install -y kali-linux-default kali-desktop-xfce
 ```
 
 ![](030_Ubuntu-InstallPackages.png)
