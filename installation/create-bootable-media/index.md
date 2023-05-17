@@ -8,17 +8,21 @@ author: ["gamb1t",]
 
 ## What You'll Need
 
-1. A _verified_ copy of the appropriate ISO image of the latest Kali build image for the system you'll be running it on: see the details on [downloading official Kali Linux images](/docs/introduction/download-official-kali-linux-images/).
+1. A _[verified](/docs/introduction/download-official-kali-linux-images/)_ copy of the [appropriate ISO image](/docs/introduction/what-image-to-download/) of the latest Kali build image for the system you'll be running it on.
 
 2. If you're running under Linux or macOS/OS X, you can use the `dd` command, which is pre-installed, or use [Etcher](https://www.balena.io/etcher/). If you're running under Windows, there is not one tool that is considered the overall best for imaging. We recommend [Etcher](https://www.balena.io/etcher/) _(installer or portable)_ as it is simpler to use, however [Rufus](https://rufus.ie/) is another popular option with its advanced options. If one does not work for you, consider the other.
 
-3. A USB thumb drive, 4GB or larger. (Systems with a direct SD card slot can use an SD card with similar capacity. The procedure is identical.)
+3. A USB drive, 8GB or larger _(Systems with a direct SD card slot can use an SD card with similar capacity. The procedure is identical.)_
+
+{{% notice info %}}
+If you're running under Windows: during this procedure, you might see some warnings telling you that Kali Linux contains malware, trojan, virus or whatever. This message usually comes from Windows Defender or USB Defender, or a third-party antivirus. Those warnings are expected: Kali Linux is packed with pentesting tools that are likely to be flagged as malware. Just ignore the warnings.
+{{% /notice %}}
 
 ## Kali Linux USB Install Procedure
 
 The specifics of this procedure will vary depending on whether you're doing it on a [Windows](#creating-a-bootable-kali-usb-drive-on-windows-etcher), [Linux](#creating-a-bootable-kali-usb-drive-on-linux-dd), or [macOS/OS X](#creating-a-bootable-kali-usb-drive-on-macosos-x-dd) system.
 
-#### Creating a Bootable Kali USB Drive on Linux (DD)
+### Creating a Bootable Kali USB Drive on Linux (DD)
 
 Creating a bootable Kali Linux USB drive in a Linux environment is easy. Once you've downloaded and verified your Kali ISO file, you can use the `dd` command to copy it over to your USB drive using the following procedure. Note that you'll need to be running as root, or to execute the `dd` command with sudo. The following example assumes a Linux Mint 17.1 desktop - depending on the distro you're using, a few specifics may vary slightly, but the general idea should be very similar. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/sdb.
 
@@ -51,7 +55,7 @@ The `dd` command provides no feedback until it's completed, but if your drive ha
 
 That's it, really!
 
-#### Creating a Bootable Kali USB Drive on macOS/OS X (DD)
+### Creating a Bootable Kali USB Drive on macOS/OS X (DD)
 
 macOS/OS X is based on UNIX, so creating a bootable Kali Linux USB drive in an macOS/OS X environment is similar to doing it on Linux. Once you've downloaded and verified your chosen Kali ISO file, you use `dd` to copy it over to your USB drive. If you would prefer to use Etcher, then follow the same directions as a Windows user. Note that the USB drive will have a path similar to /dev/disk2.
 
@@ -105,7 +109,7 @@ And that's it!
 
 - - -
 
-#### Creating a Bootable Kali USB Drive on Windows (Etcher)
+### Creating a Bootable Kali USB Drive on Windows (Etcher)
 
 1. Plug your USB drive into an available USB port on your Windows PC, note which drive designator (e.g. "`G:\`") it uses once it mounts, and launch **Etcher**.
 
@@ -122,7 +126,7 @@ _Note: You may get a UAC prompt asking for administrator privileges that you wil
 
 _At the time of writing, Etcher will use MBR. This is to allow for the most hardware compatibility._
 
-#### Creating a Bootable Kali USB Drive on Linux and macOS/OS X (Etcher)
+### Creating a Bootable Kali USB Drive on Linux and macOS/OS X (Etcher)
 
 Alternatively, [Etcher](https://www.balena.io/etcher/) can be used.
 
@@ -141,7 +145,7 @@ For more information, see [Apple's knowledge base](https://support.apple.com/kb/
 
 - - -
 
-#### Creating a Bootable Kali USB Drive on Windows (Rufus)
+### Creating a Bootable Kali USB Drive on Windows (Rufus)
 
 1. Plug your USB drive into an available USB port on your Windows PC, note which drive designator (e.g. "`G:\`") it uses once it mounts, and launch **Rufus**.
 
@@ -164,7 +168,7 @@ _Note: If you select "DD Image" option, you can create another partition on the 
 
 - - -
 
-#### Booting A USB Drive In Windows
+### Booting A USB Drive In Windows
 
 Depending on the system _(such as BIOS or UEFI)_, as well as the version of Windows, and how they are each configured, you may need to re-image the USB drive.
 
