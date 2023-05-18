@@ -4,6 +4,8 @@ description:
 icon:
 weight: 50
 author: ["g0tmi1k",]
+aliases:
+  - "/docs/installation/create-bootable-media/"
 ---
 
 One of the fastest method, for getting up and running with Kali Linux is to run it "live" from a USB drive. This method has several advantages:
