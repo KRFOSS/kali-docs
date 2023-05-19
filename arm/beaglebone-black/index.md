@@ -71,6 +71,6 @@ $ xzcat images/kali-linux-2023.1-beaglebone-black-armhf.img.xz | sudo dd of=/dev
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.
 
-Once the _dd_ operation is complete, boot up the Banana Pro with the microSD card plugged in.
+Once the _dd_ operation is complete, boot up the Beaglebone with the microSD card plugged in.
 
 You should be able to [log in to Kali](/docs/introduction/default-credentials/).
