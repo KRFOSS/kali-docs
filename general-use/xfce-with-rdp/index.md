@@ -12,7 +12,7 @@ Kali Linux is supported on many different devices and systems. On some of those 
 #!/bin/sh
 echo "[i] Updating and upgrading Kali (this will take a while)"
 apt-get update
-apt-get dist-upgrade -y
+apt-get full-upgrade -y
 
 echo "[i] Installing Xfce4 & xrdp (this will take a while as well)"
 apt-get install -y kali-desktop-xfce xorg xrdp

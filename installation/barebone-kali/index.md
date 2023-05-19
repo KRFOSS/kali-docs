@@ -33,7 +33,7 @@ root@kali:/home/kali#
 After this we can make sure our system is up-to-date:
 
 ```console
-kali@kali:~$ sudo apt update && sudo apt upgrade -y
+kali@kali:~$ sudo apt update && sudo apt full-upgrade -y
 ....
 kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
