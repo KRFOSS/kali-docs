@@ -9,6 +9,16 @@ draft: true
 
 This page is due for more content as issues come up that need addressing. If you have an issue with APT that is not addressed in this page, please create a [merge request](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests) with the steps to solve the problem or address it, or an [issue](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues) if you are unaware of how to solve the problem but would like to see it added to this page.
 
+##### Please run 'apt update'
+
+Did you run `apt update`? You should. Before installing a package (`apt install ...`) or upgrading your system (`apt full-upgrade`), you should **always** run `apt update`. This is how apt works, there's no way around it, and this will fix the most bizarre issues you might encounter.
+
+```console
+kali@kali:~$ sudo apt update
+Get:1 http://http.kali.org/kali kali-rolling InRelease [41.2 kB]
+[...]
+```
+
 ##### Package is to be installed, however it is not going to be
 
 ```console
@@ -28,14 +38,23 @@ The following packages have unmet dependencies:
 E: Broken packages
 ```
 
-This is a common "issue" that an APT user may experience. This however is not a true error. If you run into an issue with running `apt upgrade` where a package is not going to be installed, there are a couple ways to fix it.
+This is a common "issue" that an APT user may experience. This however is not a true error.
 
-The first, and proper, way to fix this issue is to install the package manually and then run the command again.
-The second, more risky, way to fix this is to run `apt full-upgrade` instead, which will install and remove any packages it sees fit. This may cause some issues for the user depending on what it removes. Use with caution, and know what you are doing when you run it.
+Let's step back and take some time to learn about apt basics. There are two different commands that can be used to upgrade your system: `apt ugrade` and `apt full-upgrade`. The first one, "upgrade", is used to install available upgrades of all packages currently installed on the system. New packages will be installed if required to satisfy dependencies, but existing packages will never be removed. In short, it can be seen as a conservative upgrade. The second command, "full-upgrade", performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
+
+In practice, in a rolling distribution like Kali Linux, packages and their dependencies are updated all the time, and it's often necessary to remove some packages in order to make room for new packages. _Therefore the command "apt upgrade" isn't really useful, and can even be counter-productive. We recommend to always use "apt full-upgrade" to keep your system updated_.
+
+It's also true that "full-upgrade" is a bit more risky than "upgrade", and apt can sometimes (rarely) try to uninstall essential packages, leaving you with an unusable system. Therefore you should always pay attention to the list of packages that will be removed. If this list is big (say, compared to the list of packages to upgrade, or new packages to install), then you'd better pause for a moment. Experienced users will be able to know what to do, but for others? If you're really unsure, maybe it's best not to update your system now. Try again in a few days: packages will have changed again, and apt might come up with a better solution.
+
+You're also free to open a bug at <https://bugs.kali.org>. Please paste the part of your terminal with the apt command(s) you're running, along with the output. Kali Linux developers will be able to assess the situation. It could be that a bug in the package dependencies leads to apt doing the wrong thing, and this is something we can fix.
+
+To sum up: always upgrade your system with `apt full-upgrade`.
+
+Still seeing the same error message? You can try to install the package manually, and then try to upgrade again.
 
 ##### A package needs a newer version, but there is no new version available
 
-This will likely happen more often when using kali-dev or kali-experimental, and may happen for two reasons. The first is that the package is still being tested, and this will make its way into the repo soon. The second is that there are conflicts with some dependencies, and these will need to be resolved first.
+This will likely happen more often when using `kali-dev` or `kali-experimental`, and may happen for two reasons. The first is that the package is still being tested, and this will make its way into the repo soon. The second is that there are conflicts with some dependencies, and these will need to be resolved first.
 
 To figure out which may be the case in your situation, you can look up the package's page on Debian's side or if it belongs to Kali see if there are any bug reports on [bugs.kali.org](https://bugs.kali.org/). Either way, the issue will be sorted out and will likely be resolved within a couple of weeks in most cases.
 
