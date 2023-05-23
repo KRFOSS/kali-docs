@@ -9,7 +9,7 @@ draft: true
 
 This page is due for more content as issues come up that need addressing. If you have an issue with APT that is not addressed in this page, please create a [merge request](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests) with the steps to solve the problem or address it, or an [issue](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues) if you are unaware of how to solve the problem but would like to see it added to this page.
 
-##### Please run 'apt update'
+##### A foreword: please run 'apt update'
 
 Did you run `apt update`? You should. Before installing a package (`apt install ...`) or upgrading your system (`apt full-upgrade`), you should **always** run `apt update`. This is how apt works, there's no way around it, and this will fix the most bizarre issues you might encounter.
 
@@ -50,7 +50,29 @@ You're also free to open a bug at <https://bugs.kali.org>. Please paste the part
 
 To sum up: always upgrade your system with `apt full-upgrade`.
 
-Still seeing the same error message? You can try to install the package manually, and then try to upgrade again.
+##### The following package has been kept back
+
+```console
+kali@kali:~$ sudo apt full-upgrade
+[...]
+The following packages have been kept back:
+  kali-desktop-xfce
+[...]
+```
+
+Sometimes, apt doesn't dare to upgrade a package, usually because it will remove other packages. In those cases, you have to be explicit and install the package manually:
+
+```
+kali@kali:~$ sudo apt install kali-desktop-xfce
+[...]
+The following packages will be REMOVED:
+  pipewire-media-session
+The following packages will be upgraded:
+  [...] kali-desktop-xfce [...]
+Do you want to continue? [Y/n] n
+```
+
+In the example above, we can see that `pipewire-media-session` was blocking apt from upgrading `kali-desktop-xfce`. But after we ask to upgrade it explicitly (note that running "apt install" on a package already installed will in fact upgrade it), we now see what was the issue, and we can confirm that we're Ok with removing `pipewire-media-session`. That's enough to unblock the situation.
 
 ##### A package needs a newer version, but there is no new version available
 
