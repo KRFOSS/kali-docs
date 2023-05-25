@@ -27,10 +27,10 @@ kali@kali:~$
 
 This will automatically install PipeWire. It will be effective after a reboot. If for some reason the sound doesn't work after that, try to reboot.
 
-If sound still doesn't work after that, let's make sure that the right packages are installed, with the following commands:
+If sound still doesn't work after that, let's install the `pipewire-audio` metapackage with the following command:
 
 ```console
-kali@kali:~$ sudo apt install --mark-auto -y libspa-0.2-bluetooth pipewire-alsa pipewire-pulse wireplumber
+kali@kali:~$ sudo apt install --mark-auto -y pipewire-audio
 ```
 
 Then reboot again. If sound still doesn't work, you might want to reach out on [Kali's bugtracker](https://bugs.kali.org) so we can help troubleshoot the issue.
