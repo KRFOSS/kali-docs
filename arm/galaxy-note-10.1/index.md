@@ -36,7 +36,7 @@ To install a pre-built image of the standard build of Kali Linux on your Galaxy 
 $ dd if=/dev/block/mmcblk0p6 of=recovery.img_orig conv=fsync
 ```
 
-7. **[dd](https://packages.debian.org/testing/dd)** the downloaded `recovery.img` image to the recovery partition:
+7. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** the downloaded `recovery.img` image to the recovery partition:
 
 {{% notice info %}}
 **Alert!** This process will overwrite your recovery partition. Please make sure you know what you are doing. You may brick your device otherwise.

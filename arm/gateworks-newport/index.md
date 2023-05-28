@@ -20,7 +20,7 @@ To install a pre-built image of the standard build of Kali Linux on your Newport
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ the `Kali Newport` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card. In our example, we use a microSD which is located at `/dev/sdb`. **_Change this as needed._**
+3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card. In our example, we use a microSD which is located at `/dev/sdb`. **_Change this as needed._**
 
 {{% notice info %}}
 This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.

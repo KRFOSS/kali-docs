@@ -97,7 +97,7 @@ kali@kali:~$ kpartx -dv $loopdevice
 kali@kali:~$ losetup -d $loopdevice
 ```
 
-Use the **[dd](https://packages.debian.org/testing/dd)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed**:
+Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed**:
 
 ```console
 kali@kali:~$ dd if=kali-linux-rpi.img of=/dev/sdb conv=fsync bs=4M

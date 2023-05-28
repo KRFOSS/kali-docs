@@ -23,7 +23,7 @@ To install a pre-built image of the standard build of Kali Linux on your Raspber
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
 2. Download _and validate_ the `Kali Radxa Zero` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
@@ -88,7 +88,7 @@ kali@kali:~$ lsusb | grep Amlogic
 Bus 001 Device 048: ID 1b8e:c003 Amlogic, Inc. GX-CHIP
 ```
 6. sudo boot-g12.py radxa-zero-erase-emmc.bin
-7. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to the newly presented USB device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+7. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to the newly presented USB device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct device path**.
 
@@ -112,12 +112,12 @@ Linux (sdcard boot, write to eMMC):
 You cannot use the Radxa Zero **sdcard** image on the eMMC, and vice versa. The bootloader is written to different locations depending on eMMC and sdcard and they are **not** interchangeable.
 {{% /notice %}}
 
-With this mode, we first boot the Radxa Zero from a microSD card, and simply use the **[dd](https://packages.debian.org/testing/dd)** utility to write an image to the eMMC.
+With this mode, we first boot the Radxa Zero from a microSD card, and simply use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to write an image to the eMMC.
 
 1. Follow the [Radxa Zero (sdcard)](/docs/arm/radxa-zero-sdcard/) instructions
 2. Connect the Radxa Zero to a wireless network
 3. Copy the image file you want to use to the microSD card. Keep in mind that you will need enough free space on the microSD card
-4. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to the eMMC device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+4. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to the eMMC device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/mmcblk0`. Do _not_ simply copy these value, **change this to the correct device path**.
 

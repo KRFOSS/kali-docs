@@ -29,7 +29,7 @@ The easiest way to generate these images is **from within a pre-existing Kali Li
 To install Kali on your Cubox-i4Pro, follow these instructions:
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Use the **[dd](https://packages.debian.org/testing/dd)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+2. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
