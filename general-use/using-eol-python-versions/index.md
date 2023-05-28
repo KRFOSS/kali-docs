@@ -96,6 +96,8 @@ kali@kali:~$ pyenv versions
   system
 * 2.7.18 (set by /home/kali/.pyenv/version)
 kali@kali:~$
+kali@kali:~$ exec $SHELL
+kali@kali:~$
 kali@kali:~$ python
 Python 2.7.18 (default, Apr 20 2020, 20:30:41)
 [GCC 9.3.0] on linux2
