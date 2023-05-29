@@ -18,7 +18,7 @@ Get:1 http://http.kali.org/kali kali-rolling InRelease [41.2 kB]
 [...]
 ```
 
-### Package is to be installed, however it is not going to be
+### Package is to be installed, however it is not going to be: please use 'apt full-upgrade'
 
 ```console
 kali@kali:~$ sudo apt upgrade
@@ -39,13 +39,13 @@ E: Broken packages
 
 This is a common "issue" that an APT user may experience. This however is not a true error.
 
-Let's step back and take some time to learn about apt basics. There are two different commands that can be used to upgrade your system: `apt ugrade` and `apt full-upgrade`. The first one, "upgrade", is used to install available upgrades of all packages currently installed on the system. New packages will be installed if required to satisfy dependencies, but existing packages will never be removed. In short, it can be seen as a conservative upgrade. The second command, "full-upgrade", performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
+Let's step back and take some time to learn about APT basics. There are two different commands that can be used to upgrade your system: `apt ugrade` and `apt full-upgrade`. The first one, "upgrade", is used to install available upgrades of all packages currently installed on the system. New packages will be installed if required to satisfy dependencies, but existing packages will never be removed. In short, it can be seen as a conservative upgrade. The second command, "full-upgrade", performs the function of upgrade but will remove currently installed packages if this is needed to upgrade the system as a whole.
 
 In practice, in a rolling distribution like Kali Linux, packages and their dependencies are updated all the time, and it's often necessary to remove some packages in order to make room for new packages. _Therefore the command "apt upgrade" isn't really useful, and can even be counter-productive. We recommend to always use "apt full-upgrade" to keep your system updated_.
 
-It's also true that "full-upgrade" is a bit more risky than "upgrade", and apt can sometimes (rarely) try to uninstall essential packages, leaving you with an unusable system. Therefore you should always pay attention to the list of packages that will be removed. If this list is big (say, compared to the list of packages to upgrade, or new packages to install), then you'd better pause for a moment. Experienced users will be able to know what to do, but for others? If you're really unsure, maybe it's best not to update your system now. Try again in a few days: packages will have changed again, and apt might come up with a better solution.
+It's also true that "full-upgrade" is a bit more risky than "upgrade", and APT can sometimes (rarely) try to uninstall important packages, leaving you with an unusable system. Therefore you should always pay attention to the list of packages that will be removed. If this list is big (say, compared to the list of packages to upgrade, or new packages to install), then you'd better pause for a moment. Experienced users will be able to know what to do, but for others? If you're really unsure, maybe it's best not to update your system now. Try again in a few days: packages will have changed again, and APT might come up with a better proposition.
 
-You're also free to open a bug at <https://bugs.kali.org>. Please paste the part of your terminal with the apt command(s) you're running, along with the output. Kali Linux developers will be able to assess the situation. It could be that a bug in the package dependencies leads to apt doing the wrong thing, and this is something we can fix.
+You're also free to open a bug at <https://bugs.kali.org>. Please paste the part of your terminal with the APT command(s) you're running, along with the output. Kali Linux developers will be able to assess the situation. It could be that a bug in package dependencies leads to APT doing the wrong thing, and this is something we can fix.
 
 To sum up: always upgrade your system with `apt full-upgrade`.
 
@@ -59,7 +59,7 @@ The following packages have been kept back:
 [...]
 ```
 
-Sometimes, apt doesn't dare to upgrade a package, usually because it will remove other packages. In those cases, you have to be explicit and install the package manually:
+Sometimes, APT doesn't dare to upgrade a package, usually because it will remove other packages. In those cases, you have to be explicit and install the package manually:
 
 ```
 kali@kali:~$ sudo apt install kali-desktop-xfce
@@ -71,7 +71,7 @@ The following packages will be upgraded:
 Do you want to continue? [Y/n] n
 ```
 
-In the example above, we can see that `pipewire-media-session` was blocking apt from upgrading `kali-desktop-xfce`. But after we ask to upgrade it explicitly (note that running "apt install" on a package already installed will in fact upgrade it), we now see what was the issue, and we can confirm that we're Ok with removing `pipewire-media-session`. That's enough to unblock the situation.
+In the example above, we can see that `pipewire-media-session` was blocking apt from upgrading `kali-desktop-xfce`. But after we asked to upgrade it explicitly (note that running "apt install" on a package already installed will in fact upgrade it), we now see what was the issue, and we can confirm that we're Ok with removing `pipewire-media-session`. That's enough to unblock the situation.
 
 ### A package needs a newer version, but there is no new version available
 
