@@ -35,6 +35,19 @@ kali@kali:~$ sudo apt install --mark-auto -y pipewire-audio
 
 Then reboot again. If sound still doesn't work, you might want to reach out on [Kali's bugtracker](https://bugs.kali.org) so we can help troubleshoot the issue.
 
+## Missing firmware for Intel SOF audio devices
+
+This only applies if you run Kali baremetal. Some recent Intel sound cards require a firmware to work, and it could be that this firmware is not installed on your system. In doubt, you can install it, it won't do any harm:
+
+```console
+kali@kali:~$ sudo apt update
+kali@kali:~$
+kali@kali:~$ sudo apt install -y firmware-sof-signed
+kali@kali:~$
+```
+
+Then reboot your system.
+
 ## Issues with VMware Workstation
 
-There have been reports of audio making cracking noises and flickering on VMWare Workstation. It seems that it can be fixed by following this short guide: <https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Troubleshooting#stuttering-audio-in-virtual-machine>.
+There have been reports of audio making cracking noises and flickering on VMware Workstation. It seems that it can be fixed by following this short guide: <https://gitlab.freedesktop.org/pipewire/pipewire/-/wikis/Troubleshooting#stuttering-audio-in-virtual-machine>.
