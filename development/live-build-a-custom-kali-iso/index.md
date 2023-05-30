@@ -75,7 +75,7 @@ $ sudo apt update
 $ sudo apt full-upgrade -y
 $
 $ wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2022.1_all.deb
-$ wget https://http.kali.org/kali/pool/main/l/live-build/live-build_20230131+kali4_all.deb
+$ wget https://http.kali.org/kali/pool/main/l/live-build/live-build_2023.231+kali4_all.deb
 ```
 
 _Note: You must check that`kali-archive-keyring_20YY.X_all.deb` & `live-build_20YYMMDD+kaliX_all.deb` are the latest files._
@@ -86,7 +86,7 @@ With that completed, we install some additional dependencies and the previously 
 $ sudo apt install -y git live-build simple-cdd cdebootstrap curl
 $
 $ sudo dpkg -i kali-archive-keyring_2022.1_all.deb
-$ sudo dpkg -i live-build_20230131+kali4_all.deb
+$ sudo dpkg -i live-build_2023.231+kali4_all.deb
 ```
 
 With the environment all prepared, we start the process by setting up the build-script profile and clone out the build config:
@@ -148,11 +148,11 @@ kali@kali:~$ time ./build.sh \
   --verbose \
   --installer \
   --distribution kali-last-snapshot \
-  --version 2023.1 \
-  --subdir kali-2023.1
+  --version 2023.2 \
+  --subdir kali-2023.2
 [...]
 ***
-GENERATED KALI IMAGE: ./images/kali-2023.1/kali-linux-2023.1-installer-amd64.iso
+GENERATED KALI IMAGE: ./images/kali-2023.2/kali-linux-2023.2-installer-amd64.iso
 ***
 kali@kali:~$
 ```

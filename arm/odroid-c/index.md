@@ -38,7 +38,7 @@ This process will wipe out your microSD card or eMMC. If you choose the wrong st
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2023.1-odroid-c-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2023.2-odroid-c-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card or eMMC's speed, and the size of the Kali Linux image.
