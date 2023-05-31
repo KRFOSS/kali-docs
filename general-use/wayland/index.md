@@ -7,7 +7,7 @@ author: ["arnaudr",]
 draft: true
 ---
 
-# What is Wayland? Or X11?
+## What is Wayland? Or X11?
 
 On Linux systems, the display server is a central part of the graphics stack, it's involved in displaying everything you see on the screen, and it also deals with user input (mouse, keyboard, touchscreen and so on).
 
@@ -18,9 +18,9 @@ At the time of this writing, some Linux desktop environments (or DE for short) u
 To finish this brief presentation: XWayland is a compatibility layer, it allows X11 applications to run on Wayland desktop environments.
 
 
-# Wayland in Kali Linux
+## Wayland in Kali Linux
 
-## Am I using Wayland in Kali Linux?
+### Am I using Wayland in Kali Linux?
 
 Open a terminal and type:
 
@@ -30,11 +30,11 @@ kali@kali:~$ echo $XDG_SESSION_TYPE
 
 If the output is `wayland`, then yes, your desktop is running under Wayland. If the output is `x11`, then your desktop is running under X11.
 
-## Xfce
+### Xfce
 
 The Xfce desktop uses X11, and this won't change in the near future. One can check the [Xfce Wayland Development Roadmap](https://wiki.xfce.org/releng/wayland_roadmap) for more details.
 
-## GNOME
+### GNOME
 
 In Kali Linux, the GNOME desktop uses the X11 display server by default.
 
@@ -42,7 +42,7 @@ In this regard, Kali Linux is more conservative than other Linux distributions: 
 
 Looking at the timeline above, you can expect Kali Linux to also switch to Wayland for its GNOME desktop at some point. But at the moment, this is not on the roadmap.
 
-### Switch to Wayland
+#### Switch to Wayland
 
 {{% notice info %}}
 This part is for experienced users only. If you follow those steps, we expect you to be able to fix issues that might arise by yourself.
@@ -65,10 +65,10 @@ Note that, after switching to Wayland, there is now an option to choose between 
 
 ![](images/gnome-login.png)
 
-## KDE
+### KDE
 
 Since Kali Linux 2023.1<!-- ie. plasma-desktop 4:5.27.0-1 -->, Wayland is the default display server for the KDE desktop.
 
-If this is causing issues for you (ie. if some applications are not displayed nicely, or if you notice any graphical issues that were not there before), you can try to use the legacy X11 server instead. This is something you can choose from the login screen: at the bottom-left corner of the screen, click on _Desktop Session_ and choose _X11_.
+If this is causing issues for you (ie. if some applications are not displayed nicely, or if you notice any graphical issues that were not there before), you can try to use the legacy X11 server instead. This is something you can choose from the login screen: at the bottom-left corner of the screen, click on _Desktop Session_ and choose _Plasma (X11)_.
 
 ![](images/kde-login.png)
