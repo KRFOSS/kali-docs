@@ -36,7 +36,7 @@ Make sure that your installation of Kali Linux is up to date:
 root@kali:~# apt update
 [...]
 root@kali:~#
-root@kali:~# apt upgrade
+root@kali:~# apt full-upgrade
 [...]
 ```
 
@@ -72,7 +72,6 @@ The following packages will be upgraded:
 Let's take a bit of time to understand this command-line:
 - `-t kali-experimental`: ask APT to install packages from `kali-experimental`.
 - `?upgradable`: select packages that can be upgraded (have a newer candidate).
-- `?source-package("mesa|libdrm")`: select only packages that belong to the
-  `mesa` and the `libdrm` source packages.
+- `?source-package("mesa|libdrm")`: select only packages that belong to the `mesa` and the `libdrm` source packages.
 
 That's it, Kali Linux is now using Mesa 3D 21!
