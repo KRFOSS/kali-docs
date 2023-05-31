@@ -8,7 +8,7 @@ author: ["gamb1t", "rhertzog",]
 
 This page is due for more content as issues come up that need addressing. If you have an issue with APT that is not addressed in this page, please create a [merge request](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests) with the steps to solve the problem or address it, or an [issue](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues) if you are unaware of how to solve the problem but would like to see it added to this page.
 
-### A foreword: please run 'apt update'
+## A foreword: please run 'apt update'
 
 Did you run `apt update`? You should. Before installing a package (`apt install ...`) or upgrading your system (`apt full-upgrade`), you should **always** run `apt update`. This is how apt works, there's no way around it, and this will fix the most bizarre issues you might encounter.
 
@@ -18,7 +18,7 @@ Get:1 http://http.kali.org/kali kali-rolling InRelease [41.2 kB]
 [...]
 ```
 
-### Package is to be installed, however it is not going to be: please use 'apt full-upgrade'
+## Package is to be installed, however it is not going to be: please use 'apt full-upgrade'
 
 ```console
 kali@kali:~$ sudo apt upgrade
@@ -49,7 +49,7 @@ You're also free to open a bug at <https://bugs.kali.org>. Please paste the part
 
 To sum up: always upgrade your system with `apt full-upgrade`.
 
-### The following package has been kept back
+## The following package has been kept back
 
 ```console
 kali@kali:~$ sudo apt full-upgrade
@@ -73,13 +73,13 @@ Do you want to continue? [Y/n] n
 
 In the example above, we can see that `pipewire-media-session` was blocking apt from upgrading `kali-desktop-xfce`. But after we asked to upgrade it explicitly (note that running "apt install" on a package already installed will in fact upgrade it), we now see what was the issue, and we can confirm that we're Ok with removing `pipewire-media-session`. That's enough to unblock the situation.
 
-### A package needs a newer version, but there is no new version available
+## A package needs a newer version, but there is no new version available
 
 This will likely happen more often when using `kali-dev` or `kali-experimental`, and may happen for two reasons. The first is that the package is still being tested, and this will make its way into the repo soon. The second is that there are conflicts with some dependencies, and these will need to be resolved first.
 
 To figure out which may be the case in your situation, you can look up the package's page on Debian's side or if it belongs to Kali see if there are any bug reports on [bugs.kali.org](https://bugs.kali.org/). Either way, the issue will be sorted out and will likely be resolved within a couple of weeks in most cases.
 
-### A package is trying to overwrite a file and causing an error
+## A package is trying to overwrite a file and causing an error
 
 This can occur when files move between packages and don't include the proper packaging field set to tell it that it is a replacing something else. In most cases this can be solved by retrying the installation or upgrade. In other cases, the APT command can have `-o dpkg::options::="--force-overwrite"` added in order to tell dpkg to ignore the overwrite error.
 
