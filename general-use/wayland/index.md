@@ -4,7 +4,6 @@ description:
 icon:
 weight:
 author: ["arnaudr",]
-draft: true
 ---
 
 ## What is Wayland? Or X11?
