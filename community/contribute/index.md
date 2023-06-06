@@ -6,44 +6,52 @@ weight:
 author: ["gamb1t",]
 ---
 
-## Kali Linux Packaging
-
-### Package Updates
-
-Occasionally there is a new upstream update for someone's favorite tool that we just can't get to in time before they notice. In these cases someone who knows how to update a package may help out and submit the new update as a merge request. This helps to get the package updated quicker for all users.
-
-### Packaging New Tools
-
-With the number of tools out there that users want to see in Kali, there is no way we can get them all on our own. A perk of us being on GitLab is that we can easily accept packages submitted by users, to learn more check out our [Public Packaging page](/docs/development/public-packaging/). If you would like to help but don't know of a package that should be done, we [have a list that can be chosen from](https://bugs.kali.org/search.php?project_id=1&category_id=Queued%20Tool%20Addition&sticky=on&sort=id&dir=ASC&per_page=9999&hide_status=80&match_type=0). A great example of a user-contributed package is [i3-dotfiles](https://gitlab.com/kalilinux/packages/i3-dotfiles) which is help maintained by [Arszilla](https://gitlab.com/Arszilla).
-
-### Autopkgtests
-
-When dealing with packages we may encounter updates that may break functionality. Something that helps to catch these problems are autopkgtests. These tests are defined by the packager, and can range from a simple help output test to a full package functionality test. While extremely helpful, they also take time to develop and in most cases require intimate knowledge of the tool being tested. For more information on the actual process of creating them, please refer to the [following docs page](/docs/development/contributing-runtime-tests/). It would be very helpful to have contributions to this effort of creating more advanced autopkgtests for all of the tools in Kali.
-
-## Kali Linux Community
-
-### Forums
-
-If you want to get involved and help out others that are struggling, check out the official [Kali Linux Forums](https://forums.kali.org/). We do have doc pages on the [forums](/docs/community/kali-linux-community-forums/) that we encourage you to check out first. If you do decide to help out others, we encourage you to follow the example of a very active user named [Fred Sheehan](https://forums.kali.org/search.php?searchid=8162524). Fred helps others almost every day and points others to where they can find help if he doesn't know.
-
-### Discord
-
-Another great community where people commonly ask for help is the official [Kali Linux & Friends Discord](https://discord.kali.org/). While the Kali Linux & Friends Discord was not created to help troubleshoot issues or report bugs, often times there are people who come in for that purpose, and other members of the community often are able to help them out. While on the Discord, we encourage you to follow the example set by our trusted Community Moderators.
-
-### Bug Tracker
-
-The official [Bug Tracker](https://bugs.kali.org/) is a great place to look for things to do. If you are reporting a bug, we do have doc pages on the [bug tracker](/docs/community/submitting-issues-kali-bug-tracker/) that we encourage you to check out first. If you are instead attempting to help solve a bug or looking for a project to help out on, like helping with updating a package, you may need to refer to a different docs page.
+Kali is a large project made up of many different parts. Some of these parts are more obvious, like the tools making up Kali or the theme and wallpapers that are used. Other parts may be a bit less obvious, like the community that supports us and the mirrors that host the packages so people can download and update their installation. There is one thing in common with all of these areas, and that is community contribution. Without mirrors to host our data, Kali could take much longer to update than it may now. We always welcome contributions, and detailed below are some of the ways you may be able to contribute as well.
 
 ## Kali Linux Documentation
 
-### Kali Tools
-
-Much like the Kali Docs, Kali Tools is a [markdown GitLab-based](https://gitlab.com/kalilinux/documentation/kali-tools) repository that can be viewed fully rendered at [this location](/tools/). If a page has incorrect information, or is lacking detailed usage methods, please submit a [merge request](https://gitlab.com/kalilinux/documentation/kali-tools/-/merge_requests) or an [issue](https://gitlab.com/kalilinux/documentation/kali-tools/-/issues) on GitLab.
+Our documentation is made up of two parts. The first is typically referred to as the "Kali Docs," which includes information about how to install Kali and things to do after. The other part is referred to as "Kali Tools," which includes information about how to use tools and learn where the tools originate from.
 
 ### Kali Docs
 
-You can contribute by helping us out right here! If there are any typos you notice, ideas you have, anything at all that could be beneficial then you can submit a request for the changes [over on GitLab](https://gitlab.com/kalilinux/documentation/kali-docs). Additionally, there are pages that we ask for help on. This can be found [by searching based off of labels](https://gitlab.com/groups/kalilinux/-/issues?scope=all&utf8=✓&state=opened&label_name%5B%5D=help-wanted). If ideas are needed, looking through the [merge requests](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests?scope=all&state=merged) is a good idea.
+Contributing to our [documentation pages](/docs/) is a huge help. This helps other Kali users better understand and be more familiar with different parts of Kali and things related. Most likely, you are reading this on our docs right now. These pages need to be understandable, accurate, and easy to read. This means things like typos, grammatical mistakes, information that is missing or could be expanded on, and new ideas that could be added are important to either correct or create a [ticket](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues) to track it. Because we host our documentation off of GitLab, and write it using [markdown](https://en.wikipedia.org/wiki/Markdown), anyone is able to view and edit the source material and, if they wish, create a [merge request](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests) to correct the issue. More information on how to create a merge request can be found [here](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html).
+
+### Kali Tools
+
+Penetration testing makes up the bulk of Kali use cases. Being a penetration testing distribution, knowing how to use the tools included is pretty important. To help users who may not be familiar with a certain tool understand basic functionality and use cases, we have [kali.org/tools/](/tools/). Located here is information that helps users to know how to use a tool and where to go for more information if needed. In an ideal world, each one of these pages would be detailed with all sorts of use cases and show the tools in action. If there is a page you feel should have more information, submitting a [ticket](https://gitlab.com/kalilinux/documentation/kali-tools/-/issues) or [merge request](https://gitlab.com/kalilinux/documentation/kali-tools/-/merge_requests) would be very helpful.
+
+## Kali Community
+
+The Kali community is spread out through many different platforms and apps, however there are only three official platforms we are on. The first is on Discord, the second our very own forums, and finally is our bug tracker. Helping in any of these communities is very much appreciated.
+
+### Discord
+
+Discord is a real time chat app that encourages live discussion. The [Kali Linux & Friends Discord](https://discord.kali.org/) server is one of the main places for people to chat with others regarding Kali and share ideas or interesting information. While not a support server, it is common to see others willing to help people who want to learn and grow. If you want to help others out, share things related to Kali, or just talk with people that have similar interests, check out our server.
+
+### Forums
+
+The [Kali Linux Forums](https://forums.kali.org/) are a place where people can request support, share tools, give feedback, and much more. Anyone is able to go to our forums and help point others in the right direction or maybe even share a fix to an issue they've encountered themselves. The forums are a great place to help out as they are permanent. As long as the website is up, the information on it will always be able to be found. This is different to Discord, where information can be lost pretty easily.
+
+### Bug Tracker
+
+The [Bug Tracker](https://bugs.kali.org/) is a great place to help out Kali, whether reporting a bug or helping to fix one. When reporting a bug, we ask that you follow our [documentation](/docs/community/submitting-issues-kali-bug-tracker/) on how to. When helping others with their bug reports, we ask that you use information you know is trust worthy. Helping out on a bug tracker ticket can be as simple as just being able to reproduce the problem or as complex as submitting a merge request to fix the issue yourself. Everything is appreciated.
+
+## Kali Linux Packaging
+
+Packaging is the core of Kali. Packages are what helps tools to be so easy to install, and insures they are up-to-date with no bugs. [Debian packaging](https://wiki.debian.org/Packaging) is a complicated thing that takes a while to learn, but if you are willing to do so can help quite a bit to know.
+
+### Upstream Package Updates
+
+When there is a new update from upstream (in most cases, this is the tool creator) it is important we get that update verified and out as soon as we can. To do this we must first package up the new update, test the resulting `.deb` file to ensure it works as expected and includes anything new, then sign it and release it. For most people, this process is not something they would be able to do without first learning Debian packaging. If you were to discover that a tool is outdated, and don't know packaging, you could instead create a bug report about the outdated tool.
+
+### Packaging New Tools
+
+With the number of tools out there that users want to see in Kali, there is no way we can get them all on our own. A perk of us being on GitLab is that we can easily accept packages submitted by users, to learn more check out our [Public Packaging page](/docs/development/public-packaging/). If you would like to help but don't know of a package that should be done, we [have a list that can be chosen from](https://bugs.kali.org/search.php?project_id=1&category_id=Queued%20Tool%20Addition&sticky=on&sort=id&dir=ASC&per_page=9999&hide_status=80&match_type=0). A great example of a user-contributed package is [kali-desktop-i3](https://www.kali.org/tools/kali-meta/#kali-desktop-i3) which is help maintained by [Arszilla](https://gitlab.com/Arszilla).
+
+### Autopkgtests
+
+When dealing with packages we may encounter updates that may break functionality. Something that helps to catch these problems are [autopkgtests](https://www.kali.org/docs/development/contributing-runtime-tests/#a-bit-of-autopkgtest-background). These tests are defined by the packager, and can range from a simple help output test to a full package functionality test. While extremely helpful, they also take time to develop and in most cases require intimate knowledge of the tool being tested. For more information on the actual process of creating them, please refer to the [following page](/docs/development/contributing-runtime-tests/). It would be very helpful to have contributions to this effort of creating more advanced autopkgtests for all of the tools in Kali.
 
 ## Kali Linux Mirror Contributions
 
-Mirrors are always good to have. The more we have, and the faster they are, the better. For more information about becoming an official Kali Linux mirror, check out our [Mirror Policy Page](/docs/community/setting-up-a-kali-linux-mirror/).
+Mirrors are what helps get Kali to users all around the world. Mirrors host our files for things like installation isos or tool packages. The more mirrors we have in different parts of the world, the better the experience is for users. If the closest mirror is a few countries away, it will likely take a lot longer to perform an update than if there is a mirror in the same country as the update is being done. If you are in a position where you can help to host a Kali mirror, please refer to our [Mirror Policy Page](/docs/community/setting-up-a-kali-linux-mirror/) to learn more.
