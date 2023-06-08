@@ -6,6 +6,8 @@ weight:
 author: ["gamb1t",]
 ---
 
+Before we begin we would like to call out a great video from Linode themselves! [Here you can find a video](https://www.youtube.com/watch?v=Oox2hF4SZLU) that talks about what Kali Linux is and how to get and use it with Linode. Thank you Linode!
+
 There are two options when it comes to deploying a Kali Linux Linode instance. We will quickly cover both and then explain how to go about setting up them.
 
 - [Kali as a Distribution](#kali-as-a-distribution)
