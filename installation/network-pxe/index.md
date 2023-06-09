@@ -172,7 +172,7 @@ kali@kali:~$ sudo systemctl status dnsmasq
 [...]
 ```
 
-{% notice info %}}
+{{% notice info %}}
 Please note, you will need to disable your existing DHCP service, else there will be a race in which service is able to response quicker.
 {{% /notice %}}
 
