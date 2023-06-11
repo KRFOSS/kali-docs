@@ -3,10 +3,10 @@ title: Kali Undercover
 description:
 icon:
 weight: 100
-author: ["theGorkha",]
+authors: ["Croluy","theGorkha"]
 ---
 
-**Kali Undercover** is a set of scripts that changes the look and feel of your Kali Linux desktop environment to **Windows 10** desktop environment, like _magic_.
+**Kali Undercover** is a set of scripts that change the theme of your Kali Linux to a **Windows 10** alike theme.
 
 It was released with [**Kali Linux 2019.4**](/blog/kali-linux-2019-4-release/) with an important concept in mind, *to hide in plain sight*.
 
@@ -14,27 +14,25 @@ It was released with [**Kali Linux 2019.4**](/blog/kali-linux-2019-4-release/) w
 
 #### Going "undercover"
 
-Switching to undercover mode is pretty straight-forward, just run the following command:
+Switching to undercover mode is pretty simple, just run the following command:
 
 ```console
 kali@kali:~$ kali-undercover
-kali@kali:~$
 ```
 
-or, you can also look for **"Kali Undercover Mode"** from menu of your desktop and launch it.
+or, you could also look for **"Kali Undercover Mode"** from the menu of your desktop and launch it from there.
 
-**Swoosh!** Now, you are completely _(almost)_ invisible. The script will turn your desktop environment's look and feel similar to that of Windows 10.
+**Swoosh!** Now, you are _(almost)_ invisible to most indescrete eyes by having a theme that would make most people think you are using Windows 10.
 
 #### Reverting Back
 
-Now, to **revert** back into your previous desktop settings just re-enter the previous command:
+Now, to **revert** back into your previous Kali Linux theme just re-enter the previous command:
 
 ```console
 kali@kali:~$ kali-undercover
-kali@kali:~$
 ```
 
-**Ta-da!** Welcome back! Now, all your desktop settings should be restored to.
+**Ta-da!** Welcome back! Now, all your desktop settings should be restored.
 
 - - -
 
@@ -44,6 +42,6 @@ The main purpose of introducing **Kali Undercover** mode is **to prevent any unn
 
 Let's imagine a scenario: you are ethically pentesting your client and you are in their office or reception doing reconnaissance or something that involves the use of **Kali Linux**.
 
-What if someone from your client's office or some random on-looker spot your desktop environment/wallpaper of Kali Linux and they might think you are doing something mischievous even though you are doing it _ethically_ and warn the authority. All the hard work that you did from the beginning to become stealthy will go in vain. And that's because of what? A **wallpaper**! For a client who requested you to become stealthy, this is not what you would want.
+Someone from your client's office or some random on-looker spots the desktop environment/wallpaper of Kali Linux, so they might think you are doing something mischievous even though you are doing it _ethically_ and warn the authority. All the hard work that you did from the beginning to become stealthy will go in vain. And that's because of what? A **wallpaper**! For a client who requested you to become stealthy, this is not what you would want.
 
 Hence, to prevent any kind of unwanted attention from public it's better to go **"Undercover!"**.
