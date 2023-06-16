@@ -3,7 +3,7 @@ title: Kali Undercover
 description:
 icon:
 weight: 100
-authors: ["Croluy","theGorkha"]
+author: ["Croluy","theGorkha",]
 ---
 
 **Kali Undercover** is a set of scripts that change the theme of your Kali Linux to a **Windows 10** alike theme.
