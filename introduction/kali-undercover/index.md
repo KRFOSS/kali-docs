@@ -18,6 +18,7 @@ Switching to undercover mode is pretty simple, just run the following command:
 
 ```console
 kali@kali:~$ kali-undercover
+kali@kali:~$
 ```
 
 or, you could also look for **"Kali Undercover Mode"** from the menu of your desktop and launch it from there.
@@ -30,6 +31,7 @@ Now, to **revert** back into your previous Kali Linux theme just re-enter the pr
 
 ```console
 kali@kali:~$ kali-undercover
+kali@kali:~$
 ```
 
 **Ta-da!** Welcome back! Now, all your desktop settings should be restored.
