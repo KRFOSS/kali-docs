@@ -38,7 +38,7 @@ From here we will navigate into the "Metapackages" tab. Now we just select which
 
 - `kali-linux-core`: Base Kali Linux System – core items that are always included
 - `kali-linux-headless`: Default install that doesn't require GUI
-- `kali-linux-default`: "Default" desktop (amd64/i386) images include these tools
+- `kali-linux-default`: "Default" desktop images include these tools
 - `kali-linux-arm`: All tools suitable for ARM devices
 - `kali-linux-nethunter`: Tools used as part of Kali NetHunter
 
@@ -85,6 +85,6 @@ From here we will navigate into the "Metapackages" tab. Now we just select which
 
 ## Others
 
-- `kali-linux-large`: Our previous default tools for amd64/i386 images
+- `kali-linux-large`: Our previous default tools for images
 - `kali-linux-everything`: Every metapackage and tool listed here
 - `kali-desktop-live`: Used during a live session when booted from the image
