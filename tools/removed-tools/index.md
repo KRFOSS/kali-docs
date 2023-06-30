@@ -32,6 +32,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [intersect](https://pkg.kali.org/pkg/intersect) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/intersect/-/issues/1)) |
 | [keimpx](https://pkg.kali.org/pkg/keimpx) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/keimpx/-/issues/1)) |
 | [killerbee](https://pkg.kali.org/pkg/killerbee) | 2020-09-03 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/killerbee/-/issues/1)) |
+| [king-phisher](https://pkg.kali.org/pkg/king-phisher) | 2023-07-03 | Unmaintained ([#1](https://gitlab.com/kalilinux/packages/king-phisher/-/issues/2)) |
 | [mana-toolkit](https://pkg.kali.org/pkg/mana-toolkit) | 2019-10-10 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/mana-toolkit/-/issues/1)) |
 | [miranda](https://pkg.kali.org/pkg/miranda) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/miranda/-/issues/1)) |
 | [mitmf](https://pkg.kali.org/pkg/mitmf) | 2019-08-23 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/mitmf/-/issues/1)) |
