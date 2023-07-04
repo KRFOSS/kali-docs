@@ -161,16 +161,25 @@ Here's an example of a good bug report, providing information that the developme
 
 - - -
 
-**Package**: Chromium
-**Architecture**: amd64
-**Maintainer**: Debian Chromium Maintainers
-**Source**: chromium-browser
-**Version**: 76.0.3809.100-1
-I installed the chromium web browser from the Kali Linux repos, using the command 'apt install chromium'. I launched the program from the Kali menu by selecting Applications/Internet/Chromium Web Browser. Chromium did not launch as expected, instead it provided an error pop-up window.
-The error message stated, "Chromium cannot be run as root. Please start Chromium as a normal user. To run as root, you must specify an alternate --user-data-dir for storage of profile information".
-I clicked the Close button to close the pop up window.
-**uname -a output**: Linux kali 5.2.0-kali1-amd64 #1 SMP Debian 5.2.9-2kali1 (2019-08-22) x86_64 GNU/Linux
-**C Library Version**: 2.29-2
+> **Package**: Chromium
+>
+> **Architecture**: amd64
+>
+> **Maintainer**: Debian Chromium Maintainers
+>
+> **Source**: chromium-browser
+>
+> **Version**: 76.0.3809.100-1
+>
+> I installed the chromium web browser from the Kali Linux repos, using the command 'apt install chromium'. I launched the program from the Kali menu by selecting Applications/Internet/Chromium Web Browser. Chromium did not launch as expected, instead it provided an error pop-up window.
+>
+> The error message stated, "Chromium cannot be run as root. Please start Chromium as a normal user. To run as root, you must specify an alternate --user-data-dir for storage of profile information".
+>
+> I clicked the Close button to close the pop up window.
+>
+> **uname -a output**: Linux kali 5.2.0-kali1-amd64 #1 SMP Debian 5.2.9-2kali1 (2019-08-22) x86_64 GNU/Linux
+>
+> **C Library Version**: 2.29-2
 
 - - -
 
