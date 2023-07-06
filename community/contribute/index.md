@@ -50,7 +50,7 @@ The [Bug Tracker](https://bugs.kali.org/) is a great place to help out Kali, whe
 
 Example of a tool upgrade request:
 
-![](bugs.png)
+![](bugs-2.png)
 
 ## Kali Packaging
 
