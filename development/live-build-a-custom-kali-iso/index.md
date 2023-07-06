@@ -169,7 +169,7 @@ Since [Kali 2.0](/blog/kali-linux-2-0-release/), we now support built in configu
 
 ```console
 kali@kali:~/live-build-config$ # These are the different Desktop Environment build options:
-kali@kali:~/live-build-config$ #./build.sh --variant {xfce,gnome,kde,mate,e17,lxde,i3wm} --verbose
+kali@kali:~/live-build-config$ #./build.sh --variant {xfce,gnome,kde,mate,e17,lxde,i3} --verbose
 kali@kali:~/live-build-config$
 kali@kali:~/live-build-config$ # To build a Gnome ISO:
 kali@kali:~/live-build-config$ ./build.sh --variant gnome --verbose
