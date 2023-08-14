@@ -40,6 +40,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [nfspy](https://pkg.kali.org/pkg/nfspy) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/nfspy/-/issues/1)) |
 | [pdgmail](https://pkg.kali.org/pkg/pdgmail) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/pdgmail/-/issues/1)) |
 | [peepdf](https://pkg.kali.org/pkg/peepdf) | 2020-04-07| Python 2 ([#1](https://gitlab.com/kalilinux/packages/peepdf/-/issues/1)) |
+| [plecost](https://pkg.kali.org/pkg/plecost) | 2023-08-14 | Python 3.11 ([#2](https://gitlab.com/kalilinux/packages/plecost/-/issues/2), [#3](https://gitlab.com/kalilinux/packages/plecost/-/issues/3)) |
 | [powerfuzzer](https://pkg.kali.org/pkg/powerfuzzer) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/powerfuzzer/-/issues/1)) |
 | [proxystrike](https://pkg.kali.org/pkg/proxystrike) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/proxystrike/-/issues/1)) |
 | [pyrit](https://pkg.kali.org/pkg/pyrit) | 2020-04-02 | Python 2 |
