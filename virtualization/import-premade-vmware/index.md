@@ -11,7 +11,7 @@ Importing the [Kali VMware image](/get-kali/#kali-virtual-machines) is very easy
 We first need to extract the VMware image:
 
 ```console
-kali@kali:~$ 7z x kali-linux-2023.2-vmware-amd64.7z
+kali@kali:~$ 7z x kali-linux-2023.3-vmware-amd64.7z
 [...]
 kali@kali:~$
 ```

@@ -35,7 +35,7 @@ This process will wipe out your full-size SD card. If you choose the wrong stora
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2023.2-raspberry-pi1-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2023.3-raspberry-pi1-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your full-size SD card's speed, and the size of the Kali Linux image.
