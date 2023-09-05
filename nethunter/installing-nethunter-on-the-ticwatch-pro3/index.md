@@ -53,7 +53,7 @@ If you want to keep stock WearOS, continue from here.
 - Enable ADB again
 - Finalise Magisk installation with app install `adb install Magisk-v24.3.apk`
 - Launch Magisk Manager
-- You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
+- You may want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
 ## 4. Install NetHunter
 

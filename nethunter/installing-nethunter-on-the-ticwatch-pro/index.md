@@ -54,7 +54,7 @@ Please note Magisk 21.0 is recommended, included in the following link.
 - `adb sideload Magisk-v21.0.zip`
 - Reboot to System
 - Launch Magisk Manager
-- You might want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
+- You may want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
 
 ## 5. Flash NetHunter
 
