@@ -78,10 +78,10 @@ If you want to keep stock WearOS, continue from here.
 - [Magisk](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Magisk-v24.3.apk)
 - [TWRP image for rover](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rover_recovery.img)
 - [TWRP image for rubyfish](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rubyfish_recovery.img)
-- [OneOS, Stock ROMs and Mobvoi packages](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/OS) (not required if you want to stick with stock Wear OS)
 - [vbmeta image](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/vbmeta.img)
 - [dm-verity disabler](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Disable-DM-Verity_ForceEncrypt.zip)
 - [WearOS NetHunter zip](https://kali.download/nethunter-images/kali-2023.2/nethunter-2023.2-generic-armhf-kalifs-nano.zip)
+- [OneOS, Stock ROMs and Mobvoi packages (optional)](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/)
 
 ## Additional recommended apps
 
