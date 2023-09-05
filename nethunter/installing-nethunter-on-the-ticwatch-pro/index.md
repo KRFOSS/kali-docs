@@ -33,8 +33,6 @@ All variants are supported (TicWatch Pro, Pro 2020, Pro 4G/LTE)
 Download and extract the installation files into a folder.
 Please note Magisk 21.0 is recommended, included in the following link.
 
-Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/contributors/re4son/catfish/ 
-
 - Again enable ADB, and reboot to bootloader with `adb reboot bootloader`
 - `fastboot flash vendor vendor.img`
 - `fastboot flash recovery twrp-3.4.0-0-catfish.img`
@@ -77,9 +75,10 @@ Download link for ROM, vendor, TWRP, and Magisk: https://build.nethunter.com/con
 
 ### Enjoy Kali NetHunter on the TicWatch Pro
 
-## Download link
+## Download links
 
-https://build.nethunter.com/contributors/re4son/catfish/nethunter-2022.2b-ticwatchpro-wearos-kalifs-nano.zip
+- [Build files](https://build.nethunter.com/contributors/re4son/catfish/TicWatch_Pro_NetHunter_files.zip)
+- [WearOS NetHunter zip](https://kali.download/nethunter-images/kali-2023.2/nethunter-2023.2-ticwatchpro-wearos-kalifs-nano.zip)
 
 ## Additional supported apps
 
@@ -98,15 +97,15 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 - Bad USB
 - Nmap Scan
 - WPS Attacks
+- Bluetooth Arsenal
 
 ## Upcoming features (not guaranteed)
 
 - Nexmon, as the chipset is supported, needs some time
-- Bluetooth Arsenal (internal bluetooth via blueblinder, as carwhisperer fails to r/w when SCO channel is connected)
 - Router Keygen (to be optimised)
 - Hijacker (if nexmon succeeds)
 - Mifare Classic Tool (need to build OS with android.hardware.nfc enabled)
 
 ## Hardware limitations
 
-- Power resource is not enough for any external adapters
+- Power resource is not enough for any external adapters / can't seem to have xhcdi chip for OTG
