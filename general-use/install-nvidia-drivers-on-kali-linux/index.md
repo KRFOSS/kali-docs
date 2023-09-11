@@ -134,7 +134,7 @@ kali@kali:~$ sudo reboot -f
 kali@kali:~$
 ```
 
-## Dots Per Inch (DPI) & Pixels Per Unch PPI
+## Dots Per Inch (DPI) & Pixels Per Inch PPI
 
 Upon Kali starting back up, certain things may appear different than what is expected:
 
