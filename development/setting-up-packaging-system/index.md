@@ -248,11 +248,11 @@ Finally, we just need to add our user to the group and do one last change:
 ```console
 kali@kali:~$ sudo sbuild-adduser $USER
 kali@kali:~$
-kali@kali:~$ cat <<EOF > ~/.sbuildrc
-\$build_arch_all = 1;
-\$build_source = 1;
-\$run_lintian = 1;
-\$lintian_opts = ['-I'];
+kali@kali:~$ cat <<'EOF' > ~/.sbuildrc
+$build_arch_all = 1;
+$build_source = 1;
+$run_lintian = 1;
+$lintian_opts = ['-I'];
 EOF
 kali@kali:~$
 ```
