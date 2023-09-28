@@ -204,6 +204,9 @@ kali@kali:~$
 kali@kali:~$ cd /opt/vmware-host-modules/
 kali@kali:/opt/vmware-host-modules$ sudo make
 kali@kali:/opt/vmware-host-modules$
+kali@kali:/opt/vmware-host-modules$ grep -q pte_offset_map ./vmmon-only/include/pgtbl.h && \
+  sudo sed -i 's/pte_offset_map/pte_offset_kernel/' ./vmmon-only/include/pgtbl.h
+kali@kali:/opt/vmware-host-modules$
 kali@kali:/opt/vmware-host-modules$ sudo make install
 kali@kali:/opt/vmware-host-modules$
 ```
@@ -243,6 +246,7 @@ case "\${COMMAND}" in
 
        git clone -b workstation-\${VMWARE_VERSION} https://github.com/mkubecek/vmware-host-modules.git /opt/vmware-host-modules-\${VMWARE_VERSION}/
        cd /opt/vmware-host-modules-\${VMWARE_VERSION}/
+       grep -q pte_offset_map ./vmmon-only/include/pgtbl.h && sed -i 's/pte_offset_map/pte_offset_kernel/' ./vmmon-only/include/pgtbl.h
        make VM_UNAME=\${KERNEL_VERSION}
        make install VM_UNAME=\${KERNEL_VERSION}
 
