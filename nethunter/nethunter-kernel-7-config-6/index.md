@@ -23,7 +23,7 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 
 ### USB Gadget support
 
-Please note that kernels above 4.x version (most of the times) don't need any patches, we can simply enable in kernel config as seen below.
+Please note that kernels above 4.x version (in most cases) don't need any patches, we can simply enable in kernel config as seen below.
 
 Generic serial, CDC ACM, CDC ECM, and HID are required for various USB based attacks.
 
@@ -47,6 +47,8 @@ Navigate to ***Device Drivers -> USB support -> USB Gadget Support*** and choose
   (CONFIG_USB_CONFIGFS_EEM=y)
 - select ***"Mass Storage"***
   (CONFIG_USB_CONFIGFS_MASS_STORAGE=y)
+- select ***"HID function"***
+  (CONFIG_USB_CONFIGFS_F_HID=y)
 
 ![](nh-kernel-280-usb-2.png)
 
