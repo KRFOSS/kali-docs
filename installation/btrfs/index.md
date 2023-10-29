@@ -135,7 +135,7 @@ $ sudo mount </dev/sda1> /mnt
 $ sudo btrfs subvolume create /mnt/@var@lib@gdm3
 $ sudo btrfs subvolume create /mnt/@var@lib@AccountsService
 
-$ sudo mv /var/lib/gdm3/* /var/lib/gdm3/.*/mnt/@var@lib@gdm3
+$ sudo mv /var/lib/gdm3/* /var/lib/gdm3/.* /mnt/@var@lib@gdm3
 $ sudo mv /var/lib/AccountsService/* /var/lib/AccountsService/.* /mnt/@var@lib@AccountsService/
 
 $ sudo vi /etc/fstab # Add the following (substitute the <UUID> with yours)
