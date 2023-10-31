@@ -93,7 +93,7 @@ With includes a test that looks like:
 
 <p class="codeblock-label">python-pip pip3-user.sh test file</p>
 
-```plaintext
+```sh
 #!/bin/sh
 
 export HOME=$AUTOPKGTEST_TMP
@@ -146,7 +146,7 @@ Depends: @, python3-pytest-pep8
 ```
 As we can see, it depends on a python module. This python module will help us to test the tool, as we can see being done in the test:
 
-```plaintext
+```sh
 #!/bin/sh
 set -e
 cp -r tests "$AUTOPKGTEST_TMP/" && cd "$AUTOPKGTEST_TMP"

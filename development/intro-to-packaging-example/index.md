@@ -1042,7 +1042,7 @@ The issue with the file `docs/_static/bootstrap-4.1.3.bundle.min.js` is that it'
 
 To do this we will create the file `instaloader.lintian-overrides` located in the `debian` directory. From here we can copy and paste the error message from the `:` on. While we are here, we may as well ignore the warning about `no-manual-page`. Here is our resulting file:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.lintian-overrides
 
 kali@kali:~/kali/packages/instaloader$
@@ -1084,7 +1084,7 @@ kali@kali:~/kali/packages/instaloader$
 
 Uh oh! It looks like it still failed, and that it didn't even use our override for the `source-is-missing` error! If we look closer, we can see a difference between the previous warning we were getting about `no-manual-page` and `source-is-missing`. The section before the `:`, telling us the level of error and the package name, includes `source` in our `source-is-missing` error. This is because the issue resides in the _source package_, or the imported package, rather than the output, or the _binary package_. To solve this we will need to create a new `source` directory in `debian/` and a new `lintian-overrides` file. Lets do that now:
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ mkdir debian/source/
 
 kali@kali:~/kali/packages/instaloader$
@@ -1101,7 +1101,7 @@ kali@kali:~/kali/packages/instaloader$
 
 Don't forget to remove the override from our previous file as well!
 
-```
+```console
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.lintian-overrides
 
 kali@kali:~/kali/packages/instaloader$
