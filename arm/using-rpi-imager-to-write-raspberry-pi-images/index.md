@@ -8,7 +8,7 @@ author: ["steev",]
 An additional option for writing Kali Raspberry Pi images to either a MicroSD card or USB device is to use the [Raspberry Pi Imager software](https://raspberrypi.com/software/) which is available for Windows, macOS, and Linux.
 
 {{% notice info %}}
-At this time we do **NOT** support the "Advanced" menu for setting options for customizing your Raspberry Pi. Please consult the [documentation](/docs/arm) for your specific Raspberry Pi device for setting up the Wi-Fi network.
+At this time we do **NOT** support the "Advanced" menu for setting options for customizing your Raspberry Pi. Please consult the [documentation](/docs/arm/) for your specific Raspberry Pi device for setting up the Wi-Fi network.
 {{% /notice %}}
 
 Once you have downloaded the software and installed it, simply run the software and you should be presented with the following screen:
