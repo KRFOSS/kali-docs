@@ -5,7 +5,6 @@ icon:
 date: 2020-07-11
 weight:
 author: ["gamb1t",]
-tags: ["",]
 keywords: ["",]
 og_description:
 ---

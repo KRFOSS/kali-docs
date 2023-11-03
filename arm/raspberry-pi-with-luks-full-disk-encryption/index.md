@@ -5,7 +5,6 @@ icon:
 archived: "true"
 weight:
 author: ["steev",]
-tags: ["dojo",]
 ---
 
 With the advent of smaller, faster ARM hardware such as the new **Raspberry Pi 2 (or even 3!)** (which now has a Kali image built for it), we've been seeing more and more use of these small devices as "**throw-away hackboxes**". While this might be a new and novel technology, **there's one major drawback** to this concept - and that is the **confidentiality of the data** stored on the device itself. Most of the setups we've seen do little to protect the sensitive information saved on the SD cards of these little computers. This fact, together with a nudge from friends is what prompted us to create a LUKS encrypted, NUKE capable Kali Linux image for our Raspberry Pi devices. The following article describes the process, so you can repeat it and make your own shiny shiny.

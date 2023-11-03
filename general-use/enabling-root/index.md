@@ -5,7 +5,6 @@ icon:
 date: 2021-03-30
 weight:
 author: ["gamb1t",]
-tags: ["",]
 keywords: ["",]
 og_description:
 ---
