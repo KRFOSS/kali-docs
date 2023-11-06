@@ -38,9 +38,9 @@ More information on submitting bug reports to the Kali Linux project can be foun
 
 This site is the Kali Linux project's [official git repository](https://gitlab.com/kalilinux) and is publicly accessible. Most users will never need to interact with it directly, but users who wish to more closely monitor the development of Kali Linux, or people who want to know when they should run `sudo apt full-upgrade -y`, can peruse or clone the repository.
 
-**[https://www.kali.org/tools](/tools)**
+**[https://www.kali.org/tools](/tools/)**
 
-The core of Kali Linux is the [comprehensive toolset](/tools), drawn from many difference sources in the security and forensics software community. The tools site provides both an up-to-date listing of the tools which are available in Kali Linux, as well as provinding a quick reference to each of them. From here, the versions of the tools can be tracked against their upstream sources.
+The core of Kali Linux is the [comprehensive toolset](/tools/), drawn from many difference sources in the security and forensics software community. The tools site provides both an up-to-date listing of the tools which are available in Kali Linux, as well as provinding a quick reference to each of them. From here, the versions of the tools can be tracked against their upstream sources.
 
 **[pkg.kali.org](https://pkg.kali.org/)**
 
