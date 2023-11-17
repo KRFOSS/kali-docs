@@ -210,9 +210,13 @@ kali@kali:~$ losetup -d $loopdevice
 
 #### 07. dd the Image and Mark the USB Drive Bootable
 
+{{% notice info %}}
+While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the proper device label. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device label.
+{{% /notice %}}
+
 ```console
-kali@kali:~$ dd if=kali-linux-chrome.img of=/dev/sdb conv=fsync bs=4M
-kali@kali:~$ cgpt repair /dev/sdb
+kali@kali:~$ dd if=kali-linux-chrome.img of=/dev/sdX conv=fsync bs=4M
+kali@kali:~$ cgpt repair /dev/sdX
 ```
 
 {{% notice info %}}
@@ -220,14 +224,14 @@ This is the point where you need to mark either boot partition 1 or 2 to have hi
 {{% /notice %}}
 
 ```console
-kali@kali:~$ cgpt add -i 1 -S 1 -T 5 -P 10 -l KERN-A /dev/sdb
-kali@kali:~$ cgpt add -i 2 -S 1 -T 5 -P 5 -l KERN-B /dev/sdb
+kali@kali:~$ cgpt add -i 1 -S 1 -T 5 -P 10 -l KERN-A /dev/sdX
+kali@kali:~$ cgpt add -i 2 -S 1 -T 5 -P 5 -l KERN-B /dev/sdX
 ```
 
 To see your partition list and order, use the command **cgpt show**:
 
 ```console
-kali@kali:~$ cgpt show /dev/sdb
+kali@kali:~$ cgpt show /dev/sdX
 start size part contents
 0 1 PMBR
 1 1 Pri GPT header

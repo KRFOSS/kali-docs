@@ -45,8 +45,12 @@ Consider yourself warned.
 ![](FinderScreenSnapz002.png)
 3. Proceed to (carefully!) image the Kali ISO file on the USB device. The example command below assumes that the ISO image you're writing is named "kali-linux-2023.3-live-amd64.iso" and is in your current working directory. The blocksize parameter can be increased, and while it may speed up the operation of the dd command, it can occasionally produce unbootable USB drives, depending on your system and a lot of different factors. The recommended value, "bs=4M", is conservative and reliable. Additionally, the parameter "conv=fsync" makes sure that the data is physically written to the USB drives before the commands returns:
 
+{{% notice info %}}
+While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the drive discovered previously. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device name from the previous step.
+{{% /notice %}}
+
 ```console
-kali@kali:~$ dd if=kali-linux-2023.3-live-amd64.iso of=/dev/sdb conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-2023.3-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 ```
 
 Imaging the USB drive can take a good amount of time, over ten minutes or more is not unusual, as the sample output below shows. Be patient!
@@ -69,14 +73,18 @@ Alternatively there are a few other options available for imaging.
 
 The first option is `dd` with a status indicator. This is only available on newer systems however. To do this, we simply add the `status` flag:
 
+{{% notice info %}}
+While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the proper device label. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device label.
+{{% /notice %}}
+
 ```console
-kali@kali:~$ dd if=kali-linux-2023.3-live-amd64.iso of=/dev/sdb conv=fsync bs=4M status=progress
+kali@kali:~$ dd if=kali-linux-2023.3-live-amd64.iso of=/dev/sdX conv=fsync bs=4M status=progress
 ```
 
 Another option is to use `pv`. We can also use the `size` flag here to get an approximate timer. Change the size depending on the image being used:
 
 ```console
-kali@kali:~$ dd if=kali-linux-2023.3-live-amd64.iso | pv -s 2.8G | dd of=/dev/sdb conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-2023.3-live-amd64.iso | pv -s 2.8G | dd of=/dev/sdX conv=fsync bs=4M
 ```
 
 #### Creating a Bootable Kali USB Drive on Linux (Etcher)

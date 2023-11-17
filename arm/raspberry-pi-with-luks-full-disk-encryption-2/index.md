@@ -630,12 +630,12 @@ export _HOSTNAME="kali-encrypted-basic"
 
 # BLOCK DEVICE
 #   The SD card or USD SD card reader block device
-#   - USB drives will show up as the normal /dev/sdb, /dev/sdc, etc.
+#   - USB drives will show up as the normal /dev/sdX, /dev/sdc, etc.
 #   - MMC/SDcards may show up the same way if the card reader is USB-connected.
 #   - Internal card readers normally show up as /dev/mmcblk0, /dev/mmcblk1, ...
 #   You can use the lsblk command to get an easy quick view of all block
 #   devices on your system at a given moment.
-export _BLKDEV="/dev/sdb"
+export _BLKDEV="/dev/sdX"
 
 # LUKS ENCRYPTION -------------------------------------------------------------
 ## Encryption Cypher

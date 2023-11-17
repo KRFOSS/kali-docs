@@ -36,14 +36,14 @@ If all you want to do is to install Kali on your SS808, follow instructions belo
 8. In the Finless ROM tool, make sure only `kernel.img` and `recovery.img` are selected, and flash your device again.
 9. Insert your microSD card in the SS808 and boot it up.
 
-In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
+In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
 This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-2023.3-SS808.img of=/dev/sdb conv=fsync bs=4M
+$ dd if=kali-linux-2023.3-SS808.img of=/dev/sdX conv=fsync bs=4M
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.

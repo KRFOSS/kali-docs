@@ -103,10 +103,14 @@ kali@kali:~$ kpartx -dv $loopdevice
 kali@kali:~$ losetup -d $loopdevice
 ```
 
-Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdb`. **Change this as needed**:
+{{% notice info %}}
+While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the proper device label. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device label.
+{{% /notice %}}
+
+Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdX`. **Change this as needed**:
 
 ```console
-kali@kali:~$ dd if=kali-linux-efikamx.img of=/dev/sdb conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-efikamx.img of=/dev/sdX conv=fsync bs=4M
 ```
 
 Once the dd operation is complete, unmount and eject the SD card and boot your EfikaMX into Kali Linux

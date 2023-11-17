@@ -30,14 +30,14 @@ To install Kali on your Acer Tegra Chromebook 13", follow these instructions:
 2. [Put your Chromebook in developer mode](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook), and enable USB boot.
 3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your full-size SD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
-In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
+In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
 
 {{% notice info %}}
 This process will wipe out your full-size SD card or USB drive. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2023.3-chromebook-nyan-armhf.img.xz | sudo dd of=/dev/sdb bs=4M status=progres
+$ xzcat kali-linux-2023.3-chromebook-nyan-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your full-size SD card or USB drive speed, and the size of the Kali Linux image.

@@ -227,10 +227,14 @@ kali@kali:~$ cd ../
 kali@kali:~$ losetup -d $loopdevice
 ```
 
-Now, image the file onto your USB storage device. Our device is **/dev/sdb**. Change this as needed:
+{{% notice info %}}
+While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the proper device label. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device label.
+{{% /notice %}}
+
+Now, image the file onto your USB storage device. Our device is **/dev/sdX**. Change this as needed:
 
 ```console
-kali@kali:~$ dd if=kali-linux-odroid.img of=/dev/sdb conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-odroid.img of=/dev/sdX conv=fsync bs=4M
 ```
 
 Once this operation is complete, connect your UART serial cable to the ODROID and boot it up with the microSD/SD card plugged in. Through the serial console, you will be able to log in to Kali (`root` / `toor`) and `startx`.

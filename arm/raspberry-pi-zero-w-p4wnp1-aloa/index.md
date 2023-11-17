@@ -21,14 +21,14 @@ Currently the P4wnP1 A.L.O.A. image **only** supports the Raspberry Pi Zero W, *
 
 1. Download _and validate_ the `Kali Linux Raspberry Pi Zero W P4wnP1 ALOA` image from the [downloads](/get-kali/#kali-arm) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 
-2. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card. In our example, we use a microSD which is located at `/dev/sdb`. **_Change this as needed._**
+2. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card. In our example, we use a microSD which is located at `/dev/sdX`. **_Change this as needed._**
 
 {{% notice info %}}
 This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2023.3-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2023.3-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
