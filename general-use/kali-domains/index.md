@@ -18,5 +18,6 @@ Kali has quite a few subdomains that may be useful to know about:
 - `https://pkg.kali.org/`: The counterpart of [https://www.kali.org/tools](/tools/) and very useful for users to see the history of a package. Along with the history users can see the associated binaries, upstream, the package in Kali's git repo, and more. Another useful feature to know about is the ability to track package versions, which can be done via email or RSS feed. This is well explained [at Debian's documentation on the software](https://qa.pages.debian.net/distro-tracker/usage/follow-packages.html).
 - `http://old.kali.org/`: If for any reason a user needs an old copy of Kali Linux, then this is the site for them. Images from some of the first Kali releases can be found as well as more recent releases.
 - `https://http.kali.org/`: A redirector url for the mirrors Kali has available. This should point to your closest mirror.
+- `https://kali.download`: A mirror that utilizes Cloudflare's content delivery network (CDN).
 - `https://cdimage.kali.org/`: A server that hosts the ISO's for download.
 - `https://status.kali.org/`: Should any site be down for you, you can check their status here.
