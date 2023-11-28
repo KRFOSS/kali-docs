@@ -22,9 +22,6 @@ If you want run a **private mirror**, see the dedicated section at the end.
   # size *before* a release, in order to get the upper bound. It's the upper
   # bound that mirror operators want to know.
   #
-  # Check https://gitlab.com/kalilinux/internal/roles/developer/-/issues/12
-  # for updated values.
-  # 
   ## /kali, aka. the main package repository
   - 2023.3     : 739 GB
   - 2023.1     : 592 GB
