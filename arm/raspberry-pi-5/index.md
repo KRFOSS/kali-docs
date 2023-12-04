@@ -63,6 +63,12 @@ kali@kali:~$ cd /usr/src/kernel
 kali@kali:/usr/src/kernel/$ sudo git clean -fdx && sudo make bcm2711_defconfig && sudo make modules_prepare
 ```
 
+To build external modules that are from the Kali package repository, as an example [realtek-rtl88xxau-dkms](https://pkg.kali.org/pkgs/realtek-rtl88xxau-dkms) you need to tell it to install **without** also installing recommended packages.
+
+```console
+kali@kali:~$ sudo apt install --no-install-recommends realtek-rtl88xxau-dkms
+```
+
 - - -
 
 # Kali on Raspberry Pi 5 Headless - Tips and Tricks
