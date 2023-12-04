@@ -60,7 +60,7 @@ In order to make the headers usable however, you do need to run the following co
 
 ```console
 kali@kali:~$ cd /usr/src/kernel
-kali@kali:/usr/src/kernel/$ sudo make modules_prepare
+kali@kali:/usr/src/kernel/$ sudo git clean -fdx && sudo make bcm2711_defconfig && sudo make modules_prepare
 ```
 
 - - -
