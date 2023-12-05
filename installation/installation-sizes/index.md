@@ -14,7 +14,7 @@ For this page we are going to break down the installations into five sections, e
 
 ### No DE - 1.8G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -27,7 +27,7 @@ tmpfs           193M  8.0K  193M   1% /run/user/1000
 ```
 ### Xfce - 4.1G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -40,7 +40,7 @@ tmpfs           193M  120K  193M   1% /run/user/1000
 ```
 ### KDE - 5.5G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -53,7 +53,7 @@ tmpfs           193M   96K  193M   1% /run/user/1000
 ```
 ### GNOME - 4.4G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -70,7 +70,7 @@ tmpfs           193M  124K  193M   1% /run/user/1000
 
 ### No DE - 5.2G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -83,7 +83,7 @@ tmpfs           193M   12K  193M   1% /run/user/1000
 ```
 ### Xfce - 6.9G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -97,7 +97,7 @@ tmpfs           193M  120K  193M   1% /run/user/1000
 ```
 ### KDE - 8.2G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -111,7 +111,7 @@ tmpfs           193M   96K  193M   1% /run/user/1000
 ```
 ### GNOME - 7.2G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -128,7 +128,7 @@ tmpfs           193M  120K  193M   1% /run/user/1000
 
 ### No DE - 12G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -141,7 +141,7 @@ tmpfs           193M   20K  193M   1% /run/user/1000
 ```
 ### Xfce - 14G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -155,7 +155,7 @@ tmpfs           193M  124K  193M   1% /run/user/1000
 ```
 ### KDE - 15G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -168,7 +168,7 @@ tmpfs           193M  134K  193M   1% /run/user/1000
 ```
 ### GNOME - 14G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -185,7 +185,7 @@ tmpfs           193M  128K  193M   1% /run/user/1000
 
 ### No DE - 19G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -198,7 +198,7 @@ tmpfs           193M   28K  193M   1% /run/user/1000
 ```
 ### Xfce - 20G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -211,7 +211,7 @@ tmpfs           193M  128K  193M   1% /run/user/1000
 ```
 ### KDE - 22G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -224,7 +224,7 @@ tmpfs           193M  104K  193M   1% /run/user/1000
 ```
 ### GNOME - 21G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -240,7 +240,7 @@ tmpfs           193M  132K  193M   1% /run/user/1000
 
 ### No DE - 33G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -253,7 +253,7 @@ tmpfs           193M   28K  193M   1% /run/user/1000
 ```
 ### Xfce - 34G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -266,7 +266,7 @@ tmpfs           193M  132K  193M   1% /run/user/1000
 ```
 ### KDE - 35G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -279,7 +279,7 @@ tmpfs           193M  132K  193M   1% /run/user/1000
 ```
 ### GNOME - 34G
 
-```
+```console
 ┌──(kali㉿kali)-[~]
 └─$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
