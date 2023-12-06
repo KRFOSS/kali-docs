@@ -31,8 +31,8 @@ $ sudo ./raspberry-pi.sh
 ```
 
 - Depending on your system hardware & network connectivity, will depend on how long it will take to build _(4 core CPU, 8GB RAM, SSD inside a VM takes using a [local repo](/docs/community/setting-up-a-kali-linux-mirror/) about 100 minutes per script)_
-- On x64 or arm64 systems, after the script finishes running, you will have an image files located in `~/kali-arm/images/` called `kali-linux-2023.3-raspberry-pi-xfce-armhf.img.xz`
-- On x86 systems, as they do not have enough RAM to compress the image, after the script finishes running, you will have an image file located in `~/kali-arm/images/` called `kali-linux-2023.3-raspberry-pi-xfce-armhf.img`
+- On x64 or arm64 systems, after the script finishes running, you will have an image files located in `~/kali-arm/images/` called `kali-linux-2023.4-raspberry-pi-xfce-armhf.img.xz`
+- On x86 systems, as they do not have enough RAM to compress the image, after the script finishes running, you will have an image file located in `~/kali-arm/images/` called `kali-linux-2023.4-raspberry-pi-xfce-armhf.img`
   - _Should you want to try and shrink the file to make it easier to distribute, you will need to use **your own preferred compression**_.
 
 - - -
