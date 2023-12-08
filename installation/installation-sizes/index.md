@@ -18,3 +18,5 @@ For this page we are going to break down the installations into five sections, e
 | [kali-linux-large](/tools/kali-meta/#kali-linux-large)           | 20G  | 21G   | 22G  | 19G      |
 | [kali-linux-everything](/tools/kali-meta/#kali-linux-everything) | 34G  | 34G   | 35G  | 33G      |
 <!--| kali-linux-headless   |      |       |      |          |-->
+
+_Above were done during December 2023, for Kali 2023.4._
