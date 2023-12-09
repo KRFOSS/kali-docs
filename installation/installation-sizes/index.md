@@ -10,6 +10,8 @@ Kali has a lot of customization that can be done during the package selection pa
 
 For this page we are going to break down the installations into five sections, each representing what tool [metapackages](/docs/general-use/metapackages/) are selected. In each section, we are also going to list out all four [desktop environment choices](/docs/general-use/switching-desktop-environments/).
 
+The following table shows the **total size** of the installation based on which metapackage is chosen. The largest possible installation is 35G, while the smallest possible installation is only 1.8G.
+
 | Metapackage/DE                                                   | Xfce | GNOME | KDE  | Headless |
 |------------------------------------------------------------------|------|-------|------|----------|
 | [kali-linux-core](/tools/kali-meta/#kali-linux-core)             | 4.1G | 4.4G  | 5.5G | 1.8G     |
