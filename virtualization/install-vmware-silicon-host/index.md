@@ -1,26 +1,47 @@
 ---
-title: Installing VMware on Apple Silicon (M1/M2) Macs (Host)
+title: Installing VMware on Apple Silicon (M1/M2/M3) Macs (Host)
 description:
 icon:
 weight: 105
-author: ["gamb1t",]
+author: ["gamb1t","Fetti.Wop",]
 ---
 
 {{% notice info %}}
-You need to be on the 22H2 release of the VMware Technical Preview.
-If you are not on at least Player Version e.x.p. (20191287) then you need to update.
+You need to be running at least VMware Fusion 13.x.x. 
 
 Due to a limitation of the VMware updater software, if you are on an earlier version, it will report that there are no updates available. You need to go to VMware's website and download and install manually.
 {{% /notice %}}
 
-At the time of writing VMware is still offering Apple Silicon support through their Public Tech Preview for free. This is subject to change when Apple Silicon support is added to their main lineup, however until then the steps to get started are pretty straightforward.
 
-We will first go to ~~[Get Fusion M1](https://www.vmware.com/go/get-fusion-m1) which will auto-redirect us to the most current Tech Preview~~ (At the time of writing this page is out of date, the current version is [22H2](https://customerconnect.vmware.com/downloads/get-download?downloadGroup=FUS-PUBTP-22H2)). From here we will want to download the first file, which is the `.dmg`.
+We will first go to [Get Fusion](https://www.vmware.com/products/fusion.html) and select whether we would like to buy the Pro version, or start free. 
 
-![](install-silicon-vmware-1.png)
+![](vmwaretry.png)
+![](vmwareregister.png)
 
-After it downloads we will just double-click on the file and we are presented with the following:
+After creating an account/registering with VMware this will allow you to request a personal use license for VMware Fusion.
 
-![](install-silicon-vmware-2.png)
+Version 13.x.x Download.
+![](VMWAREDL.png)
 
-We will double-click on this and after following the prompts we are all done and can use VMware's Public Tech Preview like normal.
+
+Then install by double clicking.
+![](VmwareInstall.png)
+
+
+Next download the "installer Image" from (https://www.kali.org/get-kali/#kali-installer-images). Just make sure to choose the Apple Silicon (ARM64) Image.
+
+![](kaliwebsiteselection.png)
+![](Kaliwebsiteselection2.png)
+
+Take note of the directory where the .iso is saved, as we will need it for installing in VMware Fusion.
+
+After installing VMware Fusion 13, and opening the application for the first time, it forces the user to create a new machine. Once you've created your machine, if you would like to create another you will need to select "create new machine" fomr the options.
+
+Open the directory in which the .iso was saved after downloading.
+Drag the freshly downloaded .iso to the window and begin the installation (Debian 12.x 64-bit Arm).
+We can also just simply click on "install from disk or image", or "use another disc, or disc image" option from the VMware Fusion application window.
+
+![](installkalivm.png)
+![](kalivminstall2.png)
+![](KaliVminstall3.png)
+![](kalivminstall4.png)
