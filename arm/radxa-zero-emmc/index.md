@@ -47,7 +47,7 @@ If you want to customize the Kali Radxa Zero sdcard image, including changes to 
 -->
 ## Kali on Radxa Zero (eMMC) - Build-Script Instructions
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `radxa-zero-sdcard.sh`.
+Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `radxa-zero-emmc.sh`.
 
 Once the build script finishes running, you will have an `img.xz` file in the `images` directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
 
