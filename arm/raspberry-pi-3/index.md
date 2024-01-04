@@ -66,7 +66,7 @@ If you are on the 5.10 or higher kernel, you can use mt76 chipset USB Wi-Fi devi
 
 ```plaintext
 # Load mt76usb without using scatter-gather which doesn't work on the RPi2 or RPi3 USB chipset
-options mt76-usb disabe_usb_sg=1
+options mt76-usb disable_usb_sg=1
 ```
 
 ## Kali on Raspberry Pi 3 Headless - Tips and Tricks
