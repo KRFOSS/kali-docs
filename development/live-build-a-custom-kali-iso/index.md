@@ -86,7 +86,7 @@ With that completed, we install some additional dependencies and the previously 
 $ sudo apt install -y git live-build simple-cdd cdebootstrap curl
 $
 $ sudo dpkg -i kali-archive-keyring_2022.1_all.deb
-$ sudo dpkg -i live-build_2023.431+kali4_all.deb
+$ sudo dpkg -i live-build_20230502+kali3_all.deb
 ```
 
 With the environment all prepared, we start the process by setting up the build-script profile and clone out the build config:
