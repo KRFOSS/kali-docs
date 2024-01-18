@@ -75,7 +75,7 @@ $ sudo apt update
 $ sudo apt full-upgrade -y
 $
 $ wget https://http.kali.org/pool/main/k/kali-archive-keyring/kali-archive-keyring_2022.1_all.deb
-$ wget https://http.kali.org/kali/pool/main/l/live-build/live-build_2023.431+kali4_all.deb
+$ wget https://http.kali.org/pool/main/l/live-build/live-build_20230502+kali3_all.deb
 ```
 
 _Note: You must check that`kali-archive-keyring_20YY.X_all.deb` & `live-build_20YYMMDD+kaliX_all.deb` are the latest files._
