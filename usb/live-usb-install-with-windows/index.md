@@ -23,12 +23,12 @@ The specifics of this procedure will vary depending on whether you're doing it o
 
 1. A _[verified](/docs/introduction/download-official-kali-linux-images/)_ copy of the [appropriate ISO image](/docs/introduction/what-image-to-download/) of the latest Kali build image for the system you'll be running it on.
 
-2. If you're running under Windows, there is not one tool that is considered the overall best for imaging. We recommend [Etcher](https://www.balena.io/etcher/) _(installer or portable)_ as it is simpler to use, however [Rufus](https://rufus.ie/) is another popular option with its advance options. If one does not work for you, consider the other.
+2. If you're running under Windows, there is no one tool that is considered the overall best for imaging. We recommend [Etcher](https://www.balena.io/etcher/) _(installer or portable)_ as it is simpler to use, however [Rufus](https://rufus.ie/) is another popular option with its advanced options. If one does not work for you, consider the other.
 
 3. A USB drive, 8GB or larger _(Systems with a direct SD card slot can use an SD card with similar capacity. The procedure is identical.)_
 
 {{% notice info %}}
-During this procedure, you might see some warnings telling you that Kali Linux contains malware, trojan, virus or whatever. This message usually comes from Windows Defender or USB Defender, or a third-party antivirus. Those warnings are expected: Kali Linux is packed with pentesting tools that are likely to be flagged as malware. Just ignore the warnings.
+During this procedure, you might see some warnings telling you that Kali Linux contains malware, trojan, virus or whatever. This message usually comes from Windows Defender, USB Defender, or a third-party antivirus. Those warnings are expected: Kali Linux is packed with pentesting tools that are likely to be flagged as malware. Just ignore the warnings.
 {{% /notice %}}
 
 - - -
