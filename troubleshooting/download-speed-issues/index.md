@@ -8,7 +8,7 @@ author: ["gamb1t",]
 
 ### How our downloads work
 
-Kali Linux operates off of a network of [community](/docs/community/kali-linux-mirrors/) and official mirrors. What this means is that when you click to [download](/get-kali/) Kali Linux there are some steps that are done before you actually begin the download. First you hit [cdimage.kali.org](http://cdimage.kali.org/README.mirrorlist) which is our redirector. This determines where the request is coming from and will send you to one of the best mirrors for your situation. For example, if you are in the US you may get send to Berkley University's mirror. After you are sent to the best mirror your download request is submitted to it, and your download actually begins.
+Kali Linux operates off of a network of [community](/docs/community/kali-linux-mirrors/) and official mirrors. What this means is that when you click to [download](/get-kali/) Kali Linux there are some steps that are done before you actually begin the download. First you hit [cdimage.kali.org](http://cdimage.kali.org/README?mirrorlist) which is our redirector. This determines where the request is coming from and will send you to one of the best mirrors for your situation. For example, if you are in the US you may get send to Berkley University's mirror. After you are sent to the best mirror your download request is submitted to it, and your download actually begins.
 
 ### Determining which mirror we are at
 
