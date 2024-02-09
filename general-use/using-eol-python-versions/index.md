@@ -34,6 +34,12 @@ kali@kali:~$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 kali@kali:~$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init --path)"\nfi' >> ~/.zshrc
 ```
 
+Check if `$SHELL` is empty and add zsh if it is.
+
+```console
+kali@kali:~$ [ -z "$SHELL" ] && SHELL=/usr/bin/zsh
+```
+
 Lets continue with the setup
 
 ```console
