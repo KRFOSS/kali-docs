@@ -23,6 +23,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
   # bound that mirror operators want to know.
   #
   ## /kali, aka. the main package repository
+  - Pre-2024.1 : 813 GB
   - 2023.3     : 739 GB
   - 2023.1     : 592 GB
   - 2023-02-15 : 711 GB
@@ -34,6 +35,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
   - 2015       : 450 GB
 
   ## /kali-images, aka. the base images repository
+  - Pre-2024.1 : 171 GB
   - 2023.3     : 153 GB
   - 2023.1     : 148 GB
   - 2023-02-15 : 132 GB
@@ -45,7 +47,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
   - 2015       :  50 GB
 -->
 
-To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of mid 2023, the main package repository is about 750 GB and the images repository is about 160 GB but you can expect those numbers to fluctuate, and grow slowly over time. Thus your server should have 1.0 TB of storage available at least.
+To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of mid 2023, the main package repository is about 820 GB and the images repository is about 175 GB but you can expect those numbers to fluctuate, and grow slowly over time. Thus your server should have 1.1 TB of storage available at least.
 
 A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
 
