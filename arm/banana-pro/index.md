@@ -28,7 +28,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2023.4-banana-pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2024.1-banana-pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -68,7 +68,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat images/kali-linux-2023.4-banana-pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat images/kali-linux-2024.1-banana-pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.

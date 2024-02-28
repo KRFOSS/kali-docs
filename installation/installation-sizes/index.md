@@ -14,11 +14,11 @@ The following table shows the **total size** of the installation based on which 
 
 | Metapackage/DE                                                   | Xfce | GNOME | KDE  | Headless |
 |------------------------------------------------------------------|------|-------|------|----------|
-| [kali-linux-core](/tools/kali-meta/#kali-linux-core)             | 4.1G | 4.4G  | 5.5G | 1.8G     |
-| [kali-tools-top10](/tools/kali-meta/#kali-tools-top10)           | 6.9G | 7.2G  | 8.2G | 5.2G     |
-| [kali-linux-default](/tools/kali-meta/#kali-linux-default)       | 14G  | 14G   | 15G  | 12G      |
-| [kali-linux-large](/tools/kali-meta/#kali-linux-large)           | 20G  | 21G   | 22G  | 19G      |
-| [kali-linux-everything](/tools/kali-meta/#kali-linux-everything) | 34G  | 34G   | 35G  | 33G      |
+| [kali-linux-core](/tools/kali-meta/#kali-linux-core)             | 3.7G | 4.1G  | 5.2G | 1.5G     |
+| [kali-tools-top10](/tools/kali-meta/#kali-tools-top10)           | 6.7G | 7.0G  | 8.2G | 5.0G     |
+| [kali-linux-default](/tools/kali-meta/#kali-linux-default)       | 13G  | 13G   | 15G  | 13G      |
+| [kali-linux-large](/tools/kali-meta/#kali-linux-large)           | 20G  | 20G   | 21G  | 19G      |
+| [kali-linux-everything](/tools/kali-meta/#kali-linux-everything) | 34G  | 35G   | 36G  | 34G      |
 <!--| kali-linux-headless   |      |       |      |          |-->
 
-_Above were done during December 2023, for Kali 2023.4._
+_Above were done during February 2024, for Kali 2024.1._
