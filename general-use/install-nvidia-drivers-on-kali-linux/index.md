@@ -26,7 +26,8 @@ GPUs with a <a href="https://developer.nvidia.com/cuda-gpus">CUDA compute capabi
 
 - - -
 
-Afterwards, make sure you have [`contrib` & `non-free*` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is [fully up-to-date](/docs/general-use/updating-kali/):
+Afterwards, make sure you have [`contrib` & `non-free*` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is [fully up-to-date](/docs/general-use/updating-kali/).
+Additionally, ensure you have the appropriate kernel headers installed for your system:
 
 ```console
 kali@kali:~$ grep "contrib non-free" /etc/apt/sources.list
@@ -37,6 +38,8 @@ kali@kali:~$ sudo apt update
 kali@kali:~$
 kali@kali:~$ sudo apt -y full-upgrade -y
 [...]
+kali@kali:~$
+kali@kali:~$ sudo apt install linux-headers-$(uname -r) -y
 kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 ```
