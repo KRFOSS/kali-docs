@@ -87,16 +87,48 @@ Enter your interface name, if your use multiple adapters. You can paste the sele
 
 Modify the channel, if the target's Handsfree service is on a different one. Select the mode:
 
-##### Listen
+#### Listen
 
 Will start recording the audio from the target's microphone. Modify the record filename if needed.
 
-##### Inject
+#### Inject
 
 Will inject the selected audio to the target, so it will be played on it's speaker. Enter or select the audio file's path to inject.
 
 Tapping on "LAUNCH" starts the script in the terminal. You can kill in the terminal with CTRL+C or in the app by tapping on "KILL".
 Play button starts to stream live on your speaker if listening is running, otherwise it will play the last recording.
 Please note that the Stop button will stop the playback, pause is not supported.
+
+&nbsp;
+
+## Bad Bluetooth
+
+&nbsp;
+
+![](nethunter-btarsenal6.png)
+
+&nbsp;
+
+#### Server
+
+Enter your desired Keyboard bluetooth interface, address, and name to use for BadBT Server. Make sure your interface is up and running including dbus, and bluetooth service.
+
+Tap on "Start Server", it will run in a Terminal window, ready to accept incoming connections from target clients. Some targets may require typing in "yes" in terminal for pairing process.
+
+&nbsp;
+
+![](nethunter-btarsenal6.png)
+
+&nbsp;
+
+#### Client
+
+Once a target is connected, head back to NetHunter app and it's time to send some strings, alternatively you can use interactive mode (needs a physical keyboard to be connected to your phone).
+
+For Send Strings mode, you can set basic prefixes such as Android Home, Browser, Windows CMD, etc..
+
+Please note these modes are experimental, and possilbly HID Ducky format will be implemented.
+
+When ready, tap "Send".
 
 &nbsp;

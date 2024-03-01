@@ -80,7 +80,7 @@ If you want to keep stock WearOS, continue from here.
 - [TWRP image for rubyfish](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rubyfish_recovery.img)
 - [vbmeta image](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/vbmeta.img)
 - [dm-verity disabler](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Disable-DM-Verity_ForceEncrypt.zip)
-- [WearOS NetHunter zip](https://kali.download/nethunter-images/kali-2023.2/nethunter-2023.2-generic-armhf-kalifs-nano.zip)
+- [TicWatch Pro 3 NetHunter zip](https://www.kali.org/get-kali/#kali-mobile) - Get the latest update under TicWatch section
 - [OneOS, Stock ROMs and Mobvoi packages (optional)](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/)
 
 ## Additional recommended apps
@@ -92,6 +92,8 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 - Kali services
 - Custom Commands
+- Bluetooth Arsenal
+- KeX
 - MAC Changer
 - HID Attacks
 - DuckHunter
@@ -100,11 +102,10 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 ## Upcoming features (not guaranteed)
 
-- Nexmon, as the chipset is supported, needs some time
-- Bluetooth Arsenal (internal bluetooth via blueblinder, as carwhisperer fails to r/w when SCO channel is connected)
+- Nexmon, as the chipset is supported, needs some time - ETA 2024.2
 - Router Keygen (to be optimised)
-- Hijacker (if nexmon succeeds)
-- Mifare Classic Tool (need to build OS with android.hardware.nfc enabled)
+- Hijacker (if nexmon succeeds) - ETA 2024.2
+- Mifare Classic Tool (need to build OS with android.hardware.nfc enabled) - ETA 2024.4
 
 ## Hardware limitations
 
