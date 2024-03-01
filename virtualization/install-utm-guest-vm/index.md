@@ -51,4 +51,9 @@ Once the install is finished we can go back to the settings and remove the "Seri
 
 ![](utm-setup-12.png)
 
+We should also update the Display Card emulation. Select the `virtio-gpu-pci`
+option:
+
+![](utm-setup-13.png)
+
 We can now use our VM like normal.
