@@ -52,7 +52,15 @@ If this test doesn't succeed, you might need to reboot, either the Kali VM, eith
 
 If ever you find out that this mode was not what you wanted, it's possible to undo the configuration on Kali's side. Not difficult but you need to do the steps in the right order, so let's detail it here.
 
-First, log out of the current Kali's session. Then on the Windows host, disconnect the Kali VM. Then reconnect without Enhanced Session Mode, and log in Kali. Finally, open a terminal and just use `kali-tweaks` again:
+First, log out of the current Kali's session.
+
+Then on the Windows host, disconnect the Kali VM, open a PowerShell (with Administrator privileges) and disable Enhanced Session Mode:
+
+```PowerShell
+> Set-VM "(YOUR VM NAME HERE)" -EnhancedSessionTransportType VMBus
+```
+
+Next, log into Kali, open a terminal and just use `kali-tweaks` again:
 
 ```console
 kali@kali:~$ kali-tweaks
