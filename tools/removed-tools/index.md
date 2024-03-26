@@ -46,6 +46,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [pyrit](https://pkg.kali.org/pkg/pyrit) | 2020-04-02 | Python 2 |
 | [pyv8](https://pkg.kali.org/pkg/pyv8) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/pyv8/-/issues/1)) |
 | [rfidiot](https://pkg.kali.org/pkg/rfidiot) |2021-05-14 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/rfidiot/-/issues/1)) |
+| [rtlsdr-scanner](https://pkg.kali.org/pkg/rtlsdr-scanner) |2024-03-26 | Unmaintained and broken tool ([#1](https://gitlab.com/kalilinux/packages/rtlsdr-scanner/-/issues/5)) |
 | [sandi](https://pkg.kali.org/pkg/sandi) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sandi/-/issues/1)) |
 | [sandsifter](https://pkg.kali.org/pkg/sandsifter) | 2020-07-20 | Python 2 |
 | [sparta](https://pkg.kali.org/pkg/sparta) | 2020-01-06 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sparta/-/issues/1)) |
