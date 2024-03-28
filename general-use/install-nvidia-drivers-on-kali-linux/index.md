@@ -112,7 +112,18 @@ They `nvidia-detect` package may fail in places due to Kali being a [rolling dis
 
 Notice how `Kernel driver in use` & `Kernel modules` from `lspci` are using **nouveau**, signalling the open-source driver for NVIDIA cards. We are now going to switch to the close-source **drivers**, and the **CUDA toolkit** _(allowing for tool to take advantage of the GPU)_.
 
-During installation of the drivers the system created new kernel modules, so its best for to-do a reboot:
+{{% notice Quick Lesson: Understanding kernel modules, dependencies, and kbuild %}}
+Before we begin installing the `nvidia-driver` [metapackage](https://wiki.debian.org/metapackage), let's talk about what it is. It's a collection of packages that, together, install all the required files, binaries, and libraries needed for the driver (i.e. kernel module). Since one, or more, of the dependencies (`nvidia-kernel-dkms`) will build the driver as an out-of-tree kernel module (i.e. an external module that is not built into the kernel), [kernel headers must be installed for that build to succeed](https://www.kernel.org/doc/html/latest/kbuild/modules.html#how-to-build-external-modules).  The system that performs this build operation is known as [kbuild](https://www.kernel.org/doc/html/latest/kbuild/modules.html#how-to-build-external-modules).
+{{% /notice %}}
+
+That being said, let's install the kernel headers and kbuild infrastructure:
+
+```console
+kali@kali:~$ sudo apt install -y linux-headers-amd64
+kali@kali:~$
+```
+
+During installation of the drivers the system created new kernel modules, so it's best to reboot the system afterwards:
 
 ```console
 kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
