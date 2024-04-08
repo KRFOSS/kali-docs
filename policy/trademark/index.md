@@ -6,6 +6,19 @@ weight:
 author: ["g0tmi1k",]
 ---
 
+## Linux
+
+<!--
+REF:
+  https://www.linuxfoundation.org/legal/trademark-usage
+  https://www.linuxfoundation.org/legal/the-linux-mark
+  https://www.linuxfoundation.org/legal/trademarks
+-->
+
+The registered trademark Linux® is used pursuant to a sublicense from the [Linux Foundation](https://www.linuxfoundation.org/legal/trademarks), the exclusive licensee of Linus Torvalds, owner of the mark on a worldwide basis.
+
+## Kali & OffSec
+
 [Kali Linux](/) and [OffSec](https://www.offsec.com/) want to promote the widespread recognition of our trademarks among the Internet community however, we also need to ensure our trademarks solely identify our company and our products. At the heart of our trademark policy is **trust** - we want to avoid the public from being confused into believing they are dealing with [Kali Linux](https://tsdr.uspto.gov/#caseNumber=87525001&caseType=SERIAL_NO&searchType=statusSearch) and/or [OffSec](https://tsdr.uspto.gov/#caseNumber=97816060&caseType=SERIAL_NO&searchType=statusSearch) when, in fact, they are not. This is of particular importance with regards to the development and distribution of trusted penetration testing distribution such as Kali Linux.
 
 This document identifies and the describes our trademarks and provides guidance as to their fair use. We are generally quite accommodating when it comes to fair and honest use of our trademarks so if you are so inclined, feel free to contact us for further guidance.
