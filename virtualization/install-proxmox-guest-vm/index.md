@@ -35,7 +35,7 @@ Proxmox has two ways of accessing a nested environment. The first is through vir
 - Locate the uploaded file by issuing a ```find / -name {filename}``` (eg. ```find / -name kali-linux-2023.4-qemu-amd64.iso```)
 - Change directory to the location of the file
 - Rename file from *.iso to *.qcow2 (eg. ```mv kali-linux-2023.4-qemu-amd64.iso kali-linux-2023.4-qemu-amd64.qcow2```)
-- Run command ```qm importimage VM-ID {filename.qcow2} {storage}``` (eg. ```qm importimage 108 kali-linux-2023.4-qemu-amd64.qcow2 local-lvm```)
+- Run command ```qm importdisk VM-ID {filename.qcow2} {storage}``` (eg. ```qm importdisk 108 kali-linux-2023.4-qemu-amd64.qcow2 local-lvm```)
 - Close shell
 - In Proxmox, locate the created VM
 - In the middle pane, click Hardware and then locate the 'Unused disk 0' in the right pane. Click Edit
