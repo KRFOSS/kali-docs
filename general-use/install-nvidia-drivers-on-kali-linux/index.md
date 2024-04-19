@@ -401,3 +401,50 @@ kali@kali:~$
 ```
 
 The combination of these tools should assist the troubleshooting process greatly. If you still experience issues, we recommend searching for similar setups and any nuances that may affect your specific system.
+
+
+#### Hashcat not detecting GPU
+
+If `Hashcat` is not detected the GPU even after following the above steps then do the following:
+
+1. Go to https://www.nvidia.com/Download/index.aspx?lang=en-us & select your proper GPU driver to install.
+2. Run `sudo su -`. 
+3. Do `init 3` (which will disable the Linux desktop and switch to a text interface.).
+4. If you have already installed Nvidia drivers using a package manager like `apt`, `nala` etc. you have to remove them first. You can do `sudo apt remove nvidia*` which removed all of the previously installed Nvidia drivers. If you don't do this you'll get a warning when you try to run the next step & the installation will be aborted.
+5. Install the driver file by doing `sudo ./Nvidia-<your version>.run`. Follow the installation flow & choose appropriate options. 
+6. If the installation is successful Reboot by typing `sudo reboot`
+
+Now run `hashcat -I` & if everything goes well then `Hashcat` will detect the GPU now and the output will look something like this
+
+```sh
+kali@kali:~$ hashcat -I
+
+OpenCL Info:
+============
+
+OpenCL Platform ID #1
+  Vendor..: NVIDIA Corporation
+  Name....: NVIDIA CUDA
+  Version.: OpenCL 3.0 CUDA 12.4.131
+
+  Backend Device ID #1
+    Type...........: GPU
+    Vendor.ID......: 32
+    Vendor.........: NVIDIA Corporation
+    Name...........: NVIDIA GeForce GTX 1650
+    Version........: OpenCL 3.0 CUDA
+    Processor(s)...: 14
+[...]
+```
+
+Now it's not over yet. After following this my laptop display went dark and only the external monitor display was visible this was expected because of the new updated drivers the system will use the `dedicated GPU` i.e. `Nvidia` one for as the primary graphics driver. Now to fix this thanks to `hackterr` on Discord you can either set your laptop display card to `Nvidia` or `integrated AMD` GPU for `laptop display` & keep the `Nvidia` one for the external display. I choose the latter one.
+- Add the following to your `/etc/X11/xorg.conf` file. (You need `sudo` to edit this)
+
+```sh
+Section "Device"
+ Identifier "Device1"
+ Driver "modesetting"
+ VendorName "Advanced Micro Devices"
+ BusID "PCI:5:00.0" # run lspci | grep -i vga # to see your bus ID for integrated GPU. In my case, it was 5:00.0
+EndSection
+```
