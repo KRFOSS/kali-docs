@@ -5,6 +5,19 @@ icon:
 author: ["gamb1t",]
 ---
 
+{{% notice info %}}
+
+There is currently a potential issue with the current version of the qemu-user-static package which can cause some programs to not perform properly. Kali has released a patched version of this package, however this is being frequently modified at the time being. If this documentation does not perform properly, download the package listed below and install it as follow:
+
+```console
+kali@kali:~$ wget https://snapshot.debian.org/archive/debian/20240509T024809Z/pool/main/q/qemu/qemu-user-static_8.2.3%2Bds-2_arm64.deb
+kali@kali:~$ 
+kali@kali:~$ sudo apt install ./qemu-user-static_8.2.3+ds-2_arm64.deb
+kali@kali:~$ 
+```
+
+{{% /notice %}}
+
 To run x86 code we are going to utilize [qemu-user-static](https://wiki.debian.org/QemuUserEmulation).
 
 #### Install necessary packages
