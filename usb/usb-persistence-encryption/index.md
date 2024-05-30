@@ -28,7 +28,7 @@ kali@kali:~$ dd if=kali-linux-2024.1-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 kali@kali:~$ fdisk /dev/sdX <<< $(printf "n\np\n\n\n\nw")
 ```
 
-When fdisk completes, the new partition should have been created at `/dev/sdX3`; this can be verified with the command `lsblk`.
+When fdisk completes, the new partition should have been created at `/dev/sdX3`; this can be verified with the command `lsblk /dev/sdX`.
 
 **0x03 - Encrypt the partition with LUKS:**
 
