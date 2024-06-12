@@ -75,13 +75,13 @@ If you want to keep stock WearOS, continue from here.
 
 ## Downloads
 
-- [Magisk](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Magisk-v24.3.apk)
-- [TWRP image for rover](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rover_recovery.img)
-- [TWRP image for rubyfish](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rubyfish_recovery.img)
-- [vbmeta image](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/vbmeta.img)
-- [dm-verity disabler](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Disable-DM-Verity_ForceEncrypt.zip)
+- Build files:
+  - [Magisk](https://kali.download/nethunter-images/devices/rubyfish/Magisk-v24.3.apk)
+  - TWRP image for [rover](https://kali.download/nethunter-images/devices/rubyfish/rover_recovery.img) or [rubyfish](https://kali.download/nethunter-images/devices/rubyfish/rubyfish_recovery.img)
+  - [vbmeta image](https://kali.download/nethunter-images/devices/rubyfish/vbmeta.img)
+  - [dm-verity disabler](https://kali.download/nethunter-images/devices/rubyfish/Disable-DM-Verity_ForceEncrypt.zip)
+  - [OneOS, Stock ROMs and Mobvoi packages](https://kali.download/nethunter-images/devices/rubyfish/) _(optional)_
 - [TicWatch Pro 3 NetHunter zip](https://www.kali.org/get-kali/#kali-mobile) - Get the latest update under TicWatch section
-- [OneOS, Stock ROMs and Mobvoi packages (optional)](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/)
 
 ## Additional recommended apps
 
