@@ -3,7 +3,7 @@ title: Kali inside VMware (Guest VM)
 description:
 icon:
 weight: 205
-author: ["g0tmi1k",]
+author: ["g0tmi1k"]
 ---
 
 This guide is about virtualizing Kali Linux inside of VMware, allowing you to have a Kali VM. This is a great way to use Kali, as it is completely separate from the host, allows you to interact with other VMs (as well as the host, and other machines on the network), and allows you to revert to snapshots.
@@ -22,13 +22,13 @@ Upon starting up VMware Workstation, select "**Create a New Virtual Machine**".
 
 ![](vm-01.png)
 
-- - -
+---
 
 When you have the option, select "**Custom (advanced)**" for the Virtual Machine Configuration, as this will allow us to have more control over the creation of the VM.
 
 ![](vm-02.png)
 
-- - -
+---
 
 The next screen is "Virtual Machine Hardware Compatibility", which we use "**Workstation 8.x**".
 
@@ -37,19 +37,19 @@ However, most users do not have their Kali Linux VM using all these extra resour
 
 ![](vm-03.png)
 
-- - -
+---
 
 On this screen, we select the Kali Linux image to use to install from. We select "**Browse**", and navigate to the location of the ISO that we [downloaded](/docs/introduction/download-official-kali-linux-images/). For more information on [what image to download, we have written up a guide](/docs/introduction/what-image-to-download/).
 
 ![](vm-04.png)
 
-- - -
+---
 
 When you see the "Guest Operating System" screen, select "**Linux**", and then the **latest version of Debian** for the version (as [Kali is based on Debian](/docs/policy/kali-linux-relationship-with-debian/)). In this example, its Debian 10. We are going to be use the x64 image to install Kali, so we have selected 64-bit.
 
 ![](vm-05.png)
 
-- - -
+---
 
 The next screen is "Virtual Machine Name", which is where you name the VM. This name is also used as the filename (such as the configuration, hard disk and snapshot - which is not changed from this point).
 
@@ -58,43 +58,43 @@ However for our releases, we use the version number in the name as it is a fixed
 
 ![](vm-06.png)
 
-- - -
+---
 
 The next screen is "Processors". Here we can start to define how many resources we give the VM. Kali will be able to perform more tasks simultaneously and quicker if it is allocated more resources. We select "**2 processors**" and "**2 cores per processors**", giving a total of 4 cores. You may wish to use more or less depending on your system requirements.
 
 ![](vm-07.png)
 
-- - -
+---
 
 "Memory" is the next section, where we can define how much RAM to use. Again, the higher amount of RAM, the more applications can be open and at increased performance. Various tools inside of Kali can be demanding of resources. When we make the general VMs, we select 2GB (**2048 MB**) for RAM, but we often increase this for our personal machines as we have high-performing devices with spare RAM which Kali can utilize.
 
 ![](vm-08.png)
 
-- - -
+---
 
 We are then presented with "Network Connection". We default to using a **NAT** connection. However, this can easy be altered (even when the VM is powered on). This allows for Kali VM to talk to the Internet, as well as the rest of the LAN connection, without it taking up an additional IP address. The downside to this is it will not be able to receive reverse shells (without port forwarding inside of VMware).
 
 ![](vm-09.png)
 
-- - -
+---
 
 Next is "I/O Controller Types". We accept the default value of "**LSI Logic**".
 
 ![](vm-10.png)
 
-- - -
+---
 
 Next is "Virtual Disk Type". We accept the default value of "**SCSI"**
 
 ![](vm-11.png)
 
-- - -
+---
 
 The following screen is "Disk", which allows us to "**create a new virtual disk"**
 
 ![](vm-12.png)
 
-- - -
+---
 
 This screen below, "Disk Size", allows us to define how large the virtual hard disk will be. We use "**80 GB**" for our VMs.
 
@@ -104,13 +104,13 @@ It is possible to increase/decrease the hard disk after the VM has been created,
 
 ![](vm-13.png)
 
-- - -
+---
 
 When it comes to the "Disk File" screen, we accept the default value, which has been defined from our VM name earlier in the setup process.
 
 ![](vm-14.png)
 
-- - -
+---
 
 We are then presented the final screen for the VM setup wizard, which gives us an overview of the settings we picked.
 
@@ -118,7 +118,7 @@ We are happy with what's shown to us, so we then press "**Finish**". If you try 
 
 ![](vm-15.png)
 
-- - -
+---
 
 If this is the first time using the wizard, you may have the following prompt explaining how installing "[VMware tools](/docs/virtualization/install-vmware-guest-tools/)" will give you a better experience when using the VM.
 
@@ -126,7 +126,7 @@ After reading and understanding the page, you may wish to tick the "Don't show t
 
 ![](vm-16.png)
 
-- - -
+---
 
 ### Edit Settings
 
@@ -134,44 +134,62 @@ Before we start up the VM, we now edit its settings, by pressing "**Edit virtual
 
 ![](vm-17.png)
 
-- - -
+---
 
 We do not have a use for a printer, so we remove it. Navigate to the "**Printer**" section, and then press "**Remove**".
 
 ![](vm-18.png)
 
-- - -
+---
 
 You may wish to edit the "**USB**" settings to alter how USB devices behave. Here we have disabled "**Automatically connect new USB devices**" _(may not have the option depending on your VMware version)_ and enabled "**Show all USB input devices**".
 
 ![](vm-usb.png)
 
-- - -
+---
 
 Another item to point out is in the "Display" section. Make sure that "**Accelerated 3D graphics**" is **disabled**, as people have reported that causes issues.
 
 ![](vm-gpu.png)
 
-- - -
+---
 
 We then move over to the "**Options**" tab, and move down to "**Power**". We choose to enable "**Report battery information to guests**", as it is a handy thing for users who use Kali on a laptop/notebook.
 
 ![](vm-19.png)
 
-- - -
+---
 
 In "**Shared folders**", we select "**Always enable**". At this stage, do not share any paths, as some users may not wish for it.
 
 ![](vm-20.png)
 
-- - -
+---
 
 The final option we alter is "**VMware Tool**", where we enable "**Synchronize guest time with host**".
 
 ![](vm-21.png)
 
-- - -
+---
 
 After all this is done, we save, start up the VM, and then continue installing Kali Linux as we normally would for a [bare metal install](/docs/installation/hard-disk-install/).
 
 During Kali Linux setup process, the [install wizard](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) should **detect if its inside a VM**. If it is, should then **automatically install any additional tools** (such as `open-vm-tools`) to give a better user experience. If you want to manually re-install it, you can see our [VMware Guest Tools Guide](/docs/virtualization/install-vmware-guest-tools/).
+
+### Expand Storage
+
+##### VMware Workstation/Fusion:
+
+Power off the Kali Linux VM.
+
+![](vm-hd.png)
+
+Navigate to VM Settings -> Hard Disk.
+
+![](vm-hd-1.png)
+
+Increase the desired disk size and click "Expand."
+
+![](vm-hd-2.png)
+
+Boot up Kali Linux and utilize gparted or a comparable tool to extend the partition and filesystem, ensuring the new space is allocated correctly.
