@@ -47,7 +47,9 @@ Now we can save and press play on the VM. Once prompted, we select "Install":
 
 ![](utm-setup-11.png)
 
-Once the install is finished we can go back to the settings and remove the "Serial" device by right-clicking and selecting "Remove":
+Once the install is finished, clear the ISO from the VM's CD/DVD drive. 
+
+Then, go to the VM's settings and remove the "Serial" device by right-clicking and selecting "Remove":
 
 ![](utm-setup-12.png)
 
