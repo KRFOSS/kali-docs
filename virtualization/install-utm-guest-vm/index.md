@@ -58,4 +58,4 @@ option:
 
 ![](utm-setup-13.png)
 
-We can now use our VM like normal.
+We should scroll down under "Shared Directory" and select the installer iso image and remove it, now we can now use our VM like normal.
