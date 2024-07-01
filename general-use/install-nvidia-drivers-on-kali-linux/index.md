@@ -402,6 +402,9 @@ kali@kali:~$
 
 The combination of these tools should assist the troubleshooting process greatly. If you still experience issues, we recommend searching for similar setups and any nuances that may affect your specific system.
 
+{{% notice info %}}
+The following is user generated content. In general, the Kali team does not recommend to utilize non-apt tools and downloads. This is a case where a non-apt driver is necessary, but this should only be performed if the previous documentation does not work.
+{{% /notice %}}
 
 #### Hashcat not detecting GPU
 
