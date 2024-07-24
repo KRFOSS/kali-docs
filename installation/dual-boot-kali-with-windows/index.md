@@ -29,7 +29,7 @@ Both of these can be addressed post installation, as it saves swapping to the in
 
 {{% notice info %}}
 This installation has the potential to go wrong very easily as it involves editing existing partitions. Be aware of what partitions you are modifying and where you are installing Kali Linux to.<br />
-Having a backup of your Linux files available is a good idea in the event something goes wrong.
+Having a backup of your Windows files available is a good idea in the event something goes wrong.
 {{% /notice %}}
 
 ### Resize Windows Procedure
