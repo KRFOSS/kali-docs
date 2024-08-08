@@ -41,6 +41,7 @@ kali@kali:~$ cd ~/
 kali@kali:~$ mkdir -p arm-stuff/kernel/toolchains/
 kali@kali:~$ cd arm-stuff/kernel/toolchains/
 kali@kali:~$ git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4-6-2.git
+
 ```
 
 ### Set Environment Variables
@@ -53,3 +54,8 @@ kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-lin
 ```
 
 Now your ARM cross-compilation environment is complete and you can proceed with building your own ARM kernels as described in [the article on preparing a Kali Linux ARM chroot](/docs/development/kali-linux-arm-chroot/).
+```console
+kali@kali:~$ cd ~/
+kali@kali:~$ mkdir -p arm-stuff/kernel/toolchains/
+kali@kali:~$ cd arm-stuff/kernel/toolchains/
+kali@kali:~$ git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4-6-2.git
