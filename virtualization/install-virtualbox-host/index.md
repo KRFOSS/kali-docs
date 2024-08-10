@@ -4,6 +4,7 @@ description:
 icon:
 weight: 110
 author: ["g0tmi1k", "Rclev4Sec",]
+edit: ["gad3r"]
 ---
 
 You can install VirtualBox **on** Kali Linux, allowing you to use virtual machines (VMs) inside of Kali Linux. However if you are wanting to install Kali Linux **as** a VM, you want our [Kali Linux Guest VirtualBox](/docs/virtualization/install-virtualbox-guest-vm/) guide.
@@ -11,6 +12,53 @@ You can install VirtualBox **on** Kali Linux, allowing you to use virtual machin
 VMs are great. There are many upsides with using them. One of the being, able to run multiple Operating Systems (OSs) at the same time. You can have your host machine "untouched", and then only interact with the guest VMs. Another is when something is going right, take a snapshot. When something goes wrong, revert back.
 
 VirtualBox is free and open source. There are a few other software such as QEMU, KVM/Xen with virt-manager. Then there is also [VMware Workstation & Fusion](/docs/virtualization/install-vmware-host/), which is a commercial software (there is VMware Player which is free but it is limited in features).
+
+
+VirtualBox is officially available in kali-rolling repositories. 
+
+There are two ways to install `virtualbox`:
+1.From Kali repositories.
+2.From Oracle repository.
+
+### Preparation
+
+Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine:
+
+```console
+kali@kali:~$ sudo apt update
+[...]
+kali@kali:~$
+kali@kali:~$ sudo apt full-upgrade -y
+[...]
+kali@kali:~$
+kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
+kali@kali:~$
+```
+### 1. From Kali Linux repositories
+
+Add `contrib` component to `/etc/apt/sources.list`.
+
+```console
+deb http://http.kali.org/kali kali-rolling main contrib non-free
+```
+Update the list of available packages: 
+
+```console
+kali@kali:~$ sudo apt update
+```
+Install `virtualbox`:
+
+```console
+kali@kali:~$ sudo apt install virtualbox
+```
+The extension pack can be installed through:
+
+```console
+kali@kali:~$ sudo apt install virtualbox-ext-pack
+```
+
+### 2. From Oracle Virtualbox third-party repository
+
 
 ### Preparation
 

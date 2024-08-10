@@ -23,12 +23,12 @@ The specifics of this procedure will vary depending on whether you're doing it o
 
 1. A _[verified](/docs/introduction/download-official-kali-linux-images/)_ copy of the [appropriate ISO image](/docs/introduction/what-image-to-download/) of the latest Kali build image for the system you'll be running it on.
 
-2. If you're running under Windows, there is not one tool that is considered the overall best for imaging. We recommend [Etcher](https://www.balena.io/etcher/) _(installer or portable)_ as it is simpler to use, however [Rufus](https://rufus.ie/) is another popular option with its advance options. If one does not work for you, consider the other.
+2. If you're running under Windows, there is no one tool that is considered the overall best for imaging. We recommend [Etcher](https://www.balena.io/etcher/) _(installer or portable)_ as it is simpler to use, however [Rufus](https://rufus.ie/) is another popular option with its advanced options. If one does not work for you, consider the other.
 
 3. A USB drive, 8GB or larger _(Systems with a direct SD card slot can use an SD card with similar capacity. The procedure is identical.)_
 
 {{% notice info %}}
-During this procedure, you might see some warnings telling you that Kali Linux contains malware, trojan, virus or whatever. This message usually comes from Windows Defender or USB Defender, or a third-party antivirus. Those warnings are expected: Kali Linux is packed with pentesting tools that are likely to be flagged as malware. Just ignore the warnings.
+During this procedure, you might see some warnings telling you that Kali Linux contains malware, trojan, virus or whatever. This message usually comes from Windows Defender, USB Defender, or a third-party antivirus. Those warnings are expected: Kali Linux is packed with pentesting tools that are likely to be flagged as malware. Just ignore the warnings.
 {{% /notice %}}
 
 - - -
@@ -86,4 +86,4 @@ Depending on the system _(such as BIOS or UEFI)_, as well as the version of Wind
 - **M**aster **B**oot **R**ecord (MBR) is often used on legacy systems that use BIOS as well as UEFI which has **C**ompatibility **S**upport **M**odule (CSM) enabled
 - **G**UID **P**artition **T**able (GPT) is required where UEFI has CSM disabled, forcing to use the modern standard
 
-After writing the image to the USB drive, reboot Windows with the USB inserted. Depending on the motherboard manufacture, will also depend on the next stage. Some motherboard's support a "temporary" boot menu, allowing for a one off selection. Others you need to enter BIOS/UEFI to configure it to try and boot from USB first. Entering either location, also depends on the motherboard. You can look up on the manufactures website and read the manual, try and read the screen when booting _(however the text may be shown too quick or full logos used)_, or try common key combinations (such as `ESC`, `F1`, `F2`, `F3`, `F4`, `F8`, `F10`, `F11`, `F12` or `DEL`).
+After writing the image to the USB drive, reboot Windows with the USB inserted. Depending on the motherboard manufacture, will also depend on the next stage. Some motherboards support a "temporary" boot menu, allowing for a one off selection. Others you need to enter BIOS/UEFI to configure it to try and boot from USB first. Entering either location, also depends on the motherboard. You can look up on the manufacture's website and read the manual, try and read the screen when booting _(however the text may be shown too quick or full logos used)_, or try common key combinations (such as `ESC`, `F1`, `F2`, `F3`, `F4`, `F8`, `F10`, `F11`, `F12` or `DEL`).

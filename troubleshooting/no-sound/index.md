@@ -25,15 +25,15 @@ kali@kali:~$ sudo apt full-upgrade -y
 kali@kali:~$
 ```
 
-This will automatically install PipeWire. It will be effective after a reboot. If for some reason the sound doesn't work after that, try to reboot.
+This will automatically install PipeWire. It will be effective after a reboot, so you might want to reboot _right after_ to make sure that a) PipeWire is up and running and b) audio works!
 
-If sound still doesn't work after that, let's install the `pipewire-audio` metapackage with the following command:
+If for some reason there's no sound after that, what you can try next is to install the `pipewire-audio` metapackage with the following command:
 
 ```console
 kali@kali:~$ sudo apt install --mark-auto -y pipewire-audio
 ```
 
-Then reboot again. If sound still doesn't work, you might want to reach out on [Kali's bugtracker](https://bugs.kali.org) so we can help troubleshoot the issue.
+Then reboot again.
 
 ## Missing firmware for Intel SOF audio devices
 

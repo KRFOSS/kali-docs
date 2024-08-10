@@ -77,8 +77,12 @@ Please note Magisk 21.0 is recommended, included in the following link.
 
 ## Download links
 
-- [Build files](https://build.nethunter.com/contributors/re4son/catfish/TicWatch_Pro_NetHunter_files.zip)
-- [WearOS NetHunter zip](https://kali.download/nethunter-images/kali-2023.2/nethunter-2023.2-ticwatchpro-wearos-kalifs-nano.zip)
+- Build files:
+  - [Magisk](https://kali.download/nethunter-images/devices/catfish/Magisk-v21.0.zip)
+  - TWRP image for [catfish](https://kali.download/nethunter-images/devices/catfish/twrp-3.4.0-0-catfish.img)
+  - [Vendor image](https://kali.download/nethunter-images/devices/catfish/vendor.img)
+  - [Optimized WearOS](https://kali.download/nethunter-images/devices/catfish/2-ROM-PWDD.190617.074-AUG-09.zip)
+- [TicWatch Pro NetHunter zip](https://www.kali.org/get-kali/#kali-mobile) - Get the latest update under TicWatch section
 
 ## Additional supported apps
 
@@ -101,10 +105,10 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 ## Upcoming features (not guaranteed)
 
-- Nexmon, as the chipset is supported, needs some time
+- Nexmon, as the chipset is supported, we are very close - ETA 2024.2
 - Router Keygen (to be optimised)
-- Hijacker (if nexmon succeeds)
-- Mifare Classic Tool (need to build OS with android.hardware.nfc enabled)
+- Hijacker (if nexmon succeeds) - ETA 2024.2
+- Mifare Classic Tool (need to build OS with android.hardware.nfc enabled) - ETA 2024.4
 
 ## Hardware limitations
 

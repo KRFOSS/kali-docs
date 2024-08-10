@@ -19,7 +19,7 @@ For ease of use, please use a root account. This can be done with "sudo su".
 {{% /notice %}}
 
 ```console
-kali@kali:~$ dd if=kali-linux-2023.4-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-2024.2-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 ```
 
 **0x02 - Create and format an additional partition on the USB drive**. In our example, we create a persistent partition in the empty space above the Kali Live partitions:
@@ -28,7 +28,7 @@ kali@kali:~$ dd if=kali-linux-2023.4-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 kali@kali:~$ fdisk /dev/sdX <<< $(printf "n\np\n\n\n\nw")
 ```
 
-When fdisk completes, the new partition should have been created at `/dev/sdX3`; this can be verified with the command `lsblk`.
+When fdisk completes, the new partition should have been created at `/dev/sdX3`; this can be verified with the command `lsblk /dev/sdX`.
 
 **0x03 - Encrypt the partition with LUKS:**
 

@@ -22,7 +22,17 @@ If your device is older, please check to make sure your kernel version is 3.4+ a
 
 ## Finding Kernel Sources
 
-One of the reasons why Nexus was chosen is because all kernel sources are made available through [Google's own website](https://android.googlesource.com). Finding sources can be easy or difficult depending on the manufacturer. A good resource is usually the [XDA forums](https://forum.xda-developers.com/) as someone else has probably already built a working kernel and they must provide the sources under GPL. Most kernel development pages on XDA must provide a link to their sources.
+One of the reasons why Nexus was chosen is because all kernel sources are made available through [Google's own website](https://android.googlesource.com).  
+Finding sources can be easy or difficult depending on the manufacturer, here are the most common ones.  
+[Google](https://android.googlesource.com/kernel/msm/) (pick your architecture and look at the branches)  
+[LG](http://opensource.lge.com/index)  
+[Samsung](http://opensource.samsung.com/reception.do)  
+[HTC](https://www.htcdev.com/devcenter/downloads)  
+[OnePlus](https://github.com/OnePlusOSS)  
+[Motorola](https://github.com/MotorolaMobilityLLC)  
+[Sony](https://github.com/sonyxperiadev/kernel)  
+
+Another good resource is usually [XDA forums](https://forum.xda-developers.com/) as someone else might have already built a working kernel and they must provide the sources under GPL. Most kernel development pages on XDA must provide a link to their sources.
 
 ## Making a Test Kernel
 
@@ -32,24 +42,49 @@ Assuming you don't have a toolchain downloaded already, you can begin by cloning
 kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel
 kali@kali:~$ cd kali-nethunter-kernel
 ```
+***[Optional step]*** You can find multiple example config files available in local.config.examples.  
+If you find something that matches your device, copy it to kali-nethunter-kernel named as local.config ***(Make sure to then edit it to check that everything matches your kernel!)***
 
-Find your best matching local.config example file, modify if necessary, and copy to kernel builder folder:
+As mentioned in the square brackets this step is optional.  
+This is because it is not recommended to follow this step in case your device isn't listed in local.config.examples as every device is different and using the wrong config will cause compilation errors, so you would be better off skipping to the next step in that case. 
 
 ```console
-kali@kali:~$ cp local.config.examples/local.config.example.sdm660 local.config
+kali@kali:~$ cp local.config.examples/CONFIG_YOU_WANT local.config
+kali@kali:~$ nano local.config
+```
+
+***[Recommended step]*** You can make your own local.config by copying config to a file called local.config and then editing local.config to match your device's kernel.  
+After you finish editing local.config, make sure to delete everything except for what you have edited.  
+***Note: In case you don't know what to edit, make sure to look at the different configs inside local.config.examples to get an idea.***  
+If you still don't understand what to edit, take a look inside build.sh to understand how it works  
+
+```console
+kali@kali:~$ cp config local.config
+kali@kali:~$ nano local.config
+```
+After a local.config file has been created, you can start the building process by running build.sh 
+
+```console
 kali@kali:~$ ./build.sh
 ```
 
 ![](nethunter-porting1.png)
 
-Select ***S. Setup Environment and download toolchains***.
-When ready, build your test kernel with ***2. Configure & compile kernel from scratch***
+First, select ***S. Setup Environment and download toolchains***.  
+Next, build your test kernel with ***2. Configure & compile kernel from scratch***
 
-Select your device's defconfig, then save and exit to start the building process.
+When prompted, select your device's defconfig then save and exit to start the building process. 
+ 
+If the build was successful, add your device details like codename, boot_block, slot_device, etc with ***8. Edit Anykernel config***  
+Create your first test kernel installer with ***6. Create Anykernel zip*** and then flash your kernel to see it in action. 
 
-If the build was successful, add your device details like codename, boot_block, slot_device, etc with ***8. Edit Anykernel config***
-Create your first test kernel installer with ***6. Create Anykernel zip***
+If the build was ***Not*** successful then you can try the following 
 
-Now flash your kernel to see it in action!
-
-Please note if you will continue and modify the kernel, you can use ***3. Configure & recompile kernel from previous run*** to save time.
+Make sure that the local.config file that you used has everything properly configured  
+Know exactly what errored out by looking for what went wrong to search it on google  
+Look if there is any patch inside ***4. Apply Nethunter kernel patches*** that addresses the same error and patch it if it does  
+If none of the above works, then it would be best to go back and forth between viewing build.sh script and [Porting nethunter](https://www.kali.org/docs/nethunter/porting-nethunter/#making-a-test-kernel) to try and manually fix the issue. 
+  
+  
+  
+***Note: If you will continue and modify the kernel, you can use ***3. Configure & recompile kernel from previous run*** to save time.***

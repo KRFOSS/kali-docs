@@ -10,6 +10,23 @@ author: ["gamb1t",]
 As of February 2023 the following is how to set up an AWS Kali instance. AWS's interface is constantly being updated, and in the future may not be 100% accurate. Should this be the case, please file an [issue on our GitLab](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues) and follow [Amazon's tutorials](https://aws.amazon.com/ec2/getting-started/).
 {{% /notice %}}
 
+{{% notice info %}}
+The Kali Linux AWS AMI image is configured to allow users to easily utilize all of Kali's features and tools without unnecessary blockers. What this means for users who share a cloud instance is that anyone who has IAM access to the EC2 serial console will be allowed unrestricted access to a root shell. If you would like to lock down this behavior, the following file can be modified to do so.
+{{% /notice %}}
+
+```console
+kali@kali:~$ cat /etc/systemd/system/serial-getty@.service.d/autologin.conf
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty --autologin root -o '-p -f -- \\u' --keep-baud 115200,38400,9600 --noclear %I $TERM
+kali@kali:~$
+kali@kali:~$ cat /etc/systemd/system/serial-getty@.service.d/autologin.conf
+[Service]
+ExecStart=
+ExecStart=-/sbin/agetty -o ‘-p -- \\u’ --keep-baud 115200,38400,9600  --noclear %I $TERM
+kali@kali:~$
+```
+
 ## Creating our AWS instance
 
 The first thing we do is create [AWS](https://portal.aws.amazon.com/billing/signup) account. Only once we see the following screen are we able to proceed with setting up our instance.

@@ -75,13 +75,13 @@ If you want to keep stock WearOS, continue from here.
 
 ## Downloads
 
-- [Magisk](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Magisk-v24.3.apk)
-- [TWRP image for rover](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rover_recovery.img)
-- [TWRP image for rubyfish](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/rubyfish_recovery.img)
-- [vbmeta image](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/vbmeta.img)
-- [dm-verity disabler](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/Disable-DM-Verity_ForceEncrypt.zip)
-- [WearOS NetHunter zip](https://kali.download/nethunter-images/kali-2023.2/nethunter-2023.2-generic-armhf-kalifs-nano.zip)
-- [OneOS, Stock ROMs and Mobvoi packages (optional)](https://build.nethunter.com/contributors/re4son/catfish/TicWatch-Pro-3-files/)
+- Build files:
+  - [Magisk](https://kali.download/nethunter-images/devices/rubyfish/Magisk-v24.3.apk)
+  - TWRP image for [rover](https://kali.download/nethunter-images/devices/rubyfish/rover_recovery.img) or [rubyfish](https://kali.download/nethunter-images/devices/rubyfish/rubyfish_recovery.img)
+  - [vbmeta image](https://kali.download/nethunter-images/devices/rubyfish/vbmeta.img)
+  - [dm-verity disabler](https://kali.download/nethunter-images/devices/rubyfish/Disable-DM-Verity_ForceEncrypt.zip)
+  - [OneOS, Stock ROMs and Mobvoi packages](https://kali.download/nethunter-images/devices/rubyfish/) _(optional)_
+- [TicWatch Pro 3 NetHunter zip](https://www.kali.org/get-kali/#kali-mobile) - Get the latest update under TicWatch section
 
 ## Additional recommended apps
 
@@ -92,6 +92,8 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 - Kali services
 - Custom Commands
+- Bluetooth Arsenal
+- KeX
 - MAC Changer
 - HID Attacks
 - DuckHunter
@@ -100,11 +102,10 @@ Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
 ## Upcoming features (not guaranteed)
 
-- Nexmon, as the chipset is supported, needs some time
-- Bluetooth Arsenal (internal bluetooth via blueblinder, as carwhisperer fails to r/w when SCO channel is connected)
+- Nexmon, as the chipset is supported, needs some time - ETA 2024.2
 - Router Keygen (to be optimised)
-- Hijacker (if nexmon succeeds)
-- Mifare Classic Tool (need to build OS with android.hardware.nfc enabled)
+- Hijacker (if nexmon succeeds) - ETA 2024.2
+- Mifare Classic Tool (need to build OS with android.hardware.nfc enabled) - ETA 2024.4
 
 ## Hardware limitations
 

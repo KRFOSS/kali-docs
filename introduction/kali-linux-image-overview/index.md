@@ -9,7 +9,7 @@ author: ["gamb1t",]
 Below is an overview of where you can get Kali Linux that is kept up-to-date when a new platform or system is added. Each entry that has a [Kali docs](/docs/) page available will have their page linked.
 
 {{% notice info %}}
-WSL does not have enough unique methods of obtaining Kali to warrant its own column. For this reason, it is included in the "Containers" column.
+WSL does not have enough unique methods of obtaining Kali to warrant its own column. For this reason, it is included in the "Virtual Machines" column.
 {{% /notice %}}
 
 | Installations | Virtual Machines | Cloud | Containers | USB | ARM (Single Board Computer) | Mobile (NetHunter) |

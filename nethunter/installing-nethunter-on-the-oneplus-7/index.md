@@ -18,7 +18,7 @@ author: ["re4son",]
   
 ## 1. Flash latest stock (OOS) Android 10
   
-1.01.	Download and unzip [guacamoleb_14_P.32_210127.zip](https://build.nethunter.com/contributors/re4son/guacamole/guacamoleb_14_P.32_210127.zip) on your Windows computer  
+1.01.	Download and unzip [guacamoleb_14_P.32_210127.zip](https://kali.download/nethunter-images/devices/guacamole/guacamoleb_14_P.32_210127.zip) on your Windows computer
 1.02	Open admin cmd and type: "bcdedit /set testsigning on", reboot  
 1.03	Run MsmDownloadTool V4.0.exe  
 1.04	Power off OnePlus 7, press vol + & vol - at the same time, count to 5 and connect phone to laptop  
@@ -34,8 +34,8 @@ author: ["re4son",]
 ## 2. Flash TWRP and Magisk
   
 2.01	Copy to Oneplus7  
-2.02	Download https://github.com/topjohnwu/Magisk/releases/download/v19.3/Magisk-v19.3.zip to Oneplus7  
-2.03	Download https://dl.twrp.me/guacamoleb/twrp-3.3.1-1-guacamoleb.img.html to your PC  
+2.02	Download [Magisk-v19.3.zip](https://kali.download/nethunter-images/devices/guacamole/Magisk-v19.3.zip) to Oneplus7
+2.03	Download [twrp-3.3.1-1-guacamoleb.img](https://kali.download/nethunter-images/devices/guacamole/twrp-3.3.1-1-guacamoleb.img) to your PC
 2.04	Install Android platform tools  
 2.05	In developer options of your phone, enable USB debugging  
 2.06	adb kill-server && ./adb start-server  
@@ -58,7 +58,7 @@ author: ["re4son",]
 ## 4. Install NetHunter
   
 4.01	Download image from [our download page](/get-kali/#kali-mobile)  
-4.02    there is a bug in the current installer requiring to install the kernel separately, [download it here](https://build.nethunter.com/contributors/re4son/guacamole/kernel-nethunter-2021.3-oneplus7-oos-ten.zip)  
+4.02    there is a bug in the current installer requiring to install the kernel separately, [download it here](https://kali.download/nethunter-images/devices/guacamole/kernel-nethunter-2021.3-oneplus7-oos-ten.zip)
 4.03	reboot into recovery  
 4.04	install nethunter zip  
 4.06    install magisk again  
