@@ -23,6 +23,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
   # bound that mirror operators want to know.
   #
   ## /kali, aka. the main package repository
+  - Pre-2024.3 : 653 GB
   - Pre-2024.1 : 813 GB
   - 2023.3     : 739 GB
   - 2023.1     : 592 GB
@@ -35,6 +36,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
   - 2015       : 450 GB
 
   ## /kali-images, aka. the base images repository
+  - Pre-2024.3 : 158 GB
   - Pre-2024.1 : 171 GB
   - 2023.3     : 153 GB
   - 2023.1     : 148 GB
