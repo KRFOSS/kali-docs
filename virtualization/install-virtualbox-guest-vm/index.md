@@ -135,3 +135,25 @@ All that is left now to do is press "Start".
 After all this is done, we save, start up the VM, and then continue installing Kali Linux as we normally would for a [bare metal install](/docs/installation/hard-disk-install/).
 
 During Kali Linux setup process, the [install wizard](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) should **detect if its inside a VM**. If it is, should then **automatically install any additional tools** (such as `virtualbox-guest-x11`) to give a better user experience. If you want to manually re-install it, you can see our [VirtualBox Guest Guide](/docs/virtualization/install-virtualbox-guest-additions/).
+
+- - -
+
+### Expanding Storage
+
+##### Oracle VirtualBox 7.0:
+
+Make sure that your Kali Linux virtual machine is powered off.
+
+![](vb-18.png)
+
+- - -
+
+Now after selecting your Virtual Machine from the Virtual Box menu, click on File -> Tools -> Virtual Media Manager
+
+![](vb-19.png)
+
+- - -
+
+Now click on the vdi file that contain your virtual machine. Now you can adjust the size of the virtual machine. After adjusting the size, click on 'Apply'.
+
+![](vb-20.png)
