@@ -23,7 +23,7 @@ Navigate to ***"Device Drivers -> Multimedia support"*** and configure the follo
 
 &nbsp;
 
-Navigate to _Device Drivers_ -> _Multimedia_ -> _DVB/ATSC adapters_ -> _Customize DVB Frontends_ and enable the following:
+Navigate to **_→ Device Drivers → Multimedia support → Media USB Adapters_ (CONFIG_MEDIA_USB_SUPPORT=y)** and enable the following:
 
 - select ***"AirSpy"***
   (CONFIG_USB_AIRSPY=y)
