@@ -3,7 +3,7 @@ title: Kali inside Hyper-V (Guest VM)
 description:
 icon:
 weight: 215
-author: ["gamb1t",]
+author: ["gamb1t","serval123"]
 ---
 
 For most Windows users Hyper-V is already enabled. However, in case it isn't enabled on your system you can follow one of the following docs pages from Microsoft:
