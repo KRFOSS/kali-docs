@@ -243,7 +243,7 @@ $ time ./build.sh --installer >/dev/null && time ./build.sh --live >/dev/null
 - Have less packages included (such as switching `kali-linux-default` to `kali-linux-top10`)
 - Improve access to packages
 
-You often find that you are waiting on packages to be pulled down. You can either setup a local proxy on the same machine (such as `apt-cacher` or `apt-cacher-ng`). Alternatively, you can setup a [local network mirror](/docs/community/setting-up-a-kali-linux-mirror/).
+You often find that you are waiting on packages to be pulled down. You can either setup a local proxy on the same machine (such as `approx` or `apt-cacher-ng`). Alternatively, you can setup a [local network mirror](/docs/community/setting-up-a-kali-linux-mirror/).
 
 We can instruct the build-script to use a different mirror, by doing the following (assuming our network mirror is located at `http://192.168.0.101/kali`):
 
