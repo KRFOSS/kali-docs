@@ -8,7 +8,7 @@ author: ["gamb1t",]
 
 In December of 2019 we released a [blog post](/blog/python-2-end-of-life/) talking about how we will deal with Python 2's End-of-Life. Since then there has been quite a lot of tools that users use that have not been ported to Python 3, causing issues when they try to use them. This page will cover a way of using the depreciated version in a safe way.
 
-## pyenv
+# pyenv
 
 Python 2 is no longer being maintained in the Debian repositories. This means that we must find a way to work around this issue. `pyenv` solves this problem by allowing us to install multiple versions of Python that do not conflict with each other. Currently it is not in the Debian or Kali repository, so we will need to install it from source. Thankfully, there is a handy [installation script](https://github.com/pyenv/pyenv-installer) that the authors have released. Let's go through the installation and setup together:
 
@@ -115,3 +115,19 @@ kali@kali:~$
 We can now install dependencies as needed for whatever tools we are using. When we want to swap back to Python 3, we just need to set the global to be system.
 
 One thing to keep in mind is to stick with installing the dependencies via `pip`. `apt` will not be very kind if you are trying to install Python 2 dependencies through it and through pip, so just stick with pip in this case.
+
+# Get Pip
+
+Another option available is [get-pip](https://pip.pypa.io/en/stable/installation/). Using git-pip you can simply run a python script and install pip for the version used. In this case, Python 2. We can do this with the following:
+
+```console
+kali@kali:~$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+kali@kali:~$ python2.7 get-pip.py
+```
+
+After this is done, we can use pip like normal if we remember to use the `-m pip` flag following the python version. For example, if we want to run a script that requires the *requests* module, we can install and run it like so:
+
+```console
+kali@kali:~$ python2.7 -m pip install requests
+kali@kali:~$ python2.7 <file>
+```
