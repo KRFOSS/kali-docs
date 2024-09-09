@@ -3,7 +3,7 @@ title: Updating a Package
 description:
 icon:
 weight:
-author: ["deleteduser",]
+author: ["serval123",]
 ---
 
 To update a package in Kali Linux, you can use the package management tools provided by Debian, which Kali Linux is based on. The primary package management tool is apt. Regularly updating your system is crucial for security, as updates often include patches for vulnerabilities. You can update the packages in the following ways :

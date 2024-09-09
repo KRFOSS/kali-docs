@@ -3,7 +3,7 @@ title: Kali inside Hyper-V (Guest VM)
 description:
 icon:
 weight: 215
-author: ["gamb1t",]
+author: ["gamb1t","serval123"]
 ---
 
 For most Windows users Hyper-V is already enabled. However, in case it isn't enabled on your system you can follow one of the following docs pages from Microsoft:
@@ -34,3 +34,49 @@ From here we can either select 'Connect' if we are confident in Windows's select
 ![](hyper-v-cpu-settings.png)
 
 In the case of this machine, the only change needed was for the number of virtual processors. We dropped it down from 6 to 2. We are then ready to connect to our VM and continue [setup like normal](/docs/installation/hard-disk-install/)
+
+- - -
+
+### Expanding Storage
+
+##### Hyper-V:
+
+Ensure that your kali linux virtual machine is powered off.
+
+- - -
+
+Right click on your kali linux virtual machine in Hyper-V Manager and click on settings.
+
+![](hyper-v-1.png)
+
+- - -
+
+Now click on the virtual hard drive that contain your kali linux virtual machine.
+Now click on Edit button on the dialog box on the right.
+
+![](hyper-v-2.png)
+
+- - -
+
+Click Next.
+
+![](hyper-v-3.png)
+
+- - -
+
+Now click on the Expand option.
+
+![](hyper-v-4.png)
+
+- - -
+
+Enter your new size of the Virtual Machine and click next.
+
+![](hyper-v-5.png)
+
+- - -
+
+Click on Finish.
+
+![](hyper-v-6.png)
+

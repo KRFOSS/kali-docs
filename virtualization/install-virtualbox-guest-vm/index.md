@@ -3,7 +3,7 @@ title: Kali inside VirtualBox (Guest VM)
 description:
 icon:
 weight: 210
-author: ["g0tmi1k",]
+author: ["g0tmi1k","serval123",]
 ---
 
 This guide is about virtualizing Kali Linux inside of VirtualBox, allowing you to have a Kali VM. This is a great way to use Kali, as it is completely separate from the host, allows you to interact with other VMs (as well as the host machine and other machines on the network), and allows you to revert to snapshots.
