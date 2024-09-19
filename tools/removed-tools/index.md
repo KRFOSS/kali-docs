@@ -12,6 +12,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 |---------|------|--------|
 | [apt2](https://pkg.kali.org/pkg/apt2) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/apt2/-/issues/1)) |
 | [automater](https://pkg.kali.org/pkg/automater) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/automater/-/issues/1)) |
+| [backdoor-factory](https://pkg.kali.org/pkg/backdoor-factory) | 2024-09-19 | Unmaintained and broken tool ([#1](https://github.com/secretsquirrel/the-backdoor-factory/commit/87bd28d), [#2](https://bugs.debian.org/1027037)) |
 | [bbqsql](https://pkg.kali.org/pkg/bbqsql) | 2020-03-30 | Python 2 |
 | [bdfproxy](https://pkg.kali.org/pkg/bdfproxy) | 2019-10-10| Python 2 ([#1](https://gitlab.com/kalilinux/packages/bdfproxy/-/issues/1)) |
 | [blindelephant](https://pkg.kali.org/pkg/blindelephant) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/blindelephant/-/issues/1)) |
