@@ -49,7 +49,7 @@ If you want run a **private mirror**, see the dedicated section at the end.
   - 2015       :  50 GB
 -->
 
-To be an official Kali Linux mirror, you will need a web-accessible server **(http required and https if possible too)** with lots of disk space, good bandwidth, rsync, and SSH access enabled. As of March 2024, the main package repository is about 500 GB and the images repository is about 175 GB but you can expect those numbers to fluctuate, and grow slowly over time. Thus your server should have 1 TB of storage available at least.
+To be an official Kali Linux mirror, you will need a web-accessible server (HTTP required and HTTPS if possible too) with **lots of disk space, good bandwidth, rsync, and SSH access enabled**. The machine **must have a static IP address**. As of March 2024, the main package repository is about 500 GB and the images repository is about 175 GB but you can expect those numbers to fluctuate, and grow slowly over time. Thus your server should have 1 TB of storage available at least.
 
 A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. FTP access is optional.
 
