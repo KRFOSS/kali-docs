@@ -47,3 +47,61 @@ For those who are not comfortable with this automatic behavior, it's very simple
 ```console
 kali@kali:~$ sudo systemctl disable regenerate-ssh-host-keys.service
 ```
+
+## OpenSSH: Restoring removed functionality via packages
+
+As software and security advance, OpenSSH will remove features that are no longer commonly used from the default package. To keep the functionality of these removed features, there are alternative packages that can be installed.
+
+### openssh-client-ssh1: DSA keys (removed OpenSSH 9.8p1), SSH1 protocol (removed OpenSSH 7.6)
+
+The first package that we can use, `openssh-client-ssh1`, provides support for DSA keys and SSH1 protocol. This package is, in practicality, OpenSSH frozen at version 7.5. It provides binaries for `ssh`, `scp`, and `ssh-keygen`.
+
+```console
+kali@kali:~$ ssh -V
+OpenSSH_9.8p1 Debian-8, OpenSSL 3.3.2 3 Sep 2024
+kali@kali:~$
+kali@kali:~$ sudo apt update
+[...]
+kali@kali:~$
+kali@kali:~$ sudo apt install -y openssh-client-ssh1
+Installing:
+  openssh-client-ssh1
+
+Summary:
+  Upgrading: 0, Installing: 1, Removing: 0, Not Upgrading: 1293
+  Download size: 478 kB
+  Space needed: 1,425 kB / 1,245 GB available
+
+[...]
+kali@kali:~$
+kali@kali:~$ dpkg --listfiles openssh-client-ssh1 | grep bin/
+/usr/bin/scp1
+/usr/bin/ssh-keygen1
+/usr/bin/ssh1
+kali@kali:~$
+kali@kali:~$ ssh1 -V
+OpenSSH_7.5p1 Debian-17, OpenSSL 3.3.2 3 Sep 2024
+kali@kali:~$
+```
+
+### openssh-client-gssapi: GSS-API (removed OpenSSH 9.8p1, pre-installed in Kali Linux 2024.4 and on)
+
+{{% notice info %}}
+This is for users of Kali Linux who have upgraded their system and lost this functionality. The package will be pre-installed in Kali Linux starting in 2024.4.
+
+As of September 23, 2024, this package currently only contains a changelog. This package is a placeholder for when the GSS-API changes occur in the OpenSSH package.
+{{% /notice %}}
+
+For those who need GSS-API authentication, we need to install the package `openssh-client-gssapi`.
+
+```console
+kali@kali:~$ ssh -V
+OpenSSH_9.8p1 Debian-8, OpenSSL 3.3.2 3 Sep 2024
+kali@kali:~$
+kali@kali:~$ sudo apt update
+[...]
+kali@kali:~$
+kali@kali:~$ sudo apt install -y openssh-client-gssapi
+[...]
+kali@kali:~$
+```
