@@ -30,6 +30,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [grabber](https://pkg.kali.org/pkg/grabber) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/grabber/-/issues/1)) |
 | [hackersh](https://pkg.kali.org/pkg/hackersh) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/hackersh/-/issues/1)) |
 | [hexorbase](https://pkg.kali.org/pkg/hexorbase) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/hexorbase/-/issues/1)) |
+| [hydra-gtk](https://pkg.kali.org/pkg/hydra-gtk) | 2024-09-23 | GTK 2 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=967532)) |
 | [intersect](https://pkg.kali.org/pkg/intersect) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/intersect/-/issues/1)) |
 | [keimpx](https://pkg.kali.org/pkg/keimpx) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/keimpx/-/issues/1)) |
 | [killerbee](https://pkg.kali.org/pkg/killerbee) | 2020-09-03 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/killerbee/-/issues/1)) |
