@@ -32,7 +32,7 @@ Alternatively we can use `kali-tweaks` to install metapackage groups for us. We 
 kali@kali:~$ kali-tweaks
 ```
 
-From here we will navigate into the "Metapackages" tab. Now we just select which metapackages we want and then we cant hit "Apply" then "OK" and finally supply our password.
+From here we will navigate into the "Metapackages" tab. Now we just select which metapackages we want and then we can hit "Apply" then "OK" and finally supply our password.
 
 ## System
 
