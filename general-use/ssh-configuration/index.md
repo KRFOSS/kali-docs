@@ -54,7 +54,7 @@ As software and security advance, OpenSSH will remove features that are no longe
 
 ### openssh-client-ssh1: DSA keys (removed OpenSSH 9.8p1), SSH1 protocol (removed OpenSSH 7.6)
 
-The first package that we can use, `openssh-client-ssh1`, provides support for DSA keys and SSH1 protocol. This package is, in practicality, OpenSSH frozen at version 7.5. It provides binaries for `ssh`, `scp`, and `ssh-keygen`.
+The first package that we can use, `openssh-client-ssh1`, provides support for DSA keys and SSH1 protocol. This package is, in practicality, OpenSSH frozen at version 7.5. It provides binaries for `ssh`, `scp`, and `ssh-keygen`, under the respective names `ssh1`, `scp1` and `ssh-keygen1`.
 
 ```console
 kali@kali:~$ ssh -V
