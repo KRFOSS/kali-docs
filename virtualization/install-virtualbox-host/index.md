@@ -22,7 +22,7 @@ There are two ways to install `virtualbox`:
 
 ### Preparation
 
-Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine:
+Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), our [apt sources are properly set](/docs/general-use/kali-linux-sources-list-repositories/#default-network-repository-value) and if required, reboot the machine:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -36,46 +36,25 @@ kali@kali:~$
 ```
 ### 1. From Kali Linux repositories
 
-Add `contrib` component to `/etc/apt/sources.list`.
+Install `virtualbox` and `Linux headers`:
 
 ```console
-deb http://http.kali.org/kali kali-rolling main contrib non-free
-```
-Update the list of available packages: 
-
-```console
-kali@kali:~$ sudo apt update
-```
-Install `virtualbox`:
-
-```console
-kali@kali:~$ sudo apt install virtualbox
+kali@kali:~$ sudo apt install virtualbox linux-headers-generic
+[...]
+kali@kali:~$
 ```
 The extension pack can be installed through:
 
 ```console
 kali@kali:~$ sudo apt install virtualbox-ext-pack
+[...]
+kali@kali:~$
 ```
 
 ### 2. From Oracle Virtualbox third-party repository
 
 
-### Preparation
-
-Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine:
-
-```console
-kali@kali:~$ sudo apt update
-[...]
-kali@kali:~$
-kali@kali:~$ sudo apt full-upgrade -y
-[...]
-kali@kali:~$
-kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
-kali@kali:~$
-```
-
-### Download
+## Download
 
 The first thing we are going to do is import VirtualBox's repository key:
 
@@ -122,10 +101,10 @@ kali@kali:~$
 
 ### Setup
 
-Now its time to install VirtualBox itself (along with its Extension Pack to expand VirtualBox's advanced features):
+Now its time to install VirtualBox itself (along with its Extension Pack to expand VirtualBox's advanced features) and the Linux headers necessary:
 
 ```console
-kali@kali:~$ sudo apt install -y virtualbox virtualbox-ext-pack
+kali@kali:~$ sudo apt install -y virtualbox virtualbox-ext-pack linux-headers-generic
 [...]
 kali@kali:~$
 ```
