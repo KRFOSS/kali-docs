@@ -36,9 +36,12 @@ kali@kali:~$
 ```
 ### 1. From Kali Linux repositories
 
-Install `virtualbox` and `Linux headers`:
+Install `virtualbox` and `linux-headers-generic`:
 
 ```console
+kali@kali:~$ sudo apt update
+[...]
+kali@kali:~$
 kali@kali:~$ sudo apt install virtualbox linux-headers-generic
 [...]
 kali@kali:~$
