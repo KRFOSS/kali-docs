@@ -3,7 +3,7 @@ title: SSH Configuration
 description:
 icon:
 weight:
-author: ["arnaudr",]
+author: ["arnaudr", "gamb1t",]
 ---
 
 ## SSH client: Wide Compatibility vs Strong Security
@@ -19,6 +19,55 @@ This setting can be changed easily using the `kali-tweaks` tool. Simply:
 - Now you can choose between **Strong Security** _(the default)_ and **Wide Compatibility**.
 
 _Note: This is achieved by creating or deleting the configuration file `/etc/ssh/ssh_config.d/kali-wide-compat.conf`._
+
+## SSH client: Restoring removed functionality via the ssh1 package
+
+As software and security advance, OpenSSH will remove features that are no longer commonly used from the default package. The Wide Compatibility mode mentioned above can enable features that are _present in the package, but disabled by default_. However, features that are really too old end up being completely removed. At this point, one has to resort to another SSH client: `ssh1`.
+
+This package is, in practicality, OpenSSH frozen at version 7.5 (released in March 2017). It provides binaries for `ssh`, `scp`, and `ssh-keygen`, under the respective names `ssh1`, `scp1` and `ssh-keygen1`. Why version 7.5, you might ask? Because this is the last release of OpenSSH that supports the **SSH v.1 protocol**. And as time passed, this old version became useful to keep using other removed features, notably support for **DSA keys** that was removed in version 9.8.
+
+<!--
+Since the release of [Kali Linux 2024.4](/blog/kali-linux-2024-4-release/)
+-->
+Starting with Kali weekly image 2024W40, and in upcoming release 2024.4, the package `openssh-client-ssh1` is installed by default. For others who upgraded their system and need this functionality, it's easy to just install the package:
+
+```console
+kali@kali:~$ sudo apt update
+[...]
+kali@kali:~$
+kali@kali:~$ sudo apt install -y openssh-client-ssh1
+[...]
+kali@kali:~$
+kali@kali:~$ dpkg --listfiles openssh-client-ssh1 | grep bin/
+/usr/bin/scp1
+/usr/bin/ssh-keygen1
+/usr/bin/ssh1
+kali@kali:~$
+kali@kali:~$ ssh1 -V
+OpenSSH_7.5p1 Debian-17, OpenSSL 3.3.2 3 Sep 2024
+kali@kali:~$
+```
+
+## SSH client: Support for GSS-API
+
+{{% notice info %}}
+This is for users of Kali Linux who have upgraded their system and lost this functionality. The package will be pre-installed in Kali Linux starting in 2024.4.
+
+As of September 23, 2024, this package currently only contains a changelog. This package is a placeholder for when the GSS-API changes occur in the OpenSSH package.
+{{% /notice %}}
+
+At some point in a near future, support for GSS-API will be split out into a separate package, in order to reduce the attack surface of the standard SSH package. Therefore the package `openssh-client` will come without support for GSS-API, and a separate package `openssh-client-gssapi` will need to be installed for those who need it.
+
+For those running Kali rolling, and who want to make sure that GSS-API support doesn't get removed in the future, you can pro-actively install the package:
+
+```console
+kali@kali:~$ sudo apt update
+[...]
+kali@kali:~$
+kali@kali:~$ sudo apt install -y openssh-client-gssapi
+[...]
+kali@kali:~$
+```
 
 ## SSH server: automatic host keys generation
 

@@ -12,6 +12,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 |---------|------|--------|
 | [apt2](https://pkg.kali.org/pkg/apt2) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/apt2/-/issues/1)) |
 | [automater](https://pkg.kali.org/pkg/automater) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/automater/-/issues/1)) |
+| [backdoor-factory](https://pkg.kali.org/pkg/backdoor-factory) | 2024-09-19 | Unmaintained and broken tool ([#1](https://github.com/secretsquirrel/the-backdoor-factory/commit/87bd28d), [#2](https://bugs.debian.org/1027037)) |
 | [bbqsql](https://pkg.kali.org/pkg/bbqsql) | 2020-03-30 | Python 2 |
 | [bdfproxy](https://pkg.kali.org/pkg/bdfproxy) | 2019-10-10| Python 2 ([#1](https://gitlab.com/kalilinux/packages/bdfproxy/-/issues/1)) |
 | [blindelephant](https://pkg.kali.org/pkg/blindelephant) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/blindelephant/-/issues/1)) |
@@ -29,6 +30,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [grabber](https://pkg.kali.org/pkg/grabber) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/grabber/-/issues/1)) |
 | [hackersh](https://pkg.kali.org/pkg/hackersh) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/hackersh/-/issues/1)) |
 | [hexorbase](https://pkg.kali.org/pkg/hexorbase) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/hexorbase/-/issues/1)) |
+| [hydra-gtk](https://pkg.kali.org/pkg/hydra-gtk) | 2024-09-23 | GTK 2 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=967532)) |
 | [intersect](https://pkg.kali.org/pkg/intersect) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/intersect/-/issues/1)) |
 | [keimpx](https://pkg.kali.org/pkg/keimpx) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/keimpx/-/issues/1)) |
 | [killerbee](https://pkg.kali.org/pkg/killerbee) | 2020-09-03 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/killerbee/-/issues/1)) |

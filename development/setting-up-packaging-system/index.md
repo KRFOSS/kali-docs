@@ -259,45 +259,28 @@ kali@kali:~$
 
 _Reboot_
 
-#### apt-cacher-ng
+#### approx
 
-When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy, such as apt-cacher-ng:
-
-```console
-kali@kali:~$ sudo apt install -y apt-cacher-ng
-```
-
-Check the version that was installed. If it's below `0.6.1-1`, Kali is not supported out of the box, and there's a little config to do:
+When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy, such as `approx`:
 
 ```console
-kali@kali:~$ echo "http://http.kali.org/kali/" | sudo tee /etc/apt-cacher-ng/kali_mirrors
-kali@kali:~$
-kali@kali:~$ echo "http://kali.download/kali/" | sudo tee /etc/apt-cacher-ng/backends_kali
-kali@kali:~$
-kali@kali:~$ cat <<EOF | sudo tee /etc/apt-cacher-ng/kali.conf
-# Repository remapping for Kali. See acng.conf and manual for details.
-Remap-klxrep: file:kali_mirrors /kali ; file:backends_kali
-EOF
-kali@kali:~$
-kali@kali:~$ sudo systemctl enable apt-cacher-ng --now
-kali@kali:~$
+kali@kali:~$ sudo apt install -y approx
 ```
 
-In the snippet above, note that:
+After the package is installed, we just need a one-line edit of the configuration file `/etc/approx/approx.conf`, in order to define the remote repository to use for Kali. Add it just below the mappings already defined for Debian, so that your config file `/etc/approx/approx.conf` looks like that:
 
-- The file `kali_mirrors` lists all the mirrors for which apt-cacher-ng will cache the requests. In this list, there should be at least the mirror that you used with the command `sbuild-createchroot` above.
-- The file `backends_kali` lists the mirror that apt-cacher-ng will actually use to download packages. You should set it to a mirror that is close to you.
+```
+debian          http://ftp.debian.org/debian
+debian-security	http://security.debian.org/debian-security
+kali            http://kali.download/kali
+```
 
 Finally, we just need to add a line of configuration inside our chroot, so that apt is configured to use the proxy:
 
 ```console
 kali@kali:~$ sudo sbuild-shell source:kali-dev-amd64-sbuild
 I: /bin/sh
-# echo 'Acquire::HTTP::Proxy "http://localhost:3142";' > /etc/apt/apt.conf.d/01proxy
+# echo 'Acquire::HTTP::Proxy "http://localhost:9999";' > /etc/apt/apt.conf.d/01proxy
 # exit
 kali@kali:~$
 ```
-
-In order to make sure that everything works, there's a few things you can do:
-- run `tail -f /var/log/apt-cacher-ng/apt-cacher.log` while you run build a package with sbuild.
-- check that the directory `/var/cache/apt-cacher-ng/klxrep/` is being populated with packages.

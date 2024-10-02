@@ -38,7 +38,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2024.2-cubox-i4pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progres
+$ xzcat kali-linux-2024.3-cubox-i4pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progres
 ```
 
 This process can take a while, depending on your PC, your microSD card speed, and the size of the Kali Linux image.
