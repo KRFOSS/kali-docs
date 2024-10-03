@@ -18,7 +18,7 @@ kali@kali:~$ sudo apt update
 This command updates the packages list.
 
 ```console
-kali@kali:~$ sudo apt upgrade
+kali@kali:~$ sudo apt full-upgrade
 ```
 Upgrades all installed packages to their latest versions.
 
