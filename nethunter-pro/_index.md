@@ -63,9 +63,11 @@ tar -xpf kali-nethunterpro-2024.3-sdm845.tar.xz
 simg2img flash userdata nethunterpro-*-sdm845*rootfs.img rootfs_ext4.img
 dd if=rootfs_ext4.img of={sdcard_block_device} bs=1M oflag=sync status=progress
 fastboot flash boot nethunterpro*boot-{model}-{variant}.img
+fastboot erase dtbo # if your device has dtbo partition
 
 #Install on EMMC (fastboot method):
 tar -xpf kali-nethunterpro-2024.3-sdm845.tar.xz
 fastboot flash userdata nethunterpro-*-sdm845*rootfs.img
 fastboot flash boot nethunterpro*boot-{model}-{variant}.img
+fastboot erase dtbo # if your device has dtbo partition
 ```
