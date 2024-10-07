@@ -35,7 +35,7 @@ Next download the "installer Image" from (https://www.kali.org/get-kali/#kali-in
 
 Take note of the directory where the .iso is saved, as we will need it for installing in VMware Fusion.
 
-After installing VMware Fusion 13, and opening the application for the first time, it forces the user to create a new machine. Once you've created your machine, if you would like to create another you will need to select "create new machine" fomr the options.
+After installing VMware Fusion 13, and opening the application for the first time, it forces the user to create a new machine. Once you've created your machine, if you would like to create another you will need to select "create new machine" from the options.
 
 Open the directory in which the .iso was saved after downloading.
 Drag the freshly downloaded .iso to the window and begin the installation (Debian 12.x 64-bit Arm).
