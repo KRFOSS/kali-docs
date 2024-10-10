@@ -39,8 +39,8 @@ Another good resource is usually [XDA forums](https://forum.xda-developers.com/)
 Assuming you don't have a toolchain downloaded already, you can begin by cloning our kernel builder to the root of your kernel's folder, and prepare the environment:
 
 ```console
-kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel
-kali@kali:~$ cd kali-nethunter-kernel
+kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel-builder
+kali@kali:~$ cd kali-nethunter-kernel-builder/
 ```
 ***[Optional step]*** You can find multiple example config files available in local.config.examples.  
 If you find something that matches your device, copy it to kali-nethunter-kernel named as local.config ***(Make sure to then edit it to check that everything matches your kernel!)***
