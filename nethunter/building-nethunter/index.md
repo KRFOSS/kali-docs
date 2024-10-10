@@ -9,17 +9,17 @@ author: ["g0tmi1k",]
 Those of you who want to build a Kali NetHunter image from our GitLab repository may do so using our Python build scripts:
 
 ```console
-kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project.git
+kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer.git
 kali@kali:~$
-kali@kali:~$ cd kali-nethunter-project/nethunter-installer/
+kali@kali:~$ cd kali-nethunter-installer/
 ```
 
-Before you can build for a device, you will need to enter the **nethunter-installer** directory and run `./bootstrap.sh`. This will ask you a few questions before downloading the devices folder.
+Before you can build for a device, you will need to run `./bootstrap.sh`. This will ask you a few questions before downloading the devices folder.
 
-The main build script is also located in the **nethunter-installer** directory and can be used to build images for multiple devices and Android OS versions as shown below:
+The main build script can be used to build images for multiple devices and Android OS versions as shown below:
 
 ```console
-kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -h
+kali@kali:~/kali-nethunter-installer$ python3 build.py -h
 usage: build.py [-h] [--device DEVICE] [--kitkat] [--lollipop] [--marshmallow] [--nougat] [--oreo] [--pie]
                 [--ten] [--forcedown] [--uninstaller] [--kernel] [--nokernel] [--nobrand] [--nofreespace]
                 [--supersu] [--nightly] [--generic ARCH] [--rootfs SIZE] [--release VERSION]
@@ -61,25 +61,25 @@ optional arguments:
                         Build with Kali chroot rootfs (full, minimal or nano)
   --release VERSION, -r VERSION
                         Specify NetHunter release version
-kali@kali:~/kali-nethunter/nethunter-installer$
+kali@kali:~/kali-nethunter-installer$
 ```
 
 To build an Android 10 image with Kalifs for a OnePlus 7 device, we would run **build.py** as follows:
 
 ```console
-kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -d oneplus7-oos --ten -fs full
+kali@kali:~/kali-nethunter-installer$ python3 build.py -d oneplus7-oos --ten -fs full
 ```
 
 To build an app and scripts updater image for a OnePlus 7 device, we would run **build.py** as follows:
 
 ```console
-kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -d oneplus7-oos --ten
+kali@kali:~/kali-nethunter-installer$ python3 build.py -d oneplus7-oos --ten
 ```
 
 To build a kernel updater image for a OnePlus 7 device, we would run **build.py** as follows:
 
 ```console
-kali@kali:~/kali-nethunter/nethunter-installer$ python3 build.py -d oneplus7-oos --ten -k
+kali@kali:~/kali-nethunter-installer$ python3 build.py -d oneplus7-oos --ten -k
 ```
 
-The resulting zip file image will be created in the **nethunter-installer** directory – this is the zip file you will need to flash on your device later on.
+The resulting zip file image will be created in same directory – this is the zip file you will need to flash on your device later on.

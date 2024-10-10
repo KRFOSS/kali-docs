@@ -111,7 +111,7 @@ Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip ima
 ## 4.0 Building NetHunter
 
 Those of you who want to build a NetHunter image from our Gitlab repository may do so using our Python build scripts. Check out our [Building NetHunter](building-nethunter/) page for more information.
-You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md) located in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer) git directory.
+You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README.md](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer/blob/main/README.md) located in the [kali-nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer/) git directory.
 
 ## 5.0 Installing NetHunter on top of Android
 

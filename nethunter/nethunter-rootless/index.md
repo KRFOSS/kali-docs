@@ -6,7 +6,7 @@ weight:
 author: ["re4son",]
 ---
 
-<!-- Based on https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/tree/master/nethunter-rootless -->
+<!-- Based on https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-rootless -->
 
 ## NetHunter Rootless Edition
 
