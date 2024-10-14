@@ -13,7 +13,7 @@ author: ["gamb1t","g0tmi1k",]
      - 64GB HDD
 -->
 
-Windows Subsystem for Linux (WSL) has [two different versions](https://docs.microsoft.com/en-us/windows/wsl/compare-versions), "WSL 1" and "WSL 2". **WSL 2 is the preferred** and default option when installing WSL. This is because WSL 2 uses the actual Linux kernel inside a Hyper-V virtual machine (managed by WSL). WSL 1 uses a "translation layer" which is similar to [WINE](https://www.winehq.org/).
+Windows Subsystem for Linux (WSL) has [two different versions](https://docs.microsoft.com/en-us/windows/wsl/compare-versions), "WSL 1" and "WSL 2". **WSL 2 is the only option** when installing WSL. This is because WSL 2 uses the actual Linux kernel inside a Hyper-V virtual machine (managed by WSL). WSL 1 uses a "translation layer" which is similar to [WINE](https://www.winehq.org/), and modern Linux distributions are simply not compatible with WSL 1 anymore.
 
 We recommend using Windows 11 as it is simpler, however if you are using Window 10 it is still possible but requires additional steps in places.
 To make Windows 10 easier, having the machine as up-to-date as possible will help - as of the time of writing this, November 2022 patches.
@@ -66,6 +66,12 @@ wsl --set-default-version 2
 5. Install from the [Microsoft Store: Kali Linux](https://apps.microsoft.com/store/detail/kali-linux/9PKR34TNCV07)
    - **NOTE**: If there is an existing Kali WSL 1, upgrade it by running: `wsl --set-version kali-linux 2`
 6. Run `kali` to finish the initial setup of creating a new user
+
+## WSL version
+
+Although Microsoft states that they have [no plans to deprecate WSL 1](https://learn.microsoft.com/en-us/windows/wsl/faq#what-will-happen-to-wsl-1--will-it-be-abandoned-), Linux distributions in general are getting more and more incompatible with WSL 1. In particular, some core features of systemd stopped working on WSL 1 some time ago (October 2023), and the systemd developers were pretty clear: [this will not be fixed or worked-around in systemd](https://github.com/systemd/systemd/issues/29512#issuecomment-1754858487).
+
+Therefore WSL 2 is the only option for Kali Linux.
 
 ## Windows Version
 
