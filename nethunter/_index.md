@@ -166,7 +166,7 @@ If you're interested in porting NetHunter to other Android devices, check out th
 2. [Getting Started with kernel builder](porting-nethunter-kernel-builder/)
 2. [Patching a Kernel](nethunter-kernel-1-patching/)
 2. [Configuring a Kernel](nethunter-kernel-2-config-1/)
-3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)
+3. [Adding Your Kernel](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)
 
 ## 9.0 Known Working Hardware
 

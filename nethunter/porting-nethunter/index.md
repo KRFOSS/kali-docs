@@ -50,8 +50,8 @@ kali@kali:~$ make your_device_codename
 kali@kali:~$ make -j$(nproc)
 ```
 
-When ready you can build a test kernel installer. Add your device to your cloned devices repo as per the instructions, then build a zip:
-You can see how the device files are added, some has modules and additional patches, some don't. Mainly, your are fine with a boot image if you don't have modules, like [in this commit](#https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/commit/3665052d125e09e8652144a03056d9c396c3fc9e)
+When ready you can build a test kernel installer. Add your kernel to your cloned kernel repo as per the instructions, then build a zip:
+You can see how the kernels files are added, some has modules and additional patches, some don't. Mainly, your are fine with a boot image if you don't have modules, like [in this commit](#https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/commit/3665052d125e09e8652144a03056d9c396c3fc9e)
 
 ```console
 kali@kali:~$ cd nethunter-installer
