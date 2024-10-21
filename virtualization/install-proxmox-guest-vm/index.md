@@ -49,6 +49,7 @@ Proxmox has two ways of accessing a nested environment. The first is through vir
 We will go over the steps and discuss some of the changes that can be made.
 
 - Download the latest ISO from [get Kali](/get-kali/#kali-installer-images)
+  - NOTE: Use the standard, weekly, or everything installer ISOs. The net installer ISO does not have necessary drivers for virtual network adapters supported in Proxmox.
 - Select "Create VM"
 - Assign the VM a name and ID
 - Select the ISO we downloaded previously
