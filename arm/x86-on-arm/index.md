@@ -69,6 +69,6 @@ Type 'help' to get help.
 If there is a downloaded binary that is x86 that is not automatically being ran under `qemu-user-static`, you can invoke it with the following command:
 
 ```console
-kali@kali:~$ qemu-x86_x64-static my_x86_code
+kali@kali:~$ qemu-x86_64-static my_x86_code
 kali@kali:~$
 ```
