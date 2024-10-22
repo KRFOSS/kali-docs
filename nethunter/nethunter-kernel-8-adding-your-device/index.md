@@ -8,11 +8,12 @@ author: ["yesimxev",]
 
 ## Adding your own device to the devices repo
 
-Congratulations! You've successfully built your own Kali NetHunter kernel. Feel free to add it to our kernel repo, supporting the community.
+Congratulations! You have successfully built your own Kali NetHunter kernel.
+Feel free to add it to our kernel repo, supporting the community.
 
-Please follow the instructions on the [kernels repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels).
+Please follow the instructions on the [devices repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices).
 
-Useful example of a recent unofficial device support [merge request](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/merge_requests/293)
+Useful example of a recent unofficial device support [merge request](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices/-/merge_requests/293)
 
 If you used the kernel builder, your new kernel image can be found in ***out/arch/arm64/boot/***, and your modules are in ***modules_out/lib/modules/***.
 

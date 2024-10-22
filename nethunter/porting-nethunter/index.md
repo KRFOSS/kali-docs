@@ -22,7 +22,7 @@ If your device is older, please check to make sure your kernel version is 3.4+ a
 
 ## Finding Kernel Sources
 
-One of the reasons why Nexus was chosen is because all kernel sources are made available through [Google's own website](https://android.googlesource.com). Finding sources can be easy or difficult depending on the manufacturer. A good resource is usually the [XDA forums](https://forum.xda-developers.com/) as someone else has probably already built a working kernel and they must provide the sources under GPL. Most kernel development pages on XDA must provide a link to their sources.
+One of the reasons why Nexus was chosen is because all kernel sources are made available through [Google's own website](https://android.googlesource.com/). Finding sources can be easy or difficult depending on the manufacturer. A good resource is usually the [XDA forums](https://forum.xda-developers.com/) as someone else has probably already built a working kernel and they must provide the sources under GPL. Most kernel development pages on XDA must provide a link to their sources.
 
 ## Making a Test Kernel
 
@@ -54,6 +54,6 @@ When ready you can build a test kernel installer. Add your kernel to your cloned
 You can see how the kernels files are added, some has modules and additional patches, some don't. Mainly, your are fine with a boot image if you don't have modules, like [in this commit](#https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/commit/3665052d125e09e8652144a03056d9c396c3fc9e)
 
 ```console
-kali@kali:~$ cd nethunter-installer
-kali@kali:~$ ./build.py -k -d your_device_codename --your_android_version 
+kali@kali:~$ cd kali-nethunter-installer/
+kali@kali:~$ ./build.py -i -k your_device_codename --your_android_version
 ```
