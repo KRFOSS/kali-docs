@@ -83,7 +83,7 @@ The following table illustrates the differences in functionality:
 |    HID attacks     |         No         |       No       |    Yes    |
 
 The installation of NetHunter Rootless is documented here:
-[NetHunter-Rootless](nethunter-rootless/)
+[NetHunter-Rootless](/docs/nethunter/nethunter-rootless/)
 
 The NetHunter-App specific chapters are only applicable to the NetHunter & NetHunter Lite editions.
 
@@ -93,7 +93,7 @@ The Kernel specific chapters are only applicable to the NetHunter edition.
 
 NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.
 The full NetHunter experience requires a devices specific kernel that has been purpose built for Kali NetHunter.
-The [NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter/) contains over 164 kernels for over 65 devices. Kali Linux publishes over 25 images for the most popular devices on the [NetHunter download page](/get-kali/).
+The [NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter) contains over 164 kernels for over 65 devices. Kali Linux publishes over 25 images for the most popular devices on the [NetHunter download page](/get-kali/).
 The following live reports are generated automatically by GitLab CI:
 
 - [List of quarterly published officialNetHunter images](https://nethunter.kali.org/images.html)
@@ -110,8 +110,8 @@ Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip ima
 
 ## 4.0 Building NetHunter
 
-Those of you who want to build a NetHunter image from our Gitlab repository may do so using our Python build scripts. Check out our [Building NetHunter](building-nethunter/) page for more information.
-You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README.md](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer/blob/main/README.md) located in the [kali-nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer/) git directory.
+Those of you who want to build a NetHunter image from our GitLab repository may do so using our Python build scripts. Check out our [Building NetHunter](/docs/nethunter/building-nethunter/) page for more information.
+You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md) located in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer) git directory.
 
 ## 5.0 Installing NetHunter on top of Android
 
@@ -136,41 +136,41 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 #### Kali NetHunter Application
 
-- [**Home Screen**](nethunter-home-screen/) - General information panel, network interfaces and HID device status.
-- [**Kali Chroot Manager**](nethunter-chroot-manager/) - For managing chroot metapackage installations.
-- [**Kali Services**](nethunter-kali-services/) - Start / stop various chrooted services. Enable or disable them at boot time.
-- [**Custom Commands**](nethunter-custom-commands/) - Add your own custom commands and functions to the launcher.
-- [**MAC Changer**](nethunter-mac-changer/) - Change your Wi-Fi MAC address (only on certain devices)
-- [**KeX Manager**](nethunter-kex-manager/) - Set up an instant VNC session with your Kali chroot.
-- [**USB Arsenal**](nethunter-usbarsenal/) - Control the USB gadget configurations
-- [**HID Attacks**](nethunter-hid-attacks/) - Various HID attacks, Teensy style.
-- [**DuckHunter HID**](nethunter-duckhunter/) - Rubber Ducky style HID attacks
-- [**BadUSB MITM Attack**](nethunter-badusb/) - Nuff said.
-- [**MANA Wireless Toolkit**](nethunter-mana-wireless/) - Setup a malicious Access Point at the click of a button.
-- [**Bluetooth Arsenal**](nethunter-btarsenal/) - Recon, spoof, listen to or inject audio to various Bluetooth devices.
-- [**Social Engineer Toolkit**](nethunter-set/) - Build your own phishing email template for Social Engineer Toolkit.
-- [**MITM Framework**](nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
-- [**NMap Scan**](nethunter-nmap/) - Quick Nmap scanner interface.
-- [**Metasploit Payload Generator**](nethunter-mpg/) - Generating Metasploit payloads on the fly.
-- [**Searchsploit**](nethunter-searchsploit/) - Easy searching for exploits in [Exploit-Database](https://www.exploit-db.com/).
+- [**Home Screen**](/docs/nethunter/nethunter-home-screen/) - General information panel, network interfaces and HID device status.
+- [**Kali Chroot Manager**](/docs/nethunter/nethunter-chroot-manager/) - For managing chroot metapackage installations.
+- [**Kali Services**](/docs/nethunter/nethunter-kali-services/) - Start / stop various chrooted services. Enable or disable them at boot time.
+- [**Custom Commands**](/docs/nethunter/nethunter-custom-commands/) - Add your own custom commands and functions to the launcher.
+- [**MAC Changer**](/docs/nethunter/nethunter-mac-changer/) - Change your Wi-Fi MAC address (only on certain devices)
+- [**KeX Manager**](/docs/nethunter/nethunter-kex-manager/) - Set up an instant VNC session with your Kali chroot.
+- [**USB Arsenal**](/docs/nethunter/nethunter-usbarsenal/) - Control the USB gadget configurations
+- [**HID Attacks**](/docs/nethunter/nethunter-hid-attacks/) - Various HID attacks, Teensy style.
+- [**DuckHunter HID**](/docs/nethunter/nethunter-duckhunter/) - Rubber Ducky style HID attacks
+- [**BadUSB MITM Attack**](/docs/nethunter/nethunter-badusb/) - Nuff said.
+- [**MANA Wireless Toolkit**](/docs/nethunter/nethunter-mana-wireless/) - Setup a malicious Access Point at the click of a button.
+- [**Bluetooth Arsenal**](/docs/nethunter/nethunter-btarsenal/) - Recon, spoof, listen to or inject audio to various Bluetooth devices.
+- [**Social Engineer Toolkit**](/docs/nethunter/nethunter-set/) - Build your own phishing email template for Social Engineer Toolkit.
+- [**MITM Framework**](/docs/nethunter/nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
+- [**NMap Scan**](/docs/nethunter/nethunter-nmap/) - Quick Nmap scanner interface.
+- [**Metasploit Payload Generator**](/docs/nethunter/nethunter-mpg/) - Generating Metasploit payloads on the fly.
+- [**Searchsploit**](/docs/nethunter/nethunter-searchsploit/) - Easy searching for exploits in [Exploit-Database](https://www.exploit-db.com/).
 
 #### 3rd Party Android Applications in the NetHunter App Store
 
-- [**NetHunter Terminal Application**](nethunter-terminal/)
+- [**NetHunter Terminal Application**](/docs/nethunter/nethunter-terminal/)
 
 ## 8.0 Porting NetHunter to New Devices
 
 If you're interested in porting NetHunter to other Android devices, check out the following links. If your port works, make sure to tell us about it so we can include these kernels in our releases!
 
-1. [Getting Started manually](porting-nethunter/)
-2. [Getting Started with kernel builder](porting-nethunter-kernel-builder/)
-2. [Patching a Kernel](nethunter-kernel-1-patching/)
-2. [Configuring a Kernel](nethunter-kernel-2-config-1/)
-3. [Adding Your Kernel](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)
+1. [Getting Started manually](/docs/nethunter/porting-nethunter/)
+2. [Getting Started with kernel builder](/docs/nethunter/porting-nethunter-kernel-builder/)
+2. [Patching a Kernel](/docs/nethunter/nethunter-kernel-1-patching/)
+2. [Configuring a Kernel](/docs/nethunter/nethunter-kernel-2-config-1/)
+3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)
 
 ## 9.0 Known Working Hardware
 
-1. [Wireless Cards](wireless-cards/)
+1. [Wireless Cards](/docs/nethunter/wireless-cards/)
 2. SDR - RTL-SDR (based on RTL2832U)
 3. Bluetooth adapters - Sena UD100 or generic CSR4.0 adapter
 
@@ -182,4 +182,4 @@ All apps can be installed through the NetHunter Store client.
 
 1. The NetHunter Store App can be downloaded [here](https://store.nethunter.com/NetHunterStore.apk)
 2. The NetHunter Web Store can be found [here](https://store.nethunter.com/)
-3. The source code for building the NetHunter Apps can be found on GitLab [here](https://gitlab.com/kalilinux/nethunter/apps/)
+3. The source code for building the NetHunter Apps can be found on GitLab [here](https://gitlab.com/kalilinux/nethunter/apps)

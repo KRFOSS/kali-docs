@@ -66,7 +66,7 @@ Note: Newer versions of Magisk seem to be breaking auto rotation. Let's stick wi
 
 ## 4. Install NetHunter
 
-- Download the NetHunter beta image from here: [http.re4son-kernel.com/downloads/gemini-nethunter/](http://http.re4son-kernel.com/downloads/gemini-nethunter/)
+- Download the NetHunter image from here: [kali.org/get-kali/](https://www.kali.org/get-kali/#kali-mobile) -> Gemini -> Gemini PDA (Nougat)
 - connect the Gemini PDA to your computer
 - transfer the NetHunter image to the Gemini PDA
 - reboot the Gemini PDA into recovery via the "Official TWRP App" (TWRP Flash->Menu->Reboot-Reboot Recovery)
