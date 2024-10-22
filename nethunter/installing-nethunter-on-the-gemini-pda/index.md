@@ -26,7 +26,7 @@ Either install the "Pentester Pro" image with rooted Android and Kali Linux part
 
 Reboot the newly imaged Gemini into Android and:
 - Configure the keyboard
-- Connect to wifi
+- Connect to Wi-Fi
 - Open the "Play Store" app and sign in with your google account
 - Update all apps
 

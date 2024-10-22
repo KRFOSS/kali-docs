@@ -12,7 +12,7 @@ We will continue from the [Porting NetHunter page](/docs/nethunter/porting-nethu
 
 ## Patching
 
-By default, we apply wifi injection patches and patches that add wifi drivers.
+By default, we apply Wi-Fi injection patches and patches that add Wi-Fi drivers.
 Kernel versions below 4.x will require HID keyboard / mouse patches. Some devices need additional patches to avoid build errors.
 We no longer need CD-ROM patches as all modern operating systems support being installed from USB storage devices, thus we can mount NetHunter as USB drive.
 

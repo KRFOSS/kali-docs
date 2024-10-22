@@ -29,7 +29,7 @@ author: ["re4son",]
    1. Enable hotpot with ssid = "`sepultura`" and password = "`R4t4m4h4tt4`"
    2. Install Hacker’s Keyboard, ConnectBot & VNC viewer (if desired)
    3. Connect to `192.168.43.254`, user `kali`/`kali`
-   4. run "`sudo mon0up`" to set wifi interface into monitor mode (yes, while using it)
+   4. run "`sudo mon0up`" to set Wi-Fi interface into monitor mode (yes, while using it)
    5. run "`airodump -i mon0`", "`kismet -c mon0`", "`wifite -i mon0`" or anything you like
 5. Go wild
 

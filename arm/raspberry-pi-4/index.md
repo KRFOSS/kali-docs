@@ -72,7 +72,7 @@ kali@kali:~$ $ sudo amixer -c 0 set numid=3 1
 
 You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
 
-You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`. It will prompt you for the wireless network's password. You can add the password to the command as you run it, but keep in mind that if you do, your wifi network password will be in your user's shell history.
+You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`. It will prompt you for the wireless network's password. You can add the password to the command as you run it, but keep in mind that if you do, your Wi-Fi network password will be in your user's shell history.
 
 ## Kali on the Raspberry Pi 4 - Examples
 

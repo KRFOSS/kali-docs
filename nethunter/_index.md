@@ -47,7 +47,7 @@ The Kali NetHunter App Store can be accessed through the dedicated client app or
 Figure 3: Kali NetHunter App Store
 
 **Both rooted editions provide additional tools & services**.
-A custom kernel can extend that functionality by adding additional network and USB gadget drivers as well as wifi injection support for selected wifi chips.
+A custom kernel can extend that functionality by adding additional network and USB gadget drivers as well as Wi-Fi injection support for selected Wi-Fi chips.
 
 ![](NetHunter-App.png)
 Figure 3: The Kali NetHunter App is available in both rooted editions (NetHunter Lite & NetHunter).
