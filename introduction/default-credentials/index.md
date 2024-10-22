@@ -10,7 +10,7 @@ Kali changed to a [non-root user policy](/docs/policy/kali-linux-user-policy/) b
 
 This means:
 
-- During the installation of [**amd64** and **i386** images](/docs/installation/), it will prompt you for a standard user account to be created.
+- During the installation of [**amd64** images](/docs/installation/), it will prompt you for a standard user account to be created.
 
 - Any default operating system credentials used during **Live Boot**, or **pre-created image** (like **[Virtual Machines](/docs/virtualization/)** & **[ARM](/docs/arm/)**) will be:
     - User: `kali`

@@ -16,19 +16,9 @@ It would be easy for a malicious entity to modify a Kali installation to contain
 
 ##### ISO Files for Intel-based PCs
 
-In order to run Kali "Live" from a [USB drive](/docs/usb/) on standard Windows and Apple PCs, you'll need a Kali Linux [bootable ISO image](/docs/installation/), in either 32-bit or 64-bit format.
+In order to run Kali "Live" from a [USB drive](/docs/usb/) on standard Windows and Apple PCs, you'll need a Kali Linux [bootable ISO image](/docs/installation/).
 
-If you're not sure of the architecture of the system you want to run Kali on, on Linux or macOS, you can run the command: 
-
-```
-uname -m
-```
- 
- If you get the response, "x86_64", use the 64-bit ISO image (the one containing "amd64" in the file name); if you get "i386", use the 32-bit image (the one containing "i386" in the file name). 
- 
- If you're on a Windows system, the procedure for determining whether your architecture is [detailed on Microsoft's website](http://windows.microsoft.com/en-us/windows7/find-out-32-or-64-bit).
-
-The Kali Linux images are available both as directly downloadable ".iso/.img" files or via ".torrent" files.
+The Kali Linux images are available as directly downloadable ".iso/.img" files or via ".torrent" files.
 
 - [Official Kali ISOs for Intel-based PCs](/get-kali/)
 
@@ -36,7 +26,7 @@ Building your own Kali Linux ISO, standard or customized, is [a very simple proc
 
 ##### Virtual Machines Images
 
-If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed. These image are available in a 64-bit (amd64), and 32-bit PAE (i\*86) formats.
+If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed.
 
 - [Official Kali Linux VMware and VirtualBox Images](/get-kali/#kali-virtual-machines)
 
