@@ -23,7 +23,7 @@ If all goes well, the RPi will boot and then LUKS will kick in and ask for a pas
 
 ### Getting Your Hands Dirty
 
-As always, all our ARM dev is done on a Kali amd64 machine and we've made sure that we have all the [dependencies](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/master/build-deps.sh) we need. We [download the latest Kali RPi3 image](/get-kali/) (2019.4), extract it, and **dd** it to our SD card, which in our case showed up as /dev/sdb2 - adapt as necessary!
+As always, all our ARM dev is done on a Kali amd64 machine and we've made sure that we have all the [dependencies](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/main/build-deps.sh) we need. We [download the latest Kali RPi3 image](/get-kali/) (2019.4), extract it, and **dd** it to our SD card, which in our case showed up as /dev/sdb2 - adapt as necessary!
 
 ```console
 $ dd if=kali-linux-2024.3-rpi3-nexmon.img of=/dev/sdb conv=fsync bs=4M

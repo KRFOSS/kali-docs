@@ -58,7 +58,7 @@ kali@kali:~$ chmod +x kali-config/common/hooks/01-start-ssh.chroot
 **0x04 - Next, we download a wallpaper** and overlay it. Notice how chroot overlaid files are placed in the _includes.chroot_ directory:
 
 ```console
-kali@kali:~$ mkdir -p kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images/
+kali@kali:~$ mkdir -pv kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images/
 kali@kali:~$ wget https://www.kali.org/dojo/blackhat-2015/wp-blue.png
 kali@kali:~$ mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpapers/kali/contents/images
 ```
@@ -66,8 +66,8 @@ kali@kali:~$ mv wp-blue.png kali-config/common/includes.chroot/usr/share/wallpap
 **0x05 - Add a preseed file** that will run through a default Kali installation with no input (unattended). We can include a ready made preseed configuration and alter it as needed:
 
 ```console
-kali@kali:~$ mkdir -p kali-config/common/debian-installer/
-kali@kali:~$ wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/-/raw/master/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
+kali@kali:~$ mkdir -pv kali-config/common/debian-installer/
+kali@kali:~$ wget https://gitlab.com/kalilinux/recipes/kali-preseed-examples/-/raw/main/kali-linux-full-unattended.preseed -O kali-config/common/debian-installer/preseed.cfg
 ```
 
 **0x06 - Let's include a Nessus Debian package** into the _packages_ directory for inclusion into our final build. Since we used a 64-bit build, we're including a 64-bit Nessus Debian package. [Download](https://www.tenable.com/products/nessus/select-your-operating-system) the Nessus .deb file and place it in the packages.chroot directory:

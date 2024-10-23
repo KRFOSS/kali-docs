@@ -21,7 +21,7 @@ Navigate to ***"Device Drivers -> Multimedia support"*** and configure the follo
 
 ![](nh-kernel-260-sdr1.png)
 
-&nbsp;
+
 
 Navigate to **_→ Device Drivers → Multimedia support → Media USB Adapters_ (CONFIG_MEDIA_USB_SUPPORT=y)** and enable the following:
 
@@ -34,7 +34,7 @@ Navigate to **_→ Device Drivers → Multimedia support → Media USB Adapters_
 
 ![](nh-kernel-270-sdr2.png)
 
-&nbsp;
+
 
 Return to ***"Device Drivers -> Multimedia support"*** and remove the following selection:
 

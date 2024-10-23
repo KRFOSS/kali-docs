@@ -8,7 +8,7 @@ author: ["re4son",]
 
 ## Kernel Configuration cont.
 
-&nbsp;
+
 
 ### Wireless LAN
 
@@ -27,7 +27,7 @@ Navigate to _Device Drivers_ -> _Network Device Support_ ->  _Wireless LAN_ and 
 
 ![](nh-kernel-170-usb-wifi-1.png)
 
-&nbsp;
+
 
 - select ***"MediaTek devices"***
   (CONFIG_WLAN_VENDOR_MEDIATEK=y)
@@ -40,7 +40,7 @@ Navigate to _Device Drivers_ -> _Network Device Support_ ->  _Wireless LAN_ and 
 
 ![](nh-kernel-180-usb-wifi-2.png)
 
-&nbsp;
+
 
 Open Ralink driver support and configure the following drivers:
 
@@ -65,7 +65,7 @@ Open Ralink driver support and configure the following drivers:
 
 ![](nh-kernel-190-usb-wifi-3.png)
 
-&nbsp;&nbsp;
+
 
 Continue down the page and enable the following drivers:
 
