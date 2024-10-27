@@ -1,5 +1,5 @@
 ---
-title: Installing NetHunter On the Gemini PDA
+title: Installing NetHunter on the Gemini PDA
 description:
 icon:
 weight:

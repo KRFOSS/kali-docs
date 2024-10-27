@@ -1,5 +1,5 @@
 ---
-title: Installing NetHunter On the OnePlus 7
+title: Installing NetHunter on the OnePlus 7
 description:
 icon:
 weight:
