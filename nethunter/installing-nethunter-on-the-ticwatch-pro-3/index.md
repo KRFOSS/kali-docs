@@ -1,5 +1,5 @@
 ---
-title: Installing NetHunter On the TicWatch Pro 3
+title: Installing NetHunter on the TicWatch Pro 3
 description:
 icon:
 weight:
