@@ -6,7 +6,7 @@ weight:
 author: ["gamb1t",]
 ---
 
-Kali is a large project made up of many different parts. One of the most popular questions that the Kali team receives is "How can I help?" To help answer that question, this page will contain all possible ways that community members can contribute.
+Kali Linux is a large project made up of many different parts. One of the most popular questions that the Kali team receives is "How can I help?" To help answer that question, this page will contain all possible ways that community members can contribute.
 
 ## Kali Documentation
 
@@ -30,7 +30,7 @@ Another area of documentation that we maintain is *[kali-tools](https://gitlab.c
 
 ## Kali Packages
 
-Packaging is the core of Kali. Packages are what helps tools to be so easy to install, and insures they are up-to-date with no bugs. [Debian packaging](https://wiki.debian.org/Packaging) is a complicated thing that takes a while to learn, but if you are willing to do so can help quite a bit to know. Another important skill to have when packaging is knowledge of the programming language a tool is made in. Most tools are written in **Python, C/C++, Perl, Ruby, or Rust.**
+Packaging is the core of Kali. Packages are what helps tools to be so easy to install, and insures they are up-to-date with no bugs. [Debian packaging](https://wiki.debian.org/Packaging) is a complicated thing that takes a while to learn, but if you are willing to do so can help quite a bit to know. Another important skill to have when packaging is knowledge of the programming language a tool is made in. Most tools are written in **Python, C/C++, Perl, Ruby, Go or Rust.**
 
 ### Upstream Package Updates
 
