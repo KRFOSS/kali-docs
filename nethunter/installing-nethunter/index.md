@@ -3,7 +3,7 @@ title: Installing NetHunter
 description:
 icon:
 weight:
-author: ["re4son",]
+author: ["re4son", "yesimxev",]
 ---
 
 ## Overview
@@ -19,17 +19,30 @@ Installing NetHunter requires the following steps:
 7. [Install NetHunter](#5-installing-the-nethunter-image)
 8. [Android 10 and above: Update NetHunter App from the NetHunter Store](#5-installing-the-nethunter-image)
 9. [Run the NetHunter App to finish the installation](#5-installing-the-nethunter-image)
+10. [Install via Magisk](#6-the-new-way-of-installing-nethunter-as-magisk-module)
 
 ## 1. NetHunter pre-built images and support
 
 The NetHunter team builds and publishes pre-created images for a selected list of devices, on the [official NetHunter download page](/get-kali/#kali-mobile).
 
-If you devices is not available as a [pre-build image](https://nethunter.kali.org/image-stats.html) but supported by NetHunter, you can easily build your own image by following the steps in our ["Building NetHunter" documentation](/docs/nethunter/building-nethunter/).
+If your device is not available as a [pre-build image](https://nethunter.kali.org/image-stats.html) but supported by NetHunter, you can easily build your own image by following the steps in our ["Building NetHunter" documentation](/docs/nethunter/building-nethunter/).
 
 You can confirm that your device and Android version is supported via:
 
-- [NetHunter pre-created images](https://nethunter.kali.org/images.html)
+- [NetHunter quarterly pre-created images](https://nethunter.kali.org/images.html)
 - [NetHunter supported kernels](https://nethunter.kali.org/kernels.html)
+
+You can check out the weekly or daily images if there was an update after release:
+
+- [NetHunter weekly images](https://image-nethunter.kali.org/nethunter-installer/kali-weekly)
+- [NetHunter daily images](https://image-nethunter.kali.org/nethunter-installer/kali-daily)
+
+If your device is not supported, you can still use NetHunter Lite on any rooted device with limited hardware features.
+
+- [Generic ARM64 Full installer - Daily](https://image-nethunter.kali.org/nethunter-installer/kali-daily/kali-nethunter-daily-dev-generic-arm64-rootfs-full.zip)
+- [Generic ARM64 Minimal installer - Daily](https://image-nethunter.kali.org/nethunter-installer/kali-daily/kali-nethunter-daily-dev-generic-arm64-rootfs-minimal.zip)
+
+You can find more architectures (armhf, i386, amd64) [here](https://image-nethunter.kali.org/nethunter-installer/)
 
 ## 2. Putting your device in "Developer Mode"
 
@@ -42,7 +55,7 @@ Tap on the new _Developer options_ section and enable both the _Advanced Reboot_
 
 ## 3. Unlocking, rooting, and installing a custom recovery on your android device
 
-NetHunter supports over [99 different devices](https://nethunter.kali.org/images.html) running [Android versions from 4.4/Kitkat though to 11/Eleven](https://nethunter.kali.org/kernel-stats.html).
+NetHunter supports over [99 different devices](https://nethunter.kali.org/images.html) running [Android versions from 4.4/Kitkat though to 15/Fifteen](https://nethunter.kali.org/kernel-stats.html).
 
 Whilst we have standardised the NetHunter installation procedure, the steps to unlock, root, and install a custom recovery varies from device to device and even differs between Android versions.
 
@@ -62,3 +75,11 @@ Magisk does not support user context changes on encrypted data partitions, which
 Now that your Android phone is ready, transfer the NetHunter image to it, reboot in recovery mode, and flash the zip on your phone. Once done, reboot and launch the NetHunter app to complete the setup!
 
 **IMPORTANT NOTE** for Android 10 & 11 users: Please update the NetHunter app from the NetHunter store after flashing NetHunter. Android 10 introduced "scoped storage" restrictions which prevents NetHunter from using the storage location we traditionally used to save configuration files. We are in the process of moving the location and implementing an import/export function but updating the app after flashing NetHunter provides a workaround that allows us to continue accessing the current storage location until the new features are implemented.
+
+## 6. The new way of installing NetHunter as Magisk module
+
+**IMPORTANT NOTE** for devices without disabled force encryption:
+- Use the same NetHunter installer zip file to install as a module in Magisk.
+- Recommended version: [Magisk v27000](https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk) or older.
+- Keep the screen awake while installing, Android may kill the app with locked screen.
+- Reboot.
