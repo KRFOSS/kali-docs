@@ -22,7 +22,7 @@ author: ["Re4son", "yesimxev",]
 - [Kali NetHunter Attacks and Features](#70-kali-nethunter-attacks-and-features)
 - [Porting NetHunter to New Devices](#80-porting-nethunter-to-new-devices)
 - [Known Working Hardware](#90-known-working-hardware)
-- [NetHunter App](#100-nethunter-apps)
+- [NetHunter Apps](#100-nethunter-apps)
 
 ## Overview
 
@@ -93,35 +93,40 @@ The Kernel specific chapters are only applicable to the NetHunter edition.
 
 NetHunter Lite can be installed on all Android devices that are rooted and have a custom recovery.
 The full NetHunter experience requires a devices specific kernel that has been purpose built for Kali NetHunter.
-The [NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter) contains over 164 kernels for over 65 devices. Kali Linux publishes over 25 images for the most popular devices on the [NetHunter download page](/get-kali/).
+The [NetHunter GitLab repository](https://gitlab.com/kalilinux/nethunter) contains over 230 kernels for over 100 devices. Kali Linux publishes images for the most popular devices on the [NetHunter download page](/get-kali/).
 The following live reports are generated automatically by GitLab CI:
 
 - [List of quarterly published official NetHunter images](https://nethunter.kali.org/images.html)
-- [List of unofficial NetHunter supported kernels](https://nethunter.kali.org/kernels.html)
-- [list of devices which NetHunter can be put on](https://nethunter.kali.org/device-kernels.html)
+- [List of all NetHunter supported kernels](https://nethunter.kali.org/kernels.html)
+- [List of devices which NetHunter can be put on](https://nethunter.kali.org/device-kernels.html)
 
 ## 3.0 Downloading NetHunter
 
 Official release NetHunter images for your specific supported device can be download from the Kali Linux page located at the following URL:
 
 - [kali.org/get-kali/](/get-kali/)
+- [Weekly builds](https://image-nethunter.kali.org/nethunter-installer/kali-weekly/)
+- [Daily builds](https://image-nethunter.kali.org/nethunter-installer/kali-daily/)
 
 Once the zip file has downloaded, verify the SHA256 sum of the NetHunter zip image against the values on the download page. If the SHA256 sums do not match, do not attempt to continue with the installation procedure.
 
 ## 4.0 Building NetHunter
 
 Those of you who want to build a NetHunter image from our GitLab repository may do so using our Python build scripts. Check out our [Building NetHunter](/docs/nethunter/building-nethunter/) page for more information.
-You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer/README.md) located in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/blob/master/nethunter-installer) git directory.
+You can find additional instructions on using the NetHunter installer builder or adding your own device in the [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer/-/blob/main/README.md) located in the [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-nethunter-installer) git repository.
 
 ## 5.0 Installing NetHunter on top of Android
 
 Now that you've either downloaded a NetHunter image or built one yourself, the next steps are to prepare your Android device and then install the image. "Preparing your Android device" includes:
 
-- **unlocking** your device and **updating it to stock** AOSP or LineageOS (CM). (Check point [2.0](#20-nethunter-supported-devices-and-roms) for supported roms)
+- **unlocking** your device and **updating it to stock** AOSP or LineageOS (CM). (Check point [2.0](#20-nethunter-supported-devices-and-roms) for supported roms).
 - **installing [Team Win Recovery Project](https://twrp.me/)** as a custom recovery.
-- **installing [Magisk](https://github.com/topjohnwu/Magisk)** to root the device
-- disabling force encryption may be required if TWRP cannot access the data partition
+- **installing [Magisk](https://github.com/topjohnwu/Magisk)** to root the device.
+- Disabling force encryption may be required if TWRP cannot access the data partition.
 - Once you have a custom recovery, all that remains is to flash the NetHunter installer zip file onto your Android device.
+- Flash in Magisk **if disabled force encrpytion is not available**
+
+- [Detailed intructions](/docs/nethunter/installing-nethunter/)
 
 ## 6.0 Post Installation Setup
 
@@ -138,25 +143,26 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 
 - [**Home Screen**](/docs/nethunter/nethunter-home-screen/) - General information panel, network interfaces and HID device status.
 - [**Kali Chroot Manager**](/docs/nethunter/nethunter-chroot-manager/) - For managing chroot metapackage installations.
+- [**Settings**](/docs/nethunter/nethunter-settings/) - Select bootanimation, and modify various settings.
+- [**Kernel**](/docs/nethunter/nethunter-kernel/) - Search, download, and flash kernel
+- [**Modules**](/docs/nethunter/nethunter-modules/) - Load modules
 - [**Kali Services**](/docs/nethunter/nethunter-kali-services/) - Start / stop various chrooted services. Enable or disable them at boot time.
 - [**Custom Commands**](/docs/nethunter/nethunter-custom-commands/) - Add your own custom commands and functions to the launcher.
 - [**MAC Changer**](/docs/nethunter/nethunter-mac-changer/) - Change your Wi-Fi MAC address (only on certain devices)
 - [**KeX Manager**](/docs/nethunter/nethunter-kex-manager/) - Set up an instant VNC session with your Kali chroot.
-- [**USB Arsenal**](/docs/nethunter/nethunter-usbarsenal/) - Control the USB gadget configurations
+- [**Audio Manager**](/docs/nethunter/nethunter-audio/) - Enable audio for KeX.
+- [**USB Arsenal**](/docs/nethunter/nethunter-usbarsenal/) - Control the USB gadget configurations.
 - [**HID Attacks**](/docs/nethunter/nethunter-hid-attacks/) - Various HID attacks, Teensy style.
-- [**DuckHunter HID**](/docs/nethunter/nethunter-duckhunter/) - Rubber Ducky style HID attacks
+- [**DuckHunter HID**](/docs/nethunter/nethunter-duckhunter/) - Rubber Ducky style HID attacks.
 - [**BadUSB MITM Attack**](/docs/nethunter/nethunter-badusb/) - Nuff said.
-- [**MANA Wireless Toolkit**](/docs/nethunter/nethunter-mana-wireless/) - Setup a malicious Access Point at the click of a button.
+- [**Wifipumpkin**](/docs/nethunter/nethunter-wifipumpkin/) - Setup a malicious Access Point with captive portal at the click of a button.
+- [**WPS Attacks**](/docs/nethunter/nethunter-wps/) - WPS attacks using OneShot.
 - [**Bluetooth Arsenal**](/docs/nethunter/nethunter-btarsenal/) - Recon, spoof, listen to or inject audio to various Bluetooth devices.
 - [**Social Engineer Toolkit**](/docs/nethunter/nethunter-set/) - Build your own phishing email template for Social Engineer Toolkit.
 - [**MITM Framework**](/docs/nethunter/nethunter-mitmf/) - Inject binary backdoors into downloaded executables on the fly.
 - [**NMap Scan**](/docs/nethunter/nethunter-nmap/) - Quick Nmap scanner interface.
 - [**Metasploit Payload Generator**](/docs/nethunter/nethunter-mpg/) - Generating Metasploit payloads on the fly.
 - [**Searchsploit**](/docs/nethunter/nethunter-searchsploit/) - Easy searching for exploits in [Exploit-Database](https://www.exploit-db.com/).
-
-#### 3rd Party Android Applications in the NetHunter App Store
-
-- [**NetHunter Terminal Application**](/docs/nethunter/nethunter-terminal/)
 
 ## 8.0 Porting NetHunter to New Devices
 
@@ -166,17 +172,18 @@ If you're interested in porting NetHunter to other Android devices, check out th
 2. [Getting Started with kernel builder](/docs/nethunter/porting-nethunter-kernel-builder/)
 2. [Patching a Kernel](/docs/nethunter/nethunter-kernel-1-patching/)
 2. [Configuring a Kernel](/docs/nethunter/nethunter-kernel-2-config-1/)
-3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices)
+3. [Adding Your Device](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)
 
 ## 9.0 Known Working Hardware
 
 1. [Wireless Cards](/docs/nethunter/wireless-cards/)
 2. SDR - RTL-SDR (based on RTL2832U)
-3. Bluetooth adapters - Sena UD100 or generic CSR4.0 adapter
+3. Bluetooth adapters - Sena UD100, TP-Link UB500, generic CSR4.0 adapter
 
 ## 10.0 NetHunter Apps
 
-All apps can be installed through the NetHunter Store client.
+- [**NetHunter Terminal Application**](/docs/nethunter/nethunter-terminal/)
+- [**NetHunter KeX Application**](/docs/nethunter/nethunter-kex/)
 
 ## 11.0 Useful Links
 
