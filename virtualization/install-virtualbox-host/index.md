@@ -12,12 +12,12 @@ VMs are great. There are many upsides with using them. One of the being, able to
 
 VirtualBox is free and open source. There are a few other software such as QEMU, KVM/Xen with virt-manager. Then there is also [VMware Workstation & Fusion](/docs/virtualization/install-vmware-host/), which is a commercial software (there is VMware Player which is free but it is limited in features).
 
-
 VirtualBox is officially available in kali-rolling repositories. 
 
 There are two ways to install `virtualbox`:
-1.From Kali repositories.
-2.From Oracle repository.
+
+1. From Kali repositories.
+2. From Oracle repository.
 
 ### Preparation
 
@@ -55,15 +55,14 @@ kali@kali:~$
 
 ### 2. From Oracle Virtualbox third-party repository
 
-
 ## Download
 
 The first thing we are going to do is import VirtualBox's repository key:
 
 ```console
-kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox_2016.gpg
+kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox_2016.gpg
 [...]
-kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox.gpg
+kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox.gpg
 [...]
 kali@kali:~$
 ```
@@ -96,7 +95,7 @@ kali@kali:~$
 As VirtualBox has various kernel modules (e.g. `vboxdrv`, `vboxnetflt` and `vboxnetadp`), we need to make sure they are kept up-to-date when Kali Linux's kernel gets updated. This can be achieved using [dkms](https://packages.debian.org/testing/dkms):
 
 ```console
-kali@kali:~$ sudo apt install -y dkms
+kali@kali:~$ sudo apt install dkms
 [...]
 kali@kali:~$
 ```
@@ -106,7 +105,7 @@ kali@kali:~$
 Now its time to install VirtualBox itself (along with its Extension Pack to expand VirtualBox's advanced features) and the Linux headers necessary:
 
 ```console
-kali@kali:~$ sudo apt install -y virtualbox virtualbox-ext-pack linux-headers-generic
+kali@kali:~$ sudo apt install virtualbox virtualbox-ext-pack linux-headers-generic
 [...]
 kali@kali:~$
 ```
