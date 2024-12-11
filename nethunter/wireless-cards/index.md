@@ -39,16 +39,17 @@ Realtek
 - RTW88-USB
 
 MediaTek
+- MT7601U (Product may come with Ralink Technology Corp.)
 - MT7610U
 - MT7612U
 
 Qualcomm internal wifi chipsets (wlan0)
-- QCACLD-2.0
-- QCACLD-3.0
+- QCACLD-2.0 (fully supported✅)
+- QCACLD-3.0 (Monitor mode only)
 
 **The following devices are confirmed to be working with a NetHunter build:**
 - TP-Link TL-WN722N v1 (Please note that v2 & v3 have unsupported chipsets)
-  but v2 and v3 may be supported using RTL8812AU drivers.)
+  but v2 and v3 may be supported using RTL8188EUS/RTL8XXXU drivers.)
 
 - TP-Link TL-WN822N v1 - v4
 - Alfa Networks AWUS036ACH
@@ -59,7 +60,5 @@ Qualcomm internal wifi chipsets (wlan0)
 
 **The following devices are confirmed to be partially working with a NetHunter build:**
 - Alfa Networks AWUS051NH (dual band 5 GHz support may be unreliable)
-
-**The following devices are confirmed to NOT be working with a NetHunter build:**
 
 ![](nethunter-wlan0monitor.png)
