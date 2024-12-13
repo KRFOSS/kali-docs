@@ -14,7 +14,7 @@ With the advent of smaller, faster ARM hardware such as the new **Raspberry Pi 2
 The process described below was tried and **tested successfully on a Raspberry Pi B+ and a Raspberry Pi 2/3** (henceforth collectively called "RPi"). but it should be trivial to port these instructions to any ARM device running Kali Linux. Before we begin, let's take a minute to quickly describe what we'll be doing - as while this process is not complicated, it **is involved**. This is basically our spiel:
 
 1. We [download](/get-kali/) the required Kali RPi image and **dd** it to an SD card.
-2. We chroot to the RPi image and install/update several files in preparation for our crypted boot.
+2. We chroot to the RPi image and install/update several files in preparation for our encrypted boot.
 3. We create an initramfs file which includes Dropbear and freshly generated SSH keys.
 4. We rsync the modified rootfs to a temporary backup location and then delete the rootfs partition from the SD card.
 5. We then recreate an encrypted partition to which we restore the root partition data. That's it!

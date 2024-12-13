@@ -97,7 +97,7 @@ This process will wipe out your whatever is on your eMMC. If you choose the wron
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2024.3-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progres
+$ xzcat kali-linux-2024.3-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your Radxa Zero's storage, and the size of the Kali Linux image.
@@ -126,7 +126,7 @@ This process will wipe out your whatever is on your eMMC. If you choose the wron
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2024.3-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progres
+$ xzcat kali-linux-2024.3-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
 ```
 
 This process can take a while, depending on your microSD card, your Radxa Zero's storage, and the size of the Kali Linux image.

@@ -36,7 +36,7 @@ This process will wipe out your microSD card or USB drive. If you choose the wro
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2024.3-chromebook-veyron-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progres
+$ xzcat kali-linux-2024.3-chromebook-veyron-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card or USB drive speed, and the size of the Kali Linux image.
