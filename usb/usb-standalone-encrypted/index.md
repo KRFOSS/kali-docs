@@ -27,7 +27,7 @@ Creating such an installation is a bit tricky and involves quite a bit of manual
     2. A boot sector for `grub2` to reside in.
     3. An EFI partition with `vfat` filesystem.
     4. A `swap` partition, encrypted with luks2.
-    5. The root (`/`) partition of our installation with `btrfs` filesystem. Any more fine grained structure is achived by creating subvolumes.
+    5. The root (`/`) partition of our installation with `btrfs` filesystem. Any more fine grained structure is achieved by creating subvolumes.
 - We also need a USB drive with the Kali "bare metal" installer. This is a Debian type installer. We need to interrupt the expert mode installation and intervene from the command line in order to mount the encrypted partitions of our target USB drive, then install Kali Linux 2021.4 on it, create an initial RAM disk on the `/boot` partition which contains the keys for `grub2` in order to eventually be able to mount the encrypted partitions, but we must not install the `grub2` boot loader at this stage. If we did, this might change the EFI boot information of the machine on which we are performing the installation and produce an unintended dual-boot setup, and so we are left with a complete installation that is merely lacking any boot loader.
 - We then need a USB drive with a rescue system. I have not managed to do this with the Kali "bare metal" installer, but rather employ the "Xubuntu 20.04 LTS" live USB medium. With its help, we can install `grub2` in `--removable` mode. This prevents `grub2` from modifying the EFI boot information of the machine on which we are working, but rather affects only our target USB drive.
 
@@ -199,7 +199,7 @@ $ cp /mnt/point/etc/fstab /target/etc/fstab
 
 Here, the `btrfs subvolume list` shows the subvolume IDs on the current volume, and we use the number assigned to `@` in the subsequent `set-default` command.
 
-We have created the subvolume `@` as the one to be mounted on `/` by default, follwing `snapper` naming conventions. It is a matter of taste how many further subvolumes to create. We go for `@home`, `@root` and `@snapshots` which we will later mount at `/home`, `/root` and `/snapshots`. Note that although some like `/var` on a seperate subvolume, this will not work below.
+We have created the subvolume `@` as the one to be mounted on `/` by default, following `snapper` naming conventions. It is a matter of taste how many further subvolumes to create. We go for `@home`, `@root` and `@snapshots` which we will later mount at `/home`, `/root` and `/snapshots`. Note that although some like `/var` on a separate subvolume, this will not work below.
 
 ### The File System Table
 
@@ -252,7 +252,7 @@ Some people who tried to install Linux on a portable drive report that the insta
 
 ### Setting Up the Initial RAM Disk
 
-Then back to the root console with [Ctrl]+[Alt]+[F3] in order to make sure that `grub2`, when it is evetually installed, will be able to decrypt the boot partition.
+Then back to the root console with [Ctrl]+[Alt]+[F3] in order to make sure that `grub2`, when it is eventually installed, will be able to decrypt the boot partition.
 
 We change root to the newly installed system, mount all partitions and subvolumes,
 
@@ -306,7 +306,7 @@ Eventually, we click *Continue* to boot the system, but we rather remove the USB
 Note that in order to produce an EFI bootable USB drive, when we next boot the computer, this has to be in UEFI mode. If required, go to the BIOS/UEFI Setup and switch it on.
 
 Now we connect the USB pen drive that contains the Xubuntu 20.04.3 LTS live installation medium and boot from it, select *Try
-Xubuntu wihout installing* in order to get to the live system. Then we connect the USB drive that forms our installation target.
+Xubuntu without installing* in order to get to the live system. Then we connect the USB drive that forms our installation target.
 
 Make sure that the Xubuntu live system has network access (this is done by the `NetworkManager` in the graphical interface). Open a terminal and call `ls /sys/firmware/efi/efivars` in order to confirm that we are indeed in EFI mode. If this directory were missing, we would be in legacy BIOS boot mode. 
 
@@ -425,7 +425,7 @@ It is not necessary to re-install `grub2` or to make any other manual adjustment
 - Also note that it is the passphrase of the `/boot` partition that it sufficies to attack, and that is only luks1.
 - Encryption of the `/boot` partition substantially reduces the attack surface to an *evil maid attack*. Without encryption of `/boot`, an attacker who gets hold of your USB drive, can tamper with the kernel image and with the initial RAM disk stored on that `/boot` partition. This is no longer possible.
 - It might still be possible to replace the `grub2` boot loader by an alternative program that first asks for your passphrase, then has enough rights to access the network (on whatever machine you might be trying to boot from your USB drive) in order to exfiltrate your passphrase to the attacker, and which eventually uses your passphrase to boot your very Kali installation. You would not notice that this has happened.
-- There is still another potential software based *evil maid attack* left. The maid who finds your USB drive in your hotel room might first extract a bitwise copy of its content. She might then try to boot from it and notice the exact form of the prompt for the passphrase. She might then overwrite your USB drive with another boot loader that prompts for your passphrase in exactly the same fashion and immediately afterwards does what *she* wants. So if you plug in your USB drive the next time and boot from it, you will give away your passphrase to her boot loader. If she can then somehow exfiltrate your passphrase (by WLAN?), she not only has a bitwise copy of your drive, but also your passphrase. But you will immediately notice that this has happened as she is unlikely to be able to mimick your exact Kali installation.
+- There is still another potential software based *evil maid attack* left. The maid who finds your USB drive in your hotel room might first extract a bitwise copy of its content. She might then try to boot from it and notice the exact form of the prompt for the passphrase. She might then overwrite your USB drive with another boot loader that prompts for your passphrase in exactly the same fashion and immediately afterwards does what *she* wants. So if you plug in your USB drive the next time and boot from it, you will give away your passphrase to her boot loader. If she can then somehow exfiltrate your passphrase (by WLAN?), she not only has a bitwise copy of your drive, but also your passphrase. But you will immediately notice that this has happened as she is unlikely to be able to mimic your exact Kali installation.
 - You still need to trust the hardware on which you are running your USB drive.
 
 ## Acknowledgements

@@ -135,7 +135,7 @@ kali@kali:~$ cryptsetup luksHeaderBackup --header-backup-file luksheader.back /d
 kali@kali:~$ openssl enc -e -aes-256-cbc -in luksheader.back -out luksheader.back.enc
 ```
 
-Now boot into your encrypted store, and give the Nuke password, rather than the real decryption password. This will render any info on the encrypted store useless. Once this is done, verify that the data is indeed inacessible.
+Now boot into your encrypted store, and give the Nuke password, rather than the real decryption password. This will render any info on the encrypted store useless. Once this is done, verify that the data is indeed inaccessible.
 
 **Lets restore the data now**. We'll decrypt our backup of the LUKS keyslots, and restore them to the encrypted partition:
 

@@ -47,7 +47,7 @@ to it. We are also keeping a few common external modules (like `requests`)
 so that random exploit scripts have a reasonable chance to run
 successfully.
 
-Howewer, pip for Python2 (aka python-pip) is gone, `/usr/bin/pip` is the
+However, pip for Python2 (aka python-pip) is gone, `/usr/bin/pip` is the
 same as `/usr/bin/pip3` and it will install modules for Python 3. See the
 FAQ below for more information.
 

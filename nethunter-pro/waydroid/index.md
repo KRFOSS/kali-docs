@@ -25,7 +25,7 @@ sudo bash wd.sh bookworm
 
 **Install waydroid using apt**
 
-If you see any package dependeny error while running `apt` command, try switching the suite to `trixie` at above step.
+If you see any package dependency error while running `apt` command, try switching the suite to `trixie` at above step.
 
 ```
 sudo apt install waydroid
