@@ -2,6 +2,7 @@
 title: NetHunter Man In The Middle Framework
 description:
 icon:
+archived: "true"
 weight:
 author: ["re4son",]
 ---
