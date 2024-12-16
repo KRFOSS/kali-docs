@@ -38,7 +38,7 @@ while ! adb devices | grep -q recovery; do sleep 2; done
 adb push cm-13.1.2-ZNH2KAS3P0-bacon-signed-8502142fdc.zip /sdcard/Download/cm-13.1.2.zip; adb shell 'twrp install /sdcard/Download/cm-13.1.2.zip'
 adb push lineage-17.1-20210325-nightly-bacon-signed.zip   /sdcard/Download/los-17.1.zip;  adb shell 'twrp install /sdcard/Download/los-17.1.zip'
 adb push lineage-18.1-20240306-nightly-bacon-signed.zip   /sdcard/Download/los-18.1.zip;  adb shell 'twrp install /sdcard/Download/los-18.1.zip'
-adb shell 'twrp wipe data'    #Alt: adb shell 'twrp format data'
+adb shell 'twrp wipe data'    # Alt: adb shell 'twrp format data'
 adb reboot
 # When at the first time install/setup wizard, complete it then power off and boot into recovery (hold power & volume down, until on/vibrate)
 
@@ -137,7 +137,7 @@ kali@kali:~$
 -->
 
 We are going to be covering how to install Kali NetHunter on a OnePlus One.
-This guide will use Kali Linux (as the host), a USB cable (to connect), TWRP (for recovery), Magisk (for root) and LineageOS (Android 11) for the ROM.
+This guide will use Kali Linux (as the host), a USB cable (to connect), TWRP (for recovery), Magisk (for root access) and LineageOS (Android 11, for the ROM).
 
 At a higher level, the stages are:
 
@@ -242,6 +242,15 @@ However, using a TWRP recovery mode, you can:
  - [x] Mount any partition
 - [x] Terminal & file manager access
 
+<!--
+  Android version support: https://twrp.me/faq/howtocompiletwrp.html
+
+  The first three digits is the version number, and the fourth digit, separated by a dash, specifies an update for a specific device
+  v3.6.0_9-0
+  v3.6.0 == Version
+  9-0    == Device release
+-->
+
 - - -
 
 <!--Should this be here or lower down in the top section?-->
@@ -252,7 +261,7 @@ Inside of the bootloader, it is possible to replace partition(s) using a binary 
 - uninstaller/META-INF/com/google/android/update-binary) - Kali NetHunter uninstaller
 -->
 As Kali NetHunter is not a ROM but an "[add-on](https://web.archive.org/web/20230315170356/https://wiki.lineageos.org/devices/bacon/install)"<!--Overlay? Injects?-->, it takes full advantage of this. Kali NetHunter is a series/bundle of apps and scripts to alter the device into a certain state.
-Because of this, we need to match the Kali NetHunter kernel, to the Android system ROM and version that is installed on the device.
+Because of this, we need to match the Kali NetHunter kernel, to the Android system ROM kernel and version that is installed on the device.
 
 <!--
 The images needed to flash a system ROM via the bootloader are not as common as they once were (especially with LineageOS, this was more of apart of CyanogenMod).
@@ -307,8 +316,8 @@ Breaking this down a bit, our flash path could be:
 
 - [ ] Using bootloader, we can flash CyanogenMod 11.0 (CM 11)
 - Then using recovery we can **either**:
-  - [ ] Flash CM 12.1.x OR 13.1.x
-  - [ ] Flash CM 13.0 OR 14.1, but would require us to wipe the `/data` partition before we are able to flash<!-- $ adb shell 'twrp wipe data' -->
+  - [ ] Flash CM 12.1.x _OR_ 13.1.x
+  - [ ] Flash CM 13.0 _OR_ 14.1, but would require us to wipe the `/data` partition before we are able to flash<!-- $ adb shell 'twrp wipe data' -->
 - [ ] Afterwards, able to flash LineageOS 17.1 (LOS 17.1)
 - [ ] Finally, flash LOS 18.1, but it requires us to wipe the `/data` partition before we reboot<!--wipe /data either before or after flashing LOS - doesn't matter, otherwise we get a black unresponsive app-like screen straight after the first time install wizard-->
 
@@ -408,12 +417,12 @@ There is an element of trial and error here. Best of luck!
 
 - - -
 
-From here, we can then aim to get superuser access (aka "root"), which would previously be locked away in Android, and just like in Linux, this is the highest level of privilege. We now have complete freedom and control over the device. There has been various different solutions with the aim of getting root, such as [SuperSU](https://chainfire.eu/articles/995/SuperSU_v2.82-SR5_and_suhide_v1.09_released) or [Magisk](https://github.com/topjohnwu/Magisk).
+From here, we can then aim to get superuser access (aka "root"), which would previously be locked away in Android, and just like in Linux, this is the highest level of privilege. We now have complete freedom and control over the device. There has been various different solutions with the aim of getting root, such as [SuperSU](https://chainfire.eu/articles/995/SuperSU_v2.82-SR5_and_suhide_v1.09_released), [APatch](https://apatch.dev/), [KernelSU](https://kernelsu.org/) or [Magisk](https://github.com/topjohnwu/Magisk).
 <!--
 **SuperSU**:
-  - Android 2.x -> 10.x?
+  - Android 2.x -> 10.x? (Can't find this confirmed online, I just had issues!)
   - Chainfire -> Coding Code Mobile Technology LLC (CCMT)?
-  - https://supersu.com
+  - https://supersu.com/
   - https://www.xda-developers.com/chainfire-ending-development-root-apps/
   - https://xdaforums.com/f/supersu.3522/
 **KingRoot**:
@@ -421,13 +430,17 @@ From here, we can then aim to get superuser access (aka "root"), which would pre
   - Talks of injecting adverts/adware
   - https://web.archive.org/web/20190216132637/https://kingroot.net/?myLocale=en_US
   - https://xdaforums.com/t/root-android-2-x-6-0-kingroot-the-one-click-root-tool-for-almost-all-devices.3107461/
+**APatch**:
+  - Android 3.18 -> 6.1
+  - Open-source!
+  - https://apatch.dev/
 **KernelSU**:
-  - Android 12+? ~ https://kernelsu.org/guide/faq.html
+  - Android 12+    (Really Kernel 5.10 or higher ~ https://kernelsu.org/guide/faq.html)
   - https://kernelsu.org/
   - Open-source!
-  - ARM64 only , so will not work with arm7 / ARMv7(32-bit) / aarch32 (Which is what the OnePlus One is)
+  - ARM64 only, so will not work with arm7 / ARMv7 (32-bit) / aarch32 - Which is what the OnePlus One is
 **Magisk**:
-  - Android 6.x -> ?
+  - Android 6+
   - Open-source!
   - https://github.com/topjohnwu/Magisk
 -->
@@ -584,7 +597,7 @@ _The first time running in hosts/Kali's session, the daemon should start up._
 
 - - -
 
-### Unlock the bootloader
+### Unlock The Bootloader
 
 Next we want to put the device into bootloader mode, as this allows us to unlock the device, with the end result being more control and freedom (such as write access to be able to flash ROMs).
 We can now reboot either using the new power options menu (press and hold the power button -> tap restart -> bootloader) or run:
@@ -660,7 +673,7 @@ If the device was already unlocked and you re-ran the same command, nothing!
 
 - - -
 
-### Flash back to stock (mostly)
+### Flash Back To Stock (Mostly)
 
 <!--
 Author note:
@@ -682,7 +695,7 @@ It should shortly show "fastboot mode" on the screen.
 Re-attach the USB cable back in and run the following commands:
 
 ```console
-kali@kali:~$ rm -rf cm/; mkdir -pv cm/ && cd cm/ && unzip ../cm-11.0-XNPH44S-bacon-signed-fastboot.zip
+kali@kali:~$ mkdir -pv cm/ && cd cm/ && unzip ../cm-11.0-XNPH44S-bacon-signed-fastboot.zip
 kali@kali:~/cm$ fastboot oem unlock
 kali@kali:~/cm$ fastboot flash modem NON-HLOS.bin
 kali@kali:~/cm$ fastboot flash sbl1 sbl1.mbn
@@ -737,7 +750,7 @@ kali@bdesktop:~$
 
 - - -
 
-### Upgrade system ROM (Update Android version)
+### Upgrade System ROM (Update Android Version)
 
 The plan is to go from CM 11 to CM 13.1.2 to LOS 17.1 to finally LOS 18.1 _(Android 4.4.4 "KitKat" -> Android 6 "Marshmallow" -> Android 10 "Ten" -> Android 11 "eleven")_.
 
@@ -758,7 +771,7 @@ kali@kali:~$
 kali@kali:~$ adb push lineage-17.1-20210325-nightly-bacon-signed.zip /sdcard/Download/los-17.1.zip; adb shell 'twrp install /sdcard/Download/los-17.1.zip'
 kali@kali:~$
 kali@kali:~$ adb push lineage-18.1-20240306-nightly-bacon-signed.zip /sdcard/Download/los-18.1.zip; adb shell 'twrp install /sdcard/Download/los-18.1.zip'
-kali@kali:~$ adb shell 'twrp wipe data'    #Alt: adb shell 'twrp format data'
+kali@kali:~$ adb shell 'twrp wipe data'    # Alt: adb shell 'twrp format data'
 kali@kali:~$
 kali@kali:~$ adb reboot
 ```
@@ -771,14 +784,14 @@ After the device restarts, apps will start to be optimized again. Once complete,
 
 - - -
 
-### Root device
+### Root Device
 
 The last thing before installing Kali NetHunter, we need to be able to get root access on the device. In order to-do this, we will be using Magisk.
-Magisk can be installed by either using recovery/TWRP or installing via `adb`.
+Magisk can be installed by either using recovery/TWRP or installing via `adb` (developer settings).
 Both methods have their advantages and disadvantages; `adb` will require us to enable developer settings once again as well as generate an image file to be flashed, however recovery/TWRP will require Internet access on the device.
 _Note: At the time of writing, v28 is the latest stable version. Using `adb` its possible to install any version, but in our testing via recovery/TWRP was failing to install v28 - needed to be v27_<!--Upon trying to download the rest of the external data, would just "crash"-->.
 
-**Install via Developer settings**
+#### Install via ADB
 
 Once developer settings are enabled again, also enable Android debugging for `adb` to work and accept the RSA key fingerprint.
 Then after downloading Magisk on the host, its possible to install via:
@@ -855,7 +868,7 @@ When the device is back up, we are now in a place to finally install Kali NetHun
 
 - - -
 
-**Install via Recovery/TWRP**
+#### Install via Recovery/TWRP
 
 After booting into recovery mode, using `adb` & `twrp` we can manually upload then install it:
 
@@ -957,7 +970,7 @@ Note, the Kali NetHunter Android version needs to match the same ROM and version
 After booting into recovery mode (either by advance power menu or button combinations):
 
 ```console
-kali@kali:~$ adb push *nethunter-*-oneplus1-los-eleven-kalifs-full.zip /sdcard/Download/nh-11.zip; adb shell 'twrp install /sdcard/Download/nh-11.zip'
+kali@kali:~$ adb push nethunter-*-oneplus1-los-eleven-kalifs-full.zip /sdcard/Download/nh-11.zip; adb shell 'twrp install /sdcard/Download/nh-11.zip'
 [...]
 kali@kali:~$ adb reboot
 ```
@@ -979,7 +992,7 @@ Kali NetHunter can be either uploaded by using `adb` or downloaded on the device
 In system mode:
 
 ```console
-kali@kali:~$ adb push *nethunter-*-oneplus1-los-eleven-kalifs-full.zip /sdcard/Download/nh-11.zip
+kali@kali:~$ adb push nethunter-*-oneplus1-los-eleven-kalifs-full.zip /sdcard/Download/nh-11.zip
 ```
 
 - - -
@@ -999,7 +1012,13 @@ Tap on Modules -> Install from storage -> hamburger icon (3 lines) -> Downloads 
 
 ![](magisk-nethunter-06.png)
 
+{{% notice info %}}
+The above output may change depending on the Kali NetHunter version
+{{% /notice %}}
+
+<!--
 _Otherwise: `adb shell 'su -c magisk --install-module /sdcard/Download/nh-11.zip'`_
+-->
 
 <!--
 If something goes wrong/troubleshoot, check the logs (as it has more info that whats on the screen/console).
@@ -1012,7 +1031,7 @@ kali@kali:~$ adb shell 'cat /sdcard/Download/*.log; rm /sdcard/Download/*.log'
 
 - - -
 
-## First time using Kali NetHunter
+## First Time Using Kali NetHunter
 
 Upon rebooting the device, you should see:
 
@@ -1032,14 +1051,9 @@ Its recommended to check to see if there has been an update and if so, upgrade!
 
 **NetHunter App**
 
-Upon opening the NetHunter app for the first time, you will have a few permissions requests:
-
-- Root Access (Magisk)
-- Location
+Upon opening the NetHunter app for the first time, you will have a permissions requests - Root Access (Magisk)
 
 ![](nethunter-01.png)
-
-![](nethunter-02.png)
 
 - - -
 
@@ -1061,7 +1075,8 @@ Done!
 
 Feel free to delete everything/anything in `/sdcard/Downloads/` that we have uploaded.<!-- $ adb shell 'twrp wipe data' -->
 
-You may want to look into flashing some [Open GApps](https://opengapps.org/)!
+You may want to look into flashing some [Open GApps](https://opengapps.org/).
+
 Remember the OnePlus One is a `ARM` platform (not `ARM64`):
 
 ```console
