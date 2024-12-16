@@ -29,7 +29,7 @@ While '/dev/sdX' is used through this page, the '/dev/sdX' should be replaced wi
 
 In this example, we'll create a new partition to store our persistent data into, starting right above the second Kali Live partition, put an ext4 file system onto it, and create a `persistence.conf` file on the new partition.
 
-1. First, begin by imaging the latest Kali Linux ISO (currently [2024.3](/get-kali/)) to your USB drive as described in [this article](/docs/usb/live-usb-install-with-windows/). We're going to assume that the two partitions created by the imaging are `/dev/sdX1` and `/dev/sdX2`. This can be verified with the command `lsblk`.
+1. First, begin by imaging the latest Kali Linux ISO (currently [2024.4](/get-kali/)) to your USB drive as described in [this article](/docs/usb/live-usb-install-with-windows/). We're going to assume that the two partitions created by the imaging are `/dev/sdX1` and `/dev/sdX2`. This can be verified with the command `lsblk`.
 
 2. Create and format an additional partition on the USB drive.
 First, let's create the new partition in the empty space above our Kali Live partitions. We have to do this from the command line as gparted will read the imaged ISO as a large block:
