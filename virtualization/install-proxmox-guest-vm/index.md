@@ -66,11 +66,18 @@ From here we select the new VM under our node and after selecting "Console" we s
 
 We will go over the steps and discuss some of the changes that can be made.
 
-We first need to install the container template to be used. To do this we navigate to [a LXD repo](https://us.lxd.images.canonical.com/images/kali/current/) and determine what our requirements are. For this guide, we have a Proxmox system that is run on amd64 hardware, so we select that. We are going to select default, this will go for all hardware options. Next we select the most recent date. Now we download the "rootfs.tar.xz". We can alternatively copy this link and in Proxmox under "CT Templates" select "Download from URL" and supply this URL and then query it.
+We first need to install the container template to be used. To do this we navigate to [a LXD repo](https://images.lxd.canonical.com/images/kali/current/) and determine what our requirements are. For this guide, we have a Proxmox system that is run on amd64 hardware, so we select that. We are going to select default, this will go for all hardware options. Next we select the most recent date. Now we download the "rootfs.squashfs".
+
+To convert "rootfs.squashfs" to "rootfs.tar.xz" you can use [sqfs2tar](https://manpages.ubuntu.com/manpages/focal/man1/sqfs2tar.1.html):
+- Install sqfs2tar with `sudo apt install squashfs-tools-ng`.
+- Run `sqfs2tar rootfs.squashfs | xz > rootfs.tar.xz`
+- Upload rootfs.tar.xz to your "CT Templates" location in Proxmox (rename as needed).
+
+To create a container in Proxmox using this template:
 
 - Select "Create CT"
 - Assign the container a hostname and a password. If relevant, supply a SSH public key as well.
-- Select the template we downloaded previously
+- Select the template we uploaded previously
 - Depending on the use-case of this container, you may want to give the system more storage. A good balance would be to give it 20 GiB for a typical Kali install.
 - Up the "Cores" to be 2, you may be able to use less or may need more, think about your needs
 - Again, depending on the use case you may want to up the amount of memory. A good balance would be to give it 2048 for a typical Kali install, with 1024 swap.
