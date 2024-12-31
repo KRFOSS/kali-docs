@@ -45,6 +45,7 @@ Tap on the new **Developer options** section and enable both the **Advanced Rebo
 
 ## 3. Unlocking, rooting, and installing a custom recovery on your android device
 
+<!-- If updating, make sure to update: ./kali-docs/nethunter/installing-nethunter/index.md & ./kali-nethunter-kernels/bin/generate-android-versions.py-->
 NetHunter supports over [99 different devices](https://nethunter.kali.org/device-kernels.html) running [Android versions from 4.4/Kitkat though to 15/Fifteen](https://nethunter.kali.org/android-versions.html).
 
 Whilst we have standardised the NetHunter installation procedure, the **steps to unlock, root, and install a custom recovery varies from device to device and even differs between Android versions**.
