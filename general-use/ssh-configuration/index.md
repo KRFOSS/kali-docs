@@ -26,10 +26,7 @@ As software and security advance, OpenSSH will remove features that are no longe
 
 This package is, in practicality, OpenSSH frozen at version 7.5 (released in March 2017). It provides binaries for `ssh`, `scp`, and `ssh-keygen`, under the respective names `ssh1`, `scp1` and `ssh-keygen1`. Why version 7.5, you might ask? Because this is the last release of OpenSSH that supports the **SSH v.1 protocol**. And as time passed, this old version became useful to keep using other removed features, notably support for **DSA keys** that was removed in version 9.8.
 
-<!--
-Since the release of [Kali Linux 2024.4](/blog/kali-linux-2024-4-release/)
--->
-Starting with Kali weekly image 2024W40, and in upcoming release 2024.4, the package `openssh-client-ssh1` is installed by default. For others who upgraded their system and need this functionality, it's easy to just install the package:
+Since the release of [Kali Linux 2024.4](/blog/kali-linux-2024-4-release/), the package `openssh-client-ssh1` is installed by default. For others who upgraded their system and need this functionality, it's easy to just install the package:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -51,7 +48,7 @@ kali@kali:~$
 ## SSH client: Support for GSS-API
 
 {{% notice info %}}
-This is for users of Kali Linux who have upgraded their system and lost this functionality. The package will be pre-installed in Kali Linux starting in 2024.4.
+This is for users of Kali Linux who have upgraded their system and lost this functionality. The package is pre-installed in Kali Linux starting in 2024.4.
 
 As of September 23, 2024, this package currently only contains a changelog. This package is a placeholder for when the GSS-API changes occur in the OpenSSH package.
 {{% /notice %}}
