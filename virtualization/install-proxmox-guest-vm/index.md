@@ -39,9 +39,9 @@ Proxmox has two ways of accessing a nested environment. The first is through vir
 - Close shell
 - In Proxmox, locate the created VM
 - In the middle pane, click Hardware and then locate the 'Unused disk 0' in the right pane. Click Edit
-- Make neccessary changes to the configuration and then click Add
+- Make necessary changes to the configuration and then click Add
 - A new disk has been created so boot order must be adjusted; click Options in the middle pane then click 'Boot Order' in the right pane. Click Edit
-- Enable the (only) disk and then change the boot order so that the disk is either #1 or #2 (preceeded by ide2 / CD). Click OK
+- Enable the (only) disk and then change the boot order so that the disk is either #1 or #2 (preceded by ide2 / CD). Click OK
 - Now Kali is ready to start. Please remember that the default credentials "kali/kali" is to be used when logging in (ie. remember to change these)  
 
 ## Kali as a Proxmox VM (Virtualization)

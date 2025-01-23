@@ -46,7 +46,7 @@ The snapshotting strategy of this walk-through centres around a tool called "sna
 
 To top things off, we added [grub-btrfs](https://github.com/Antynea/grub-btrfs) by [Antynea](https://github.com/Antynea) to automatically add a list of snapshots to the grub boot menu.
 
-[Snapper-gui](https://github.com/ricardomv/snapper-gui) by [Ricardo Vieira](https://github.com/ricardomv) is another great tool we use to make our lifes easier.
+[Snapper-gui](https://github.com/ricardomv/snapper-gui) by [Ricardo Vieira](https://github.com/ricardomv) is another great tool we use to make our lives easier.
 
 ##### Installation Overview
 

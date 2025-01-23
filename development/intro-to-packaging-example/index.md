@@ -144,7 +144,7 @@ kali@kali:~/kali/packages/instaloader$ git branch -v
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Now we can generate the necessary files required to build a Debain-based package and also remove any example files created. During the process, we will be asked if its:
+Now we can generate the necessary files required to build a Debian-based package and also remove any example files created. During the process, we will be asked if its:
 
 - `Single binary`
 - `Arch-Independent`

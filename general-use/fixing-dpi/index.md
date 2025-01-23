@@ -59,7 +59,7 @@ HDMI-0 connected 1680x1050+0+0 (normal left inverted right x axis y axis) 160mm 
 kali@kali:~$
 ```
 
-Again, one screen. ALso, its resolution matches up with what `xdpyinfo` told us. We can see its using a **HDMI** cable and also same the same resolution & size.
+Again, one screen. Also, its resolution matches up with what `xdpyinfo` told us. We can see its using a **HDMI** cable and also same the same resolution & size.
 
 Checking the logs of X, we can see:
 
