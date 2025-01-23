@@ -200,7 +200,7 @@ rm -rfv "${tftp:?}"/*
 ## Download the newest version
 wget "https://http.kali.org/kali/dists/kali-rolling/main/installer-${arch}/current/images/netboot/netboot.tar.gz" -O "${tftp}/netboot.tar.gz"
 
-## Exract
+## Extract
 tar -zxpvf /tftpboot/netboot.tar.gz -C "${tftp}"
 
 ## Clean up
