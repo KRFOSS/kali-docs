@@ -12,6 +12,8 @@ Waydroid is an open-source project that allows you to run the Android operating 
 
 ### Install Instructions
 
+{{< youtube BeCkoZ4EfOs >}}
+
 **Install pre-requisites**
 ```
 sudo apt install curl ca-certificates -y
