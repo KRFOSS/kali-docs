@@ -6,6 +6,22 @@ weight: 10
 author: ["gamb1t","g0tmi1k",]
 ---
 
+## Modern WSL Distribution Architecture (2025)
+
+As of November 2024, there is a new distribution architecture for WSL that allows for use of tar compressed root filesystems to be imported into WSL. To get started, ensure you are on the pre-release version of WSL:
+
+```
+wsl --update --pre-release
+```
+
+Once updated, you can now use `.wsl` files as found on our [kali.download](https://kali.download/wsl-images/current/) mirror. Alternatively, you can install Kali with the following command:
+
+```
+wsl --install kali-linux
+```
+
+## The different versions of WSL
+
 <!--
      VM setup:
      -   4x CPU
