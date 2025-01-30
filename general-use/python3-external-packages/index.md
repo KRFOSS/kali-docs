@@ -12,7 +12,7 @@ Starting Kali Linux 2024.4, using `pip` to install external Python packages _is 
 
 If you try to use `pip` to perform system-wide installs (`sudo pip install`) or user home directory installs (`pip install --user`), you'll get this message:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo pip install xyz
 error: externally-managed-environment
@@ -56,7 +56,7 @@ For an example, let's check [Faraday's README](https://github.com/infobyte/farad
 
 Before doing any of that, we can check if Faraday is already packaged in Kali Linux with:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ apt search faraday
 [...]
@@ -64,7 +64,7 @@ Before doing any of that, we can check if Faraday is already packaged in Kali Li
 
 The output is a bit too long, so let's match only package names that start with `faraday`:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ apt search faraday | grep ^faraday
 faraday/kali-rolling 5.7.0-0kali1 all
@@ -74,7 +74,7 @@ faraday-cli/kali-rolling 2.1.8-0kali1 all
 
 We're getting there: there's a package named `faraday`, let's check if it's indeed what we're after:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ apt show faraday
 Package: faraday
@@ -87,7 +87,7 @@ Description: Collaborative Penetration Test IDE
 
 Indeed, it's the right one! We can install it simply with:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt install faraday
 ```
@@ -98,7 +98,7 @@ Done!
 
 In this example, we're going to install [XSStrike](https://github.com/s0md3v/XSStrike). This time, APT returns nothing:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ apt search xsstrike
 ```
@@ -107,7 +107,7 @@ So we're going to install it with `pipx.` This assumes that the project is publi
 
 Installation is pretty straightforward:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ pipx install xsstrike
   installed package xsstrike 3.2.2, installed using Python 3.12.6
@@ -118,7 +118,7 @@ done!
 
 That's all, now we can run it:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ xsstrike -h
 
@@ -141,7 +141,7 @@ And it works already!
 
 From Kali Linux 2024.4, `pipx` should be pre-installed. If ever it's not the case, you can install it via `apt` as usual:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt install -y pipx
 ```
@@ -152,7 +152,7 @@ From Kali Linux 2024.4, `pipx` should be pre-installed. If ever it's not the cas
 
 From Kali Linux 2024.4, `~/.local/bin` should already be in the `PATH`. You can check that by opening a terminal and running the command:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ echo $PATH
 /home/kali/.local/bin:[...]
@@ -162,7 +162,7 @@ If you see `/home/kali/.local/bin` somewhere in the output, it's all good.
 
 If for some reason it's not there, you might get this message after installing a program with `pipx`:
 
-```plaintext
+```console
 ┌──(kali㉿kali)-[~]
 └─$ pipx install xyz
   installed package xyz 1.0, installed using Python 3.12.6
