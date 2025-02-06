@@ -12,7 +12,7 @@ CAN-Arsenal is used to communicate with your car for testing, diagnostics or car
 
 ## Menu
 
-![](nethunter-canarsenal1.png)
+![](nethunter-canarsenal1.jpg)
 
 ### Documentation
 
@@ -29,13 +29,13 @@ This button will update the installed CAN tools and packages.
 
 ## Settings
 
-![](nethunter-canarsenal2.png)
+![](nethunter-canarsenal2.jpg)
 
 Settings are used to configure CAN Arsenal toolset.
 
 ## Interface
 
-![](nethunter-canarsenal3.png)
+![](nethunter-canarsenal3.jpg)
 
 Interface section is used to Start or Stop CAN, VCAN or SLCAN interface.
 
@@ -139,12 +139,12 @@ sudo slcan_attach -d <USB Device>
 
 ## Tools
 
-![](nethunter-canarsenal4.png)
+![](nethunter-canarsenal4.jpg)
 
 
 ### Can-Utils : CanGen
 
-Used to generate CAN Traffic.
+Used to generate CAN Bus Traffic.
 
 
 ***CanGen - Settings Prerequisite :*** 
@@ -161,7 +161,7 @@ cangen <CAN Interface> -v
 
 ### Can-Utils : CanSniffer
 
-Used to sniff CAN Traffic.
+Used to sniff CAN Bus Traffic.
 
 
 ***CanSniffer - Settings Prerequisite :*** 
@@ -178,7 +178,7 @@ cansniffer <CAN Interface>
 
 ### Can-Utils : CanDump
 
-Used to dump CAN traffic to an output file.
+Used to dump CAN Bus traffic to an output file.
 
 
 ***CanDump - Settings Prerequisite :*** 
@@ -195,7 +195,7 @@ candump <CAN Inteface> -f <Output Log>
 
 ### Can-Utils : CanSend
 
-Used to replay a specific sequence to car.
+Used to replay a specific sequence to CAN bus.
 
 
 ***CanSend - Settings Prerequisite :*** 
@@ -210,7 +210,7 @@ cansend <CAN Interface> <Sequence>
 
 ### Can-Utils : CanPlayer
 
-Used to replay dumped sequences from a log file to car.
+Used to replay dumped sequences from a log file to CAN bus.
 
 
 ***CanPlayer - Settings Prerequisite :*** 
@@ -273,34 +273,49 @@ diag_test
 
 ## USB-CAN
 
-![](nethunter-canarsenal5.png)
+![](nethunter-canarsenal5.jpg)
 
 
 Mainly used to Dump and Send sequence using CAN USB Analyser.
 
 
-***USB-CAN - Settings Prerequisite :*** 
+***USB-CAN Dump - Settings Prerequisite :*** 
 
 Set "USB Device" in Settings.
 
-In USB-CAN, set "CAN Speed" and "Baudrate". Optionally add your parameter such as sleep time, debug, etc...
+In USB-CAN, set "CAN Speed" and "Baudrate". Optionally add debug parameter.
 
 > CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
 
 
-***USB-CAN - Used command :***
+***USB-CAN Dump - Used command :***
 
 ```bash
-canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <Optional Specified Parameters>
+canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <Optional Debug Parameters>
 ```
 
 
+***USB-CAN Send - Settings Prerequisite :*** 
+
+Set "USB Device" in Settings.
+
+In USB-CAN, set "CAN Speed" and "Baudrate". Set "ID" and "Data" as what you want to send to CAN bus. Optionally add debug and sleep parameter.
+
+> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
+
+
+***USB-CAN Send - Used command :***
+
+```bash
+canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <ID> <Data> <Optional Debug/Sleep Parameters>
+```
+
 ## Cannelloni
 
-![](nethunter-canarsenal6.png)
+![](nethunter-canarsenal6.jpg)
 
 
-Used to communicate with two machine on a CAN interface by Ethernet.
+Used to communicate with two machine on a CAN bus by Ethernet.
 
 
 ***Cannelloni - Settings Prerequisite :*** 
@@ -321,7 +336,7 @@ sudo cannelloni -I <CAN Interface> -R <RHOST> -r <RPORT> -l <LPORT>
 
 ## Logging
 
-![](nethunter-canarsenal7.png)
+![](nethunter-canarsenal7.jpg)
 
 
 ### Asc2Log
@@ -360,7 +375,7 @@ log2asc -I <Input Log> -O <Output File> <CAN Interface>
 
 ## Custom Command
 
-![](nethunter-canarsenal8.png)
+![](nethunter-canarsenal8.jpg)
 
 Used in case you need to run a specific command which doesnt match the one provided.
 
