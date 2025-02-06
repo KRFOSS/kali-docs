@@ -8,6 +8,7 @@ author: ["v0lk3n",]
 
 CAN-Arsenal is used to communicate with your car, for testing, diagnostics or car hacking.
 
+> Warning : Actually in Experimental Version
 
 ## Menu
 
@@ -211,9 +212,14 @@ cansend <CAN Interface> <Sequence>
 
 Used to replay dumped sequences from a log file to car.
 
+
+***CanPlayer - Settings Prerequisite :*** 
+
 Your desired CAN Interface should be started and set with "Input" path in Settings. 
 
 > CAN Interface will be taken from the Input Log, check that your interface is the same one. (If you dump with vcan0, you should replay with vcan0)
+
+***CanPlayer - Used command :***
 
 ```bash
 canplayer -I <Input Log>
@@ -242,18 +248,71 @@ Your desired CAN Interface should be started and set with "Input" path in Settin
 ```
 
 
+### Freediag
+
+Used to diagnose your car.
+
+
+***Freediag - Used command :***
+
+```bash
+Freediag
+```
+
+
+### Freediag : DiagTest
+
+DiagTest is a standalone program from Freediag, used to exercise code paths.
+
+
+***DiagTest - Used command :***
+
+```bash
+diag_test
+```
+
+## USB-CAN
+
+![](nethunter-btarsenal1.png)
+
+
+Mainly used to Dump and Send sequence using CAN USB Analyser.
+
+
+***USB-CAN - Settings Prerequisite :*** 
+
+Set "USB Device" in Settings.
+
+In USB-CAN, set "CAN Speed" and "Baudrate". Optionally add your parameter such as sleep time, debug, etc...
+
+> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
+
+
+***USB-CAN - Used command :***
+
+```bash
+canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <Optional Specified Parameters>
+```
+
+
 ## Cannelloni
+
+![](nethunter-btarsenal1.png)
+
 
 Used to communicate with two machine on a CAN interface by Ethernet.
 
 
-***SequenceFinder - Settings Prerequisite :*** 
+***Cannelloni - Settings Prerequisite :*** 
 
 Your desired CAN Interface should be set in Settings.
 
 In Cannelloni, "RHOST", "RPORT" and "LPORT" need to be set.
 
 > Both device should be linked using an Ethernet Cable.
+
+
+***Cannelloni - Used command :***
 
 ```bash
 sudo cannelloni -I <CAN Interface> -R <RHOST> -r <RPORT> -l <LPORT>
@@ -262,24 +321,37 @@ sudo cannelloni -I <CAN Interface> -R <RHOST> -r <RPORT> -l <LPORT>
 
 ## Logging
 
-<img src="/img/07-logging.jpg" alt="menu" width="500"/>
+![](nethunter-btarsenal1.png)
 
-#### Asc2Log
 
-Command to run Asc2Log to convert ASC format file to classic log file :
+### Asc2Log
 
-Prerequisite : Set "Input" and "Output" path in Settings.
+From can-utils suite, Asc2Log is used to convert ASC file format to the classic LOG.
+
+
+***Asc2Log - Settings Prerequisite :*** 
+
+Set "Input" and "Output" path in Settings. 
+
+
+***Asc2Log - Used command :***
 
 ```bash
 asc2log -I <Input Log> -O <Output File>
 ```
 
 
-#### Log2Asc
+### Log2Asc
 
-Log2Asc is used to convert dumped LOG file to the ASC format :
+From can-utils suite, Log2Asc is used to convert dumped LOG file to the ASC format.
 
-Prerequisite : Set "Input", "Output" path and "CAN Interface" in Settings.
+
+***Log2Asc - Settings Prerequisite :*** 
+
+Your desired CAN Interface should be started and set with "Input", "Output" path in Settings. 
+
+
+***Log2Asc - Used command :***
 
 ```bash
 log2asc -I <Input Log> -O <Output File> <CAN Interface>
@@ -293,4 +365,25 @@ log2asc -I <Input Log> -O <Output File> <CAN Interface>
 Used in case you need to run a specific command which doesnt match the one provided.
 
 
+## Resources
 
+***Tools Documentations***
+* <a href="https://github.com/linux-can/can-utils">can-utils</a>
+* <a href="https://freediag.sourceforge.io/">freediag</a>
+* <a href="https://github.com/kobolt/usb-can">usb-can</a>
+* <a href="https://github.com/mguentner/cannelloni">cannelloni</a>
+
+
+***Guide***
+* <a href="https://www.offsec.com/blog/introduction-to-car-hacking-the-can-bus/">Introduction to Car Hacking: The CAN Bus</a>
+
+
+## Credits
+
+* <a href="https://github.com/fenugrec">Fenugrec</a> for freediag
+* <a href="https://gitlab.com/kimoc0der">Kimocoder</a> for help and support
+* <a href="https://github.com/kobolt">Kobolt</a> for usb-can
+* <a href="https://github.com/linux-can">Linux-Can</a> for can-utils
+* <a href="https://github.com/mguentner">Mguentner</a> for cannelloni
+* <a href="https://gitlab.com/V0lk3n">V0lk3n</a> for Nethunter CAN Arsenal tab
+* <a href="https://gitlab.com/yesimxev">Yesimxev</a> for help and support
