@@ -12,7 +12,7 @@ CAN-Arsenal is used to communicate with your car for testing, diagnostics or car
 
 ## Menu
 
-![](nethunter-canarsenal1.jpg)
+<img src="nethunter-canarsenal1.jpg" width="500">
 
 ### Documentation
 
@@ -29,13 +29,13 @@ This button will update the installed CAN tools and packages.
 
 ## Settings
 
-![](nethunter-canarsenal2.jpg)
+<img src="nethunter-canarsenal2.jpg" width="500">
 
 Settings are used to configure CAN Arsenal toolset.
 
 ## Interface
 
-![](nethunter-canarsenal3.jpg)
+<img src="nethunter-canarsenal3.jpg" width="500">
 
 Interface section is used to Start or Stop CAN, VCAN or SLCAN interface.
 
@@ -139,7 +139,7 @@ sudo slcan_attach -d <USB Device>
 
 ## Tools
 
-![](nethunter-canarsenal4.jpg)
+<img src="nethunter-canarsenal4.jpg" width="500">
 
 
 ### Can-Utils : CanGen
@@ -273,7 +273,7 @@ diag_test
 
 ## USB-CAN
 
-![](nethunter-canarsenal5.jpg)
+<img src="nethunter-canarsenal5.jpg" width="500">
 
 
 Mainly used to Dump and Send sequence using CAN USB Analyser.
@@ -312,7 +312,7 @@ canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <ID> <Data> <Optiona
 
 ## Cannelloni
 
-![](nethunter-canarsenal6.jpg)
+<img src="nethunter-canarsenal6.jpg" width="500">
 
 
 Used to communicate with two machine on a CAN bus by Ethernet.
@@ -336,7 +336,7 @@ sudo cannelloni -I <CAN Interface> -R <RHOST> -r <RPORT> -l <LPORT>
 
 ## Logging
 
-![](nethunter-canarsenal7.jpg)
+<img src="nethunter-canarsenal7.jpg" width="500">
 
 
 ### Asc2Log
@@ -375,7 +375,7 @@ log2asc -I <Input Log> -O <Output File> <CAN Interface>
 
 ## Custom Command
 
-![](nethunter-canarsenal8.jpg)
+<img src="nethunter-canarsenal8.jpg" width="500">
 
 Used in case you need to run a specific command which doesnt match the one provided.
 
