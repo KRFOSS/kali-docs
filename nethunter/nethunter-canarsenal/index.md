@@ -6,7 +6,7 @@ weight:
 author: ["v0lk3n",]
 ---
 
-CAN-Arsenal is used to communicate with your car for testing, diagnostics or car hacking.
+CAN-Arsenal is used to communicate with CAN Bus for testing, diagnostics or car hacking.
 
 > Warning : Actually in Experimental Version
 
