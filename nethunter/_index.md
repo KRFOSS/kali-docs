@@ -81,6 +81,8 @@ The following table illustrates the differences in functionality:
 |   Requires Root    |         No         |      Yes       |    Yes    |
 |   WiFi Injection   |         No         |       No       |    Yes    |
 |    HID attacks     |         No         |       No       |    Yes    |
+|    BT Arsenal      |         No         |       No       |    Yes    |
+|    CAN Arsenal     |         No         |       No       |    Yes    |
 
 The installation of NetHunter Rootless is documented here:
 [NetHunter-Rootless](/docs/nethunter/nethunter-rootless/)
@@ -163,6 +165,7 @@ Now that you've either downloaded a NetHunter image or built one yourself, the n
 - [**NMap Scan**](/docs/nethunter/nethunter-nmap/) - Quick Nmap scanner interface.
 - [**Metasploit Payload Generator**](/docs/nethunter/nethunter-mpg/) - Generating Metasploit payloads on the fly.
 - [**Searchsploit**](/docs/nethunter/nethunter-searchsploit/) - Easy searching for exploits in [Exploit-Database](https://www.exploit-db.com/).
+- [**CAN Arsenal**](/docs/nethunter/nethunter-canarsenal/) - CAN Bus testing, diagnosis or even car hacking.
 
 ## 8.0 Porting NetHunter to New Devices
 
