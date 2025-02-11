@@ -10,6 +10,10 @@ CAN-Arsenal is used to communicate with CAN Bus for testing, diagnostics or car 
 
 > Warning : Actually in Experimental Version
 
+## Prerequisite - Kernel Modification
+
+Your kernel should have CAN support enabled. For more informations, follow <a href="https://www.kali.org/docs/nethunter/nethunter-kernel-9-config-8/">"Configuring the Kernel - CAN Arsenal"</a> documentation.
+
 ## Menu
 
 <img src="nethunter-canarsenal1.jpg" width="500">
@@ -45,8 +49,7 @@ Interface section is used to Start or Stop CAN, VCAN or SLCAN interface.
 
 Set "CAN Interface" and "UART Speed" in Settings
 
-> CAN Interface should respect the following format : can0-9 (such as can0, can1, can2...)
-
+> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
 
 ***Start CAN Interface - Used command :***
 
@@ -60,8 +63,7 @@ sudo ip link set <CAN Interface> up
 
 Set "CAN Interface" in Settings
 
-> CAN Interface should respect the following format : can0-9 (such as can0, can1, can2...)
-
+> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
 
 ***Stop CAN Interface - Used command :***
 
@@ -74,9 +76,6 @@ sudo ip link set <CAN Interface> down
 ***Start VCAN Interface - Settings Prerequisite :*** 
 
 Set "CAN Interface" and "MTU" in Settings
-
-> VCAN Interface should respect the following format : vcan0-9 (such as vcan0, vcan1, vcan2...)
-
 
 ***Start VCAN Interface - Used command :***
 
@@ -91,8 +90,6 @@ ip link set <CAN Interface> up
 
 Set "CAN Interface" in Settings
 
-> VCAN Interface should respect the following format : vcan0-9 (such as vcan0, vcan1, vcan2...)
-
 ***Stop VCAN Interface - Used command :***
 
 ```bash
@@ -104,9 +101,7 @@ sudo ip link delete <CAN Interface>
 
 ***Start SLCAN Interface - Settings Prerequisite :*** 
 
-Set "CAN Interface", "USB Device", "CAN Speed", "UART Speed" and "Flow Control" in Settings
-
-> SLCAN Interface should respect the following format : slcan0-9 (such as slcan0, slcan1, slcan2...)
+Set "CAN Interface", "USB Device", "CAN Speed", "UART Speed" and optionally set "Flow Control" and enable checkbox in Settings
 
 > CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
 
@@ -123,8 +118,6 @@ sudo ip link set <CAN Interface> up
 ***Stop SLCAN Interface - Settings Prerequisite :*** 
 
 Set "CAN Interface" and "USB Device" in Settings.
-
-> SLCAN Interface should respect the following format : slcan0-9 (such as slcan0, slcan1, slcan2...)
 
 > CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
 
