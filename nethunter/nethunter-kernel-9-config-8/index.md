@@ -62,7 +62,9 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 
 Save, Exit, then build!
 
-#### Kernel 4.11 or Higher : ELM327 Driver
+### ELM327 Driver
+
+#### Kernel 4.11 or Higher
 
 For Kernel 4.11 or higher. You can add ELM327 driver by following these step :
 
@@ -104,5 +106,25 @@ config CAN_CAN327
 Finally, build the kernel again, and under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
 
 - Select as module (\<M\>) ***Serial / USB serial ELM327 based OBD-II Interfaces (can327)***
+
+#### Kernel Lower than 4.11
+
+For Kernel lower than 4.11. You can add ELM327 driver by following these step :
+
+- Go to root of your Kernel repository and run these commands
+
+```
+git submodule add -b linux-pre-4.11 https://github.com/V0lk3n/elmcan drivers/net/can/elmcan
+```
+
+- Edit ***drivers/net/can/Makefile*** and add the following line.
+
+```
+obj-y                           += elmcan/
+```
+
+Finally, build the kernel again, and under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
+
+- Select as module (\<M\>) ***Serial / Serial ELM327 driver***
 
 Save, Exit, then build!
