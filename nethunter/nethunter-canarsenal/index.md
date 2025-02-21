@@ -41,21 +41,87 @@ Settings are used to configure CAN Arsenal toolset.
 
 <img src="nethunter-canarsenal3.jpg" width="500">
 
-Interface section is used to Start or Stop CAN, VCAN or SLCAN interface.
+Interface section is used to Configure your CAN interfaces.
 
-### CAN
+### ldattach
+
+Attach your device. Set as default for /dev/rfcomm0 (Bluetooth)
+
+***ldattach - Used command :***
+
+You may modify this as your wish.
+
+```bash
+ldattach --debug --speed 38400 --eightbits --noparity --onestopbit --iflag -ICRNL,INLCR,-IXOFF 29 /dev/rfcomm0
+```
+
+### slcand
+
+Daemon for Serial CAN devices.
+
+***slcand - Used command :***
+
+You may modify this as your wish.
+
+```bash
+slcand -s6 -t hw -S 125000 /dev/ttyUSB0 can0
+```
+
+### slcan_attach
+
+Attach your serial CAN device.
+
+***slcan_attach - Used command :***
+
+```bash
+slcan_attach -s6 -o /dev/ttyUSB0
+```
+
+### RFCOMM bind
+
+For bluetooth CAN adapter usage. Run it to bind bluetooth to your device.
+
+***Bind RFCOMM - Settings Prerequisite :*** 
+
+Set "Target" MAC address in Settings.
+
+> Note : RFCOMM should be supported, you need to enable services in bluetooth arsenal prior this to work.
+> Pair and Trust your bluetooth device with bluetoothctl prior using this.
+
+***Bind RFCOMM - Used command :***
+
+```bash
+rfcomm bind <Target MAC Address>
+```
+
+### socketcand
+
+Daemon to bridge CAN interfaces.
+
+***socketcand - Settings Prerequisite :*** 
+
+Set "CAN Inteface" in Settings.
+
+***socketcand - Used command :***
+
+```bash
+socketcand -i <CAN Interface>
+```
+
+### CAN Interfaces
 
 ***Start CAN Interface - Settings Prerequisite :*** 
 
-Set "CAN Interface" and "UART Speed" in Settings
+Set "CAN Interface", "MTU" in Settings and "CAN Type" in Inteface.
 
-> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
+> If you use adapter for CAN or SLCAN interfaces, you may need to setup "ldattach","slcand","slcan_attach","rfcomm bind" or "socketcand"
 
 ***Start CAN Interface - Used command :***
 
 ```bash
-sudo ip link set <CAN Interface> type can bitrate <UART Speed>
-sudo ip link set <CAN Interface> up
+sudo ip link add dev <CAN Interface> type <CAN Type>
+sudo ip link set <CAN Interface> mtu <MTU>
+sudo ip link set <CAN Interface> up 
 ```
 
 
@@ -63,72 +129,11 @@ sudo ip link set <CAN Interface> up
 
 Set "CAN Interface" in Settings
 
-> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
-
 ***Stop CAN Interface - Used command :***
 
 ```bash
-sudo ip link set <CAN Interface> down
+sudo ip link set <CAN Interface> down && sudo ip link delete <CAN Interface>
 ```
-
-### VCAN
-
-***Start VCAN Interface - Settings Prerequisite :*** 
-
-Set "CAN Interface" and "MTU" in Settings
-
-***Start VCAN Interface - Used command :***
-
-```bash
-ip link add dev <CAN Interface> type vcan
-ip link set <CAN Interface> mtu <MTU>
-ip link set <CAN Interface> up
-```
-
-
-***Stop VCAN Interface - Settings Prerequisite :*** 
-
-Set "CAN Interface" in Settings
-
-***Stop VCAN Interface - Used command :***
-
-```bash
-sudo ip link set <CAN Interface> down 
-sudo ip link delete <CAN Interface>
-```
-
-### SLCAN
-
-***Start SLCAN Interface - Settings Prerequisite :*** 
-
-Set "CAN Interface", "USB Device", "CAN Speed", "UART Speed" and optionally set "Flow Control" and enable checkbox in Settings
-
-> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
-
-
-***Start SLCAN Interface - Used command :***
-
-```bash
-sudo slcan_attach -f -s<CAN Speed> -o <USB Device>
-sudo slcand -o -s<CAN Speed> -t <Flow Control> -S <UART Speed> <USB Device> <CAN Interface>
-sudo ip link set <CAN Interface> up
-```
-
-
-***Stop SLCAN Interface - Settings Prerequisite :*** 
-
-Set "CAN Interface" and "USB Device" in Settings.
-
-> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
-
-
-***Stop SLCAN Interface - Used command :***
-
-```bash
-sudo ip link set <CAN Interface> down
-sudo slcan_attach -d <USB Device>
-```
-
 
 ## Tools
 
@@ -249,7 +254,7 @@ Used to diagnose your car.
 ***Freediag - Used command :***
 
 ```bash
-Freediag
+sudo -u kali Freediag
 ```
 
 
@@ -261,7 +266,7 @@ DiagTest is a standalone program from Freediag, used to exercise code paths.
 ***DiagTest - Used command :***
 
 ```bash
-diag_test
+sudo -u diag_test
 ```
 
 ## USB-CAN
@@ -391,7 +396,7 @@ Used in case you need to run a specific command which doesnt match the one provi
 * <a href="https://github.com/fenugrec">Fenugrec</a> for freediag
 * <a href="https://gitlab.com/kimoc0der">Kimocoder</a> for help and support
 * <a href="https://github.com/kobolt">Kobolt</a> for usb-can
-* <a href="https://github.com/linux-can">Linux-Can</a> for can-utils
+* <a href="https://github.com/linux-can">Linux-Can</a> for can-utils and socketcand
 * <a href="https://github.com/mguentner">Mguentner</a> for cannelloni
 * <a href="https://gitlab.com/V0lk3n">V0lk3n</a> for Nethunter CAN Arsenal tab
 * <a href="https://gitlab.com/yesimxev">Yesimxev</a> for help and support
