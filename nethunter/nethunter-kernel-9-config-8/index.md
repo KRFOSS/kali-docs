@@ -70,7 +70,15 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 
 Save, Exit, then build!
 
-### ELM327 Driver
+### ELM327 
+
+#### Kernel 6.0 or Higher
+
+This driver has become an official part of Linux since v6.0
+
+Under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
+
+- Select as module (\<M\>) ***Serial / USB serial ELM327 based OBD-II Interfaces (can327)***
 
 #### Kernel 4.11 or Higher
 
