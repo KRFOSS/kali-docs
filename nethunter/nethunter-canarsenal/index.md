@@ -266,7 +266,7 @@ DiagTest is a standalone program from Freediag, used to exercise code paths.
 ***DiagTest - Used command :***
 
 ```bash
-sudo -u diag_test
+sudo -u kali diag_test
 ```
 
 ## USB-CAN
