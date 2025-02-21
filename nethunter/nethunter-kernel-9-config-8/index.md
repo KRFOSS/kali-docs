@@ -31,6 +31,14 @@ Under ***"CAN Device Drivers --->"***
 - Select ***"Platform CAN drivers with Netlink support"***
 - Select ***"CAN bit-timing calculation"***
 - Select ***"Enable LED triggers for Netlink based drivers"***
+- Select ***"Aeroflex Gaisler GRCAN and GRHCAN CAN devices"***
+- Select ***"Xilinx CAN"***
+- Select ***"Bosch C_CAN/D_CAN devices"***
+- Select ***"Bosch CC770 and Intel AN82527 devices"***
+- Select ***"IFI CAN_FD IP"***
+- Select ***"Bosch M_CAN devices"***
+- Select ***"Philips/NXP SJA1000 devices"***
+- Select ***"Softing Gmbh CAN generic support"***
 - Select ***"CAN devices debuging messages"***
 
 ![](3-kernel_can.png)
