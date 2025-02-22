@@ -8,7 +8,7 @@ author: ["v0lk3n",]
 
 ### CAN support
 
-CAN support will be needed for CAN Arsenal usage.
+CAN support will be needed for CAN Arsenal usage. Note that this documentations may be updated a lot since CAN Arsenal is in Experimental Version.
 
 In section ***“Networking support”***:
 
@@ -58,17 +58,44 @@ Under ***"CAN USB interfaces --->"***
 - Select ***"PEAK PCAN-USB/USB Pro interfaces for CAN 2.0b/CAN-FD"***
 - Select ***"8 devices USB2CAN interface"***
 
+Under ***"Networking Support***
+
+- Select ***Network physical/parent device Netlink interface***
+
+Under ***"Networking Support > Networking options"***
+
+- Select ***Virtual Socket protocol"***
+- Select ***"NETLINK: socket monitoring interface"***
+
+In Section ***"Networking support ---> Networking options ---> QoS and/or fair queueing"***
+
+- Select ***"CAN Identifier"***
+
 ![](5-kernel_can.png)
+
+In Section ***"Device Drivers ---> USB support"***
+
+- Select ***"USB/IP Support"***
+- Select ***"VHCI hcd"***
+- Select ***"Host driver"***
+- Select ***"VUDC driver"***
 
 In section ***"Device Drivers ---> USB support ---> USB Serial Converter support --->"*** :
 
+- Select ***"USB Serial Console device support"***
+- Select ***"USB Generic Serial Driver"***
 - Select ***"USB Winchiphead CH341 Single Port Serial Driver"***
 - Select ***"USB FTDI Single Port Serial Driver"***
 - Select ***"USB Prolific 2303 Single Port Serial Driver"***
 
 ![](CH341_Driver.png)
 
-Save, Exit, then build!
+In section ***"Device Drivers ---> Character devices ---> Serial drivers --->"*** :
+
+- Select ***"8250/16550 and compatible serial support"***
+- Select ***"Support 8250_core.* kernel options (DEPRECATED) (NEW)"***
+- Select ***"Support for Fintek F81216A LPC to 4 UART RS485 API"***
+- Select ***"DMA support for 16550 compatible UART controllers (NEW)"***
 
 ### ELM327 
 
@@ -142,5 +169,7 @@ obj-y                           += elmcan/
 Finally, build the kernel again, and under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
 
 - Select as module (\<M\>) ***Serial / Serial ELM327 driver***
+
+
 
 Save, Exit, then build!
