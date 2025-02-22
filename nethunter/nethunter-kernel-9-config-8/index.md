@@ -39,7 +39,6 @@ Under ***"CAN Device Drivers --->"***
 - Select ***"Bosch M_CAN devices"***
 - Select ***"Philips/NXP SJA1000 devices"***
 - Select ***"Softing Gmbh CAN generic support"***
-- Select ***"CAN devices debuging messages"***
 
 ![](3-kernel_can.png)
 
@@ -171,6 +170,35 @@ Finally, build the kernel again, and under ***"Networking support > CAN bus subs
 
 - Select as module (\<M\>) ***Serial / Serial ELM327 driver***
 
+### ISO 15765-2 Driver (CAN-ISOTP)
 
+Go to your kernel sources folder and clone as submodule can-isotp driver.
+
+```
+git submodule add https://github.com/V0lk3n/can-isotp drivers/net/can/
+```
+
+Download ***"isotp.h"*** to ***"include/uapi/linux/can"***
+
+```
+cd include/uapi/linux/can
+wget https://raw.githubusercontent.com/v0lk3n/can-isotp/refs/heads/master/include/uapi/linux/can/isotp.h
+```
+
+Edit drivers/net/can/Kconfig and add the following line :
+
+```
+source "drivers/net/can/can-isotp/Kconfig"
+```
+
+Edit drivers/net/can/Makefile and add the following line :
+
+```
+obj-y				+= can-isotp/
+```
+
+Under ***"Networking Support ---> CAN bus subsystem support ---> CAN Device Drivers"***
+
+- Select as Module ***"CAN ISO 15765-2 driver "***
 
 Save, Exit, then build!
