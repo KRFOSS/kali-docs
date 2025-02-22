@@ -10,11 +10,15 @@ author: ["v0lk3n",]
 
 CAN support will be needed for CAN Arsenal usage. Note that this documentations may be updated a lot since CAN Arsenal is in Experimental Version.
 
-In section ***“Networking support”***:
+In section ***"Networking support"***:
+
 
 - Select ***"CAN bus subsystem support"***
+- Select ***"Network physical/parent device Netlink interface"***
+
 
 ![](1-kernel_can.png)
+
 
 Under ***"CAN bus subsystem support --->"***
 
@@ -23,6 +27,7 @@ Under ***"CAN bus subsystem support --->"***
 - Select ***"CAN Gateway/Router (with netlink configuration)"***
 
 ![](2-kernel_can.png)
+
 
 Under ***"CAN Device Drivers --->"***
 
@@ -44,6 +49,7 @@ Under ***"CAN Device Drivers --->"***
 
 Under ***"CAN SPI interfaces --->"***
 
+- Select ***"Holt HI311x SPI CAN controllers"***
 - Select ***"Microchip MCP251x SPI CAN controllers"***
 
 ![](4-kernel_can.png)
@@ -59,18 +65,21 @@ Under ***"CAN USB interfaces --->"***
 
 ![](5-kernel_can.png)
 
-Under ***"Networking Support***
 
-- Select ***Network physical/parent device Netlink interface***
+In Section ***"Networking Support"***
 
-Under ***"Networking Support > Networking options"***
+Under ***"Networking options"***
 
-- Select ***Virtual Socket protocol"***
+- Select ***"Virtual Socket protocol"***
 - Select ***"NETLINK: socket monitoring interface"***
 
-In Section ***"Networking support ---> Networking options ---> QoS and/or fair queueing"***
+![](6-kernel_can.png)
+
+Under ***"QoS and/or fair queueing"***
 
 - Select ***"CAN Identifier"***
+
+![](7-kernel_can.png)
 
 
 In Section ***"Device Drivers ---> USB support"***
@@ -80,6 +89,8 @@ In Section ***"Device Drivers ---> USB support"***
 - Select ***"Host driver"***
 - Select ***"VUDC driver"***
 
+![](8-kernel_can.png)
+
 In section ***"Device Drivers ---> USB support ---> USB Serial Converter support --->"*** :
 
 - Select ***"USB Serial Console device support"***
@@ -88,7 +99,7 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 - Select ***"USB FTDI Single Port Serial Driver"***
 - Select ***"USB Prolific 2303 Single Port Serial Driver"***
 
-![](CH341_Driver.png)
+![](9-kernel_can.png)
 
 ### ELM327 
 
@@ -96,7 +107,9 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 
 This driver has become an official part of Linux since v6.0
 
-Under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
+In Section ***"Networking support"***
+
+Under ***" > CAN bus subsystem support >  CAN Device Drivers --->"***
 
 - Select as module (\<M\>) ***Serial / USB serial ELM327 based OBD-II Interfaces (can327)***
 
@@ -139,7 +152,11 @@ config CAN_CAN327
 	  If this driver is built as a module, it will be called can327.
 ```
 
-Finally, build the kernel again, and under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
+Finally, build the kernel.
+
+In Section ***"Networking support"***
+
+Under ***"CAN bus subsystem support >  CAN Device Drivers --->***
 
 - Select as module (\<M\>) ***Serial / USB serial ELM327 based OBD-II Interfaces (can327)***
 
@@ -159,7 +176,11 @@ git submodule add -b linux-pre-4.11 https://github.com/V0lk3n/elmcan drivers/net
 obj-y                           += elmcan/
 ```
 
-Finally, build the kernel again, and under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
+Finally, build the kernel.
+
+In Section ***"Networking support"***
+
+Under ***"CAN bus subsystem support >  CAN Device Drivers --->***
 
 - Select as module (\<M\>) ***Serial / Serial ELM327 driver***
 
@@ -190,8 +211,10 @@ Edit drivers/net/can/Makefile and add the following line :
 obj-y				+= can-isotp/
 ```
 
-Under ***"Networking Support ---> CAN bus subsystem support ---> CAN Device Drivers"***
+In Section ***"Networking Support"***
 
-- Select as Module ***"CAN ISO 15765-2 driver "***
+Under ***"CAN bus subsystem support ---> CAN Device Drivers"***
+
+- Select as Module ***"CAN ISO 15765-2 driver"***
 
 Save, Exit, then build!
