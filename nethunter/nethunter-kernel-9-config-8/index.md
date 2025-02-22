@@ -180,7 +180,7 @@ Under ***"CAN bus subsystem support >  CAN Device Drivers --->***
 Go to your kernel sources folder and clone as submodule can-isotp driver.
 
 ```
-git submodule add https://github.com/V0lk3n/can-isotp drivers/net/can/
+git submodule add https://github.com/V0lk3n/can-isotp drivers/net/can/can-isotp
 ```
 
 Download ***"isotp.h"*** to ***"include/uapi/linux/can"***
