@@ -58,6 +58,8 @@ Under ***"CAN USB interfaces --->"***
 - Select ***"PEAK PCAN-USB/USB Pro interfaces for CAN 2.0b/CAN-FD"***
 - Select ***"8 devices USB2CAN interface"***
 
+![](5-kernel_can.png)
+
 Under ***"Networking Support***
 
 - Select ***Network physical/parent device Netlink interface***
@@ -71,7 +73,6 @@ In Section ***"Networking support ---> Networking options ---> QoS and/or fair q
 
 - Select ***"CAN Identifier"***
 
-![](5-kernel_can.png)
 
 In Section ***"Device Drivers ---> USB support"***
 
