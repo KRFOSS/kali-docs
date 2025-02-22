@@ -82,15 +82,6 @@ Under ***"QoS and/or fair queueing"***
 ![](7-kernel_can.png)
 
 
-In Section ***"Device Drivers ---> USB support"***
-
-- Select ***"USB/IP Support"***
-- Select ***"VHCI hcd"***
-- Select ***"Host driver"***
-- Select ***"VUDC driver"***
-
-![](8-kernel_can.png)
-
 In section ***"Device Drivers ---> USB support ---> USB Serial Converter support --->"*** :
 
 - Select ***"USB Serial Console device support"***
@@ -99,7 +90,7 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 - Select ***"USB FTDI Single Port Serial Driver"***
 - Select ***"USB Prolific 2303 Single Port Serial Driver"***
 
-![](9-kernel_can.png)
+![](8-kernel_can.png)
 
 ### ELM327 
 
