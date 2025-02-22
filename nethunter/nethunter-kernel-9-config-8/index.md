@@ -90,13 +90,6 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 
 ![](CH341_Driver.png)
 
-In section ***"Device Drivers ---> Character devices ---> Serial drivers --->"*** :
-
-- Select ***"8250/16550 and compatible serial support"***
-- Select ***"Support 8250_core.* kernel options (DEPRECATED) (NEW)"***
-- Select ***"Support for Fintek F81216A LPC to 4 UART RS485 API"***
-- Select ***"DMA support for 16550 compatible UART controllers (NEW)"***
-
 ### ELM327 
 
 #### Kernel 6.0 or Higher
