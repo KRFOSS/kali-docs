@@ -8,13 +8,17 @@ author: ["v0lk3n",]
 
 ### CAN support
 
-CAN support will be needed for CAN Arsenal usage.
+CAN support will be needed for CAN Arsenal usage. Note that this documentations may be updated a lot since CAN Arsenal is in Experimental Version.
 
-In section ***“Networking support”***:
+In section ***"Networking support"***:
+
 
 - Select ***"CAN bus subsystem support"***
+- Select ***"Network physical/parent device Netlink interface"***
+
 
 ![](1-kernel_can.png)
+
 
 Under ***"CAN bus subsystem support --->"***
 
@@ -24,6 +28,7 @@ Under ***"CAN bus subsystem support --->"***
 
 ![](2-kernel_can.png)
 
+
 Under ***"CAN Device Drivers --->"***
 
 - Select ***"Virtual Local CAN Interface (vcan)"***
@@ -31,12 +36,20 @@ Under ***"CAN Device Drivers --->"***
 - Select ***"Platform CAN drivers with Netlink support"***
 - Select ***"CAN bit-timing calculation"***
 - Select ***"Enable LED triggers for Netlink based drivers"***
-- Select ***"CAN devices debuging messages"***
+- Select ***"Aeroflex Gaisler GRCAN and GRHCAN CAN devices"***
+- Select ***"Xilinx CAN"***
+- Select ***"Bosch C_CAN/D_CAN devices"***
+- Select ***"Bosch CC770 and Intel AN82527 devices"***
+- Select ***"IFI CAN_FD IP"***
+- Select ***"Bosch M_CAN devices"***
+- Select ***"Philips/NXP SJA1000 devices"***
+- Select ***"Softing Gmbh CAN generic support"***
 
 ![](3-kernel_can.png)
 
 Under ***"CAN SPI interfaces --->"***
 
+- Select ***"Holt HI311x SPI CAN controllers"***
 - Select ***"Microchip MCP251x SPI CAN controllers"***
 
 ![](4-kernel_can.png)
@@ -52,17 +65,46 @@ Under ***"CAN USB interfaces --->"***
 
 ![](5-kernel_can.png)
 
+
+In Section ***"Networking Support"***
+
+Under ***"Networking options"***
+
+- Select ***"Virtual Socket protocol"***
+- Select ***"NETLINK: socket monitoring interface"***
+
+![](6-kernel_can.png)
+
+Under ***"QoS and/or fair queueing"***
+
+- Select ***"CAN Identifier"***
+
+![](7-kernel_can.png)
+
+
 In section ***"Device Drivers ---> USB support ---> USB Serial Converter support --->"*** :
 
+- Select ***"USB Serial Console device support"***
+- Select ***"USB Generic Serial Driver"***
 - Select ***"USB Winchiphead CH341 Single Port Serial Driver"***
 - Select ***"USB FTDI Single Port Serial Driver"***
 - Select ***"USB Prolific 2303 Single Port Serial Driver"***
 
-![](CH341_Driver.png)
+![](8-kernel_can.png)
 
-Save, Exit, then build!
+### ELM327 
 
-#### Kernel 4.11 or Higher : ELM327 Driver
+#### Kernel 6.0 or Higher
+
+This driver has become an official part of Linux since v6.0
+
+In Section ***"Networking support"***
+
+Under ***" > CAN bus subsystem support >  CAN Device Drivers --->"***
+
+- Select as module (\<M\>) ***Serial / USB serial ELM327 based OBD-II Interfaces (can327)***
+
+#### Kernel 4.11 or Higher
 
 For Kernel 4.11 or higher. You can add ELM327 driver by following these step :
 
@@ -101,8 +143,69 @@ config CAN_CAN327
 	  If this driver is built as a module, it will be called can327.
 ```
 
-Finally, build the kernel again, and under ***"Networking support > CAN bus subsystem support >  CAN Device Drivers --->***
+Finally, build the kernel.
+
+In Section ***"Networking support"***
+
+Under ***"CAN bus subsystem support >  CAN Device Drivers --->***
 
 - Select as module (\<M\>) ***Serial / USB serial ELM327 based OBD-II Interfaces (can327)***
+
+#### Kernel Lower than 4.11
+
+For Kernel lower than 4.11. You can add ELM327 driver by following these step :
+
+- Go to root of your Kernel repository and run these commands
+
+```
+git submodule add -b linux-pre-4.11 https://github.com/V0lk3n/elmcan drivers/net/can/elmcan
+```
+
+- Edit ***drivers/net/can/Makefile*** and add the following line.
+
+```
+obj-y                           += elmcan/
+```
+
+Finally, build the kernel.
+
+In Section ***"Networking support"***
+
+Under ***"CAN bus subsystem support >  CAN Device Drivers --->***
+
+- Select as module (\<M\>) ***Serial / Serial ELM327 driver***
+
+### ISO 15765-2 Driver (CAN-ISOTP)
+
+Go to your kernel sources folder and clone as submodule can-isotp driver.
+
+```
+git submodule add https://github.com/V0lk3n/can-isotp drivers/net/can/can-isotp
+```
+
+Download ***"isotp.h"*** to ***"include/uapi/linux/can"***
+
+```
+cd include/uapi/linux/can
+wget https://raw.githubusercontent.com/v0lk3n/can-isotp/refs/heads/master/include/uapi/linux/can/isotp.h
+```
+
+Edit drivers/net/can/Kconfig and add the following line :
+
+```
+source "drivers/net/can/can-isotp/Kconfig"
+```
+
+Edit drivers/net/can/Makefile and add the following line :
+
+```
+obj-y				+= can-isotp/
+```
+
+In Section ***"Networking Support"***
+
+Under ***"CAN bus subsystem support ---> CAN Device Drivers"***
+
+- Select as Module ***"CAN ISO 15765-2 driver"***
 
 Save, Exit, then build!
