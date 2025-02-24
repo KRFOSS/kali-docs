@@ -23,7 +23,7 @@ kali@kali:~$
 
 or, you could also look for **"Kali Undercover Mode"** from the menu of your desktop and launch it from there.
 
-**Swoosh!** Now, you are _(almost)_ invisible to most indescrete eyes by having a theme that would make most people think you are using Windows 10.
+**Swoosh!** Now, you are _(almost)_ invisible to most indiscreet eyes by having a theme that would make most people think you are using Windows 10.
 
 #### Reverting Back
 
