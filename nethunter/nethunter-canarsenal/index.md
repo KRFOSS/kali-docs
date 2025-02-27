@@ -280,7 +280,7 @@ Used to diagnose your car.
 ***Freediag - Used command :***
 
 ```bash
-sudo -u kali Freediag
+sudo -u kali freediag
 ```
 
 
