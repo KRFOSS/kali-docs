@@ -64,7 +64,7 @@ Daemon for Serial CAN devices.
 You may modify this as your wish.
 
 ```bash
-slcand -s6 -t hw -S 125000 /dev/ttyUSB0 can0
+slcand -s6 -t sw -S 200000 /dev/ttyUSB0
 ```
 
 ### slcan_attach
@@ -105,7 +105,7 @@ Set "CAN Inteface" in Settings.
 ***socketcand - Used command :***
 
 ```bash
-socketcand -i <CAN Interface>
+socketcand -v -l wlan0 -i <CAN Interface>
 ```
 
 ### CAN Interfaces
@@ -118,18 +118,44 @@ Set "CAN Interface", "MTU" in Settings and "CAN Type" in Inteface.
 
 ***Start CAN Interface - Used command :***
 
+> Note : Actually you only may start one interface at a time. Will be rewritten for next release. If you need to start more than one, you will need to start these manually.
+
+If CAN Type is set to : CAN 
+
 ```bash
-sudo ip link add dev <CAN Interface> type <CAN Type>
+sudo ip link set <CAN Interface> bitrate <Selected Bitrate>
 sudo ip link set <CAN Interface> mtu <MTU>
 sudo ip link set <CAN Interface> up 
 ```
 
+If CAN Type is set to : VCAN
+
+```bash
+sudo ip link add dev <CAN Interface> type vcan
+sudo ip link set <CAN Interface> mtu <MTU>
+sudo ip link set <CAN Interface> up 
+```
+
+If CAN Type is set to : SLCAN
+
+```bash
+sudo ip link set <CAN Interface> mtu <MTU>
+sudo ip link set <CAN Interface> up 
+```
 
 ***Stop CAN Interface - Settings Prerequisite :*** 
 
 Set "CAN Interface" in Settings
 
 ***Stop CAN Interface - Used command :***
+
+If CAN Type is set to : CAN or SLCAN
+
+```bash
+sudo ip link set <CAN Interface> down
+```
+
+If CAN Type is set to : VCAN
 
 ```bash
 sudo ip link set <CAN Interface> down && sudo ip link delete <CAN Interface>
@@ -254,7 +280,7 @@ Used to diagnose your car.
 ***Freediag - Used command :***
 
 ```bash
-sudo -u kali Freediag
+sudo -u kali freediag
 ```
 
 
