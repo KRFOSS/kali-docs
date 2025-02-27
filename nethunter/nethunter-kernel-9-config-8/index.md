@@ -36,6 +36,8 @@ Under ***"CAN Device Drivers --->"***
 - Select ***"Platform CAN drivers with Netlink support"***
 - Select ***"CAN bit-timing calculation"***
 - Select ***"Enable LED triggers for Netlink based drivers"***
+
+Optionally you may also :
 - Select ***"Aeroflex Gaisler GRCAN and GRHCAN CAN devices"***
 - Select ***"Xilinx CAN"***
 - Select ***"Bosch C_CAN/D_CAN devices"***
@@ -92,7 +94,43 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 
 ![](8-kernel_can.png)
 
-### ELM327 
+
+### ISO 15765-2 Driver CAN-ISOTP (Optional)
+
+Go to your kernel sources folder and clone as submodule can-isotp driver.
+
+```
+git submodule add https://github.com/V0lk3n/can-isotp drivers/net/can/can-isotp
+```
+
+Download ***"isotp.h"*** to ***"include/uapi/linux/can"***
+
+```
+cd include/uapi/linux/can
+wget https://raw.githubusercontent.com/v0lk3n/can-isotp/refs/heads/master/include/uapi/linux/can/isotp.h
+```
+
+Edit drivers/net/can/Kconfig and add the following line :
+
+```
+source "drivers/net/can/can-isotp/Kconfig"
+```
+
+Edit drivers/net/can/Makefile and add the following line :
+
+```
+obj-y				+= can-isotp/
+```
+
+In Section ***"Networking Support"***
+
+Under ***"CAN bus subsystem support ---> CAN Device Drivers"***
+
+- Select as Module ***"CAN ISO 15765-2 driver"***
+
+### ELM327 (Optional)
+
+This driver should be build as module! To get the ability to load it using ```sudo insmod elmcan.ko accept_flaky_uart=1``` if needed.
 
 #### Kernel 6.0 or Higher
 
@@ -174,38 +212,5 @@ In Section ***"Networking support"***
 Under ***"CAN bus subsystem support >  CAN Device Drivers --->***
 
 - Select as module (\<M\>) ***Serial / Serial ELM327 driver***
-
-### ISO 15765-2 Driver (CAN-ISOTP)
-
-Go to your kernel sources folder and clone as submodule can-isotp driver.
-
-```
-git submodule add https://github.com/V0lk3n/can-isotp drivers/net/can/can-isotp
-```
-
-Download ***"isotp.h"*** to ***"include/uapi/linux/can"***
-
-```
-cd include/uapi/linux/can
-wget https://raw.githubusercontent.com/v0lk3n/can-isotp/refs/heads/master/include/uapi/linux/can/isotp.h
-```
-
-Edit drivers/net/can/Kconfig and add the following line :
-
-```
-source "drivers/net/can/can-isotp/Kconfig"
-```
-
-Edit drivers/net/can/Makefile and add the following line :
-
-```
-obj-y				+= can-isotp/
-```
-
-In Section ***"Networking Support"***
-
-Under ***"CAN bus subsystem support ---> CAN Device Drivers"***
-
-- Select as Module ***"CAN ISO 15765-2 driver"***
 
 Save, Exit, then build!
