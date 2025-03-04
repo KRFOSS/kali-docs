@@ -59,7 +59,7 @@ Please refer to the appropriate guide to unlock, root, and install a custom reco
 For a few devices, we have written specific guides for:
 
 - [Gemini PDA NetHunter](/docs/nethunter/installing-nethunter-on-the-gemini-pda/) _([Gemini PDA ARM](/docs/arm/gemini-pda/))_
-- [OnePlus One](/docs/nethunter/installing-nethunter-on-the-oneplus-One/)
+- [OnePlus One](/docs/nethunter/installing-nethunter-on-the-oneplus-one/)
 - [OnePlus 7](/docs/nethunter/installing-nethunter-on-the-oneplus-7/)
 - [TicWatch Pro](/docs/nethunter/installing-nethunter-on-the-ticwatch-pro/)
 - [TicWatch Pro 3](/docs/nethunter/installing-nethunter-on-the-ticwatch-pro-3/)
