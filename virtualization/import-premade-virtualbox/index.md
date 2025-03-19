@@ -11,7 +11,7 @@ Importing the [Kali VirtualBox image](/get-kali/#kali-virtual-machines) is very 
 We first need to extract the VirtualBox image:
 
 ```console
-kali@kali:~$ 7z x kali-linux-2024.4-virtualbox-amd64.7z
+kali@kali:~$ 7z x kali-linux-2025.1-virtualbox-amd64.7z
 [...]
 kali@kali:~$
 ```

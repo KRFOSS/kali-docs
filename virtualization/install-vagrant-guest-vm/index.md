@@ -87,9 +87,9 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: Box Version: >= 0
 ==> default: Loading metadata for box 'kalilinux/rolling'
     default: URL: https://vagrantcloud.com/kalilinux/rolling
-==> default: Adding box 'kalilinux/rolling' (v2024.4.1) for provider: virtualbox
-    default: Downloading: https://vagrantcloud.com/kalilinux/boxes/rolling/versions/2024.4.1/providers/virtualbox.box
-==> default: Successfully added box 'kalilinux/rolling' (v2024.4.1) for 'virtualbox'!
+==> default: Adding box 'kalilinux/rolling' (v2025.1.1) for provider: virtualbox
+    default: Downloading: https://vagrantcloud.com/kalilinux/boxes/rolling/versions/2025.1.1/providers/virtualbox.box
+==> default: Successfully added box 'kalilinux/rolling' (v2025.1.1) for 'virtualbox'!
 [...]
 ==> default: Machine booted and ready!
 ==> default: Checking for guest additions in VM...

@@ -43,8 +43,8 @@ We first will [download](/get-kali/#kali-arm) the [latest stable](/releases/) Ka
 We have also chosen the 64-bit image, as we have more than 4GB of RAM, and are not using any [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/) (Hardware Attached on Top). The steps for 32-bit would be the same, after adjusting filenames:
 
 ```console
-$ wget https://kali.download/arm-images/kali-2024.4/kali-linux-2024.4-raspberry-pi-arm64.img.xz
-$ xzcat kali-linux-2024.4-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
+$ wget https://kali.download/arm-images/kali-2025.1/kali-linux-2025.1-raspberry-pi-arm64.img.xz
+$ xzcat kali-linux-2025.1-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
 ```
 
 - - -
@@ -651,7 +651,7 @@ export _LUKSEXTRA=""
 
 
 # LINUX IMAGE FILE ------------------------------------------------------------
-export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2024.4-raspberry-pi-arm64.img.xz
+export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2025.1-raspberry-pi-arm64.img.xz
 export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
 # PACKAGE ACTIONS -------------------------------------------------------------
