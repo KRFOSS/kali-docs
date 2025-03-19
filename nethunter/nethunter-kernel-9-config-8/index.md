@@ -32,7 +32,7 @@ Under ***"CAN bus subsystem support --->"***
 Under ***"CAN Device Drivers --->"***
 
 - Select ***"Virtual Local CAN Interface (vcan)"***
-- Select ***"Serial / USB serial CAN Adaptors (slcan)"***
+- Select as Module (M) ***"Serial / USB serial CAN Adaptors (slcan)"***
 - Select ***"Platform CAN drivers with Netlink support"***
 - Select ***"CAN bit-timing calculation"***
 - Select ***"Enable LED triggers for Netlink based drivers"***
@@ -94,6 +94,33 @@ In section ***"Device Drivers ---> USB support ---> USB Serial Converter support
 
 ![](8-kernel_can.png)
 
+### Hlcan driver
+
+This would be used to get the chinese CAN Analyzer USB working with can-utils suite.
+
+Go to your kernel sources folder and clone as submodule can-isotp driver.
+
+```
+git submodule add https://github.com/V0lk3n/usb-can-2-module drivers/net/can/usb-can-2-module
+```
+
+Edit drivers/net/can/Kconfig and add the following line :
+
+```
+source "drivers/net/can/usb-can-2-module/Kconfig"
+```
+
+Edit drivers/net/can/Makefile and add the following line :
+
+```
+obj-y				+= usb-can-2-module/
+```
+
+In Section ***"Networking Support"***
+
+Under ***"CAN bus subsystem support ---> CAN Device Drivers"***
+
+- Select as Module ***"hlcan module for usb-can"***
 
 ### ISO 15765-2 Driver CAN-ISOTP (Optional)
 
