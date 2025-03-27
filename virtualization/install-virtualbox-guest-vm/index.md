@@ -157,3 +157,5 @@ Now after selecting your Virtual Machine from the Virtual Box menu, click on Fil
 Now click on the vdi file that contain your virtual machine. Now you can adjust the size of the virtual machine. After adjusting the size, click on 'Apply'.
 
 ![](vb-20.png)
+
+Boot up Kali Linux and utilize gparted or a comparable tool to extend the partition and filesystem, ensuring the new space is allocated correctly.
