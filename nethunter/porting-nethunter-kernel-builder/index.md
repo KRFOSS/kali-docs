@@ -3,7 +3,7 @@ title: Porting NetHunter to New Devices with kernel builder
 description:
 icon:
 weight: 17
-author: ["yesimxev",]
+author: ["yesimxev","serval123"]
 ---
 
 In order to port NetHunter to a new device, it's important to understand how NetHunter is separated. NetHunter is divided by the rootfs (also known as the chroot but will be referred to here as rootfs) and the kernel. For the most part, the rootfs is not important to your Android device as it only contains Kali Linux. The kernel is integral to getting things like Bluetooth, wireless USB, and HID keyboard (etc) working.
@@ -33,6 +33,8 @@ Finding sources can be easy or difficult depending on the manufacturer, here are
 [Sony](https://github.com/sonyxperiadev/kernel)  
 
 Another good resource is usually [XDA forums](https://forum.xda-developers.com/) as someone else might have already built a working kernel and they must provide the sources under GPL. Most kernel development pages on XDA must provide a link to their sources.
+
+You can also use [lineage-os](https://github.com/orgs/LineageOS/repositories) kernel sources from github and they are easier to start learning porting compared to the original sources.
 
 ## Making a Test Kernel
 
