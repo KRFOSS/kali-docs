@@ -43,8 +43,8 @@ We first will [download](/get-kali/#kali-arm) the [latest stable](/releases/) Ka
 We have also chosen the 64-bit image, as we have more than 4GB of RAM, and are not using any [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/) (Hardware Attached on Top). The steps for 32-bit would be the same, after adjusting filenames:
 
 ```console
-$ wget https://kali.download/arm-images/kali-2024.3/kali-linux-2024.3-raspberry-pi-arm64.img.xz
-$ xzcat kali-linux-2024.3-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
+$ wget https://kali.download/arm-images/kali-2025.1/kali-linux-2025.1-raspberry-pi-arm64.img.xz
+$ xzcat kali-linux-2025.1-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
 ```
 
 - - -
@@ -617,8 +617,8 @@ kali@kali:~$ cat kali-encrypted-basic/cryptmypi.conf
 # You need to choose a kernel compatible with your RPi version.
 #   Kali RPi images name its kernels:
 #   - Re4son+ is for armv6 devices (ie. RPi1, RPi0, and RPi0w)
-#   - v7+ and v8+ sufixes are for the 32bit and 64bit armv7 devices (ie. RPi 3)
-#   - l+ sufix in the name means they will be ready for the RPi4.
+#   - v7+ and v8+ suffixes are for the 32bit and 64bit armv7 devices (ie. RPi 3)
+#   - l+ suffix in the name means they will be ready for the RPi4.
 export _KERNEL_VERSION_FILTER="v8+"
 
 # HOSTNAME
@@ -651,7 +651,7 @@ export _LUKSEXTRA=""
 
 
 # LINUX IMAGE FILE ------------------------------------------------------------
-export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2024.3-raspberry-pi-arm64.img.xz
+export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2025.1-raspberry-pi-arm64.img.xz
 export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
 # PACKAGE ACTIONS -------------------------------------------------------------
@@ -660,7 +660,7 @@ export _PKGSINSTALL="tree htop"
 
 
 # MINIMAL SSH CONFIG ----------------------------------------------------------
-#   Keyfile to be used to access the system remotelly through ssh.
+#   Keyfile to be used to access the system remotely through ssh.
 #   Its public key will be added to the system's root .ssh/autorized_keys
 export _SSH_LOCAL_KEYFILE="$_USER_HOME/.ssh/id_rsa"
 
@@ -685,7 +685,7 @@ stage1_hooks(){
 #   If declared, this function is called during stage2 build by the
 #   stage2-runoptional hook.
 #
-#   Optional function: can be ommited.
+#   Optional function: can be omitted.
 stage2_optional_hooks(){
     myhooks "optional-sys-rootpassword"
 }
@@ -704,7 +704,7 @@ stage2_optional_hooks(){
 export _ROOTPASSWD="root_password"
 ```
 
-After you have made all the chages you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions:
+After you have made all the changes you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions:
 
 ```console
 kali@kali:~$ sudo ./cryptmypi.sh examples/kali-encrypted-basic

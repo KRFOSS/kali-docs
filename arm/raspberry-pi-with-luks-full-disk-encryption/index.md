@@ -14,7 +14,7 @@ With the advent of smaller, faster ARM hardware such as the new **Raspberry Pi 2
 The process described below was tried and **tested successfully on a Raspberry Pi B+ and a Raspberry Pi 2/3** (henceforth collectively called "RPi"). but it should be trivial to port these instructions to any ARM device running Kali Linux. Before we begin, let's take a minute to quickly describe what we'll be doing - as while this process is not complicated, it **is involved**. This is basically our spiel:
 
 1. We [download](/get-kali/) the required Kali RPi image and **dd** it to an SD card.
-2. We chroot to the RPi image and install/update several files in preparation for our crypted boot.
+2. We chroot to the RPi image and install/update several files in preparation for our encrypted boot.
 3. We create an initramfs file which includes Dropbear and freshly generated SSH keys.
 4. We rsync the modified rootfs to a temporary backup location and then delete the rootfs partition from the SD card.
 5. We then recreate an encrypted partition to which we restore the root partition data. That's it!
@@ -23,10 +23,10 @@ If all goes well, the RPi will boot and then LUKS will kick in and ask for a pas
 
 ### Getting Your Hands Dirty
 
-As always, all our ARM dev is done on a Kali amd64 machine and we've made sure that we have all the [dependencies](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/master/build-deps.sh) we need. We [download the latest Kali RPi3 image](/get-kali/) (2019.4), extract it, and **dd** it to our SD card, which in our case showed up as /dev/sdb2 - adapt as necessary!
+As always, all our ARM dev is done on a Kali amd64 machine and we've made sure that we have all the [dependencies](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/main/build-deps.sh) we need. We [download the latest Kali RPi3 image](/get-kali/) (2019.4), extract it, and **dd** it to our SD card, which in our case showed up as /dev/sdb2 - adapt as necessary!
 
 ```console
-$ dd if=kali-linux-2024.3-rpi3-nexmon.img of=/dev/sdb conv=fsync bs=4M
+$ dd if=kali-linux-2025.1-rpi3-nexmon.img of=/dev/sdb conv=fsync bs=4M
 ```
 
 Once dd'd, we mount the various partitions and chroot into the Kali RPi3 image:

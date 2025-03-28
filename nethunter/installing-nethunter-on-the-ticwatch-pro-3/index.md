@@ -1,5 +1,5 @@
 ---
-title: Installing NetHunter On the TicWatch Pro 3
+title: Installing NetHunter on the TicWatch Pro 3
 description:
 icon:
 weight:
@@ -45,7 +45,7 @@ If you want to install OneOS:
 If you want to keep stock WearOS, continue from here. 
 - Make a copy of your Magisk apk file to Magisk-v24.3.zip
 - Flash Magisk with `adb sideload Magisk-v24.3.zip`
-- Copy and flash DM-Verity_ForceEncrpyt Disabler with `adb push disabler.zip /sdcard/` and Install via TWRP
+- Copy and flash DM-Verity_ForceEncrypt Disabler with `adb push disabler.zip /sdcard/` and Install via TWRP
 - Reboot & do initial setup (pair with your phone through WearOS app)
 
 ## 3. Finalise Magisk app to finish the rooting process

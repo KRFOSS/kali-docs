@@ -6,7 +6,7 @@ weight:
 author: ["re4son",]
 ---
 
-<!-- Based on https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/tree/master/nethunter-rootless -->
+<!-- Based on https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-rootless -->
 
 ## NetHunter Rootless Edition
 
@@ -68,7 +68,7 @@ _Tip: If you run kex in the background (`&`) without having set a password, brin
 To use KeX, start the KeX client, enter your password and click connect
 _Tip: For a better viewing experience, enter a custom resolution under "Advanced Settings" in the KeX Client_
 
- &nbsp;
+
 
 ## NetHunter Editions:
 

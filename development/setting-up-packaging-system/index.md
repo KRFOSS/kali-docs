@@ -6,15 +6,15 @@ weight: 10
 author: ["gamb1t",]
 ---
 
-#### VM or install?
+## VM or install?
 
 In this walkthrough we will be explaining certain things that are only on a VM. It is your choice if you want to install a full Kali system (or if you already have one, if you want to use it) or if you want to use a VM, however keep in mind what commands you're entering if it is an install.
 
-#### Setting up the VM
+## Setting up the VM
 
-It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 150GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories. Likely, you will not need all of the packages to be downloaded.
+It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 200GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories. Likely, you will not need all of the packages to be downloaded.
 
-#### Installing packages
+## Installing packages
 
 We will install tools that we will use later for packaging. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev) is a metapackage, and will install many of the proper packages that are needed:
 
@@ -27,11 +27,11 @@ kali@kali:~$ sudo apt install -y packaging-dev sbuild apt-file gitk git-lfs myre
 kali@kali:~$
 ```
 
-#### User accounts and keys
+## User accounts and keys
 
 Packaging needs to be done on a non-root user with sudo privileges. _The default Kali user is suitable for this_.
 
-you **must** log out of your account and switch to the new user _(rather than using `su`)_. This is done as some pieces (such as variables that are set) of the following setup require you to be on that account, `su` will not work.
+You **must** log out of your account and switch to the new user _(rather than using `su`)_. This is done as some pieces (such as variables that are set) of the following setup require you to be on that account, `su` will not work.
 
 Next, we should generate SSH and GPG keys. These are important for packaging as they will allow us to access our files on GitLab easily and ensure the work is ours. This step is not always necessary, however it is helpful in certain cases. You will know if you need to set up a GPG key, however we recommend setting up an SSH key as it will make the packaging process quicker:
 
@@ -115,7 +115,7 @@ kali@kali:~$ cat ~/.ssh/id_rsa.pub | xclip
 kali@kali:~$
 ```
 
-#### Setting up files
+## Setting up files
 
 We now need to set up git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html):
 
@@ -142,8 +142,11 @@ multimaint-merge = True
 ignore-branch = True
 EOF
 kali@kali:~$
-kali@kali:~$ grep -q DEBEMAIL ~/.bashrc \
-  || echo export DEBEMAIL=email@domain.com >> ~/.bashrc
+kali@kali:~$ grep -q DEBFULLNAME ~/.profile \
+  || echo "export DEBFULLNAME='First Last'" >> ~/.aliases
+kali@kali:~$
+kali@kali:~$ grep -q DEBEMAIL ~/.profile \
+  || echo export DEBEMAIL=email@domain.com >> ~/.aliases
 kali@kali:~$
 ```
 
@@ -170,8 +173,10 @@ DEBCHANGE_PRESERVE=yes
 DEBUILD_LINTIAN_OPTS="--color always -I"
 DEBCHANGE_AUTO_NMU=no
 DEBSIGN_KEYID=ABC123DE45678F90123G4567HIJK890LM12345N6
+USCAN_DESTDIR=$HOME/kali/upstream/
 EOF
 kali@kali:~$
+kali@kali:~$ mkdir -pv $HOME/kali/{build-area,upstream}
 ```
 
 **Be sure to put your own key id in `DEBSIGN_KEYID`. In this example we can see from `gpg -k` that our key is `ABC123DE45678F90123G4567HIJK890LM12345N6`**
@@ -207,25 +212,37 @@ kali@kali:~$ cat <<EOF >> ~/.gitconfig
          driver = dpkg-mergechangelogs -m %O %A %B %A
 EOF
 kali@kali:~$
-kali@kali:~$ mkdir -p ~/.config/git/
+kali@kali:~$ mkdir -pv ~/.config/git/
 kali@kali:~$
-kali@kali:~$ echo "debian/changelog merge=dpkg-mergechangelogs" >> ~/.config/git/attributes
+kali@kali:~$ grep mergechangelogs ~/.config/git/attributes \
+  || echo "debian/changelog merge=dpkg-mergechangelogs" >> ~/.config/git/attributes
 kali@kali:~$
 ```
 
-#### sbuild
+## sbuild
 
 We also will need to set up sbuild. Although this isn't too difficult, it does require some extra setup:
 
 ```console
-kali@kali:~$ sudo mkdir -p /srv/chroots/
+kali@kali:~$ sudo mkdir -pv /srv/chroots/
 kali@kali:~$
 kali@kali:~$ cd /srv/chroots/
-kali@kali:/srv/chroots$ sudo sbuild-createchroot --merged-usr --keyring=/usr/share/keyrings/kali-archive-keyring.gpg --arch=amd64 --components=main,contrib,non-free,non-free-firmware --include=kali-archive-keyring kali-dev kali-dev-amd64-sbuild http://http.kali.org/kali
+kali@kali:/srv/chroots$ sudo sbuild-createchroot \
+  --merged-usr \
+  --keyring=/usr/share/keyrings/kali-archive-keyring.gpg \
+  --arch=amd64 \
+  --components=main,contrib,non-free,non-free-firmware \
+  --include=kali-archive-keyring \
+  kali-dev \
+  kali-dev-amd64-sbuild \
+  http://http.kali.org/kali
 kali@kali:/srv/chroots$
+kali@kali:/srv/chroots$ cd ~/
+kali@kali:~$
 ```
 
-Once that is done, we need to edit `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*`, note that "\*" is used as it will generate the last bit randomly. Alternatively, use TAB auto-completion:
+Once that is done, we need to edit `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*`, note that "\*" is used as it will generate the last bit randomly.
+_Alternatively, use TAB auto-completion_:
 
 ```console
 kali@kali:~$ echo "source-root-groups=root,sbuild" | sudo tee -a /etc/schroot/chroot.d/kali-dev-amd64-sbuild*
@@ -259,7 +276,7 @@ kali@kali:~$
 
 _Reboot_
 
-#### approx
+## Approx
 
 When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy, such as `approx`:
 
@@ -282,5 +299,18 @@ kali@kali:~$ sudo sbuild-shell source:kali-dev-amd64-sbuild
 I: /bin/sh
 # echo 'Acquire::HTTP::Proxy "http://localhost:9999";' > /etc/apt/apt.conf.d/01proxy
 # exit
+kali@kali:~$
+```
+
+## Quilt (Managing Patches)
+
+```console
+kali@kali:~$ cat << EOF > ~/.quiltrc
+export QUILT_PATCHES=debian/patches
+QUILT_PUSH_ARGS="--color=auto"
+QUILT_DIFF_ARGS="--no-timestamps --no-index -p ab --color=auto"
+QUILT_REFRESH_ARGS="--no-timestamps --no-index -p ab"
+QUILT_DIFF_OPTS='-p'
+EOF
 kali@kali:~$
 ```

@@ -148,11 +148,11 @@ kali@kali:~$ time ./build.sh \
   --verbose \
   --installer \
   --distribution kali-last-snapshot \
-  --version 2024.3 \
-  --subdir kali-2024.3
+  --version 2025.1 \
+  --subdir kali-2025.1
 [...]
 ***
-GENERATED KALI IMAGE: ./images/kali-2024.3/kali-linux-2024.3-installer-amd64.iso
+GENERATED KALI IMAGE: ./images/kali-2025.1/kali-linux-2025.1-installer-amd64.iso
 ***
 kali@kali:~$
 ```
@@ -215,17 +215,7 @@ As an example, we recommend you check out the existing hooks in `kali-config/com
 By default, the build-script will generate the Kali image based on the architectures of the current operating system. If you wish to alter this:
 
 - x64: `./build.sh --verbose --arch amd64`
-- x86: `./build.sh --verbose --arch i386`
-
-#### Building a Kali Linux ISO for Older i386 Architectures
-
-The Kali Linux i386 ISO has PAE enabled. If you require a default kernel for older hardware with PAE disabled, you will need to rebuild a Kali Linux ISO. The rebuilding process is much the same as described above, except that the **686-pae** parameter needs to be changed to **686** in `auto/config` before building:
-
-```console
-kali@kali:~/live-build-config$ sed -i 's/686-pae/686/g' auto/config
-kali@kali:~/live-build-config$
-kali@kali:~/live-build-config$ ./build.sh --verbose --arch i386
-```
+- arm64: `./build.sh --verbose --arch arm64`
 
 - - -
 

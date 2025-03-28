@@ -33,7 +33,7 @@ Navigate to ***"Networking support → Bluetooth subsystem support → Bluetooth
 
 ![](nh-kernel-bluetooth-140.png)
 
-&nbsp;
+
 
 Navigate to ***"Device Drivers → Staging -> Android "*** and configure the following items:
 
@@ -42,7 +42,7 @@ Navigate to ***"Device Drivers → Staging -> Android "*** and configure the fol
 
 ![](nh-kernel-bluetooth-binderfs-145.png)
 
-&nbsp;
+
 
 ### MAC80211
 
@@ -57,7 +57,7 @@ Navigate to ***"Networking support → Wireless"*** and configure the following 
 
 ![](nh-kernel-mac80211-150.png)
 
-&nbsp;
+
 
 ### Ethernet
 

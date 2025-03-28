@@ -8,7 +8,7 @@ author: ["gamb1t",]
 
 ## Preparations
 
-In order for a tool to be added to any Debian-based distribution it needs to be packaged, this can be seen by a Debian/ file in the source code. For developers, we have [documentation](/docs/development/intro-to-packaging-example/) that explains this process should they wish to do this themselves. Keep in mind if this tool is packaged for Debian or not when submitting the tool. Additional information that should be found is the license associated, what dependencies the tool has, what other tools are similar, how active is the development of the tool, and finally how to install the tool.
+In order for a tool to be added to any Debian-based distribution it needs to be packaged, this can be seen by a `debian/` directory in the source code. For developers, we have [documentation](/docs/development/intro-to-packaging-example/) that explains this process should they wish to do this themselves. Keep in mind if this tool is packaged for Debian or not when submitting the tool. Additional information that should be found is the license associated, what dependencies the tool has, what other tools are similar, how active is the development of the tool, and finally how to install the tool.
 
 ## Where to submit the tool
 

@@ -8,7 +8,8 @@ author: ["yesimxev",]
 
 ## Adding your own device to the devices repo
 
-Congratulations! You've successfully built your own Kali NetHunter kernel. Feel free to add it to our devices repo, supporting the community.
+Congratulations! You have successfully built your own Kali NetHunter kernel.
+Feel free to add it to our kernel repo, supporting the community.
 
 Please follow the instructions on the [devices repository](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-devices).
 

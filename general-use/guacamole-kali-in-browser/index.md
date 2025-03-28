@@ -105,7 +105,39 @@ kali@kali:~$ sudo apt install -y tigervnc-standalone-server
 kali@kali:~$
 kali@kali:~$ mkdir -p ~/.vnc/
 kali@kali:~$
-kali@kali:~$ wget https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/raw/master/nethunter-fs/profiles/xstartup -O ~/.vnc/xstartup
+kali@kali:~$ vim ~/.vnc/xstartup
+kali@kali:~$
+kali@kali:~$ cat ~/.vnc/xstartup
+#!/bin/sh
+
+#############################
+##          All            ##
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+export SHELL=/bin/bash
+
+#############################
+##          Gnome          ##
+#[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+#[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+#vncconfig -iconic &
+#dbus-launch --exit-with-session gnome-session &
+
+
+############################
+##           LXQT         ##
+####exec openbox-session
+#exec startlxqt
+
+
+############################
+##          KDE           ##
+#exec /usr/bin/startkde
+
+
+############################
+##          XFCE          ##
+startxfce4 &
 kali@kali:~$
 kali@kali:~$ vncserver :1
 ```

@@ -41,8 +41,8 @@ You can also use [lineage-os](https://github.com/orgs/LineageOS/repositories) ke
 Assuming you don't have a toolchain downloaded already, you can begin by cloning our kernel builder to the root of your kernel's folder, and prepare the environment:
 
 ```console
-kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel
-kali@kali:~$ cd kali-nethunter-kernel
+kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernel-builder
+kali@kali:~$ cd kali-nethunter-kernel-builder/
 ```
 ***[Optional step]*** You can find multiple example config files available in local.config.examples.  
 If you find something that matches your device, copy it to kali-nethunter-kernel named as local.config ***(Make sure to then edit it to check that everything matches your kernel!)***
@@ -86,7 +86,5 @@ Make sure that the local.config file that you used has everything properly confi
 Know exactly what errored out by looking for what went wrong to search it on google  
 Look if there is any patch inside ***4. Apply Nethunter kernel patches*** that addresses the same error and patch it if it does  
 If none of the above works, then it would be best to go back and forth between viewing build.sh script and [Porting nethunter](https://www.kali.org/docs/nethunter/porting-nethunter/#making-a-test-kernel) to try and manually fix the issue. 
-  
-  
   
 ***Note: If you will continue and modify the kernel, you can use ***3. Configure & recompile kernel from previous run*** to save time.***

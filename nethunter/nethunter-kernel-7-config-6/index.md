@@ -19,7 +19,7 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 
 ![](nh-kernel-270-usb-1.png)
 
-&nbsp;
+
 
 ### USB Gadget support
 
@@ -52,6 +52,6 @@ Navigate to ***Device Drivers -> USB support -> USB Gadget Support*** and choose
 
 ![](nh-kernel-280-usb-2.png)
 
-&nbsp;
+
 
 ## Exit, save, and build

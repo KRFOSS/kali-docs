@@ -35,7 +35,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2024.3-raspberry-pi-zero-2-w-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.1-raspberry-pi-zero-2-w-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
@@ -48,7 +48,7 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
 
-You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`. It will prompt you for the wireless network's password. You can add the password to the command as you run it, but keep in mind that if you do, your wifi network password will be in your user's shell history.
+You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`. It will prompt you for the wireless network's password. You can add the password to the command as you run it, but keep in mind that if you do, your Wi-Fi network password will be in your user's shell history.
 
 ## Kali on Raspberry Pi Zero 2 W - Image Customization
 

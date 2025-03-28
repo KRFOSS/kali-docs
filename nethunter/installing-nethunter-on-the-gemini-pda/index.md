@@ -1,5 +1,5 @@
 ---
-title: Installing NetHunter On the Gemini PDA
+title: Installing NetHunter on the Gemini PDA
 description:
 icon:
 weight:
@@ -26,7 +26,7 @@ Either install the "Pentester Pro" image with rooted Android and Kali Linux part
 
 Reboot the newly imaged Gemini into Android and:
 - Configure the keyboard
-- Connect to wifi
+- Connect to Wi-Fi
 - Open the "Play Store" app and sign in with your google account
 - Update all apps
 
@@ -66,7 +66,7 @@ Note: Newer versions of Magisk seem to be breaking auto rotation. Let's stick wi
 
 ## 4. Install NetHunter
 
-- Download the NetHunter beta image from here: [http.re4son-kernel.com/downloads/gemini-nethunter/](http://http.re4son-kernel.com/downloads/gemini-nethunter/)
+- Download the NetHunter image from here: [kali.org/get-kali/](https://www.kali.org/get-kali/#kali-mobile) -> Gemini -> Gemini PDA (Nougat)
 - connect the Gemini PDA to your computer
 - transfer the NetHunter image to the Gemini PDA
 - reboot the Gemini PDA into recovery via the "Official TWRP App" (TWRP Flash->Menu->Reboot-Reboot Recovery)

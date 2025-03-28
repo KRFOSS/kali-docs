@@ -11,4 +11,4 @@ author: ["g0tmi1k",]
 
 - - -
 
-During installation, Kali Linux allows users to configure a password for the _root_ user. However, should you decide to boot the live image instead, the i386, amd64, VMware and ARM images are configured with the **default `root` password - "`toor`"**, without the quotes.
+During installation, Kali Linux allows users to configure a password for the _root_ user. However, should you decide to boot the live image instead, the amd64, VMware and ARM images are configured with the **default `root` password - "`toor`"**, without the quotes.

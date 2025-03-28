@@ -19,7 +19,7 @@ For ease of use, please use a root account. This can be done with "sudo su".
 {{% /notice %}}
 
 ```console
-kali@kali:~$ dd if=kali-linux-2024.3-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
+kali@kali:~$ dd if=kali-linux-2025.1-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 ```
 
 **0x02 - Create and format an additional partition on the USB drive**. In our example, we create a persistent partition in the empty space above the Kali Live partitions:
@@ -135,7 +135,7 @@ kali@kali:~$ cryptsetup luksHeaderBackup --header-backup-file luksheader.back /d
 kali@kali:~$ openssl enc -e -aes-256-cbc -in luksheader.back -out luksheader.back.enc
 ```
 
-Now boot into your encrypted store, and give the Nuke password, rather than the real decryption password. This will render any info on the encrypted store useless. Once this is done, verify that the data is indeed inacessible.
+Now boot into your encrypted store, and give the Nuke password, rather than the real decryption password. This will render any info on the encrypted store useless. Once this is done, verify that the data is indeed inaccessible.
 
 **Lets restore the data now**. We'll decrypt our backup of the LUKS keyslots, and restore them to the encrypted partition:
 

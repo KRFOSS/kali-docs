@@ -67,14 +67,11 @@ kali@kali:~$
 
 ### Download Kali PXE Netboot Images
 
-We can now download the Kali Netboot image we wish to serve. Please pick ONE of the images below, either 64-bit OR 32-bit:
+We can now download the Kali Netboot image we wish to serve:
 
 ```console
 # 64-bit:
 sudo wget https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/netboot.tar.gz -P /tftpboot/
-
-# 32-bit:
-sudo wget https://http.kali.org/kali/dists/kali-rolling/main/installer-i386/current/images/netboot/netboot.tar.gz -P /tftpboot/
 ```
 
 - - -
@@ -194,7 +191,7 @@ kali@kali:~$ cat <<'EOF' | sudo tee /opt/pxe/tftpboot.sh
 ## Our desired path for the PXE image to be saved to
 tftp=/tftpboot
 
-## amd64 (64-bit) vs i386 (32-bit)
+## amd64 (64-bit)
 arch=amd64
 
 ## Complete remove and create the previous directory containing the PXE image
@@ -203,7 +200,7 @@ rm -rfv "${tftp:?}"/*
 ## Download the newest version
 wget "https://http.kali.org/kali/dists/kali-rolling/main/installer-${arch}/current/images/netboot/netboot.tar.gz" -O "${tftp}/netboot.tar.gz"
 
-## Exract
+## Extract
 tar -zxpvf /tftpboot/netboot.tar.gz -C "${tftp}"
 
 ## Clean up

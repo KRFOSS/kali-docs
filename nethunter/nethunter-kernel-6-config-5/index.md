@@ -21,8 +21,6 @@ Navigate to ***Device Drivers -> USB support*** and select the following option:
 
 ![](nh-kernel-270-usb-1.png)
 
-&nbsp;
-
 ### USB Gadget support
 
 USB Gadget support is only possible with patches on 3.x kernels.

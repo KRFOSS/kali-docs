@@ -8,7 +8,7 @@ author: ["steev",]
 
 The [ODROID-C1](https://www.hardkernel.com/shop/odroid-c1-2/) is a quad core 1.5GHz Cortex A5, with 1GB of RAM development board. Kali Linux fits on an external microSD card or on an eMMC module.
 
-The ODROID-C0 and ODROID-C1+ are both essentiall the same base hardware, but with changed peripherals, so we can use the same image for all 3 of the devices.
+The ODROID-C0 and ODROID-C1+ are both essentially the same base hardware, but with changed peripherals, so we can use the same image for all 3 of the devices.
 
 By default, the Kali Linux ODROID-C images contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
 
@@ -38,7 +38,7 @@ This process will wipe out your microSD card or eMMC. If you choose the wrong st
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2024.3-odroid-c-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progres
+$ xzcat kali-linux-2025.1-odroid-c-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 This process can take a while, depending on your PC, your microSD card or eMMC's speed, and the size of the Kali Linux image.

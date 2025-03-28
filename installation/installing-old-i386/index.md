@@ -3,9 +3,19 @@ title: Installing old i386 images
 description:
 icon:
 weight:
-author: ["gamb1t",]
+author: ["arnaudr", "gamb1t",]
 ---
 
-At the time of writing this page, September 18, 2024, i386/x86 kernels are still being built, but this is going to change soon. We don't know exactly when i386 will no longer be built, but it will [likely be in Linux 6.11](https://lists.debian.org/debian-release/2024/09/msg00220.html). If this is accurate, there will likely be no more i386 images starting with the 2024.4 release.
+## Foreword
 
-While the number of users who need i386 images is low, those who do will will want a way to get an iso that they can use. To do this, they can use [old.kali.org](https://old.kali.org/kali-images/kali-2024.2/) and download the last iso where i386 was built.
+Since October 2024, there is no longer a i386 kernel, nor i386 images for Kali Linux. As a reminder, i386 is the name used in Kali (and Debian) to refer to the 32-bit x86 CPU architecture.
+
+In all practicality, it means that it's no longer possible to run Kali on machines that have such a (rather old) CPU. However, it's still possible to run programs that were compiled for i386 on a 64-bit machine. In fact, at the time of writing, most of the i386 packages are still available in the repository, and i386 Kali containers are also available.
+
+This change was announced in a [blog post](/blog/end-of-i386-kernel-and-images/), it contains much more details for those interested.
+
+## Using old i386 images
+
+The last Kali Linux release that supported the i386 architecture was `2024.3`. At the moment, those images are still available for download at <https://kali.download/base-images/kali-2024.3/>.
+
+After they get removed from the mirrors, users can still use [old.kali.org](https://old.kali.org/kali-images/kali-2024.3/) and download the last i386 images from there.

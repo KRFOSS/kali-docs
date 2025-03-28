@@ -19,7 +19,7 @@ In section "General Setup":
 
 ![](nh-kernel-110-general.png)
 
-&nbsp;
+
 
 ### Modules
 
@@ -37,7 +37,7 @@ We want to enable modules in _Enable Loadable Module Support_ just in case there
 
 ![](nh-kernel-120-modules.png)
 
-&nbsp;
+
 
 ### Kernel Image
 

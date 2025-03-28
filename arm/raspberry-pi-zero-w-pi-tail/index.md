@@ -29,7 +29,7 @@ author: ["re4son",]
    1. Enable hotpot with ssid = "`sepultura`" and password = "`R4t4m4h4tt4`"
    2. Install Hacker’s Keyboard, ConnectBot & VNC viewer (if desired)
    3. Connect to `192.168.43.254`, user `kali`/`kali`
-   4. run "`sudo mon0up`" to set wifi interface into monitor mode (yes, while using it)
+   4. run "`sudo mon0up`" to set Wi-Fi interface into monitor mode (yes, while using it)
    5. run "`airodump -i mon0`", "`kismet -c mon0`", "`wifite -i mon0`" or anything you like
 5. Go wild
 
@@ -53,7 +53,7 @@ Pi-Tail checks during boot if ethernet gadget mode is enabled and if not, it wil
 
 During the boot process, Pi-Tail will pick up your network config and copy it across to the system partition. The effective config is copied back to /boot/interfaces.active and /boot/wpa_supplicant.active for offline troubleshooting.
 
-Enable "wifi hostspot" or "usb tethering"on your phone and the Pi-Tail should connect automatically. Bluetooth works the other way: You have three minutes after boot up to pair with your Pi-Tail.
+Enable "wifi hotspot" or "usb tethering" on your phone and the Pi-Tail should connect automatically. Bluetooth works the other way: You have three minutes after boot up to pair with your Pi-Tail.
 
 Open ConnectBot on your mobile and connect to the Pi-Tail. Configure port forwarding and fire up a vnc viewer of your choice and you can enjoy kali linux in all it’s glory on the go.
 

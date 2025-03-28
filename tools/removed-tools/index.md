@@ -38,6 +38,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [mana-toolkit](https://pkg.kali.org/pkg/mana-toolkit) | 2019-10-10 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/mana-toolkit/-/issues/1)) |
 | [miranda](https://pkg.kali.org/pkg/miranda) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/miranda/-/issues/1)) |
 | [mitmf](https://pkg.kali.org/pkg/mitmf) | 2019-08-23 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/mitmf/-/issues/1)) |
+| [neofetch](https://pkg.kali.org/pkg/neofetch) | 2025-01-28 | Unmaintained ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1031619)) |
 | [neopi](https://pkg.kali.org/pkg/neopi) | 2020-04-09 | Python 2 |
 | [nfspy](https://pkg.kali.org/pkg/nfspy) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/nfspy/-/issues/1)) |
 | [pdgmail](https://pkg.kali.org/pkg/pdgmail) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/pdgmail/-/issues/1)) |
