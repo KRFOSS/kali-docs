@@ -36,7 +36,7 @@ You can use disk manager to view the partitions created on the USB.
 ```console
 kali@kali:~$ shasum -a 256 kali-linux-2025.1-live-amd64.iso 
 ```
-Replace the iso file name with the one you downloaded.Verify the the checksum with the one provided on the page from which you downloaded the iso.
+Replace the iso file name with the one you downloaded.Verify the checksum with the one provided on the page from which you downloaded the iso.
 
 ### On Windows
 
