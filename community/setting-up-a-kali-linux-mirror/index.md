@@ -163,7 +163,7 @@ If you limit network traffic, please make sure the following has been allowed to
 
 - SSH (22/TCP) - <archive.kali.org> (aka `192.99.45.140` and `2607:5300:60:508c::`)
 - RSYNC (873/TCP) - <archive.kali.org> (aka `192.99.45.140` and `2607:5300:60:508c::`)
-- RSYNC (873/TCP) - <http.kali.org> (aka `18.211.24.19`)
+- RSYNC (873/TCP) - <http.kali.org> (aka `54.39.128.230` and `2607:5300:203:3fe6::`)
 
 ### Set Up cron to Manually Mirror ISO Images
 
