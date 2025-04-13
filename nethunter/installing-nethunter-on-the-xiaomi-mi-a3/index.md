@@ -6,7 +6,7 @@ weight:
 author: ["mr00k3",]
 ---
 
-![](xiaomi_a3.png)
+![](xiaomi_mi_a3.png)
 
 # From unpacking to running NetHunter in 4 steps:
 1. Installing adb and fastboot
