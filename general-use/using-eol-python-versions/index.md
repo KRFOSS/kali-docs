@@ -121,7 +121,7 @@ One thing to keep in mind is to stick with installing the dependencies via `pip`
 Another option available is [get-pip](https://pip.pypa.io/en/stable/installation/). Using git-pip you can simply run a python script and install pip for the version used. In this case, Python 2. We can do this with the following:
 
 ```console
-kali@kali:~$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+kali@kali:~$ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
 kali@kali:~$ python2.7 get-pip.py
 ```
 
