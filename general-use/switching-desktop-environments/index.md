@@ -23,8 +23,10 @@ If we choose to install KDE, we have to remember a few conflicts that might come
 
 To work around this we will remove Xfce and only have KDE installed, and we do not advise having other DEs alongside it. Keep in mind that this only applies for KDE; you may have both Xfce and GNOME installed at the same time with no conflicts:
 
+`kali-desktop-*` packages are marked as _system protected_, so you need to add apt's parameter `--allow-remove-essential` in order to remove them.
+
 ```console
-kali@kali:~$ sudo apt purge --autoremove kali-desktop-xfce
+kali@kali:~$ sudo apt purge --autoremove --allow-remove-essential kali-desktop-xfce
 kali@kali:~$
 ```
 
