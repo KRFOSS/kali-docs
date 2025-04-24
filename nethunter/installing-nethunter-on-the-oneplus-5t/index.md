@@ -48,4 +48,6 @@ Extract ADB. Then open up the LOS zip file you just downloaded, grab the “reco
 
 Now disconnect your device from your computer and hold the power button on your device and hit Bootloader.
 
-**Tip:** You can also enter Fastboot mode by pressing Vol Up + Power while the device is powered off. To enter  Bootloader mode, press Vol Down + Power.
+**Tip:** You can also enter Fastboot mode by pressing `Vol Up` + `Power` while the device is powered off. To enter Bootloader mode, press `Vol Down` + `Power`.
+
+![](02.png)
