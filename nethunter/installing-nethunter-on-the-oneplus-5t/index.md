@@ -11,12 +11,12 @@ author: ["i-liek-turtals",]
 We’ll be covering how to install NetHunter on OnePlus 5T. A Windows 10 VM is used to make this guide. Steps are as follows:
 
 - Backup & wipe your device
-- Enable Developer options, enable OEM Unlocking and USB debugging
+- Enable Developer options, OEM Unlocking and USB debugging
 - Install LineageOS
 - Root the device with TWRP
 - Install NetHunter
 
-We’re going to use a pre-created NetHunter image created for this device but in order to install it, we’ll be changing stock OxygenOS v10.0.1 (Android v10) to LineageOS v20 (Android 13).
+We’re going to use a pre-made NetHunter image created for this device but in order to install it, we’ll be changing stock OxygenOS v10.0.1 (Android v10) to LineageOS v20 (Android 13).
 
 ## Developer Options, OEM Unlocking & USB Debug Mode
 
