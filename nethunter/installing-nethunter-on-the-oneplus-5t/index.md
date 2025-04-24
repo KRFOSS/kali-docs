@@ -128,4 +128,24 @@ Then go back to your phone, hit `Vol down` twice to pick Recovery Mode and hit `
 
 ![](17.png) ![](18.png) ![](19.png)
 
+Reboot the system. Once you’re back in LOS, open up Magisk and now you should be able to access *Super User* and *Modules* tabs. This indicates that your device is rooted.
 
+## Installing NetHunter
+
+This is the easiest part. Download NetHunter for OnePlus 5T from [kali.org](https://www.kali.org/get-kali/#kali-mobile) and transfer it to your device. Open up *Magisk* > *Modules* > *Install from storage* and pick NetHunter you just transferred.
+
+![](20.png)
+
+The installation process will take a while.
+
+![](21.png)
+
+After you reboot the device, it’s gonna take longer to boot up to OS. Just be patient and don’t power off your device. We’ll fix this after the initial NetHunter setup. Connect your device to your WiFi if you haven’t already.
+
+Open up NetHunter and go through the initial setup process. If you get any errors about root access, open Magisk > Superuser and enable NetHunter and NetHunter Terminal. Once you’re done with the NetHunter’s initial setup, open up NetHunter Store and update it aswell.
+
+![](22.png)
+
+And finally you should fix the boot up time. Go back to Recovery mode. Once you’re in TWRP, hit *Wipe* then select *Dalvik / ART Cache* and *Cache*. Swipe to wipe and reboot back to system. It should boot up in seconds.
+
+![](23.png) ![](24.png)
