@@ -98,6 +98,34 @@ Go back a step and reboot the device. You should be greeted with LineageOS’ in
 
 ![](11.png) ![](12.png)
 
+## Rooting the Device
 
+You’re going to need couple things for this step.
+
+- [Magisk](https://github.com/topjohnwu/Magisk/releases/tag/v28.1)
+- boot.img file from LineageOS zip file.
+- [TWRP](https://eu.dl.twrp.me/cheeseburger_dumpling/)
+
+Let’s start with creating a rooted boot image with Magisk. Download the apk and send it to your phone along with the boot.img file.
+
+![](13.png)
+
+Open the file manager and install Magisk. You’re going to get a security warning, hit yes and open up the app.
+
+![](14.png)
+
+Hit *Install* next to Magisk, hit *Select and Patch a File* and then pick the **boot.img** file. Hit *LET’S GO* to create a rooted boot.img file. If everything went smoothly, you should see a log like this:
+
+![](15.png)
+
+Your rooted boot.img file should be in the same folder. Back it up to your computer (just in case). Turn off your phone and disconnect it from your PC.
+
+Now it’s time to install TWRP. Hold `Vol up` and `Power` button to start the device in Fastboot mode. Go back to your terminal and type `fastboot devices` to confirm it’s in Fastboot mode. Then type `fastboot flash recovery <filename>.img` to flash TWRP.
+
+![](16.png)
+
+Then go back to your phone, hit `Vol down` twice to pick Recovery Mode and hit `Power` button to restart the device. Once TWRP is booted up hit *Install* > go to *Download folder* > hit *Install Image* (bottom right) and pick the rooted boot file you created with Magisk (it should be named `magisk_patched-***.img`). On the next screen pick the `boot` partition and swipe to flash the device.
+
+![](17.png) ![](18.png) ![](19.png)
 
 
