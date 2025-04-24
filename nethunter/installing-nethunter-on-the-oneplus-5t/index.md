@@ -111,13 +111,13 @@ Hit *Install* next to Magisk, hit *Select and Patch a File* and then pick the **
 
 ![](15.png)
 
-Your rooted boot.img file should be in the same folder. Back it up to your computer (just in case). Turn off your phone and disconnect it from your PC.
+Your rooted boot file should be in the same folder (`magisk_patched-***.img`). Back it up to your computer (just in case). Turn off your phone and disconnect it from your PC.
 
-Now it’s time to install TWRP. Hold `Vol up` and `Power` button to start the device in Fastboot mode. Go back to your terminal and type `fastboot devices` to confirm it’s in Fastboot mode. Then type `fastboot flash recovery filename.img` to flash TWRP.
+Now it’s time to install TWRP. Hold `Vol up` and `Power` button to start the device in Fastboot mode. Connect your phone back to your PC (the reason I'm doing it this way is because my phone would ignore the fastboot or bootloader commands if it's connected to my PC but your milage may vary), go back to your terminal and type `fastboot devices` to confirm it’s in Fastboot mode. Then type `fastboot flash recovery filename.img` to flash TWRP.
 
 ![](16.png)
 
-Then go back to your phone, press `Vol down` twice to select Recovery Mode and press `Power` button to restart the device. Once TWRP is booted up hit *Install* > go to *Download folder* > hit *Install Image* (bottom right) and pick the rooted boot file you created with Magisk (it should be `named magisk_patched-***.img`). On the next screen pick the `boot` partition and swipe to flash the device.
+Then go back to your phone, press `Vol down` twice to select Recovery Mode and press `Power` button to restart the device. Once TWRP is booted up hit *Install* > go to *Download folder* > hit *Install Image* (bottom right) and pick the rooted boot file you created with Magisk. On the next screen pick the `boot` partition and swipe to flash the device.
 
 ![](17.png) ![](18.png) ![](19.png)
 
