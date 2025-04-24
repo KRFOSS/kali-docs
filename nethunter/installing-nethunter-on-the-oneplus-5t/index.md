@@ -17,9 +17,9 @@ We are going to be covering how to install Kali NetHunter on a OnePlus 5T. Steps
 - Root the device with TWRP
 - Install NetHunter
 
-We’ll be using a pre-created Nethunter image for this device but in order to install it, we’re going to remove stock OxygenOS and we will be installing LineageOS.
+We’ll be using a pre-created NetHunter image for this device but in order to install it, we’re going to remove stock OxygenOS and we will be installing LineageOS.
 
-[According to Nethunter wiki](https://nethunter.kali.org/images.html), we need a specific version of LineageOS (version 20). I wasn’t able to find this version on LineageOS’ official website so I’ll be linking to a non official download page. Use it at your own risk.
+[According to NetHunter wiki](https://nethunter.kali.org/images.html), we need a specific version of LineageOS (version 20). I wasn’t able to find this version on LineageOS’ official website so I’ll be linking to a non official download page. Use it at your own risk.
 
 This is an unsigned build but I didn’t have any issues while installing it. Apart from this, the installation process is identical to LineageOS v22’s installation so I’ll be following their [guide](https://wiki.lineageos.org/devices/dumpling/install/).
 
@@ -45,3 +45,7 @@ For this step, you’re going to need to download two files.
 Extract ADB. Then open up the LOS zip file you just downloaded, grab the “recover.img” file and put it in the same folder.
 
 ![](01.png)
+
+Now disconnect your device from your computer and hold the power button on your device and hit Bootloader.
+
+**Tip:** You can also enter Fastboot mode by pressing Vol Up + Power while the device is powered off. To enter  Bootloader mode, press Vol Down + Power.
