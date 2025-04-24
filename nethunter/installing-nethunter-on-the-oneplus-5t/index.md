@@ -146,6 +146,8 @@ Open up NetHunter and go through the initial setup process. If you get any error
 
 ![](22.png)
 
-And finally you should fix the boot up time. Go back to Recovery mode. Once you’re in TWRP, hit *Wipe* then select *Dalvik / ART Cache* and *Cache*. Swipe to wipe and reboot back to system. It should boot up in seconds.
+And finally you should fix the boot up time. Go back to Recovery mode. Once you’re in TWRP, hit *Wipe* then select *Dalvik / ART Cache* and *Cache*.
 
 ![](23.png) ![](24.png)
+
+Swipe to wipe and reboot back to system. It should boot up in seconds.
