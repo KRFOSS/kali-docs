@@ -39,7 +39,7 @@ Extract ADB to a folder. Then open up the archive you just downloaded, grab the 
 
 ![](01.png)
 
-Now disconnect your device from your computer and hold the power button on your device and hit Bootloader.
+Now disconnect your device from your computer, hold the power button on your device and hit Bootloader.
 
 **Tip:** You can also enter *Fastboot mode* by pressing `Vol Up` + `Power` while the device is powered off. To enter *Bootloader mode*, press `Vol Down` + `Power`.
 
@@ -51,17 +51,17 @@ Note: If you can’t see your device, you need to install drivers. Go to Windows
 
 ![](03.png)
 
-In order to unlock bootloader, type `fastboot oem unlock`. You will see a prompt on your device. Use `Vol down` button to select unlock and hit the `Power` button to confirm.
+In order to unlock bootloader, type `fastboot oem unlock`. You will see a prompt on your device. Use `Vol down` button to select unlock and press the `Power` button to confirm.
 
 ![](04.png)
 
 **Note:** From this point on, you will see a warning message about bootloader being ulocked everytime you restart your phone. This is normal and there is no way of disabling it.
 
-The phone will wipe again and you’ll be greeted with the initial setup process of OOS. Skip everything again. Redo `Step 2` to enable Dev mode and USB Debugging. This time your device will ask if you want to Allow USB Debugging. Hit Allow. Now go back to Terminal and type `adb devices`. You should see your device on the list.
+The phone will wipe again and you’ll be greeted with the initial setup process of OOS. Skip everything again. Redo **Step 2** to enable Dev mode and USB Debugging. This time your device will ask if you want to Allow USB Debugging. Hit Allow. Now go back to Terminal and type `adb devices`. You should see your device on the list.
 
 ![](05.png)
 
-**Note:** If you can’t see your device, you need to install drivers. Go to Windows Update > Check for updates > Advanced options > Optional updates > Driver updates. Then restart your computer.
+**Note:** If you can’t see your device, you need to install another set of drivers. Go to Windows Update > Check for updates > Advanced options > Optional updates > Driver updates. Then restart your computer again.
 
 Reboot your device to Fastboot mode by typing `adb -d reboot bootloader`. After the reboot, type `fastboot devices` to confirm you can access the device in fastboot mode. And finally flash the recovery.img to your device by typing `fastboot flash recovery recovery.img`.
 
@@ -69,7 +69,7 @@ The process should look like this:
 
 ![](06.png)
 
-Now go back to your phone and hit `Vol down` twice. You’ll see “Recovery mode” up top. Press the `Power` button.
+Now go back to your phone and hit `Vol down` twice. You’ll see *Recovery mode* up top. Press the `Power` button.
 
 ![](07.png)
 
@@ -77,17 +77,17 @@ This time you’ll be greeted with LineageOS’ Recovery screen.
 
 ![](08.png)
 
-Hit *Apply update* then *Apply from ADB*. Now put the LineageOS v20 zip file you downloaded from the SourceForge link to the adb folder and push it to your device with `adb -d sideload filename.zip`.
+Hit *Apply update* then *Apply from ADB*. Now put the LineageOS v20 zip file you downloaded to the adb folder and push it to your device with `adb -d sideload filename.zip`.
 
 ![](09.png)
 
-After the installation, you should see a log like this:
+It should start installing. After completion, you should see a log like this:
 
 ![](10.png)
 
-At this point you should install *Google Apps* if you’d like to use them before you boot into LineageOS but since I’m going to be using this device purely for NetHunter, I skipped that step.
+At this point you should install *Google Apps* (like Play Store etc) if you’d like to use them before you boot into LineageOS but since I’m going to be using this device purely for NetHunter, I skipped that step.
 
-Go back a step and reboot the device. You should be greeted with LineageOS’ initial setup. Before you connect your device to WiFi, you may want to disable automatic updates just to be safe (Settings > System > Updater > Three Dots > Preferences > Auto updates check > Never).
+Go back a menu and reboot the device. You should be greeted with LineageOS’ initial setup. Before you connect your device to WiFi, you may want to disable automatic updates just to be safe (Settings > System > Updater > Three Dots > Preferences > Auto updates check > Never).
 
 ![](11.png) ![](12.png)
 
@@ -96,7 +96,7 @@ Go back a step and reboot the device. You should be greeted with LineageOS’ in
 You’re going to need couple things for this step.
 
 - [Magisk](https://github.com/topjohnwu/Magisk/releases/tag/v28.1)
-- boot.img file from LineageOS zip file.
+- boot.img from LineageOS zip file.
 - [TWRP](https://eu.dl.twrp.me/cheeseburger_dumpling/)
 
 Let’s start with creating a rooted boot image with Magisk. Download the apk and send it to your phone along with the boot.img file.
@@ -107,21 +107,21 @@ Open the file manager and install Magisk. You’re going to get a security warni
 
 ![](14.png)
 
-Hit *Install* next to Magisk, hit *Select and Patch a File* and then pick the **boot.img** file. Hit *LET’S GO* to create a rooted boot.img file. If everything went smoothly, you should see a log like this:
+Hit *Install* next to Magisk, hit *Select and Patch a File* and then pick the **boot.img** file. Finally hit *LET’S GO* to create a rooted boot.img file. If everything went smoothly, you should see a log like this:
 
 ![](15.png)
 
 Your rooted boot.img file should be in the same folder. Back it up to your computer (just in case). Turn off your phone and disconnect it from your PC.
 
-Now it’s time to install TWRP. Hold `Vol up` and `Power` button to start the device in Fastboot mode. Go back to your terminal and type `fastboot devices` to confirm it’s in Fastboot mode. Then type `fastboot flash recovery <filename>.img` to flash TWRP.
+Now it’s time to install TWRP. Hold `Vol up` and `Power` button to start the device in Fastboot mode. Go back to your terminal and type `fastboot devices` to confirm it’s in Fastboot mode. Then type `fastboot flash recovery filename.img` to flash TWRP.
 
 ![](16.png)
 
-Then go back to your phone, hit `Vol down` twice to pick Recovery Mode and hit `Power` button to restart the device. Once TWRP is booted up hit *Install* > go to *Download folder* > hit *Install Image* (bottom right) and pick the rooted boot file you created with Magisk (it should be named `magisk_patched-***.img`). On the next screen pick the `boot` partition and swipe to flash the device.
+Then go back to your phone, press `Vol down` twice to select Recovery Mode and press `Power` button to restart the device. Once TWRP is booted up hit *Install* > go to *Download folder* > hit *Install Image* (bottom right) and pick the rooted boot file you created with Magisk (it should be `named magisk_patched-***.img`). On the next screen pick the `boot` partition and swipe to flash the device.
 
 ![](17.png) ![](18.png) ![](19.png)
 
-Reboot the system. Once you’re back in LOS, open up Magisk and now you should be able to access *Super User* and *Modules* tabs. This indicates that your device is rooted.
+Once it’s done, reboot the system. When you’re back in LOS, open up Magisk and now you should be able to access *Super User* and *Modules* tabs. This indicates that your device is rooted.
 
 ## Installing NetHunter
 
@@ -133,14 +133,16 @@ The installation process will take a while.
 
 ![](21.png)
 
-After you reboot the device, it’s gonna take longer to boot up to OS. Just be patient and don’t power off your device. We’ll fix this after the initial NetHunter setup. Connect your device to your WiFi if you haven’t already.
+After you reboot the device, it may take a while to boot up to OS. Just be patient and don’t power off your device. We’ll fix this after the initial NetHunter setup. Connect your device to your WiFi if you haven’t already.
 
-Open up NetHunter and go through the initial setup process. If you get any errors about root access, open Magisk > Superuser and enable NetHunter and NetHunter Terminal. Once you’re done with the NetHunter’s initial setup, open up NetHunter Store and update it aswell.
+First open *NetHunter Terminal* and close it. Then open *Magisk* > *Superuser* and enable *NetHunter* and *NetHunter Terminal*. Now you can open *NetHunter* and go through the initial setup process. After completion, open up *NetHunter Store* and update it aswell.
 
 ![](22.png)
 
-And finally you should fix the boot up time. Go back to Recovery mode. Once you’re in TWRP, hit *Wipe* then select *Dalvik / ART Cache* and *Cache*.
+That’s it. Your NetHunter is ready.
+
+![](00.png)
+
+If your device takes a long time to boot to OS, go back to Recovery mode. Once you’re in TWRP, hit *Wipe* then select *Dalvik / ART Cache* and *Cache*. Finally swipe to wipe and reboot. It should boot up in seconds.
 
 ![](23.png) ![](24.png)
-
-Swipe to wipe and reboot back to system. It should boot up in seconds.
