@@ -55,7 +55,7 @@ In order to unlock bootloader, type `fastboot oem unlock`. You will see a prompt
 
 ![](04.png)
 
-**Note:** From this point on, you will see a warning message about bootloader being ulocked everytime you restart your phone. This is normal and there is no way of disabling it.
+**Note:** From this point on, you will see a warning message about bootloader being unlocked everytime you restart your phone. This is normal and there is no way of disabling it.
 
 The phone will wipe again and you’ll be greeted with the initial setup process of OOS. Skip everything again. Redo **Step 2** to enable Dev mode and USB Debugging. This time your device will ask if you want to Allow USB Debugging. Hit Allow. Now go back to Terminal and type `adb devices`. You should see your device on the list.
 
