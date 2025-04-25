@@ -414,7 +414,7 @@ Used in case you need to run a specific command which doesnt match the one provi
 
 
 ***Guide***
-* <a href="https://www.offsec.com/blog/introduction-to-car-hacking-the-can-bus/">Introduction to Car Hacking: The CAN Bus</a>
+* <a href="https://www.offsec.com/blog/introduction-to-car-hacking-the-can-bus/?utm_source=kali&utm_medium=web&utm_campaign=docs">Introduction to Car Hacking: The CAN Bus</a>
 
 
 ## Credits
