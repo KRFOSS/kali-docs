@@ -9,7 +9,7 @@ author: ["re4son",]
 <!-- Based on https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-rootless -->
 
 ## NetHunter Rootless Edition
-
+Isn't this the language you want? Please find your language in the "All_Language" folder under this directory, or help us translate it into your language! thank you!
 ##### *Maximum flexibility with no commitment*
 
 Install Kali NetHunter on any stock, unrooted Android device without voiding the warranty.
