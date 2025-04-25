@@ -29,7 +29,7 @@ author: ["re4son",]
 
 Linux containers provide features like snapshots and freezing which comes in very handy when developing or testing software.
 
-Kali images are available on the [image server for LXC and LXD](https://images.linuxcontainers.org/) and can easily be launched either in LXD using the "images:" image server or in LXC using the "lxc-download" template.
+Kali images are available on the [image server for LXC and LXD](https://images.linuxcontainers.org/) ([amd64](https://images.linuxcontainers.org/images/kali/current/amd64/) and [arm64](https://images.linuxcontainers.org/images/kali/current/arm64/)) and can easily be launched either in LXD using the "images:" image server or in LXC using the "lxc-download" template.
 
 LXC is a userspace interface for the Linux kernel containment features. Through a powerful API and simple tools, it lets Linux users easily create and manage system or application containers.
 
