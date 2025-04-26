@@ -7,11 +7,11 @@ author: ["gamb1t",]
 ---
 
 {{% notice info %}}
-As of February 2023 the following is how to set up an AWS Kali instance. AWS's interface is constantly being updated, and in the future may not be 100% accurate. Should this be the case, please file an [issue on our GitLab](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues) and follow [Amazon's tutorials](https://aws.amazon.com/ec2/getting-started/).
+2023년 2월 기준으로 다음은 AWS Kali 인스턴스를 설정하는 방법입니다. AWS 인터페이스는 지속적으로 업데이트되므로 미래에는 100% 정확하지 않을 수 있습니다. 이런 경우가 발생하면 [GitLab에 이슈를 제출](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues)하고 [Amazon의 튜토리얼](https://aws.amazon.com/ec2/getting-started/)을 참고해 주세요.
 {{% /notice %}}
 
 {{% notice info %}}
-The Kali Linux AWS AMI image is configured to allow users to easily utilize all of Kali's features and tools without unnecessary blockers. What this means for users who share a cloud instance is that anyone who has IAM access to the EC2 serial console will be allowed unrestricted access to a root shell. If you would like to lock down this behavior, the following file can be modified to do so.
+Kali Linux AWS AMI 이미지는 사용자가 불필요한 제약 없이 Kali의 모든 기능과 도구를 쉽게 사용할 수 있도록 구성되어 있습니다. 이는 클라우드 인스턴스를 공유하는 사용자의 경우, EC2 시리얼 콘솔에 대한 IAM 접근 권한이 있는 사용자는 루트 쉘에 제한 없이 접근할 수 있다는 의미입니다. 이 동작을 제한하려면 다음 파일을 수정하면 됩니다.
 {{% /notice %}}
 
 ```console
@@ -23,105 +23,105 @@ kali@kali:~$
 kali@kali:~$ cat /etc/systemd/system/serial-getty@.service.d/autologin.conf
 [Service]
 ExecStart=
-ExecStart=-/sbin/agetty -o ‘-p -- \\u’ --keep-baud 115200,38400,9600  --noclear %I $TERM
+ExecStart=-/sbin/agetty -o '-p -- \\u' --keep-baud 115200,38400,9600  --noclear %I $TERM
 kali@kali:~$
 ```
 
-## Creating our AWS instance
+## AWS 인스턴스 생성하기
 
-The first thing we do is create [AWS](https://portal.aws.amazon.com/billing/signup) account. Only once we see the following screen are we able to proceed with setting up our instance.
+가장 먼저 [AWS 계정](https://portal.aws.amazon.com/billing/signup)을 생성합니다. 다음 화면이 보일 때만 인스턴스 설정을 진행할 수 있습니다.
 
 ![](aws-1.png)
 
-From here we want to click on "Services" in the top left, hover over "Compute," and click "EC2" like shown:
+여기서 좌측 상단의 "서비스"를 클릭하고, "컴퓨팅"에 마우스를 올린 다음 아래와 같이 "EC2"를 클릭합니다:
 
 ![](aws-2.png)
 
-From here we will see the following screen. On this screen we want to look for "AMI Catalog" on the left side as shown:
+다음 화면이 나타납니다. 이 화면에서 왼쪽에 있는 "AMI 카탈로그"를 찾습니다:
 
 ![](aws-3.png)
 
-From here we will click on "AWS Marketplace AMIs":
+여기서 "AWS Marketplace AMIs"를 클릭합니다:
 
 ![](aws-4.png)
 
-From here we will search for "kali":
+검색 창에 "kali"를 입력합니다:
 
 ![](aws-6.png)
 
-We should see the following:
+다음과 같은 결과가 나타납니다:
 
 ![](aws-7.png)
 
-From here we will hit "Select" on the official Kali Linux image. We should then see the following:
+공식 Kali Linux 이미지에서 "선택"을 클릭합니다. 그러면 다음 화면이 나타납니다:
 
 ![](aws-8.png)
 
-While here lets take note of what "Usage" says:
+여기서 "사용량"에 나와 있는 내용을 확인해 봅시다:
 
 ![](aws-8b.png)
 
-Looks like we will SSH into the `kali` account! That is good to remember. We now can select "Continue":
+`kali` 계정으로 SSH 접속한다고 하네요! 이걸 기억해두면 좋겠습니다. 이제 "계속"을 선택합니다:
 
 ![](aws-9.png)
 
-From here we scroll down a bit and see all of our options. We have already selected what we need for our purposes:
+아래로 스크롤하면 모든 옵션이 표시됩니다. 우리 목적에 맞게 필요한 옵션을 이미 선택했습니다:
 
 ![](aws-10.png)
 
-We were sure to select "Create new key pair" so we could access this instance:
+인스턴스에 접근할 수 있도록 "새 키 페어 생성"을 선택했습니다:
 
 ![](aws-11.png)
 
-If we scroll down more, we will see even more options. Again, we have already selected what we need for our purposes:
+더 아래로 스크롤하면 더 많은 옵션이 있습니다. 역시 필요한 옵션을 이미 선택했습니다:
 
 ![](aws-12.png)
 
-By default the storage selected does not use magnetic storage. This will result in some costs. We are sure to change this to "standard" to prevent extra costs.
+기본적으로 선택된 스토리지는 마그네틱 스토리지를 사용하지 않습니다. 이는 비용이 발생할 수 있습니다. 추가 비용을 방지하기 위해 "표준"으로 변경했습니다.
 
-Once complete, we will select "Launch instance" and we will be faced with the following screen:
+모든 설정이 끝나면 "인스턴스 시작"을 선택하고 다음 화면이 나타납니다:
 
 ![](aws-14.png)
 
-From here we will select "Connect to instance" which will take us to the "Instances" tab. We can from here see information about our instance:
+여기서 "인스턴스에 연결"을 선택하면 "인스턴스" 탭으로 이동합니다. 여기서 인스턴스 정보를 볼 수 있습니다:
 
 ![](aws-15.png)
 
-If we right-click we can see the option to "Connect":
+마우스 오른쪽 버튼을 클릭하면 "연결" 옵션이 보입니다:
 
 ![](aws-16.png)
 
-We select this and are faced with the following screen:
+이를 선택하면 다음 화면이 나타납니다:
 
 ![](aws-17.png)
 
-## Connecting to the AWS instance
+## AWS 인스턴스에 연결하기
 
-After configuring the official Kali Linux image you can connect to the instance by using the `kali` user. After connecting, a password change through `sudo passwd kali` is possible if needed.
+공식 Kali Linux 이미지를 구성한 후 `kali` 사용자로 인스턴스에 연결할 수 있습니다. 연결 후 필요한 경우 `sudo passwd kali` 명령으로 비밀번호를 변경할 수 있습니다.
 
-An example of the command used to connect:
+연결에 사용되는 명령 예시:
 
 ```console
 kali@kali:~$ ssh -i "keys.pem" kali@ip
 ```
 
-## After connecting
+## 연결 후 작업
 
-### Metapackages
+### 메타패키지
 
-After connection a user may realize that the image is quite sparse. This is to allow for customization and reduced image size. To get the default Kali tool set we can utilize [Kali's metapackages](/docs/general-use/metapackages/). Alternatively, we can install specific tools as they are needed. The following command will utilize the `kali-linux-headless` metapackage and get us a nice and quick setup:
+연결 후 이미지가 꽤 기본적인 것만 갖춰져 있다는 것을 알 수 있습니다. 이는 사용자 정의와 이미지 크기 축소를 위한 것입니다. 기본 Kali 도구 세트를 얻으려면 [Kali의 메타패키지](/docs/general-use/metapackages/)를 활용할 수 있습니다. 또는 필요에 따라 특정 도구를 설치할 수도 있습니다. 다음 명령은 `kali-linux-headless` 메타패키지를 사용해 빠르고 편리한 설정을 제공합니다:
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install -y kali-linux-headless
 ```
 
-### Graphical User Interface (GUI)
+### 그래픽 사용자 인터페이스(GUI)
 
-If someone would like to use a GUI, they can do this through SSH forwarding. We have two options, the first is to use `ssh -X` to forward X11 and use GUI applications one at a time, or we can use RDP and forward the traffic over SSH. To set up RDP, we will run the [RDP with Xfce](/docs/general-use/xfce-with-rdp/) script used for WSL. After this, we can tunnel with `ssh -N -L 3390:127.0.0.1:3390` and connect using any remote desktop client to `127.0.0.1:3390`.
+GUI를 사용하고 싶다면 SSH 포워딩을 통해 가능합니다. 두 가지 옵션이 있는데, 하나는 `ssh -X`를 사용해 X11을 포워딩하고 GUI 애플리케이션을 한 번에 하나씩 사용하는 방법이고, 다른 하나는 RDP를 사용하고 SSH를 통해 트래픽을 포워딩하는 방법입니다. RDP를 설정하려면 WSL용 [Xfce와 RDP](/docs/general-use/xfce-with-rdp/) 스크립트를 실행합니다. 그런 다음 `ssh -N -L 3390:127.0.0.1:3390` 명령으로 터널링하고 원격 데스크톱 클라이언트로 `127.0.0.1:3390`에 연결할 수 있습니다.
 
-### NVIDIA drivers
+### NVIDIA 드라이버
 
-Another common utility is to use GPUs for cracking. This can be done as well through the AWS instance, however we must be careful to install the NVIDIA packages after everything is [up-to-date](/docs/general-use/updating-kali/) and the proper Linux headers are installed:
+또 다른 일반적인 용도는 크래킹에 GPU를 사용하는 것입니다. AWS 인스턴스에서도 이 작업을 수행할 수 있지만, 모든 것이 [최신 상태](/docs/general-use/updating-kali/)이고 적절한 Linux 헤더가 설치된 후에 NVIDIA 패키지를 설치해야 합니다:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -133,7 +133,7 @@ kali@kali:~$
 kali@kali:~$ sudo reboot -f
 ```
 
-Reconnect to the session:
+세션에 다시 연결:
 
 ```console
 kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
@@ -141,6 +141,6 @@ kali@kali:~$
 kali@kali:~$ sudo reboot -f
 ```
 
-Reconnect again.
+다시 연결합니다.
 
-For more information on [NVIDIA drivers, check here](https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/).
+[NVIDIA 드라이버에 대한 자세한 정보는 여기를 확인하세요](/docs/general-use/install-nvidia-drivers-on-kali-linux/).

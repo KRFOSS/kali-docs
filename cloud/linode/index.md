@@ -6,44 +6,44 @@ weight:
 author: ["gamb1t",]
 ---
 
-Before we begin we would like to call out a great video from Linode themselves! [Here you can find a video](https://www.youtube.com/watch?v=Oox2hF4SZLU) that talks about what Kali Linux is and how to get and use it with Linode. Thank you Linode!
+시작하기 전에 Linode가 직접 제작한 멋진 영상을 소개해 드립니다! [이 비디오](https://www.youtube.com/watch?v=Oox2hF4SZLU)에서는 Kali Linux가 무엇인지, 그리고 Linode에서 어떻게 설치하고 사용하는지 설명합니다. Linode에 감사드립니다!
 
-There are two options when it comes to deploying a Kali Linux Linode instance. We will quickly cover both and then explain how to go about setting up them.
+Kali Linux Linode 인스턴스를 배포하는 데는 두 가지 옵션이 있습니다. 두 방법을 간단히 설명한 다음, 각각의 설정 방법을 자세히 알려드리겠습니다.
 
-- [Kali as a Distribution](#kali-as-a-distribution)
-- [Kali from the Marketplace](#kali-from-the-marketplace)
+- [배포판으로서의 Kali](#배포판으로서의-kali)
+- [마켓플레이스를 통한 Kali](#마켓플레이스를-통한-kali)
 
-Keep in mind that both these options are free to create, with the only cost being the standard running cost of the instance. Now lets set up these systems!
+두 옵션 모두 생성 자체는 무료이며, 인스턴스 실행에 대한 표준 비용만 지불하면 됩니다. 이제 이 시스템들을 설정해 봅시다!
 
 ![Create](linode-1.png)
 
-## Kali as a Distribution
+## 배포판으로서의 Kali
 
-By creating a Linode instance and selecting Kali as the distribution, this will create a [bare-bones Kali](/docs/installation/barebone-kali/) install, with only [kali-linux-core](/docs/general-use/metapackages/) installed. This can be useful if there is only a selected amount of tools that are going to be used, so this allows finer control over the system. Plus this in turn also helps reduce operating cost!
+Linode 인스턴스를 생성하고 배포판으로 Kali를 선택하면, [kali-linux-core](/docs/general-use/metapackages/)만 설치된 [기본 Kali](/docs/installation/barebone-kali/) 시스템이 생성됩니다. 특정 도구만 사용할 계획이라면 유용할 수 있으며, 시스템을 더 세밀하게 제어할 수 있습니다. 또한 운영 비용을 줄이는 데도 도움이 됩니다!
 
-### Kali as a Distribution Configuration
+### 배포판으로서의 Kali 구성
 
-We want to first select Kali Linux in the drop down for "Image":
+먼저 "이미지" 드롭다운에서 Kali Linux를 선택합니다:
 
 ![Drop-down](distribution-02.png)
 
-From there we customize based off of personal preference. Here is an example configuration:
+여기서부터는 개인 선호도에 따라 사용자 정의합니다. 다음은 예시 구성입니다:
 
 ![Hardware](linode-2.png)
 
-One very important field is "Root Password". What we set here will determine the password we use during SSH _(unless you also select a public key)_. Once ready we can select "Create Linode" again and then wait for provisioning to complete.
+매우 중요한 필드는 "루트 비밀번호"입니다. 여기서 설정한 내용이 SSH에서 사용할 비밀번호가 됩니다(공개 키를 선택하지 않는 한). 준비가 되면 "Linode 생성"을 다시 선택하고 프로비저닝이 완료될 때까지 기다립니다.
 
 ![Configuration](linode-3.png)
 
-Once complete we can use the SSH Access command to connect to our instance:
+완료되면 SSH 접근 명령을 사용하여 인스턴스에 연결할 수 있습니다:
 
 ![running](linode-4.png)
 
 - - -
 
-### Kali Default Tools In Linode
+### Linode에서 Kali 기본 도구 설치
 
-If you change your mind later and want the traditional set of tools which you commonly find with the desktop version of Kali Linux, they are always installable with our [metapackages](/docs/general-use/metapackages/). You just need to run the following:
+나중에 생각이 바뀌어 Kali Linux 데스크톱 버전에서 일반적으로 볼 수 있는 전통적인 도구 세트를 원한다면, [메타패키지](/docs/general-use/metapackages/)를 통해 언제든지 설치할 수 있습니다. 다음 명령을 실행하기만 하면 됩니다:
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install kali-linux-default -y
@@ -51,27 +51,27 @@ kali@kali:~$ sudo apt update && sudo apt install kali-linux-default -y
 kali@kali:~$
 ```
 
-## Kali from the Marketplace
+## 마켓플레이스를 통한 Kali
 
-The alternative option is to run ["Deploy This App"](https://www.linode.com/marketplace/apps/kali-linux/kali-linux/) from the Linode marketplace. This will create a Linode instance and, depending on the options selected during configuration, will install a Kali Linux instance with certain [metapackages](/docs/general-use/metapackages/) installed. Keep in mind this may take some time before Linode's scripts run and installs everything. This option is good if you may not know ahead of time what may be needed or just want to have the familiar Kali Linux environment.
+다른 옵션은 Linode 마켓플레이스에서 ["이 앱 배포하기"](https://www.linode.com/marketplace/apps/kali-linux/kali-linux/)를 실행하는 것입니다. 이렇게 하면 Linode 인스턴스가 생성되고, 구성 중에 선택한 옵션에 따라 특정 [메타패키지](/docs/general-use/metapackages/)가 설치된 Kali Linux 인스턴스가 설치됩니다. Linode 스크립트가 실행되고 모든 것을 설치하는 데 시간이 걸릴 수 있다는 점에 유의하세요. 미리 필요한 것을 정확히 알 수 없거나 익숙한 Kali Linux 환경을 원한다면 좋은 옵션입니다.
 
-### Kali from the Marketplace Configuration
+### 마켓플레이스를 통한 Kali 구성
 
-When selecting "Create Linode" we will want to select "Marketplace" at the top of the webpage. From here, we can see Kali Linux listed as the third option (at the time of writing):
+"Linode 생성"을 선택할 때 웹페이지 상단에서 "마켓플레이스"를 선택합니다. 여기서 Kali Linux가 (작성 당시) 세 번째 옵션으로 표시됩니다:
 
 ![Marketplace](linode-5.png)
 
-After selecting Kali Linux we will scroll down and notice some configuration options specific to Kali:
+Kali Linux를 선택한 후 아래로 스크롤하면 Kali에 특화된 구성 옵션이 있습니다:
 
 ![Settings](linode-6.png)
 
-As mentioned previously, these will determine what [metapackages](/docs/general-use/metapackages/) are installed as well as will setup VNC access automatically. These options should be configured according to your needs to prevent too many resources being taken up:
+앞서 언급했듯이, 이 옵션들은 어떤 [메타패키지](/docs/general-use/metapackages/)를 설치할지 결정하고 VNC 접근을 자동으로 설정합니다. 너무 많은 리소스를 차지하지 않도록 필요에 맞게 구성해야 합니다:
 
 ![Hardware](linode-7.png)
 
-From here we will have standard Linode configuration settings:
+여기서부터는 표준 Linode 구성 설정이 있습니다:
 
 ![Configuration](linode-8.png)
 
-Lastly, select "Create Linode" and wait for provisioning to complete.
-As stated before, please allow some time for Linode's scripts to run. When they have, you will be able to use the SSH Access command to connect to our instance.
+마지막으로 "Linode 생성"을 선택하고 프로비저닝이 완료될 때까지 기다립니다.
+앞서 말했듯이 Linode 스크립트가 실행될 시간을 충분히 주세요. 스크립트 실행이 완료되면 SSH 접근 명령을 사용하여 인스턴스에 연결할 수 있습니다.

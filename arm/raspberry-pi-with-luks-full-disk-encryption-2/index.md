@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi - Full Disk Encryption
+title: Raspberry Pi - 전체 디스크 암호화
 description:
 icon:
 archived: "false"
@@ -8,39 +8,39 @@ weight:
 author: ["gamb1t", "steev"]
 ---
 
-## High-level overview
+## 개요
 
-Before we dive into the lower-levels of technical details of what we are going to accomplish, let's take a quick look at our goals that we want to achieve, and break it down:
+기술적인 세부 사항을 본격적으로 살펴보기 전에, 우리가 달성하고자 하는 목표와 그 과정을 간략하게 알아보겠습니다:
 
-- [Install Kali Linux](#installing-kali-linux-on-rpi) on a [Raspberry Pi 4](/docs/arm/raspberry-pi-4/) (henceforth called "RPi")
-- [Prepare the system](#preparing-the-system) for encrypted boot ready for remote disk unlock
-- [Setup SSH keys](#) to allow the remote unlock to occur (using initramfs and Dropbear)
-- [Backup](#configuring-remote-ssh-unlock) any existing data
-- [Configure](#configuring-for-encryption) the encrypted partitions
-- [Restore](#restore-our-data) our data
-- **Hack away**!
+- [라즈베리 파이 4](/docs/arm/raspberry-pi-4/)(이하 "RPi")에 [Kali Linux 설치](#installing-kali-linux-on-rpi)
+- 원격 디스크 잠금 해제를 위한 [시스템 준비](#preparing-the-system)
+- 원격 잠금 해제를 위한 [SSH 키 설정](#)(initramfs와 Dropbear 사용)
+- 기존 데이터 [백업](#configuring-remote-ssh-unlock)
+- 암호화된 파티션 [구성](#configuring-for-encryption)
+- 데이터 [복원](#restore-our-data)
+- **해킹 가즈아**!
 
-This might sound like a lot, but it's rather straightforward even if there are a fair few steps. Once completed, we will have a RPi that will:
+많은 단계가 있지만 실제로는 꽤 간단합니다. 완료되면 우리의 RPi는 다음과 같이 작동합니다:
 
-- Boot
-- Get an IP from DHCP
-- Wait for us to connect via SSH using keys
-- Allow us to provide either the LUKS unlock, or LUKS Nuke passphrases
+- 부팅
+- DHCP에서 IP 획득
+- SSH 키를 사용해 접속할 때까지 대기
+- LUKS 잠금 해제 또는 LUKS Nuke 패스프레이즈 제공 가능
 
-Then down the road when we are done with whatever it is we are wanting to do, the only thing left is to retrieve it ...at our leisure!
+그리고 우리가 하고자 하는 일을 마친 후, 나중에 편리하게 기기를 회수하면 됩니다!
 
 - - -
 
-## Installing Kali Linux on RPi
+## RPi에 Kali Linux 설치하기
 
 {{% notice info %}}
-If you're following along, be sure to know where you are imaging the file to, and replace `/dev/sdX`. Don't blindly copy/paste!
+이 과정을 따라한다면, 이미지를 어디에 쓰는지 반드시 알고 있어야 하며, `/dev/sdX`를 교체해야 합니다. 맹목적으로 복사/붙여넣기하지 마세요!
 {{% /notice %}}
 
-We will be creating our drop box machine on an existing Kali installation. It should be very easy to use other Debian-based distributions, and pretty straight forward for other OSes (except Windows users!)
+우리는 기존 Kali 설치에서 드롭 박스 머신을 만들 것입니다. 다른 Debian 기반 배포판에서도 매우 쉽게 할 수 있으며, 다른 운영체제에서도 상대적으로 간단합니다(Windows 사용자 제외!).
 
-We first will [download](/get-kali/#kali-arm) the [latest stable](/releases/) Kali RPi image. At the time of writing, that's [Kali 2022.2](/blog/kali-linux-2022-2-release/).
-We have also chosen the 64-bit image, as we have more than 4GB of RAM, and are not using any [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/) (Hardware Attached on Top). The steps for 32-bit would be the same, after adjusting filenames:
+먼저 [최신 안정 버전](/releases/) Kali RPi 이미지를 [다운로드](/get-kali/#kali-arm)합니다. 이 글 작성 시점에는 [Kali 2022.2](/blog/kali-linux-2022-2-release/)입니다.
+우리는 4GB 이상의 RAM을 가지고 있고 [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/)(Hardware Attached on Top)를 사용하지 않기 때문에 64비트 이미지를 선택했습니다. 32비트의 경우 파일 이름을 조정한 후 동일한 단계를 따릅니다:
 
 ```console
 $ wget https://kali.download/arm-images/kali-2025.1/kali-linux-2025.1-raspberry-pi-arm64.img.xz
@@ -49,11 +49,11 @@ $ xzcat kali-linux-2025.1-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512
 
 - - -
 
-## Preparing the system
+## 시스템 준비하기
 
-### Preparing the chroot
+### chroot 준비
 
-We next are going to get things ready for a chroot. Let's create where we want to mount the microSD card, then mount it:
+이제 chroot를 위한 준비를 할 것입니다. 마이크로SD 카드를 마운트할 디렉토리를 만들고 마운트합니다:
 
 ```console
 $ sudo mkdir -vp /mnt/chroot/
@@ -67,13 +67,13 @@ $ sudo apt install -y qemu-user-static
 $ sudo cp /usr/bin/qemu-aarch64-static /mnt/chroot/usr/bin/
 ```  
 
-The last two commands will come in handy ready for initramfs later.
+마지막 두 명령은 나중에 initramfs를 위해 유용합니다.
 
 - - -
 
-### Installing required packages
+### 필요한 패키지 설치
 
-Now that our system is set up we can use the chroot to set up the RPi image for encryption. Let's first enter the chroot and install some necessary packages:
+이제 시스템이 설정되었으므로 chroot를 사용하여 RPi 이미지를 암호화를 위해 설정할 수 있습니다. 먼저 chroot로 들어가서 필요한 패키지를 설치합니다:
 
 ```console
 $ sudo env LANG=C chroot /mnt/chroot/
@@ -86,7 +86,7 @@ $ sudo env LANG=C chroot /mnt/chroot/
 
 - - -
 
-We want to ensure we are on the latest kernel before we get started, so lets also make sure we have them installed:
+시작하기 전에 최신 커널을 사용하고 있는지 확인하고 싶으므로 다음 패키지가 설치되어 있는지 확인합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -95,10 +95,10 @@ We want to ensure we are on the latest kernel before we get started, so lets als
 
 - - -
 
-### Boot options
+### 부팅 옵션
 
-Next we are going to edit `/boot/cmdline.txt` and change the root path. We will want to change the root path to be `/dev/mapper/crypt`, and then we will add in `cryptdevice=PARTUUID=$partuuid:crypt` right after that. The reason for this is that the kernel needs to know where the root filesystem is, in order to mount it and use it, and since we are encrypting the rootfs later in the post, during boot time it can't see the unencrypted device either, because of the encryption! While we are changing the name here to "crypt", you can call it whatever you want, really. The `/boot/cmdline.txt` file on a RaspberryPi device is used to pass the kernel command line options.
-The end result should look like this:
+다음으로 `/boot/cmdline.txt` 파일을 편집하여 루트 경로를 변경할 것입니다. 루트 경로를 `/dev/mapper/crypt`로 변경한 다음, 바로 뒤에 `cryptdevice=PARTUUID=$partuuid:crypt`를 추가합니다. 이는 커널이 루트 파일시스템의 위치를 알아야 마운트하고 사용할 수 있기 때문입니다. 나중에 루트 파일시스템을 암호화하므로, 부팅 시 암호화로 인해 암호화되지 않은 장치를 볼 수 없습니다! 여기서 이름을 "crypt"로 변경하지만, 실제로는 원하는 이름으로 지정할 수 있습니다. 라즈베리 파이 장치에서 `/boot/cmdline.txt` 파일은 커널 명령줄 옵션을 전달하는 데 사용됩니다.
+최종 결과는 다음과 같아야 합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -111,11 +111,11 @@ dwc_otg.fiq_fix_enable=2 console=serial0,115200 kgdboc=serial0,115200 console=tt
 
 - - -
 
-### Partition layout
+### 파티션 레이아웃
 
-We now need to update the `/etc/fstab` file, this is a configuration file on the system that contains all available disks, disk partitions, and what options to use when handling them.
+이제 `/etc/fstab` 파일을 업데이트해야 합니다. 이 구성 파일은 시스템에서 사용할 수 있는 모든 디스크, 디스크 파티션 및 이를 처리할 때 사용할 옵션을 포함하고 있습니다.
 
-Currently it is populated with the UUID of the root filesystem, and we need it to point at the encrypted filesystem that we will be making. In this example, we've commented out what the previous root device's UUID, and point at `/dev/mapper/crypt` which is what our encrypted filesystem will mount as, once we create it:
+현재는 루트 파일시스템의 UUID로 채워져 있으며, 우리가 만들 암호화된 파일시스템을 가리키도록 변경해야 합니다. 이 예제에서는 이전 루트 장치의 UUID를 주석 처리하고 우리가 암호화된 파일시스템을 마운트할 때 사용할 `/dev/mapper/crypt`를 가리키도록 했습니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -133,11 +133,11 @@ LABEL=BOOT      /boot           vfat    defaults          0       2
 
 - - -
 
-### Configure the encrypted partitions
+### 암호화된 파티션 구성
 
-When using encrypted partitions, we need to edit, or create, if it doesn't exist, the `/etc/crypttab` file, which is used by cryptsetup to know what options are needed in order to unlock the encrypted device. 
+암호화된 파티션을 사용할 때 `/etc/crypttab` 파일을 편집하거나, 존재하지 않는 경우 생성해야 합니다. 이 파일은 cryptsetup이 암호화된 장치를 잠금 해제하는 데 필요한 옵션을 알기 위해 사용됩니다.
 
-Because this file doesn't exist, we will create the `/etc/crypttab` file, and fill it with the options we need:
+이 파일이 존재하지 않기 때문에, `/etc/crypttab` 파일을 생성하고 필요한 옵션을 입력합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -146,10 +146,10 @@ Because this file doesn't exist, we will create the `/etc/crypttab` file, and fi
 
 - - -
 
-Now we do a little file-system trickery. We create a fake LUKS file-system which will allow cryptsetup to be included in the initramfs because it sees an encrypted partition. When you format any LUKS partitions, you will be prompted for a password, and while normally you will use a strong password, because we are only using this as a hack to include cryptsetup into our initramfs, the password you create at this prompt will not be needed or used past these steps, so you can set it to something short/quick to type. This will happen at the `cryptsetup luksFormat` step, and you will be prompted for the password you set during `cryptsetup luksFormat` when you run the `cryptsetup luksOpen` step.
+이제 파일 시스템 트릭을 수행합니다. cryptsetup이 암호화된 파티션을 보기 때문에 initramfs에 포함되도록 가짜 LUKS 파일 시스템을 생성합니다. LUKS 파티션을 포맷할 때 비밀번호를 묻는 메시지가 표시되는데, 일반적으로는 강력한 비밀번호를 사용하지만 이 경우에는 단지 cryptsetup을 initramfs에 포함시키기 위한 트릭이므로 이 단계 이후에는 필요하지 않습니다. 이는 `cryptsetup luksFormat` 단계에서 발생하며, `cryptsetup luksOpen` 단계를 실행할 때 `cryptsetup luksFormat` 중에 설정한 비밀번호를 입력하라는 메시지가 표시됩니다.
 
 {{% notice info %}}
-You will not see any input being typed when entering the password
+비밀번호를 입력할 때 입력 내용이 표시되지 않습니다
 {{% /notice %}}
 
 ```console
@@ -165,17 +165,17 @@ $ sudo mkfs.ext4 /dev/mapper/crypt
 
 - - -
 
-### Configuring SSH keys
+### SSH 키 구성
 
-After that we need to copy over OR generate a new ssh key to be added to Dropbear's `authorized_keys` file.
+이제 SSH 키를 복사하거나 새로 생성하여 Dropbear의 `authorized_keys` 파일에 추가해야 합니다.
 
-If we already have an existing key to copy over:
+이미 존재하는 키를 복사하려면:
 
 ```console
 $ sudo cp ~/.ssh/id_rsa.pub /mnt/chroot/
 ```
 
-Alternatively to generate a new key:
+새 키를 생성하려면:
 
 ```console
 $ ssh-keygen -t rsa -b 4096
@@ -190,16 +190,16 @@ $ sudo cp ~/.ssh/id_rsa_dropbear.pub /mnt/chroot/
 ```
 
 {{% notice info %}}
-You will not see any input being typed when entering a passphrase
+암호문을 입력할 때 입력 내용이 표시되지 않습니다
 {{% /notice %}}
 
 - - -
 
-### Configuring for encryption
+### 암호화 구성
 
-Going back into the chroot, we need to create a few new files.
+chroot로 돌아가서 몇 가지 새 파일을 만들어야 합니다.
 
-First is the `zz-cryptsetup` hook which adds the files we need for `cryptsetup` into the `initramfs`. For it to work, it needs to be marked as executable so that `mkinitramfs` will run the hook:
+첫 번째는 `initramfs`에 `cryptsetup`에 필요한 파일을 추가하는 `zz-cryptsetup` 훅입니다. 이를 실행 가능하게 설정해야 `mkinitramfs`가 훅을 실행합니다:
 
 ```console
 $ sudo env LANG=C chroot /mnt/chroot/
@@ -237,11 +237,11 @@ copy_file config /etc/initramfs-tools/unlock.sh /etc/unlock.sh
 └─# chmod +x /etc/initramfs-tools/hooks/zz-cryptsetup
 ```
 
-_Should you wish to disable it at any point in the future for any reason, simply remove the executable bit._
+_나중에 어떤 이유로든 비활성화하려면 실행 권한을 제거하면 됩니다._
 
 - - -
 
-We edit the modules file for `initramfs-tools` so that we include the `dm-crypt` module, and cat the file to verify it is correct:
+`initramfs-tools`의 modules 파일을 편집하여 `dm-crypt` 모듈을 포함시키고, 파일이 올바른지 확인합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -265,9 +265,9 @@ dm_crypt
 
 - - -
 
-### Configuring remote SSH unlock
+### 원격 SSH 잠금 해제 구성
 
-Create an `unlock.sh` script with the following contents, and then mark it as executable so that the script runs in the `initramfs`:
+다음 내용으로 `unlock.sh` 스크립트를 생성하고 실행 가능하게 표시하여 `initramfs`에서 실행되도록 합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -296,7 +296,7 @@ exit 0
 
 - - -
 
-Next we must add the following to the beginning of `/etc/dropbear/initramfs/authorized_keys`, which tells it to run this command when we SSH in if the key matches:
+다음으로 `/etc/dropbear/initramfs/authorized_keys`의 시작 부분에 다음을 추가해야 합니다. 이는 키가 일치할 때 SSH로 접속하면 이 명령을 실행하도록 지시합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -309,14 +309,14 @@ command="/etc/unlock.sh; exit"
 
 - - -
 
-After doing so, we can append the SSH key that we copied over and then remove it from the card:
+다음으로 복사한 SSH 키를 추가하고 카드에서 제거합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
 └─# cat id_rsa.pub >> /etc/dropbear/initramfs/authorized_keys && rm -v id_rsa.pub
 ```
 
-Once you're done, `/etc/dropbear/initramfs/authorized_keys` should look like this:
+완료되면 `/etc/dropbear/initramfs/authorized_keys`는 다음과 같아야 합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -324,11 +324,11 @@ Once you're done, `/etc/dropbear/initramfs/authorized_keys` should look like thi
 command="/etc/unlock.sh; exit" ssh-rsa <key> kali@kali
 ```
 
-Everything in the `authorized_keys` file should be one line, as well as a space between the command's ending `"` and the ssh key (e.g. `[...]exit" ssh-rsa[...]`)
+`authorized_keys` 파일의 모든 내용은 한 줄이어야 하며, 명령의 끝 `"` 와 ssh 키 사이에 공백이 있어야 합니다(예: `[...]exit" ssh-rsa[...]`).
 
 - - -
 
-We now need to edit `/usr/share/initramfs-tools/scripts/init-premount/dropbear` to add a sleep timer, this allows for networking to start _before_ Dropbear does. It is important to note that when there are updates to the `dropbear-initramfs` package, this edit will need to be re-added:
+이제 `/usr/share/initramfs-tools/scripts/init-premount/dropbear`를 편집하여 슬립 타이머를 추가해야 합니다. 이는 Dropbear 시작 _전에_ 네트워킹이 시작되도록 합니다. `dropbear-initramfs` 패키지가 업데이트될 때마다 이 수정 사항을 다시 추가해야 한다는 점에 유의하세요:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -344,7 +344,7 @@ echo $! >/run/dropbear.pid
 
 - - -
 
-Now we enable cryptsetup:
+이제 cryptsetup을 활성화합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -366,24 +366,24 @@ CRYPTSETUP=y
 
 - - -
 
-### Kernel
+### 커널
 
-The next step is important for the people who are following along. What to select, depends on the RPi device you are using, will . Below are five kernel names/editions/flavours which you need to select one of for your needs _(please pay attention!)_:
+다음 단계는 이 과정을 따라하는 분들에게 중요합니다. 사용 중인 RPi 장치에 따라 선택해야 할 커널 이름/에디션/플레이버는 다음과 같습니다 _(주의해주세요!)_:
 
-- `Re4son+`     is for 32-bit ARMEL armv6 devices - i.e. RPi1, RPi0, or RPi0w
-- `Re4son-v7+`  is for 32-bit ARMHF armv7 devices - i.e. RPi2 v1.2, RPi3 or RPi02w
-- `Re4son-v8+`  is for 64-bit ARM64 armv8 devices - i.e. RPi2 v1.2, RPi3 or RPi02w
-- `Re4son-v7l+` is for 32-bit ARMHF armv7 devices - i.e. RPi4 or RPi400 devices
-- `Re4son-v8l+` is for 64-bit ARM64 armv8 devices - i.e. RPi4 or RPi400 devices
+- `Re4son+`     - 32비트 ARMEL armv6 장치용 - RPi1, RPi0 또는 RPi0w
+- `Re4son-v7+`  - 32비트 ARMHF armv7 장치용 - RPi2 v1.2, RPi3 또는 RPi02w
+- `Re4son-v8+`  - 64비트 ARM64 armv8 장치용 - RPi2 v1.2, RPi3 또는 RPi02w
+- `Re4son-v7l+` - 32비트 ARMHF armv7 장치용 - RPi4 또는 RPi400 장치
+- `Re4son-v8l+` - 64비트 ARM64 armv8 장치용 - RPi4 또는 RPi400 장치
 
 {{% notice info %}}
-The `l` in the name stands for lpae - [Large Physical Address Extension](https://wikipedia.org/wiki/ARM_architecture_family#LPAE)
+이름의 `l`은 lpae - [Large Physical Address Extension](https://wikipedia.org/wiki/ARM_architecture_family#LPAE)를 의미합니다
 {{% /notice %}}
 
-As a reminder, we are using the RPi4, 64-bit image. So we would need `Re4son-v8l+`. Please make sure you adjust to your device.
-So now we know what kernel name to use, we now need to find what kernel version. This will alter from device to device, and it will also change as and when Kali gets updates At the time of writing, it is `5.15.44` for our RPi:
+참고로, 우리는 RPi4, 64비트 이미지를 사용하므로 `Re4son-v8l+`가 필요합니다. 자신의 장치에 맞게 조정하세요.
+이제 사용할 커널 이름을 알았으니 커널 버전을 찾아야 합니다. 이는 장치마다 다를 수 있으며 Kali가 업데이트됨에 따라 변경됩니다. 현재 RPi에서는 `5.15.44`입니다:
 
-Keep in mind the kernel versions may change, however the name will not:
+커널 버전은 변경될 수 있지만 이름은 변경되지 않습니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -399,12 +399,12 @@ Keep in mind the kernel versions may change, however the name will not:
 ```
 
 {{% notice info %}}
-Keep in mind the kernel versions (`5.15.44`) may change, however the kernel name (`Re4son-v8l+`) will not.
+커널 버전(`5.15.44`)은 변경될 수 있지만 커널 이름(`Re4son-v8l+`)은 변경되지 않습니다.
 {{% /notice %}}
 
 - - -
 
-Now we need to create the `initramfs`. This is where the kernel version comes into play:
+이제 `initramfs`를 만들어야 합니다. 이는 커널 버전이 중요한 부분입니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -413,7 +413,7 @@ Now we need to create the `initramfs`. This is where the kernel version comes in
 
 - - -
 
-Now we want to ensure that we created the `initramfs` correctly. If there is no result, then something went wrong:
+이제 `initramfs`가 올바르게 생성되었는지 확인합니다. 결과가 없으면 문제가 발생한 것입니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -439,18 +439,18 @@ etc/unlock.sh
 
 - - -
 
-### Disable services
+### 서비스 비활성화
 
-Before we can backup, we have to ensure that `rpi-resizerootfs` is disabled. This is a service we typically run on all of our ARM devices that resizes the root filesystem partition to increase the size of the partition to the full size of the storage device it is on. Since we are doing this step manually, we want to disable it, so it doesn't potentially delete our root filesystem and re-make it:
+백업하기 전에 `rpi-resizerootfs`가 비활성화되어 있는지 확인해야 합니다. 이 서비스는 일반적으로 모든 ARM 장치에서 실행하여 루트 파일시스템 파티션을 저장 장치의 전체 크기로 확장합니다. 우리는 이 단계를 수동으로 수행하므로, 루트 파일시스템을 삭제하고 다시 만드는 것을 방지하기 위해 비활성화해야 합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
 └─# systemctl disable rpi-resizerootfs
 ```
 
-## Backup any existing data
+## 기존 데이터 백업
 
-Now we can ensure that all the changes are written, then we can encrypt the disk:
+이제 모든 변경 사항이 저장되었는지 확인한 다음 디스크를 암호화할 수 있습니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -467,23 +467,23 @@ $ echo -e "d\n2\nw" | sudo fdisk /dev/sdX
 $ echo -e "n\np\n2\n\n\nw" | sudo fdisk /dev/sdX
 ```  
 
-## Configure the encrypted partitions
+## 암호화된 파티션 구성
 
-Depending on what device you are using you will have to use one of two commands. If you are using a RPi4 with 4GB or more, use this command:
+사용 중인 장치에 따라 두 가지 명령 중 하나를 사용해야 합니다. 4GB 이상의 RPi4를 사용하는 경우 이 명령을 사용합니다:
 
 ```console
 $ sudo cryptsetup -v -y --cipher aes-cbc-essiv:sha256 --key-size 256 luksFormat /dev/sdX2
 ```
 
-Otherwise you will want to use the following which uses an older version of LUKS:
+또는 더 오래된 버전의 LUKS를 사용하는 다음 명령을 사용해야 합니다:
 
 ```console
 $ sudo cryptsetup -v -y --pbkdf pbkdf2 --cipher aes-cbc-essiv:sha256 --key-size 256 luksFormat /dev/sdX2
 ```  
 
-## Restore our data
+## 데이터 복원
 
-Afterwards you can finish restoring data back to the now encrypted partition:
+이후에 이제 암호화된 파티션에 데이터를 복원할 수 있습니다:
 
 ```console
 $ sudo cryptsetup -v luksOpen /dev/sdX2 crypt
@@ -495,7 +495,7 @@ $ sync
 
 - - -
 
-The final steps that we have to make are to fix up the `/etc/fstab` file for the new LUKS UUID, or you can leave it as `/dev/mapper/crypt` and replace the UUID in our unlock script and remake the initramfs file, this step is important as it will not properly boot if not done, because it won't have the information to use the encrypted filesystem! Remember to put the information in from **YOUR** system, as the UUID will be different for every system:
+마지막 단계로, 새 LUKS UUID에 맞게 `/etc/fstab` 파일을 수정하거나, `/dev/mapper/crypt`로 두고 unlock 스크립트의 UUID를 교체하고 initramfs 파일을 다시 만들어야 합니다. 이 단계는 중요합니다. 암호화된 파일시스템을 사용하는 정보가 없으면 제대로 부팅되지 않습니다! **여러분의** 시스템 정보를 입력하세요. UUID는 모든 시스템마다 다릅니다:
 
 ```console
 $ sudo mount /dev/sdX1 /mnt/encrypted/boot/
@@ -548,12 +548,12 @@ crypt	PARTUUID=e1750e08-02	none	luks
 ```
 
 {{% notice info %}}
-If you get a cryptsetup error here, similar to `cryptsetup: ERROR: Couldn't resolve device PARTUUID=ed889dad-02` that means that you did not edit the `/etc/crypttab` file and put the correct PARTUUID in. The warning about no fsck.luks existing can be ignored, as there is no such thing.
+여기서 `cryptsetup: ERROR: Couldn't resolve device PARTUUID=ed889dad-02`와 같은 cryptsetup 오류가 발생하면, `/etc/crypttab` 파일을 편집하고 올바른 PARTUUID를 입력하지 않았음을 의미합니다. fsck.luks가 존재하지 않는다는 경고는 무시해도 됩니다. 그런 것은 없기 때문입니다.
 {{% /notice %}}
 
 - - -
 
-Now we can unmount and close up everything:
+이제 모든 것을 마운트 해제하고 정리할 수 있습니다:
 
 ```console
 ┌──(root㉿kali)-[/]
@@ -567,35 +567,35 @@ $ sudo cryptsetup luksClose crypt
 
 # LUKS NUKE
 
-Should a user also want [LUKS NUKE](/blog/nuke-kali-linux-luks/), all they need to do is run the following command:
+사용자가 [LUKS NUKE](/blog/nuke-kali-linux-luks/)도 사용하고 싶다면, 다음 명령을 실행하기만 하면 됩니다:
 
 ```console
 kali@kali:~$ dpkg-reconfigure cryptsetup-nuke-password
 ```
 
-# Automation?
+# 자동화?
 
-Now how about we get this automated? Thanks to Richard Nelson (unixabg), anyone who wants to get this all set up in much less time than the manual method and much easier, can!
+이제 이 모든 과정을 자동화하는 방법은 어떨까요? Richard Nelson(unixabg)의 도움으로, 수동 방법보다 훨씬 적은 시간과 쉬운 방법으로 모든 것을 설정하고 싶은 사람은 누구나 가능합니다!
 
-First things first, let's clone [unixabg's cryptmypi](https://github.com/unixabg/cryptmypi) script repository:
+먼저 [unixabg의 cryptmypi](https://github.com/unixabg/cryptmypi) 스크립트 저장소를 클론합니다:
 
 ```console
 kali@kali:~$ git clone https://github.com/unixabg/cryptmypi.git
 ```
 
-After clone is complete, let's change to the working directory of cryptmypi:
+클론이 완료되면 cryptmypi의 작업 디렉토리로 이동합니다:
 
 ```console
 kali@kali:~$ cd cryptmypi/
 ```
 
-Next let's list available Kali examples to build:
+다음으로 사용 가능한 Kali 예제를 나열합니다:
 
 ```console
 kali@kali:~$ ls -aFl examples/ | grep kali
 ```
 
-Now we need to edit the cryptmypi.conf on the example you wish to build. These settings will be personal, but let's just give you all an example:
+이제 빌드하려는 예제의 cryptmypi.conf를 편집합니다. 이 설정은 개인적인 것이지만 예제를 보여드리겠습니다:
 
 ```console
 kali@kali:~$ cat kali-encrypted-basic/cryptmypi.conf
@@ -704,10 +704,10 @@ stage2_optional_hooks(){
 export _ROOTPASSWD="root_password"
 ```
 
-After you have made all the changes you desire to the example you have selected to attempt to build, the only thing left to do is initiate the build attempt and follow the instructions:
+빌드하려는 예제를 변경한 후, 빌드를 시작하고 지시를 따르는 것만 남았습니다:
 
 ```console
 kali@kali:~$ sudo ./cryptmypi.sh examples/kali-encrypted-basic
 ```
 
-By the end of it, you should have a fully encrypted filesystem with features enabled of the example you selected. Should you encounter any issues with your automated build, you are encouraged to examine issues at the project's [issues](https://github.com/unixabg/cryptmypi/issues) page. If your believe your issue is new or not listed, please file a new issue.
+마지막에는 선택한 예제의 기능이 활성화된 완전히 암호화된 파일시스템이 있어야 합니다. 자동화된 빌드에 문제가 있다면, 프로젝트의 [이슈](https://github.com/unixabg/cryptmypi/issues) 페이지를 확인하세요. 새로운 이슈라고 생각되면 새 이슈를 제출해 주세요.

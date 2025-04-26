@@ -6,44 +6,44 @@ weight:
 author: ["steev",]
 ---
 
-The [NanoPC-T3](http://wiki.friendlyarm.com/wiki/index.php/NanoPC-T3) has an Samsung S5P6818, Octa Core Cortex™-A53 (ARMv8 64-bit) processor and either 1GB or 2GB DDR3 RAM. The NanoPC-T3 has an 8GB eMMC, which is too small for a default Kali installation, so we run from an external microSD card.
+[NanoPC-T3](http://wiki.friendlyarm.com/wiki/index.php/NanoPC-T3)는 삼성 S5P6818, 옥타 코어 Cortex™-A53(ARMv8 64비트) 프로세서와 1GB 또는 2GB DDR3 RAM을 탑재하고 있습니다. NanoPC-T3에는 8GB eMMC가 있지만 기본 Kali 설치에는 너무 작기 때문에, 외장 microSD 카드에서 실행합니다.
 
-By default, the Kali Linux NanoPC-T3 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux NanoPC-T3 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
-## Kali on NanoPC-T3 microSD card - User Instructions
+## NanoPC-T3 microSD 카드용 Kali - 사용자 지침
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않은 경우, 해당 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
 
-To install a pre-built image of the standard build of Kali Linux on your NanoPC-T3, follow these instructions:
+NanoPC-T3에 Kali Linux의 사전 빌드된 표준 이미지를 설치하려면 다음 지침을 따르세요:
 
-1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali NanoPC-T3` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
+2. [다운로드](/get-kali/) 영역에서 `Kali NanoPC-T3` 이미지를 다운로드 _및 검증_ 하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에 자세히 설명되어 있습니다.
+3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
-In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
+아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
 
 {{% notice info %}}
-This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 microSD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-nanopc-t-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, boot up the NanoPC-T3 with the microSD card plugged in.
+_dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 NanoPC-T3를 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
 
-## Kali on the NanoPC-T3 - Tips
+## NanoPC-T3용 Kali - 팁
 
-The NanoPC-T3 will attempt to boot from the microSD card first if one is plugged in.
+NanoPC-T3는 microSD 카드가 꽂혀 있다면 먼저 이 카드에서 부팅을 시도합니다.
 
-The wireless chipset is an Ampak AP6212, which is a rebranded Cypress (formerly Broadcom) Wireless card, so enterprising users may be able to get [nexmon](https://github.com/seemoo-lab/nexmon) working, if the work was put in.
+무선 칩셋은 Ampak AP6212로, 이는 Cypress(이전 Broadcom) 무선 카드의 리브랜딩 제품입니다. 따라서 노력을 들인다면 진취적인 사용자들은 [nexmon](https://github.com/seemoo-lab/nexmon)을 작동시킬 수 있을 것입니다.
 
-If you want to change boot arguments/the kernel command line, you will need to install the package `libubootenv-tool` then create a file `env.conf` with the boot arguments you want to use. The default is `console=ttySAC0,115200n8 root=/dev/mmcblk0p2 rootfstype=ext3 rootwait rw consoleblank=0 net.ifnames=0\nbootdelay 1` and then write it to the sdcard with `fw_setenv /dev/mmcblk0 -s env.conf`
+부팅 인수/커널 명령줄을 변경하고 싶다면, `libubootenv-tool` 패키지를 설치한 다음 사용하려는 부팅 인수로 `env.conf` 파일을 생성해야 합니다. 기본값은 `console=ttySAC0,115200n8 root=/dev/mmcblk0p2 rootfstype=ext3 rootwait rw consoleblank=0 net.ifnames=0\nbootdelay 1`이며, 이후 `fw_setenv /dev/mmcblk0 -s env.conf`로 SD 카드에 기록하세요.
 
-## Kali on NanoPC-T3 - Image Customization
+## NanoPC-T3용 Kali - 이미지 사용자 정의
 
-If you want to customize the Kali NanoPC-T3 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `nanopc-t.sh`.
+Kali NanoPC-T3 이미지를 사용자 정의하려면, 설치되는 [패키지](/docs/general-use/metapackages/) 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 변경, 이미지 파일 크기 증가 또는 감소 등의 작업을 하고 싶다면, GitLab의 [Kali-ARM 빌드-스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용할 스크립트는 `nanopc-t.sh`입니다.

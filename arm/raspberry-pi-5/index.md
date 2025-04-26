@@ -6,46 +6,46 @@ weight:
 author: ["steev",]
 ---
 
-The [Raspberry Pi 5](https://www.raspberrypi.org/products/raspberry-pi-5/) has a quad core 2.4GHz processor, with 4GB or 8GB of RAM, depending on model. Kali Linux runs on a microSD card.
+[라즈베리 파이 5](https://www.raspberrypi.org/products/raspberry-pi-5/)는 쿼드 코어 2.4GHz 프로세서와 모델에 따라 4GB 또는 8GB RAM을 갖추고 있습니다. Kali Linux는 microSD 카드에서 실행됩니다.
 
-By default, the Kali Linux Raspberry Pi 5 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux 라즈베리 파이 5 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 {{% notice info %}}
-The Raspberry Pi 5 support is still in its infancy as we are developing the image without access to the hardware.
+라즈베리 파이 5 지원은 아직 초기 단계이며 현재 하드웨어 없이 이미지를 개발 중입니다.
 <br />
 {{% /notice %}}
 
 {{% notice info %}}
-The Raspberry Pi 5 image does not yet include [Nexmon](https://github.com/seemoo-lab/nexmon) support for the internal Wi-Fi card.  If you plan to do wireless testing, you will need to use a USB Wi-Fi adapter.
+라즈베리 파이 5 이미지는 아직 내장 Wi-Fi 카드를 위한 [Nexmon](https://github.com/seemoo-lab/nexmon) 지원을 포함하지 않습니다. 무선 테스트를 계획하고 있다면 USB Wi-Fi 어댑터를 사용해야 합니다.
 {{% /notice %}}
 
-## Kali on Raspberry Pi 5 - User Instructions
+## 라즈베리 파이 5용 Kali - 사용자 지침
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않은 경우, 해당 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
 
-To install a pre-built image of the standard build of Kali Linux on your Raspberry Pi 5, follow these instructions:
+라즈베리 파이 5에 Kali Linux의 사전 빌드된 표준 이미지를 설치하려면 다음 지침을 따르세요:
 
-1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ our preferred `Kali Raspberry Pi 5` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
+2. [다운로드](/get-kali/) 영역에서 선호하는 `Kali 라즈베리 파이 5` 이미지를 다운로드 _및 검증_ 하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에 자세히 설명되어 있습니다.
+3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
-In our example, we assume the storage device is located at `/dev/sdb`. Do _not_ simply copy these value, **change this to the correct drive path**.
+아래 예시에서는 저장 장치가 `/dev/sdb`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
 
 {{% notice info %}}
-This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 microSD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD's speed, and the size of the Kali Linux image.
+이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, boot up the Raspberry Pi 5 with the microSD plugged in.
+_dd_ 작업이 완료되면 microSD 카드를 삽입한 상태로 라즈베리 파이 5를 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
 
-## Kali on Raspberry Pi 5 - Tips and Tricks
+## 라즈베리 파이 5용 Kali - 팁과 트릭
 
 <!-- Need to verify this is true with the 5 before adding it.
 By default, audio is routed via HDMI, so you won't hear audio via the 3.5mm audio jack. You can run the following command in order to redirect the output:
@@ -55,15 +55,15 @@ kali@kali:~$ sudo amixer -c 0 set numid=3 1
 ```
 -->
 
-To build external modules against the kernel, most instructions will state that you need to install header packages.  This is **not** the case on the Raspberryi Pi 5 image, they are already included and are **not** a part of a package.  
-In order to make the headers usable however, you do need to run the following commands.  
+대부분의 지침에서는 외부 모듈을 커널에 대해 빌드하려면 헤더 패키지를 설치해야 한다고 명시하고 있습니다. 그러나 이는 라즈베리 파이 5 이미지에서는 **해당되지 않습니다**. 헤더는 이미 포함되어 있으며 별도의 패키지의 **일부가 아닙니다**.
+하지만 헤더를 사용 가능하게 하려면 다음 명령어를 실행해야 합니다.
 
 ```console
 kali@kali:~$ cd /usr/src/kernel
 kali@kali:/usr/src/kernel/$ sudo git clean -fdx && sudo make bcm2711_defconfig && sudo make modules_prepare
 ```
 
-To build external modules that are from the Kali package repository, as an example [realtek-rtl88xxau-dkms](https://pkg.kali.org/pkgs/realtek-rtl88xxau-dkms) you need to tell it to install **without** also installing recommended packages.
+Kali 패키지 저장소의 외부 모듈을 빌드하려면, 예를 들어 [realtek-rtl88xxau-dkms](https://pkg.kali.org/pkgs/realtek-rtl88xxau-dkms)의 경우 권장 패키지를 함께 설치하지 **않고** 설치하도록 지정해야 합니다.
 
 ```console
 kali@kali:~$ sudo apt install --no-install-recommends realtek-rtl88xxau-dkms
@@ -71,14 +71,14 @@ kali@kali:~$ sudo apt install --no-install-recommends realtek-rtl88xxau-dkms
 
 - - -
 
-# Kali on Raspberry Pi 5 Headless - Tips and Tricks
+# 헤드리스 라즈베리 파이 5용 Kali - 팁과 트릭
 
-You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
+무선 네트워크에 연결하기 위해 microSD 카드의 첫 번째 파티션에 `wpa_supplicant.conf` 파일을 추가할 수 있습니다.
 
-You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`. It will prompt you for the wireless network's password. You can add the password to the command as you run it, but keep in mind that if you do, your Wi-Fi network password will be in your user's shell history.
+다른 Linux 시스템에서 `wpa_passphrase 네트워크이름 > wpa_supplicant.conf` 명령어를 실행하여 이 파일을 생성할 수 있습니다. 무선 네트워크의 비밀번호를 입력하라는 메시지가 표시됩니다. 명령어를 실행할 때 비밀번호를 추가할 수도 있지만, 그렇게 하면 Wi-Fi 네트워크 비밀번호가 사용자의 쉘 히스토리에 남게 된다는 점을 유의하세요.
 
 - - -
 
-## Kali on Raspberry Pi 5 - Image Customization
+## 라즈베리 파이 5용 Kali - 이미지 사용자 정의
 
-If you want to customize the Kali Raspberry Pi 5 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `raspberry-pi5.sh` (64-bit).
+Kali 라즈베리 파이 5 이미지를 사용자 정의하려면, 설치되는 [패키지](/docs/general-use/metapackages/) 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 변경, 이미지 파일 크기 증가 또는 감소 등의 작업을 하고 싶다면, GitLab의 [Kali-ARM 빌드-스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용할 스크립트는 `raspberry-pi5.sh`(64비트)입니다.

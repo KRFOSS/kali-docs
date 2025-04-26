@@ -6,36 +6,36 @@ weight:
 author: ["steev",]
 ---
 
-The [Gateworks Newport](https://www.gateworks.com/products/industrial-single-board-computers/octeon-tx-single-board-computers-gateworks-newport/) implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.
+[Gateworks Newport](https://www.gateworks.com/products/industrial-single-board-computers/octeon-tx-single-board-computers-gateworks-newport/)는 플래시 드라이브 크기의 컴퓨터를 구현한 제품입니다. Kali Linux는 microSD 카드에 설치할 수 있습니다.
 
-_This image is for the "Cavium OcteonTX" based boards._
+_이 이미지는 "Cavium OcteonTX" 기반 보드용입니다._
 
-By default, the Kali Linux Gateworks Newport image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux Gateworks Newport 이미지는 다른 대부분의 플랫폼과 마찬가지로 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함하고 있습니다. 추가 도구를 설치하고자 하신다면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조해 주시기 바랍니다.
 
-## Kali on the Gateworks Newport - User Instructions
+## Gateworks Newport용 Kali - 사용자 안내서
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/)이나 [해당 이미지로 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않으시다면, 이러한 주제에 대해 더 자세히 설명한 전문 문서를 참조하시길 강력히 권장합니다.
 
-To install a pre-built image of the standard build of Kali Linux on your Newport, follow these instructions:
+Newport에 표준 Kali Linux의 사전 빌드된 이미지를 설치하려면 다음 지침을 따르세요:
 
-1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali Newport` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card. In our example, we use a microSD which is located at `/dev/sdX`. **_Change this as needed._**
+1. 최소 16GB 용량의 고속 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
+2. [다운로드](/get-kali/) 영역에서 `Kali Newport` 이미지를 다운로드하고 검증하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에 더 자세히 설명되어 있습니다.
+3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 기록하세요. 이 예시에서는 `/dev/sdX`에 위치한 microSD를 사용합니다. **_필요에 따라 이 경로를 변경하세요._**
 
 {{% notice info %}}
-This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 microSD 카드의 모든 데이터를 삭제합니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 완전히 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-gateworks-newport-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+이 작업은 PC 성능, microSD 카드의 속도, 그리고 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, boot up a computer with the Gateworks Newport plugged in.
+_dd_ 작업이 완료되면, Gateworks Newport가 연결된 컴퓨터를 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+이제 [Kali에 로그인](/docs/introduction/default-credentials/)할 수 있습니다.
 
-## Kali on the Gateworks Newport - Image Customization
+## Gateworks Newport용 Kali - 이미지 커스터마이징
 
-If you want to customize the Kali Gateworks Newport image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `gateworks-newport.sh`.
+Kali Gateworks Newport 이미지를 커스터마이징하고 싶으시다면, [패키지](/docs/general-use/metapackages/) 설치 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 전환, 이미지 파일 크기 조정 또는 더 폭넓은 실험을 원하신다면, GitLab의 [Kali-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용해야 할 스크립트는 `gateworks-newport.sh`입니다.

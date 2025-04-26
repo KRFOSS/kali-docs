@@ -6,41 +6,41 @@ weight:
 author: ["steev",]
 ---
 
-The [Utilite Pro](http://www.compulab.co.il/utilite-computer/web/utilite-overview) is a quad core 1.2GHz Cortex A9, with 2GB of RAM. Kali Linux fits on an external microSD card.
+[Utilite Pro](http://www.compulab.co.il/utilite-computer/web/utilite-overview)는 쿼드코어 1.2GHz Cortex A9 프로세서와 2GB RAM을 탑재한 기기입니다. Kali Linux는 외장 마이크로SD 카드에 설치됩니다.
 
-By default, the Kali Linux Utilite Pro image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux Utilite Pro 이미지는 다른 플랫폼과 마찬가지로 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하고 싶다면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참고하세요.
 
 {{% notice info %}}
-The build script for the Utilite Pro has not been converted to the new style, so builds may fail. If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+Utilite Pro용 빌드 스크립트는 새 스타일로 변환되지 않아 빌드가 실패할 수 있습니다. 이 보드용으로 빌드를 계획 중이라면, 스크립트를 새 방식으로 업데이트해서 병합 요청으로 제출해 주세요.
 {{% /notice %}}
 
-## Kali on Utilite Pro - Build-Script Instructions
+## Utilite Pro용 Kali - 빌드 스크립트 가이드
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `utilite-pro.sh`.
+Kali는 미리 빌드된 이미지를 제공하지 않지만, GitLab에서 [Kali-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 복제하고 _README.md_ 파일의 지침을 따라 직접 생성할 수 있습니다. 사용해야 할 스크립트는 `utilite-pro.sh`입니다.
 
-Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
+빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉터리에 "img" 파일이 생성됩니다. 이후 과정은 미리 빌드된 이미지를 다운로드했을 때와 동일합니다.
 
-The easiest way to generate these images is **from within a pre-existing Kali Linux environment**.
+이런 이미지를 생성하는 가장 쉬운 방법은 **기존 Kali Linux 환경 내에서** 작업하는 것입니다.
 
-## Kali on Utilite Pro - User Instructions
+## Utilite Pro용 Kali - 사용자 가이드
 
-To install Kali on your Utilite Pro, follow these instructions:
+Utilite Pro에 Kali를 설치하려면 다음 지침을 따르세요:
 
-1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+1. 최소 16GB 용량의 빠른 마이크로SD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
+2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용해 이 파일을 마이크로SD 카드에 기록하세요([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
-In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
+예시에서는 저장 장치가 `/dev/sdX`에 있다고 가정합니다. 이 값을 그대로 복사하지 **말고**, **여러분 환경에 맞는 올바른 드라이브 경로로 변경**하세요.
 
 {{% notice info %}}
-This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 마이크로SD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터 하드 디스크가 지워질 수 있어요!
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-utilite-pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+이 작업은 PC 성능, 마이크로SD 카드 속도, Kali Linux 이미지 크기에 따라 시간이 걸릴 수 있습니다.
 
-Once the _dd_ operation is complete, boot up the Utilite Pro with the microSD plugged in.
+dd 작업이 완료되면 마이크로SD 카드를 연결한 상태로 Utilite Pro를 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+이제 [Kali에 로그인](/docs/introduction/default-credentials/)할 수 있습니다.

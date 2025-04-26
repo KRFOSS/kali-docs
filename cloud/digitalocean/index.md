@@ -6,44 +6,44 @@ weight:
 author: ["gamb1t",]
 ---
 
-[DigitalOcean](https://www.digitalocean.com/) is a cloud provider similar to AWS, Microsoft Azure, Google Cloud Platform, and many others. They offer instances, called "droplets", with different Linux distributions such as Debian, Ubuntu, FreeBSD, etc. Similar to AWS, DigitalOcean has datacenters around the world and sometimes multiple datacenters in each country.
+[DigitalOcean](https://www.digitalocean.com/)은 AWS, Microsoft Azure, Google Cloud Platform 등과 유사한 클라우드 제공업체입니다. 이들은 "드롭릿"이라 불리는 인스턴스를 제공하며, Debian, Ubuntu, FreeBSD 등 다양한 Linux 배포판을 사용할 수 있습니다. AWS와 마찬가지로 DigitalOcean은 전 세계에 데이터센터를 두고 있으며 각 국가에 여러 데이터센터가 있는 경우도 있습니다.
 
-However, one feature in particular sets them apart them from their competitors. A little while ago, they added support for [custom images](https://blog.digitalocean.com/custom-images/), which allows users to import virtual machine disks and use them as droplets. This is perfect for us as we can use our own version of Kali Linux in their cloud.
+하지만 한 가지 특별한 기능이 경쟁사와 차별화됩니다. 얼마 전 DigitalOcean는 [커스텀 이미지](https://blog.digitalocean.com/custom-images/) 지원을 추가했는데, 이를 통해 사용자가 가상 머신 디스크를 가져와 드롭릿으로 사용할 수 있습니다. 이는 우리가 자체 Kali Linux 버전을 DigitalOcean 클라우드에서 사용할 수 있어 완벽하죠.
 
-While it might be possible to load the [official Kali Linux virtual images](/get-kali/#kali-virtual-machines), it wouldn't be very efficient. Instead, we'll build a lightweight Kali installation with the bare minimum to get it working.
+[공식 Kali Linux 가상 이미지](https://http.krfoss.org/)를 로드하는 것도 가능하지만, 그리 효율적이지 않을 것입니다. 대신 가볍고 최소한의 Kali 설치본을 구축하겠습니다.
 
-## Get the netboot ISO
+## 네트부트 ISO 얻기
 
-By default, the Kali Linux ISOs on the download page have a desktop environment installed, and while we could use it to build a virtual machine, we want to minimize the amount of data we have to upload to DigitalOcean for reasons we will talk about later. Having a GUI running on a headless system is also a waste of resources so while we could uninstall it or disable it, we'll install the virtual machine using [a netboot ISO](http://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/). If you are comfortable with a text installation, grab the mini.iso in this directory. If not, head to the [gtk/](https://http.kali.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/gtk/) directory and grab the mini.iso in there, which will start a graphical installer.
+칼리 리눅스 공식 다운로드 페이지의 ISO 파일에는 기본적으로 데스크톱 환경이 포함되어 있습니다. 이 이미지로도 가상 머신을 구축할 수는 있지만, 나중에 설명드릴 이유로 DigitalOcean에 업로드해야 하는 데이터 양을 최소화하고 싶습니다. 또한 헤드리스 시스템에서 GUI를 실행하는 것은 불필요한 리소스 낭비이기도 합니다. 물론 데스크톱 환경을 제거하거나 비활성화할 수도 있겠지만, 처음부터 [Netboot ISO](https://mirror.krfoss.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/)를 사용하여 가상 머신을 설치하는 것이 더 효율적입니다. 텍스트 기반 설치에 익숙하시다면 해당 디렉토리에 있는 mini.iso를 다운로드하시면 됩니다. 그래픽 환경에서 설치하길 원하신다면 [gtk](https://mirror.krfoss.org/kali/dists/kali-rolling/main/installer-amd64/current/images/netboot/gtk/) 디렉토리로 이동하여 그곳의 mini.iso를 다운로드하세요. 이 파일을 사용하면 그래픽 기반 설치 프로그램이 실행됩니다.
 
-## Create the Virtual Machine
+## 가상 머신 생성하기
 
-With our mini.iso , we can now begin to build our virtual machine. Create a new virtual machine setting the OS to the latest Debian 64-bit and allocating a 20 GB hard disk. If needed, detailed set-up is explained on the [Kali Training website](https://web.archive.org/web/20210922173942/https://web.archive.org/web/20210914172345/https://kali.training/topic/booting-kali-in-live-mode/). It is important to store the virtual disk as a single file that is dynamically allocated. The rest like the amount of CPU and RAM won't matter because only the disk file will be uploaded to DigitalOcean.
+mini.iso를 사용해 이제 가상 머신을 구축할 수 있습니다. OS를 최신 Debian 64비트로 설정하고 20GB 하드 디스크를 할당하여 새 가상 머신을 생성하세요. 필요하다면 [Kali Training 웹사이트](https://web.archive.org/web/20210922173942/https://web.archive.org/web/20210914172345/https://kali.training/topic/booting-kali-in-live-mode/)에 자세한 설정 방법이 설명되어 있습니다. 가상 디스크를 동적으로 할당된 단일 파일로 저장하는 것이 중요합니다. CPU와 RAM 양과 같은 나머지 설정은 중요하지 않습니다. DigitalOcean에는 디스크 파일만 업로드되기 때문입니다.
 
-Disk size matters as billing is based on disk size for custom images. It will also impact the choice of instance we can create. Let's say a 40 GB hard disk is created, it will prevent creating an instance at the $5/month level because its maximum hard disk size is 25 GB. In that case we would be forced to use the $10/month option for instances with 50 GB disks. Don't worry, even though the disk is 20 GB, it will get expanded depending on the droplet plan chosen.
+디스크 크기는 중요합니다. 커스텀 이미지의 경우 디스크 크기에 따라 요금이 청구되기 때문입니다. 또한 생성할 수 있는 인스턴스 선택에도 영향을 미칩니다. 예를 들어 40GB 하드 디스크를 만들면 최대 하드 디스크 크기가 25GB인 월 $5 수준의 인스턴스를 생성할 수 없게 됩니다. 이 경우 50GB 디스크가 있는 인스턴스를 위해 월 $10 옵션을 사용해야 합니다. 하지만 걱정하지 마세요. 디스크가 20GB이더라도 선택한 드롭릿 계획에 따라 확장됩니다.
 
-During the installation, select manual partitioning and set it up as shown below, with all files in one partition and no swap file.
+설치 중에 수동 파티셔닝을 선택하고 아래와 같이 설정하세요. 모든 파일을 하나의 파티션에 저장하고 스왑 파일은 없습니다.
 
 ![](digitalocean-1.png)
 
-During the installation, it will prompt for software preferences. For the sake of simplicity and to limit disk space use, we'll just have the base system installed, therefore we'll only select "standard system utilities" as shown below.
+설치 중에 소프트웨어 기본 설정을 묻는 메시지가 표시됩니다. 간단하게 하고 디스크 공간 사용을 제한하기 위해 기본 시스템만 설치하도록 아래와 같이 "standard system utilities"만 선택하겠습니다.
 
 ![](digitalocean-2.png)
 
-## Update the System
+## 시스템 업데이트하기
 
-When installation is complete and after rebooting, we login at the console and [update the system](/docs/general-use/updating-kali/):
+설치가 완료되고 재부팅한 후, 콘솔에 로그인하여 [시스템을 업데이트](/docs/general-use/updating-kali/)합니다:
 
 ```console
 kali@kali:~$ sudo apt update
 kali@kali:~$ sudo apt full-upgrade -y
 ```
 
-If you don't see it going over a mirror during `sudo apt update`, you may have accidentally forgotten to add a network mirror during the installation. Follow the [instructions on this Kali documentation page](/docs/general-use/kali-linux-sources-list-repositories/) to fix it and run both of the commands again.
+`sudo apt update` 중에 미러를 통해 진행되는 것이 보이지 않는다면, 설치 중에 네트워크 미러 추가를 잊었을 수 있습니다. [이 Kali 문서 페이지](/docs/general-use/kali-linux-sources-list-repositories/)의 지침에 따라 문제를 해결하고 두 명령을 다시 실행하세요.
 
-### Install Required Packages
+### 필수 패키지 설치하기
 
-In order for DigitalOcean to configure the system for us, we need to install the ***cloud-init*** package:
+DigitalOcean이 시스템을 구성할 수 있도록 ***cloud-init*** 패키지를 설치해야 합니다:
 
 ```console
 kali@kali:~$ sudo apt install -y cloud-init
@@ -51,30 +51,30 @@ kali@kali:~$ sudo sh -c "echo 'datasource_list: [ ConfigDrive, DigitalOcean, NoC
 kali@kali:~$ sudo systemctl enable cloud-init --now
 ```
 
-### Prepare for SSH
+### SSH 준비하기
 
-Since we will need to use SSH to connect to the system on DigitalOcean, the ***openssh-server*** package needs to be installed (and enabled) as well:
+DigitalOcean에서 시스템에 연결하려면 SSH를 사용해야 하므로, ***openssh-server*** 패키지도 설치(및 활성화)해야 합니다:
 
 ```console
 kali@kali:~$ sudo apt install -y openssh-server
 kali@kali:~$ sudo systemctl enable ssh.service --now
 ```
 
-When creating a standard droplet, you can choose to use SSH keys or not. However, when using custom images, this isn't an option and using SSH keys is mandatory. For this reason, DigitalOcean requires us to remove the root password:
+표준 드롭릿을 생성할 때는 SSH 키 사용 여부를 선택할 수 있습니다. 하지만 커스텀 이미지를 사용할 때는 이 옵션이 없으며 SSH 키 사용이 필수입니다. 이 때문에 DigitalOcean은 루트 비밀번호를 제거해야 합니다:
 
 ```console
 kali@kali:~$ passwd -d root
 ```
 
-We also need to create a ***/root/.ssh*** folder:
+또한 ***/root/.ssh*** 폴더를 생성해야 합니다:
 
 ```console
 kali@kali:~$ mkdir -p /root/.ssh/
 ```
 
-### Cleanup
+### 정리하기
 
-Before we finish with our virtual machine, we run a few commands to clean things up:
+가상 머신을 마무리하기 전에 몇 가지 명령을 실행하여 정리합니다:
 
 ```console
 kali@kali:~$ apt autoremove
@@ -83,43 +83,43 @@ kali@kali:~$ rm -rf /var/log/*
 kali@kali:~$ history -c
 ```
 
-At this point, our virtual machine is ready so we run 'poweroff' to shutdown the system:
+이제 가상 머신이 준비되었으므로 'poweroff'를 실행하여 시스템을 종료합니다:
 
 ```console
 kali@kali:~$ poweroff
 ```
 
-## Uploading
+## 업로드하기
 
-In the virtual machine folder, locate the ***.vmdk*** file, then compress it using bzip2, gzip, or zip in preparation for uploading to DigitalOcean:
+가상 머신 폴더에서 ***.vmdk*** 파일을 찾은 다음, DigitalOcean에 업로드하기 위해 bzip2, gzip 또는 zip을 사용하여 압축합니다:
 
 ```console
 $ bzip2 kali.vmdk
 ```
 
-Login to your DigitalOcean account. In the "Manage" section on the left, click on "Images", then select the "Custom Images" tab.
+DigitalOcean 계정에 로그인합니다. 왼쪽의 "관리" 섹션에서 "이미지"를 클릭한 다음 "커스텀 이미지" 탭을 선택합니다.
 
 ![](digitalocean-3.png)
 
-From there, we upload the compressed disk image. We'll name it Kali, mark it as Debian, and select the region and datacenter to upload it to. Note that once uploaded to a location, droplets can only be started at that location, which is a current limitation for custom images. Another thing to remember at this stage is that uploaded images consume disk space and DigitalOcean will bill based on disk usage.
+여기서 압축된 디스크 이미지를 업로드합니다. 이름을 Kali로 지정하고, Debian으로 표시하고, 업로드할 지역과 데이터센터를 선택합니다. 한 위치에 업로드하면 해당 위치에서만 드롭릿을 시작할 수 있다는 것이 커스텀 이미지의 현재 제한사항입니다. 또한 이 단계에서 기억해야 할 다른 점은 업로드된 이미지가 디스크 공간을 소비하며 DigitalOcean은 디스크 사용량에 따라 요금을 청구한다는 것입니다.
 
 ![](digitalocean-4.png)
 
-## Starting a Droplet
+## 드롭릿 시작하기
 
-Once done, the "Uploaded" column will indicate how long ago it was uploaded. Now we will click on the "More" option of the image and select "Start a droplet".
+완료되면 "업로드됨" 열에 얼마나 오래 전에 업로드되었는지 표시됩니다. 이제 이미지의 "더 보기" 옵션을 클릭하고 "드롭릿 시작"을 선택합니다.
 
 ![](digitalocean-5.png)
 
-You will be taken to the droplet settings where you can select the droplet plan, the SSH key, and the project to start it in. Since this is a custom image, it is required you use a SSH key. You can either select an existing one or upload a new one by clicking on "New SSH key", which will open the following screen where you can paste the public key and name it:
+드롭릿 설정 페이지로 이동하여 드롭릿 계획, SSH 키 및 시작할 프로젝트를 선택할 수 있습니다. 커스텀 이미지이기 때문에 SSH 키를 사용해야 합니다. 기존 키를 선택하거나 "새 SSH 키"를 클릭하여 새 키를 업로드할 수 있습니다. 클릭하면 다음 화면이 열리고 공개 키를 붙여넣고 이름을 지정할 수 있습니다:
 
 ![](digitalocean-6.png)
 
-Once done, click "Create" as shown below. It will then take you back to the dashboard (Manage > Droplets) where all your droplets are listed. Because we are using a SSH key, DigitalOcean will not send an email with credentials for the droplet.
+완료되면 아래와 같이 "생성"을 클릭하세요. 그러면 모든 드롭릿이 나열된 대시보드(관리 > 드롭릿)로 돌아갑니다. SSH 키를 사용하기 때문에 DigitalOcean은 드롭릿 자격 증명이 포함된 이메일을 보내지 않습니다.
 
 ![](digitalocean-7.png)
 
-Within a few seconds, and after the IP is displayed, our droplet will be ready. In order to connect, we will need to use the private SSH key we created (called MY_KEY in this example):
+몇 초 내에, 그리고 IP가 표시된 후, 드롭릿이 준비됩니다. 연결하기 위해 생성한 개인 SSH 키(예시에서는 MY_KEY라고 함)를 사용해야 합니다:
 
 ```console
 $ ssh -i MY_KEY kali@192.168.1.1
@@ -135,7 +135,7 @@ Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 ```
 
-Now we have a nice, minimal Kali Linux installation that we can deploy and customize as needed:
+이제 필요에 따라 배포하고 맞춤 설정할 수 있는 깔끔하고 최소한의 Kali Linux 설치가 완료되었습니다:
 
 ```console
 kali@kali-s-1vcpu-1gb-nyc3-01:~$ lsb_release -a

@@ -6,39 +6,39 @@ weight:
 author: ["steev",]
 ---
 
-The [USB Armory MKI](https://inversepath.com/usbarmory_mark-one.html) from Inverse Path is an open source hardware design, implementing a flash drive sized computer. Kali Linux fits on a microSD card for it.
+Inverse Path의 [USB Armory MKI](https://inversepath.com/usbarmory_mark-one.html)는 USB 플래시 드라이브 크기의 컴퓨터를 구현한 오픈 소스 하드웨어 디자인입니다. Kali Linux는 microSD 카드에 설치할 수 있습니다.
 
-By default, the Kali Linux USB Armory MKI image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux USB Armory MKI 이미지는 다른 Kali 플랫폼에서 흔히 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
-## Kali on USB Armory MKI - Build-Script Instructions
+## USB Armory MKI용 Kali - 빌드 스크립트 지침
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `usb-armory-mki.sh`.
+Kali는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지만, GitLab에서 [Kali-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용할 스크립트는 `usb-armory-mki.sh`입니다.
 
-Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
+빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이 시점부터는 사전 빌드된 이미지를 다운로드한 경우와 동일한 방식으로 진행하면 됩니다.
 
-The easiest way to generate these images is **from within a pre-existing Kali Linux environment**.
+이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 Kali Linux 환경 내에서** 작업하는 것입니다.
 
-## Kali on USB Armory MKI - User Instructions
+## USB Armory MKI용 Kali - 사용자 지침
 
-To install Kali on your USB Armory MKI, follow these instructions:
+USB Armory MKI에 Kali를 설치하려면 다음 지침을 따르세요:
 
-1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.or USB drive.
-2. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card or USB drive. In our example, we use a microSD which is located at `/dev/sdX`. **_Change this as needed._**
+1. 최소 16GB 용량의 빠른 microSD 카드 또는 USB 드라이브를 준비하세요. Class 10 카드를 강력히 권장합니다.
+2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드나 USB 드라이브에 이미징하세요. 이 예시에서는 `/dev/sdX`에 위치한 microSD 카드를 사용합니다. **_필요에 따라 이 경로를 변경하세요._**
 
 {{% notice info %}}
-This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 microSD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-usb-armory-mki-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, boot up the USB Armory MKI with the microSD card plugged in.
+_dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 USB Armory MKI를 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
 
-## Kali on USB Armory MKI - Image Customization
+## USB Armory MKI용 Kali - 이미지 사용자 정의
 
-If you want to customize the Kali USB Armory MKI image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `usb-armory-mki.sh`.
+Kali USB Armory MKI 이미지를 사용자 정의하려면, 설치되는 [패키지](/docs/general-use/metapackages/) 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 변경, 이미지 파일 크기 증가 또는 감소 등의 작업을 하고 싶다면, GitLab의 [Kali-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용할 스크립트는 `usb-armory-mki.sh`입니다.

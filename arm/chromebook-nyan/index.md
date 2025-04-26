@@ -6,42 +6,42 @@ weight:
 author: ["steev",]
 ---
 
-The Acer Tegra Chromebook is an ultraportable laptop. Boasting a Tegra K1 2.1GHz quad core processor and 4GB of RAM, the Chromebook is a fast ARM laptop. Kali Linux fits on an external full-size SD card on this machine which leaves the internal disk untouched.
+에이서 테그라 크롬북은 초경량 노트북입니다. 테그라 K1 2.1GHz 쿼드 코어 프로세서와 4GB RAM을 탑재하여 빠른 성능을 자랑하는 ARM 노트북입니다. 칼리 리눅스는 이 기기의 외장 풀사이즈 SD 카드에 설치할 수 있어 내장 디스크를 건드리지 않고도 사용 가능합니다.
 
-By default, the Kali Linux Acer Tegra Chromebook 13" image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 칼리 리눅스 에이서 테그라 크롬북 13" 이미지에는 다른 플랫폼과 마찬가지로 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)가 포함되어 있습니다. 추가 도구를 설치하고 싶으시다면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참고하세요.
 
 {{% notice info %}}
-The build script for the Nyan based Chromebooks has not been converted to the new style, so builds may fail. If you are planning to build for this board, please consider updating the script to the new way, and submitting it as a merge request.
+Nyan 기반 크롬북용 빌드 스크립트는 아직 새로운 방식으로 변환되지 않아 빌드가 실패할 수 있습니다. 이 보드용으로 빌드를 계획하고 계시다면, 스크립트를 새로운 방식으로 업데이트하여 병합 요청으로 제출해 주시면 감사하겠습니다.
 {{% /notice %}}
 
-## Kali on Acer Tegra Chromebook - Build-Script Instructions
+## 에이서 테그라 크롬북용 칼리 - 빌드 스크립트 안내
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `chromebook-nyan.sh`.
+칼리에서는 미리 빌드된 이미지를 다운로드 형태로 제공하지 않지만, [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) GitLab 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용해야 할 스크립트는 `chromebook-nyan.sh`입니다.
 
-Once the build script finishes running, you will have an "img" file in the directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
+빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이 시점부터는 미리 빌드된 이미지를 다운로드한 경우와 동일한 방식으로 진행하면 됩니다.
 
-The easiest way to generate these images is **from within a pre-existing Kali Linux environment**.
+이러한 이미지를 생성하는 가장 효과적인 방법은 **기존의 칼리 리눅스 환경 내에서** 작업하는 것입니다.
 
-## Kali on Acer Tegra Chromebook - User Instructions
+## 에이서 테그라 크롬북용 칼리 - 사용자 가이드
 
-To install Kali on your Acer Tegra Chromebook 13", follow these instructions:
+에이서 테그라 크롬북 13"에 칼리를 설치하려면 다음 지침을 따르세요:
 
-1. Get a fast full-size SD card or USB drive with at least 16GB capacity. Class 10 cards are highly recommended.
-2. [Put your Chromebook in developer mode](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook), and enable USB boot.
-3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your full-size SD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+1. 최소 16GB 용량의 고속 풀사이즈 SD 카드나 USB 드라이브를 준비하세요. Class 10 카드를 강력히 추천합니다.
+2. [크롬북을 개발자 모드로 전환](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook)하고, USB 부팅을 활성화하세요.
+3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 풀사이즈 SD 카드에 기록하세요([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
-In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
+예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 그대로 복사하지 말고, **실제 드라이브 경로로 변경하세요**.
 
 {{% notice info %}}
-This process will wipe out your full-size SD card or USB drive. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 풀사이즈 SD 카드나 USB 드라이브의 모든 내용을 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 완전히 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-chromebook-nyan-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your full-size SD card or USB drive speed, and the size of the Kali Linux image.
+이 과정은 PC 성능, 풀사이즈 SD 카드나 USB 드라이브의 속도, 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, boot up the Acer Tegra Chromebook with the full-size SD card or USB drive plugged in, and hit **CTRL+U** before the 30 second timeout.
+_dd_ 작업이 완료되면, 풀사이즈 SD 카드나 USB 드라이브를 꽂은 상태로 에이서 테그라 크롬북을 부팅하고, 30초 타임아웃 전에 **CTRL+U**를 누르세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+이제 [칼리에 로그인](/docs/introduction/default-credentials/)할 수 있을 것입니다.

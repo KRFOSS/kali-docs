@@ -6,54 +6,54 @@ weight:
 author: ["gamb1t",]
 ---
 
-As of release 2022.3 Kali is back on Azure. With this return we will discuss how to get Kali on Azure.
+2022.3 릴리스부터 Kali가 Azure에 돌아왔습니다. 이 복귀와 함께 Azure에서 Kali를 어떻게 사용하는지 알아보겠습니다.
 
-The very first thing to do is create an [Azure](https://portal.azure.com/#home) account. Only once we see the following screen are we able to proceed with setting up a Kali VM.
+가장 먼저 [Azure 계정](https://portal.azure.com/#home)을 생성해야 합니다. 다음 화면이 보일 때만 Kali VM 설정을 진행할 수 있습니다.
 
 ![](azure-1.png)
 
-From this page we will want to click on "Virtual machines". After doing so we will be met with the following screen.
+이 페이지에서 "가상 머신"을 클릭합니다. 그러면 다음 화면이 나타납니다.
 
 ![](azure-2.png)
 
-Now we can get started.
+이제 시작할 수 있습니다.
 
-## Creating a Kali VM
+## Kali VM 생성하기
 
-We will select "Create" and then select "Azure virtual machine" in the drop down options. After which we will face the following screen.
+"만들기"를 선택한 다음 드롭다운 옵션에서 "Azure 가상 머신"을 선택합니다. 그러면 다음 화면이 나타납니다.
 
 ![](azure-3.png)
 
-For this screen we have already input all of the necessary information, your screen won't look like this immediately. There are a couple of fields that we will need to do extra things to set properly, these being "Resource group" and "Image". For "Resource group" we will want to create a new group if we have no pre-existing group, otherwise we can select whatever group we wish. For "Image" we will want to select "See all images". From here we can search for "Kali"
+이 화면에 필요한 모든 정보가 이미 입력되어 있습니다. 처음에는 화면이 이렇게 보이지 않을 것입니다. 추가 작업이 필요한 몇 가지 필드가 있는데, "리소스 그룹"과 "이미지"입니다. "리소스 그룹"의 경우, 기존 그룹이 없다면 새 그룹을 생성해야 하며, 기존 그룹이 있으면 원하는 그룹을 선택할 수 있습니다. "이미지"의 경우 "모든 이미지 보기"를 선택합니다. 여기서 "Kali"를 검색합니다.
 
 ![](azure-4.png)
 
-We can then click the drop down "Select" and choose the only option. From here we scroll down and fill in the rest of our information in the "Basics" section of the VM creation screen.
+그런 다음 드롭다운 "선택"을 클릭하고 유일한 옵션을 선택합니다. 여기서 아래로 스크롤하여 VM 생성 화면의 "기본" 섹션에서 나머지 정보를 입력합니다.
 
 ![](azure-5.png)
 
-We have changed a couple fields in this area. We have input custom values for "Username" and "Key pair name" to be more familiar. From here we can then move onto "Disks"
+이 영역에서 몇 가지 필드를 변경했습니다. "사용자 이름"과 "키 페어 이름"에 더 친숙한 사용자 지정 값을 입력했습니다. 이제 "디스크"로 넘어갑니다.
 
 ![](azure-6.png)
 
-As we can see we have no disk attached to Kali currently, so we have to attach one. We select "Create an attach a new disk" as we have no pre-existing disks. Once clicked here is what we are met with.
+보시다시피 현재 Kali에 연결된 디스크가 없으므로 디스크를 추가해야 합니다. 기존 디스크가 없기 때문에 "새 디스크 생성 및 연결"을 선택합니다. 클릭하면 다음 화면이 나타납니다.
 
 ![](azure-7.png)
 
-We keep the default values for this, and then continue forward. We check each section and make sure that there are no changes we want to make, but for this guide since there aren't we go all the way to "Review + create".
+이 설정은 기본값을 유지하고 계속 진행합니다. 각 섹션을 확인하고 변경하고 싶은 부분이 없는지 확인하지만, 이 가이드에서는 변경할 사항이 없으므로 "검토 + 생성"으로 바로 이동합니다.
 
 ![](azure-8.png)
 
-Once we are sure that our information is correct we press "Create", which takes us to a new page.
+정보가 올바른지 확인한 후 "생성"을 누르면 새 페이지로 이동합니다.
 
 ![](azure-9.png)
 
-We simply wait for our deployment to be complete, and once it is we select "Go to resource".
+배포가 완료될 때까지 기다린 다음 "리소스로 이동"을 선택합니다.
 
 ![](azure-10.png)
 
-We from here are able to see our VM and interact with it. For our purposes we are going to select "Connect" and then "SSH".
+여기서 VM을 보고 상호 작용할 수 있습니다. 우리는 "연결"을 선택한 다음 "SSH"를 선택할 것입니다.
 
 ![](azure-11.png)
 
-This brings us to a new page that tells us how to connect to our instance. We need to change the mode on the ssh key, and after we can connect to our freshly created Kali instance.
+이렇게 하면 인스턴스에 연결하는 방법을 알려주는 새 페이지가 열립니다. SSH 키의 모드를 변경해야 하며, 그 후 새로 생성된 Kali 인스턴스에 연결할 수 있습니다.

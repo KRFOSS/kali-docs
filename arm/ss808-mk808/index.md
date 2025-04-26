@@ -8,46 +8,46 @@ author: ["steev",]
 ---
 
 {{% notice info %}}
-Kali Linux is no longer providing pre-built images or a build-script to generate your own image.
-This hardware is no longer supported.
-The page is left for historical value.
+Kali Linux는 더 이상 미리 빌드된 이미지나 자체 이미지를 생성하기 위한 빌드 스크립트를 제공하지 않습니다.
+이 하드웨어는 더 이상 지원되지 않습니다.
+이 페이지는 역사적 가치를 위해 남겨두었습니다.
 {{% /notice %}}
 
 - - -
 
 <!-- @g0tmi1k: How does MK808 come into it -->
-The SainSmart SS808 is a **rockchip**-based ARM device that comes in various forms and flavors. It has a dual-core 1.6 GHz A9 processor with 1GB of RAM and runs Kali very well.
+SainSmart SS808은 다양한 형태와 종류로 제공되는 **rockchip** 기반 ARM 장치입니다. 1GB RAM과 함께 듀얼 코어 1.6 GHz A9 프로세서를 탑재하여 Kali를 매우 잘 실행합니다.
 
-By default, the Kali Linux SS808 image **does not** contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) which is often found in Kali platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux SS808 이미지는 대부분의 Kali 플랫폼에서 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
-## Kali on SS808 - User Instructions
+## SS808용 Kali - 사용자 지침
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지로 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않다면, 이러한 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
 
-If all you want to do is to install Kali on your SS808, follow instructions below:
+SS808에 Kali만 설치하려면 아래 지침을 따르세요:
 
-1. Get a fast microSD card with at least 8GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali Raspberry SS808` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
-4. Download the [MK808-Finless-1-6-Custom-ROM](https://forum.freaktab.com/?3207-NEW-MK808-Finless-1-6-Custom-ROM) to a Windows machine and extract the zip file.
-5. Read the README file of the MK808 Finless ROM tool, then install the required Windows drivers.
-6. Run the Finless ROM Flash Tool and ensure that it says **Found RKAndroid Loader Rock USB** at the bottom. Deselect `kernel.img` and `recovery.img` from the list, and flash the device.
-7. Next overwrite both `kernel.img` and `recovery.img` in the FInless ROM directory with the Kali `kernel.img`.
-8. In the Finless ROM tool, make sure only `kernel.img` and `recovery.img` are selected, and flash your device again.
-9. Insert your microSD card in the SS808 and boot it up.
+1. 최소 8GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 적극 권장합니다.
+2. [다운로드](/get-kali/) 영역에서 `Kali Raspberry SS808` 이미지를 다운로드 _및 검증_하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에서 더 자세히 설명합니다.
+3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 쓰세요([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
+4. [MK808-Finless-1-6-Custom-ROM](https://forum.freaktab.com/?3207-NEW-MK808-Finless-1-6-Custom-ROM)을 Windows 머신에 다운로드하고 zip 파일을 압축 해제하세요.
+5. MK808 Finless ROM 도구의 README 파일을 읽고, 필요한 Windows 드라이버를 설치하세요.
+6. Finless ROM 플래시 도구를 실행하고 하단에 **Found RKAndroid Loader Rock USB**가 표시되는지 확인하세요. 목록에서 `kernel.img`와 `recovery.img`를 선택 해제하고 장치를 플래시하세요.
+7. 다음으로 FInless ROM 디렉터리의 `kernel.img`와 `recovery.img`를 모두 Kali의 `kernel.img`로 덮어쓰세요.
+8. Finless ROM 도구에서 `kernel.img`와 `recovery.img`만 선택되었는지 확인한 다음 장치를 다시 플래시하세요.
+9. microSD 카드를 SS808에 삽입하고 부팅하세요.
 
-In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
+예시에서는 저장 장치가 `/dev/sdX`에 있다고 가정합니다. 이 값을 그대로 복사하지 **마시고**, **올바른 드라이브 경로로 변경**하세요.
 
 {{% notice info %}}
-This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 microSD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ dd if=kali-linux-2025.1-SS808.img of=/dev/sdX conv=fsync bs=4M
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+이 과정은 PC 성능, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 걸릴 수 있습니다.
 
-Once the _dd_ operation is complete, boot up the SS808 with the microSD card plugged in.
+_dd_ 작업이 완료되면 microSD 카드를 삽입한 상태로 SS808을 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/) and **startx**.
+이제 [Kali에 로그인](/docs/introduction/default-credentials/)하고 **startx**를 실행할 수 있습니다.

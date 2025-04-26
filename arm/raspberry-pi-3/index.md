@@ -6,75 +6,75 @@ weight:
 author: ["steev",]
 ---
 
-The [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) has a quad core 1.2GHz processor, with 1GB of RAM. Kali Linux fits on an external microSD card.
+[라즈베리 파이 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)는 쿼드 코어 1.2GHz 프로세서와 1GB RAM을 갖추고 있습니다. Kali Linux는 외장 microSD 카드에 설치됩니다.
 
-By default, the Kali Linux Raspberry Pi 3 image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux 라즈베리 파이 3 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 {{% notice info %}}
-The Raspberry Pi 3 has a 64-bit processor and can run 64-bit images.
-Because it can run 64-bit images, you can choose either `Kali Linux Raspberry Pi 2, 3, 4 and 400 (32-bit) (img.xz)` or `Kali Linux Raspberry Pi 2 (v1.2), 3, 4 and 400 (64-bit) (img.xz)` as the image to run, the latter being 64-bit.<br />
+라즈베리 파이 3는 64비트 프로세서를 탑재하고 있어 64비트 이미지를 실행할 수 있습니다.
+64비트 이미지를 실행할 수 있기 때문에 `Kali Linux Raspberry Pi 2, 3, 4 및 400(32비트)(img.xz)` 또는 `Kali Linux Raspberry Pi 2(v1.2), 3, 4 및 400(64비트)(img.xz)`를 실행할 이미지로 선택할 수 있으며, 후자가 64비트입니다.<br />
 <br />
-We recommend using the 32-bit image on Raspberry Pi devices as that gets far more testing, and a lot of documentation out there expects you to be running RaspberryPi OS which is 32-bit.
+라즈베리 파이 장치에서는 32비트 이미지를 사용하는 것이 좋습니다. 32비트 이미지가 훨씬 더 많은 테스트를 거쳤으며, 대부분의 문서는 32비트인 라즈베리파이 OS를 실행한다고 가정하기 때문입니다.
 {{% /notice %}}
 
 {{% notice info %}}
-The Raspberry Pi images use [Re4son](https://twitter.com/re4sonkernel)'s kernel, which includes the drivers for external Wi-Fi cards, TFT displays, and the [nexmon](https://github.com/seemoo-lab/nexmon) firmware for the built-in wireless card on the [Raspberry Pi 3](/docs/arm/raspberry-pi-3/) and [4](/docs/arm/raspberry-pi-4/). You will not need to download it and install it, and doing so will likely be a downgrade over the current installed kernel.
+라즈베리 파이 이미지는 [Re4son](https://twitter.com/re4sonkernel)의 커널을 사용하며, 여기에는 외장 Wi-Fi 카드, TFT 디스플레이용 드라이버 및 [라즈베리 파이 3](/docs/arm/raspberry-pi-3/)과 [4](/docs/arm/raspberry-pi-4/)의 내장 무선 카드를 위한 [nexmon](https://github.com/seemoo-lab/nexmon) 펌웨어가 포함되어 있습니다. 별도로 다운로드하여 설치할 필요가 없으며, 그렇게 하면 현재 설치된 커널보다 다운그레이드될 가능성이 높습니다.
 {{% /notice %}}
 
-## Kali on Raspberry Pi 3 - User Instructions
+## 라즈베리 파이 3용 Kali - 사용자 지침
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않은 경우, 해당 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
 
-To install a pre-built image of the standard build of Kali Linux on your Raspberry Pi 3, follow these instructions:
+라즈베리 파이 3에 Kali Linux의 사전 빌드된 표준 이미지를 설치하려면 다음 지침을 따르세요:
 
-1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ our preferred `Kali Raspberry Pi 3` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
-3. Use the **[dd](https://manpages.debian.org/buster/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
+2. [다운로드](/get-kali/) 영역에서 선호하는 `Kali 라즈베리 파이 3` 이미지를 다운로드 _및 검증_ 하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에 자세히 설명되어 있습니다.
+3. **[dd](https://manpages.debian.org/buster/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
-In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
+아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
 
 {{% notice info %}}
-This process will wipe out your microSD card. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 microSD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-raspberry-pi-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-**or**
+**또는**
 
 ```console
 $ xzcat kali-linux-2025.1-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD's speed, and the size of the Kali Linux image.
+이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, boot up the Raspberry Pi 3 with the microSD plugged in.
+_dd_ 작업이 완료되면 microSD 카드를 삽입한 상태로 라즈베리 파이 3을 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
 
-## Kali on Raspberry Pi 3 - Tips and Tricks
+## 라즈베리 파이 3용 Kali - 팁과 트릭
 
-The bluetooth service on the Raspberry Pi 3 needs a **uart helper service** before it works. To enable and start the bluetooth service run the following commands:
+라즈베리 파이 3의 블루투스 서비스는 작동하기 전에 **uart helper 서비스**가 필요합니다. 블루투스 서비스를 활성화하고 시작하려면 다음 명령어를 실행하세요:
 
 ```console
 kali@kali:~$ sudo systemctl enable --now hciuart.service
 kali@kali:~$ sudo systemctl enable --now bluetooth.service
 ```
 
-If you are on the 5.10 or higher kernel, you can use mt76 chipset USB Wi-Fi devices, but they require creating a configuration file in `/etc/modprobe.d` with the following contents:
+5.10 이상의 커널을 사용 중이라면, mt76 칩셋 USB Wi-Fi 장치를 사용할 수 있지만, `/etc/modprobe.d`에 다음 내용의 설정 파일을 생성해야 합니다:
 
 ```plaintext
-# Load mt76usb without using scatter-gather which doesn't work on the RPi2 or RPi3 USB chipset
+# RPi2 또는 RPi3 USB 칩셋에서 작동하지 않는 scatter-gather 기능 없이 mt76usb를 로드
 options mt76-usb disable_usb_sg=1
 ```
 
-## Kali on Raspberry Pi 3 Headless - Tips and Tricks
+## 헤드리스 라즈베리 파이 3용 Kali - 팁과 트릭
 
-You can add a `wpa_supplicant.conf` file to the first partition of the microSD card to connect to a wireless network.
+무선 네트워크에 연결하기 위해 microSD 카드의 첫 번째 파티션에 `wpa_supplicant.conf` 파일을 추가할 수 있습니다.
 
-You can create this file on another Linux system by running `wpa_passphrase YOURNETWORK > wpa_supplicant.conf`. It will prompt you for the wireless network's password. You can add the password to the command as you run it, but keep in mind that if you do, your Wi-Fi network password will be in your user's shell history.
+다른 Linux 시스템에서 `wpa_passphrase 네트워크이름 > wpa_supplicant.conf` 명령어를 실행하여 이 파일을 생성할 수 있습니다. 무선 네트워크의 비밀번호를 입력하라는 메시지가 표시됩니다. 명령어를 실행할 때 비밀번호를 추가할 수도 있지만, 그렇게 하면 Wi-Fi 네트워크 비밀번호가 사용자의 쉘 히스토리에 남게 된다는 점을 유의하세요.
 
-## Kali on Raspberry Pi 3 - Image Customization
+## 라즈베리 파이 3용 Kali - 이미지 사용자 정의
 
-If you want to customize the Kali Raspberry Pi 3 image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `raspberry-pi.sh` (32-bit) or `raspberry-pi-64-bit.sh` (64-bit).
+Kali 라즈베리 파이 3 이미지를 사용자 정의하려면, 설치되는 [패키지](/docs/general-use/metapackages/) 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 변경, 이미지 파일 크기 증가 또는 감소 등의 작업을 하고 싶다면, GitLab의 [Kali-ARM 빌드-스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용할 스크립트는 `raspberry-pi.sh`(32비트) 또는 `raspberry-pi-64-bit.sh`(64비트)입니다.

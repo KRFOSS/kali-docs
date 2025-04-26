@@ -6,12 +6,12 @@ weight:
 author: ["steev",]
 ---
 
-The [Radxa Zero](https://wiki.radxa.com/Zero) has a quad core 1.8GHz, with 512MB, 1GB, 2GB, or 4GB of LPDDR4 RAM. There are multiple eMMC versions available, we recommend at least 32GB.
+[Radxa Zero](https://wiki.radxa.com/Zero)는 쿼드 코어 1.8GHz 프로세서와 512MB, 1GB, 2GB, 또는 4GB의 LPDDR4 RAM을 갖추고 있습니다. 여러 eMMC 버전이 제공되며, 최소 32GB를 권장합니다.
 
-By default, the Kali Linux Radxa Zero image contains the [**kali-linux-default** metapackage](/docs/general-use/metapackages/) similar to most other platforms. If you wish to install extra tools please refer to our [metapackages page](/docs/general-use/metapackages/).
+기본적으로 Kali Linux Radxa Zero 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 {{% notice info %}}
-The Radxa Zero eMMC image only works on the 2GB and 4GB variants, as the 512MB and 1GB do not have eMMC.
+Radxa Zero eMMC 이미지는 2GB 및 4GB 모델에서만 작동합니다. 512MB 및 1GB 모델은 eMMC가 없기 때문입니다.
 {{% /notice %}}
 
 <!-- 2022.2 didn't have an image, 2022.3 will 
@@ -45,92 +45,92 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 
 If you want to customize the Kali Radxa Zero sdcard image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `radxa-zero-sdcard.sh`.
 -->
-## Kali on Radxa Zero (eMMC) - Build-Script Instructions
+## Radxa Zero(eMMC)용 Kali - 빌드 스크립트 지침
 
-Kali does not provide pre-built images for download, but you can still generate one by cloning the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `radxa-zero-emmc.sh`.
+Kali는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지만, GitLab에서 [Kali-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용할 스크립트는 `radxa-zero-emmc.sh`입니다.
 
-Once the build script finishes running, you will have an `img.xz` file in the `images` directory where you ran the script from. At that point, the instructions are the same as if you had downloaded a pre-built image.
+빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리의 `images` 폴더에 "img.xz" 파일이 생성됩니다. 이 시점부터는 사전 빌드된 이미지를 다운로드한 경우와 동일한 방식으로 진행하면 됩니다.
 
-The easiest way to generate these images is **from within a pre-existing Kali Linux environment**.
+이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 Kali Linux 환경 내에서** 작업하는 것입니다.
 
-## Kali on Radxa Zero (eMMC) - User Instructions
+## Radxa Zero(eMMC)용 Kali - 사용자 지침
 
-The Radxa Zero requires entering maskrom mode in order to write the Kali Linux image to the eMMC.
+Radxa Zero는 Kali Linux 이미지를 eMMC에 기록하기 위해 마스크롬(maskrom) 모드로 진입해야 합니다.
 
-To install Kali on your Radxa Zero (eMMC), follow these instructions:
+Radxa Zero(eMMC)에 Kali를 설치하려면 다음 지침을 따르세요:
 
 {{% notice info %}}
-This process will wipe out whatever is on your eMMC.
+이 과정은 eMMC의 모든 데이터를 지웁니다.
 {{% /notice %}}
 
 Windows:
 
 <!-- TODO: Do installation in Windows and document it -->
 
-Linux (maskrom mode):
+Linux(마스크롬 모드):
 
-We will need to download a few files from Radxa's website as well as install the Amlogic boot tool in order to write to the eMMC with the Radxa Zero in maskrom mode.
+마스크롬 모드에서 Radxa Zero의 eMMC에 기록하기 위해 Radxa 웹사이트에서 몇 가지 파일을 다운로드하고 Amlogic 부트 도구를 설치해야 합니다.
 
- - [radxa-zero-erase-emmc.bin](https://dl.radxa.com/zero/images/loader/radxa-zero-erase-emmc.bin) - automatically erases the eMMC, then presents the eMMC as a USB storage device.
- - [rz-udisk-loader.bin](https://dl.radxa.com/zero/images/loader/rz-udisk-loader.bin) - expose the eMMC device as a USB Mass Storage device.
+ - [radxa-zero-erase-emmc.bin](https://dl.radxa.com/zero/images/loader/radxa-zero-erase-emmc.bin) - eMMC를 자동으로 지운 다음 eMMC를 USB 저장 장치로 표시합니다.
+ - [rz-udisk-loader.bin](https://dl.radxa.com/zero/images/loader/rz-udisk-loader.bin) - eMMC 장치를 USB 대용량 저장 장치로 노출합니다.
 
 1. sudo apt update
 2. sudo apt install python3-pip
 3. sudo pip3 install pyamlboot
-4. connect the Radxa Zero to the computer in maskrom mode
-  - Locate the USB boot button on the bottom of the Radxa Zero
-  - Press the button and while holding it down, plug the Radxa Zero in to the computer
-  - You can release the button when the power LED turns on
-5. Verify that the computer sees the Radxa Zero in maskrom mode via `lsusb`
+4. Radxa Zero를 마스크롬 모드로 컴퓨터에 연결
+  - Radxa Zero 하단에 있는 USB 부팅 버튼을 찾으세요
+  - 버튼을 누른 상태에서 Radxa Zero를 컴퓨터에 연결하세요
+  - 전원 LED가 켜지면 버튼을 놓아도 됩니다
+5. `lsusb` 명령으로 컴퓨터가 마스크롬 모드의 Radxa Zero를 인식하는지 확인
   - lsusb
 ```console
 kali@kali:~$ lsusb | grep Amlogic
 Bus 001 Device 048: ID 1b8e:c003 Amlogic, Inc. GX-CHIP
 ```
 6. sudo boot-g12.py radxa-zero-erase-emmc.bin
-7. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to the newly presented USB device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+7. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 새로 표시된 USB 장치에 이 파일을 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
-In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct device path**.
+아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
 
 {{% notice info %}}
-This process will wipe out your whatever is on your eMMC. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 eMMC의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your Radxa Zero's storage, and the size of the Kali Linux image.
+이 과정은 PC, Radxa Zero의 저장 장치 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, unplug the Radxa Zero from the computer, and boot up the Radxa Zero.
+_dd_ 작업이 완료되면, Radxa Zero를 컴퓨터에서 분리한 다음 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
 
-Linux (sdcard boot, write to eMMC):
+Linux(SD 카드로 부팅, eMMC에 쓰기):
 
 {{% notice info %}}
-You cannot use the Radxa Zero **sdcard** image on the eMMC, and vice versa. The bootloader is written to different locations depending on eMMC and sdcard and they are **not** interchangeable.
+Radxa Zero **sdcard** 이미지를 eMMC에 사용할 수 없으며, 그 반대의 경우도 마찬가지입니다. 부트로더는 eMMC와 SD 카드에 따라 다른 위치에 기록되며, 이들은 **서로 호환되지 않습니다**.
 {{% /notice %}}
 
-With this mode, we first boot the Radxa Zero from a microSD card, and simply use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to write an image to the eMMC.
+이 방법에서는 먼저 microSD 카드에서 Radxa Zero를 부팅한 다음, **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 eMMC에 이미지를 기록합니다.
 
-1. Follow the [Radxa Zero (sdcard)](/docs/arm/radxa-zero-sdcard/) instructions
-2. Connect the Radxa Zero to a wireless network
-3. Copy the image file you want to use to the microSD card. Keep in mind that you will need enough free space on the microSD card
-4. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to the eMMC device (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
+1. [Radxa Zero(sdcard)](/docs/arm/radxa-zero-sdcard/) 지침을 따르세요
+2. Radxa Zero를 무선 네트워크에 연결하세요
+3. 사용하려는 이미지 파일을 microSD 카드에 복사하세요. microSD 카드에 충분한 여유 공간이 있어야 합니다
+4. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 eMMC 장치에 이 파일을 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
-In our example, we assume the storage device is located at `/dev/mmcblk0`. Do _not_ simply copy these value, **change this to the correct device path**.
+아래 예시에서는 저장 장치가 `/dev/mmcblk0`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
 
 {{% notice info %}}
-This process will wipe out your whatever is on your eMMC. If you choose the wrong storage device, you may wipe out your computers hard disk.
+이 과정은 eMMC의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.1-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
 ```
 
-This process can take a while, depending on your microSD card, your Radxa Zero's storage, and the size of the Kali Linux image.
+이 과정은 microSD 카드, Radxa Zero의 저장 장치 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-Once the _dd_ operation is complete, power off the Radxa Zero, unplug the microSD card, and then boot up the Radxa Zero.
+_dd_ 작업이 완료되면, Radxa Zero의 전원을 끄고 microSD 카드를 분리한 다음, Radxa Zero를 부팅하세요.
 
-You should be able to [log in to Kali](/docs/introduction/default-credentials/).
+[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
