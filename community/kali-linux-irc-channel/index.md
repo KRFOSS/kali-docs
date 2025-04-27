@@ -1,72 +1,72 @@
 ---
-title: Kali Linux IRC Channel
+title: Kali Linux IRC 채널
 description:
 icon:
 weight:
 author: ["g0tmi1k",]
 ---
 
-Kali Linux has an official IRC channel, **#kali-linux**, on the [OFTC](https://oftc.net/) network. Please take a few moments to review the rules and guidelines below before joining the channel.
+Kali Linux에는 [OFTC](https://oftc.net/) 네트워크에 공식 IRC 채널인 **#kali-linux**가 있습니다. 채널에 가입하기 전에 아래의 규칙과 지침을 검토해 주세요.
 
-## #kali-linux IRC Rules and Guidelines
+## #kali-linux IRC 규칙 및 지침
 
-We try to remain as informal as possible but there _are_ some rules and we'd appreciate if you would follow them! Broadly, if you're friendly, tolerant, and reasonable, you'll probably go a long way without any specific knowledge of the rules - but for to avoid any doubt and prevent any misunderstandings, here they are.
+우리는 최대한 격식 없이 유지하려고 하지만 _몇 가지_ 규칙이 있으며, 여러분이 이를 따라주시면 감사하겠습니다! 대체로, 친절하고 관용적이며 합리적이라면, 특별한 규칙 지식 없이도 잘 지낼 수 있습니다 - 하지만 의심을 피하고 오해를 방지하기 위해, 아래에 규칙들이 있습니다.
 
-### Registered nickname
+### 등록된 닉네임
 
-We do require that users use a registered nickname on IRC. Once you are connected to the OFTC irc network, you can `/msg NickServ HELP REGISTER` for instructions on registering your nickname.
+IRC에서 등록된 닉네임을 사용할 것을 요구합니다. OFTC IRC 네트워크에 연결되면, `/msg NickServ HELP REGISTER`를 입력하여 닉네임 등록에 대한 지침을 확인할 수 있습니다.
 
-### How to Treat Other Users
+### 다른 사용자와의 소통 방법
 
-In order to make the channel a pleasant place for all of our users, we expect all to remain as friendly and tolerant as possible. We request that you refrain from profanity and that you show respect to the other channel members and visitors. If you find that you're becoming frustrated with the channel or other users, we encourage you to take a moment to do something else. Try to ensure you don't make people feel like you're just taking advantage of them - help others out while you're waiting for a reply to your questions, and say thanks!
+모든 회원분들이 즐겁게 채널을 이용하실 수 있도록, 서로 친절하고 배려하는 태도를 유지해 주시기 바랍니다. 욕설은 삼가고 다른 회원 및 방문자에게 존중을 표해 주세요. 채널이나 다른 회원들로 인해 스트레스를 받으신다면, 잠시 다른 활동을 하며 환기하는 시간을 가지시길 권장합니다. 단지 다른 분들이 여러분에게 이용당한다는 느낌을 받지 않도록 해주세요 - 여러분의 질문에 답변을 기다리는 동안 다른 회원들의 질문에도 도움을 주고, 도움 받으셨다면 감사의 말씀도 잊지 마세요!
 
-### How to Argue
+### 논쟁하는 방법
 
-As mentioned above, we'd appreciate it if you'd strive to be friendly and tolerant. We also encourage debates and in-depth discussions about topical subjects. If you choose to participate in one, we expect you to remain as reasonable as possible and employ the skills of logic and [critical thinking](https://www.criticalthinking.org/). These skills will serve you well in discussion, enable you to communicate more efficiently, and spot when others are being less than forthcoming with the truth!
+앞서 언급했듯이, 친절하고 관용적이기 위해 노력해 주시면 감사하겠습니다. 또한 우리는 주제에 관한 토론과 심층적인 논의를 장려합니다. 토론에 참여하기로 했다면, 최대한 합리적이길 바라며 논리와 [비판적 사고](https://www.criticalthinking.org/) 기술을 활용하길 기대합니다. 이러한 기술은 토론에서 큰 도움이 되며, 더 효율적으로 소통하고, 다른 사람들이 진실을 밝히지 않을 때를 발견하는 데 도움이 됩니다!
 
-### Language
+### 언어
 
-Our IRC channel is an English-speaking channel. There are no other official channels in any other language.
+우리 IRC 채널은 영어를 사용하는 채널입니다. 다른 언어로 된 다른 공식 채널은 없습니다.
 
-We are a _family-friendly_ IRC channel and will not tolerate foul language. Save it for the playground.
+우리는 _가족 친화적인_ IRC 채널이며 저속한 언어를 용납하지 않습니다. 그런 언어는 놀이터에서 사용하세요.
 
-### Staying on Topic
+### 주제 유지하기
 
-We maintain no strict policy regarding off-topic chat in the channel however, the discussion of Kali Linux projects is the primary focus of the channel, so you may be asked to take discussions elsewhere, particularly if there are venues on **OFTC** better suited to them (such as **#politics**), if there are other more relevant conversations going on, or if they're repetitive or otherwise seen by the channel staff as being detrimental to the good atmosphere of the channel.
+채널 내의 주제에서 벗어난 대화에 대해 엄격한 정책을 유지하지는 않습니다. 하지만 채널의 주요 초점은 Kali Linux 프로젝트에 대한 논의이므로, 특히 **OFTC**에 더 적합한 장소가 있는 경우(예: **#politics**), 다른 더 관련성 있는 대화가 진행 중이거나, 반복적이거나 채널 직원이 채널의 좋은 분위기에 해롭다고 판단하는 경우에는 다른 곳으로 토론을 옮겨달라는 요청을 받을 수 있습니다.
 
-**Certain things are seen as being specifically off-topic. These topics include:**
+**특히 주제에서 벗어난 것으로 간주되는 특정 사항들이 있습니다:**
 
-- **Support or encouragement of illegal activity** - it should go without saying, but we don't exist to help you break the law or do things you shouldn't be doing. Such queries are absolutely off-topic for the channel, for OFTC as a whole, and may very well get you removed from the channel and/or network. Please don't ask. Laws vary from country to country and channel OPs may determine whether a specific discussion is appropriate for the channel or not.
-- **Warez/cracks/pirated software** - these too are off-topic for the channel and network so again: please don't ask.
-- **Political and religious matters** - Many people have very strong political/religious beliefs and we respect that. We also recognize that these are volatile and contentious topics which have nothing to do with Kali Linux, penetration testing, or anything related to those subjects, and are best discussed elsewhere.
+- **불법 활동에 대한 지원이나 조장** - 말할 필요도 없지만, 우리는 위법하거나 해서는 안 될 일을 하는데 도움을 주기 위해 존재하지 않습니다. 그런 질문은 채널, OFTC 전체에서 절대적으로 주제에서 벗어나며, 채널이나 네트워크에서 추방될 수 있습니다. 그런 건 질문하지 마세요. 법은 국가마다 다르며 채널 운영자는 특정 토론이 채널에 적절한지 여부를 결정할 수 있습니다.
+- **불법 복제 소프트웨어/크랙/해적판 소프트웨어** - 이것들도 채널과 네트워크의 주제에서 벗어나므로 당연하지만 질문하지 마세요.
+- **정치 및 종교 문제** - 많은 사람들은 매우 강한 정치적/종교적 신념을 가지고 있으며 우리는 그것을 존중합니다. 또한 이러한 주제가 변동성이 크고 논쟁의 여지가 있으며 Kali Linux, 침투 테스트 또는 관련 주제와는 아무런 관련이 없다는 것을 인식하고 있으므로, 다른 곳에서 논의하는 것이 가장 좋습니다.
 
-**Asking for Help**
+**도움 요청하기**
 
-If you're asking for help, first off, thanks! - questions and the resulting discussion of the answer(s) in a collaborative environment are what make IRC great and by helping to add to the atmosphere, you benefit the entire Kali Linux community.
+도움을 요청하고 계시다면, 우선 감사합니다! - 질문과 이에 대한 답변을 협력적인 환경에서 논의하는 것은 IRC를 훌륭하게 만드는 요소이며, 여러분은 이러한 분위기에 기여함으로써 전체 Kali Linux 커뮤니티에 이익을 가져다 줍니다.
 
-We often find that we learn a lot even from questions we already think we know the answers to - about people, alternative approaches, and cool new resources and tools. However, if you are intending to ask a question, we'd appreciate it if you'd follow a couple useful guidelines to help you, and us, make the best use of our time.
+우리는 종종 이미 답을 알고 있다고 생각하는 질문에서도 많은 것을 배우게 됩니다 - 사람들에 대해, 대안적 접근법에 대해, 그리고 멋진 새로운 리소스와 도구에 대해서요. 하지만 질문하려고 한다면, 우리 시간을 가장 잘 활용할 수 있도록 몇 가지 유용한 지침을 따라주시면 감사하겠습니다.
 
-- **Do your research first** - It's very frustrating when people ask a question that can virtually be answered by punching the keywords into a Google search! We also have forums and a wiki that contain answers to many questions we see daily so it's to everyone's benefit if these assets are used before asking in IRC.
-- **Give us the whole picture** - If you're asked for more information, please provide it accurately. The correct answer will depend on it. Looking at this from another angle: the more we learn about your problem, the more this independently benefits us too - a large part of the development of new releases comes out of helping others with issues discovered with specific setups; even if you're asking us questions, you can help teach us something too!
-- **If you find the answer somewhere else, tell us** - it isn't compulsory, but if you don't get an answer to your question in the channel but you find it elsewhere, consider letting us know! That way, we can help out the next person with a similar question. It also lets people know that you already have an answer you're happy with, or that if anyone's researching the question for you, they can stop.
-- **Wait for an answer** - not everyone in the channel is online all the time, and you may find you get an answer several minutes, or even hours, later. Feel free to stick around and chat, or even answer other peoples questions - you'll find it helps pass the time and makes others likely to help you! Help us build a community of friendly security professionals and enthusiasts.
+- **먼저 조사하세요** - 키워드를 구글에 검색하면 답을 얻을 수 있는 질문을 하는 것은 매우 답답합니다! 우리는 또한 매일 보는 많은 질문에 대한 답변을 포함하는 포럼과 위키가 있으므로 IRC에서 질문하기 전에 이러한 자료를 사용하는 것이 모두에게 도움이 됩니다.
+- **전체 그림을 보여주세요** - 더 많은 정보를 요청받으면 정확하게 제공해 주세요. 올바른 답변은 이에 달려 있습니다. 다른 관점에서 보면: 문제에 대해 더 많이 알수록 우리에게도 독립적으로 도움이 됩니다 - 새로운 릴리스 개발의 큰 부분은 다른 사람들이 특정 설정에서 발견한 문제를 돕는 데서 나옵니다; 우리에게 질문을 하더라도, 여러분은 우리에게도 무언가를 가르쳐 줄 수 있습니다!
+- **다른 곳에서 답을 찾았다면 알려주세요** - 필수는 아니지만, 채널에서 질문에 대한 답변을 받지 못했지만 다른 곳에서 찾았다면, 우리에게 알려주는 것이 좋습니다! 이렇게 하면 비슷한 질문을 가진 다음 사람을 도울 수 있습니다. 또한 이미 만족하는 답변을 가지고 있거나, 질문에 대해 조사 중인 사람이 있다면 그들이 멈출 수 있다는 것을 알려줍니다.
+- **답변을 기다리세요** - 채널에 있는 모든 사람이 항상 온라인에 있는 것은 아니며, 몇 분 또는 심지어 몇 시간 후에 답변을 받을 수도 있습니다. 채팅에 참여하거나 다른 사람들의 질문에 답변하는 것을 편하게 생각하세요 - 시간이 지나는데 도움이 되고 다른 사람들이 당신을 도울 가능성이 높아집니다! 친근한 보안 전문가와 애호가들의 커뮤니티를 구축하는데 도움을 주세요.
 
-**Spam, Flooding, and Various Other Forms of Disruptive Behaviour**
+**스팸, 도배 및 기타 다양한 형태의 방해 행동**
 
-Spam, flooding, disrespect or verbal attacks against other users, misleading links, intentionally wrong answers, and other forms of disruptive behaviour not otherwise specified are unwelcome. Disruptive behaviour includes (but is not restricted to) the operation of unauthorized bots in the channel, public logging of the channel, and scripts such as those that publicly announce what track your MP3 player is playing or your away status.
+스팸, 도배, 다른 사용자에 대한 무례함이나 언어적 공격, 오해의 소지가 있는 링크, 의도적으로 잘못된 답변, 그리고 여기에 명시되지 않은 다른 형태의 방해 행동은 환영받지 못합니다. 방해 행동에는 채널 내 무단으로 봇 운영하기, 공개 채널 로깅하기, MP3 플레이어가 재생하는 트랙이나 부재 상태를 공개적으로 알리는 스크립트와 같은 것이 포함됩니다(이에 국한되지 않음).
 
-If you have more than 5 lines of text to paste, use [pastebin](https://pastebin.com/) for your data and then paste the URL into channel.
+5줄 이상의 텍스트를 붙여넣어야 한다면, [pastebin](https://pastebin.com/)을 사용하여 데이터를 입력한 다음 URL을 채널에 붙여넣으세요.
 
-**Dealing With the Channel Staff**
+**채널 직원 대하기**
 
-From time to time, you may be asked to take conversations elsewhere, treat others reasonably, steer a conversation in a particular direction, or a variety of other things in order to preserve the ambiance and usefulness of the channel. If you're the target of such a request, please be as reasonable as you can and if you wish to take issue with it, do so in a private message with the channel staffer in question, rather than making noise in channel.
+때때로 대화를 다른 곳으로 옮기거나, 다른 사람들을 합리적으로 대하거나, 특정 방향으로 대화를 유도하는 등의 요청을 받을 수 있습니다. 이는 채널의 분위기와 유용성을 보존하기 위한 것입니다. 만약 그런 요청을 받는다면, 최대한 합리적으로 대응해 주세요. 이의가 있다면, 채널에서 소란을 일으키는 대신 해당 채널 직원과 개인 메시지로 논의해 주세요.
 
-**Discipline**
+**규율**
 
-Repeated breaking of the rules will cause channel staffers to mute (+q), ban (+b), kick, or otherwise remove you from the channel. This will particularly apply if you're seen to be willfully ignoring the rules after we've drawn your attention to them.
+반복적으로 규칙을 위반하면 채널 직원이 음소거(+q), 차단(+b), 강제 퇴장이나 다른 방법으로 채널에서 제거할 수 있습니다. 특히 규칙에 주의를 환기시킨 후에도 고의적으로 무시하는 것으로 보이는 경우에 적용됩니다.
 
-Many forms of disruptive behaviour, such as flooding or trolling, may result in discipline without a warning. We try and avoid the use of force wherever possible and we'd appreciate it if you'd help us in pursuing this goal!
+도배나 분탕질(트롤링)과 같은 많은 형태의 방해 행동은 경고 없이 제재를 받을 수 있습니다. 우리는 가능한 한 힘의 사용을 피하려고 노력하며 이 목표를 추구하는 데 도움을 주시면 감사하겠습니다!
 
-If you're a bystander while a staffer is forced to use his or her powers for channel management, we'd appreciate your understanding and consideration in awaiting the end of the incident, and your assistance in keeping the situation as favourable as possible by not complaining, commentating, or gloating. This serves to make antisocial behaviour such as flooding less attractive (the smaller the reaction, the less the return on the malfeasance), and so benefits you as well as us!
+만약 당신이 직원이 채널 관리를 위해 권한을 사용해야 하는 상황의 방관자라면, 우리는 당신의 이해와 배려를 감사히 여기며, 사건이 끝날 때까지 기다려 주시고, 불평, 해설, 또는 조롱을 하지 않음으로써 상황을 최대한 유리하게 유지하는 데 도움을 주시기 바랍니다. 이는 도배와 같은 비사회적 행동을 덜 매력적으로 만들고(반응이 적을수록, 행패에 따른 보상이 줄어듭니다), 그래서 여러분과 우리 모두에게 도움이 됩니다!
 
-Thanks for your cooperation and help in making the #kali-linux a more enjoyable, friendlier, and more productive experience for everyone involved.
+여러분의 협조와 #kali-linux를 모든 참여자에게 더 즐겁고, 친근하며, 생산적인 경험으로 만드는 데 도움을 주셔서 감사합니다.

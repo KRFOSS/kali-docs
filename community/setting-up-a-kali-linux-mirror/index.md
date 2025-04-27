@@ -1,18 +1,19 @@
 ---
-title: Setting Up a Kali Linux Mirror
+title: Kali Linux 미러 구축하기
 description:
 icon:
 weight:
 author: ["g0tmi1k",]
 ---
 
-## How to Set Up a Public Kali Linux Mirror
+## 공개 Kali Linux 미러 설정 방법
 
-The explanations below are of interest to you if you want to contribute a publicly accessible mirror and if you want to integrate it in one of the mirror redirectors (<https://http.kali.org> and <https://cdimage.kali.org>).
+아래의 설명은 공개적으로 접근 가능한 미러를 제공하고 이를 미러 리다이렉터(<https://http.kali.org> 및 <https://cdimage.kali.org>)에 통합하고자 하는 경우에 유용합니다.
+[ROKFOSS 프로젝트](https://krfoss.org/doc/setup-mirror/#kali-mirror)에서는 다른 방법으로도 미러를 구축하는 방법을 안내하고 있습니다. 필요하신 경우 읽어보십시오.
 
-If you want run a **private mirror**, see the dedicated section at the end.
+**사설 미러**를 운영하고 싶다면, 문서 끝에 있는 전용 섹션을 참고하세요.
 
-### Requirements
+### 요구사항
 
 <!--
   # Previously/historic values
@@ -49,15 +50,15 @@ If you want run a **private mirror**, see the dedicated section at the end.
   - 2015       :  50 GB
 -->
 
-To be an official Kali Linux mirror, you will need a web-accessible server (HTTP required and HTTPS if possible too) with **lots of disk space, good bandwidth, rsync, and SSH access enabled**. The machine **must have a static IP address**. As of March 2024, the main package repository is about 500 GB and the images repository is about 175 GB but you can expect those numbers to fluctuate, and grow slowly over time. Thus your server should have 1 TB of storage available at least.
+공식 Kali Linux 미러가 되기 위해서는 웹으로 접근 가능한 서버(HTTP 필수, 가능하면 HTTPS도 지원)가 필요하며, **충분한 디스크 공간, 좋은 대역폭, rsync, 그리고 SSH 접속이 활성화**되어 있어야 합니다. 서버는 **반드시 고정 IP 주소**를 가지고 있어야 합니다. 2024년 3월 기준으로 메인 패키지 저장소는 약 500GB이고 이미지 저장소는 약 175GB이지만, 이 수치는 변동될 수 있으며 시간이 지남에 따라 천천히 증가할 것입니다. 따라서 서버는 최소 1TB의 저장 공간을 확보해야 합니다.
 
-A mirror site is expected to make the files available over HTTP and RSYNC so those services will need to be enabled. HTTPS is optional. HTTP must not be redirected to HTTPS. FTP access is optional.
+미러 사이트는 HTTP와 RSYNC를 통해 파일을 제공해야 하므로 이 서비스들이 활성화되어 있어야 합니다. HTTPS는 선택 사항입니다. HTTP는 HTTPS로 리다이렉트되지 않아야 합니다. FTP 액세스는 선택 사항입니다.
 
-**Note on "Push Mirroring"** - The Kali Linux mirroring infrastructure uses SSH-based triggers to ping the mirrors when they need to be refreshed. This currently takes place 4 times a day.
+**"푸시 미러링"에 관한 참고 사항** - Kali Linux 미러링 인프라는 미러가 새로 고침되어야 할 때 미러에 알리기 위해 SSH 기반 트리거를 사용합니다. 이는 현재 하루에 4번 이루어집니다.
 
-### Create a User Account for the Mirror
+### 미러용 사용자 계정 생성하기
 
-If you don't have yet an account dedicated for the mirrors, create such an account (here we call it `archvsync`):
+미러 전용 계정이 아직 없다면, 계정을 생성하세요(여기서는 `archvsync`라고 부릅니다):
 
 ```console
 $ sudo adduser --disabled-password archvsync
@@ -66,18 +67,18 @@ Adding user 'archvsync' ...
 Is the information correct? [Y/n]
 ```
 
-### Create Directories for the Mirror
+### 미러용 디렉토리 생성하기
 
-Create the directories that will contain the mirrors and change their owner to the dedicated user that you just created:
+미러를 포함할 디렉토리를 만들고 방금 생성한 전용 사용자로 소유자를 변경하세요:
 
 ```console
 $ sudo mkdir -p /srv/mirrors/kali{,-images}
 $ sudo chown archvsync:archvsync /srv/mirrors/kali{,-images}
 ```
 
-### Configure rsync
+### rsync 설정하기
 
-Next, configure the rsync daemon (enable it if needed) to export those directories:
+다음으로, rsync 데몬을 설정하여(필요한 경우 활성화) 해당 디렉토리를 내보내도록 합니다:
 
 ```console
 $ sudo sed -i -e "s/RSYNC_ENABLE=false/RSYNC_ENABLE=true/" /etc/default/rsync
@@ -101,11 +102,11 @@ $ sudo service rsync start
 Starting rsync daemon: rsync.
 ```
 
-### Configure Your Mirror
+### 미러 설정하기
 
-Configuration of your web server and FTP server are outside the scope of this article. Ideally, you should export the mirrors at `http://yourmirror.net/kali` and `http://yourmirror.net/kali-images` (and do the same for the FTP protocol, if you're supporting it).
+웹 서버 및 FTP 서버 구성은 이 문서의 범위를 벗어납니다. 이상적으로는 미러를 `http://yourmirror.net/kali`와 `http://yourmirror.net/kali-images`에서 제공해야 합니다(FTP 프로토콜을 지원하는 경우 동일하게 설정).
 
-Now comes interesting part: the configuration of the dedicated user that will handle the SSH trigger and the actual mirroring. You should first unpack [ftpsync.tar.gz](https://archive.kali.org/ftpsync.tar.gz) in the user's account:
+이제 흥미로운 부분입니다: SSH 트리거와 실제 미러링을 처리할 전용 사용자의 설정입니다. 먼저 [ftpsync.tar.gz](https://archive.kali.org/ftpsync.tar.gz)을 사용자 계정에 풀어야 합니다:
 
 ```console
 $ sudo su - archvsync
@@ -113,7 +114,7 @@ $ wget https://archive.kali.org/ftpsync.tar.gz
 $ tar zxf ftpsync.tar.gz
 ```
 
-Now we need to create a configuration file. We start from a template and we edit at least the `MIRRORNAME`, `TO`, `RSYNC_PATH`, and `RSYNC_HOST` parameters:
+이제 설정 파일을 만들어야 합니다. 템플릿에서 시작하여 최소한 `MIRRORNAME`, `TO`, `RSYNC_PATH`, 및 `RSYNC_HOST` 매개변수를 편집합니다:
 
 ```console
 $ whoami
@@ -127,9 +128,9 @@ RSYNC_PATH="kali"
 RSYNC_HOST="archive.kali.org"
 ```
 
-### Set Up the SSH Keys
+### SSH 키 설정하기
 
-The last step is to setup the `.ssh/authorized_keys` file so that archive.kali.org can trigger your mirror:
+마지막 단계는 archive.kali.org가 미러를 트리거할 수 있도록 `.ssh/authorized_keys` 파일을 설정하는 것입니다:
 
 ```console
 $ whoami
@@ -140,15 +141,15 @@ $ wget -O - -q https://archive.kali.org/pushmirror.pub >> ~/.ssh/authorized_keys
 $ chmod 0600 ~/.ssh/authorized_keys
 ```
 
-If you have not unpacked the ftpsync.tar.gz in the home directory, then you must adjust accordingly the `~/bin/ftpsync` path, which is hard-coded in `.ssh/authorized_keys`.
+ftpsync.tar.gz를 홈 디렉토리에 풀지 않은 경우, `.ssh/authorized_keys`에 하드코딩된 `~/bin/ftpsync` 경로를 적절히 조정해야 합니다.
 
-## Making it Public - Getting in Contact
+## 공개 미러 만들기 - 연락하기
 
-Now you must send an email to [devel@kali.org](mailto:devel@kali.org) with all the details concerning your mirrors (including user/port to use for SSH push access, public hostname, etc.) so that you can be added in the main mirror list and so that we can open up your rsync access on archive.kali.org. Please indicate clearly who should be contacted in case of problems (or if changes must be made/coordinated to the mirror setup).
+이제 [devel@kali.org](mailto:devel@kali.org)로 미러에 관한 모든 세부 정보(SSH 푸시 액세스를 위한 사용자/포트, 공개 호스트 이름 등 포함)를 이메일로 보내야 합니다. 그러면 메인 미러 목록에 추가되고 archive.kali.org에서 rsync 액세스를 열어줄 것입니다. 문제가 발생하거나 미러 설정을 변경/조정해야 하는 경우 연락할 담당자를 명확히 표시해 주세요.
 
-### Initial Sync
+### 초기 동기화
 
-Instead of waiting for the first push from archive.kali.org, you should run an initial rsync with a mirror close to you, using the mirror list linked above to select one. Assuming that you picked ftp.halifax.rwth-aachen.de, here's what you can run as your dedicated mirror user:
+archive.kali.org에서 첫 번째 푸시를 기다리는 대신, 가까운 미러와 초기 rsync를 실행하는 것이 좋습니다. 위에서 링크된 미러 목록을 사용하여 하나를 선택하세요. ftp.halifax.rwth-aachen.de를 선택했다고 가정하면, 전용 미러 사용자로 다음을 실행할 수 있습니다:
 
 ```console
 $ whoami
@@ -157,17 +158,17 @@ $ rsync -qaH ftp.halifax.rwth-aachen.de::kali /srv/mirrors/kali/ &
 $ rsync -qaH ftp.halifax.rwth-aachen.de::kali-images /srv/mirrors/kali-images/ &
 ```
 
-### Firewall Rules
+### 방화벽 규칙
 
-If you limit network traffic, please make sure the following has been allowed to access your services:
+네트워크 트래픽을 제한하는 경우, 다음 서비스에 대한 접근이 허용되었는지 확인하세요:
 
-- SSH (22/TCP) - <archive.kali.org> (aka `192.99.45.140` and `2607:5300:60:508c::`)
-- RSYNC (873/TCP) - <archive.kali.org> (aka `192.99.45.140` and `2607:5300:60:508c::`)
-- RSYNC (873/TCP) - <http.kali.org> (aka `54.39.128.230` and `2607:5300:203:3fe6::`)
+- SSH (22/TCP) - <archive.kali.org> (또는 `192.99.45.140` 및 `2607:5300:60:508c::`)
+- RSYNC (873/TCP) - <archive.kali.org> (또는 `192.99.45.140` 및 `2607:5300:60:508c::`)
+- RSYNC (873/TCP) - <http.kali.org> (또는 `54.39.128.230` 및 `2607:5300:203:3fe6::`)
 
-### Set Up cron to Manually Mirror ISO Images
+### ISO 이미지 수동 미러링을 위한 cron 설정
 
-The ISO images repository does not use push mirroring so you must schedule a daily rsync run. We provide a `bin/mirror-kali-images` script, which is ready to use, and that you can add in the crontab of your dedicated user. You just have to configure `etc/mirror-kali-images.conf`:
+ISO 이미지 저장소는 푸시 미러링을 사용하지 않으므로 일일 rsync 실행을 예약해야 합니다. 바로 사용할 수 있는 `bin/mirror-kali-images` 스크립트가 제공되며, 이를 전용 사용자의 crontab에 추가할 수 있습니다. `etc/mirror-kali-images.conf`를 구성하기만 하면 됩니다:
 
 ```console
 $ whoami
@@ -182,11 +183,11 @@ $ crontab -l
 39 3 * * * ~/bin/mirror-kali-images
 ```
 
-_Please adjust the precise time_ so that archive.kali.org doesn't get overloaded by too many mirrors at the same time.
+archive.kali.org가 동시에 너무 많은 미러로 인해 과부하되지 않도록 _정확한 시간을 조정하세요_.
 
-## How to Set Up a Private Kali Linux Mirror
+## 사설 Kali Linux 미러 설정 방법
 
-If you want to setup a private mirror, you can use the same tools as for the public mirror with the following differences:
+사설 미러를 설정하고 싶다면, 다음과 같은 차이점을 제외하고 공개 미러와 동일한 도구를 사용할 수 있습니다:
 
-- you will not be able to use SSH push mirroring for the package repository, instead you have to put `~/bin/ftpsync sync:archive:kali` in the crontab of the user owning the mirror (`archvsync` in the above explanation).
-- you must use a non-kali.org mirror as the source mirror, almost all of them offer public rsync access (kali.org servers are restricted)
+- 패키지 저장소를 위한 SSH 푸시 미러링을 사용할 수 없으므로, 미러 소유 사용자(위 설명에서는 `archvsync`)의 crontab에 `~/bin/ftpsync sync:archive:kali`를 추가해야 합니다.
+- 소스 미러로 kali.org가 아닌 미러를 사용해야 합니다. 대부분은 공개 rsync 액세스를 제공합니다(kali.org 서버는 제한됨)

@@ -1,22 +1,22 @@
 ---
-title: Official Kali Linux Mirrors
+title: 공식 칼리 리눅스 미러
 description:
 icon:
 weight:
 author: ["g0tmi1k",]
 ---
 
-## Using Official Repositories
+## 공식 저장소 사용하기
 
-The Kali Linux distribution has two [repositories](/docs/general-use/kali-linux-sources-list-repositories/), which are mirrored world-wide:
+칼리 리눅스 배포판은 전 세계에 미러링된 두 개의 [저장소](/docs/general-use/kali-linux-sources-list-repositories/)가 있습니다:
 
-- [http.kali.org](http://http.kali.org/) ([mirrorlist](http://http.kali.org/README?mirrorlist)): the main package repository;
-- [cdimage.kali.org](http://cdimage.kali.org/) ([mirrorlist](http://cdimage.kali.org/README?mirrorlist)): the repository of pre-built Kali ISO images.
+- [http.kali.org](http://http.kali.org/) ([미러 목록](http://http.kali.org/README?mirrorlist)): 주요 패키지 저장소;
+- [cdimage.kali.org](http://cdimage.kali.org/) ([미러 목록](http://cdimage.kali.org/README?mirrorlist)): 사전 빌드된 칼리 ISO 이미지 저장소.
 
-When using the default hosts listed above, you'll automatically be redirected to a mirror site which is geographically close to you, and which is guaranteed to be up-to-date. If you prefer to manually select a mirror, click on the **mirrorlist** link near each hostname above and select a mirror that suits you. You will then need to edit your `/etc/apt/sources.list` file accordingly with the chosen values.
+위에 나열된 기본 호스트를 사용하면 지리적으로 가까운 미러 사이트로 자동 연결되며, 이 미러 사이트는 항상 최신 상태를 유지합니다. 수동으로 미러를 선택하고 싶다면, 각 호스트 이름 옆에 있는 **미러 목록** 링크를 클릭하고 원하는 미러를 선택하세요. 그런 다음 선택한 값에 따라 `/etc/apt/sources.list` 파일을 적절히 편집해야 합니다.
 
 {{% notice info %}}
-IMPORTANT! Do not add additional repositories to your <a href="/docs/general-use/kali-linux-sources-list-repositories/"/>/etc/apt/sources.list</a> file.<br />
+중요! <a href="/docs/general-use/kali-linux-sources-list-repositories/"/>/etc/apt/sources.list</a> 파일에 추가 저장소를 추가하지 마세요.<br />
 <br />
-Doing so will most likely break your Kali installation.
+추가할 경우 칼리 설치가 손상될 가능성이 높습니다.
 {{% /notice %}}

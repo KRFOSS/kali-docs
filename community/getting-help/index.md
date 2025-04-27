@@ -1,74 +1,74 @@
 ---
-title: How And Where To Get Help
+title: 어디에서 도움을 요청하고 받을 수 있는가?
 description:
 icon:
 weight:
 author: ["gamb1t",]
 ---
 
-This doc shares some of the same information as our [basics of troubleshooting doc](/docs/troubleshooting/basic-troubleshooting/). If you feel like you do not need a lot of extra information or explanation, basics of troubleshooting may be the doc for you.
+이 문서는 [문제 해결의 기초 문서](/docs/troubleshooting/basic-troubleshooting/)와 일부 내용을 공유합니다. 너무 많은 설명이나 추가 정보가 필요하지 않다면, 문제 해결의 기초 문서가 더 적합할 수 있습니다.
 
-If you believe something is missing or could be improved, please submit an issue to help to try and get this to be as complete as possible.
+이 문서에서 부족하거나 개선할 점이 있다면, 최대한 완벽한 문서를 만들기 위해 이슈를 제출해 주세요.
 
-## Local Documentation
+## 로컬 문서
 
-The first item that should always be checked when an issue is encountered is the man page. Man pages will contain helpful information such as command switches available and what they do, descriptions on parts of the tool, and additional man pages that can be read. To access a man page, type `man` followed by the command that you are requiring assistance on. Keep in mind not every command will have a man page. In those cases, try running the command followed by `--help`, `-help`, `-h`, or `-H`.
+문제가 발생했을 때 가장 먼저 확인해야 할 것은 man 페이지입니다. man 페이지에는 사용 가능한 명령어 옵션과 그 기능, 도구의 각 부분에 대한 설명, 그리고 추가로 읽을 수 있는 man 페이지 등 유용한 정보가 담겨 있습니다. man 페이지에 접근하려면 `man` 뒤에 도움이 필요한 명령어를 입력하면 됩니다. 모든 명령어에 man 페이지가 있는 것은 아니라는 점을 명심하세요. 그런 경우에는 명령어 뒤에 `--help`, `-help`, `-h`, 또는 `-H`를 붙여 실행해 보세요.
 
-One thing to note about man pages is that sometimes names will conflict with other commands. In these cases it is helpful to know the organization structure:
+man 페이지에 관해 알아야 할 한 가지는 때때로 이름이 다른 명령어와 충돌할 수 있다는 점입니다. 이런 경우에는 다음과 같은 구성 구조를 알고 있으면 도움이 됩니다:
 
-1. Commands that can be executed from the command line
-2. System calls (functions provided by the kernel)
-3. Library functions (provided by system libraries)
-4. Devices (on Unix-like systems, these are special files, usually placed in the /dev/ directory)
-5. Configuration files (formats and conventions)
-6. Games
-7. Sets of macros and standards
-8. System administration commands
-9. Kernel routines
+1. 명령줄에서 실행할 수 있는 명령어
+2. 시스템 호출 (커널이 제공하는 함수)
+3. 라이브러리 함수 (시스템 라이브러리에서 제공)
+4. 장치 (유닉스 계열 시스템에서는 이들이 특수 파일로, 보통 /dev/ 디렉토리에 위치)
+5. 설정 파일 (형식 및 규칙)
+6. 게임
+7. 매크로 및 표준 세트
+8. 시스템 관리 명령어
+9. 커널 루틴
 
-The `read` command is a good example of this as it is a system call as well as a command. Running `man read` will go for the earliest available page, meaning the command, so it will show as read(1). To get information on the system call we would have to run `man 2 read`.
+`read` 명령어는 시스템 호출이면서 동시에 명령어이기 때문에 좋은 예입니다. `man read`를 실행하면 가장 먼저 사용 가능한 페이지, 즉 명령어를 보여주므로 read(1)로 표시됩니다. 시스템 호출에 대한 정보를 얻으려면 `man 2 read`를 실행해야 합니다.
 
-Another helpful tool to have is `pinfo`. Certain programs may have a manual written for it in the _info_ format, and `pinfo` is a good way to view them. Alternatively, `yelp` or `konqueror`. If there is not anything of the sort available it will fall back to the tool's man page.
+또 다른 유용한 도구는 `pinfo`입니다. 일부 프로그램은 _info_ 형식으로 작성된 매뉴얼을 가지고 있으며, `pinfo`는 이를 보는 좋은 방법입니다. 대안으로 `yelp`나 `konqueror`를 사용할 수도 있습니다. 이런 종류의 문서가 없다면 도구의 man 페이지로 대체됩니다.
 
-Packages also typically have specific documentation that they put out along with their tool. This can be found most commonly in **/usr/share/doc/_package_**. In other cases, the documentation might be in a separate package. Commonly this will be **_package_-doc**.
+패키지들은 일반적으로 자신들의 도구와 함께 제공하는 특정 문서를 갖고 있습니다. 이는 대개 **/usr/share/doc/_패키지_**에서 찾을 수 있습니다. 다른 경우에는 문서가 별도의 패키지에 있을 수도 있습니다. 보통 이런 패키지는 **_패키지_-doc**이라는 이름입니다.
 
-Should you need access to a command and you cannot remember the name of that command, `apropos` will help you find it. It returns the command name and man page section. It searches through the summary of man pages looking for the key words that you supply, which is also what is presented:
+명령어의 이름이 기억나지 않아 접근이 필요하다면, `apropos`가 도움이 될 것입니다. 이 명령어는 명령어 이름과 man 페이지 섹션을 반환합니다. 여러분이 제공한 키워드를 포함하는 man 페이지 요약을 검색하여 결과를 보여줍니다:
 
 ```console
 kali@kali:~$ apropos "copy file"
-cp (1)               - copy files and directories
-cpio (1)             - copy files to and from archives
-install (1)          - copy files and set attributes
-ntfscp (8)           - copy file to an NTFS volume.
+cp (1)               - 파일과 디렉토리 복사
+cpio (1)             - 파일을 아카이브로 복사하거나 아카이브에서 복사
+install (1)          - 파일을 복사하고 속성 설정
+ntfscp (8)           - NTFS 볼륨에 파일 복사
 kali@kali:~$
 ```
 
-## Online Documentation
+## 온라인 문서
 
-Asking questions online can receive some pretty unhelpful responses in certain cases. Most famously, RTFM, a.k.a. read the fine manual _(Which is the friendlier version)_. Eric Raymond has a [guideline](http://catb.org/~esr/faqs/smart-questions.html) which is a good way to avoid the most common mistakes and get useful answers.
+온라인에서 질문을 하면 때로는 그다지 도움이 되지 않는 답변을 받을 수 있습니다. 가장 유명한 것은 RTFM, 즉 '매뉴얼을 읽으라'는 것입니다 _(좀 더 친절한 버전이죠)_. 에릭 레이먼드는 가장 흔한 실수를 피하고 유용한 답변을 받을 수 있는 [가이드라인](http://catb.org/~esr/faqs/smart-questions.html)을 제공합니다.
 
-When you encounter an error or have a question and need to seek help, you want to be sure to find the right sources of information. In many cases there should be some form of error or error log produced if there is a bug or issue encountered. This might be found in **/var/log**.
+에러가 발생하거나 질문이 있어 도움을 구할 때, 올바른 정보 소스를 찾는 것이 중요합니다. 대부분의 경우 버그나 문제가 발생하면 어떤 형태의 오류나 오류 로그가 생성됩니다. 이는 **/var/log**에서 찾을 수 있을 것입니다.
 
-A few places of note to check:
+확인해볼 만한 곳:
 
-- Anywhere mentioned in the tool's documentation
+- 도구의 문서에서 언급된 곳
 - **/var/log/syslog**
 - `dmesg`
-- If it is a service, `systemctl status package-with-issue`
-- The tools website
+- 서비스인 경우, `systemctl status 문제가-있는-패키지`
+- 도구의 웹사이트
 
-In order to find the tool's website what can be done is utilizing search engine's advanced search functions and ways of completing requests. Should you need information on the brute forcing tool Hydra, you could search any of the following: "Hydra linux", "Hydra hacking", "Hydra brute force", "Hydra Kali", "Hydra pentest", etc. This can also be used for errors, if you search a snippet of the error you can utilize extra key-words or quotes to force certain things to be in the results. Keep in mind sometimes an error might not be the fault of that tool however, and quotes may remove the actual answer you need.
+도구의 웹사이트를 찾기 위해서는 검색 엔진의 고급 검색 기능과 요청 완성 방법을 활용할 수 있습니다. 브루트 포스 도구 Hydra에 관한 정보가 필요하다면, 다음과 같이 검색할 수 있습니다: "Hydra linux", "Hydra 해킹", "Hydra 브루트 포스", "Hydra Kali", "Hydra 펜테스트" 등. 이는 오류 검색에도 적용할 수 있습니다. 오류 메시지의 일부를 검색하면서 추가 키워드나 따옴표를 사용해 특정 결과를 강제할 수 있습니다. 단, 때로는 오류가 해당 도구의 문제가 아닐 수도 있으며, 따옴표를 사용하면 실제로 필요한 답변이 제외될 수 있다는 점을 기억하세요.
 
-_StackOverflow and similar sites/forums, tool's homepages, bug reports, and studying write-ups have been in my, Gamb1t's, opinion the best sources online for information. Twitter, Reddit, Discords, etc all have their place and have been useful now and then however they are the last place I will consult. To best learn about a topic or solve a problem, I will read and read to try and fully understand where an issue is. Again, this is my opinion and each person will learn in their own way. However this is not always going to work, and occasionally issues will have to be figured out individually._
+_제 개인적인 의견으로는, StackOverflow와 비슷한 사이트/포럼, 도구의 홈페이지, 버그 리포트, 그리고 작성된 가이드를 공부하는 것이 온라인에서 정보를 얻는 가장 좋은 방법이라고 생각합니다. Twitter, Reddit, Discord 등도 나름의 역할이 있고 가끔 유용하지만, 저는 이들을 마지막에 참고합니다. 주제에 대해 배우거나 문제를 해결하기 위해서는 문제가 어디에 있는지 완전히 이해하기 위해 많이 읽으려고 노력합니다. 다시 말하지만, 이는 제 개인적인 의견이며 각자 자신만의 학습 방식이 있을 것입니다. 하지만 이것이 항상 통하는 것은 아니며, 때로는 문제를 개별적으로 해결해야 할 수도 있습니다._
 
-## Troubleshooting
+## 문제 해결
 
-When all options are exhausted and something still isn't known or resolved, troubleshooting and learning by doing is sometimes necessary. In these cases, there are a few things to remember to prevent damaging anything important.
+모든 옵션을 시도했는데도 여전히 문제가 해결되지 않거나 알 수 없는 경우, 직접 시도하면서 배우는 것이 필요할 때가 있습니다. 이런 경우, 중요한 것들을 손상시키지 않기 위해 기억해야 할 몇 가지 사항이 있습니다.
 
-When possible, create a VM just for the purpose of learning something, and try and see if you can replicate the issue in that VM if that is the case. If you are using a VM, remember to utilize snapshots. In cases where VMs are not a possibility or the problem cannot be recreated there, be sure to backup any important files if you believe they may be altered in any way. Commenting out lines in files that you are altering is also a good idea. Utilizing the previous information, you likely would have a really good idea of what is going on with the tool and where things are at. Use this to pinpoint the issue and attempt to resolve it. Configuration files, launch scripts, missing files, etc all can be frustrating to work with but the next time you have a similar issue the resolution time will be quicker.
+가능하다면 무언가를 배우는 목적으로만 VM을 만들고, 해당 VM에서 문제를 재현할 수 있는지 확인해보세요. VM을 사용한다면 스냅샷을 활용하는 것을 잊지 마세요. VM을 사용할 수 없거나 문제를 재현할 수 없는 경우, 중요한 파일이 변경될 가능성이 있다면 반드시 백업해두세요. 변경하는 파일의 줄을 주석 처리하는 것도 좋은 방법입니다. 이전 정보를 활용하면, 도구의 작동 방식과 현재 상태에 대해 꽤 좋은 이해를 갖게 될 것입니다. 이를 통해 문제를 정확히 찾아 해결하세요. 설정 파일, 실행 스크립트, 누락된 파일 등은 다루기 어려울 수 있지만, 다음에 비슷한 문제가 발생하면 해결 시간이 더 빨라질 것입니다.
 
-## Reporting
+## 보고하기
 
-Always remember to report bugs to where they should be. Kali Linux manages certain packages, and Debian manages others. If the tool creator's GitHub/GitLab cannot be found then reporting to Kali Linux or Debian would be a good replacement, however in the majority of cases the GitHub/GitLab will be able to be found. Doing `apt show package` will list a homepage which may link to the GitHub/GitLab. In the case that either their homepage does not or the `apt show` does not show a homepage, Google will likely produce results.
+버그는 항상 적절한 곳에 보고해야 한다는 것을 기억하세요. Kali Linux는 특정 패키지를 관리하고, Debian은 다른 패키지를 관리합니다. 도구 제작자의 GitHub/GitLab을 찾을 수 없다면 Kali Linux나 Debian에 보고하는 것이 좋은 대안이 될 수 있습니다. 하지만 대부분의 경우 GitHub/GitLab은 찾을 수 있을 것입니다. `apt show 패키지`를 실행하면 GitHub/GitLab로 연결될 수 있는 홈페이지가 표시됩니다. 홈페이지가 표시되지 않거나 `apt show`에 홈페이지 정보가 없는 경우, 구글에서 검색하면 결과를 찾을 수 있을 것입니다.
 
-In the case of reporting a bug to Kali Linux, we have a doc on just [that topic](/docs/community/submitting-issues-kali-bug-tracker/).
+Kali Linux에 버그를 보고하는 경우, [해당 주제에 관한 문서](/docs/community/submitting-issues-kali-bug-tracker/)를 참조하세요.

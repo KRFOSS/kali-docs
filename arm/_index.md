@@ -6,7 +6,7 @@ weight: 30
 author: ["",]
 ---
 
-For a device, image and kernel overview, see [arm.kali.org](https://arm.kali.org/)
+기기, 이미지 및 커널 개요는 [arm.kali.org](https://arm.kali.org/)에서 확인하세요. 
 
 <!--
 | Device | [Build Script](https://gitlab.com/kalilinux/build-scripts/kali-arm/) | [Official Image](/get-kali/) | Community Image | Retired Image |

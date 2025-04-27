@@ -1,31 +1,31 @@
 ---
-title: Kali Linux Community Forums
+title: 칼리 리눅스 커뮤니티 포럼
 description:
 icon:
 weight:
 author: ["g0tmi1k",]
 ---
 
-The official community forums for the Kali Linux project are located at [forums.kali.org](https://forums.kali.org/).
+칼리 리눅스 프로젝트의 공식 커뮤니티 포럼은 [forums.kali.org](https://forums.kali.org/)에 위치하고 있습니다.
 
-It's our goal that everyone feel welcome in the Kali Linux community, and to ensure that everyone understands the expectations, we have outlined some simple rules below. Please take a few moments to review them before joining the forums.
+칼리 리눅스 커뮤니티에서 모두가 환영받는 느낌을 갖게 하는 것이 우리의 목표이며, 모든 사람이 기대 사항을 이해할 수 있도록 아래에 몇 가지 간단한 규칙을 설명했습니다. 포럼에 가입하기 전에 잠시 시간을 내어 검토해 주세요.
 
-### Forum Rules
+### 포럼 규칙
 
-By registering with our forums you agree to be bound by the following rules.
+포럼에 등록함으로써 귀하는 다음 규칙을 준수하는 데 동의합니다.
 
-- We do not condone any illegal activity at all.
-- Any advice or information offered in the forums is to be used for legal informational, professional, or educational purposes.
-- New registrants' posts will be moderated at first, causing a slight delay in the post appearing - please _**do not**_ report problems with your post not appearing instantly during your first three days of membership.
-- Please use sensible and descriptive titles for your posts - titles like "Please Help Me!!" or "Need Assistance" or "What Am I Doing Wrong?" etc., don't give forum members any idea what the issue might be and are unlikely to draw either interest or assistance.
-- Do _not_ cross-post across sub-forums, please - one post in the relevant area is enough!
-- Before creating a new thread, please search the forums for similar or related previous postings. If you _do_ create a new thread asking a question that has already been asked, don't be surprised if your thread gets deleted without notice.
-- **_Do not post_** about breaking into networks that do not belong to you and for which you have no permissions. _**Do not post**_ about illegal activities.
-- Religious, political, or pornographic references will _not_ be tolerated. Stay on topic.
-- Posts about your success in "hacking" into your neighbours WiFi or queries about how to break into a network, etc., are not welcome and will vanish (quite possibly along with your user ID).
-- Spam messages they will be summarily removed, and you will be summarily banned if you posted them.
-- Members signatures may **not** contain URLs or web links, in _any_ form.
-- We _will not tolerate_ abusive, sexist, racist, or any other derogatory remarks, nor members acting like self-appointed moderators. The forum staff are responsible for moderation, and they're here to help you. Please use their services.
-- If ANY member has an issue with the content of ANY post within the forums, use the "**REPORT THIS POST**" button - This is the red triangle icon when using the default forum theme (or the asterisk icon when using the Blackfire Razor forum theme) found in the _top right corner_ of each post.
-- Breaking the forum rules may incur infractions ranging from loss of posting privileges to a temporary or permanent ban, at the sole discretion of the forum staff.
-- These rules are subject to alteration and/or addition. You are responsible for staying aware of any changes.
+- 우리는 어떠한 불법 활동도 용납하지 않습니다.
+- 포럼에서 제공되는 조언이나 정보는 합법적인 정보 제공, 전문적인 목적, 또는 교육적인 목적으로만 사용되어야 합니다.
+- 새로운 등록자의 게시물은 처음에는 검토 과정을 거치므로 게시물이 나타나는 데 약간의 지연이 발생합니다 - 회원 가입 후 처음 3일 동안 게시물이 즉시 표시되지 않는 문제를 _**보고하지 마세요**_.
+- 게시물에 적절하고 설명적인 제목을 사용해 주세요 - "도와주세요!!", "도움이 필요해요", "무엇이 잘못되었나요?" 등과 같은 제목은 포럼 회원들에게 문제가 무엇인지 알려주지 않으며 관심이나 도움을 받기 어렵습니다.
+- 여러 하위 포럼에 동일한 내용을 중복 게시하지 _마세요_ - 관련 영역에 단 하나의 게시물로 충분합니다!
+- 새 스레드를 만들기 전에 유사하거나 관련된 이전 게시물을 포럼에서 검색해 보세요. 만약 이미 질문된 내용에 대해 새 스레드를 만드는 경우, 통보 없이 스레드가 삭제될 수 있다는 점을 기억하세요.
+- 귀하의 소유가 아니거나 권한이 없는 네트워크에 침입하는 것에 대해 **_게시하지 마세요_**. 불법 활동에 대해 **_게시하지 마세요_**.
+- 종교적, 정치적, 또는 포르노그래픽 참조는 _용납되지 않습니다_. 주제에서 벗어나지 마세요.
+- 이웃의 와이파이를 "해킹"하는 성공에 대한 게시물이나 네트워크 침입 방법에 대한 질문 등은 환영받지 않으며 삭제될 것입니다(사용자 ID도 함께 삭제될 수 있음).
+- 스팸 메시지는 즉시 제거되며, 게시한 경우 즉시 차단될 것입니다.
+- 회원 서명에는 URL이나 웹 링크가 _어떤 형태로든_ 포함되어서는 **안 됩니다**.
+- 우리는 모욕적, 성차별적, 인종차별적, 또는 기타 비하적인 발언이나 자체 선언한 중재자처럼 행동하는 회원을 _용납하지 않을 것입니다_. 포럼에는 관리자가 있으며 중재를 담당합니다. 필요한 경우 그들에게 도움을 받으세요.
+- 포럼 내의 **어떤** 게시물에 대해 **어떤** 회원이라도 문제가 있는 경우, "**게시물 신고**" 버튼을 사용해주세요 - 이것은 기본 포럼 테마에서는 각 게시물의 _오른쪽 상단 모서리_에 있는 빨간색 삼각형 아이콘입니다(Blackfire Razor 포럼 테마를 사용할 때는 별표 아이콘).
+- 포럼 규칙을 위반하면 게시 권한 상실부터 일시적 또는 영구적 차단까지 포럼 직원의 전적인 재량에 따라 제재가 부과될 수 있습니다.
+- 이 규칙들은 변경 및/또는 추가될 수 있습니다. 귀하는 모든 변경 사항을 인지하고 있어야 할 책임이 있습니다.
