@@ -1,36 +1,36 @@
 ---
-title: 3D acceleration with Mesa 21 & Direct3D 12
-description: Enabled 3D acceleration for Kali Linux in WSL
+title: Mesa 21 & Direct3D 12를 사용한 3D 가속
+description: WSL의 Kali Linux에서 3D 가속 활성화하기
 icon: ti-pin
 archived: "true"
 weight:
 author: ["arnaudr",]
 ---
 
-**This page is obsolete**. Everything required to run Kali Linux in WSL is already available in Kali Rolling, there is no need to install packages from the `kali-experimental` branch.
+**이 페이지는 더이상 사용되지 않습니다**. WSL에서 Kali Linux를 실행하는데 필요한 모든 것은 Kali Rolling에서 사용할 수 있습니다, 패키지를 설치하기 위해 `kali-experimental` 브랜치에서 설치할 필요는 없습니다.
 
-## Content:
+## 목차:
 
-- [Overview](#overview)
-- [Installation Steps](#installation-steps)
+- [개요](#개요)
+- [설치 단계](#설치-단계)
 
-## Overview
+## 개요
 
-Mesa 3D is a fundamental part of the graphics stack that powers Kali Linux. The version 21 of Mesa 3D, released in March 2021, brings support for GPU accelerated 3D graphics in WSL. This feature is available for hardware that support Direct3D 12. And roughly, it means that for those who run Kali Linux in Windows via WSL, GUI apps that can use a GPU should perform much better.
+Mesa 3D는 Kali Linux를 구동하는 그래픽 스택의 기본 부분입니다. Mesa3D의 버전은 21이며, 2021년 3월에 출시되었습니다, WSL에서 GPU 가속된 3D 그래픽을 지원합니다. 이 기능은 하드웨어에서 Direct3D 12를 지원하는 경우 사용할 수 있습니다. 그리고 대략적으로, WSL을 통해 Windows에서 Kali Linux를 실행하는 경우 GPU를 사용하는 GUI 앱은 훨씬 더 나은 성능을 발휘합니다.
 
-Note that at the moment, GUI app support in WSL is not yet released to the public, it is only available as part of the "Insider Builds" of WSL. Also note that this is something very new and not widely tested.
+현재로서는, WSL에서 GUI 앱 지원은 아직 공개적으로 출시되지 않았습니다. WSL의 "인사이더 빌드"의 일부로만 제공됩니다. 또한 이것은 새롭고 널리 테스트되지 않은 기능입니다.
 
-In this page, we describe the procedure to install the latest version of Mesa from the branch `kali-experimental` of Kali Linux.
+이 페이지에서는, Kali Linux의 `kali-experimental` 브랜치에서 최신 버전의 Mesa를 설치하는 방법을 설명합니다.
 
-## Installation Steps
+## 설치 단계
 
-Open a terminal, and login as the root user:
+터미널을 열고, root 사용자로 로그인하세요:
 
 ```console
 kali@kali:~$ sudo su
 ```
 
-Make sure that your installation of Kali Linux is up to date:
+Kali Linux가 최신 상태인지 확인하세요:
 
 ```console
 root@kali:~# apt update
@@ -40,7 +40,7 @@ root@kali:~# apt full-upgrade
 [...]
 ```
 
-Add the `kali-experimental` suite to your APT sources:
+`kali-experimental`을 APT 소스에 추가하세요:
 
 ```console
 root@kali:~# cat <<EOF > /etc/apt/sources.list.d/kali-experimental.list
@@ -48,14 +48,14 @@ deb http://http.kali.org/kali kali-experimental main contrib non-free non-free-f
 EOF
 ```
 
-Update again so that APT knows about Kali experimental:
+APT가 Kali experimental을 인식할 수 있도록 다시 업데이트하세요:
 
 ```console
 root@kali:~# apt update
 [...]
 ```
 
-And now we can upgrade the graphics stack, ie. Mesa and DRM:
+이제 우리는 Mesa와 DRM같은 그래픽 스택을 업그레이드할 수 있습니다:
 
 ```console
 root@kali:~# apt install -t kali-experimental '?upgradable ?source-package("mesa|libdrm")'
@@ -69,9 +69,9 @@ The following packages will be upgraded:
 10 upgraded, 1 newly installed, 0 to remove and 36 not upgraded.
 ```
 
-Let's take a bit of time to understand this command-line:
-- `-t kali-experimental`: ask APT to install packages from `kali-experimental`.
-- `?upgradable`: select packages that can be upgraded (have a newer candidate).
-- `?source-package("mesa|libdrm")`: select only packages that belong to the `mesa` and the `libdrm` source packages.
+잠시 시간을 내어 이 명령줄을 이해해 보겠습니다:
+- `-t kali-experimental`: APT가 `kali-experimental`로 설치할 수 있도록 요청합니다.
+- `?upgradable`: 패키지 업그레이드가 가능한 경우 선택합니다 (더 새로운 후보가 있는 경우).
+- `?source-package("mesa|libdrm")`: `mesa`와 `libdrm`의 소스 패키지에 속한 패키지만 선택합니다.
 
-That's it, Kali Linux is now using Mesa 3D 21!
+그게 다입니다, Kali Linux는 Mesa 3D 21을 사용합니다!
