@@ -1,3 +1,7 @@
+<div style="text-align: center;">
+  <img src="https://www.kali.org/docs/policy/trademark/kali-tm.png" alt="칼리 로고" width="300" />
+</div>
+
 # 칼리 리눅스 한국어 문서
 
 칼리 리눅스 한국어 문서에 오신 걸 환영합니다!
@@ -26,3 +30,9 @@
 이 저장소에 기여한 사람은 이곳에 이름을 올리게 됩니다! 
 - xenix4845
 - kmw0410
+
+## 저작권 및 상표
+
+Kali Linux 및 그 로고는 [Offensive Security](https://www.offensive-security.com/)의 상표입니다. 이 문서는 Kali Linux의 공식 문서가 아니며, Offensive Security와 직접적인 관련이 없습니다. 이것은 커뮤니티 차원에서 이뤄지는 문서 번역입니다. 공식 문서는 [Kali-Docs](https://www.kali.org/docs/)에서 확인하십시오.
+
+Kali Linux and its logo are trademarks of [Offensive Security](https://www.offensive-security.com/). This document is not an official document of Kali Linux and is not directly affiliated with Offensive Security. This is a community-driven document translation effort. Please refer to the official documentation at [Kali-Docs](https://www.kali.org/docs/).
