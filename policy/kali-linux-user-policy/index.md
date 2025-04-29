@@ -1,26 +1,26 @@
 ---
-title: Kali Linux User Policy
+title: Kali Linux 사용자 정책
 description:
 icon:
 weight:
 author: ["g0tmi1k",]
 ---
 
-In order to execute commands at a privileged level, Kali uses two methods todo so:
+Kali에서 권한이 필요한 명령을 실행하기 위해 두 가지 방법을 사용합니다:
 
-- pkexec (GUI & cli)
-- sudo (cli)
+- pkexec (GUI 및 명령줄)
+- sudo (명령줄)
 
-It is also worth bearing in mind, some tools may perform differently without super-user privileges. An example of this is [nmap](https://nmap.org/book/man-port-scanning-techniques.html). As stated on the website:
+또한 일부 도구는 관리자(super-user) 권한 없이 실행할 때 다르게 작동할 수 있다는 점을 유의해야 합니다. [nmap](https://nmap.org/book/man-port-scanning-techniques.html)이 그 예입니다. 웹사이트에 명시된 바와 같이:
 
-> By default, Nmap performs a SYN Scan, though it substitutes a connect scan if the user does not have proper privileges to send raw packets (requires root access on Unix).
+> 기본적으로 Nmap은 SYN 스캔을 수행하지만, 사용자가 원시 패킷을 보낼 적절한 권한이 없는 경우(Unix에서 루트 액세스 필요) 연결 스캔으로 대체합니다.
 
-This means:
+이는 다음을 의미합니다:
 
-- SYN scan (`-sS`) is the default for a root user. This is quicker as it only sends a SYN packet, but it requires special capabilities in order to perform this, requiring root.
-- Connect scan (`-sT`) is the default for a non-root user. This will complete the 3-way handshake, as a result takes longer and uses more packets than a SYN scan.
+- SYN 스캔(`-sS`)은 루트 사용자의 기본값입니다. SYN 패킷만 전송하므로 더 빠르지만, 이를 수행하기 위해 루트 권한이 필요한 특별한 기능이 요구됩니다.
+- 연결 스캔(`-sT`)은 루트가 아닌 사용자의 기본값입니다. 3단계 핸드셰이크를 완료하기 때문에 SYN 스캔보다 시간이 더 오래 걸리고 더 많은 패킷을 사용합니다.
 
-If you wish to restore how Kali previous operated, you can install the following package:
+Kali가 이전처럼 작동하도록 복원하고 싶다면 다음 패키지를 설치할 수 있습니다:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -31,4 +31,4 @@ kali@kali:~$
 
 - - -
 
-This policy is since Kali Linux 2020.1. Here is our [previous root policy](/docs/policy/kali-linux-root-user-policy/).
+이 정책은 Kali Linux 2020.1부터 적용되었습니다. 여기 [이전 루트 정책](/docs/policy/kali-linux-root-user-policy/)을 확인하실 수 있습니다.

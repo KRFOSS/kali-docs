@@ -1,26 +1,30 @@
 ---
-title: Penetration Testing Tools Policy
+title: 침투 테스팅 도구 정책
 description:
 icon:
 weight:
 author: ["g0tmi1k",]
 ---
+{{% notice info %}}
+이 문서에서 말하는 '우리'는 ROKFOSS 프로젝트가 아닌 Kali Linux와 Offsec을 의미합니다.
+{{% /notice %}}
 
-One of the key tasks in transitioning from [BackTrack](https://www.backtrack-linux.org/) to Kali was combing through the packages and selecting the "best of breed" from what was available.
 
-We realize that there are many tools or scripts that can do the same job. Some are clearly better than others in some respect, some are more a matter of personal preference. With this in mind, keeping an updated, useful penetration testing tool repository is a challenging task. The Kali Development team uses some of these questions to help decide whether a specific tool should be included in Kali Linux.
+[BackTrack](https://www.backtrack-linux.org/)에서 Kali로 전환하는 과정에서 가장 중요한 작업 중 하나는 사용 가능한 패키지들을 면밀히 검토하고 그 중에서 "최고의 도구"를 선별하는 것이었습니다.
 
-- Is the tool useful/functional in a Penetration Testing environment?
-- Does the tool overlap functionality of other existing tools?
-- Does the licensing of the tool allow for free redistribution?
-- How much resources does the tool require? Will it work in a "standard" environment?
+우리는 동일한 작업을 수행할 수 있는 많은 도구나 스크립트가 있다는 것을 알고 있습니다. 일부는 특정 측면에서 분명히 다른 것보다 우수하며, 일부는 개인적인 선호도의 문제입니다. 이러한 점을 고려할 때, 최신 상태를 유지하고 유용한 침투 테스팅 도구 저장소를 관리하는 것은 도전적인 작업입니다. Kali 개발팀은 특정 도구를 Kali Linux에 포함시킬지 결정하는 데 도움이 되는 다음과 같은 질문들을 사용합니다.
 
-The answers to questions such as these, among other considerations, help us come to a decision whether the tool should be included in Kali.
+- 해당 도구가 침투 테스팅 환경에서 유용하거나 기능적입니까?
+- 해당 도구가 다른 기존 도구의 기능과 중복됩니까?
+- 해당 도구의 라이선스가 자유로운 재배포를 허용합니까?
+- 해당 도구가 얼마나 많은 자원을 요구합니까? "표준" 환경에서 작동할 수 있습니까?
 
-Most of the members of the Kali development team are working penetration testers, and we rely on our combined experience and expertise to select the best tools to add the most value to the Kali distribution as we continue its development.
+이러한 질문들에 대한 답변과 다른 고려사항들을 종합하여 도구를 Kali에 포함시킬지에 대한 결정을 내립니다.
 
-Tools which are specifically aimed at DOS, DDOS or anonymity are _rarely used in legitimate engagements_, and are therefore _not installed by default_ in Kali Linux.
+Kali 개발팀의 대부분은 현직 침투 테스터로 일하고 있으며, 우리는 개발을 계속하면서 Kali 배포판에 가장 큰 가치를 더할 수 있는 최고의 도구를 선택하기 위해 우리의 통합된 경험과 전문성에 의존합니다.
 
-## New Tool Requests
+DOS, DDOS 또는 익명성에 특화된 도구들은 _합법적인 작업에서 거의 사용되지 않으므로_, Kali Linux에 _기본적으로 설치되어 있지 않습니다_.
 
-We are always open to adding new and better tools to our distribution, but we ask that a case be made for each tool. Please put some thought and effort into the tool submission, and please do _not_ just send the developers a one line request. Submissions for new tool requests can be made through our [Kali Linux bug tracker](https://bugs.kali.org/).
+## 새로운 도구 요청
+
+우리는 항상 새롭고 더 나은 도구를 배포판에 추가하는 데 열려 있지만, 각 도구에 대한 충분한 근거를 제시해 주시기를 요청합니다. 도구 제출에 충분한 생각과 노력을 기울여 주시고, 개발자에게 한 줄짜리 요청을 _보내지 마십시오_. 새로운 도구 요청은 [Kali Linux 버그 트래커](https://bugs.kali.org/)를 통해 제출할 수 있습니다.
