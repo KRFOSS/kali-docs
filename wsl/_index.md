@@ -12,3 +12,7 @@ author: ["xenix4845",]
 [> Mesa 21 & Direct3D 12를 이용한 3D 가속](/wsl/mesa-21/)
 
 [> Kali WSL](/wsl/wsl-preparations/)
+
+[> Win-Kex](https://kali.krfoss.org/wsl/win-kex/)
+
+[> Win-KeX 향상된 세션 모드](https://kali.krfoss.org/wsl/win-kex-esm/)

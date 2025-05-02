@@ -1,67 +1,67 @@
 ---
-title: Win-KeX Enhanced Session Mode
+title: Win-KeX 향상된 세션 모드
 description: Win-KeX ESM (Enhanced Session Mode)
 icon: ti-pin
 weight: 50
 author: ["Re4son",]
 ---
 
-Win-KeX in Enhanced Session Mode (ESM) will run a Kali Linux desktop session in a separate window using protocols and clients native to Windows. ESM mode is the only supported mode on ARM devices.
+향상된 세션 모드(ESM)의 Win-KeX는 Windows 네이티브 프로토콜과 클라이언트를 사용하여 별도의 창에서 Kali Linux 데스크톱 세션을 실행합니다. ESM 모드는 ARM 기기에서 유일하게 지원되는 모드입니다.
 
-ESM mode helps to keep the Windows and Kali environments visually apart.
+ESM 모드는 Windows와 Kali 환경을 시각적으로 분리하는 데 도움이 됩니다.
 
-Win-KeX utilises [xrdp](http://xrdp.org/) server and Microsoft's native Remote Desktop Protocol (RDP) client.
+Win-KeX는 [xrdp](http://xrdp.org/) 서버와 Microsoft의 네이티브 원격 데스크톱 프로토콜(RDP) 클라이언트를 활용합니다.
 
-Using the native Microsoft client might yield a crispier GUI on HiDPI devices. The downside is that it is not as fast as [--win](/docs/wsl/win-kex-win/) or [--sl](/docs/wsl/win-kex-sl/) modes to the increased pixel density.
+Microsoft 네이티브 클라이언트를 사용하면 HiDPI 기기에서 더 선명한 GUI를 얻을 수 있습니다. 단점은 픽셀 밀도가 증가하여 [--win](/docs/wsl/win-kex-win/) 또는 [--sl](/docs/wsl/win-kex-sl/) 모드만큼 빠르지 않다는 것입니다.
 
 ![](win-kex-esm-arm.png)
 
-## Usage
+## 사용법
 
-### Start Session
+### 세션 시작하기
 
-- Run Kali in WSL
-- Start Win-KeX as normal user in ESM mode with sound via: `kex --esm --sound`
-**NOTE**: As of the time of this writing, Windows on ARM contains a bug causing massive packet loss when using `localhost` instead of the IP address to connect to the Kali container. As a workaround, use the `--ip` command line switch on ARM devices, i.e.: `kex --esm --ip --sound`
+- WSL에서 Kali 실행
+- 일반 사용자로 ESM 모드와 사운드를 함께 Win-KeX를 시작하려면: `kex --esm --sound`
+**참고**: 이 글을 작성하는 시점에서 ARM용 Windows에는 `localhost` 대신 IP 주소를 사용하여 Kali 컨테이너에 연결할 때 심각한 패킷 손실을 일으키는 버그가 있습니다. 해결 방법으로 ARM 기기에서 `--ip` 명령줄 스위치를 사용하세요. 예: `kex --esm --ip --sound`
 
-The disadvantage of using `--ip` is that you have to re-enter the ESM password each time you reboot the machine, as the credentials are stored using the sessions name, which changes after every reboot. Once Microsoft fixes the bug, we can drop the `--ip` and live happily ever after without having to type in the password again.
+`--ip`를 사용하는 단점은 기기를 다시 시작할 때마다 ESM 비밀번호를 다시 입력해야 한다는 것입니다. 이는 자격 증명이 세션 이름을 사용하여 저장되는데, 이 이름이 재부팅 후 변경되기 때문입니다. Microsoft가 이 버그를 해결하면 `--ip`를 제거하고 다시는 비밀번호를 입력하지 않아도 될 것입니다.
 
-**NOTE**: ESM mode is the default Win-KeX mode on ARM devices so `--esm` can be omitted in all commands on this page if you are running Windows on ARM.
+**참고**: ESM 모드는 ARM 기기에서 기본 Win-KeX 모드이므로, Windows on ARM을 실행 중이라면 이 페이지의 모든 명령에서 `--esm`을 생략할 수 있습니다.
 
-- You will be prompted to set an RDP server password during first launch. This is the password of the kali user you would like to login with. The password is store in the Windows credential store and can be changed later via: `kex --esm --passwd`
+- 처음 실행 시 RDP 서버 비밀번호를 설정하라는 메시지가 표시됩니다. 이는 로그인하려는 kali 사용자의 비밀번호입니다. 비밀번호는 Windows 자격 증명 저장소에 저장되며 나중에 `kex --esm --passwd`를 통해 변경할 수 있습니다.
 
-Tick "Don't ask me again" and confirm the following warnings:
+"다시 묻지 않음"을 체크하고 다음 경고를 확인하세요:
 
 ![](RDP-Message-1.png)
 
-This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
+이렇게 하면 Win-KeX 서버가 시작되고 전체 화면 모드로 Win-KeX 클라이언트가 실행됩니다:
 
 ![](../win-kex/win-kex-esm.png)
 
-### Start Root Session
+### 루트 세션 시작하기
 
-- Start Win-KeX as root in window mode via: `sudo kex --esm`
-- You will be prompted to set an ESM server password during first launch. This is the password for the kali root user.
-  - The password can be changed later via: `sudo kex --esm --passwd`
+- 윈도우 모드에서 루트로 Win-KeX를 시작하려면: `sudo kex --esm`
+- 처음 실행할 때 ESM 서버 비밀번호를 설정하라는 메시지가 표시됩니다. 이는 kali 루트 사용자의 비밀번호입니다.
+  - 비밀번호는 나중에 `sudo kex --esm --passwd`를 통해 변경할 수 있습니다.
 
-This will start the Win-KeX server as root and launch the Win-KeX client in full screen mode.
+이렇게 하면 루트로 Win-KeX 서버가 시작되고 전체 화면 모드로 Win-KeX 클라이언트가 실행됩니다.
 
-### Sound Support
+### 사운드 지원
 
-- Win-KeX includes pulse audio support
-- To start Win-KeX with sound support, add `--sound` or `-s`, e.g.: `kex --esm --sound`
+- Win-KeX는 펄스 오디오 지원을 포함합니다
+- 사운드 지원으로 Win-KeX를 시작하려면 `--sound` 또는 `-s`를 추가하세요. 예: `kex --esm --sound`
 
-### Session Management
+### 세션 관리
 
-- You can disconnect from active sessions by closing the RDP client; this will close the client but leave the session running in the background
-- You can re-connect to a session by typing: `kex --esm --start-client`
+- RDP 클라이언트를 닫아 활성 세션에서 연결을 해제할 수 있습니다. 이렇게 하면 클라이언트는 닫히지만 세션은 백그라운드에서 계속 실행됩니다
+- `kex --esm --start-client`를 입력하여 세션에 다시 연결할 수 있습니다
 
-### Stop Session
+### 세션 중지하기
 
-- To close the Win-KeX client, log out of the Kali GUI session
+- Win-KeX 클라이언트를 닫으려면 Kali GUI 세션에서 로그아웃하세요
 
 ![](win-kex-2.png)
 
-- To optionally shutdown the Win-KeX SL mode, type: `kex --esm --stop`
+- Win-KeX ESM 모드를 완전히 종료하려면 다음을 입력하세요: `kex --esm --stop`
 
-Enjoy Win-KeX!
+Win-KeX를 즐기세요!

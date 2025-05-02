@@ -6,35 +6,35 @@ weight: 30
 author: ["Re4son",]
 ---
 
-Win-KeX provides a GUI desktop experience for Kali Linux in Windows Subsystem for Linux (WSL 2) with the following features:
+Win-KeX는 Windows Subsystem for Linux (WSL 2)에서 Kali Linux의 GUI 데스크톱 환경을 다음과 같은 기능으로 제공합니다.
 
-- [Window mode](/docs/wsl/win-kex-win/): start a Kali Linux desktop in a dedicated window <!-- VNC/tigervncserver -->
-- [Seamless mode](/docs/wsl/win-kex-sl/): share the Windows desktop between Windows and Kali application and menus <!-- VcXsrv/xfdesktop -->
-- [Enhanced session mode](/docs/wsl/win-kex-esm/): Similar to Hyper-V, uses RDP for a more feature rich experience <!-- RDP/xRDP -->
-- Sound support <!-- pulse -->
-- Shared clipboard for cut and paste support between Kali Linux and Windows
-- Root & unprivileged session support
-- Multi-session support: root window & non-privileged window & seamless sessions concurrently
-- Fully compatible with WSLg
+- [윈도우 모드](/docs/wsl/win-kex-win/): 전용 창에서 Kali Linux 데스크톱 실행 <!-- VNC/tigervncserver -->
+- [심리스 모드](/docs/wsl/win-kex-sl/): Windows와 Kali 애플리케이션 및 메뉴 간에 Windows 데스크톱 공유 <!-- VcXsrv/xfdesktop -->
+- [향상된 세션 모드](/docs/wsl/win-kex-esm/): Hyper-V와 유사하게 RDP를 사용하여 더 풍부한 기능 경험 제공 <!-- RDP/xRDP -->
+- 사운드 지원 <!-- pulse -->
+- Kali Linux와 Windows 간의 복사 및 붙여넣기 지원을 위한 공유 클립보드
+- 루트 및 일반 사용자 세션 지원
+- 다중 세션 지원: 루트 윈도우, 일반 사용자 윈도우, 심리스 세션 동시 실행
+- WSLg와 완벽하게 호환
 
-![Seamless mode](win-kex-sl.png)
+![심리스 모드](win-kex-sl.png)
 
-This page details the steps to install Win-KeX in under 2 minutes.
+이 페이지에서는 2분 이내에 Win-KeX를 설치하는 단계를 자세히 설명합니다.
 
-## Installation
+## 설치
 
-All installation steps, up to the point where we install Win-KeX, are also explained in the 5 minute video guide by [NetworkChuck](https://twitter.com/NetWorkChuck): [New Kali Linux GUI on Windows 10 (WSL 2) // 2020.3 Release](https://www.youtube.com/watch?v=dgdOILL1184)
+Win-KeX를 설치하는 지점까지의 모든 설치 단계는 [NetworkChuck](https://twitter.com/NetWorkChuck)의 5분 비디오 가이드에서도 설명되어 있습니다: [Windows 10에서 새로운 Kali Linux GUI (WSL 2) // 2020.3 릴리스](https://www.youtube.com/watch?v=dgdOILL1184)
 
 {{< youtube dgdOILL1184 >}}
 
-### Prerequisites
+### 사전 요구 사항
 
-- [Kali in WSL 2](/docs/wsl/wsl-preparations/)
+- [WSL 2의 Kali](/docs/wsl/wsl-preparations/)
 - [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701)
 
-### Install Win-KeX
+### Win-KeX 설치
 
-Inside of Kali WSL, install Win-KeX via:
+Kali WSL 내에서 다음과 같이 Win-KeX를 설치합니다:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -47,48 +47,48 @@ kali@kali:~$ sudo apt install -y kali-win-kex
 > After this operation, 2,395 MB of additional disk space will be used.
 -->
 
-## Run Win-KeX
+## Win-KeX 실행
 
-Win-KeX supports the following three modes.
+Win-KeX는 다음 세 가지 모드를 지원합니다.
 
-### Window Mode
+### 윈도우 모드
 
-![Window Mode](win-kex-win.png)
+![윈도우 모드](win-kex-win.png)
 
-To start Win-KeX in Window mode with sound support, run either:
+사운드 지원이 있는 윈도우 모드에서 Win-KeX를 시작하려면 다음 중 하나를 실행하세요:
 
-- Inside of Kali WSL: `kex --win -s`
-- On Window's command prompt: `wsl -d kali-linux kex --win -s`
+- Kali WSL 내부에서: `kex --win -s`
+- Windows 명령 프롬프트에서: `wsl -d kali-linux kex --win -s`
 
-Refer to the [Win-KeX Window Mode usage documentation](/docs/wsl/win-kex-win/) for further information.
+자세한 내용은 [Win-KeX 윈도우 모드 사용 설명서](/docs/wsl/win-kex-win/)를 참조하세요.
 
-### Enhanced Session Mode
+### 향상된 세션 모드
 
-![Enhanced Session Mode](win-kex-esm.png)
+![향상된 세션 모드](win-kex-esm.png)
 
-To start Win-KeX in Enhanced Session Mode with sound support and ARM workaround, run either:
+사운드 지원과 ARM 문제 해결이 포함된 향상된 세션 모드에서 Win-KeX를 시작하려면 다음 중 하나를 실행하세요:
 
-- Inside of Kali WSL: `kex --esm --ip -s`
-- On Window's command prompt: `wsl -d kali-linux kex --esm --ip -s`
+- Kali WSL 내부에서: `kex --esm --ip -s`
+- Windows 명령 프롬프트에서: `wsl -d kali-linux kex --esm --ip -s`
 
-Refer to the [Win-KeX Enhanced Session Mode usage documentation](/docs/wsl/win-kex-esm/) for further information.
+자세한 내용은 [Win-KeX 향상된 세션 모드 사용 설명서](/docs/wsl/win-kex-esm/)를 참조하세요.
 
-### Seamless Mode
+### 심리스 모드
 
-![Seamless Mode](win-kex-sl.png)
+![심리스 모드](win-kex-sl.png)
 
-To start Win-KeX in Seamless mode with sound support, run, run either:
+사운드 지원이 있는 심리스 모드에서 Win-KeX를 시작하려면 다음 중 하나를 실행하세요:
 
-- Inside of Kali WSL: `kex --sl -s`
-- On Window's command prompt: `wsl -d kali-linux kex --sl -s`
+- Kali WSL 내부에서: `kex --sl -s`
+- Windows 명령 프롬프트에서: `wsl -d kali-linux kex --sl -s`
 
-Refer to the [Win-KeX SL usage documentation](/docs/wsl/win-kex-sl/) for further information.
+자세한 내용은 [Win-KeX SL 사용 설명서](/docs/wsl/win-kex-sl/)를 참조하세요.
 
-## Optional Steps
+## 선택적 단계
 
-### Kali's Default Tools
+### Kali의 기본 도구
 
-If you have the space, why not install "Kali with the lot"? This will also give you the traditional "default" tools of Kali that you may expect:
+공간이 충분하다면 "모든 기능이 포함된 Kali"를 설치하는 건 어떨까요? 이렇게 하면 기대했던 Kali의 전통적인 "기본" 도구들도 함께 제공됩니다:
 
 ```
 sudo apt install -y kali-linux-large
@@ -98,13 +98,13 @@ sudo apt install -y kali-linux-large
 
 ### Windows Terminal
 
-Create a [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) shortcut:
+[Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) 바로가기 생성:
 
 ![](win-kex-wt1.png)
 
-Choose amongst these options:
+다음 옵션 중에서 선택하세요:
 
-**Basic Win-KeX in window mode with sound**:
+**사운드 지원이 있는 기본 윈도우 모드의 Win-KeX**:
 
 ```plaintext
 {
@@ -115,9 +115,9 @@ Choose amongst these options:
 },
 ```
 
-**Advanced Win-KeX in window mode with sound - Kali icon and start in kali home directory**:
+**사운드 지원이 있는 고급 윈도우 모드의 Win-KeX - Kali 아이콘 및 Kali 홈 디렉토리에서 시작**:
 
-Copy the `kali-menu.png` icon across to your windows picture directory and add the icon and start directory to your WT config:
+`kali-menu.png` 아이콘을 Windows 사진 디렉토리로 복사하고 WT 구성에 아이콘과 시작 디렉토리를 추가하세요:
 
 ```plaintext
 {
@@ -132,7 +132,7 @@ Copy the `kali-menu.png` icon across to your windows picture directory and add t
 
 - - -
 
-**Basic Win-KeX in seamless mode with sound**:
+**사운드 지원이 있는 기본 심리스 모드의 Win-KeX**:
 
 ```plaintext
 {
@@ -145,9 +145,9 @@ Copy the `kali-menu.png` icon across to your windows picture directory and add t
 
 - - -
 
-**Advanced Win-KeX in seamless mode with sound - Kali icon and start in kali home directory**:
+**사운드 지원이 있는 고급 심리스 모드의 Win-KeX - Kali 아이콘 및 Kali 홈 디렉토리에서 시작**:
 
-Copy the `kali-menu.png` icon across to your windows picture directory and add the icon and start directory to your WT config:
+`kali-menu.png` 아이콘을 Windows 사진 디렉토리로 복사하고 WT 구성에 아이콘과 시작 디렉토리를 추가하세요:
 
 ```plaintext
 {
@@ -162,7 +162,7 @@ Copy the `kali-menu.png` icon across to your windows picture directory and add t
 
 - - -
 
-**Basic Win-KeX in ESM mode with sound**:
+**사운드 지원이 있는 기본 ESM 모드의 Win-KeX**:
 
 ```plaintext
 {
@@ -175,9 +175,9 @@ Copy the `kali-menu.png` icon across to your windows picture directory and add t
 
 - - -
 
-**Advanced Win-KeX in ESM mode with sound - Kali icon and start in kali home directory**:
+**사운드 지원이 있는 고급 ESM 모드의 Win-KeX - Kali 아이콘 및 Kali 홈 디렉토리에서 시작**:
 
-Copy the `kali-menu.png` icon across to your windows picture directory and add the icon and start directory to your WT config:
+`kali-menu.png` 아이콘을 Windows 사진 디렉토리로 복사하고 WT 구성에 아이콘과 시작 디렉토리를 추가하세요:
 
 ```plaintext
 {
@@ -196,12 +196,12 @@ Copy the `kali-menu.png` icon across to your windows picture directory and add t
 
 ![](win-kex-full.png)
 
-Enjoy Win-KeX!
+Win-KeX를 즐겨보세요!
 
-## Help
+## 도움말
 
-For more information, ask for help via:
+더 자세한 정보는 다음을 통해 도움을 요청하세요:
 
 - `kex --help`
 - `man kex`
-- [Kali Forums](https://forums.kali.org/)
+- [Kali 포럼](https://forums.kali.org/)
