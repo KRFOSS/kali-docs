@@ -75,13 +75,13 @@ $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 or the command
 
 ```console
-$ gpg --keyserver hkps://keys.openpgp.org --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+$ gpg --keyserver hkps://keys.openpgp.org --recv-key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
 Your output should look like this:
 
 ```plaintext
-gpg: key ED444FF07D8D0BF6: public key "Kali Linux Repository <devel@kali.org>" imported
+gpg: key ED65462EC8D5E4C5: public key "Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>" imported
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
 ```
@@ -89,16 +89,15 @@ gpg:               imported: 1  (RSA: 1)
 Verify that the key is properly installed with the command:
 
 ```console
-$ gpg --fingerprint 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+$ gpg --fingerprint 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
 The output will look like this:
 
 ```plaintext
-pub   rsa4096 2012-03-05 [SC] [expires: 2025-01-24]
-      44C6 513A 8E4F B3D3 0875  F758 ED44 4FF0 7D8D 0BF6
-uid           [ full] Kali Linux Repository <devel@kali.org>
-sub   rsa4096 2012-03-05 [E] [expires: 2025-01-24]
+pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
+      827C 8569 F251 8CC6 77FE  CA1A ED65 462E C8D5 E4C5
+uid           [ unknown] Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>
 ```
 
 You're now set up to validate your Kali Linux download.
@@ -188,13 +187,13 @@ $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 or this command
 
 ```console
-$ gpg --keyserver hkps://keys.openpgp.org --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+$ gpg --keyserver hkps://keys.openpgp.org --recv-key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
 Your output should look like this:
 
 ```plaintext
-gpg: key ED444FF07D8D0BF6: public key "Kali Linux Repository <devel@kali.org>" imported
+gpg: key ED65462EC8D5E4C5: public key "Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>" imported
 gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
 ```
@@ -202,25 +201,24 @@ gpg:               imported: 1  (RSA: 1)
 You should verify that the key is properly installed with the command:
 
 ```console
-$ gpg --fingerprint 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+$ gpg --fingerprint 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
 The output will look like this:
 
 ```plaintext
-pub   rsa4096 2012-03-05 [SC] [expires: 2025-01-24]
-      44C6 513A 8E4F B3D3 0875  F758 ED44 4FF0 7D8D 0BF6
-uid           [ full] Kali Linux Repository <devel@kali.org>
-sub   rsa4096 2012-03-05 [E] [expires: 2025-01-24]
+pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
+      827C 8569 F251 8CC6 77FE  CA1A ED65 462E C8D5 E4C5
+uid           [ unknown] Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>
 ```
 
 Once you have downloaded both SHA256SUMS and SHA256SUMS.gpg, you can verify the signature as follows:
 
 ```console
 $ gpg --verify SHA256SUMS.gpg SHA256SUMS
-gpg: Signature made Mon Sep  2 06:42:05 2019 EDT
-gpg:                using RSA key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-gpg: Good signature from "Kali Linux Repository <devel@kali.org>" [full]
+gpg: Signature made Sun Apr 20 16:00:00 2025 EDT
+gpg:                using RSA key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
+gpg: Good signature from "Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>" [unknown]
 ```
 
 {{% notice info %}}

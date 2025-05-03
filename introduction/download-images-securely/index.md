@@ -12,13 +12,12 @@ When you download an image, be sure to download the **SHA256SUMS** and **SHA256S
 ```
 $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 # or...
-$ gpg --keyserver hkps://keys.openpgp.org --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+$ gpg --keyserver hkps://keys.openpgp.org --recv-key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 # ...and verify that the displayed fingerprint matches the one below
-$ gpg --fingerprint 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-pub   rsa4096/0xED444FF07D8D0BF6 2012-03-05 [SC] [expires: 2023-01-16]
-      Key fingerprint = 44C6 513A 8E4F B3D3 0875  F758 ED44 4FF0 7D8D 0BF6
-uid                   [ unknown] Kali Linux Repository <devel@kali.org>
-sub   rsa4096/0xA8373E18FC0D0DCB 2012-03-05 [E] [expires: 2023-01-16]
+$ gpg --fingerprint 827C8569F2518CC677FECA1AED65462EC8D5E4C5
+pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
+      827C 8569 F251 8CC6 77FE  CA1A ED65 462E C8D5 E4C5
+uid           [ unknown] Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>
 ```
 
 Color highlighted with "Copy as HTML" from gnome-terminal
@@ -26,12 +25,12 @@ Color highlighted with "Copy as HTML" from gnome-terminal
 <pre><code class="nohighlight"><!-- New link hack
 --><font color="#367BF0">$</font> <font color="#5EBDAB">wget</font> <font color="#9755B3">-q</font> <font color="#9755B3">-O</font> <font color="#9755B3">-</font> <font color="#2777ff">https://archive.kali.org/archive-key.asc</font> <font color="#277FFF"><b>|</b></font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--import</font>
 # or...
-<font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--keyserver</font> <font color="#2777ff">hkps://keyserver.ubuntu.com</font> <font color="#9755B3">--recv-key</font> 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
+<font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--keyserver</font> <font color="#2777ff">hkps://keyserver.ubuntu.com</font> <font color="#9755B3">--recv-key</font> 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 # ...and verify that the displayed fingerprint matches the one below
-<font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--fingerprint</font> 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-pub   rsa4096/0xED444FF07D8D0BF6 2012-03-05 [SC] [expires: 2023-01-16]
-uid [ unknown] Kali Linux Repository &lt;devel@kali.org&gt;
-sub   rsa4096/0xA8373E18FC0D0DCB 2012-03-05 [E] [expires: 2023-01-16]
+<font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--fingerprint</font> 827C8569F2518CC677FECA1AED65462EC8D5E4C5
+pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
+      827C 8569 F251 8CC6 77FE  CA1A ED65 462E C8D5 E4C5
+uid           [ unknown] Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>
 </code></pre>
 
 Once you have downloaded both **SHA256SUMS** and **SHA256SUMS.gpg**, you can verify the signature as follows:
@@ -40,12 +39,11 @@ Once you have downloaded both **SHA256SUMS** and **SHA256SUMS.gpg**, you can ver
 ```
 $ wget -q https://cdimage.kali.org/current/SHA256SUMS{.gpg,}
 $ gpg --verify SHA256SUMS.gpg SHA256SUMS
-gpg: Signature made Tue 17 Nov 2020 15:39:09 GMT
-gpg:                using RSA key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-gpg: Good signature from "Kali Linux Repository <devel@kali.org>" [unknown]
+gpg: Signature made Sun 20 Apr 2025 16:00:00 GMT
+gpg:                using RSA key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
+gpg: Good signature from "Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>" [unknown]
 gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 44C6 513A 8E4F B3D3 0875  F758 ED44 4FF0 7D8D 0BF6
 ```
 
 Color highlighted with "Copy as HTML" from gnome-terminal
@@ -53,12 +51,11 @@ Color highlighted with "Copy as HTML" from gnome-terminal
 <pre><code class="nohighlight"><!-- New link hack
 --><font color="#367BF0">$</font> <font color="#5EBDAB">wget</font> <font color="#9755B3">-q</font> <font color="#2777ff">https://cdimage.kali.org/current/SHA256SUMS</font>{.gpg,}
 <font color="#367BF0">$</font> <font color="#5EBDAB">gpg</font> <font color="#9755B3">--verify</font> SHA256SUMS.gpg SHA256SUMS
-gpg: Signature made Tue 17 Nov 2020 15:39:09 GMT
-gpg:                using RSA key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
-gpg: Good signature from "Kali Linux Repository &lt;devel@kali.org&gt;" [unknown]
+gpg: Signature made Sun 20 Apr 2025 16:00:00 GMT
+gpg:                using RSA key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
+gpg: Good signature from "Kali Linux Archive Automatic Signing Key (2025) &lt;devel@kali.org&gt;" [unknown]
 gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
-Primary key fingerprint: 44C6 513A 8E4F B3D3 0875  F758 ED44 4FF0 7D8D 0BF6
 </code></pre>
 
 If you don't get that "Good signature" message or if the key ID doesn't match, then you should stop the process and review whether you downloaded the images from a legitimate Kali mirror.
