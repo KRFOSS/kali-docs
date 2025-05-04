@@ -1,70 +1,63 @@
 ---
-title: Verifying USB Write
+title: USB 쓰기 검증하기
 description:
 icon:
 weight: 75
 author: ["serval123",]
+번역: ["xenix4845"]
 ---
 
-After writing the Kali ISO to a USB, it is a good practice to verify that :
+칼리 ISO를 USB에 쓴 후에는 다음을 확인하는 것이 좋아요:
 
-1. Files were copied correctly to the USB
+1. 파일이 USB에 올바르게 복사되었는지
 
-2. The USB is bootable.
+2. USB가 부팅 가능한지
 
-3. Making sure that the ISO wasn't corrupted.
+3. ISO가 손상되지 않았는지 확인하기
 
-## Check USB Contents
+## USB 내용 확인하기
 
-### On Linux/MacOS
+### Linux/MacOS에서
 
 ```console
 kali@kali:~$ lsblk
 ```
 
-You should see partitions like boot/efi,live after running the above command.
+위 명령을 실행하면 boot/efi, live와 같은 파티션이 보여야 해요.
 
-### On Windows
+### Windows에서
 
-You can use disk manager to view the partitions created on the USB.
-**Note that windows will not recognize the file system used in the USB and will mark it as corrupted and will prompt you to format it. Do not format it.**
+디스크 관리자를 사용하여 USB에 생성된 파티션을 볼 수 있어요.
+**주의: Windows는 USB에 사용된 파일 시스템을 인식하지 못해 손상되었다고 표시하고 포맷하라는 메시지를 표시할 거예요. 절대 포맷하지 마세요.**
 
-## Verifying the Checksum
+## 체크섬 확인하기
 
-### On Linux/MacOS
+### Linux/MacOS에서
 
 ```console
 kali@kali:~$ shasum -a 256 kali-linux-2025.1-live-amd64.iso 
 ```
-Replace the iso file name with the one you downloaded.Verify the checksum with the one provided on the page from which you downloaded the iso.
+ISO 파일 이름을 다운로드한 것으로 바꿔주세요. 체크섬을 ISO를 다운로드한 페이지에서 제공하는 값과 비교해 확인하세요.
 
-### On Windows
+### Windows에서
 
-If certutil is available you can run :
+certutil을 사용할 수 있다면 다음을 실행하세요:
 
-```
+```console
 certutil -hashfile kali-linux-2025.1-live-amd64.iso sha256
 ```
 
-To verify your download.Certain versions of Windows do not have the native ability to calculate SHA256 checksums. If you do not have certutil installed, you can use a utility such as Microsoft File Checksum Integrity Verifier or Hashtab to verify your download.
+다운로드를 확인하세요. 특정 Windows 버전에서는 SHA256 체크섬을 계산하는 기본 기능이 없을 수 있어요. certutil이 설치되어 있지 않다면 Microsoft File Checksum Integrity Verifier 또는 Hashtab과 같은 유틸리티를 사용하여 다운로드를 확인할 수 있어요.
 
-Finally try booting from the USB.
+마지막으로 USB에서 부팅을 시도해 보세요.
 
-## Troubleshooting
+## 문제 해결
 
-### USB not booting
+### USB가 부팅되지 않음
 
-1. Ensure that you used Balena Etcher to flash the iso.
-2. Disable secure boot in BIOS if it is enabled.
+1. Balena Etcher를 사용하여 ISO를 플래시했는지 확인하세요.
+2. BIOS에서 보안 부팅이 활성화되어 있다면 비활성화하세요.
 
-### Checksum mismatch
+### 체크섬 불일치
 
-This means that your iso file was corrupted during download. Re-download the kali iso and then write it again on the USB.
-
-
-
-
-
-
-
-
+이는 ISO 파일이 다운로드 중 손상되었음을 의미해요. 칼리 ISO를 다시 다운로드한 후 USB에 다시 작성하세요.

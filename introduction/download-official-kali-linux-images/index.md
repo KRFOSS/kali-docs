@@ -1,84 +1,85 @@
 ---
-title: Downloading Kali Linux
+title: Kali Linux 다운로드하기
 description:
 icon:
 weight: 50
 author: ["g0tmi1k", "gamb1t",]
+번역: ["xenix4845"]
 ---
 
 {{% notice info %}}
-IMPORTANT! Never download Kali Linux images from anywhere other than the official sources.
-Always be sure to verify the SHA256 checksums of the file you've downloaded against our [official values](/docs/introduction/download-images-securely/).
-It would be easy for a malicious entity to modify a Kali installation to contain exploits or malware and host it unofficially.
+중요! 절대로 공식 출처가 아닌 곳에서 Kali Linux 이미지를 다운로드하지 마세요.
+다운로드한 파일의 SHA256 체크섬을 항상 [공식 값](/docs/introduction/download-images-securely/)과 대조해서 확인하세요.
+악의적인 행위자가 Kali 설치본을 변조하여 악성 코드를 삽입하고 비공식적으로 호스팅하는 것은 매우 쉽습니다.
 {{% /notice %}}
 
-#### Where to Get Official Kali Linux Images
+#### 공식 Kali Linux 이미지를 구할 수 있는 곳
 
-##### ISO Files for Intel-based PCs
+##### Intel 기반 PC용 ISO 파일
 
-In order to run Kali "Live" from a [USB drive](/docs/usb/) on standard Windows and Apple PCs, you'll need a Kali Linux [bootable ISO image](/docs/installation/).
+표준 Windows 및 Apple PC에서 [USB 드라이브](/docs/usb/)로 Kali "Live"를 실행하려면, Kali Linux [부팅 가능 ISO 이미지](/docs/installation/)가 필요합니다.
 
-The Kali Linux images are available as directly downloadable ".iso/.img" files or via ".torrent" files.
+Kali Linux 이미지는 직접 다운로드 가능한 ".iso/.img" 파일 또는 ".torrent" 파일로 제공됩니다.
 
-- [Official Kali ISOs for Intel-based PCs](/get-kali/)
+- [Intel 기반 PC용 공식 Kali ISO](/get-kali/)
 
-Building your own Kali Linux ISO, standard or customized, is [a very simple process](/docs/development/live-build-a-custom-kali-iso/).
+표준 또는 커스텀 Kali Linux ISO를 직접 빌드하는 것은 [매우 간단한 과정](/docs/development/live-build-a-custom-kali-iso/)입니다.
 
-##### Virtual Machines Images
+##### 가상 머신 이미지
 
-If you want to run Kali Linux as a "guest" under [VMware or VirtualBox](/docs/virtualization/), Kali Linux is available as a pre-built virtual machines with any guest tools already installed.
+[VMware나 VirtualBox](/docs/virtualization/)에서 "게스트"로 Kali Linux를 실행하고 싶다면, 게스트 도구가 이미 설치된 사전 빌드된 Kali Linux 가상 머신을 이용할 수 있습니다.
 
-- [Official Kali Linux VMware and VirtualBox Images](/get-kali/#kali-virtual-machines)
+- [공식 Kali Linux VMware 및 VirtualBox 이미지](/get-kali/#kali-virtual-machines)
 
-##### ARM Images
+##### ARM 이미지
 
-The hardware architectures of [ARM-based devices](/docs/arm/) vary considerably, so it is not possible to have a single image that will work across all of them. Pre-built Kali Linux images for the [ARM architecture](/get-kali/) are available for a wide range of devices.
+[ARM 기반 장치](/docs/arm/)의 하드웨어 아키텍처는 상당히 다양하므로, 모든 기기에서 작동하는 단일 이미지를 갖는 것은 불가능합니다. [ARM 아키텍처](/get-kali/)용 사전 빌드된 Kali Linux 이미지는 다양한 장치에 사용할 수 있습니다.
 
-Scripts for building your own ARM images locally are also [available on GitLab](https://gitlab.com/kalilinux/build-scripts/kali-arm). For more details, see the articles on [setting up an ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) and [building a custom Kali Linux ARM chroot](/docs/development/kali-linux-arm-chroot/).
+자신만의 ARM 이미지를 로컬에서 빌드하기 위한 스크립트도 [GitLab에서 제공](https://gitlab.com/kalilinux/build-scripts/kali-arm)됩니다. 자세한 내용은 [ARM 크로스 컴파일 환경 설정](/docs/development/arm-cross-compilation-environment/)과 [커스텀 Kali Linux ARM chroot 빌드](/docs/development/kali-linux-arm-chroot/) 문서를 참조하세요.
 
-#### Verifying Your Downloaded Kali Image
+#### 다운로드한 Kali 이미지 확인하기
 
-##### Why do I need to do this?
+##### 왜 이 과정이 필요한가요?
 
-Before you run Kali Linux Live, or install it to your hard disk, you want to be very sure that what you've got actually _is_ Kali Linux, and not an imposter. Kali Linux is a professional penetration testing and forensics toolkit. As a professional penetration tester, having absolute confidence in the integrity of your tools is critical: if your tools are not trustworthy, your investigations will not be trustworthy, either.
+Kali Linux Live를 실행하거나 하드 디스크에 설치하기 전에, 여러분이 가지고 있는 것이 실제로 Kali Linux이지 가짜가 아닌지 확실히 해야 합니다. Kali Linux는 전문적인 침투 테스팅 및 포렌식 도구 모음입니다. 전문 침투 테스터로서 도구의 무결성에 대한 절대적인 신뢰는 매우 중요합니다. 도구가 신뢰할 수 없다면, 여러분의 조사도 신뢰할 수 없게 됩니다.
 
-Moreover, as the leading penetration testing distribution, Kali's strengths mean that a bogus version of Kali Linux could do _a tremendous amount of damage_ if it were deployed unwittingly. There are plenty of people with plenty of reason to want to stick very sketchy stuff into something that _looks_ like Kali, and you absolutely do not want to find yourself running something like that.
+더욱이, 선도적인 침투 테스팅 배포판으로서 Kali의 강점은 가짜 버전의 Kali Linux가 무의식적으로 배포된다면 _엄청난 피해_를 줄 수 있다는 것을 의미합니다. Kali처럼 _보이게_ 하면서 매우 의심스러운 것들을 숨기려는 사람들이 많이 있으며, 여러분은 절대로 그러한 것을 실행하고 싶지 않을 것입니다.
 
-Avoiding this is simple:
+이를 피하는 방법은 간단합니다:
 
-- _Only_ download Kali Linux via the official download page at [kali.org/get-kali/](/get-kali/) - you will not be able to browse to these pages without SSL; encrypting the connection makes it much harder for an attacker to use a "man-in-the-middle" attack to modify your download. There are a few potential weaknesses to even these sources - see the sections on verifying the download with the SHA256SUMS file and its signature against the official Kali Development team private key for something much closer to absolute assurance.
-- Once you've downloaded an image, and _before you run it_, _always_ validate that it really _is_ what it's supposed to be by verifying its checksum using one of the procedures detailed below.
+- Kali Linux는 _오직_ [kali.org/get-kali/](/get-kali/)에 있는 공식 다운로드 페이지를 통해서만 다운로드하세요 - SSL 없이는 이 페이지를 탐색할 수 없습니다. 연결을 암호화하면 공격자가 "중간자(man-in-the-middle)" 공격을 통해 다운로드를 수정하기가 더 어렵습니다. 이러한 소스에도 몇 가지 잠재적인 약점이 있습니다 - SHA256SUMS 파일로 다운로드를 확인하는 방법과 공식 Kali 개발 팀의 개인 키에 대한 서명을 확인하는 방법을 참조하여 절대적인 확신에 더 가까워질 수 있습니다.
+- 이미지를 다운로드한 후, _실행하기 전에_, _항상_ 아래에 설명된 절차 중 하나를 사용하여 체크섬을 확인해 실제로 그것이 예상했던 것인지 검증하세요.
 
-There are several methods for verifying your download. Each provides a certain level of assurance, and involves a corresponding level of effort on your part. We list 3 of these methods below:
+다운로드를 확인하기 위한 여러 방법이 있습니다. 각 방법은 특정 수준의 보증을 제공하며, 그에 상응하는 노력이 필요합니다. 여기에서는 3가지 방법을 소개합니다:
 
-1. You can download an ISO image from an official Kali Linux "Downloads" mirror, calculate the ISO's SHA256 hash and compare it by inspection with the value listed on the Kali Linux site. This is quick and easy, but potentially susceptible to subversion via a [DNS poisoning](https://en.wikipedia.org/wiki/DNS_spoofing#Cache_poisoning_attacks): it assumes that the site to which, for example, the domain "kali.org" resolves is in fact the actual Kali Linux site. If it somehow were not, an attacker could present a "loaded" image and a matching SHA256 signature on the fake web page. See the section "Manually Verify the Signature on the ISO (Direct Download)", below.
+1. 공식 Kali Linux "다운로드" 미러에서 ISO 이미지를 다운로드하고, ISO의 SHA256 해시를 계산하여 Kali Linux 사이트에 나열된 값과 비교할 수 있습니다. 이 방법은 빠르고 쉽지만, [DNS 포이즈닝](https://en.wikipedia.org/wiki/DNS_spoofing#Cache_poisoning_attacks)을 통한 전복에 잠재적으로 취약합니다. 예를 들어, "kali.org" 도메인이 실제 Kali Linux 사이트로 연결된다고 가정합니다. 만약 그렇지 않다면, 공격자는 가짜 웹 페이지에서 "조작된" 이미지와 일치하는 SHA256 서명을 제시할 수 있습니다. 아래의 "ISO의 서명 수동 확인(직접 다운로드)" 섹션을 참조하세요.
 
-2. You can download an ISO image through the torrents, and it will also pull down a file - unsigned - containing the calculated SHA256 signature. You can then use the shasum command (on Linux and macOS) or a utility (on Windows) to automatically verify that the file's computed signature matches the signature in the secondary file. This is even easier than the "manual" method, but suffers from the same weakness: if the torrent you pulled down is not really Kali Linux, it could still have a good signature. See the section "Verify the Signature on the ISO Using the Included Signature File (Torrent Download)", below.
+2. 토렌트를 통해 ISO 이미지를 다운로드할 수 있으며, 이 경우 계산된 SHA256 서명이 포함된 서명되지 않은 파일도 함께 다운로드됩니다. 그런 다음 shasum 명령(Linux 및 macOS에서) 또는 유틸리티(Windows에서)를 사용하여 파일의 계산된 서명이 보조 파일의 서명과 일치하는지 자동으로 확인할 수 있습니다. 이 방법은 "수동" 방법보다 더 쉽지만 동일한 약점이 있습니다: 다운로드한 토렌트가 실제 Kali Linux가 아니더라도 서명은 여전히 유효할 수 있습니다. 아래 "포함된 서명 파일을 사용한 ISO 서명 확인(토렌트 다운로드)" 섹션을 참조하세요.
 
-3. To be as close to absolutely certain as possible that the Kali Linux download you've obtained is the real thing, you can download both a cleartext signature file and and version of the same file that has been signed with the official Kali Linux private key and use GNU Privacy Guard (GPG) to first, verify that the computed SHA256 signature and the signature in the cleartext file match and second, verify that the signed version of the file containing the SHA256 hash has been correctly signed with the official key.
+3. 다운로드한 Kali Linux가 진짜인지 가능한 한 확실하게 확인하기 위해 공식 Kali Linux 개인 키로 서명된 일반 텍스트 서명 파일과 동일한 파일의 버전을 다운로드하고, GNU Privacy Guard(GPG)를 사용하여 먼저 계산된 SHA256 서명과 일반 텍스트 파일의 서명이 일치하는지 확인한 다음, SHA256 해시가 포함된 파일의 서명된 버전이 공식 키로 올바르게 서명되었는지 확인할 수 있습니다.
 
-If you use this more complicated process and successfully validate your downloaded ISO, you can proceed with pretty complete assurance that what you've got is the official image and that it has not been tampered with in any way. This method, while the most complex, has the advantage of providing independent assurance of the integrity of the image. The only way this method can fail is if the official Kali Linux private key is not only subverted by an attacker, but also not subsequently revoked by the Kali Linux development team. For this method, see the section on verification using the SHA256SUMS file.
+이 더 복잡한 과정을 사용하여 다운로드한 ISO를 성공적으로 검증한 경우, 여러분이 갖고 있는 것이 공식 이미지이며 어떤 방식으로든 변조되지 않았다는 완전한 확신을 갖고 진행할 수 있습니다. 이 방법은 가장 복잡하지만 이미지의 무결성에 대한 독립적인 보증을 제공하는 장점이 있습니다. 이 방법이 실패할 수 있는 유일한 경우는 공식 Kali Linux 개인 키가 공격자에 의해 훼손될 뿐만 아니라 Kali Linux 개발 팀에 의해 그 후 취소되지 않는 경우입니다. 이 방법은 SHA256SUMS 파일을 사용한 확인 섹션을 참조하세요.
 
-##### _What_ do I need to do this?
+##### _무엇이_ 필요한가요?
 
-If you're running on Linux, you probably already have [GPG](https://www.gnupg.org/) (GNU Privacy Guard) installed. If you're on Windows or macOS, you'll need to install the appropriate version for your platform.
+Linux를 실행 중이라면 아마도 이미 [GPG](https://www.gnupg.org/)(GNU Privacy Guard)가 설치되어 있을 것입니다. Windows나 macOS를 사용 중이라면 플랫폼에 맞는 버전을 설치해야 합니다.
 
-- If you're on a PC running Windows, download and install GPG4Win from [here](https://gpg4win.org/download.html). 
-- If you're on a Macintosh running macOS, download and install GPGTools from [here](https://gpgtools.org/). Alternatively, if you have [Homebrew](https://brew.sh) installed, just run `brew install gnupg`
+- Windows PC를 사용 중이라면 [여기](https://gpg4win.org/download.html)에서 GPG4Win을 다운로드하여 설치하세요.
+- macOS를 실행하는 Mac을 사용 중이라면 [여기](https://gpgtools.org/)에서 GPGTools를 다운로드하여 설치하세요. 또는 [Homebrew](https://brew.sh)가 설치되어 있다면 `brew install gnupg`를 실행하세요.
 
-Once you've installed GPG, you'll need to download and import a copy of the Kali Linux official key. Do this with the following command:
+GPG를 설치한 후에는 Kali Linux 공식 키를 다운로드하여 가져와야 합니다. 다음 명령어로 이 작업을 수행하세요:
 
 ```console
 $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 ```
 
-or the command
+또는 다음 명령어를 사용하세요
 
 ```console
 $ gpg --keyserver hkps://keys.openpgp.org --recv-key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
-Your output should look like this:
+출력은 다음과 같아야 합니다:
 
 ```plaintext
 gpg: key ED65462EC8D5E4C5: public key "Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>" imported
@@ -86,13 +87,13 @@ gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
 ```
 
-Verify that the key is properly installed with the command:
+다음 명령어로 키가 올바르게 설치되었는지 확인하세요:
 
 ```console
 $ gpg --fingerprint 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
-The output will look like this:
+출력은 다음과 같을 것입니다:
 
 ```plaintext
 pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
@@ -100,97 +101,97 @@ pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
 uid           [ unknown] Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>
 ```
 
-You're now set up to validate your Kali Linux download.
+이제 Kali Linux 다운로드를 검증할 준비가 되었습니다.
 
-#### How Do I Verify My Downloaded Image?
+#### 다운로드한 이미지를 어떻게 확인하나요?
 
-##### Manually Verify the Signature on the ISO (Direct Download)
+##### ISO의 서명 수동 확인하기(직접 다운로드)
 
-If you downloaded the ISO directly from the downloads page, verify it using the following procedure.
+다운로드 페이지에서 ISO를 직접 다운로드한 경우 다음 절차로 확인하세요.
 
-On Linux, or macOS, you can generate the SHA256 checksum from the ISO image you've downloaded with the following command (assuming that the ISO image is named "kali-linux-2025.1-live-amd64.iso", and is in your current directory):
+Linux나 macOS에서는 다운로드한 ISO 이미지의 SHA256 체크섬을 다음 명령어로 생성할 수 있습니다(ISO 이미지 이름이 "kali-linux-2025.1-live-amd64.iso"이고 현재 디렉토리에 있다고 가정):
 
 ```console
 $ shasum -a 256 kali-linux-2025.1-live-amd64.iso
 ```
 
-The output should look like this:
+출력은 다음과 같아야 합니다:
 
 ```plaintext
 2be87a23d5e84f7540e38074fd2bd5b3bcd55ab37f5fb81a3928e1bb34cb9908  kali-linux-2025.1-live-amd64.iso
 ```
 
-On Windows, you can open the command prompt and run 
+Windows에서는 명령 프롬프트를 열고 다음을 실행하세요:
 
 ```console
 certutil -?
-``` 
+```
 
-If certutil is available, you can run:
+certutil을 사용할 수 있다면 다음을 실행할 수 있습니다:
 
 ```console 
 certutil -hashfile kali-linux-2025.1-live-amd64.iso sha256
 ```
 
-To verify your download. Certain versions of Windows do not have the native ability to calculate SHA256 checksums. If you do not have `certutil` installed, you can use a utility such as [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) or [Hashtab](http://implbits.com/products/hashtab/) to verify your download.
+다운로드를 확인하기 위해 사용합니다. 일부 Windows 버전에서는 SHA256 체크섬을 계산하는 기본 기능이 없습니다. `certutil`이 설치되어 있지 않다면 [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533)나 [Hashtab](http://implbits.com/products/hashtab/) 같은 유틸리티를 사용하여 다운로드를 확인할 수 있습니다.
 
-The resulting SHA256 signature: 
+결과 SHA256 서명:
 
 ```plaintext 
 2be87a23d5e84f7540e38074fd2bd5b3bcd55ab37f5fb81a3928e1bb34cb9908
-``` 
+```
 
-Can be seen to match the signature displayed in the "sha256sum" section on the official download page for the 64-bit Intel architecture Kali Linux 2025.1 ISO image:
+이 서명은 64비트 Intel 아키텍처 Kali Linux 2025.1 ISO 이미지의 공식 다운로드 페이지의 "sha256sum" 섹션에 표시된 서명과 일치하는 것을 확인할 수 있습니다:
 
 ![](kali-download-iso-2025-1.png)
 
-##### Verify the Signature on the ISO Using the Included Signature File (Torrent Download)
+##### 포함된 서명 파일을 사용하여 ISO의 서명 확인하기(토렌트 다운로드)
 
-If you downloaded your copy of the Kali Linux ISO image via the torrents, in addition to the ISO file (e.g. kali-linux-2025.1-live-amd64.iso), there will be a second file containing the computed SHA256 signature for the ISO, with the extension ".txt.sha256sum" (e.g. kali-linux-2025.1-live-amd64.txt.sha256sum).
+토렌트를 통해 Kali Linux ISO 이미지를 다운로드한 경우, ISO 파일(예: kali-linux-2025.1-live-amd64.iso) 외에도 확장자가 ".txt.sha256sum"인 ISO의 계산된 SHA256 서명이 포함된 두 번째 파일(예: kali-linux-2025.1-live-amd64.txt.sha256sum)이 있을 것입니다.
 
-You can use this file to verify the authenticity of your download on Linux or macOS with the following command:
+Linux나 macOS에서 다음 명령어를 사용하여 이 파일로 다운로드의 신뢰성을 확인할 수 있습니다:
 
 ```console
 $ grep kali-linux-2025.1-live-amd64.iso kali-linux-2025.1-live-amd64.txt.sha256sum | shasum -a 256 -c
 ```
 
-If the image is successfully authenticated, the response will look like this:
+이미지가 성공적으로 인증되면 응답은 다음과 같을 것입니다:
 
 ```plaintext
 kali-linux-2025.1-live-amd64.iso: OK
 ```
 
-For Windows, provided you have `certutil` you can use the command above and then manually check the contents of the txt file to see if the two SHA256 sums match. If `certutil` is not available, any of the tools stated above would be able to provide you the SHA256 sum of your download. 
+Windows에서는 `certutil`이 있다면 위 명령을 사용한 다음 txt 파일의 내용을 수동으로 확인하여 두 SHA256 합계가 일치하는지 확인할 수 있습니다. `certutil`을 사용할 수 없다면 위에서 언급한 도구를 사용하여 다운로드의 SHA256 합계를 확인할 수 있습니다.
 
 {{% notice info %}}
-IMPORTANT! If you are unable to verify the authenticity of the Kali Linux image you have downloaded as described in the preceding section, do NOT use it! Using it could endanger not only your own system, but any network you connect to as well as the other systems on that network. Stop, and ensure that you have downloaded the images from a legitimate Kali Linux mirror.
+중요! 앞서 설명한 대로 Kali Linux 이미지의 신뢰성을 확인할 수 없다면 사용하지 마세요! 사용할 경우 자신의 시스템뿐만 아니라 연결한 모든 네트워크와 해당 네트워크의 다른 시스템도 위험에 처할 수 있습니다. 중단하고 정상적인 Kali Linux 미러에서 이미지를 다운로드했는지 확인하세요.
 {{% /notice %}}
 
-##### Verify the ISO Using the SHA256SUMS File
+##### SHA256SUMS 파일을 사용하여 ISO 확인하기
 
 {{% notice info %}}
-If using Powershell on Windows you may receive a fully uppercase result. This can cause an error when comparing the two sums. Send this result through a [converter](https://convertcase.net/) to get a proper result.
+Windows에서 Powershell을 사용하면 완전 대문자로 된 결과를 받을 수 있습니다. 이로 인해 두 합계를 비교할 때 오류가 발생할 수 있습니다. 이 결과를 [변환기](https://convertcase.net/)를 통해 보내 적절한 결과를 얻으세요.
 {{% /notice %}}
 
-This is a more complex procedure, but offers a much higher level of validation: it does not rely on the integrity of the web site you downloaded the image from, only the official Kali Linux development team key that you install independently. To verify your image this way for an Intel architecture version of Kali, you will need to download three files from the [Kali "Live CD Image" site for the current release](http://cdimage.kali.org/current/) (v2025.1, as of this writing):
+이것은 더 복잡한 절차이지만 더 높은 수준의 검증을 제공합니다: 이미지를 다운로드한 웹사이트의 무결성에 의존하지 않고, 독립적으로 설치한 공식 Kali Linux 개발 팀 키에만 의존합니다. Intel 아키텍처 버전의 Kali에 대해 이 방법으로 이미지를 확인하려면 [현재 릴리스용 Kali "Live CD Image" 사이트](http://cdimage.kali.org/current/)(이 글 작성 시점에는 v2025.1)에서 세 파일을 다운로드해야 합니다:
 
-- The ISO image itself (e.g. kali-linux-2025.1-live-amd64.iso)
-- The file containing the calculated SHA256 hash for the ISO, SHA256SUMS
-- The signed version of that file, SHA256SUMS.gpg
+- ISO 이미지 자체(예: kali-linux-2025.1-live-amd64.iso)
+- ISO의 계산된 SHA256 해시가 포함된 파일, SHA256SUMS
+- 해당 파일의 서명된 버전, SHA256SUMS.gpg
 
-Before verifying the checksums of the image, you must ensure that the SHA256SUMS file is the one generated by Kali Linux. That's why the file is signed by Kali's official key with a detached signature in SHA256SUMS.gpg. If you have not already done so, Kali's official key can be downloaded and imported into your keychain with this command:
+이미지의 체크섬을 확인하기 전에, SHA256SUMS 파일이 Kali Linux에서 생성한 것인지 확인해야 합니다. 이것이 바로 해당 파일이 SHA256SUMS.gpg에서 분리된 서명으로 Kali의 공식 키로 서명된 이유입니다. 아직 하지 않았다면, 다음 명령어로 Kali의 공식 키를 다운로드하여 키체인으로 가져올 수 있습니다:
 
 ```console
 $ wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 ```
 
-or this command
+또는 다음 명령어를 사용하세요
 
 ```console
 $ gpg --keyserver hkps://keys.openpgp.org --recv-key 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
-Your output should look like this:
+출력은 다음과 같아야 합니다:
 
 ```plaintext
 gpg: key ED65462EC8D5E4C5: public key "Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>" imported
@@ -198,13 +199,13 @@ gpg: Total number processed: 1
 gpg:               imported: 1  (RSA: 1)
 ```
 
-You should verify that the key is properly installed with the command:
+다음 명령어로 키가 올바르게 설치되었는지 확인해야 합니다:
 
 ```console
 $ gpg --fingerprint 827C8569F2518CC677FECA1AED65462EC8D5E4C5
 ```
 
-The output will look like this:
+출력은 다음과 같을 것입니다:
 
 ```plaintext
 pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
@@ -212,7 +213,7 @@ pub   rsa4096 2025-04-17 [SC] [expires: 2028-04-17]
 uid           [ unknown] Kali Linux Archive Automatic Signing Key (2025) <devel@kali.org>
 ```
 
-Once you have downloaded both SHA256SUMS and SHA256SUMS.gpg, you can verify the signature as follows:
+SHA256SUMS와 SHA256SUMS.gpg를 모두 다운로드했으면 다음과 같이 서명을 확인할 수 있습니다:
 
 ```console
 $ gpg --verify SHA256SUMS.gpg SHA256SUMS
@@ -222,23 +223,23 @@ gpg: Good signature from "Kali Linux Archive Automatic Signing Key (2025) <devel
 ```
 
 {{% notice info %}}
-If you do not get that "Good signature" message or if the key ID does not match, then you should stop and review whether you downloaded the images from a legitimate Kali Linux mirror. The failed verification strongly suggests that the image you have may have been tampered with.
+"Good signature" 메시지가 나타나지 않거나 키 ID가 일치하지 않으면, 중단하고 정상적인 Kali Linux 미러에서 이미지를 다운로드했는지 검토해야 합니다. 확인 실패는 가지고 있는 이미지가 변조되었을 가능성이 높다는 것을 강력히 시사합니다.
 {{% /notice %}}
 
-If you did get the "Good signature" response, you can now be assured that the checksum in the SHA256SUMS file was actually provided by the Kali Linux development team. All that remains to be done to complete the verification is to validate that the signature you compute from the ISO you've downloaded matches the one in the SHA256SUMS file. You can do that on Linux or macOS with the following command (assuming that the ISO is named "kali-linux-2025.1-live-amd64.iso" and is in your working directory):
+"Good signature" 응답을 받았다면, 이제 SHA256SUMS 파일의 체크섬이 실제로 Kali Linux 개발팀에서 제공한 것임을 확인할 수 있습니다. 검증을 완료하기 위해 남은 작업은 다운로드한 ISO에서 계산한 서명이 SHA256SUMS 파일의 서명과 일치하는지 확인하는 것입니다. Linux나 macOS에서는 다음 명령어로 이 작업을 수행할 수 있습니다(ISO 이름이 "kali-linux-2025.1-live-amd64.iso"이고 작업 디렉토리에 있다고 가정):
 
 ```console
 $ grep kali-linux-2025.1-live-amd64.iso SHA256SUMS | shasum -a 256 -c
 ```
 
-If the image is successfully authenticated, the response will look like this:
+이미지가 성공적으로 인증되면 응답은 다음과 같을 것입니다:
 
 ```plaintext
 kali-linux-2025.1-live-amd64.iso: OK
 ```
 
 {{% notice info %}}
-If you do not get "OK" in response, then stop and review what's happened: the Kali image you have has apparently been tampered with. Do NOT use it.
+"OK" 응답을 받지 못하면 무슨 일이 일어났는지 중단하고 검토하세요: 가지고 있는 Kali 이미지가 명백히 변조되었습니다. 절대 사용하지 마세요.
 {{% /notice %}}
 
-Once you've downloaded and verified your image, you can [proceed to create a bootable "Kali Linux Live" USB drive](/docs/usb/live-usb-install-with-windows/).
+이미지를 다운로드하고 확인했으면 [부팅 가능한 "Kali Linux Live" USB 드라이브 생성을 진행](/docs/usb/live-usb-install-with-windows/)할 수 있습니다.

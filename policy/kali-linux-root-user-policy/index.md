@@ -5,6 +5,7 @@ icon:
 archived: "true"
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 **이 페이지는 구버전입니다.** 최신 버전은 여기에서 확인하실 수 있습니다: [사용자 정책](/docs/policy/kali-linux-user-policy/).

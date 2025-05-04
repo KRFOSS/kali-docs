@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [라즈베리 파이 Zero](https://www.raspberrypi.org/products/raspberry-pi-zero/)는 싱글 코어 1GHz 프로세서와 512MB RAM을 갖추고 있습니다. [라즈베리 파이 Zero W](/docs/arm/raspberry-pi-zero/)와 달리, 라즈베리 파이 Zero는 보드에 **네트워킹 기능이 없으므로** 네트워킹을 위해 USB 어댑터를 사용해야 합니다. Kali Linux는 외장 microSD 카드에 설치됩니다.

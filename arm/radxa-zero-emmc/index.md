@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [Radxa Zero](https://wiki.radxa.com/Zero)는 쿼드 코어 1.8GHz 프로세서와 512MB, 1GB, 2GB, 또는 4GB의 LPDDR4 RAM을 갖추고 있습니다. 여러 eMMC 버전이 제공되며, 최소 32GB를 권장합니다.

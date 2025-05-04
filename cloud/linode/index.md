@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 시작하기 전에 Linode가 직접 제작한 멋진 영상을 소개해 드립니다! [이 비디오](https://www.youtube.com/watch?v=Oox2hF4SZLU)에서는 Kali Linux가 무엇인지, 그리고 Linode에서 어떻게 설치하고 사용하는지 설명합니다. Linode에 감사드립니다!

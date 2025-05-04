@@ -3,6 +3,7 @@ title: ARM 기기에서 x86 코드 실행하기
 description:
 icon:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 {{% notice info %}}

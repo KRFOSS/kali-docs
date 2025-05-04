@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 이 문서는 [문제 해결의 기초 문서](/docs/troubleshooting/basic-troubleshooting/)와 일부 내용을 공유합니다. 너무 많은 설명이나 추가 정보가 필요하지 않다면, 문제 해결의 기초 문서가 더 적합할 수 있습니다.

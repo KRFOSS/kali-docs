@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 Inverse Path의 [USB Armory MKII](https://inversepath.com/usbarmory)는 USB 플래시 드라이브 크기의 컴퓨터를 구현한 오픈 소스 하드웨어 디자인입니다. Kali Linux는 microSD 카드에 설치할 수 있습니다.

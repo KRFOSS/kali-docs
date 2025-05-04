@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 {{% notice info %}}

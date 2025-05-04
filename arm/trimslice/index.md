@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [Trimslice](http://www.compulab.co.il/utilite-computer/web/trim-slice)는 듀얼 코어 1GHz 프로세서와 1GB RAM을 갖춘 디바이스입니다. Kali Linux는 외장 microSD 카드에 설치됩니다.

@@ -4,6 +4,7 @@ description: Windows Subsystem for Linux 2 & Win-KeX
 icon: ti-pin
 weight: 30
 author: ["Re4son",]
+번역: ["xenix4845"]
 ---
 
 Win-KeX는 Windows Subsystem for Linux (WSL 2)에서 Kali Linux의 GUI 데스크톱 환경을 다음과 같은 기능으로 제공합니다.

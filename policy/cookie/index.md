@@ -1,6 +1,7 @@
 ---
 title: 쿠키 정책
 type: single
+번역: ["xenix4845"]
 ---
 
 <!--

@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [Mini-X](http://www.minix.us/)는 듀얼 코어 1GHz 프로세서에 1GB RAM을 탑재하고 있습니다. Kali Linux는 외장 microSD 카드에 설치할 수 있습니다.

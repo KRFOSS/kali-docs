@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [바나나 프로](http://www.lemaker.org/product-bananapro-specification.html)는 듀얼 코어 1GHz Cortex™-A7 프로세서와 Mali400MP2 GPU, 그리고 1GB DDR3 RAM을 탑재하고 있습니다. 칼리 리눅스는 외장 microSD 카드에서 구동할 수 있습니다.

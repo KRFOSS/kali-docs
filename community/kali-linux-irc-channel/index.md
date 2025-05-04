@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 Kali Linux에는 [OFTC](https://oftc.net/) 네트워크에 공식 IRC 채널인 **#kali-linux**가 있습니다. 채널에 가입하기 전에 아래의 규칙과 지침을 검토해 주세요.

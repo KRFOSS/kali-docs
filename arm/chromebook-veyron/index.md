@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [에이수스 크롬북 플립](https://www.asus.com/us/Notebooks/ASUS_Chromebook_Flip_C100PA/)은 쿼드코어 1.8GHz 프로세서와 2GB 또는 4GB RAM을 탑재한 크롬북으로, 10.1인치 10포인트 멀티터치 터치스크린을 자랑합니다. 칼리 리눅스는 외장 마이크로SD 카드나 USB 드라이브에 완벽하게 설치할 수 있습니다.

@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 칼리 리눅스 프로젝트의 공식 커뮤니티 포럼은 [forums.kali.org](https://forums.kali.org/)에 위치하고 있습니다.

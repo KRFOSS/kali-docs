@@ -1,57 +1,58 @@
 ---
-title: Kali's Default Credentials
-description: What is Kali's password
+title: Kali의 기본 자격 증명
+description: Kali의 비밀번호는 무엇인가요
 icon:
 weight: 60
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
-Kali changed to a [non-root user policy](/docs/policy/kali-linux-user-policy/) by default [since the release of **2020.1**](/blog/kali-default-non-root-user/).
+Kali는 [**2020.1** 버전 출시](/blog/kali-default-non-root-user/) 이후로 기본적으로 [비루트 사용자 정책](/docs/policy/kali-linux-user-policy/)으로 변경되었습니다.
 
-This means:
+이는 다음을 의미합니다:
 
-- During the installation of [**amd64** images](/docs/installation/), it will prompt you for a standard user account to be created.
+- [**amd64** 이미지](/docs/installation/) 설치 중에는 표준 사용자 계정 생성을 요청하는 프롬프트가 표시됩니다.
 
-- Any default operating system credentials used during **Live Boot**, or **pre-created image** (like **[Virtual Machines](/docs/virtualization/)** & **[ARM](/docs/arm/)**) will be:
-    - User: `kali`
-    - Password: `kali`
+- **라이브 부팅**(Live Boot) 또는 **사전 생성된 이미지**(**[가상 머신](/docs/virtualization/)** 및 **[ARM](/docs/arm/)** 같은)에서 사용되는 기본 운영 체제 자격 증명은 다음과 같습니다:
+    - 사용자: `kali`
+    - 비밀번호: `kali`
 
-- **Vagrant** image _(based on their [policy](https://www.vagrantup.com/docs/boxes/base.html))_:
-    - Username: `vagrant`
-    - Password: `vagrant`
+- **Vagrant** 이미지 _(그들의 [정책](https://www.vagrantup.com/docs/boxes/base.html)에 기반함)_:
+    - 사용자 이름: `vagrant`
+    - 비밀번호: `vagrant`
 
 - [Amazon **EC2**](/docs/cloud/aws/):
-    - User: `kali`
-    - Password: `<ssh key>`
+    - 사용자: `kali`
+    - 비밀번호: `<ssh key>`
 
-## Default Tool Credentials
+## 도구 기본 자격 증명
 
-Some tools shipped with Kali, will use their own default hardcoded credentials (others will generate a new password the first time its used). The following tools have the default values:
+Kali와 함께 제공되는 일부 도구는 자체 하드코딩된 기본 자격 증명을 사용합니다(다른 일부는 처음 사용할 때 새 비밀번호를 생성합니다). 다음 도구들은 기본값을 가지고 있습니다:
 
 - [BeEF-XSS](/tools/beef-xss/)
-    - Username: `beef`
-    - Password: `beef`
-    - Configuration File: `/etc/beef-xss/config.yaml`
+    - 사용자 이름: `beef`
+    - 비밀번호: `beef`
+    - 설정 파일: `/etc/beef-xss/config.yaml`
 
 - MySQL
-    - User: `root`
-    - Password: ` ` _(blank)_
-    - Setup Program: `mysql_secure_installation`
+    - 사용자: `root`
+    - 비밀번호: ` ` _(공백)_
+    - 설정 프로그램: `mysql_secure_installation`
 
 - [OpenVAS](/tools/gvm/)
-    - Username: `admin`
-    - Password: `<Generated during setup>`
-    - Setup Program: `openvas-setup`
+    - 사용자 이름: `admin`
+    - 비밀번호: `<설정 중 생성됨>`
+    - 설정 프로그램: `openvas-setup`
 
 - [Metasploit-Framework](/tools/metasploit-framework/)
-    - Username: `postgres`
-    - Password: `postgres`
-    - Configuration File: `/usr/share/metasploit-framework/config/database.yml`
+    - 사용자 이름: `postgres`
+    - 비밀번호: `postgres`
+    - 설정 파일: `/usr/share/metasploit-framework/config/database.yml`
 
 - PowerShell-Empire/Starkiller
-    - Username: `empireadmin`
-    - Password: `password123`
+    - 사용자 이름: `empireadmin`
+    - 비밀번호: `password123`
 
 - - -
 
-For versions of Kali Linux older than 2020.1, here is our [previous credential information](/docs/introduction/kali-linux-default-passwords/) and [root policy](/docs/policy/kali-linux-root-user-policy/) information.
+2020.1보다 이전 버전의 Kali Linux에 대해서는 [이전 자격 증명 정보](/docs/introduction/kali-linux-default-passwords/) 및 [루트 정책](/docs/policy/kali-linux-root-user-policy/) 정보를 참조하세요.

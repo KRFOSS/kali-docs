@@ -1,48 +1,49 @@
 ---
-title: Should I Use Kali Linux?
+title: 내가 칼리 리눅스를 사용해야 할까요?
 description:
 icon:
 weight: 20
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
-#### What's Different About Kali Linux?
+#### 칼리 리눅스의 특별한 점은 무엇인가요?
 
-Kali Linux is specifically geared to meet the requirements of professional penetration testing and security auditing. To achieve this, several core changes have been implemented in Kali Linux which reflect these needs:
+칼리 리눅스는 전문적인 침투 테스팅(모의해킹)과 보안 감사의 요구 사항을 충족하도록 특별히 설계되었어요. 이를 위해 칼리 리눅스에는 다음과 같은 핵심 변경사항이 적용되어 있습니다:
 
-1. **Network services disabled by default:** Kali Linux contains systemd hooks that [disable network services](/docs/policy/kali-linux-network-service-policy/) by default. These hooks allow us to install various services on Kali Linux, while ensuring that our distribution remains secure by default, no matter what packages are installed. Additional services such as Bluetooth are also blocklisted by default.
+1. **기본적으로 비활성화된 네트워크 서비스:** 칼리 리눅스는 systemd 훅을 통해 [네트워크 서비스를 기본적으로 비활성화](/docs/policy/kali-linux-network-service-policy/)합니다. 이 훅들 덕분에 어떤 패키지를 설치하든 상관없이 배포판의 보안을 유지하면서도 다양한 서비스를 설치할 수 있어요. 블루투스 같은 추가 서비스도 기본적으로 차단 목록에 포함되어 있습니다.
 
-2. **Custom Linux kernel:** Kali Linux uses an upstream kernel, patched for wireless injection.
+2. **맞춤형 리눅스 커널:** 칼리 리눅스는 무선 패킷 주입을 위해 패치된 업스트림 커널을 사용해요.
 
-3. **A _minimal_ and _trusted_ set of repositories:** given the aims and goals of Kali Linux, maintaining the integrity of the system as a whole is absolutely key. With that goal in mind, the set of upstream software sources which Kali uses is [kept to an absolute minimum](/docs/general-use/kali-linux-sources-list-repositories/). Many new Kali users are tempted to add additional repositories to their **sources.list**, but doing so runs a _very serious risk_ of breaking your Kali Linux installation.
+3. **_최소화되고 신뢰할 수 있는_ 저장소 집합:** 칼리 리눅스의 목적과 목표를 고려할 때, 시스템 전체의 무결성을 유지하는 것이 절대적으로 중요해요. 이를 위해 칼리가 사용하는 업스트림 소프트웨어 소스는 [절대적인 최소한으로 유지](/docs/general-use/kali-linux-sources-list-repositories/)됩니다. 많은 새로운 칼리 사용자들이 자신의 **sources.list**에 추가 저장소를 넣고 싶어하지만, 이렇게 하면 칼리 리눅스 설치를 _심각하게 손상시킬 위험_ 이 있어요.
 
-#### Is Kali Linux Right For You?
+#### 칼리 리눅스가 당신에게 적합할까요?
 
-As the distribution's developers, you might expect us to recommend that everyone should be using Kali Linux. The fact of the matter is, however, that Kali is a Linux distribution specifically geared towards professional penetration testers and security specialists, and given its unique nature, it is **NOT** a recommended distribution if you're unfamiliar with Linux or are looking for a general-purpose Linux desktop distribution for development, web design, gaming, etc.
+배포판 개발자로서, 우리가 모든 사람에게 칼리 리눅스 사용을 권장할 것이라고 생각하실 수도 있어요. 하지만 사실은 칼리가 전문적인 침투 테스터와 보안 전문가를 위해 특별히 설계된 리눅스 배포판이라는 점이에요. 독특한 성격 때문에, 리눅스에 익숙하지 않거나 개발, 웹 디자인, 게임 등을 위한 일반적인 리눅스 데스크톱 배포판을 찾고 있다면 **권장하지 않아요**.
 
-Even for experienced Linux users, Kali can pose some challenges. Although Kali is an [open source project](/docs/policy/kali-linux-open-source-policy/), it's not a _wide_-open source project, for reasons of security. The [development team](/about-us/) is small and trusted, packages in the repositories are signed both by the individual committer and the team, and - importantly - the set of upstream repositories from which updates and new packages are drawn is very small. Adding repositories to your software sources which have not been tested by the Kali Linux development team is a good way to cause problems on your system.
+경험 많은 리눅스 사용자들에게도 칼리는 몇 가지 어려움을 줄 수 있어요. 칼리는 [오픈 소스 프로젝트](/docs/policy/kali-linux-open-source-policy/)지만, 보안상의 이유로 _완전히_ 열려있는 오픈 소스 프로젝트는 아니에요. [개발팀](https://kali.org/about-us/)은 작고 신뢰할 수 있으며, 저장소의 패키지는 개별 기여자와 팀 모두가 서명하고, 중요하게도 업데이트와 새 패키지가 가져와지는 업스트림 저장소 집합이 매우 작아요. 칼리 리눅스 개발팀이 테스트하지 않은 저장소를 소프트웨어 소스에 추가하면 시스템에 문제가 생길 가능성이 높아요.
 
-While Kali Linux is architected to be [highly customizable](/docs/development/live-build-a-custom-kali-iso/), do not expect to be able to add random unrelated packages and repositories that are "out of band" of the regular Kali software sources and have it Just Work. In particular, there is absolutely no support whatsoever for the apt-add-repository command, LaunchPad, or PPAs. Trying to install _**Steam**_ on your Kali Linux desktop is an experiment that will not end well. Even getting a package as mainstream as NodeJS onto a Kali Linux installation can take [a little extra effort and tinkering](http://www.acme-dot.com/stupid-problems-deserve-stupid-solutions/).
+칼리 리눅스는 [높은 수준으로 커스터마이징](/docs/development/live-build-a-custom-kali-iso/)할 수 있도록 설계되었지만, 일반적인 칼리 소프트웨어 소스와 관계없는 무작위 패키지와 저장소를 추가해서 그냥 잘 작동하기를 기대하지는 마세요. 특히 apt-add-repository 명령어, LaunchPad, PPA에 대한 지원은 전혀 없어요. 칼리 리눅스 데스크톱에 _**스팀(Steam)**_ 을 설치하려는 시도는 좋은 결과로 이어지지 않을 거예요. NodeJS처럼 널리 사용되는 패키지도 칼리 리눅스에 설치하려면 [약간의 추가 노력과 손질](http://www.acme-dot.com/stupid-problems-deserve-stupid-solutions/)이 필요할 수 있어요.
 
-If you are unfamiliar with Linux generally, if you do not have at least a basic level of competence in administering a system, if you are looking for a Linux distribution to use as a learning tool to get to know your way around Linux, or if you want a distro that you can use as a general purpose desktop installation, _Kali Linux is probably not what you are looking for_.
+리눅스에 일반적으로 익숙하지 않거나, 시스템 관리에 대한 기본적인 능력이 없거나, 리눅스를 배우기 위한 학습 도구로 사용할 배포판을 찾고 있거나, 일반적인 데스크톱으로 사용할 배포판을 원한다면, _칼리 리눅스는 아마 당신이 찾는 것이 아닐 거예요_.
 
-In addition, misuse of security and penetration testing tools within a network, particularly without specific authorization, may cause irreparable damage and result in significant consequences, personal and/or legal. "Not understanding what you were doing" is not going to work as an excuse.
+또한, 특히 특정 권한 없이 네트워크 내에서 보안 및 침투 테스팅 도구를 오남용하면 돌이킬 수 없는 손상을 일으키고 개인적/법적으로 심각한 결과를 초래할 수 있어요. "내가 무엇을 하고 있었는지 몰랐다"는 변명은 통하지 않을 거예요.
 
-However, if you're a professional penetration tester or are studying penetration testing with a goal of becoming a certified professional, there's no better toolkit - at any price - than Kali Linux.
+하지만, 당신이 전문적인 침투 테스터이거나 인증된 전문가가 되는 것을 목표로 침투 테스팅을 공부하고 있다면, 칼리 리눅스보다 더 나은 도구 모음은 어떤 가격으로도 찾을 수 없어요.
 
-Kali Linux is able to be used even if you are new to Linux. However, if you're interested in getting hands-on with the internals of Linux, take a look at the <a href="http://www.linuxfromscratch.org/">Linux From Scratch</a> project. Linux From Scratch is a great resource to start your Linux journey with.
+리눅스를 처음 접하더라도 칼리 리눅스를 사용할 수는 있어요. 하지만 리눅스의 내부 구조를 직접 다루는 데 관심이 있다면, [리눅스 프롬 스크래치(Linux From Scratch)](http://www.linuxfromscratch.org/) 프로젝트를 살펴보세요. 리눅스 프롬 스크래치는 리눅스 여정을 시작하기에 좋은 자료예요.
 
-#### Summary
+#### 요약
 
-So, after having read this you should have figured out if **Kali Linux** is the distribution you were looking for or at least got an idea about your choice.
+이제 글을 다 읽었다면 **칼리 리눅스**가 당신이 찾던 배포판인지, 아니면 적어도 선택에 대한 아이디어를 얻었을 거예요.
 
-If still you have not figured it out, here is a summary that will hopefully remove your remaining doubts:
+아직도 결정하지 못했다면, 남은 의문을 해소하는 데 도움이 될 요약을 드릴게요:
 
-- Kali Linux is made with **pentesters** and **pentesting** in mind so, expecting it to fit with your necessity *might* not be as simple even though it's completely possible.
-- If you are new to **Linux** or have less experience with **command line** you might find Kali Linux to be not so user-friendly, even though our developers try to make it as user-friendly as possible some things might be intimidating to you if you are new.
-- The developers always try to make Kali Linux as much hardware compatible as possible but, still some hardware/s *might not work* as *expected* or *not work at all*. So, its better to **research hardware compatibility** beforehand rather than breaking your computer later.
-- If you are installing Kali Linux for the first time, it is recommended to install first in Virtual Machine then, after getting familiar with it, you can install it in your own hardware.
+- 칼리 리눅스는 **모의해킹 전문가**와 **모의해킹**을 염두에 두고 만들어졌기 때문에, 완전히 불가능한 건 아니지만 당신의 필요에 맞게 사용하는 것이 *간단하지 않을 수도* 있어요.
+- **리눅스**를 처음 접하거나 **명령줄**에 경험이 적다면, 개발자들이 최대한 사용자 친화적으로 만들려고 노력했음에도 칼리 리눅스가 그리 친절하게 느껴지지 않을 수 있어요. 처음이라면 몇 가지 기능이 위협적으로 느껴질 수 있어요.
+- 개발자들은 항상 칼리 리눅스가 최대한 많은 하드웨어와 호환되도록 노력하지만, 일부 하드웨어는 *예상대로 작동하지 않거나* *전혀 작동하지 않을 수도* 있어요. 그러니 나중에 컴퓨터를 망가뜨리는 것보다 미리 **하드웨어 호환성을 조사**하는 게 좋아요.
+- 칼리 리눅스를 처음 설치한다면, 먼저 가상머신에 설치한 다음, 익숙해지고 나서 실제 하드웨어에 설치하는 것이 좋아요.
 
-Hopefully, now you know if you need to install **Kali Linux** or not. If you have decided to install **Kali Linux** then, we welcome you to our community.
+이제 **칼리 리눅스**를 설치해야 할지 결정했길 바라요. 설치하기로 했다면, 우리 커뮤니티에 오신 것을 환영해요.
 
-If not, then see you later, and remember always **"Try Harder"**.
+그렇지 않다면, 또 만나요. 그리고 항상 **"더 노력하세요(Try Harder)"**라는 말을 기억하세요.

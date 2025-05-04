@@ -4,6 +4,7 @@ description: Win-KeX SL (Seamless Mode)
 icon: ti-pin
 weight: 50
 author: ["Re4son",]
+번역: ["xenix4845"]
 ---
 
 Win-KeX의 심리스 모드(SL)는 Windows 데스크톱 화면 상단에 Kali Linux 패널을 실행합니다.

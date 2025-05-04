@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [CubieBoard2](http://cubieboard.org/model/cb2/)는 듀얼 코어 1.4GHz 프로세서와 1GB RAM을 탑재한 보드입니다. 칼리 리눅스는 외장 마이크로SD 카드에 설치하여 사용할 수 있습니다.

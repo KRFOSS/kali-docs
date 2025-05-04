@@ -4,6 +4,7 @@ description: Windows Subsystem for Linux 설정 준비하기
 icon:
 weight: 10
 author: ["gamb1t","g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 ## 최신 WSL 배포판 아키텍처 (2025)

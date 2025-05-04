@@ -3,6 +3,7 @@ title: 라즈베리 파이 이미저 소프트웨어로 Kali 라즈베리 파이
 description:
 icon:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 Kali 라즈베리 파이 이미지를 마이크로SD 카드나 USB 장치에 쓰는 또 다른 방법은 Windows, macOS, Linux에서 사용 가능한 [라즈베리 파이 이미저 소프트웨어](https://raspberrypi.com/software/)를 활용하는 것입니다.

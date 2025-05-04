@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 {{% notice info %}}
 이 문서에서 말하는 '우리'는 ROKFOSS 프로젝트가 아닌 Kali Linux와 Offsec을 의미합니다.

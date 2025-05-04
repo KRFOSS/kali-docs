@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [Gateworks Newport](https://www.gateworks.com/products/industrial-single-board-computers/octeon-tx-single-board-computers-gateworks-newport/)는 플래시 드라이브 크기의 컴퓨터를 구현한 제품입니다. Kali Linux는 microSD 카드에 설치할 수 있습니다.

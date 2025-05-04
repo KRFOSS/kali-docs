@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [라즈베리 파이 400](https://www.raspberrypi.org/products/raspberry-pi-400/)은 키보드 형태의 제품으로 쿼드 코어 1.8GHz 프로세서와 4GB RAM을 갖추고 있습니다. Kali Linux는 microSD 카드에서 실행됩니다.

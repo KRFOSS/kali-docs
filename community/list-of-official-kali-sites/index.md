@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 [Kali Linux 프로젝트](/)는 각각 특정 목적을 가진 여러 kali.org 서브도메인을 사용합니다. 이 문서에는 공식 Kali 사이트와 각 사이트의 용도가 나열되어 있습니다. _이 사이트들이 **유일한** 공식 Kali Linux 사이트_이며 배포판에 대한 _유일한 권위 있는 정보 출처_임을 기억하세요.

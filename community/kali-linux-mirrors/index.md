@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 ## 공식 저장소 사용하기

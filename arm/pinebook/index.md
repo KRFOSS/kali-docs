@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [Pinebook](https://www.pine64.org/pinebook/)은 Mali 400 MP2 GPU가 탑재된 Allwinner A64 쿼드 코어 SOC와 2GB LPDDR3 RAM을 갖추고 있습니다. Kali Linux는 microSD 카드 또는 내장 eMMC에서 실행할 수 있습니다.

@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [BeagleBone Black](http://beagleboard.org/BLACK)은 개발자와 취미 활동가를 위한 저비용, 커뮤니티 지원 ARM 기반 개발 플랫폼입니다. BeagleBone Black은 1GHz Cortex-A8 CPU와 하드웨어 기반 부동 소수점 연산 및 3D 가속 기능을 갖추고 있습니다. 데스크톱이나 노트북 시스템에 비해 성능은 낮지만, 그 경제성으로 인해 작은 리눅스 시스템으로는 탁월한 선택입니다.

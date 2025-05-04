@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [ODROID-C1](https://www.hardkernel.com/shop/odroid-c1-2/)은 쿼드 코어 1.5GHz Cortex A5 프로세서와 1GB RAM을 탑재한 개발 보드입니다. Kali Linux는 외장 microSD 카드 또는 eMMC 모듈에 설치할 수 있습니다.

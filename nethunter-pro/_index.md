@@ -1,79 +1,74 @@
 ---
 title: Kali NetHunter Pro
-description: Kali Linux on your mainline phone
+description: 메인라인 폰에서 작동하는 칼리 리눅스
 icon: ti-mobile
 weight: 45
 author: ["ShubhamVis98",]
+번역: ["xenix4845"]
 ---
 
-##### Kali NetHunter Pro is Pure Kali Linux for Mainline devices like PinePhone/Pro and QCOM Devices.
+##### 칼리 NetHunter Pro는 파인폰/파인폰 Pro와 퀄컴 기기 같은 메인라인 장치를 위한 순수한 칼리 리눅스예요.
 
 ![](nhpro-beryllium.png)
 
-## Content:
+## 개요
 
-- [Overview](#overview)
-- [NetHunter Pro Supported Devices](#20-nethunter-pro-supported-devices)
-- [Installing NetHunter Pro](#50-installing-nethunter-pro)
+칼리 NetHunter Pro는 파인폰, 파인폰 Pro, 그리고 퀄컴 메인라인 기기와 같은 ARM64 장치를 위해 특별히 설계된 고급 기능이 탑재된 칼리 리눅스 버전이에요. 안드로이드 위에서 실행되는 일반 NetHunter와 달리, 칼리 NetHunter Pro는 순수한 칼리 리눅스 배포판으로, 데스크톱급 침투 테스팅의 모든 힘을 모바일 플랫폼으로 가져와요. 안드로이드 시스템 위에서 실행되는 제약 없이 완전한 칼리 리눅스 경험을 제공함으로써 호환되는 모바일 기기를 휴대용 해킹 머신으로 변신시켜요. 이를 통해 전문가들은 데스크톱 환경에서 기대할 수 있는 모든 도구와 기능을 갖춘 채 모바일 기기에서 직접 침투 테스팅, 보안 평가 및 다른 사이버 보안 작업을 수행할 수 있어요.
 
-## Overview
+칼리 NetHunter Pro에는 무엇이 있나요?
 
-Kali NetHunter Pro is an advanced, fully-featured version of Kali Linux specifically designed for ARM64 devices, such as the PinePhone, PinePhone Pro, and Qualcomm mainlined devices. Unlike the standard NetHunter, which runs as an overlay on Android, Kali NetHunter Pro is a pure Kali Linux distribution that brings the full power of desktop-class penetration testing to mobile platforms. It transforms compatible mobile devices into portable hacking machines by providing a complete Kali Linux experience without the limitations of running on top of an Android system. This enables professionals to perform penetration testing, security assessments, and other cybersecurity tasks directly from their mobile devices, with all the tools and features they would expect from a desktop environment.
+- 칼리 데스크톱에서 사용하는 거의 모든 도구가 있어요.
 
-What's in Kali NetHunter Pro?
+- 칼리 NetHunter Pro는 파인폰과 파인폰 Pro 같은 지원 기기에서 HDMI 출력을 통한 데스크톱 환경도 제공해요.
 
-- Almost every tool available that you use in your kali desktop.
+- 사용자는 쉽게 다른 운영 체제와 듀얼부팅할 수 있어요.
 
-- Kali NetHunter Pro also provides Desktop Experience with HDMI out on supported devices like PinePhone and PinePhone Pro.
+## 2.0 NetHunter Pro 지원 기기
 
-- Users can easily dualboot with other Operating Systems.
+NetHunter Pro는 특정 ARM64 기기에서 원활하게 작동하도록 특별히 설계되었어요. 아래는 칼리 NetHunter Pro가 지원하는 기기들이에요:
 
-## 2.0 NetHunter Pro Supported Devices
+- 파인폰(PinePhone)
+- 파인폰 Pro(PinePhone Pro)
+- 포코 F1(beryllium)
+- 원플러스 6(enchilada)
+- 원플러스 6T(fajita)
+- 샤오미 Mi MIX 2S(polaris)
+- SHIFT SHIFT6mq(axolotl)
 
-NetHunter Pro is specifically designed to work seamlessly on a select range of ARM64 devices. Below are the Kali NetHunter Pro supported devices:
+## 3.0 NetHunter Pro 설치하기
 
-- PinePhone
-- PinePhone Pro
-- Poco F1 (beryllium)
-- OnePlus 6 (enchilada)
-- OnePlus 6T (fajita)
-- Xiaomi Mi MIX 2S (polaris)
-- SHIFT SHIFT6mq (axolotl)
+지원 기기용 칼리 NetHunter Pro 이미지 공식 릴리스는 다음 URL의 칼리 리눅스 페이지에서 다운로드할 수 있어요:
 
-## 3.0 Installing NetHunter Pro
+- [kali.org/get-kali/](https://kali.org/get-kali/)
 
-Official release of Kali NetHunter Pro images for supported devices can be downloaded from the Kali Linux page located at the following URL:
-
-- [kali.org/get-kali/](/get-kali/)
-
-##### Installation steps for PinePhone/Pro Devices
+##### 파인폰/Pro 기기용 설치 단계
 
 ```
 tar -xpf nethunterpro-2024.4-pinephone-phosh.img.tar.xz
 dd if=nethunterpro-2024.4-pinephone-phosh.img of=/dev/mmcblkX bs=1M oflag=sync status=progress
 ```
 
-##### Installation steps for QCOM Android Devices
+##### 퀄컴 안드로이드 기기용 설치 단계
 
 {{< youtube rieHfDGKCeg >}}
 
 ```
-#Install on SDCard:
+# SD카드에 설치하기:
 tar -xpf kali-nethunterpro-2024.4-sdm845.tar.xz
 simg2img flash userdata nethunterpro-*-sdm845*rootfs.img rootfs_ext4.img
 dd if=rootfs_ext4.img of={sdcard_block_device} bs=1M oflag=sync status=progress
 fastboot flash boot nethunterpro*boot-{model}-{variant}.img
-fastboot erase dtbo # if your device has dtbo partition
+fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우
 
-#Install on EMMC (fastboot method):
+# 내장 메모리(EMMC)에 설치하기 (fastboot 방식):
 tar -xpf kali-nethunterpro-2024.4-sdm845.tar.xz
 fastboot flash userdata nethunterpro-*-sdm845*rootfs.img
 fastboot flash boot nethunterpro*boot-{model}-{variant}.img
-fastboot erase dtbo # if your device has dtbo partition
+fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우
 ```
 
-##### NOTE:
-    - If your device has A/B partitions, you can choose the slot while flashing, e.g., `fastboot flash boot_a nethunterpro*boot-{model}-{variant}.img`.
-    - Run `fastboot getvar current-slot` to get the active slot in fastboot.
-    - Run `fastboot set_active {a or b}` to change the active slot.
-    - Do not forget to erase the dtbo before booting.
+##### 참고:
+- 기기에 A/B 파티션이 있다면, 플래싱 시 슬롯을 선택할 수 있어요. 예: `fastboot flash boot_a nethunterpro*boot-{model}-{variant}.img`
+- 패스트부트에서 `fastboot getvar current-slot` 명령으로 활성 슬롯을 확인할 수 있어요.
+- `fastboot set_active {a 또는 b}` 명령으로 활성 슬롯을 변경할 수 있어요.
+- 부팅 전에 dtbo를 지우는 것을 잊지 마세요.

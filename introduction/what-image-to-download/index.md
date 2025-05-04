@@ -1,69 +1,63 @@
 ---
-title: Which Image Should I Download?
+title: 어떤 이미지를 다운로드해야 할까요?
 description:
 icon:
 weight: 40
 author: ["Re4son",]
+번역: ["xenix4845"]
 ---
 
-In this section, we will describe the process of installing Kali Linux on 64-bit hardware using the images published on the [Kali Linux download page](/get-kali/).
+이 섹션에서는 [칼리 리눅스 다운로드 페이지](https://kali.org/get-kali/)에서 제공하는 이미지를 사용해 64비트 하드웨어에 칼리 리눅스를 설치하는 과정을 설명해요.
 
-#### Content
+#### 어떤 이미지를 선택할지
 
-- [Which image to choose](#which-image-to-choose)
-- [Which desktop environment and software collection to choose during installation](#which-desktop-environment-and-software-collection-to-choose-during-installation)
+[칼리 리눅스 다운로드 페이지](https://kali.org/get-kali/)에서는 다양한 이미지 유형(**표준 설치(Installer)**, **네트워크 표준 설치(NetInstaller)**, **라이브(Live)**)을 제공해요. 모든 이미지는 x86-64(64비트) 아키텍처용으로 제공되고요. 그리고 *표준 설치*와 *라이브* 이미지에는 **모든 도구 포함(Everything)** 버전도 있어요.
 
-- - -
+**무엇을 선택할지 모르겠다면, "표준 설치(Installer)" 이미지를 사용하세요**.
 
-#### Which Image to Choose
+##### 표준 설치(Installer)
 
-The [Kali Linux download page](/get-kali/) offers different image types (**Installer**, **NetInstaller** and **Live**) for download, each available for the x86-64 (ie. 64-bit) architecture. Additionally, there is an **Everything** flavor of the *Installer* and *Live* images.
+**칼리 리눅스를 설치할 때 가장 추천하는 이미지예요**. 이 이미지에는 필요한 [(메타)패키지](/docs/general-use/metapackages/)(top10, default & large)의 로컬 복사본이 포함되어 있어서 네트워크 연결 없이도 **완전히 오프라인으로 설치**할 수 있어요.
 
-**If in doubt, use the "Installer" image**.
+이 이미지는 _(USB에서 직접 칼리를 실행하는 것처럼)_ **라이브 시스템으로 부팅할 수 없어요**. **오직** 설치용 이미지일 뿐이에요.
 
-##### Installer
+##### 네트워크 설치(NetInstaller)
 
-**This is the recommended image to install Kali Linux**. It contains a local copy of the [(meta)packages](/docs/general-use/metapackages/) listed (top10, default & large) so it can be used for **complete offline installations** without the need of a network connection.
+칼리 리눅스를 **설치할 때마다 최신 패키지**를 원하거나 표준 설치 이미지가 너무 커서 다운로드하기 부담스러울 때 사용할 수 있어요. 이 이미지는 설치할 [(메타)패키지](/docs/general-use/metapackages/)의 로컬 복사본을 포함하지 않아서 매우 작아요. 모든 패키지는 설치 중에 다운로드되므로 네트워크 연결이 필요하고 그래서 설치 시간이 더 오래 걸릴 수 있어요.
 
-This image **cannot be used to boot a live system** _(such as directly running Kali from a USB)_. It is **only** an installer image.
+위에서 설명한 표준 설치 이미지를 사용하지 않을 특별한 이유가 있을 때만 이 이미지를 사용하세요.
 
-##### NetInstaller
+이 이미지도 _(USB에서 직접 칼리를 실행하는 것처럼)_ **라이브 시스템으로 부팅할 수 없어요**. **오직** 설치용 이미지일 뿐이에요.
 
-This image can be used if you want the latest package **every time you install** Kali Linux or the standard installer image is too big to download. This image is very small because it does not contain a local copy of [(meta)packages](/docs/general-use/metapackages/) to install. They will all be downloaded during installation, so as a result this requires a network connection which will slow down the installation time.
+##### 라이브(Live)
 
-Only use this image if you have reasons not to use the standard installer image above.
+이 이미지는 **설치하지 않고도 칼리 리눅스를 실행**할 수 있어서 [USB 드라이브](/docs/usb/) _(또는 CD/DVD)_ 에서 바로 실행하기에 딱 좋아요.
 
-This image **cannot be used to boot a live system** _(such as directly running Kali from a USB)_. It is **only** an installer image.
+이 이미지로도 기본 설정의 칼리 리눅스를 설치할 수는 있지만, 다양한 **데스크톱 환경** 중에서 **선택하거나** **추가 [(메타)패키지](/docs/general-use/metapackages/)**를 지정해서 설치하는 건 **불가능해요**.
 
-##### Live
+##### 모든 도구 포함(Everything)
 
-This image is for **running Kali Linux without installing it first** so it is perfect for running off a [USB drive](/docs/usb/) _(or a CD/DVD)_.
+이 이미지는 네트워크 연결이 없는 곳에서 칼리 리눅스를 사용하려는 오프라인 상황을 위한 거예요. 거의 모든 칼리 도구가 이미 포함되어 있어서 이미지 크기가 *엄청 커요*(9GB 이상). 비트토렌트(BitTorrent)로만 다운로드할 수 있어요.
 
-You are able to install Kali Linux in its default configuration from this image but **you will not be able to choose** between **desktop environments** or to specify **additional [(meta)packages](/docs/general-use/metapackages/)** to install.
-
-##### Everything
-
-This image is meant for offline scenarios, when you want to use Kali Linux in a place that has no network connectivity. The image is *huge* (more than 9GB), as it contains nearly all of Kali's tools already. It can be downloaded via BitTorrent only.
-
-Kali "everything" is not exactly an image, it's a flavor. You can download either the **Installer Everything** image or the **Live Everything** image. In both case, all the tools are already there, no need for an Internet connection.
+칼리 "모든 도구 포함(Everything)"은 정확히 말하면 이미지라기보다 종류예요. **표준 설치 모든 도구 포함(Installer Everything)** 이미지나 **라이브 모든 도구 포함(Live Everything)** 이미지 중 하나를 다운로드할 수 있어요. 두 경우 모두 모든 도구가 이미 포함되어 있으니 인터넷 연결이 필요 없어요.
 
 - - -
 
-#### Which Desktop Environment and (Meta)Packages to Choose During Installation:
+#### 설치 중 어떤 데스크톱 환경과 소프트웨어 모음을 선택할지
 
-Each Kali Linux installer image _(not live)_ allows the user to select the preferred "Desktop Environment (DE)" and software collection ([metapackages](/docs/general-use/metapackages/)) to be installed with operating system (Kali Linux).
+칼리 리눅스 표준 설치 이미지 _(라이브가 아닌)_ 는 사용자가 원하는 "데스크톱 환경(Desktop Environment, DE)"과 소프트웨어 모음([메타패키지](/docs/general-use/metapackages/))을 선택해서 운영 체제(칼리 리눅스)와 함께 설치할 수 있어요.
 
-**We recommend sticking with the default selections and add further packages after the installation as required**. `Xfce` is the default desktop environment, and `kali-linux-top10` and `kali-linux-default` are the tools which get installed at the same time.
+**기본 선택을 그대로 유지하고 필요한 패키지는 설치 후에 추가하는 걸 추천해요**. `Xfce`가 기본 데스크톱 환경이고, `kali-linux-top10`과 `kali-linux-default`는 함께 설치되는 기본 도구들이에요.
 
 ![](setup-default-metapackages.png)
 
-At this screen, you may wish to not install a desktop environment, then Kali Linux becomes "headless" (no graphic interface) which uses less system resources up and commonly found on servers, dropboxes, low powered ARM devices, and the cloud. This is meant for people who are completely comfortable with the command line. You are able to install multiple Desktop Environments, allowing you to switch, we wouldn't recommend it. You may change your mind and [switch desktop environments](/docs/general-use/switching-desktop-environments/) at a later date.
+이 화면에서 데스크톱 환경을 아예 설치하지 않을 수도 있어요. 그러면 칼리 리눅스는 "헤드리스(화면 없음)" 상태가 되어 시스템 자원을 덜 사용하게 되죠. 이런 방식은 서버, 드롭박스, 저전력 ARM 기기, 클라우드 등에서 흔히 볼 수 있어요. 명령줄에 완전히 익숙한 사람들을 위한 거예요. 여러 데스크톱 환경을 동시에 설치해서 전환할 수도 있지만, 권장하진 않아요. 나중에 마음이 바뀌면 [데스크톱 환경을 전환](/docs/general-use/switching-desktop-environments/)할 수 있으니까요.
 
-May wish to not to install any of the pre-defined software packages/bundles/collections ([metapackages](/docs/general-use/metapackages/)), giving you a finer degree of control of manually installing exactly what software you want. Alternatively you may want to be more prepared and install more than the default toolset.
-Please be aware, that there are more tools available in Kali which has be manually installed after the setup (as they all cannot be stored in the setup image).
+미리 정의된 소프트웨어 패키지/번들/컬렉션([메타패키지](/docs/general-use/metapackages/))을 아예 설치하지 않고 원하는 소프트웨어만 직접 설치하는 방법도 있어요. 이렇게 하면 더 세밀하게 제어할 수 있죠. 또는 반대로 기본 도구 세트보다 더 많은 도구를 설치하고 싶을 수도 있고요.
+칼리에는 설치 이미지에 모두 담을 수 없어서 설치 후에 수동으로 추가해야 하는 도구들이 더 많이 있다는 점도 알아두세요.
 
-Overall, these extra choices are for a more efficient installation experience, meant for advanced users. Please be aware of their pitfalls.
+전반적으로, 이런 추가 선택 사항들은 고급 사용자를 위한 더 효율적인 설치 경험을 위한 거예요. 그 장단점을 잘 알고 사용하세요.
 
 - - -
 
-The following sections in the "Kali Documentation Installation" of this documentation, will be using the "Installer" image for the guides unless stated otherwise.
+이 문서의 "칼리 문서 설치" 섹션 이후 부분에서는 따로 언급이 없는 한 모든 가이드에 "표준 설치(Installer)" 이미지를 사용할 거예요.

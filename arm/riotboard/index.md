@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [RIoTboard](http://riotboard.org/)는 1GB RAM을 갖춘 Cortex A9 1GHz 프로세서를 탑재하고 있습니다. Kali Linux는 외장 microSD 카드에 설치됩니다.

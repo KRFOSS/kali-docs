@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 Kali Linux 배포판은 [Debian Testing](https://www.debian.org/releases/testing/)을 기반으로 합니다. 따라서 Kali의 패키지 대부분은 Debian 저장소에서 그대로 가져옵니다. 경우에 따라 사용자 경험을 개선하거나 필요한 버그 수정을 반영하기 위해 Debian Unstable 또는 Debian Experimental에서 더 최신의 패키지를 가져올 때도 있습니다.

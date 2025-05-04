@@ -4,6 +4,7 @@ description: Win-KeX ESM (Enhanced Session Mode)
 icon: ti-pin
 weight: 50
 author: ["Re4son",]
+번역: ["xenix4845"]
 ---
 
 향상된 세션 모드(ESM)의 Win-KeX는 Windows 네이티브 프로토콜과 클라이언트를 사용하여 별도의 창에서 Kali Linux 데스크톱 세션을 실행합니다. ESM 모드는 ARM 기기에서 유일하게 지원되는 모드입니다.

@@ -1,13 +1,14 @@
 ---
-title: Kali ARM History
+title: Kali ARM의 역사
 description:
 icon:
 weight: 500
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
-When [BackTrack ARM](https://www.backtrack-linux.org/) first came out, it was one image, for a Motorola Xoom. The work was done on the Xoom itself by [@muts](/about-us/). He started from an Ubuntu image for it, built all of the packages for BackTrack on it, then installed them. [@steev](/about-us/) then took the work and expanded it to support 3 or 4 different ARM devices he had, following a similar procedure. @steev showed @muts the work he'd done and @muts was as excited about it as @steev was.
+[BackTrack ARM](https://www.backtrack-linux.org/)이 처음 세상에 나왔을 때는 모토로라 줌(Motorola Xoom)을 위한 단 하나의 이미지뿐이었습니다. [@muts](/about-us/)가 직접 줌 기기에서 이 작업을 진행했는데, 그는 줌용 우분투 이미지를 기반으로 BackTrack에 필요한 모든 패키지를 그 위에서 빌드하고 설치했습니다. 이후 [@steev](/about-us/)가 이 프로젝트를 이어받아 비슷한 방식으로 자신이 가진 3~4개의 다른 ARM 기기로 지원을 확장했습니다. 스티브가 뮤츠에게 자신의 작업 결과를 보여주었을 때, 뮤츠도 스티브 못지않게 그 결과에 큰 관심과 열정을 보였습니다.
 
-When Kali came about, we retooled everything, including build servers for armel, armhf, and arm64. No more building packages manually on the ARM devices themselves. So everything was in place, but the images for ARM devices were still being built manually. Putting out an updated image meant downloading the last release, writing it to an sdcard, booting the device, running updates, building the kernel, installing the new kernel, cleaning up the logs and apt cache, then powering the system off, plugging the sdcard back into my other system, and creating a dd image of the sdcard, putting it on to a server. This was very error prone due to the nature of sd cards from different manufacturers having different actual sizes.
+Kali가 등장하면서, 우리는 armel, armhf, arm64용 빌드 서버를 포함해 모든 것을 완전히 새롭게 정비했습니다. 더 이상 ARM 기기에서 직접 패키지를 수동으로 빌드할 필요가 없어졌죠. 기반은 모두 갖춰졌지만, ARM 기기를 위한 이미지는 여전히 수작업으로 만들어지고 있었습니다. 업데이트된 이미지를 배포하려면 이전 릴리스를 다운로드해 SD 카드에 쓰고, 기기를 부팅한 다음, 업데이트를 실행하고, 커널을 빌드하고, 새 커널을 설치하고, 로그와 apt 캐시를 정리한 후, 시스템을 종료하고, SD 카드를 다시 다른 시스템에 연결해서 SD 카드의 dd 이미지를 만들어 서버에 올리는 과정을 거쳐야 했습니다. 이 방식은 제조사마다 SD 카드의 실제 크기가 달라서 오류가 발생하기 쉬웠습니다.
 
-We wanted to make it so anyone could, starting from a Kali amd64 installation, build an image that would work on any of our supported ARM devices, end up with exactly what we put out, and most importantly, customize it for their needs. So we created the [kali-arm build scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) - they are not fancy, but they're easy to read, follow and modify.
+우리는 누구나 Kali amd64 설치본만 있으면 우리가 지원하는 모든 ARM 기기에서 동작하는 이미지를 빌드하고, 우리가 제공하는 것과 동일한 결과물을 얻을 수 있으며, 무엇보다 자신의 필요에 맞게 커스터마이징할 수 있는 환경을 만들고 싶었습니다. 그래서 우리는 [kali-arm 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm)를 개발했습니다. 이 스크립트들은 화려하지는 않지만, 누구나 쉽게 읽고, 따라하고, 수정할 수 있도록 만들어졌습니다.

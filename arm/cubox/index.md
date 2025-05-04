@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [CuBox](https://www.solid-run.com/product/cubox-carrier-base/)는 저사양, 저비용 ARM 컴퓨터입니다. 그리 인상적이지 않은 스펙에도 불구하고, 그 저렴한 가격은 작은 Linux 시스템으로 사용하기에 탁월한 선택이며 단순히 미디어 PC 역할 이상의 많은 기능을 수행할 수 있습니다.

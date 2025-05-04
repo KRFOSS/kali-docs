@@ -5,6 +5,7 @@ icon: ti-pin
 archived: "true"
 weight:
 author: ["arnaudr",]
+번역: ["kmw0410"]
 ---
 
 **이 페이지는 더이상 사용되지 않습니다**. WSL에서 Kali Linux를 실행하는데 필요한 모든 것은 Kali Rolling에서 사용할 수 있습니다, 패키지를 설치하기 위해 `kali-experimental` 브랜치에서 설치할 필요는 없습니다.

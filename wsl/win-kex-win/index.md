@@ -4,6 +4,7 @@ description: Win-KeX Win (Window Mode)
 icon: ti-pin
 weight: 50
 author: ["Re4son",]
+번역: ["xenix4845"]
 ---
 
 ## Overview

@@ -1,20 +1,21 @@
 ---
-title: Updating Kali Linux on USB
+title: USB에서 칼리 리눅스 업데이트하기
 description:
 icon:
 weight: 75
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-### Requirements
+### 요구 사항
 
-In order to properly [update Kali Linux](/docs/general-use/updating-kali/) on a USB, [persistence](/docs/usb/usb-persistence/) must be setup. If persistence is not setup, re-imaging the USB with an ISO from the [weekly](https://cdimage.kali.org/kali-images/kali-weekly/) build will be a suitable update.
+USB에서 칼리 리눅스를 적절하게 [업데이트](/docs/general-use/updating-kali/)하려면 [영구 저장소](/docs/usb/usb-persistence/)가 설정되어 있어야 해요. 영구 저장소가 설정되어 있지 않다면, [주간](https://cdimage.kali.org/kali-images/kali-weekly/) 빌드의 ISO로 USB를 다시 이미징하는 것이 적절한 업데이트가 될 거예요.
 
-### Process
+### 과정
 
-The best way to update Kali on a USB is to follow the same way you would on a full install.
+USB에서 칼리를 업데이트하는 가장 좋은 방법은 전체 설치에서와 동일한 방식을 따르는 거예요.
 
-First ensure that `etc/apt/sources.list` is properly populated:
+먼저 `etc/apt/sources.list`가 올바르게 채워져 있는지 확인하세요:
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
@@ -22,7 +23,7 @@ deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmwa
 kali@kali:~$
 ```
 
-After that we can run the following commands which will upgrade us to the [latest Kali version](/docs/general-use/updating-kali/):
+그런 다음 다음 명령을 실행하면 [최신 칼리 버전](/docs/general-use/updating-kali/)으로 업그레이드됩니다:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -31,4 +32,4 @@ kali@kali:~$ sudo apt full-upgrade -y
 kali@kali:~$
 ```
 
-Using this, the kernel will not be updated however. If the kernel is needed to be upgraded, perhaps there is a security vulnerability patched, a re-write would be needed with the latest ISO. If there is data that is needed to be saved, an rsync to a separate storage device would be a good way to backup that data.
+하지만 이 방법으로는 커널이 업데이트되지 않아요. 만약 커널을 업그레이드해야 한다면, 보안 취약점이 패치되었을 수도 있으니 최신 ISO로 다시 쓰기가 필요해요. 저장해야 할 데이터가 있다면, 별도의 저장 장치에 rsync로 백업하는 것이 좋은 방법이에요.

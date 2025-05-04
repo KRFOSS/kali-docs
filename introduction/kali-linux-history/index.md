@@ -1,37 +1,38 @@
 ---
-title: Kali Linux History
+title: Kali Linux 역사
 description:
 icon:
 weight: 450
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
-Kali Linux is based on years of knowledge and experience of building a pentestion testing Operating Systems, which has spanned over multiple previous projects. During all these project's life-time, there has been only a few different developers, as [the team](/about-us/) has always been small. As a result, Kali has been years in the making and has come a long way.
+Kali Linux는 침투 테스팅 운영 체제를 구축하는 수년간의 지식과 경험을 바탕으로 만들어졌으며, 이는 여러 이전 프로젝트에 걸쳐 있습니다. 이 모든 프로젝트의 수명 동안 [팀](/about-us/)이 항상 작았기 때문에 개발자는 몇 명뿐이었습니다. 그 결과, Kali는 수년에 걸쳐 만들어졌고 긴 여정을 거쳐왔습니다.
 
-The first project was called **Whoppix**, which stood for **WhiteHat Knoppix**. As can be inferred from the name, it was based on Knoppix for the underlining OS. Whoppix had releases ranging from v2.0 to v2.7.
+첫 번째 프로젝트는 **Whoppix**라고 불렸으며, 이는 **WhiteHat Knoppix**의 약자였습니다. 이름에서 알 수 있듯이, 기본 OS로 Knoppix를 사용했습니다. Whoppix는 v2.0부터 v2.7까지의 버전이 있었습니다.
 
-This made way for the next project, **WHAX** _(or the long hand, **WhiteHat Slax**)._ The name change was because the base OS changed from Knoppix to Slax. WHAX started at v3, as a nod towards it carrying on from Whoppix.
+이는 다음 프로젝트인 **WHAX** _(또는 긴 이름으로, **WhiteHat Slax**)_로 이어졌습니다. 이름이 바뀐 이유는 기본 OS가 Knoppix에서 Slax로 변경되었기 때문입니다. WHAX는 Whoppix를 이어받는다는 의미로 v3부터 시작했습니다.
 
-There was a similar OS being produced at the same time, **Auditor Security Collection** _(often getting shorted to just **Auditor**)_, once again using Knoppix, and efforts were combined (with WHAX) to produce **[BackTrack](https://www.backtrack-linux.org/)**. BackTrack was based on Slackware from v1 to v3, but switched to Ubuntu later on with v4 to v5.
+같은 시기에 유사한 OS인 **Auditor Security Collection** _(주로 **Auditor**로 줄여 부름)_이 개발되고 있었으며, 이 역시 Knoppix를 사용했습니다. 이러한 노력이 (WHAX와) 합쳐져서 **[BackTrack](https://www.backtrack-linux.org/)**이 탄생했습니다. BackTrack은 v1부터 v3까지는 Slackware를 기반으로 했지만, 나중에 v4와 v5에서는 Ubuntu로 전환했습니다.
 
-Using the experience gained from all of this, **Kali Linux** came after BackTrack in [2013](/docs/introduction/press-release/). Kali started off using Debian stable as the engine under the hood before moving to [Debian](/docs/policy/kali-linux-relationship-with-debian/) testing when Kali became a rolling OS.
+이 모든 경험을 바탕으로, **Kali Linux**는 [2013년](/docs/introduction/press-release/)에 BackTrack 이후에 출시되었습니다. Kali는 처음에는 Debian 안정 버전을 기반으로 했으나, Kali가 롤링 OS가 되면서 [Debian](/docs/policy/kali-linux-relationship-with-debian/) 테스팅 버전으로 전환했습니다.
 
 - - -
 
-Below is a rough overview of how Kali Linux came to be:
+아래는 Kali Linux가 어떻게 만들어졌는지에 대한 대략적인 개요입니다:
 
-| Date           | Project Released          | Base OS                     |
+| 날짜            | 프로젝트 출시             | 기본 OS                     |
 |----------------|---------------------------|-----------------------------|
-| 2004-August-30 | Whoppix v2                | Knoppix                     |
-| 2005-July-17   | WHAX v3                   | Slax                        |
-| 2006-May-26    | BackTrack v1              | Slackware Live CD 10.2.0    |
-| 2007-March-06  | BackTrack v2              | Slackware Live CD 11.0.0    |
-| 2008-June-19   | BackTrack v3              | Slackware Live CD 12.0.0    |
-| 2010-January-09| BackTrack v4 (Pwnsauce)   | Ubuntu 8.10 (Intrepid Ibex) |
-| 2011-May-10    | BackTrack v5 (Revolution) | Ubuntu 10.04 (Lucid Lynx)   |
-| 2013-March-13  | Kali Linux v1 (Moto)      | Debian 7 (Wheezy)           |
-| 2015-August-11 | Kali Linux v2 (Sana)      | Debian 8 (Jessie)           |
-| 2016-January-16| Kali Linux Rolling        | Debian Testing              |
+| 2004년 8월 30일 | Whoppix v2                | Knoppix                     |
+| 2005년 7월 17일 | WHAX v3                   | Slax                        |
+| 2006년 5월 26일 | BackTrack v1              | Slackware Live CD 10.2.0    |
+| 2007년 3월 6일  | BackTrack v2              | Slackware Live CD 11.0.0    |
+| 2008년 6월 19일 | BackTrack v3              | Slackware Live CD 12.0.0    |
+| 2010년 1월 9일  | BackTrack v4 (Pwnsauce)   | Ubuntu 8.10 (Intrepid Ibex) |
+| 2011년 5월 10일 | BackTrack v5 (Revolution) | Ubuntu 10.04 (Lucid Lynx)   |
+| 2013년 3월 13일 | Kali Linux v1 (Moto)      | Debian 7 (Wheezy)           |
+| 2015년 8월 11일 | Kali Linux v2 (Sana)      | Debian 8 (Jessie)           |
+| 2016년 1월 16일 | Kali Linux Rolling        | Debian Testing              |
 
 <!--
 - 2004-08-30 - [whoppix v2](https://distrowatch.com/table.php?distribution=whoppix)
@@ -60,7 +61,7 @@ Below is a rough overview of how Kali Linux came to be:
 -->
 
 {{% notice info %}}
-This is only the major releases, there were minor ones to address bug fixes, releases, and tools updates.
+이는 주요 릴리스만 나열한 것이며, 버그 수정, 릴리스, 도구 업데이트를 위한 마이너 릴리스도 있었습니다.
 {{% /notice %}}
 
-For more details about [Kali Linux's history, see this page](https://web.archive.org/web/20210914172345/https://kali.training/topic/a-bit-of-history/) and our [press release](/docs/introduction/press-release/). And for more information about [Kali Linux's releases, see this page](/releases/).
+[Kali Linux의 역사에 대한 더 자세한 내용은 이 페이지](https://web.archive.org/web/20210914172345/https://kali.training/topic/a-bit-of-history/)와 우리의 [보도 자료](/docs/introduction/press-release/)를 참조하세요. 그리고 [Kali Linux의 릴리스에 대한 더 자세한 정보는 이 페이지](/releases/)를 참조하세요.

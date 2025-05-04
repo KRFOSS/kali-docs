@@ -4,9 +4,12 @@ description: Everything about ARM devices
 icon: ti-harddrive
 weight: 30
 author: ["",]
+번역: ["xenix4845"]
 ---
 
 기기, 이미지 및 커널 개요는 [arm.kali.org](https://arm.kali.org/)에서 확인하세요. 
+
+ARM 문서는 모두 번역되었습니다. 우측 메뉴에서 '문서 목록'을 클릭하여 읽을 수 있습니다.
 
 <!--
 | Device | [Build Script](https://gitlab.com/kalilinux/build-scripts/kali-arm/) | [Official Image](/get-kali/) | Community Image | Retired Image |

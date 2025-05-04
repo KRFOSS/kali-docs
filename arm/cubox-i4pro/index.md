@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 SolidRun의 [CuBox-i4Pro](https://www.solid-run.com/product/cubox-i4pro/)는 "세계에서 가장 작은 컴퓨터"입니다. 사양은 쿼드 코어 i.MX6 1GHz 프로세서, 2GB RAM, 기가비트 이더넷, eSata 포트, 그리고 마이크로SD 카드 슬롯을 갖추고 있습니다.

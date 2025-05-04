@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [라즈베리 파이 5](https://www.raspberrypi.org/products/raspberry-pi-5/)는 쿼드 코어 2.4GHz 프로세서와 모델에 따라 4GB 또는 8GB RAM을 갖추고 있습니다. Kali Linux는 microSD 카드에서 실행됩니다.

@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [라즈베리 파이 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)는 쿼드 코어 1.2GHz 프로세서와 1GB RAM을 갖추고 있습니다. Kali Linux는 외장 microSD 카드에 설치됩니다.

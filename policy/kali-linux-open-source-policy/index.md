@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 Kali Linux는 메인 섹션에 수천 개의 자유 소프트웨어 [패키지](https://pkg.kali.org/)를 집대성한 리눅스 배포판입니다. Debian 파생판인 만큼, Kali Linux의 모든 핵심 소프트웨어는 [Debian 자유 소프트웨어 지침](https://www.debian.org/social_contract#guidelines)을 준수합니다.

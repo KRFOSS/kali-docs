@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [NanoPi NEO Plus2](http://nanopi.io/nanopi-neo-plus2.html)는 Allwinner H5, 쿼드 코어 Cortex™-A53(ARMv8 64비트) 프로세서와 트리플 코어 Mali-450 MP4 GPU 및 1GB DDR3 RAM을 탑재하고 있습니다. NanoPi NEO Plus2에는 8GB eMMC가 있지만 기본 Kali 설치에는 너무 작기 때문에, 외장 microSD 카드에서 실행합니다.

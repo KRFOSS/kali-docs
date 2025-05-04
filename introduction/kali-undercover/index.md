@@ -1,49 +1,50 @@
 ---
-title: Kali Undercover
+title: 칼리 리눅스, 눈에 띄지 않게 사용하기
 description:
 icon:
 weight: 100
 author: ["Croluy","theGorkha",]
+번역: ["xenix4845"]
 ---
 
-**Kali Undercover** is a set of scripts that change the theme of your Kali Linux to a **Windows 10** alike theme.
+**칼리 언더커버(Undercover)**는 칼리 리눅스의 겉모습을 **윈도우 10**처럼 바꿔주는 스크립트 모음이에요.
 
-It was released with [**Kali Linux 2019.4**](/blog/kali-linux-2019-4-release/) with an important concept in mind, *to hide in plain sight*.
+이 기능은 [**칼리 리눅스 2019.4**](/blog/kali-linux-2019-4-release/) 버전에서 *눈에 띄지 않게 숨기자*는 재미있는 아이디어로 출시되었어요.
 
 ![](kali-undercover-1.gif)
 
-#### Going "undercover"
+#### "언더커버" 모드로 전환하기
 
-Switching to undercover mode is pretty simple, just run the following command:
-
-```console
-kali@kali:~$ kali-undercover
-kali@kali:~$
-```
-
-or, you could also look for **"Kali Undercover Mode"** from the menu of your desktop and launch it from there.
-
-**Swoosh!** Now, you are _(almost)_ invisible to most indiscreet eyes by having a theme that would make most people think you are using Windows 10.
-
-#### Reverting Back
-
-Now, to **revert** back into your previous Kali Linux theme just re-enter the previous command:
+언더커버 모드로 바꾸는 건 정말 쉬워요. 이 명령어만 입력하면 돼요:
 
 ```console
 kali@kali:~$ kali-undercover
 kali@kali:~$
 ```
 
-**Ta-da!** Welcome back! Now, all your desktop settings should be restored.
+아니면 데스크톱 메뉴에서 **"칼리 언더커버 모드(Kali Undercover Mode)"**를 찾아 클릭해도 돼요.
+
+**휙!** 이제 주변 사람들이 여러분이 윈도우 10을 사용한다고 생각할 만한 겉모습으로 바뀌어서, 지나가는 사람들의 시선으로부터 _(거의)_ 안전하게 숨었어요.
+
+#### 원래 테마로 돌아가기
+
+다시 칼리 리눅스 원래 모습으로 **돌아가려면** 같은 명령어를 한 번 더 입력하면 돼요:
+
+```console
+kali@kali:~$ kali-undercover
+kali@kali:~$
+```
+
+**짜잔!** 다시 돌아왔어요! 이제 모든 데스크톱 설정이 원래대로 복구됐어요.
 
 - - -
 
-#### Purpose of Undercover Mode in Kali Linux
+#### 칼리 리눅스에서 언더커버 모드의 필요성
 
-The main purpose of introducing **Kali Undercover** mode is **to prevent any unnecessary attention** while using Kali Linux in _public_.
+**칼리 언더커버** 모드를 만든 주된 이유는 _공공장소_에서 칼리 리눅스를 사용할 때 **불필요한 관심을 피하기 위해서**예요.
 
-Let's imagine a scenario: you are ethically pentesting your client and you are in their office or reception doing reconnaissance or something that involves the use of **Kali Linux**.
+이런 상황을 상상해보세요: 여러분은 의뢰인의 허락을 받고 보안 점검(침투 테스팅)을 하기 위해 의뢰인의 사무실이나 로비에서 정보 수집이나 **칼리 리눅스**로 작업을 하고 있어요.
 
-Someone from your client's office or some random on-looker spots the desktop environment/wallpaper of Kali Linux, so they might think you are doing something mischievous even though you are doing it _ethically_ and warn the authority. All the hard work that you did from the beginning to become stealthy will go in vain. And that's because of what? A **wallpaper**! For a client who requested you to become stealthy, this is not what you would want.
+그런데 의뢰인의 사무실에 있는 누군가 또는 지나가는 사람이 칼리 리눅스 화면이나 배경화면을 보게 된다면, 여러분이 _허가받은 작업_ 을 하고 있음에도 무언가 수상한 일을 꾸미고 있다고 생각해서 관리자에게 신고할 수도 있어요. 몰래 작업하려고 들인 노력이 모두 물거품이 되겠죠! 그리고 그 이유가 뭘까요? 단지 **배경화면** 때문이라니! 조용히 작업해달라고 부탁한 의뢰인에게는 정말 곤란한 상황이죠.
 
-Hence, to prevent any kind of unwanted attention from public it's better to go **"Undercover!"**.
+그래서 공공장소에서 원치 않는 시선을 피하려면 **"언더커버!"** 모드로 전환하는 게 최선이에요.

@@ -1,89 +1,90 @@
 ---
-title: Making a Kali Bootable USB Drive on Windows
+title: Windows에서 칼리 부팅 USB 드라이브 만들기
 description:
 icon:
 weight: 50
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 aliases:
   - "/docs/installation/create-bootable-media/"
 ---
 
-One of the fastest method, for getting up and running with Kali Linux is to run it "live" from a USB drive. This method has several advantages:
+칼리 리눅스를 시작하는 가장 빠른 방법 중 하나는 USB 드라이브에서 "라이브"로 실행하는 거에요. 이 방법에는 여러 장점이 있어요:
 
-- It's non-destructive - it makes no changes to the host system's hard drive or installed OS, and to go back to normal operations, you simply remove the Kali Live USB drive and restart the system
-- It's portable - you can carry Kali Linux in your pocket and have it running in minutes on an available system
-- It's customizable - you can [roll your own custom Kali Linux ISO image](/docs/development/live-build-a-custom-kali-iso/) and put it onto a USB drive using the same procedures
-- It's potentially persistent - with a bit of extra effort, you can configure your Kali Linux "live" USB drive to have [persistent storage](/docs/usb/usb-persistence/), so the data you collect is saved across reboots
+- 비파괴적이에요 - 호스트 시스템의 하드 드라이브나 설치된 OS를 전혀 변경하지 않으며, 일반 작업으로 돌아가려면 칼리 라이브 USB 드라이브를 제거하고 시스템을 다시 시작하기만 하면 돼요
+- 휴대성이 좋아요 - 칼리 리눅스를 주머니에 넣고 다니다가 사용 가능한 시스템에서 몇 분 안에 실행할 수 있어요
+- 맞춤 설정이 가능해요 - [자신만의 맞춤형 칼리 리눅스 ISO 이미지](/docs/development/live-build-a-custom-kali-iso/)를 만들고 같은 절차를 사용하여 USB 드라이브에 넣을 수 있어요
+- 영구 저장이 가능해요 - 약간의 추가 작업으로, 칼리 리눅스 "라이브" USB 드라이브에 [영구 저장소](/docs/usb/usb-persistence/)를 구성하여 수집한 데이터가 재부팅 후에도 저장되도록 할 수 있어요
 
-In order to do this, we first need to create a bootable USB drive which has been set up from an ISO image of Kali Linux.
+이를 위해서는 먼저 칼리 리눅스의 ISO 이미지에서 설정된 부팅 가능한 USB 드라이브를 만들어야 해요.
 
-The specifics of this procedure will vary depending on whether you're doing it on a [Linux](/docs/usb/live-usb-install-with-linux/), [macOS/OS X](/docs/usb/live-usb-install-with-mac/), or [Windows](/docs/usb/live-usb-install-with-windows/) system.
+이 절차의 세부 사항은 [Linux](/docs/usb/live-usb-install-with-linux/), [macOS/OS X](/docs/usb/live-usb-install-with-mac/), 또는 [Windows](/docs/usb/live-usb-install-with-windows/) 시스템에서 수행하는지에 따라 달라져요.
 
-## What You'll Need
+## 필요한 것들
 
-1. A _[verified](/docs/introduction/download-official-kali-linux-images/)_ copy of the [appropriate ISO image](/docs/introduction/what-image-to-download/) of the latest Kali build image for the system you'll be running it on.
+1. 실행할 시스템에 맞는 최신 칼리 빌드 이미지의 [적합한 ISO 이미지](/docs/introduction/what-image-to-download/)의 _[검증된](/docs/introduction/download-official-kali-linux-images/)_ 복사본.
 
-2. If you're running under Windows, there is no one tool that is considered the overall best for imaging. We recommend [Etcher](https://www.balena.io/etcher/) _(installer or portable)_ as it is simpler to use, however [Rufus](https://rufus.ie/) is another popular option with its advanced options. If one does not work for you, consider the other.
+2. Windows에서 실행 중이라면, 이미징에 가장 좋다고 여겨지는 도구는 없어요. 사용하기 더 쉽기 때문에 [Etcher](https://www.balena.io/etcher/)_(설치형 또는 휴대용)_를 권장하지만, [Rufus](https://rufus.ie/)도 고급 옵션이 있어 인기 있는 선택이에요. 하나가 작동하지 않으면 다른 것을 고려해보세요.
 
-3. A USB drive, 8GB or larger _(Systems with a direct SD card slot can use an SD card with similar capacity. The procedure is identical.)_
+3. 8GB 이상의 USB 드라이브 _(SD 카드 슬롯이 있는 시스템은 비슷한 용량의 SD 카드를 사용할 수 있어요. 절차는 동일해요)_
 
 {{% notice info %}}
-During this procedure, you might see some warnings telling you that Kali Linux contains malware, trojan, virus or whatever. This message usually comes from Windows Defender, USB Defender, or a third-party antivirus. Those warnings are expected: Kali Linux is packed with pentesting tools that are likely to be flagged as malware. Just ignore the warnings.
+이 절차 중에 칼리 리눅스에 악성 소프트웨어, 트로이 목마, 바이러스 등이 포함되어 있다는 경고가 표시될 수 있어요. 이 메시지는 일반적으로 Windows Defender, USB Defender 또는 서드파티 백신에서 나오는 거예요. 이러한 경고는 예상된 것이에요: 칼리 리눅스에는 악성 소프트웨어로 표시될 가능성이 높은 침투 테스트 도구가 많이 포함되어 있어요. 경고를 무시하세요.
 {{% /notice %}}
 
 - - -
 
-## Creating a Bootable Kali USB Drive on Windows (Etcher)
+## Windows에서 부팅 가능한 칼리 USB 드라이브 만들기 (Etcher)
 
-1. Plug your USB drive into an available USB port on your Windows PC, note which drive designator (e.g. "`G:\`") it uses once it mounts, and launch **Etcher**.
+1. Windows PC의 사용 가능한 USB 포트에 USB 드라이브를 꽂고, 마운트되면 어떤 드라이브 지정자(예: "`G:\`")를 사용하는지 확인한 다음 **Etcher**를 실행하세요.
 
-2. Click **Flash from file**, and locate the Kali Linux ISO file to be imaged with.
+2. **파일에서 플래시**를 클릭하고 이미징할 칼리 리눅스 ISO 파일을 찾으세요.
 
-3. Click **Select target** and choose the USB drive you want to make bootable.
+3. **대상 선택**을 클릭하고 부팅 가능하게 만들 USB 드라이브를 선택하세요.
 
-4. Click the **Flash!** button once ready.
+4. 준비되면 **플래시!** 버튼을 클릭하세요.
 
-_Note: You may get a UAC prompt asking for administrator privileges that you will need to accept._
+_참고: 관리자 권한을 요청하는 UAC 프롬프트가 표시될 수 있으며 이를 수락해야 해요._
 
 ![](Etcher1.png)
-5. Once Etcher alerts you that the image has been flashed, you can safely remove the USB drive and proceed to boot into Kali with it.
+5. Etcher가 이미지가 플래시되었다고 알리면 USB 드라이브를 안전하게 제거하고 이를 사용해 칼리로 부팅할 수 있어요.
 
-_At the time of writing, Etcher will use MBR. This is to allow for the most hardware compatibility._
+_글을 쓰는 시점에서, Etcher는 MBR을 사용해요. 이는 최대한의 하드웨어 호환성을 위한 것이에요._
 
 - - -
 
-## Creating a Bootable Kali USB Drive on Windows (Rufus)
+## Windows에서 부팅 가능한 칼리 USB 드라이브 만들기 (Rufus)
 
-1. Plug your USB drive into an available USB port on your Windows PC, note which drive designator (e.g. "`G:\`") it uses once it mounts, and launch **Rufus**.
+1. Windows PC의 사용 가능한 USB 포트에 USB 드라이브를 꽂고, 마운트되면 어떤 드라이브 지정자(예: "`G:\`")를 사용하는지 확인한 다음 **Rufus**를 실행하세요.
 
-2. With **Device**, check the dropdown list of options for the USB drive (e.g. "`G:\`" and size).
+2. **장치**에서 USB 드라이브(예: "`G:\`" 및 크기)에 대한 옵션의 드롭다운 목록을 확인하세요.
 
-3. **Boot selection** needs to point to the Kali Linux ISO file, which can be done by clicking the **SELECT** button
+3. **부팅 선택**은 칼리 리눅스 ISO 파일을 가리켜야 하며, **선택** 버튼을 클릭하여 이 작업을 수행할 수 있어요.
 
-4. Depending on your configuration, you can set the **Partition scheme**, as well as **Target system**. If you are not sure, leave it as the default values.
+4. 구성에 따라 **파티션 체계**와 **대상 시스템**을 설정할 수 있어요. 확실하지 않은 경우 기본값으로 두세요.
 
 {{% notice info %}}
-While you can easily create a persistent live usb with the integrated options in Rufus by increasing the persistence slider, this is not the officially supported method (check [Adding Persistence to a Kali Linux Live USB Drive](/docs/usb/usb-persistence/)), as it doesn't work for all images, like the **Kali Everything Live ISO** introduced in release 2022.1.
+Rufus에서 슬라이더를 늘려 영구성을 쉽게 생성할 수 있지만, 이는 공식적으로 지원되는 방법이 아니에요([칼리 리눅스 라이브 USB 드라이브에 영구 저장소 추가하기](/docs/usb/usb-persistence/) 확인). 2022.1 릴리스에서 도입된 **Kali Everything Live ISO**와 같은 모든 이미지에서 작동하지 않아요.
 {{% /notice %}}
 
-5. Click the **START** button once ready.
+5. 준비되면 **시작** 버튼을 클릭하세요.
 
 ![](Rufus1.png)
-6. You may get a prompt saying about **ISOHybird image**. Selecting ISO image, will allow you to edit the files from the Kali Linux ISO, but at the potential lose of hardware compatibility. As a result, we recommend selecting **DD Image**.
+6. **ISOHybird 이미지**에 관한 프롬프트가 표시될 수 있어요. ISO 이미지를 선택하면 칼리 리눅스 ISO의 파일을 편집할 수 있지만 하드웨어 호환성이 떨어질 수 있어요. 따라서 **DD 이미지**를 선택하는 것이 좋아요.
 
 ![](Rufus2.png)
 
-_Note: If you select "DD Image" option, you can create another partition on the USB drive, allowing you to use the rest of the space. Start -> Run (Windows + R) -> `diskmgmt.msc` -> Locate the USB drive -> Right-click in "Unallocated" -> New Simple Volume -> Follow the rest of the wizard with next, next, next..._
+_참고: "DD 이미지" 옵션을 선택하면 USB 드라이브에 다른 파티션을 만들어 남은 공간을 사용할 수 있어요. 시작 -> 실행(Windows + R) -> `diskmgmt.msc` -> USB 드라이브 찾기 -> "할당되지 않음"에서 오른쪽 클릭 -> 새 단순 볼륨 -> 다음, 다음, 다음...으로 마법사를 따라 진행하세요._
 
 ![](Rufus3.png)
 
 - - -
 
-## Booting A USB Drive In Windows
+## Windows에서 USB 드라이브 부팅하기
 
-Depending on the system _(such as BIOS or UEFI)_, as well as the version of Windows, and how they are each configured, you may need to re-image the USB drive.
+시스템(BIOS 또는 UEFI 등), Windows 버전 및 각각의 구성 방식에 따라 USB 드라이브를 다시 이미징해야 할 수도 있어요.
 
-- **M**aster **B**oot **R**ecord (MBR) is often used on legacy systems that use BIOS as well as UEFI which has **C**ompatibility **S**upport **M**odule (CSM) enabled
-- **G**UID **P**artition **T**able (GPT) is required where UEFI has CSM disabled, forcing to use the modern standard
+- **M**aster **B**oot **R**ecord(MBR)는 BIOS를 사용하는 레거시 시스템과 **C**ompatibility **S**upport **M**odule(CSM)이 활성화된 UEFI에서 자주 사용돼요.
+- **G**UID **P**artition **T**able(GPT)는 UEFI에서 CSM이 비활성화된 경우 필요하며, 현대적인 표준을 사용하도록 강제해요.
 
-After writing the image to the USB drive, reboot Windows with the USB inserted. Depending on the motherboard manufacture, will also depend on the next stage. Some motherboards support a "temporary" boot menu, allowing for a one off selection. Others you need to enter BIOS/UEFI to configure it to try and boot from USB first. Entering either location, also depends on the motherboard. You can look up on the manufacture's website and read the manual, try and read the screen when booting _(however the text may be shown too quick or full logos used)_, or try common key combinations (such as `ESC`, `F1`, `F2`, `F3`, `F4`, `F8`, `F10`, `F11`, `F12` or `DEL`).
+USB 드라이브에 이미지를 쓴 후 USB를 삽입한 상태에서 Windows를 재부팅하세요. 마더보드 제조업체에 따라 다음 단계가 달라져요. 일부 마더보드는 일회성 선택을 위한 "임시" 부팅 메뉴를 지원해요. 다른 곳에서는 BIOS/UEFI에 들어가서 USB에서 먼저 부팅하도록 구성해야 해요. 어느 위치에 진입하든 마더보드에 따라 다르게 달라져요. 제조업체 웹사이트에서 매뉴얼을 찾아보거나, 부팅 시 화면을 읽으려고 해보세요 (텍스트가 너무 빨리 표시되거나 전체 로고가 사용될 수 있음), 또는 일반적인 키 조합(`ESC`, `F1`, `F2`, `F3`, `F4`, `F8`, `F10`, `F11`, `F12` 또는 `DEL` 등)을 시도해보세요.

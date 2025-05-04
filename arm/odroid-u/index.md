@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [ODROID-U2](https://www.hardkernel.com/main/products/prdt_info.php?g_code=G135341370451)는 콘솔 출력이 기본적으로 제공되지 않기 때문에 다루기 까다로운 하드웨어입니다. ODROID-U2를 구매할 때는 부팅 과정의 직렬 디버깅에 사용되는 USB UART 케이블도 함께 구매하는 것이 이상적입니다.

@@ -1,48 +1,49 @@
 ---
-title: USB Boot in VirtualBox
+title: VirtualBox에서 USB 부팅하기
 description:
 icon:
 weight: 205
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-To get started we first will need to download the [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads). After downloading this pack we can launch VirtualBox and select 'Preferences' under the 'File' tab. From here we navigate to 'Extensions' and select box with a green plus and add the pack.
+시작하려면 먼저 [Oracle VM VirtualBox 확장 팩](https://www.virtualbox.org/wiki/Downloads)을 다운로드해야 해요. 이 팩을 다운로드한 후 VirtualBox를 실행하고 '파일' 탭에서 '환경설정'을 선택해요. 여기서 '확장'으로 이동한 다음 초록색 플러스가 있는 상자를 선택하고 팩을 추가해요.
 
 ![](virtualbox-usb-boot-7.png)
 
-After this we will need to be sure to add our account to the `vboxusers` group if we are on Linux:
+그런 다음 Linux를 사용 중이라면 계정을 `vboxusers` 그룹에 추가해야 해요:
 
 ```console
 kali@kali:~$ sudo usermod -aG vboxusers $USER
 kali@kali:~$
 ```
 
-We then have to log out and log back in. We can now continue with USB 2.0/3.0 access. Lets start with a fresh opening of VirtualBox.
+이후 로그아웃하고 다시 로그인해야 해요. 이제 USB 2.0/3.0 액세스를 계속할 수 있어요. VirtualBox를 새로 열어볼게요.
 
 ![](virtualbox-usb-boot-1.png)
 
-From here we will be creating a new VM. We can name it whatever we want and select 'Linux' as the type and 'Debian (64-bit)' as the version.
+여기서 새 가상머신(VM)을 만들 거예요. 원하는 이름을 지정하고 유형으로 'Linux'를, 버전으로 'Debian (64-bit)'을 선택해요.
 
 ![](virtualbox-usb-boot-2.png)
 
-We can continue forward selecting 2GB of memory.
+메모리는 2GB를 선택하고 계속 진행해요.
 
 ![](virtualbox-usb-boot-3.png)
 
-We want to be sure to not create a virtual hard disk. This will ask for confirmation, confirm it and continue.
+가상 하드 디스크를 생성하지 않도록 주의해야 해요. 확인을 요청할 텐데, 확인하고 계속해요.
 
 ![](virtualbox-usb-boot-4.png)
 
-We can now edit our settings. Under 'Motherboard' in 'System' we will be enabling EFI.
+이제 설정을 편집할 수 있어요. '시스템'의 '마더보드'에서 EFI를 활성화할 거예요.
 
 ![](virtualbox-usb-boot-5.png)
 
-Next under 'Processor' in 'System' we will be increasing the processor amount to 2.
+다음으로 '시스템'의 '프로세서'에서 프로세서 수를 2개로 늘려요.
 
 ![](virtualbox-usb-boot-6.png)
 
-Now we navigate to 'USB' and we select the USB icon with the green plus. We add our Kali Live USB drive and ensure we are set to USB 3.0.
+이제 'USB'로 이동해서 초록색 플러스가 있는 USB 아이콘을 선택해요. Kali Live USB 드라이브를 추가하고 USB 3.0으로 설정되어 있는지 확인해요.
 
 ![](virtualbox-usb-boot-8.png)
 
-We can now complete the setup and boot the VM. We should get the Live Boot menu if all went correctly.
+이제 설정을 완료하고 VM을 부팅할 수 있어요. 모든 것이 제대로 되었다면 Live 부팅 메뉴가 나타날 거예요.

@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 [DigitalOcean](https://www.digitalocean.com/)은 AWS, Microsoft Azure, Google Cloud Platform 등과 유사한 클라우드 제공업체입니다. 이들은 "드롭릿"이라 불리는 인스턴스를 제공하며, Debian, Ubuntu, FreeBSD 등 다양한 Linux 배포판을 사용할 수 있습니다. AWS와 마찬가지로 DigitalOcean은 전 세계에 데이터센터를 두고 있으며 각 국가에 여러 데이터센터가 있는 경우도 있습니다.

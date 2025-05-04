@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [NanoPC-T3](http://wiki.friendlyarm.com/wiki/index.php/NanoPC-T3)는 삼성 S5P6818, 옥타 코어 Cortex™-A53(ARMv8 64비트) 프로세서와 1GB 또는 2GB DDR3 RAM을 탑재하고 있습니다. NanoPC-T3에는 8GB eMMC가 있지만 기본 Kali 설치에는 너무 작기 때문에, 외장 microSD 카드에서 실행합니다.

@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [Pinebook Pro](https://www.pine64.org/pinebook-pro/)는 Mali T860 MP4 GPU와 4GB LPDDR4 RAM을 갖춘 Rockchip RK3399 SOC를 탑재하고 있습니다. Kali Linux는 외장 microSD 카드나 내장 eMMC에서 실행할 수 있습니다.

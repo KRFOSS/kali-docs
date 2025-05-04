@@ -1,109 +1,114 @@
 ---
-title: USB Boot in VMware
+title: VMware에서 USB 부팅하기
 description:
 icon:
 weight: 200
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-A few years ago we released a blog post on [VMware Fusion Kali USB Boot](/blog/vmware-fusion-kali-usb-boot/). This can come in handy if a USB is not working how it should, as it can reduce time from needing to reboot or transfer it to another machine. Since then there have been some updates to VMware Fusion that make this process a bit easier.
+몇 년 전에 [VMware Fusion에서 칼리 USB 부팅하기](https://kali.org/blog/vmware-fusion-kali-usb-boot/)라는 블로그 글을 발표했어요. USB가 제대로 작동하지 않을 때 재부팅하거나 다른 기기로 옮기는 시간을 줄일 수 있어서 유용할 수 있죠. 그 이후로 VMware Fusion이 업데이트되면서 이 과정이 조금 더 쉬워졌어요.
 
-As a review, we will be creating a VM that has no hard drive attached and will boot the USB off of EFI.
+요약하자면, 하드 드라이브 없이 EFI를 통해 USB로 부팅하는 가상머신(VM)을 만들 거예요.
 
-### Process
+### 과정
 
-Create a new custom VM
+새로운 커스텀 VM 만들기
 
 ![](usb-boot-vm-1.png)
 
-Be sure to select "Linux" and the latest Debian 64-bit version
+"Linux"를 선택하고 최신 데비안(Debian) 64비트 버전을 선택하세요
 
 ![](usb-boot-vm-2.png)
 
-Select "UEFI" as the boot option.
+부팅 옵션으로 "UEFI"를 선택하세요.
 
 ![](usb-boot-vm-3.png)
 
-Create a new virtual disk (This will be removed later)
+새 가상 디스크 만들기 (나중에 제거할 거예요)
 
 ![](usb-boot-vm-4.png)
 
-Click "Customize Settings"
+"설정 사용자 지정"을 클릭하세요
 
 ![](usb-boot-vm-5.png)
 
-Give it a name you will remember
+기억하기 쉬운 이름을 지정하세요
 
 ![](usb-boot-vm-6.png)
 
-In settings, click Processor and Memory. Ensure at least 2048MB memory is allocated, and at least 2 cores.
+설정에서 프로세서와 메모리를 클릭하세요. 최소 2048MB 메모리와 최소 2개 코어가 할당되었는지 확인하세요.
 
 ![](usb-boot-vm-7.png)
 
-Next, in "Display", check "Accelerate 3D Graphics". This is an optional option, however it improves the performance. Optionally, check "Use full resolution for Retina display".
+다음으로, "디스플레이"에서 "3D 그래픽 가속화"를 체크하세요. 이건 선택 사항이지만 성능을 향상시켜요. 원한다면 "레티나 디스플레이에 전체 해상도 사용"도 체크할 수 있어요.
 
 ![](usb-boot-vm-8.png)
 
-Now we can get into the USB section and ensure everything will work like a real system. In "USB Devices" ensure that "USB Compatibility" is set to "USB 3.0" if you have a compatible setup. If you are using USB-C, ensure that you have USB 3.0 selected. The "Plug In Action" should be set to "Connect to Linux".
+이제 USB 섹션으로 가서 모든 것이 실제 시스템처럼 작동하도록 할게요. "USB 장치"에서 호환되는 설정이라면 "USB 호환성"을 "USB 3.0"으로 설정하세요. USB-C를 사용하고 있다면 USB 3.0을 선택했는지 확인하세요. "연결 동작"은 "Linux에 연결"로 설정해야 해요.
 
 ![](usb-boot-vm-9.png)
 
-To remove the hard disk, go to "Disks" and then expand the "Advanced options" and click "Remove Hard Disk". You can send it to the trash.
+하드 디스크를 제거하려면 "디스크"로 가서 "고급 옵션"을 확장한 다음 "하드 디스크 제거"를 클릭하세요. 휴지통으로 보내도 돼요.
 
 ![](usb-boot-vm-10.png)
 
-Now we can power on the VM, and it should boot to Kali.
+이제 VM의 전원을 켜면 칼리로 부팅될 거예요.
 
 ![](usb-boot-vm-11.png)
 
-### Troubleshooting USB Connections
+### USB 연결 문제 해결하기
 
-If you run into problems, you have a few options. First, power off your VM. Go to "Settings" -> "USB Devices" and leave this settings screen up next to your powered-off VM. (You can also expand your toolbar and look at the USB icon). Now, power on the VM. Immediately, you should see the USB Settings screen update with a check next to your USB device:
+문제가 생긴다면 몇 가지 옵션이 있어요. 먼저, VM의 전원을 끄세요. "설정" -> "USB 장치"로 가서 전원이 꺼진 VM 옆에 이 설정 화면을 띄워두세요. (도구 모음을 확장해서 USB 아이콘을 확인할 수도 있어요). 이제 VM의 전원을 켜세요. 바로 USB 설정 화면에 USB 장치 옆에 체크 표시가 생기는 것을 볼 수 있을 거예요:
 
 ![](usb-boot-vm-20.png)
 
-If you don't get a check mark, this means that your Mac has grabbed the USB drive. Power off your VM, eject the drive from the Mac, and power on the VM again with the USB settings screen up. You should see the check mark and get the Kali boot screen.
+체크 표시가 없다면 Mac이 USB 드라이브를 잡고 있다는 뜻이에요. VM의 전원을 끄고, Mac에서 드라이브를 꺼낸 다음, USB 설정 화면을 띄운 상태로 VM의 전원을 다시 켜세요. 체크 표시가 보이고 칼리 부팅 화면이 나타날 거예요.
 
 ![](usb-boot-vm-13.png)
 
-### Troubleshooting EFI
+### EFI 문제 해결하기
 
-When booting with EFI, your boot screen should look like this:
+{{% notice info %}}
+EFI(Extensible Firmware Interface)는 BIOS를 대체하는 현대적인 펌웨어 인터페이스로, 컴퓨터 하드웨어와 운영체제 간의 통신을 담당합니다. 여기서는 가상환경에서 USB 장치를 인식하고 부팅하기 위해 사용됩니다.
+{{% /notice %}}
+
+EFI로 부팅할 때 부팅 화면은 이렇게 보여야 해요:
 
 ![](usb-boot-vm-14.png)
 
-This indicates that EFI is enabled. If it's not, triple-check that you entered the firmware line correctly in the "Advanced" section of settings. Note that in some cases, this EFI Network check may hang. Simply pressing ESC within the VM nudges the process along.
+이것은 EFI가 활성화되었다는 표시예요. 그렇지 않다면 설정의 "고급" 섹션에서 펌웨어 라인이 제대로 입력되었는지 다시 확인해보세요. 경우에 따라 이 EFI 네트워크 확인이 멈출 수도 있어요. VM 내에서 ESC를 누르면 프로세스가 진행돼요.
 
-To access the Boot Manager, you can click on "Virtual Machine" on the Apple window bar at the top, and then click "Power on to firmware".
+부팅 관리자에 접근하려면 상단의 Apple 창 표시줄에서 "가상 머신"을 클릭한 다음 "펌웨어로 전원 켜기"를 클릭하세요.
 
 ![](usb-boot-vm-15.png)
 
-From here, you can select "EFI Internal Shell" to get into the shell. If you get something like this, missing an fs0 map, then EFI doesn't see your USB drive. If this is the case, power off the virtual machine, unplug the USB, start the VM, and immediately after pressing start, insert the drive, looking for the checkmark in settings.
+여기서 "EFI 내부 쉘"을 선택해서 쉘로 들어갈 수 있어요. fs0 맵이 없는 이런 상황이 나타난다면, EFI가 USB 드라이브를 인식하지 못한 거예요. 이 경우, 가상 머신의 전원을 끄고 USB를 뽑은 다음 VM을 시작하고 시작 버튼을 누른 직후에 드라이브를 삽입하며 설정에서 체크 표시를 확인해보세요.
 
-If everything goes well, you're booted into Kali Linux. Otherwise, you can get to an EFI shell with ESC, "EFI Internal Shell". A "happy" EFI shell looks like this:
+모든 것이 잘 되면 칼리 리눅스로 부팅됩니다. 그렇지 않으면 ESC를 누르고 "EFI 내부 쉘"로 EFI 쉘에 접근할 수 있어요. "행복한" EFI 쉘은 이렇게 생겼어요:
 
 ![](usb-boot-vm-16.png)
 
-Note the fs0 map. Next, you can enter ‘fs0:' and ‘ls' to look around.
+fs0 맵을 확인하세요. 다음으로 'fs0:'을 입력하고 'ls'를 입력해서 둘러볼 수 있어요.
 
 ![](usb-boot-vm-17.png)
 
-You can enter ‘cd efi\boot' (notice the backslash, not a forward slash!) and boot the device manually with ‘bootx64.efi'
+'cd efi\boot'를 입력하고(슬래시가 아닌 백슬래시를 사용한다는 점 주의!) 'bootx64.efi'로 장치를 수동으로 부팅할 수 있어요.
 
 ![](usb-boot-vm-18.png)
 
-This should give you a happy EFI boot:
+이렇게 하면 정상적인 EFI 부팅이 이루어져요:
 
 ![](usb-boot-vm-11.png)
 
-Note that on some installations, the shutdown, followed by removing the drive, powering on the VM and inserting the drive might be required. This likely has much to do with the Mac grabbing the USB drive, or half-grabbing it (without mounting).
+일부 설치에서는 종료 후 드라이브를 제거하고 VM의 전원을 켠 다음 드라이브를 삽입하는 과정이 필요할 수 있어요. 이는 Mac이 USB 드라이브를 잡거나 반만 잡은 경우(마운트 없이)와 관련이 있을 수 있어요.
 
-### Final option
+### 마지막 방법
 
-If neither of the above worked to fix you booting directly into Kali, but you _can_ boot as seen by troubleshooting EFI, you can always use the boot manager to boot into Kali Linux. Access the Boot Manager by clicking on "Virtual Machine" on the Apple window bar at the top, and then click "Power on to firmware". Select the option "EFI USB Device" and hit enter.
+앞의 두 방법이 칼리로 직접 부팅하는 문제를 해결하지 못했지만 EFI 문제 해결에서 본 것처럼 부팅할 _수_ 있다면, 부팅 관리자를 사용해 칼리 리눅스로 부팅할 수 있어요. 상단의 Apple 창 표시줄에서 "가상 머신"을 클릭한 다음 "펌웨어로 전원 켜기"를 클릭해서 부팅 관리자에 접근하세요. "EFI USB 장치" 옵션을 선택하고 엔터를 누르세요.
 
 ![](usb-boot-vm-19.png)
 
-This should give you a happy EFI boot:
+이렇게 하면 정상적인 EFI 부팅이 이루어져요:
 
 ![](usb-boot-vm-11.png)

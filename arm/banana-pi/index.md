@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [바나나 파이](http://www.banana-pi.org/m1.html)는 듀얼 코어 1GHz Cortex™-A7 프로세서, Mali400MP2 GPU 및 1GB DDR3 RAM을 탑재하고 있습니다. 칼리 리눅스는 외장 microSD 카드에서 실행할 수 있습니다.

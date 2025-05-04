@@ -6,6 +6,7 @@ archived: "false"
 draft: false
 weight:
 author: ["gamb1t", "steev"]
+번역: ["xenix4845"]
 ---
 
 ## 개요

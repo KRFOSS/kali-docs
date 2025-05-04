@@ -5,6 +5,7 @@ icon:
 archived: "true"
 weight:
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
 {{% notice info %}}

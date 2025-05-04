@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [ODROID-C2](https://wiki.odroid.com/odroid-c2/odroid-c2)는 Amlogic S905, 쿼드 코어 Cortex™-A53(ARMv8 64비트) 프로세서와 트리플 코어 Mali-450 GPU 및 2GB DDR3(32비트/912Mhz) RAM을 탑재하고 있습니다. Kali Linux는 외장 microSD 카드 또는 eMMC 모듈에서 실행할 수 있습니다.

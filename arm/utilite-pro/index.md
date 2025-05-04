@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [Utilite Pro](http://www.compulab.co.il/utilite-computer/web/utilite-overview)는 쿼드코어 1.2GHz Cortex A9 프로세서와 2GB RAM을 탑재한 기기입니다. Kali Linux는 외장 마이크로SD 카드에 설치됩니다.

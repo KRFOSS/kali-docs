@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 2022.3 릴리스부터 Kali가 Azure에 돌아왔습니다. 이 복귀와 함께 Azure에서 Kali를 어떻게 사용하는지 알아보겠습니다.

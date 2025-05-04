@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [NanoPi2](http://nanopi.io/nanopi2.html)는 쿼드 코어 1.9GHz 프로세서와 1GB RAM을 탑재하고 있습니다. Kali Linux는 외장 microSD 카드에 설치할 수 있습니다.

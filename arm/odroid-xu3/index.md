@@ -4,6 +4,7 @@ description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
 [ODROID-XU3](https://www.hardkernel.com/main/products/prdt_info.php?g_code=g140448267127)는 옥타코어 개발 보드입니다. 4개의 A15 코어와 4개의 A7 코어, 그리고 4GB RAM을 갖추고 있어 ODROID-XU3는 빠른 ARM 장치입니다. Kali Linux는 외장 microSD 카드나 eMMC 모듈에 설치할 수 있습니다.
