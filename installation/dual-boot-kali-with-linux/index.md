@@ -84,7 +84,7 @@ author: ["gamb1t",]
 ### 칼리 리눅스 설치 절차
 
 1. 이 시점부터 설치 절차는 파티셔닝 단계까지 [칼리 리눅스 하드 디스크 설치](https://kali.org/docs/installation/hard-disk-install/)와 유사해요.
-이 시점에서 **gparted**로 이전에 만든 **"안내됨 - 가장 큰 연속 여유 공간 사용"**을 선택해야 해요 _("안내됨 - 전체 디스크" 대신)_.
+이 시점에서 **gparted**로 이전에 만든 **"자동 - 가장 큰 연속 여유 공간 사용"**을 선택해야 해요 _("자동 - 전체 디스크" 대신)_.
 
 ![](setup-partition-1-continuous.png)
 
