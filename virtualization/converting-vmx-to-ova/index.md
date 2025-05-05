@@ -1,14 +1,14 @@
 ---
-title: Converting VMX to an OVA
+title: VMX에서 OVA로 변환하기
 description:
 icon:
 weight: 400
 author: ["gamb1t",]
 ---
 
-VMware has **VMX format** which works for VMware products. The other commonly found format which is **OVF**, as this is a open standard (**OVA** is OVF but compressed into a single file). There are times where converting between the two formats is required.
+VMware에는 VMware 제품들에서 사용하는 **VMX 포맷**이 있습니다. 일반적으로 사용되는 포맷은 **OVF**입니다, 이는 개방향 표준이므로 (**OVA**는 OVF로 이지미나 단일 파일로 압축됨). There are times where converting between the two formats is required.
 
-In order to convert from VMware's VMX to a OVA file, we will use [ovftool](https://code.vmware.com/web/tool/4.4.0/ovf). If you already have either [VMware workstation](/docs/virtualization/install-vmware-host/) or VMware fusion pre-installed, you may already have it (else it can be downloaded as a standalone program for free). Its default locations are:
+VMware의 VMX에서 OVA로 변환하려면 다음과 같이 하세요, 우리는 [ovftool](https://code.vmware.com/web/tool/4.4.0/ovf)를 사용할 것입니다. 이미 [VMware workstation](/docs/virtualization/install-vmware-host/) 이나 VMware fusion 이 사전 설치 되어있는 경우, 이미 가지고 있을지도 모릅니다 (또는 무료로 독립 실행형 프로그램을 다운로드할 수 있습니다). 기본 위치는 다음과 같습니다:
 
 - Linux: `/usr/bin/ovftool`
 - OS X/macOS: `/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool/ovftool`
@@ -16,7 +16,7 @@ In order to convert from VMware's VMX to a OVA file, we will use [ovftool](https
 
 - - -
 
-We will be using the [official Kali Linux VMware image](/get-kali/#kali-virtual-machines) to convert. To start with unzip it to get access to the vmx within:
+우리는 [공식 Kali Linux VMware 이미지](/get-kali/#kali-virtual-machines)를 변환하는 데 사용할 것입니다. 시작하려면 압축을 풀고 그 안에 있는 vmx 파일에 접근하세요:
 
 ```console
 kali@kali:~$ 7z x kali-linux-2025.1-vmware-amd64.7z
@@ -29,7 +29,7 @@ kali@kali:~$
 
 - - -
 
-We can now start to convert by doing the following:
+다음을 따라 변환을 시작할 수 있습니다:
 
 ```console
 kali@kali:~$ ovftool kali-linux-*-vmware-amd64.vmwarevm/*vmx kali-linux-rolling-amd64.ova
@@ -49,6 +49,6 @@ kali@kali:~$
 
 - - -
 
-That's it!
+그게 다입니다!
 
-The OVA file can be now move and used where needed such as to ESXi _(if the in-built upload feature is not working)_ or migrate to VirtualBox _(You may need to install [Guest Addition](/docs/virtualization/install-virtualbox-guest-additions/) if so)_.
+OVA 파일은 필요에 따라 ESXi로 옮겨서 사용할 수 있으며 _(내장 업로드 기능이 작동하지 않는 경우)_ 또는 VirtualBox로 마이그레이션하세요 _(필요한 경우 [게스트 추가 기능](/docs/virtualization/install-virtualbox-guest-additions/)을 설치해야 할 수도 있습니다)_.
