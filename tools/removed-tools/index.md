@@ -41,6 +41,7 @@ Unfortunately for various reasons why, we can't always keep every tool in Kali. 
 | [neofetch](https://pkg.kali.org/pkg/neofetch) | 2025-01-28 | Unmaintained ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1031619)) |
 | [neopi](https://pkg.kali.org/pkg/neopi) | 2020-04-09 | Python 2 |
 | [nfspy](https://pkg.kali.org/pkg/nfspy) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/nfspy/-/issues/1)) |
+| [o-saft](https://pkg.kali.org/pkg/o-saft) | 2025-05-05 | Removed from Debian ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1102172)) |
 | [pdgmail](https://pkg.kali.org/pkg/pdgmail) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/pdgmail/-/issues/1)) |
 | [peepdf](https://pkg.kali.org/pkg/peepdf) | 2020-04-07| Python 2 ([#1](https://gitlab.com/kalilinux/packages/peepdf/-/issues/1)) |
 | [plecost](https://pkg.kali.org/pkg/plecost) | 2023-08-14 | Python 3.11 ([#2](https://gitlab.com/kalilinux/packages/plecost/-/issues/2), [#3](https://gitlab.com/kalilinux/packages/plecost/-/issues/3)) |
