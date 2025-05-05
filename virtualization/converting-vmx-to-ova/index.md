@@ -4,6 +4,7 @@ description:
 icon:
 weight: 400
 author: ["gamb1t",]
+번역: ["kmw0410"]
 ---
 
 VMware에는 VMware 제품들에서 사용하는 **VMX 포맷**이 있습니다. 일반적으로 사용되는 포맷은 **OVF**입니다, 이는 개방향 표준이므로 (**OVA**는 OVF로 이지미나 단일 파일로 압축됨). There are times where converting between the two formats is required.
