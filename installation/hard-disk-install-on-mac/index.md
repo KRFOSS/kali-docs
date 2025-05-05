@@ -1,79 +1,80 @@
 ---
-title: Installing Kali on Mac Hardware
+title: Mac 하드웨어에 칼리 리눅스 설치하기
 description:
 icon:
 weight: 110
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 {{% notice info %}}
-IMPORTANT! Newer Mac hardware (e.g. T2/M1 chips) do not run Linux well, or at all. This is true for [Linux in general](https://github.com/Dunedan/mbp-2016-linux/), not just Kali Linux.<br />
-The model & year of the device will determine how successful your experience will be.<br />
+중요! 최신 Mac 하드웨어(예: T2/M1 칩)는 리눅스가 전혀 또는 잘 작동하지 않아요. 이는 [리눅스 전반](https://github.com/Dunedan/mbp-2016-linux/)에 해당하며 칼리 리눅스에만 국한된 것이 아니에요.<br />
+기기의 모델 및 연식에 따라 성공적인 경험이 달라질 수 있어요.<br />
 {{% /notice %}}
 
-Installing Kali Linux (Single boot) on Apple Mac hardware (such as MacBook/MacBook Pro/MacBook Airs/iMacs/iMacs Pros/Mac Pro/Mac Minis), can be a straight forward, if the hardware is supported. Most of the time, there are a few issues that come up, so there is a bit of trial and error.
+Apple Mac 하드웨어(MacBook/MacBook Pro/MacBook Airs/iMacs/iMacs Pros/Mac Pro/Mac Minis 등)에 칼리 리눅스를 설치하는 것(단일 부팅)은 하드웨어가 지원된다면 간단할 수 있어요. 대부분의 경우 몇 가지 문제가 발생하므로 시행착오가 조금 필요해요.
 
-This guide will show you how to replace macOS/OS X with Kali Linux. However, if you wish to keep macOS/OS X, you will want to refer to our [dual-boot](/docs/installation/dual-boot-kali-with-mac/) guide instead.
+이 가이드에서는 macOS/OS X를 칼리 리눅스로 대체하는 방법을 보여드릴게요. 하지만 macOS/OS X를 유지하고 싶다면 [이중 부팅](/docs/installation/dual-boot-kali-with-mac/) 가이드를 참조하세요.
 
-In our example, we will be installing Kali Linux on a Mac Mini (Mid 2011) using macOS High Sierra (10.13). The same procedure has also been tested on a Mac Book Air (Early 2014) using macOS Catalina (10.15).
+예시에서는 macOS High Sierra(10.13)를 사용하는 Mac Mini(2011년 중반)에 칼리 리눅스를 설치할 거예요. 동일한 절차는 macOS Catalina(10.15)를 사용하는 Mac Book Air(2014년 초)에서도 테스트되었어요.
 
-### Installation Prerequisites
+### 설치 전 준비사항
 
-This guide will make the following assumptions:
+이 가이드는 다음을 가정해요:
 
-- You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements, setup assumptions and install media).
-- Currently running macOS/OS X 10.7 or higher _(later versions are more preferred)_ as this means the hardware is Intel (and not a PowerPC CPU).
-- Depending on the Mac hardware model & year, you may find:
-  - **Different results** when trying to boot by using either a CD/DVD **or** a USB drive.
-    - You may be able to increase the chances of booting _(especially older hardware and non-EFI)_ from a **USB drive** by having **rEFInd** pre-installed.
-  - When using the graphical installer, you may notice the tracepad does not function (but will after Kali Linux is installed).
-  - In-built wireless may not work, as `firmware-b43-installer` is [not included in the default images](https://gitlab.com/kalilinux/packages/kali-meta/-/commit/bdd4daa7be16e5114e21ade252638211e7d54813).
+- [칼리 리눅스 단일 부팅 설치 가이드](/docs/installation/hard-disk-install/)를 읽으셨어요. 이 가이드도 동일한 설치 전 준비사항(시스템 요구사항, 설정 가정 및 설치 미디어)을 가지고 있어요.
+- 현재 macOS/OS X 10.7 이상을 실행 중이에요 _(최신 버전이 더 선호됨)_ 하드웨어가 인텔(PowerPC CPU가 아님)이라는 의미이기 때문이에요.
+- Mac 하드웨어 모델 및 연식에 따라 다음을 발견할 수 있어요:
+  - CD/DVD **또는** USB 드라이브를 사용하여 부팅할 때 **다른 결과**가 나타날 수 있어요.
+    - **rEFInd**가 미리 설치되어 있으면 특히 오래된 하드웨어와 비EFI 장치에서 **USB 드라이브**로부터의 부팅 가능성을 높일 수 있어요.
+  - 그래픽 설치 프로그램을 사용할 때 트랙패드가 작동하지 않을 수 있어요(하지만 칼리 리눅스가 설치된 후에는 작동해요).
+  - 내장 무선 기능이 작동하지 않을 수 있는데, 이는 `firmware-b43-installer`가 [기본 이미지에 포함되어 있지 않기](https://gitlab.com/kalilinux/packages/kali-meta/-/commit/bdd4daa7be16e5114e21ade252638211e7d54813) 때문이에요.
 
 {{% notice info %}}
-We will be wiping any existing data on the hard disk, so please backup any important information on the device to an external media.
+하드 디스크의 기존 데이터를 모두 지울 것이므로 기기의 중요한 정보를 외부 매체에 백업하세요.
 {{% /notice %}}
 
-### Kali Linux Installation Procedure
+### 칼리 리눅스 설치 절차
 
-1. To start your installation, make sure you **insert your Kali Linux installation medium** and **power on the device**. Immediately press and hold the [**Option (or Alt) ⌥** key until you see the boot menu](https://support.apple.com/en-us/HT201255) (rEFInd if installed, else the default macOS/OS X).
-You may or may not have a **Recovery HD** depending on your macOS/OS X setup.
+1. 설치를 시작하려면 **칼리 리눅스 설치 미디어를 삽입**하고 **기기 전원을 켜세요**. 즉시 [부팅 메뉴가 표시될 때까지 **옵션(또는 Alt) ⌥** 키를 누르고 있으세요](https://support.apple.com/ko-kr/102603) (rEFInd가 설치된 경우 rEFInd, 그렇지 않으면 기본 macOS/OS X).
+macOS/OS X 설정에 따라 **복구 HD**가 있을 수도 있고 없을 수도 있어요.
 
 ![](boot-mac.png)
 
 - - -
 
-2. When the boot menu appears, if everything works as expected, you should see **two** volumes:
+2. 부팅 메뉴가 나타나면 모든 것이 예상대로 작동하는 경우 **두** 볼륨이 보여요:
 
-- **EFI Boot** - **Newer hardware** which support **UEFI**. It is common for **GUID Partition Table (GPT)** partitions to be used.
-- **Windows** - "Non-EFI" boot. This use on **older hardware** which uses **BIOS**. You often see **Master Boot Record (MBR)** partition tables here.
+- **EFI Boot** - **UEFI**를 지원하는 **최신 하드웨어**. **GUID 파티션 테이블(GPT)** 파티션이 사용되는 것이 일반적이에요.
+- **Windows** - "비EFI" 부팅. **BIOS**를 사용하는 **오래된 하드웨어**에서 사용돼요. 여기서는 주로 **마스터 부트 레코드(MBR)** 파티션 테이블을 볼 수 있어요.
 
 {{% notice info %}}
-If you only see **one volume** (EFI Boot), then the installation media **is not supported** for this device. This could be because the age of the firmware on the device.<br />
-You may wish to install **rEFInd**, as it is a boot manager, and try again.
+**하나의 볼륨**(EFI Boot)만 보이는 경우 설치 미디어가 이 기기에서 **지원되지 않아요**. 기기의 펌웨어 연식 때문일 수 있어요.<br />
+**rEFInd**를 설치하고 다시 시도하는 것이 좋아요. rEFInd는 부트 매니저이기 때문이에요.
 {{% /notice %}}
 
-Even though Kali Linux is [based on Debian](/docs/policy/kali-linux-relationship-with-debian/), macOS/OS X always detects non-EFI boot media as Windows. We suggest that you select the **EFI Boot** volume to continue. However, if the installation hangs at this point, power cycle and select Windows (Being Kali Linux non-EFI/BIOS). The success depends on the Mac hardware's model & year.
+칼리 리눅스가 [데비안 기반](/docs/policy/kali-linux-relationship-with-debian/)임에도 불구하고, macOS/OS X는 항상 비EFI 부팅 미디어를 Windows로 감지해요. **EFI Boot** 볼륨을 선택하여 계속하는 것이 좋아요. 그러나 설치가 이 지점에서 멈추면 전원을 껐다 켜고 Windows(비EFI/BIOS인 칼리 리눅스)를 선택하세요. 성공 여부는 Mac 하드웨어의 모델과 연식에 따라 달라져요.
 
 ![](boot-mac-usb-efi.png)
 
-### Kali Linux Installation Procedure
+### 칼리 리눅스 설치 절차
 
-1. The installation procedure from this point onwards is the same as our [Kali Linux Hard Disk install](/docs/installation/hard-disk-install/) guide.
+1. 이 시점부터 설치 절차는 [칼리 리눅스 하드 디스크 설치](/docs/installation/hard-disk-install/) 가이드와 동일해요.
 
-2. After that is complete, all that is left is to reboot, take out the installation media, and enjoy Kali Linux.
+2. 완료 후에는 재부팅하고 설치 미디어를 제거한 다음 칼리 리눅스를 즐기면 돼요.
 
-### Troubleshooting macOS/OS X
+### macOS/OS X 문제 해결
 
-If you have issues installing Kali Linux on macOS/OS X, there are a few options you can try:
+macOS/OS X에서 칼리 리눅스 설치에 문제가 있다면 다음과 같은 옵션을 시도해 볼 수 있어요:
 
-- Install the latest version of macOS/OS X ([App store](https://support.apple.com/en-gb/HT201541), [Recovery](https://support.apple.com/en-gb/HT204904) or [USB](https://support.apple.com/en-gb/HT201372)) and applying any updates as this may upgrade the firmware.
-- Install **rEFInd** boot manager to replace the default boot manager.
-- If you're using a DVD, **refresh rEFInd** once the drive has stop spinning by pressing `ESC`.
-- Switch from **EFI** to **BIOS boot** when trying to boot Kali Linux.
-- Switch from **GPT** drive to **Hybrid MRB** drive _(using the Live image may help)_.
+- 최신 버전의 macOS/OS X([App store](https://support.apple.com/ko-kr/HT201541), [복구](https://support.apple.com/ko-kr/102655) 또는 [USB](https://support.apple.com/ko-kr/HT201372))를 설치하고 업데이트를 적용하여 펌웨어를 업그레이드해요.
+- **rEFInd** 부트 매니저를 설치하여 기본 부트 매니저를 대체하세요.
+- DVD를 사용하는 경우 드라이브가 회전을 멈춘 후 `ESC`를 눌러 **rEFInd를 새로고침**하세요.
+- 칼리 리눅스를 부팅하려고 할 때 **EFI**에서 **BIOS 부팅**으로 전환하세요.
+- **GPT** 드라이브에서 **하이브리드 MRB** 드라이브로 전환하세요 _(Live 이미지를 사용하면 도움이 될 수 있음)_.
 
-### Post Installation
+### 설치 후 과정
 
-Now that you've completed installing Kali Linux, it's time to customize your system.
+이제 칼리 리눅스 설치를 완료했으니 시스템을 사용자 지정할 차례예요.
 
-The [General Use section](/docs/general-use/) has more information and you can also find tips on how to get the most out of Kali Linux in our [User Forums](https://forums.kali.org/).
+[일반 사용 섹션](/docs/general-use/)에서 더 많은 정보를 찾을 수 있으며, [사용자 포럼](https://forums.kali.org/)에서 칼리 리눅스를 최대한 활용하는 방법에 대한 팁도 찾을 수 있어요.

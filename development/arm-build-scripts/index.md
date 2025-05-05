@@ -1,26 +1,27 @@
 ---
-title: ARM Build Scripts
+title: ARM 빌드 스크립트
 description:
 icon:
 weight: 71
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
-These are the same build scripts that we use to generate the pre-generated official Kali Linux ARM images, found here: <https://www.kali.org/get-kali/>
+이 저장소에는 Kali 공식 사이트에서 내려받을 수 있는 [미리 만든 ARM 이미지](/get-kali/)를 만드는 데 쓰는 **그대로의** 스크립트가 담겨 있어요.
 
-There are additional scripts included in the repository, supporting more devices, that we do not release images for, as well as archived scripts for historical purposes.
+공식 이미지로 배포하지 않는 **추가 디바이스용 스크립트**와, 예전 기록을 위해 남겨 둔 **아카이브 스크립트**도 함께 있으니 필요하면 살펴보세요.
 
-For more information, please see: <https://www.kali.org/docs/arm/>
+더 궁금한 게 있다면 [/docs/arm/](/docs/arm/) 페이지를 참고하면 돼요.
 
-- - -
+---
 
-### Building
+### 어떻게 빌드하나요?
 
-- These scripts are tested on Kali Linux arm64, x64 and x86 installations only _(We **recommend x64**)_
-- Make sure you run the `./common.d/build_deps.sh` script before trying to build an image, as this installs all required dependencies
-- You will need at **least 8GB of RAM or use a SWAP file**
+* 스크립트는 Kali Linux **arm64 / x64 / x86** 에서만 테스트됐어요. *(개인적으로는 **x64**를 추천해요.)*
+* 이미지를 만들기 전에 **반드시** `./common.d/build_deps.sh`를 실행해 의존 패키지를 먼저 깔아주세요.
+* **8 GB RAM** 이상이 필요해요. 부족하면 스왑(SWAP)을 만들어야 해요.
 
-An example workflow to build a _[Raspberry Pi 4](/docs/arm/raspberry-pi-4/) Kali Linux image_ would look like:
+예를 들어, `[Raspberry Pi 4](/docs/arm/raspberry-pi-4/)` 이미지를 만드는 과정은 아래와 같아요.
 
 ```console
 $ cd ~/
@@ -30,114 +31,112 @@ $ sudo ./common.d/build_deps.sh
 $ sudo ./raspberry-pi.sh
 ```
 
-- Depending on your system hardware & network connectivity, will depend on how long it will take to build _(4 core CPU, 8GB RAM, SSD inside a VM takes using a [local repo](/docs/community/setting-up-a-kali-linux-mirror/) about 100 minutes per script)_
-- On x64 or arm64 systems, after the script finishes running, you will have an image files located in `~/kali-arm/images/` called `kali-linux-2025.1-raspberry-pi-xfce-armhf.img.xz`
-- On x86 systems, as they do not have enough RAM to compress the image, after the script finishes running, you will have an image file located in `~/kali-arm/images/` called `kali-linux-2025.1-raspberry-pi-xfce-armhf.img`
-  - _Should you want to try and shrink the file to make it easier to distribute, you will need to use **your own preferred compression**_.
+* 빌드 시간은 **CPU·RAM·디스크·네트워크** 상황에 따라 달라요. 4코어 CPU + 8 GB RAM + SSD인 VM에서 [로컬 미러](/docs/community/setting-up-a-kali-linux-mirror/)를 쓰면 스크립트 하나에 보통 **100 분**쯤 걸려요.
+* **x64 / arm64** 환경이라면 스크립트가 끝난 뒤 `~/kali-arm/images/`에 `kali-linux-2025.1-raspberry-pi-xfce-armhf.img.xz`가 생겨요.
+* **x86** 환경은 메모리가 부족해 압축하지 못해요. 대신 같은 경로에 `kali-linux-2025.1-raspberry-pi-xfce-armhf.img`(무압축)이 생겨요.
 
-- - -
+  * 용량을 줄이고 싶다면 원하는 방식으로 직접 압축해 주세요.
 
-### Help
+---
 
-On any build script, add `--help`. Example:
+### 도움말이 필요해요
+
+모든 스크립트는 `--help` 옵션을 지원해요. `raspberry-pi.sh`를 예로 들어 볼게요.
 
 ```console
 $ ./raspberry-pi.sh --help
  Usage commands:
-# Architectures (arm64, armel, armhf)
-./raspberry-pi.sh --arch arm64 or ./raspberry-pi.sh -a armhf
+# 아키텍처 선택 (arm64, armel, armhf)
+./raspberry-pi.sh --arch arm64  또는  ./raspberry-pi.sh -a armhf
 
-# Desktop manager (xfce, gnome, kde, i3, lxde, mate, e17 or none)
-./raspberry-pi.sh --desktop kde or ./raspberry-pi.sh --desktop=kde
+# 데스크톱 환경 (xfce, gnome, kde, i3, lxde, mate, e17, none)
+./raspberry-pi.sh --desktop kde  또는  ./raspberry-pi.sh --desktop=kde
 
-# Minimal image - no desktop manager
-./raspberry-pi.sh --minimal or ./raspberry-pi.sh -m
+# 최소 이미지 – 데스크톱 없음
+./raspberry-pi.sh --minimal      또는  ./raspberry-pi.sh -m
 
-# Slim image - no desktop manager or cli tools
-./raspberry-pi.sh --slim or ./raspberry-pi.sh -s
+# 슬림 이미지 – 데스크톱·CLI 툴 모두 제외
+./raspberry-pi.sh --slim         또는  ./raspberry-pi.sh -s
 
-# Enable debug & log file (./logs/<file>.log)
-./raspberry-pi.sh --debug or ./raspberry-pi.sh -d
+# 디버그 모드 + 로그(./logs/<file>.log)
+./raspberry-pi.sh --debug        또는  ./raspberry-pi.sh -d
 
-# Perform extra checks on the images build
-./raspberry-pi.sh --extra or ./raspberry-pi.sh -x
+# 추가 검증 실행
+./raspberry-pi.sh --extra        또는  ./raspberry-pi.sh -x
 
-# Help screen (this)
-./raspberry-pi.sh --help or ./raspberry-pi.sh -h
+# 도움말(이 화면)
+./raspberry-pi.sh --help         또는  ./raspberry-pi.sh -h
 $
 ```
 
-- - -
+---
 
-### Custom Values
+### 내 설정으로 바꿔볼까요?
 
-Editing `builder.txt`, will allow for custom values, such as using a local LAN mirror:
+`builder.txt`를 수정하면 예를 들어 **사내 미러**를 쓰도록 설정할 수 있어요.
 
 ```console
 $ echo 'mirror="http://192.168.1.100/kali"' > ./builder.txt
 ```
 
-A full list of values you can set:
+바꿀 수 있는 항목은 아래와 같아요. 필요할 때 `#` 주석을 풀어서 써보세요.
 
 ```plaintext
-# Version Kali release
+# Kali 릴리스 버전
 #version=${version:-$(cat .release)}
 
-# Custom hostname variable
+# 호스트 이름
 #hostname=kali
 
-# Choose a locale
+# 로케일(언어·지역)
 #locale="en_US.UTF-8"
 
-# Free space added to the rootfs in MiB
+# rootfs에 추가할 빈 공간(MiB)
 #free_space="300"
 
-# /boot partition in MiB
+# /boot 파티션 크기(MiB)
 #bootsize="128"
 
-# Select compression, xz or none
+# 이미지 압축 형식(xz / none)
 #compress="xz"
 
-# Choose filesystem format to format ( ext3 or ext4 )
+# 파일시스템 형식(ext3 / ext4)
 #fstype="ext4"
 
-# Disable IPV6 ( yes or no)
+# IPv6 끌까요? (yes / no)
 #disable_ipv6="yes"
 
-# Make SWAP ( yes or no)
+# 스왑 파일 만들기 (yes / no)
 #swap="no"
 
-# DNS server
+# DNS 서버
 #nameserver="8.8.8.8"
 
-# To limit the number of CPU cores to use during compression
-# Use 0 for unlimited CPU cores, -1 to subtract 1 cores from the total
+# 압축 시 사용할 CPU 코어 수
+# 0: 제한 없음, -1: 전체 코어 - 1
 #cpu_cores="4"
 
-# To limit the CPU usage during compression
-# 0 or 100 No limit, 10 = percentage use, 50, 75, 90, etc.
+# CPU 사용률 제한(%) – 0·100은 제한 없음
 #cpu_limit="85"
 
-# If you have your own preferred mirrors, set them here.
+# 사용자 정의 미러
 #mirror="http://http.kali.org/kali"
 
-# If you use a custom mirror that your users won't have access to , you can replace_mirror to point them at the official mirrors instead.
+# 사용자 미러가 외부에서 접근 안 될 때 공식 미러로 바꿀까요?
 #replace_mirror="http://http.kali.org/kali"
 
-# Use packages from the listed components of the archive.
+# 저장소 컴포넌트(main, contrib, non-free, non-free-firmware)
 #components="main,contrib,non-free,non-free-firmware"
 
-# Suite to use, valid options are:
-# kali-rolling, kali-dev, kali-dev-only, kali-last-snapshot
+# 사용할 스위트 (kali-rolling, kali-dev, kali-dev-only, kali-last-snapshot)
 #suite="kali-last-snapshot"
 
-# If you build against something other than kali-rolling, you can set this so that the finished image will point to the kali-rolling suite
+# 빌드엔 다른 스위트, 완성된 이미지는 kali-rolling으로 교체할까요?
 #replace_suite="kali-rolling"
 
-# Default file name
-# On the Raspberry Pi script, this would result in
-# "kali-linux-202X-WXX-raspberry-pi-arm64" for the default filename.
-# For release builds from Kali Linux, the requirements are that it start with kali-linux
-# and end with the architecture.
+# 기본 파일명 예시
+# Raspberry Pi 스크립트라면
+#   "kali-linux-202X-WXX-raspberry-pi-arm64"
+# Kali 공식 릴리스 요건: 이름은 kali-linux 로 시작, 아키텍처로 끝나야 해요.
 #image_name="kali-linux-$(date +%Y)-W$(date +%U)-${hw_model}-${variant}"
 ```

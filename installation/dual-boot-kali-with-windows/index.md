@@ -1,122 +1,123 @@
 ---
-title: Dual Booting Kali with Windows
+title: Windows와 칼리 이중 부팅하기
 description:
 icon:
 weight: 220
 author: ["g0tmi1k", "agam778",]
+번역: ["xenix4845"]
 ---
 
-Installing Kali Linux next to a Windows installation has its benefits. However, you need to exercise caution during the setup process. First, make sure that you've backed up any important data on your Windows installation. Since you'll be modifying your hard drive, you'll want to store this backup on external media. Once you've completed the backup, we recommend you peruse our [Kali Linux Hard Disk install guide](/docs/installation/hard-disk-install/), which explains the normal procedure for a basic Kali Linux install.
+Windows 설치 옆에 칼리 리눅스를 설치하면 여러 장점이 있어요. 하지만 설정 과정에서 주의가 필요해요. 먼저 Windows 설치에 중요한 데이터를 백업했는지 확인하세요. 하드 드라이브를 수정할 것이기 때문에 이 백업은 외부 매체에 저장하는 것이 좋아요. 백업을 완료한 후에는 기본적인 칼리 리눅스 설치 과정을 설명하는 [칼리 리눅스 하드 디스크 설치 가이드](/docs/installation/hard-disk-install/)를 살펴보는 것을 권장해요.
 
-In our example, we will be installing Kali Linux alongside an installation of Windows (10), which is currently taking up 100% of the disk space in our computer. We will start by resizing our current Windows partition to occupy less space and then proceed to install Kali Linux in the newly-created empty partition.
+이 예시에서는 현재 컴퓨터의 디스크 공간을 100% 차지하는 Windows(10) 설치와 함께 칼리 리눅스를 설치해 볼 거예요. 현재 Windows 파티션의 크기를 줄여서 공간을 확보한 다음, 새로 만들어진 빈 파티션에 칼리 리눅스를 설치할 거예요.
 
-### Installation Prerequisites
+### 설치 전 준비사항
 
-This guide will make the following assumptions:
+이 가이드는 다음을 가정해요:
 
-- You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements & setup assumptions).
-- When [downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/), [pick the **live** image](/docs/introduction/what-image-to-download/#which-image-to-choose), rather than the installer option.
-- A single disk to install to _(rather than a dedicated disk per operating system)_.
+- [칼리 리눅스 단일 부팅 설치 가이드](/docs/installation/hard-disk-install/)를 읽으셨어요. 이 가이드도 동일한 설치 전 준비사항(시스템 요구사항 및 설정 가정)을 가지고 있어요.
+- [칼리 리눅스를 다운로드](/docs/introduction/download-official-kali-linux-images/)할 때는 인스톨러 옵션이 아닌 [**라이브** 이미지](/docs/introduction/what-image-to-download/#which-image-to-choose)를 선택하세요.
+- 설치할 단일 디스크가 있어요 _(운영 체제별로 전용 디스크가 아님)_.
 
-- - -
+---
 
-We need to use a different image from the [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as we need the **live** image. This is because we need to edit the disk structure without mounting any partitions (otherwise they would be in-use). After we have finished altering the disk layout, we can still install Kali Linux using the live image, but there will be a few differences such as:
+[칼리 리눅스 단일 부팅 설치 가이드](/docs/installation/hard-disk-install/)와는 다른 이미지를 사용해야 해요. **라이브** 이미지가 필요하기 때문이에요. 파티션을 마운트하지 않고 디스크 구조를 편집해야 하기 때문이에요(그렇지 않으면 파티션이 사용 중이게 돼요). 디스크 레이아웃 변경이 완료된 후에도 라이브 이미지를 사용하여 칼리 리눅스를 설치할 수 있지만, 다음과 같은 차이점이 있어요:
 
-- Changing or removing the [desktop environment](/docs/general-use/switching-desktop-environments/).
-- Installing or removing any [metapackages](/docs/general-use/metapackages/).
+- [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 변경 또는 제거.
+- [메타패키지](/docs/general-use/metapackages/)의 설치 또는 제거.
 
-Both of these can be addressed post installation, as it saves swapping to the installer image (as you will need either multiple CD/DVD/USBs or to re-image half way though).
-
-{{% notice info %}}
-This installation has the potential to go wrong very easily as it involves editing existing partitions. Be aware of what partitions you are modifying and where you are installing Kali Linux to.<br />
-Having a backup of your Windows files available is a good idea in the event something goes wrong.
-{{% /notice %}}
-
-### Resize Windows Procedure
-
-Before we can install Kali Linux, there needs to be room on the hard disk. By **booting into a live Kali Linux session** with your chosen installation medium, we can resize the partition to our desired size, as the disk will not be in use because Kali Linux will all be in memory.
-
-1. Before Resizing the disk, Make Sure **Fast Startup is turned off** in Windows 10 so that we don't get an error while resizing the partition. If you don't know how to do that:- `Open Control Panel` > `Hardware and Sound` > `Power Options` > On the left, click `Choose what the power buttons do` > Then at the top, click `Change Settings that are currently unavailable` (This will ask for administrator permissions) > Now Unselect the `Turn on fast startup` option and click `Save Changes` at the bottom. Now you are ready to resize the partition.
-
-2. To start resizing, make sure you **insert your Kali Linux installation medium** and **power on the device**. If needed, press any keyboard shortcuts for a "boot order menu" (depends on each manufacture) or boot into BIOS/UEFI and change the boot order to point to the installation medium first.
-
-3. When the boot menu/options appears, you should see at least one new option. Depending on the manufacture, hardware, how the system is configured and install medium, you may see more options _(e.g. Can you boot into non-UEFI?)_.
-
-You may need to try a few different options in order to find success.
+이 두 가지 모두 설치 후에 해결할 수 있어요. 인스톨러 이미지로 바꾸는 것을 피할 수 있기 때문이에요(여러 개의 CD/DVD/USB가 필요하거나 중간에 다시 이미지를 만들어야 함).
 
 {{% notice info %}}
-You may need to disable secure boot
+이 설치는 기존 파티션 편집이 포함되므로 쉽게 잘못될 수 있어요. 어떤 파티션을 수정하고 있는지, 칼리 리눅스를 어디에 설치하는지 주의하세요.<br />
+문제가 발생할 경우를 대비해 Windows 파일의 백업을 준비해 두는 것이 좋아요.
 {{% /notice %}}
 
-3. You should be greeted with the Kali Linux **boot screen**. Select **Live**, and you should be booted into the Kali Linux default desktop.
+### Windows 파티션 크기 조정 절차
+
+칼리 리눅스를 설치하기 전에 하드 디스크에 공간이 필요해요. 선택한 설치 미디어로 **라이브 칼리 리눅스 세션으로 부팅**하면 파티션 크기를 원하는 대로 조정할 수 있어요. 디스크가 사용 중이 아니기 때문이에요(칼리 리눅스가 모두 메모리에 있으니까요).
+
+1. 디스크 크기를 조정하기 전에 Windows 10에서 **빠른 시작이 꺼져 있는지** 확인하세요. 그래야 파티션 크기를 조정할 때 오류가 발생하지 않아요. 방법을 모르신다면: `제어판 열기` > `하드웨어 및 소리` > `전원 옵션` > 왼쪽에서 `전원 단추 작동 설정` 클릭 > 상단에서 `현재 사용할 수 없는 설정 변경` 클릭(관리자 권한 필요) > `빠른 시작 켜기` 옵션을 선택 해제하고 하단에서 `변경 내용 저장`을 클릭하세요. 이제 파티션 크기를 조정할 준비가 됐어요.
+
+2. 크기 조정을 시작하려면 **칼리 리눅스 설치 미디어를 삽입**하고 **기기 전원을 켜세요**. 필요한 경우 "부팅 순서 메뉴"에 대한 키보드 단축키를 누르거나(제조사마다 다름) BIOS/UEFI로 부팅하여 설치 미디어가 먼저 나오도록 부팅 순서를 변경하세요.
+
+3. 부팅 메뉴/옵션이 나타나면 하나 이상의 새로운 옵션이 보여야 해요. 제조사, 하드웨어, 시스템 구성 방식 및 설치 미디어에 따라 더 많은 옵션이 표시될 수 있어요 _(예: 비UEFI로 부팅할 수 있나요?)_.
+
+성공하기 위해 여러 옵션을 시도해야 할 수도 있어요.
+
+{{% notice info %}}
+보안 부팅을 비활성화해야 할 수도 있어요
+{{% /notice %}}
+
+3. 칼리 리눅스 **부팅 화면**이 표시될 거예요. **라이브**를 선택하면 칼리 리눅스 기본 데스크톱으로 부팅돼요.
 
 ![](boot-live.png)
 
 - - -
 
-4. Now launch **[GParted](https://packages.debian.org/testing/gparted)**, which we'll use to shrink the existing Windows partition to give us enough room to install Kali Linux in the free space.
+4. 이제 **[GParted](https://packages.debian.org/testing/gparted)**를 실행하세요. 기존 Windows 파티션을 축소하여 빈 공간에 칼리 리눅스를 설치할 공간을 확보할 거예요.
 
 ![](gparted-1.png)
 
 - - -
 
-5. Once GParted has opened, **select your Windows partition** (`/dev/sda2`) & **resize it** leaving enough space (we recommend at least 20 GB) for the Kali Linux installation.
+5. GParted가 열리면 **Windows 파티션**(`/dev/sda2`)을 **선택**하고 칼리 리눅스 설치를 위한 충분한 공간(최소 20GB 권장)을 남기고 **크기를 조정**하세요.
 
-Depending on your setup, it is often the second option (the largest partition). In our example, there are three partitions:
+설정에 따라 보통 두 번째 옵션(가장 큰 파티션)인 경우가 많아요. 예시에는 세 개의 파티션이 있어요:
 
-- Window's boot partition (`/dev/sda1`)
-- Window's main operating system itself (`/dev/sda2`)
-- Window's System Recovery partition (`/dev/sda3`)
+- Windows 부트 파티션(`/dev/sda1`)
+- Windows 주 운영 체제(`/dev/sda2`)
+- Windows 시스템 복구 파티션(`/dev/sda3`)
 
 {{% notice info %}}
-If you are moving past into any non-white in the partition then you are editing a section that is in use.<br />
-Only remove from the area of the partition that is not in use.<br />
-It is normal to leave the third partition (`/dev/sda3`), and only shrink the actual install (`/dev/sda2`).
+파티션에서 흰색이 아닌 부분으로 이동하면 사용 중인 섹션을 편집하는 거예요.<br />
+사용 중이지 않은 파티션 영역만 제거하세요.<br />
+세 번째 파티션(`/dev/sda3`)은 그대로 두고 실제 설치(`/dev/sda2`)만 축소하는 것이 일반적이에요.
 {{% /notice %}}
 
 {{% notice info %}}
-If you wish to organize the partition to group all the Windows partitions together, placing the free space at the end, you may do so.
+모든 Windows 파티션을 함께 그룹화하여 빈 공간을 끝에 배치하고 싶다면 그렇게 해도 돼요.
 {{% /notice %}}
 
 ![](gparted-2-windows.png)
 
 - - -
 
-6. Once you have resized your Windows partition, ensure you "**Apply All Operations**" on the hard disk. Exit gparted and **reboot**.
+6. Windows 파티션 크기를 조정한 후에는 하드 디스크에 **"모든 작업 적용"**을 꼭 하세요. GParted를 종료하고 **재부팅**하세요.
 
 ![](gparted-3-windows.png)
 
-### Kali Linux Installation Procedure
+### 칼리 리눅스 설치 절차
 
-1. The installation procedure from this point onwards is similar to a [Kali Linux Hard Disk install](/docs/installation/hard-disk-install/), until the point of the partitioning.
-At this point, you need to select "**Guided - use the largest continuous free space**" _(rather than "Guided - the entire disk")_ which got created earlier with **gparted**.
+1. 이 시점부터 설치 절차는 파티셔닝 단계까지 [칼리 리눅스 하드 디스크 설치](/docs/installation/hard-disk-install/)와 유사해요.
+이 시점에서 **"안내됨 - 가장 큰 연속 여유 공간 사용"**을 선택해야 해요 _("안내됨 - 전체 디스크" 대신)_ 이는 이전에 **gparted**로 만든 공간이에요.
 
 ![](setup-partition-1-continuous.png)
 
 - - -
 
-2. You can carry on following the [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), except you will not have the option to select [desktop environment](/docs/general-use/switching-desktop-environments/) or [metapackages](/docs/general-use/metapackages/) as you are using the live image. Once the installation is done, **reboot**.
+2. [칼리 리눅스 단일 부팅 설치 가이드](/docs/installation/hard-disk-install/)를 계속 따라갈 수 있지만, 라이브 이미지를 사용하고 있기 때문에 [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 또는 [메타패키지](/docs/general-use/metapackages/)를 선택할 수 있는 옵션은 없어요. 설치가 완료되면 **재부팅**하세요.
 
-You should be greeted with a **GRUB boot menu**, which will allow you to boot either into Kali Linux or Windows.
+**GRUB 부트 메뉴**가 표시되면, 칼리 리눅스 또는 Windows로 부팅할 수 있어요.
 
 ![](boot-windows.png)
 
-### Post Installation
+### 설치 후 과정
 
-Now that you've completed installing Kali Linux, it's time to customize your system.
+이제 칼리 리눅스 설치를 완료했으니 시스템을 사용자 지정할 차례예요.
 
-The [General Use section](/docs/general-use/) has more information and you can also find tips on how to get the most out of Kali Linux in our [User Forums](https://forums.kali.org/).
+[일반 사용 섹션](/docs/general-use/)에서 더 많은 정보를 찾을 수 있으며, [사용자 포럼](https://forums.kali.org/)에서 칼리 리눅스를 최대한 활용하는 방법에 대한 팁도 찾을 수 있어요.
 
-#### Time/System Clock
+#### 시간/시스템 시계
 
-One thing that may be worth knowing about is that occasionally the time will get changed between the Windows and the Linux system. To fix this, we can do the following:
+알아두면 좋은 것 중 하나는 가끔 Windows와 Linux 시스템 사이에서 시간이 변경될 수 있다는 거예요. 이를 해결하기 위해 다음과 같이 할 수 있어요:
 
 ```console
 kali@kali:~$ timedatectl set-local-rtc 1 --adjust-system-clock
 kali@kali:~$
 ```
 
-To undo this we can simply do:
+이를 취소하려면 다음과 같이 하면 돼요:
 
 ```console
 kali@kali:~$ timedatectl set-local-rtc 0 --adjust-system-clock

@@ -1,75 +1,76 @@
 ---
-title: Advanced Packaging Step-By-Step Example (FinalRecon & Python-icmplib)
+title: 고급 패키징 단계별 예제 — FinalRecon & Python‑icmplib
 description:
 icon:
 weight: 13
 author: ["gamb1t", "g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
-_This guide is accurate at the time of writing. As it references a lot of external resources out of our control, items may be different over time (as software gets updated)._
+_이 가이드는 작성한 시점을 기준으로 정확한 정보를 담고 있어요. 여러 외부 리소스를 참조하기 때문에 시간이 지나면서 소프트웨어 업데이트로 일부 내용이 달라질 수 있어요._
 
-**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)** is a **Python 3** application with multiple Python dependencies. At the time of writing, one of the dependencies (**[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**) is not in the Kali Linux repository. In this guide we will have to learn how to follow dependency chains, and fix anything required to ensure that the end package can be included. We will also create a patch, helper-script, as well as a [runtime test](/docs/development/contributing-runtime-tests/) for the package.
+**[FinalRecon](https://github.com/thewhiteh4t/FinalRecon)**은 여러 파이썬 의존성을 가진 **Python 3** 애플리케이션이에요. 이 글을 작성하는 시점에서 의존성 중 하나인 **[python3-icmplib](https://github.com/ValentinBELYN/icmplib)**는 칼리 리눅스 저장소에 없네요. 이 가이드에서는 의존성 체인을 따라가는 방법과 패키지가 포함될 수 있도록 필요한 모든 것을 수정하는 방법을 배워볼 거예요. 또한 패치, 헬퍼 스크립트, 패키지를 위한 [런타임 테스트](/docs/development/contributing-runtime-tests/)도 만들어 볼 거예요.
 
-We will assume we have already followed our [documentation on setting up a packaging environment](/docs/development/setting-up-packaging-system/) as well as our previous other packaging guides [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/) as this will explain their contents.
+우리는 이미 [패키징 환경 설정에 관한 문서](/docs/development/setting-up-packaging-system/)와 이전 패키징 가이드 [#1 (Instaloader)](/docs/development/intro-to-packaging-example/)와 [#2 (Photon)](/docs/development/intermediate-packaging-example/)를 따랐다고 가정하고 진행할게요. 해당 문서들에서 내용을 상세히 설명하고 있으니 참고하세요.
 
-## FinalRecon Code Overview
+## FinalRecon 코드 개요
 
-The first action we will take, will be to look at [FinalRecon's source code](https://github.com/thewhiteh4t/FinalRecon) to see what information we can acquire. Using this, we notice the following:
+먼저 [FinalRecon의 소스 코드](https://github.com/thewhiteh4t/FinalRecon)를 살펴보고 어떤 정보를 얻을 수 있는지 확인해 볼까요? 이를 통해 다음과 같은 사항을 확인할 수 있어요:
 
-- It has [no tag release](https://github.com/thewhiteh4t/FinalRecon/releases)
-- The [MIT license file](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE)
-- There is no `setup.py` file (which is used for [setuptools](https://packaging.python.org/tutorials/packaging-projects/))
-- There is a `requirements.txt` [file](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/requirements.txt) (which is used for [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files))
-- Various descriptions about the tool & usage guides
-- Various external links _(if any additional research is required)_
+- [태그된 릴리스가 없음](https://github.com/thewhiteh4t/FinalRecon/releases)
+- [MIT 라이센스 파일](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE)
+- `setup.py` 파일이 없음 ([setuptools](https://packaging.python.org/tutorials/packaging-projects/)에서 사용됨)
+- `requirements.txt` [파일](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/requirements.txt)이 있음 ([pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files)에서 사용됨)
+- 도구 및 사용 가이드에 대한 다양한 설명
+- 추가 조사가 필요할 경우를 위한 다양한 외부 링크
 
-### Missing Tag Releases
+### 태그된 릴리스 없음
 
-As FinalRecon does [not have a tag release](https://github.com/thewhiteh4t/FinalRecon/releases) we will have to create our own upstream tar file. Looking to see what branches there are, we discover there is just one (there isn't a stable/production one, or is there a beta/deployment/staging one). As a result, we will use whatever is the latest commit on the main branch until the author does a tag release. _We can auto open up an issue request and/or email them seeing if they will response to such an act_.
+FinalRecon은 [태그된 릴리스가 없어서](https://github.com/thewhiteh4t/FinalRecon/releases) 우리가 직접 업스트림(원본) 타르(tar) 파일을 생성해야 해요. 어떤 브랜치가 있는지 살펴보면 단 하나만 있네요(안정적/프로덕션 브랜치도 없고, 베타/배포/스테이징 브랜치도 없어요). 따라서 작성자가 태그된 릴리스를 만들 때까지 메인 브랜치의 최신 커밋을 사용할게요. _이슈를 열거나 작성자에게 이메일을 보내 이런 행동에 대한 응답을 얻을 수도 있어요._
 
-Note that having a "tagged" release is preferred when doing Debian packaging. End users often want something that is "stable", and which has been fully tested. It's also easier for the distribution to know when to update the package: we just wait for upstream to release something, which is a clear signal that the code is ready to be used. So when it's possible, we favor packaging a tagged release over the latest Git commit.
+데비안 패키징을 할 때는 "태그된" 릴리스가 선호돼요. 일반 사용자들은 보통 "안정적"이고 완전히 테스트된 것을 원하거든요. 또한 배포판이 패키지를 업데이트할 시기를 알기도 쉬워요: 업스트림이 새 버전을 릴리스할 때까지 기다리면 되는데, 이는 코드가 사용할 준비가 되었다는 명확한 신호니까요. 따라서 가능하다면 최신 Git 커밋보다는 태그된 릴리스를 패키징하는 것이 좋아요.
 
-### License
+### 라이선스
 
-This package has been detected as having a **[MIT](https://opensource.org/licenses/MIT)** license by **[GitHub](https://github.com/thewhiteh4t/FinalRecon)**. If we look at the specific [license file](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE) we can see that there is not a lot to copy, so we will be copying this exactly as-is. Unfortunately, though we have found a maintainer we have not found any contact information yet. We will have to continue searching for contact information.
+이 패키지는 **[GitHub](https://github.com/thewhiteh4t/FinalRecon)**에서 **[MIT](https://opensource.org/licenses/MIT)** 라이선스를 사용한다고 확인됐어요. [라이선스 파일](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE)을 살펴보면 복사할 내용이 많지 않아서 그대로 복사하면 돼요. 아쉽게도 관리자는 찾았지만 연락처 정보는 아직 찾지 못했네요. 계속해서 연락처 정보를 찾아야 할 거예요.
 
-### Dependencies
+### 의존성
 
-As there is a `requirements.txt` [file](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/requirements.txt) (which is used for Python's [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files) to install any **Python dependencies** that are required for this tool to work), we will need check to see what's needed.
+`requirements.txt` [파일](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/requirements.txt)이 있어요(파이썬의 [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files)에서 이 도구를 실행하는 데 필요한 **파이썬 의존성**을 설치하는 데 사용됨). 어떤 것들이 필요한지 확인해봐야 할 거예요.
 
-### Description(s)
+### 설명
 
-We will once again pull our description from [FinalRecon's GitHub](https://github.com/thewhiteh4t/FinalRecon).
+다시 한번 [FinalRecon의 GitHub](https://github.com/thewhiteh4t/FinalRecon)에서 설명을 가져올게요.
 
-For the **short description** we will use a modified version of the first line in the [README](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/README.md), "A fast and simple python script for web reconnaissance."
+**짧은 설명**으로는 [README](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/README.md)의 첫 줄을 수정해서 사용할 거예요: "웹 정찰을 위한 빠르고 간단한 파이썬 스크립트"
 
-For the **long description** we will also use a modified version of the first line in the [README](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/README.md), however we will expand this time, "A fast and simple python script for web reconnaissance that follows a modular structure and provides detailed information on various areas."
+**긴 설명**도 [README](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/README.md)의 첫 줄을 바탕으로 수정해서 사용하지만, 이번에는 좀 더 확장해볼게요: "모듈식 구조를 따르고 다양한 영역에 관한 자세한 정보를 제공하는 웹 정찰용 빠르고 간단한 파이썬 스크립트"
 
-### Maintainer(s)
+### 관리자
 
-If we were to look all over the GitHub we would not find an email address. We could look in `git log` and view the email addresses associated, however these do not seem to be solid as there are multiple for "thewhiteh4t" _(at least 3)_. Instead, we do more digging. We notice that there is a YouTube video demo linked in the `README.md`, if we go to the YouTube channel's [about page](https://www.youtube.com/c/thewhiteh4t/about) we can **view an email address** for business inquiries (which does not match to any in the git log). This will be a good choice to use as the contact information.
-With that said all said, not having a contact information is not an essential part , so if we were unable to find one we could still continue to package.
+GitHub 전체를 살펴봐도 이메일 주소를 찾을 수 없어요. `git log`에서 관련 이메일 주소를 볼 수 있지만, "thewhiteh4t"에 대한 여러 이메일(최소 3개)이 있어서 확실하지 않네요. 대신 더 깊이 조사해봤어요. `README.md`에 YouTube 데모 비디오 링크가 있다는 것을 발견했고, YouTube 채널의 [소개 페이지](https://www.youtube.com/c/thewhiteh4t/about)에서 비즈니스 문의용 **이메일 주소**를 볼 수 있었어요(git log의 어떤 이메일과도 일치하지 않음). 이 이메일이 연락처 정보로 사용하기 좋은 선택이 될 것 같아요.
+그렇지만, 연락처 정보가 없어도 패키징을 계속할 수 있으니 필수적인 부분은 아니에요.
 
-## Setting Up The Environment
+## 환경 설정하기
 
-We will assume that we have already followed our [documentation on setting up a packing environment](/docs/development/setting-up-packaging-system/).
+우리는 이미 [패키징 환경 설정에 관한 문서](/docs/development/setting-up-packaging-system/)를 따랐다고 가정할게요.
 
-Let's set up our directories now for this package:
+이제 이 패키지를 위한 디렉터리를 설정해 볼까요?
 
 ```console
 kali@kali:~$ mkdir -p ~/kali/packages/finalrecon/ ~/kali/upstream/
 kali@kali:~$
 ```
 
-## Downloading Git Snapshot
+## Git 스냅샷 다운로드하기
 
-We're going to download an archive of the upstream source code. Since upstream didn't tag any release yet, we'll package the latest Git commit on the main branch. There are different (many?) ways to do that, and in this example we will use `uscan` for the task. `uscan` is able to download a Git repository, pack it into a `.tar.gz` archive, and come up with a meaningful (and somewhat standard) version string.
+업스트림 소스 코드의 아카이브를 다운로드할 거예요. 업스트림에서 아직 릴리스 태그를 만들지 않았기 때문에 메인 브랜치의 최신 Git 커밋을 패키징할 거예요. 이 작업을 수행하는 여러 방법이 있지만, 이 예제에서는 `uscan`을 사용할게요. `uscan`은 Git 저장소를 다운로드하여 `.tar.gz` 아카이브로 압축하고 의미 있는(어느 정도 표준화된) 버전 문자열을 생성할 수 있어요.
 
-This last point is important: a Debian package must have a version, however a Git commit doesn't have a version _per se_. So we need to associate a version with a Git commit, and there are **many ways to get that wrong**. So rather than deciding by ourselves what the package version should be, we'll let the tooling (`uscan` in this case) do that for us.
+이 마지막 부분이 중요해요. 데비안 패키지에는 반드시 버전이 있어야 하지만, Git 커밋 자체에는 버전이 없거든요. 따라서 Git 커밋과 버전을 연결해야 하는데, 이를 잘못하는 **여러 방법이 있어요**. 그래서 직접 패키지 버전을 결정하기보다는 도구(`uscan`)가 이를 처리하도록 할게요.
 
-In order to use uscan, we need a `watch` file. This file is usually part of the packaging files, and located in `debian/watch`.
+uscan을 사용하려면 `watch` 파일이 필요해요. 이 파일은 일반적으로 패키징 파일의 일부이며, `debian/watch`에 위치해요.
 
-Let's start by entering the working directory, and then create the `debian` dir:
+먼저 작업 디렉터리로 이동한 다음 `debian` 디렉터리를 생성해 볼까요?
 
 ```console
 kali@kali:~$ cd ~/kali/packages/finalrecon/
@@ -78,7 +79,7 @@ kali@kali:~/kali/packages/finalrecon$ mkdir debian
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-And now let's create the `watch` file. The purpose of the watch file is to provide instructions to find the latest upstream release online. In this particular case though, upstream didn't provide any tagged release yet, so we'll configure the watch file to track the latest Git commit on the main branch:
+이제 `watch` 파일을 만들어 볼게요. watch 파일의 목적은 온라인에서 최신 업스트림 릴리스를 찾기 위한 지침을 제공하는 거예요. 하지만 이 경우에는 업스트림에서 아직 태그된 릴리스를 제공하지 않았기 때문에, 메인 브랜치의 최신 Git 커밋을 추적하도록 watch 파일을 구성할게요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/watch
@@ -90,7 +91,7 @@ opts="mode=git, pgpmode=none" \
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-At this point, we have enough to run uscan to download and pack the latest Git commit from upstream:
+이제 uscan을 실행해서 upstream의 최신 Git 커밋을 내려받아 tarball로 묶을 준비가 끝났어요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ uscan --destdir ~/kali/upstream/ --force-download \
@@ -102,34 +103,35 @@ uscan warn: Missing debian/source/format, switch compression to gzip
 Successfully repacked ~/kali/upstream/finalrecon-0.0~git20201107.0d41eb6.tar.xz as ~/kali/upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz.
 ```
 
-This command warrants some explanations. Since at this point we run uscan from an almost empty directory, we need to be explicit about what we want to do. In particular:
+이 명령어는 왜 이렇게 길까? 지금은 **거의 빈 디렉터리**에서 uscan을 돌리고 있어서, 옵션으로 해야 할 일을 하나하나 알려줘야 해요. 핵심은 다음 다섯 가지예요.
 
-- `--watchfile` tells uscan where is the watch file that we want it to use.
-- `--package` is used to give the package name.
-- `--upstream-version` is actually the "current upstream version". In general, uscan works by comparing the latest version found online with the version that is currently packaged, and it downloads the latest upstream version only if it's newer than the current version. However here there's no "current version" since we're creating a new package, so we tell uscan that the current version is `0~0`, ie. the lowest version possible, so that whatever version found online is deemed higher than that.
-- `--destdir` tells uscan where to save the download files.
-- `--force-download` overrides uscan's guess of what it should do: we want it to download the latest upstream version.
+* `--watchfile` ― uscan이 참고할 **watch 파일**을 지정해요.
+* `--package` ― **패키지 이름**을 알려줘요.
+* `--upstream-version` ― “현재 업스트림 버전”을 뜻해요. 보통 uscan은 *온라인 최신 버전*과 *현재 버전*을 비교해 더 새롭다면 내려받지만, 지금은 새 패키지를 만드는 중이라 ‘현재 버전’이 없죠. 그래서 가장 낮은 값인 \*\*`0~0`\*\*을 넣어 “온라인에 있는 건 전부 최신”이라고 인식하게 만듭니다.
+* `--destdir` ― 내려받은 파일을 저장할 **경로**예요.
+* `--force-download` ― uscan의 기본 판단을 무시하고 **무조건 최신 업스트림**을 받아요.
 
-To be sure, we can have a look in the `~/kali/upstream` directory to check what files landed there:
+옵션을 다 준 뒤, `~/kali/upstream` 폴더를 보면 이렇게 파일이 생겨 있어요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ ls ~/kali/upstream
 finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz  finalrecon-0.0~git20201107.0d41eb6.tar.xz
 ```
 
-uscan packed the code from Git in a `.tar.xz` file, and for some reason (see the line starting with `uscan warn:` above), it repacked in as a `.tar.gz`. We don't really care about the compression, we're fine with both `.gz`  and `.xz`. What matters is that we'll use the file which name ends with `.orig.tar.*`, so we're going to use the `.tar.gz`.
+`uscan`이 Git에서 가져온 소스를 `.tar.xz` 파일로 압축했는데, 어떤 이유로 인해 (위의 `uscan warn:` 경고 참조) `.tar.gz`로 다시 압축했어요. 사실 압축 형식은 크게 중요하지 않아서 `.gz`와 `.xz` 둘 다 사용할 수 있어요. 중요한 점은 파일 이름이 `.orig.tar.*`로 끝나는 것을 사용해야 한다는 거예요. 그래서 우리는 `.tar.gz` 파일을 사용할 거예요.
 
-uscan came up with a funny-looking (and rather complicated) version string: `0.0~git20201107.0d41eb6`. Why is that?
-- `0.0~` is the lowest starting point for a version string. It's handy to start from there, so that whenever upstream does a "tagged release", whatever they choose, it will be greater than our version. So we'll be able to use it for the package version "as is".
-- `git` is informative, and it obviously refers to the VCS used by upstream (examples of other VCS: `svn` or `bzr`).
-- `20201107` is the date (`YYYYMMDD` aka. ISO-8601 format) of the upstream commit that we package. Having the date part of the version string is needed so that whenever we'll want to import a new Git snapshot, the date will be newer, and the new version string will be sorted above by the package manager (version strings must ALWAYS go ascending).
-- `0d41eb6` is the Git commit. It's informative, and it's a non-ambiguous way to know exactly what upstream code is included in the package. Without it, a developer who wants to know what Git commit was packaged would rely on the date, and if there's more than one commit on this date, it wouldn't be clear what commit exactly was packaged. Additionally, this is an UTC date, while usual tools or web browser usually show dates in local time: another source of error for those who rely on the date only. So having the Git commit part of the version string is really useful for developers (maybe not so much for users).
+`uscan`이 만들어낸 버전 문자열은 조금 이상해 보이는데, 바로 `0.0~git20201107.0d41eb6`예요. 왜 이런 형태일까요?
 
-Alright, we hope that you appreciated this overwhelming amount of information. Let's move on and keep working on the package.
+* `0.0~`는 버전 문자열의 가장 낮은 시작점이에요. 이렇게 시작하면 나중에 업스트림이 "태그된 릴리스"를 하게 되면 어떤 버전을 선택하더라도 현재 버전보다는 더 높은 버전이 되기 때문에 관리가 쉬워져요.
+* `git`은 정보를 제공하기 위한 부분으로, 업스트림에서 사용하는 버전 관리 시스템(VCS)을 의미해요. 다른 예로는 `svn`이나 `bzr` 같은 것이 있어요.
+* `20201107`은 업스트림 커밋 날짜(ISO-8601 형식인 YYYYMMDD)를 나타내요. 버전 문자열에 날짜가 들어가는 이유는 새로운 Git 스냅샷을 가져올 때 항상 날짜가 최신이 되도록 해서 패키지 관리자가 올바르게 버전을 정렬할 수 있게 하기 위해서예요.
+* `0d41eb6`는 Git 커밋 해시예요. 이것은 명확하게 어떤 업스트림 코드가 패키지에 포함되었는지 알려주는 역할을 해요. 이게 없다면 개발자가 정확히 어떤 커밋을 패키징했는지 알기 어려워질 수 있어요. 날짜만 의존할 경우, 같은 날짜에 여러 개의 커밋이 있으면 정확히 어떤 커밋인지 불분명해질 수 있어요. 또 날짜가 UTC 기준이라 로컬 시간과 혼동될 수 있으므로, Git 커밋을 명시하는 것은 개발자에게 매우 유용해요.
 
-## Creating Package Source Code
+이 많은 정보를 통해 패키지 관리 과정에 대해 잘 이해하셨기를 바라요. 이제 다음 단계로 넘어가서 계속 진행해볼게요.
 
-We are now going to create a new **empty Git repository**:
+## 패키지 소스 코드 생성
+
+이제 새로운 **빈 Git 저장소**를 만들 거예요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ git init
@@ -137,7 +139,7 @@ Initialized empty Git repository in /home/kali/kali/packages/finalrecon/.git/
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-We can now **import** the `.tar.gz` we previously downloaded into the empty Git repository we just created. When prompted, we remember to accept the default values _(or use the flag `--no-interactive`)_:
+그리고 방금 다운로드한 `.tar.gz` 파일을 빈 Git 저장소로 **가져오기(import)** 하면 돼요. 중간에 나오는 질문에는 기본값을 선택하거나, 명령어에 `--no-interactive` 옵션을 사용하면 돼요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ gbp import-orig ~/kali/upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz
@@ -150,8 +152,8 @@ gbp:info: Successfully imported version 0.0~git20201107.0d41eb6 of /home/kali/ka
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-We remember to **change the default branch**, from `master` to `kali/master` (as `master` is for upstream development), then **delete the old branch**.
-_We also run a quick `git branch -v` to visually see the change:_
+**기본 브랜치를** `master`에서 `kali/master`로 **변경한 다음**, 이전 브랜치를 **삭제하는 것**을 기억하세요.  
+_변경 내용을 눈으로 확인하기 위해 간단히 `git branch -v`를 실행해요:_
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ git checkout -b kali/master
@@ -167,11 +169,14 @@ kali@kali:~/kali/packages/finalrecon$ git branch -v
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-We can now **populate the `debian/` folder** with its related files. We will manually specify the upstream `.tar.gz` file _(as it is not located in `../`, but instead `~/kali/upstream/`)_. We will also set the package name to use in the same naming convention as before _(`<packagename>_<version>` as is Debian standards)_.
+이제 관련 파일들로 **`debian/` 폴더를 채울 수 있어요**.  
+업스트림 `.tar.gz` 파일을 수동으로 지정할 거예요 _(파일이 `../`가 아닌 `~/kali/upstream/`에 있기 때문이에요)_.  패키지 이름도 이전과 동일한 명명 규칙(`패키지이름_버전`)을 사용할 거예요.
 
-Note that we need to use the option `--addmissing` as there's already a `debian/` directory (we created it above for the only purpose of having a watch file).
+이미 `debian/` 디렉터리가 있으므로 `--addmissing` 옵션을 사용해야 해요  
+(위에서 watch 파일만을 위해 생성한 것이에요).
 
-Afterwards we will remove any example files that get automatically generated, as they are not used:
+이후에는 자동으로 생성되는 예제 파일들을 제거할 거예요  
+(사용되지 않으므로).
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ dh_make --file ~/kali/upstream/finalrecon_0.0~git20201107.0d41eb6.orig.tar.gz -p finalrecon_0.0~git20201107.0d41eb6 --addmissing --single -y
@@ -202,7 +207,7 @@ changelog  control  copyright  rules  source  watch
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-At this point, we have the base packaging files in place, and it feels like a good idea to commit before starting some real work:
+이 시점에서 기본 패키징 파일이 준비되었으니, 본격적인 작업을 시작하기 전에 커밋하는 것이 좋을 것 같아요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ git add debian/
@@ -221,20 +226,25 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-We can now start to edit the files in the `debian/` folder to make sure the information is accurate. We can use what we found from before on [FinalRecon's GitHub](https://github.com/thewhiteh4t/FinalRecon) to supply the correct information. To recap, we need to make sure we got the following bits of information to locate:
+이제 `debian/` 폴더 안의 파일들을 **정확한 정보**로 채우기 위해 편집을 시작할 거예요. 앞서 [FinalRecon GitHub](https://github.com/thewhiteh4t/FinalRecon)에서 찾은 내용을 참고해서 아래 네 가지 정보를 확실히 확인해 주세요:
 
-- Dependencies
-- Description
-- License
-- Maintainers
+* **의존성(Dependencies)**
+* **설명(Description)**
+* **라이선스(License)**
+* **유지보수자(Maintainers)**
 
-## FinalRecon (Pip) Dependencies
+---
 
-As there is a `requirements.txt` [file](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/requirements.txt) (which is used for Python's [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files) to install any **Python dependencies** that are required for this tool to work), we will need check to see what's needed.
+## FinalRecon 파이썬 의존성 확인하기
 
-For this tool to work, it requires additional software to be installed, aka dependencies. Depending on how the tool is coded, will depend on what is required (or only recommended) to be installed. FinalRecon is using various Python libraries and does not call any system commands.
+이 도구가 제대로 동작하려면 `requirements.txt` 파일(파이썬 [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files)에서 **필요한 라이브러리**를 설치할 때 사용하는 파일)이 무엇을 요구하는지 살펴봐야 해요.
 
-In Python's eco-system, there is [pip](https://pip.pypa.io/en/stable/user_guide/#requirements-files). This is Python's package manager, which can be used to download and install any Python libraries. However, we are trying to build a package for Debian package management instead. As a result, any Python libraries need to be ported over to Debian format, in order for our package to use them (so the OS can track any files, allowing for cleaner upgrades and un-installs of packages). Lets start out by looking to see what is needed outside of the standard values, for this tool to work:
+FinalRecon은 다양한 \*\*파이썬 라이브러리(의존성)\*\*을 쓰고, 별도의 시스템 명령은 호출하지 않아요.
+
+파이썬 생태계에는 **pip**(파이썬 패키지 관리자)가 있어서, 필요한 라이브러리를 내려받고 설치해 주죠. 하지만 우리는 이제 **데비안 패키지 관리 체계**로 빌드할 예정이므로, pip용 라이브러리를 \*\*데비안 형식(.deb)\*\*으로 포팅해야 해요. 그렇게 해야 운영체제 차원에서 파일을 추적·업그레이드·제거할 수 있습니다.
+
+먼저 기본값(표준 저장소)에 없는 라이브러리가 무엇인지 확인해 볼게요.
+
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ cat requirements.txt
@@ -253,7 +263,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-We then try to search for each dependency from `requirements.txt` in `apt-cache`, to make sure that we have everything in Kali Linux' repository:
+그런 다음 `requirements.txt`에 있는 각 의존성을 `apt-cache`에서 검색해 칼리 리눅스 저장소에 모두 있는지 확인해 볼 거예요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo apt update
@@ -265,9 +275,9 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-We could search each one manually by repeating the above process for all items in `requirements.txt`, or we can make a quick loop to automate it.
+우리는 위 과정을 `requirements.txt`의 모든 항목에 대해 반복하면서 수동으로 검색할 수도 있고, 간단한 루프를 만들어 자동화할 수도 있어요.
 
-During this process, we will notice **one dependency which does not have an entry (`icmplib`)**:
+이 과정에서 **엔트리가 없는 의존성 하나(`icmplib`)**를 발견하게 될 거예요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ cat requirements.txt | while read x; do
@@ -289,7 +299,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-We can try and **broaden our search** for `icmplib`, as we were limiting output last time _(by using grep)_:
+`icmplib`에 대해 **검색 범위를 넓혀**볼 수 있어요(이전에는 grep으로 출력을 제한했기 때문에):
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ apt-cache search icmplib | grep -i python3
@@ -300,24 +310,24 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-Unfortunately it appears that Kali Linux does not have this dependency (Python's icmplib) in the repository at this point in time. This means we will need to **extend our packaging process** to accommodate for packaging up icmplib as well, to allow us to completely package up FinalRecon.
+안타깝게도 칼리 리눅스에는 현재 이 의존성(Python의 icmplib)이 저장소에 없는 것 같아요. 이는 FinalRecon을 완전히 패키징할 수 있도록 icmplib도 패키징하기 위해 **패키징 프로세스를 확장**해야 한다는 의미예요.
 
-We will first look for `icmplib` in the **[pypi.org](https://pypi.org/) repository**. We can easily find [icmplib on PyPI](https://pypi.org/project/icmplib/) along with the link to its [GitHub page](https://github.com/ValentinBELYN/icmplib). If we do the same process with icmplib looking over the GitHub page as we did for FinalRecon, we can see that **icmplib will not need additional dependencies** (no `requirements.txt` file and `setup.py` [does not list anything for](https://packaging.python.org/discussions/install-requires-vs-requirements/) `install_requires`) and therefore will be a relatively straightforward Python package.
+먼저 **[pypi.org](https://pypi.org/) 저장소**에서 `icmplib`를 찾아볼게요. [PyPI의 icmplib](https://pypi.org/project/icmplib/)와 함께 [GitHub 페이지](https://github.com/ValentinBELYN/icmplib) 링크를 쉽게 찾을 수 있어요. FinalRecon과 마찬가지로 icmplib의 GitHub 페이지를 살펴보면 **icmplib에는 추가 의존성이 필요하지 않을 것**이라는 것을 알 수 있어요(`requirements.txt` 파일이 없고 `setup.py`에는 [`install_requires`](https://packaging.python.org/discussions/install-requires-vs-requirements/)용으로 나열된 것이 없음). 따라서 비교적 간단한 파이썬 패키지가 될 거예요.
 
-We can now either:
+이제 두 가지 선택지가 있어요:
 
-- Continue to package FinalRecon, before moving onto icmplib. We have to remember that we cannot successfully build a complete working package until we are done with `icmplib`.
-- Pause FinalRecon packaging, and switch our focus to icmplib. We have to make sure we took detailed notes with the work we have done so far and information gathered.
+- icmplib로 넘어가기 전에 FinalRecon 패키징을 계속해요. `icmplib` 작업이 끝날 때까지 완전히 작동하는 패키지를 만들 수 없다는 점을 기억해야 해요.
+- FinalRecon 패키징을 일시 중단하고 icmplib에 초점을 맞춰요. 지금까지 수행한 작업과 수집한 정보에 대해 자세한 메모를 작성해야 해요.
 
-We will go with the former option, and **continue as far as we can with FinalRecon**.
+우리는 전자 옵션을 선택하여 **가능한 한 FinalRecon 작업을 계속**할게요.
 
-## Editing FinalRecon Package Source Code
+## FinalRecon 패키지 소스 코드 편집하기
 
-We can now start to edit the files in the `debian/` folder.
+이제 `debian/` 폴더의 파일을 편집할 수 있어요.
 
-### Changelog
+### 변경로그
 
-We will now perform what are our standard changes ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) to the **version**, **distribution** and **description**. The resulting file should be similar to the following:
+이제 이전 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & #2 (Photon))에서처럼 **버전**, **배포판**, **설명**에 대한 표준 변경을 수행해요. 결과 파일은 다음과 유사해야 해요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/changelog
@@ -332,20 +342,20 @@ kali@kali:~/kali/packages/finalrecon$
 ```
 
 {{% notice info %}}
-You could also use `dch -r` or `gbp dch` to edit the file, rather than `vim`.
+`vim` 대신 `dch -r` 또는 `gbp dch`를 사용할 수도 있어요.
 
-You will need to update the version to make the same date as used previously.
+이전에 사용한 날짜와 동일하게 버전을 업데이트해야 해요.
 {{% /notice %}}
 
-### Control
+### 컨트롤
 
-Using what we know from the information we have already gathered from GitHub and the source code, it is once again similar to our previous packaging guides ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)). We should have a good understanding of what needs to be altered now.
+GitHub과 소스 코드에서 이미 수집한 정보를 바탕으로, 이전 패키징 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/)와 [#2 (Photon)](/docs/development/intermediate-packaging-example/))와 유사하게 작업할 거예요. 이제 무엇을 변경해야 하는지 잘 이해하고 있을 거예요.
 
-As there is no code that needs to be compiled, we can set `Architecture: all`. This is true for most Python scripts, as they are not providing Python "extensions". If they are, they would generate a compiled `.so` files (e.g. [psycopg2](https://pkg.kali.org/pkg/psycopg2)).
+컴파일할 코드가 없으므로 `Architecture: all`로 설정할 수 있어요. 이는 대부분의 파이썬 스크립트에 해당하는데, 파이썬 "확장"을 제공하지 않기 때문이에요. 그렇지 않으면 컴파일된 `.so` 파일(예: [psycopg2](https://pkg.kali.org/pkg/psycopg2))을 생성해요.
 
-We make sure to include the **Python dependencies** for building the package as well as the tool dependencies to run (the values from pip).
+패키지를 빌드하기 위한 **파이썬 의존성**과 도구 실행을 위한 의존성(pip의 값)을 포함해야 해요.
 
-There is one thing to note, and that is `python3-icmplib`. **This package does not exist yet**. We are adding this in for the time being as we will be creating it soon, to prevent going back and adding it we will add it now. This does **mean that we will be unable to build our package until** we finish with `icmplib`:
+한 가지 주목할 점은 `python3-icmplib`예요. **이 패키지는 아직 존재하지 않아요**. 곧 만들 것이므로 나중에 추가하지 않아도 되도록 지금 추가할게요. 이는 **`icmplib` 작업이 끝날 때까지 패키지를 빌드할 수 없다는 것**을 의미해요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/control
@@ -394,9 +404,9 @@ Description: A fast and simple python script for web reconnaissance
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-### Copyright
+### 저작권
 
-As we have already finished getting the copyright information (license, name, contact, year and source), we now just need to add it:
+이미 저작권 정보(라이선스, 이름, 연락처, 연도 및 출처)를 얻었으므로 이제 그냥 추가하면 돼요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/copyright
@@ -440,8 +450,8 @@ kali@kali:~/kali/packages/finalrecon$
 
 ### Rules
 
-The start of the rules file will look very similar to [#2 (Photon)](/docs/development/intermediate-packaging-example/), however there is a new lower section.
-This part is to set the permissions on `finalrecon.py`, so when we call it using the symlinks (by `debian/links`), it will be executable:
+rules 파일의 시작 부분은 #2 (Photon)와 매우 유사하지만, 새로운 하단 섹션이 있어요.
+이 부분은 `finalrecon.py`의 권한을 설정하여 symlink(by `debian/links`)를 사용하여 호출할 때 실행 가능하도록 해요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/rules
@@ -452,11 +462,11 @@ kali@kali:~/kali/packages/finalrecon$ cat debian/rules
 export PYBUILD_NAME=finalrecon
 
 %:
-	dh $@ --with python3
+    dh $@ --with python3
 
 override_dh_install:
-	dh_install
-	chmod 0755 debian/finalrecon/usr/share/finalrecon/finalrecon.py
+    dh_install
+    chmod 0755 debian/finalrecon/usr/share/finalrecon/finalrecon.py
 kali@kali:~/kali/packages/finalrecon$
 ```
 
@@ -466,9 +476,9 @@ Beware that the "dh" line needs to be indented by a single tabulation character,
 
 ### Watch
 
-The watch file was already covered at the beginning of this example, and is configured to track the latest Git commit on the main branch.
+watch 파일은 이 예제의 시작 부분에서 이미 다루었으며, 메인 브랜치의 최신 Git 커밋을 추적하도록 구성되어 있어요.
 
-You can also add the **[common configuration for GitHub](https://wiki.debian.org/debian/watch)**, but leave it commented out, so that whenever upstream will issue a release, everything is ready in your watch file and you'll just need to uncomment it:
+**[GitHub용 공통 구성](https://wiki.debian.org/debian/watch)**도 추가할 수 있지만, 주석 처리해 두세요. 그러면 업스트림이 릴리스를 발표할 때 watch 파일에 모든 것이 준비되어 있고 주석 처리만 해제하면 돼요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/watch
@@ -486,7 +496,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 ### Links
 
-Whereas last time ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)), we are not going to use a "helper-script" but instead create a symlink pointing to the main Python file, which will still be in `$PATH`:
+이전([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/))과는 달리, 이번에는 "헬퍼 스크립트"를 사용하지 않고 여전히 `$PATH`에 있는 주 파이썬 파일을 가리키는 심볼릭 링크를 생성해요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/links
@@ -497,14 +507,14 @@ kali@kali:~/kali/packages/finalrecon$
 ```
 
 {{% notice info %}}
-One thing we notice during the testing process of the script, we have to `cd` into the directory before calling the Python script. This is because the tool attempts to drop files into the `dumps` folder, and if it is not in path FinalRecon will fail.
+스크립트 테스트 과정 중에 파이썬 스크립트를 호출하기 전에 디렉터리로 `cd`해야 한다는 것을 알게 되었어요. 이는 도구가 파일을 `dumps` 폴더에 저장하려고 하기 때문이며, FinalRecon이 경로에 없으면 실패해요.
 
-This could be discovered by auditing the source code, or trial and error when testing the package after its built.
+이는 소스 코드를 검사하거나 패키지가 빌드된 후 테스트할 때 시행착오를 통해 발견할 수 있어요.
 {{% /notice %}}
 
 ### .Install
 
-We can now create the install file, which is required to say **what files go where on the system during the unpacking of the package**. We need to make sure to include everything from the root of the package directory:
+이제 설치 파일을 만들 수 있어요. 이 파일은 **패키지 압축을 풀 때 어떤 파일이 시스템의 어디로 가는지** 지정하는 데 필요해요. 패키지 디렉터리의 루트에서 모든 것을 포함해야 해요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/finalrecon.install
@@ -518,14 +528,14 @@ kali@kali:~/kali/packages/finalrecon$
 ```
 
 {{% notice info %}}
-There is not a leading slash on the destination directory
+대상 디렉터리 앞에 슬래시가 없어요
 {{% /notice %}}
 
 ### Patches
 
-For this tool we will need to also implement a **patch to disable the update and dependency checker**. If the program self updates, the system will not be aware of any additional files outside of the package, so things then start to get messy. The dependency is also being handled by our package now instead. Knowing you need to do this, comes with either knowing the tool, or auditing the source code.
+이 도구에서는 **업데이트 및 의존성 검사기를 비활성화하기 위한 패치를 구현**해야 해요. 프로그램이 자체 업데이트를 하면 시스템이 패키지 외부의 추가 파일을 인식하지 못하므로 상황이 복잡해져요. 의존성도 이제 패키지가 처리해요. 이 작업이 필요하다는 것을 알기 위해서는 도구에 대한 지식이나 소스 코드 검토가 필요해요.
 
-The patch process looks like the following (for more information see [our previous guide, #2 (Photon)](/docs/development/intermediate-packaging-example/)):
+패치 프로세스는 다음과 같아요(자세한 내용은 [이전 가이드 #2 (Photon)](/docs/development/intermediate-packaging-example/) 참조):
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ gbp pq import
@@ -637,9 +647,9 @@ index 95e99f1..d21877c 100644
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-## Runtime Test
+## 런타임 테스트
 
-The [runtime test](/docs/development/contributing-runtime-tests/) process looks like the following (for more information see [our previous guide, #2 (Photon)](/docs/development/intermediate-packaging-example/)). Just like last time, we will just create a **minimal test to look for the help screen**:
+[런타임 테스트](/docs/development/contributing-runtime-tests/)는 다음과 같이 진행돼요(자세한 내용은 [이전 가이드 #2 (Photon)](/docs/development/intermediate-packaging-example/) 참조). 이전과 마찬가지로 **도움말 화면을 찾는 최소한의 테스트**를 만들 거예요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ mkdir -p debian/tests/
@@ -652,25 +662,25 @@ Restrictions: superficial
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-## Completing dependencies
+## 의존성 완성하기
 
-In theory, we should have a complete working package now with the exception of the missing `icmplib` dependency. So we now need to package up `icmplib`, before trying to finally build FinalRecong.
+이론적으로, 누락된 `icmplib` 의존성을 제외하고는 이제 완전히 작동하는 패키지가 있어야 해요. 따라서 FinalRecon을 최종적으로 빌드하기 전에 `icmplib`를 패키징해야 해요.
 
 ## icmplib
 
-### Naming Packages
+### 패키지 이름 지정하기
 
-Unlike our previous guides ([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/)) where we use the same name for both **source package** and **binary package**, this time we will differ them.
+이전 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & #2 (Photon))와 달리 **소스 패키지**와 **바이너리 패키지** 모두에 같은 이름을 사용했지만, 이번에는 다르게 할게요.
 
-The naming convention for a **binary package is `python3-<package>`**, which is important to follow as it has a impact at a technical level. However a **source package can be `python-<package>`** (or even just `<package>`). It does not matter if this is not followed as it will not break anything if its not followed. However, from a Kali team point of view we prefer and will use `python-<package>`. See this [Debian resource](https://www.debian.org/doc/packaging-manuals/python-policy/ch-module_packages.html) for more information.
+**바이너리 패키지의 명명 규칙은 `python3-<package>`**이며, 이는 기술적 수준에서 영향을 미치므로 따르는 것이 중요해요. 그러나 **소스 패키지는 `python-<package>`**(또는 그냥 `<package>`)일 수 있어요. 이를 따르지 않아도 문제는 없어요. 그러나 칼리 팀의 관점에서는 `python-<package>`를 선호하고 사용할 거예요. 자세한 내용은 [데비안 리소스](https://www.debian.org/doc/packaging-manuals/python-policy/ch-module_packages.html)를 참조하세요.
 
-### Cheat Sheet Packaging
+### 치트 시트 패키징
 
-This package is straightforward using `python3-setuptools` (like in our [first guide (Instaloader)](/docs/development/intro-to-packaging-example/)), so to prevent this guide from getting too long, we will not be going step by step for `icmplib`.
+이 패키지는 `python3-setuptools`를 사용하는 간단한 패키지예요([첫 번째 가이드(Instaloader)](/docs/development/intro-to-packaging-example/)와 같이). 이 가이드가 너무 길어지지 않도록 `icmplib`에 대해 단계별로 설명하지는 않을게요.
 
-For more information on building Python libraries, see the [Debian resource](https://wiki.debian.org/Python/LibraryStyleGuide)
+파이썬 라이브러리 빌드에 대한 자세한 내용은 [데비안 리소스](https://wiki.debian.org/Python/LibraryStyleGuide)를 참조하세요.
 
-Here is a quick overview of the **commands needed to build the package**:
+다음은 **패키지 빌드에 필요한 명령어** 개요예요:
 
 ```plaintext
 mkdir -p ~/kali/upstream/ ~/kali/build-area/ ~/kali/packages/python-icmplib/ 
@@ -694,13 +704,13 @@ git commit -m "Initial release"
 
 - - -
 
-Previewing the contents of the key filesin `debian/`:
+`debian/` 폴더의 주요 파일 내용 미리보기:
 
 #### Changelog
 
-Straight forward, like all the other guides, [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/), edit **version**, **distribution** and **description**.
+간단하게, 다른 가이드들과 마찬가지로 #1 (Instaloader) & #2 (Photon), **버전**, **배포판**, **설명**을 편집해요.
 
-Note, `python-icmplib` needs to match the source name in `debian/control`:
+참고로, `python-icmplib`는 `debian/control`의 소스 이름과 일치해야 해요:
 
 ```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/changelog
@@ -714,11 +724,11 @@ kali@kali:~/kali/packages/python-icmplib$
 
 #### Control
 
-This is a bit different to what we have seen previously with `Section: python`. This is because its a **Python library**. For more information see [Debian's write up](https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections) as well as the [different options](https://packages.debian.org/testing/).
+이것은 `Section: python`으로 이전에 본 것과 약간 달라요. 이는 이것이 **파이썬 라이브러리**이기 때문이에요. 자세한 내용은 [데비안 작성 가이드](https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections)와 [다양한 옵션](https://packages.debian.org/testing/)을 참조하세요.
 
-We also need to name the package differently. The source package part of `debian/control` is the top part, which gets named with the  `Source:` field, whereas the binary part the lower half and uses `Package:` to name. _Were possible Kali Linux will always try and do both a source and binary package (See the [Debian resource](https://wiki.debian.org/Packaging/SourcePackage) for more information)._
+또한 패키지 이름을 다르게 지정해야 해요. `debian/control`의 소스 패키지 부분은 상단 부분이며, `Source:` 필드로 이름이 지정돼요. 반면에 바이너리 부분은 하단 절반이고 `Package:`를 사용하여 이름을 지정해요. _가능한 경우 Kali Linux는 항상 소스 패키지와 바이너리 패키지를 모두 만들려고 해요(자세한 내용은 [데비안 리소스](https://wiki.debian.org/Packaging/SourcePackage) 참조)._
 
-Note, the source name `python-icmplib` needs to match in `debian/changelog`:
+참고로, 소스 이름 `python-icmplib`는 `debian/changelog`와 일치해야 해요:
 
 ```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/control
@@ -745,9 +755,9 @@ Description: Python tool to forge ICMP packages
 kali@kali:~/kali/packages/python-icmplib$
 ```
 
-#### Copyright
+#### 저작권
 
-As we renamed the `orig.tar.gz`, upstream name is incorrect, as it normally would not have a leading `python3-`. We can get this from the **source URL**:
+우리가 `orig.tar.gz`의 이름을 바꿨기 때문에, 업스트림 이름이 잘못되었어요. 일반적으로 앞에 `python3-`가 붙지 않을 거예요. 이 정보는 **소스 URL**에서 얻을 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/copyright
@@ -786,7 +796,7 @@ kali@kali:~/kali/packages/python-icmplib$
 
 #### Rules
 
-We need to make sure to drop any leading `python-` when being defined in `PYBUILD_NAME`, even though the binary package which gets produced (as defined in `debian/control`) will be `python3-icmplib`. This is because of [PyBuild](https://wiki.debian.org/Python/Pybuild), **only wanting the Python module name**:
+`PYBUILD_NAME`에서는 앞에 붙는 `python-` 부분을 빼야 해요. 바이너리 패키지(debian/control에 정의된)는 `python3-icmplib`로 생성되지만, [PyBuild](https://wiki.debian.org/Python/Pybuild)는 **순수한 Python 모듈 이름만 원하기 때문**이에요:
 
 ```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/rules
@@ -801,7 +811,7 @@ kali@kali:~/kali/packages/python-icmplib$
 
 #### Watch
 
-Straight forward, like all the other guides, [#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/), using the **[Debian standard watch file for GitHub](https://wiki.debian.org/debian/watch)**:
+간단하게, 다른 모든 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/))와 마찬가지로, **[GitHub용 표준 데비안 watch 파일](https://wiki.debian.org/debian/watch)**을 사용해요:
 
 ```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/watch
@@ -812,14 +822,13 @@ kali@kali:~/kali/packages/python-icmplib$
 ```
 
 - - -
+Python 3 라이브러리 파일인 icmplib 구축에 성공했어요!
 
-We have successfully managed to build a Python 3 library file, icmplib!
+#### 최종 FinalRecon 빌드
 
-#### Final FinalRecon Build
+현재 `python3-icmplib`가 Kali Linux에 아직 수락되지 않았거나, 두 패키지를 동시에 제출하고 싶을 수 있어요. 이런 경우 **최근 생성된 패키지를 chroot에 포함**시켜서 `sbuild`가 사용할 수 있게 할 수 있어요. 이는 FinalRecon의 필수 요구 사항이에요.
 
-As we may not have pushed out, had `python3-icmplib` being accepted yet into Kali Linux, or you may want to submit both at the same time, we can **include the recently generated package in the chroot** for `sbuild` to use, it is a listed requirement for FinalRecon.
-
-We are also unsure about the status of the package, we may not want to commit the latest edits to Git. So we will add `--git-export=WC` when **building the package**:
+또한 패키지의 상태가 확실하지 않기 때문에, 최신 편집 내용을 Git에 커밋하지 않기로 결정할 수도 있어요. 따라서 **패키지를 빌드할 때** `--git-export=WC`를 추가할 거예요:
 
 ```console
 kali@kali:~/kali/packages/python-icmplib$ cd ~/kali/packages/finalrecon/
@@ -836,8 +845,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-Before we try to test our newly generated package, we remember that in `debian/control` we listed a few dependencies (not only to build the package but to run the package). Using `
-dpkg`, it will not satisfy these requirements, so we need to manually install them first. We can **check what is missing from our operating system**, by doing:
+새로 생성한 패키지를 테스트하기 전에, `debian/control`에 몇 가지 의존성을 나열했다는 것을 기억해야 해요(패키지를 빌드하는 데 필요한 것뿐만 아니라 실행하는 데 필요한 것도). `dpkg`를 사용하면 이러한 요구 사항이 자동으로 충족되지 않으므로 먼저 수동으로 설치해야 해요. **운영 체제에서 누락된 것**을 다음과 같이 확인할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ dpkg-checkbuilddeps
@@ -849,7 +857,7 @@ kali@kali:~/kali/packages/finalrecon$
 ```
 
 {{% notice info %}}
-If you fail to do install the package, you may end up with the following mess:
+패키지 설치에 실패하면 다음과 같은 문제가 발생할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo dpkg -i ~/kali/build-area/finalrecon_*.deb
@@ -880,7 +888,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-You will then hit the issue of the next time you try and install or update a package, it will fail:
+그런 다음 다음에 패키지를 설치하거나 업데이트하려고 할 때 실패하는 문제가 발생해요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo apt upgrade
@@ -901,12 +909,12 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-Following what it says, running `sudo apt --fix-broken install` often fixes the issue.
+제안하는 대로 `sudo apt --fix-broken install`을 실행하면 보통 문제가 해결돼요.
 {{% /notice %}}
 
 - - -
 
-Our package has been built and dependencies have been installed. Its now time to **finally install FinalRecon**:
+패키지가 빌드되고 의존성이 설치되었어요. 이제 **마침내 FinalRecon**을 설치할 차례예요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo dpkg -i ~/kali/build-area/finalrecon_*.deb
@@ -918,7 +926,7 @@ kali@kali:~/kali/packages/finalrecon$
 ```
 
 {{% notice info %}}
-You can also install by doing:
+다음과 같이 설치할 수도 있어요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ sudo debi --debs-dir ~/kali/build-area/
@@ -928,9 +936,9 @@ kali@kali:~/kali/packages/finalrecon$ sudo debi --debs-dir ~/kali/build-area/
 
 - - -
 
-We have **successfully managed to build FinalRecon as a package**!
+**FinalRecon을 패키지로 성공적으로** 빌드했어요!
 
-Let's test to **make sure it works**:
+이제 **정상 작동**하는지 테스트해볼까요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ finalrecon
@@ -941,9 +949,9 @@ finalrecon: error: the following arguments are required: url
 kali@kali:~/kali/packages/finalrecon$
 ```
 
-## Saving Our Work
+## 작업 저장하기
 
-At this point, we can **save the work** we have put in:
+이제 지금까지 진행한 **작업을 저장**할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ git add debian/
@@ -972,8 +980,8 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-We can now finish up the packaging by **putting in a request on the [Kali Linux bug tracker](https://bugs.kali.org/)** for these packages to be added!
+이제 패키징을 완료할 수 있으며, 이러한 패키지를 추가하기 위해 **[Kali Linux 버그 트래커](https://bugs.kali.org/)에 요청을 제출**할 수 있어요!
 
-## Message From Kali Team
+## Kali 팀의 메시지
 
-During the packaging process, we worked with the tool author (upstream), so the program would be [better fit with FHS](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/). An example of this is, not to use `/usr/share/finalrecon/dumps` as writing to `/usr/share` requires root privileges and we also do not want user files to be saved here.
+패키징 과정에서 도구 작성자(업스트림)와 협력하여 프로그램이 [FHS에 더 잘 맞도록](https://tldp.org/LDP/Linux-Filesystem-Hierarchy/html/) 만들었어요. 예를 들어, `/usr/share/finalrecon/dumps`를 사용하지 않는데, 이는 `/usr/share`에 쓰기 위해서는 루트 권한이 필요하고 여기에 사용자 파일이 저장되는 것을 원치 않기 때문이에요.

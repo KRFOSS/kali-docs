@@ -1,102 +1,103 @@
 ---
-title: Dual Booting Kali with Linux
+title: 리눅스와 칼리 이중 부팅하기
 description:
 icon:
 weight: 200
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-Installing Kali Linux alongside another Linux installation can be quite useful. However, you need to exercise caution during the setup process. First, make sure that you've backed up any important data on your Linux installation. Since you'll be modifying your hard drive, you'll want to store this backup on external media. Once you've completed the backup, we recommend you peruse our [Kali Linux Hard Disk install guide](/docs/installation/hard-disk-install/), which explains the normal procedure for a basic Kali Linux install.
+다른 리눅스 설치와 함께 칼리 리눅스를 설치하는 것은 매우 유용할 수 있어요. 하지만 설정 과정에서 주의가 필요해요. 먼저 기존 리눅스 설치에 중요한 데이터를 백업했는지 확인하세요. 하드 드라이브를 수정할 것이기 때문에 이 백업은 외부 매체에 저장하는 것이 좋아요. 백업을 완료한 후에는 기본적인 칼리 리눅스 설치 과정을 설명하는 [칼리 리눅스 하드 디스크 설치 가이드](https://kali.org/docs/installation/hard-disk-install/)를 살펴보는 것을 권장해요.
 
-In our example, we will be installing Kali Linux alongside an installation of Ubuntu (Server 18.04), which is currently taking up 100% of the disk space in our computer. We will start by resizing our current Linux partition to occupy less space and then proceed to install Kali Linux in the newly-created empty partition.
+이 예시에서는 현재 컴퓨터의 디스크 공간을 100% 차지하는 우분투(서버 18.04) 설치와 함께 칼리 리눅스를 설치해 볼 거예요. 현재 리눅스 파티션의 크기를 줄여서 공간을 확보한 다음, 새로 만들어진 빈 파티션에 칼리 리눅스를 설치할 거예요.
 
-### Installation Prerequisites
+### 설치 전 준비사항
 
-This guide will make the following assumptions:
+이 가이드는 다음을 가정해요:
 
-- You have read our [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as this has the same Installation Prerequisites (System requirements & setup assumptions).
-- When [downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/), [pick the **live** image](/docs/introduction/what-image-to-download/#which-image-to-choose), rather than the installer option.
-- A single disk to install to _(rather than a dedicated disk per operating system)_.
+- [칼리 리눅스 단일 부팅 설치 가이드](https://kali.org/docs/installation/hard-disk-install/)를 읽으셨어요. 이 가이드도 동일한 설치 전 준비사항(시스템 요구사항 및 설정 가정)을 가지고 있어요.
+- [칼리 리눅스를 다운로드](https://kali.org/docs/introduction/download-official-kali-linux-images/)할 때는 인스톨러 옵션이 아닌 [**라이브** 이미지](https://kali.org/docs/introduction/what-image-to-download/#which-image-to-choose)를 선택하세요.
+- 설치할 단일 디스크가 있어요 _(운영 체제별로 전용 디스크가 아님)_.
 
 - - -
 
-We need to use a different image from the [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), as we need the **live** image. This is because we need to edit the disk structure without mounting any partitions (otherwise they would be in-use). After we have finished altering the disk layout, we can still install Kali Linux using the live image, but there will be a few differences such as:
+[칼리 리눅스 단일 부팅 설치 가이드](https://kali.org/docs/installation/hard-disk-install/)와는 다른 이미지를 사용해야 해요. **라이브** 이미지가 필요하기 때문이에요. 파티션을 마운트하지 않고 디스크 구조를 편집해야 하기 때문이에요(그렇지 않으면 파티션이 사용 중이게 돼요). 디스크 레이아웃 변경이 완료된 후에도 라이브 이미지를 사용하여 칼리 리눅스를 설치할 수 있지만, 다음과 같은 차이점이 있어요:
 
-- Changing or removing the [desktop environment](/docs/general-use/switching-desktop-environments/).
-- Installing or removing any [metapackages](/docs/general-use/metapackages/).
+- [데스크톱 환경](https://kali.org/docs/general-use/switching-desktop-environments/) 변경 또는 제거.
+- [메타패키지](https://kali.org/docs/general-use/metapackages/)의 설치 또는 제거.
 
-Both of these can be addressed post installation, as it saves swapping to the installer image (as you will need either multiple CD/DVD/USBs or to re-image half way though).
+이 두 가지 모두 설치 후에 해결할 수 있어요. 인스톨러 이미지로 바꾸는 것을 피할 수 있기 때문이에요(여러 개의 CD/DVD/USB가 필요하거나 중간에 다시 이미지를 만들어야 함).
 
 {{% notice info %}}
-This installation has the potential to go wrong very easily as it involves editing existing partitions. Be aware of what partitions you are modifying and where you are installing Kali Linux to.<br />
-Having a backup of your Linux files available is a good idea in the event something goes wrong.
+이 설치는 기존 파티션 편집이 포함되므로 쉽게 잘못될 수 있어요. 어떤 파티션을 수정하고 있는지, 칼리 리눅스를 어디에 설치하는지 주의하세요.<br />
+문제가 발생할 경우를 대비해 리눅스 파일의 백업을 준비해 두는 것이 좋아요.
 {{% /notice %}}
 
-### Resize Linux Procedure
+### 리눅스 파티션 크기 조정 절차
 
-Before we can install Kali Linux, there needs to be room on the hard disk. By **booting into a live Kali Linux session** with your chosen installation medium, we can resize the partition to our desired size, as the disk will not be in use because Kali Linux will all be in memory.
+칼리 리눅스를 설치하기 전에 하드 디스크에 공간이 필요해요. 선택한 설치 미디어로 **라이브 칼리 리눅스 세션으로 부팅**하면 파티션 크기를 원하는 대로 조정할 수 있어요. 디스크가 사용 중이 아니기 때문이에요(칼리 리눅스가 모두 메모리에 있으니까요).
 
-1. To start resizing, make sure you **insert your Kali Linux installation medium** and **power on the device**. If needed, press any keyboard shortcuts for a "boot order menu" (depends on each manufacture) or boot into BIOS/UEFI and change the boot order to point to the installation medium first.
+1. 크기 조정을 시작하려면 **칼리 리눅스 설치 미디어를 삽입**하고 **기기 전원을 켜세요**. 필요한 경우 "부팅 순서 메뉴"에 대한 키보드 단축키를 누르거나(제조사마다 다름) BIOS/UEFI로 부팅하여 설치 미디어가 먼저 나오도록 부팅 순서를 변경하세요.
 
-2. When the boot menu/options appears, you should see at least one new option. Depending on the manufacture, hardware, how the system is configured and install medium, you may see more options _(e.g. Can you boot into non-UEFI?)_.
+2. 부팅 메뉴/옵션이 나타나면 하나 이상의 새로운 옵션이 보여야 해요. 제조사, 하드웨어, 시스템 구성 방식 및 설치 미디어에 따라 더 많은 옵션이 표시될 수 있어요 _(예: 비UEFI로 부팅할 수 있나요?)_.
 
-You may need to try a few different options in order to find success.
+성공하기 위해 여러 옵션을 시도해야 할 수도 있어요.
 
-3. You should be greeted with the Kali Linux **boot screen**. Select **Live**, and you should be booted into the Kali Linux default desktop.
+3. 칼리 리눅스 **부팅 화면**이 표시될 거예요. **라이브**를 선택하면 칼리 리눅스 기본 데스크톱으로 부팅돼요.
 
 ![](boot-live.png)
 
 - - -
 
-4. Now launch **[GParted](https://packages.debian.org/testing/gparted)**, which we'll use to shrink the existing Linux partition to give us enough room to install Kali Linux in the free space.
+4. 이제 **[GParted](https://packages.debian.org/testing/gparted)**를 실행하세요. 기존 리눅스 파티션을 축소하여 빈 공간에 칼리 리눅스를 설치할 공간을 확보할 거예요.
 
 ![](gparted-1.png)
 
 - - -
 
-5. Once GParted has opened, **select your Linux partition** (`/dev/sda1`) & **resize it** leaving enough space (we recommend at least 20 GB) for the Kali Linux installation.
+5. GParted가 열리면 **리눅스 파티션**(`/dev/sda1`)을 **선택**하고 칼리 리눅스 설치를 위한 충분한 공간(최소 20GB 권장)을 남기고 **크기를 조정**하세요.
 
-Depending on your setup, the disk structure may be different to include:
+설정에 따라 디스크 구조가 다를 수 있어요:
 
-- A swap partition
-- Separate partitions for certain directories (e.g. `/home`, `/var` and `/tmp`)
+- 스왑 파티션
+- 특정 디렉토리에 대한 별도의 파티션(예: `/home`, `/var`, `/tmp`)
 
-You often just want to select the largest partition (commonly the data/home directory)
+보통 가장 큰 파티션(일반적으로 데이터/홈 디렉토리)을 선택하면 돼요.
 
 {{% notice info %}}
-If you are moving past into any non-white in the partition then you are editing a section that is in use.<br />
-Only remove from the area of the partition that is not in use.
+파티션에서 흰색이 아닌 부분으로 이동하면 사용 중인 섹션을 편집하는 거예요.<br />
+사용 중이지 않은 파티션 영역만 제거하세요.
 {{% /notice %}}
 
 {{% notice info %}}
-If you wish to organize the partition to group all the Linux partitions together, placing the free space at the end, you may do so.
+모든 리눅스 파티션을 함께 그룹화하여 빈 공간을 끝에 배치하고 싶다면 그렇게 해도 돼요.
 {{% /notice %}}
 
 ![](gparted-2-linux.png)
 
 - - -
 
-6. Once you have resized your Linux partition, ensure you "**Apply All Operations**" on the hard disk. Exit gparted and **reboot**.
+6. 리눅스 파티션 크기를 조정한 후에는 하드 디스크에 **"모든 작업 적용"**을 꼭 하세요. GParted를 종료하고 **재부팅**하세요.
 
 ![](gparted-3-linux.png)
 
-### Kali Linux Installation Procedure
+### 칼리 리눅스 설치 절차
 
-1. The installation procedure from this point onwards is similar to a [Kali Linux Hard Disk install](/docs/installation/hard-disk-install/), until the point of the partitioning.
-At this point, you need to select "**Guided - use the largest continuous free space**" _(rather than "Guided - the entire disk")_ which got created earlier with **gparted**.
+1. 이 시점부터 설치 절차는 파티셔닝 단계까지 [칼리 리눅스 하드 디스크 설치](https://kali.org/docs/installation/hard-disk-install/)와 유사해요.
+이 시점에서 **gparted**로 이전에 만든 **"안내됨 - 가장 큰 연속 여유 공간 사용"**을 선택해야 해요 _("안내됨 - 전체 디스크" 대신)_.
 
 ![](setup-partition-1-continuous.png)
 
 - - -
 
-2. You can carry on following the [single boot Kali Linux install guide](/docs/installation/hard-disk-install/), expect you will not have the option to select [desktop environment](/docs/general-use/switching-desktop-environments/) or [metapackages](/docs/general-use/metapackages/) as you are using the live image. Once the installation is done, **reboot**.
+2. [칼리 리눅스 단일 부팅 설치 가이드](https://kali.org/docs/installation/hard-disk-install/)를 계속 따라갈 수 있지만, 라이브 이미지를 사용하고 있기 때문에 [데스크톱 환경](https://kali.org/docs/general-use/switching-desktop-environments/) 또는 [메타패키지](https://kali.org/docs/general-use/metapackages/)를 선택할 수 있는 옵션은 없어요. 설치가 완료되면 **재부팅**하세요.
 
-You should be greeted with a **GRUB boot menu**, which will allow you to boot either into Kali Linux or the other Linux operating system.
+**GRUB 부트 메뉴**가 표시되면, 칼리 리눅스 또는 다른 리눅스 운영 체제로 부팅할 수 있어요.
 
 ![](boot-linux.png)
 
-### Post Installation
+### 설치 후 과정
 
-Now that you've completed installing Kali Linux, it's time to customize your system.
+이제 칼리 리눅스 설치를 완료했으니 시스템을 사용자 지정할 차례예요.
 
-The [General Use section](/docs/general-use/) has more information and you can also find tips on how to get the most out of Kali Linux in our [User Forums](https://forums.kali.org/).
+[일반 사용 섹션](https://kali.org/docs/general-use/)에서 더 많은 정보를 찾을 수 있으며, [사용자 포럼](https://forums.kali.org/)에서 칼리 리눅스를 최대한 활용하는 방법에 대한 팁도 찾을 수 있어요.

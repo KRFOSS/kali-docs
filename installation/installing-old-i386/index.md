@@ -1,21 +1,22 @@
 ---
-title: Installing old i386 images
+title: 오래된 i386 이미지 설치하기
 description:
 icon:
 weight:
 author: ["arnaudr", "gamb1t",]
+번역: ["xenix4845"]
 ---
 
-## Foreword
+## 서문
 
-Since October 2024, there is no longer a i386 kernel, nor i386 images for Kali Linux. As a reminder, i386 is the name used in Kali (and Debian) to refer to the 32-bit x86 CPU architecture.
+2024년 10월부터 칼리 리눅스에는 더 이상 i386 커널과 i386 이미지가 제공되지 않아요. 참고로, i386은 칼리(및 데비안)에서 32비트 x86 CPU 아키텍처를 지칭하는 이름이에요.
 
-In all practicality, it means that it's no longer possible to run Kali on machines that have such a (rather old) CPU. However, it's still possible to run programs that were compiled for i386 on a 64-bit machine. In fact, at the time of writing, most of the i386 packages are still available in the repository, and i386 Kali containers are also available.
+실제로 이는 이러한 (꽤 오래된) CPU를 탑재한 기기에서 더 이상 칼리를 실행할 수 없다는 것을 의미해요. 그러나 64비트 기기에서 i386용으로 컴파일된 프로그램을 실행하는 것은 여전히 가능해요. 실제로, 이 글을 쓰는 시점에는 대부분의 i386 패키지가 여전히 저장소에서 사용 가능하며, i386 칼리 컨테이너도 이용할 수 있어요.
 
-This change was announced in a [blog post](/blog/end-of-i386-kernel-and-images/), it contains much more details for those interested.
+이 변경 사항은 [블로그 게시물](https://www.kali.org/blog/end-of-i386-kernel-and-images/)에서 발표되었으며, 관심 있는 분들을 위한 더 많은 세부 정보가 포함되어 있어요.
 
-## Using old i386 images
+## 오래된 i386 이미지 사용하기
 
-The last Kali Linux release that supported the i386 architecture was `2024.3`. At the moment, those images are still available for download at <https://kali.download/base-images/kali-2024.3/>.
+i386 아키텍처를 지원하는 마지막 칼리 리눅스 릴리스는 `2024.3`이었어요. 하지만 [잘 있어요 i386](https://www.kali.org/blog/kali-linux-2024-4-release/)이 발표됨에 따라서 미러에서는 볼 수 없게 되었어요.
 
-After they get removed from the mirrors, users can still use [old.kali.org](https://old.kali.org/kali-images/kali-2024.3/) and download the last i386 images from there.
+i386 이미지를 다운 받으려면 [old.kali.org](https://old.kali.org/kali-images/kali-2024.3/)에서 받을 수 있어요. 이곳에서는 과거 이미지들을 모두 보관하고 있답니다!
