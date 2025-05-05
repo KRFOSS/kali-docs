@@ -51,4 +51,4 @@ kali@kali:~$
 
 그게 다입니다!
 
-OVA 파일은 필요에 따라 ESXi로 옮겨서 사용할 수 있으며 _(내장 업로드 기능이 작동하지 않는 경우)_ 또는 VirtualBox로 마이그레이션하세요 _(필요한 경우 [게스트 추가 기능](/docs/virtualization/install-virtualbox-guest-additions/)을 설치해야 할 수도 있습니다)_.
+OVA 파일은 필요에 따라 ESXi로 옮겨서 사용하거나 _(내장 업로드 기능이 작동하지 않는 경우)_ VirtualBox로 마이그레이션하세요 _(필요한 경우 [게스트 추가 기능](/docs/virtualization/install-virtualbox-guest-additions/)을 설치해야 할 수도 있습니다)_.
