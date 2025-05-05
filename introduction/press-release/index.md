@@ -25,7 +25,7 @@ Black Hat Europe, 암스테르담 – 2013년 3월 13일 – [OffSec(예전 이�
 
 ### 가격 및 이용 가능성
 
-[이전 버전들](/docs/introduction/kali-linux-history/)과 마찬가지로, Kali Linux는 완전히 무료이며 앞으로도 계속 무료로 제공될 거예요. OffSec은 Kali Linux를 지속적으로 개발하면서 [오픈소스(소스 코드가 공개된 소프트웨어)](/docs/policy/kali-linux-open-source-policy/) 커뮤니티를 지원하는 데 힘쓰고 있어요. 개발 트리와 [모든 소스 코드](https://gitlab.com/kalilinux)는 패키지를 수정하고 다시 만들고 싶은 분들을 위해 제공되고 있어요. Kali Linux는 [kali.org/downloads/](/get-kali/)에서 바로 다운로드할 수 있어요. 또는 [ROKFOSS 프로젝트](https://http.krfoss.org) 사이트에서도 다운로드가 가능해요!
+[이전 버전들](/docs/introduction/kali-linux-history/)과 마찬가지로, Kali Linux는 완전히 무료이며 앞으로도 계속 무료로 제공될 거예요. OffSec은 Kali Linux를 지속적으로 개발하면서 [오픈소스(소스 코드가 공개된 소프트웨어)](/docs/policy/kali-linux-open-source-policy/) 커뮤니티를 지원하는 데 힘쓰고 있어요. 개발 트리와 [모든 소스 코드](https://gitlab.com/kalilinux)는 패키지를 수정하고 다시 만들고 싶은 분들을 위해 제공되고 있어요. Kali Linux는 [kali.org/get-kali/](/get-kali/)에서 바로 다운로드할 수 있어요. 또는 [ROKFOSS 프로젝트](https://http.krfoss.org) 사이트에서도 다운로드가 가능해요!
 
 ### Kali Linux 소개
 
