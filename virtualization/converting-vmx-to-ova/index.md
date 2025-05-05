@@ -7,7 +7,7 @@ author: ["gamb1t",]
 번역: ["kmw0410"]
 ---
 
-VMware에는 VMware 제품들에서 사용하는 **VMX 포맷**이 있습니다. 일반적으로 사용되는 포맷은 **OVF**입니다, 이는 개방향 표준이므로 (**OVA**는 OVF로 이지미나 단일 파일로 압축됨). There are times where converting between the two formats is required.
+VMware에는 VMware 제품들에서 사용하는 **VMX 포맷**이 있습니다. 일반적으로 사용되는 포맷은 **OVF**입니다, 이는 개방향 표준이므로 (**OVA**는 OVF로 이지미나 단일 파일로 압축됨) 두 형식 간에 변환이 필요한 경우가 있습니다.
 
 VMware의 VMX에서 OVA로 변환하려면 다음과 같이 하세요, 우리는 [ovftool](https://code.vmware.com/web/tool/4.4.0/ovf)를 사용할 것입니다. 이미 [VMware workstation](/docs/virtualization/install-vmware-host/) 이나 VMware fusion 이 사전 설치 되어있는 경우, 이미 가지고 있을지도 모릅니다 (또는 무료로 독립 실행형 프로그램을 다운로드할 수 있습니다). 기본 위치는 다음과 같습니다:
 
