@@ -1,46 +1,47 @@
 ---
-title: Kali inside QEMU/LibVirt with virt-manager (Guest VM)
+title: QEMU/LibVirt의 virt-manager를 이용한 Kali (게스트 VM)
 description:
 icon:
 weight: 218
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-We understand there are a lot of options for interfacing with KVM and QEMU to create different VMs, however for the purposes of this guide we will be using the most common option.
+KVM과 QEMU로 다양한 VM을 만드는 방법이 많다는 것을 알고 있어요. 하지만 이 가이드에서는 가장 일반적인 옵션을 사용할 거예요.
 
-To get a Debian based system prepared for this, we can simply run the following command:
+Debian 기반 시스템을 준비하려면 간단히 다음 명령어를 실행하면 돼요:
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install virt-manager -y
 [...]
 ```
 
-This will pull in all of the necessary packages and will allow us to create our VM just fine.
+이렇게 하면 필요한 모든 패키지를 가져와서 VM을 문제없이 만들 수 있어요.
 
-After [`virt-manager`](https://manpages.debian.org/bullseye/virt-manager/virt-manager.1.en.html) is installed, we can launch it and put in our password as we need elevated permissions for some tasks.
+[`virt-manager`](https://manpages.debian.org/bullseye/virt-manager/virt-manager.1.en.html)(가상 머신 관리자)가 설치된 후, 실행하고 일부 작업에 관리자 권한이 필요하기 때문에 비밀번호를 입력해야 해요.
 
-From here we can select the "+" and begin to create our VM:
+여기서 "+" 버튼을 선택하고 VM 생성을 시작할 수 있어요:
 
 ![](libvirt-1.png)
 
-We want to ensure we select local ISO file:
+로컬 ISO 파일을 선택해야 해요:
 
 ![](libvirt-2.png)
 
-We choose our ISO and also de-select guessing the OS and input "Debian 11":
+ISO를 선택하고 OS 추측 옵션을 선택 해제한 다음 "Debian 11"을 입력해요:
 
 ![](libvirt-3.png)
 
-We make sure to use 2GB of memory and 2 CPU cores:
+2GB의 메모리와 2개의 CPU 코어를 사용하도록 설정해요:
 
 ![](libvirt-4.png)
 
-We set our system to be 20GB:
+시스템 크기를 20GB로 설정해요:
 
 ![](libvirt-5.png)
 
-We can now finalize setup by changing the system name to "kali-linux":
+이제 시스템 이름을 "kali-linux"로 변경하여 설정을 마무리할 수 있어요:
 
 ![](libvirt-6.png)
 
-From here we can follow the normal [Kali Linux installation](/docs/installation/hard-disk-install/)
+여기서부터는 일반적인 [Kali Linux 설치](/docs/installation/hard-disk-install/) 방법을 따르면 돼요

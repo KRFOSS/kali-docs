@@ -1,88 +1,91 @@
 ---
-title: Kali inside Proxmox (Guest VM)
+title: Proxmox 안의 Kali (게스트 VM)
 description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 {{% notice info %}}
-Due to the type of hypervisor Proxmox is we do not have a documentation page on how to install it. However, this can be found through [Proxmox's official page](https://www.proxmox.com/en/proxmox-ve/get-started).
+Proxmox는 특별한 종류의 하이퍼바이저(가상화 관리자)이기 때문에 설치 방법에 대한 문서가 따로 없어요. 하지만 [Proxmox 공식 페이지](https://www.proxmox.com/en/proxmox-ve/get-started)에서 관련 정보를 찾을 수 있어요.
+
+칼리 이미지 다운로드의 경우 [ROKFOSS 프로젝트](https://http.krfoss.org/)에서도 간편하게 다운로드 할 수 있어요. 
 {{% /notice %}}
 
-Proxmox has two ways of accessing a nested environment. The first is through virtualization, using QEMU. The other is through containerization using LXC. We will discuss both methods (for QEMU there are two ways of installation).
+Proxmox에서는 중첩 환경에 접근하는 두 가지 방법이 있어요. 첫 번째는 QEMU를 사용한 가상화고, 다른 하나는 LXC를 사용한 컨테이너화예요. 두 방법 모두 설명해드릴게요(QEMU의 경우 설치 방법이 두 가지예요).
 
-## Kali as a Proxmox VM (Virtualization) using prebuilt virtual machine
+## 미리 빌드된 가상 머신으로 Proxmox VM에 Kali 설치하기
 
-- Go to [Kali images](/get-kali/#kali-installer-images) and select "Pre-built Virtual Machines"
-- Download the proper image (Qemu64 or Qemu32)
-- Extract the image from the downloaded file (note that this is [7Zip](https://www.7-zip.org/) format)
-- Rename the file to *.iso (i.e. change the file extension from qcow2 to iso). Take a note of the file name (eg. ```kali-linux-2023.4-qemu-amd64.iso```)
-- Open Proxmox
-- Select the storage to be used (eg. locate correct node and find local) in the left pane
-- In the middle pane select ISO images and click Upload
-- Click Select File and then select the previously extracted (and renamed) file. Click upload and wait for upload to complete
-- Click Create VM:
-  - Fill in 'VM ID' and 'Name'. Enable 'Start at boot' if this is wanted. Click Next
-  - Select 'Do not use any media'.  Click Next
-  - Enable 'Qemu Agent'. Click Next
-  - Click on Delete next to the scsi0 disk (will change to No Disks). Click Next
-  - Set needed number of CPUs (or leave to default). Clck Next
-  - Set memory to 2048 or more. Click Next
-  - Set network according to need (or leave to default). Click Next
-  - Review configuration and click Finish
-- Right click on node and select Shell
-- Locate the uploaded file by issuing a ```find / -name {filename}``` (eg. ```find / -name kali-linux-2023.4-qemu-amd64.iso```)
-- Change directory to the location of the file
-- Rename file from *.iso to *.qcow2 (eg. ```mv kali-linux-2023.4-qemu-amd64.iso kali-linux-2023.4-qemu-amd64.qcow2```)
-- Run command ```qm importdisk VM-ID {filename.qcow2} {storage}``` (eg. ```qm importdisk 108 kali-linux-2023.4-qemu-amd64.qcow2 local-lvm```)
-- Close shell
-- In Proxmox, locate the created VM
-- In the middle pane, click Hardware and then locate the 'Unused disk 0' in the right pane. Click Edit
-- Make necessary changes to the configuration and then click Add
-- A new disk has been created so boot order must be adjusted; click Options in the middle pane then click 'Boot Order' in the right pane. Click Edit
-- Enable the (only) disk and then change the boot order so that the disk is either #1 or #2 (preceded by ide2 / CD). Click OK
-- Now Kali is ready to start. Please remember that the default credentials "kali/kali" is to be used when logging in (ie. remember to change these)  
+- [Kali 이미지](/get-kali/#kali-installer-images)로 가서 "Pre-built Virtual Machines(미리 빌드된 가상 머신)"를 선택하세요
+- 적절한 이미지(Qemu64 또는 Qemu32)를 다운로드하세요
+- 다운로드한 파일에서 이미지를 압축 해제하세요([7Zip](https://www.7-zip.org/) 형식이에요)
+- 파일 확장자를 *.iso로 변경하세요(즉, qcow2에서 iso로 바꿔요). 파일 이름을 기억해두세요(예: ```kali-linux-2025.1c-qemu-amd64.iso```)
+- Proxmox를 열어주세요
+- 왼쪽 창에서 사용할 저장소를 선택하세요(예: 올바른 노드를 찾고 local 선택)
+- 중앙 창에서 ISO 이미지를 선택하고 업로드를 클릭하세요
+- 파일 선택을 클릭하고 이전에 압축 해제하고 이름 변경한 파일을 선택하세요. 업로드를 클릭하고 완료될 때까지 기다리세요
+- VM 생성을 클릭하세요:
+  - 'VM ID'와 '이름'을 입력하세요. 원한다면 '부팅 시 시작' 옵션을 활성화하세요. 다음을 클릭하세요
+  - '미디어 사용 안 함'을 선택하세요. 다음을 클릭하세요
+  - 'Qemu 에이전트'를 활성화하세요. 다음을 클릭하세요
+  - scsi0 디스크 옆의 삭제를 클릭하세요(디스크 없음으로 변경돼요). 다음을 클릭하세요
+  - 필요한 CPU 수를 설정하거나 기본값으로 두세요. 다음을 클릭하세요
+  - 메모리를 2048 이상으로 설정하세요. 다음을 클릭하세요
+  - 필요에 따라 네트워크를 설정하거나 기본값으로 두세요. 다음을 클릭하세요
+  - 구성을 검토하고 완료를 클릭하세요
+- 노드를 마우스 오른쪽 버튼으로 클릭하고 셸을 선택하세요
+- ```find / -name {파일이름}``` 명령으로 업로드된 파일을 찾으세요(예: ```find / -name kali-linux-2025.1c-qemu-amd64.iso```)
+- 파일이 있는 디렉토리로 이동하세요
+- 파일 확장자를 *.iso에서 *.qcow2로 변경하세요(예: ```mv kali-linux-2025.1c-qemu-amd64.iso kali-linux-2025.1c-qemu-amd64.qcow2```)
+- ```qm importdisk VM-ID {파일이름.qcow2} {저장소}``` 명령을 실행하세요(예: ```qm importdisk 108 kali-linux-2025.1c-qemu-amd64.qcow2 local-lvm```)
+- 셸을 닫으세요
+- Proxmox에서 생성된 VM을 찾으세요
+- 중앙 창에서 하드웨어를 클릭하고 오른쪽 창에서 '사용되지 않은 디스크 0'을 찾으세요. 편집을 클릭하세요
+- 필요한 구성 변경을 하고 추가를 클릭하세요
+- 새 디스크가 생성되었으니 부팅 순서를 조정해야 해요. 중앙 창에서 옵션을 클릭한 다음 오른쪽 창에서 '부팅 순서'를 클릭하세요. 편집을 클릭하세요
+- (유일한) 디스크를 활성화하고 부팅 순서를 변경해서 디스크가 #1 또는 #2(ide2/CD 다음)가 되도록 하세요. 확인을 클릭하세요
+- 이제 Kali를 시작할 준비가 됐어요. 로그인할 때 기본 계정 정보인 "kali/kali"를 사용하는 것 잊지 마세요(즉, 이 비밀번호는 나중에 꼭 변경하세요)
 
-## Kali as a Proxmox VM (Virtualization)
+## Proxmox VM에 Kali 설치하기
 
-We will go over the steps and discuss some of the changes that can be made.
+단계별로 살펴보고 가능한 변경 사항도 알려드릴게요.
 
-- Download the latest ISO from [get Kali](/get-kali/#kali-installer-images)
-  - NOTE: Use the standard, weekly, or everything installer ISOs. The net installer ISO does not have necessary drivers for virtual network adapters supported in Proxmox.
-- Select "Create VM"
-- Assign the VM a name and ID
-- Select the ISO we downloaded previously
-- We can skip past "System" using the defaults
-- Create a disk with at least 20 GiB, you may need more so think about your needs when selecting storage
-- Select 2 for both "Sockets" and "Cores" to get our total cores to 4, you may be able to use less or may need more, again think about your needs
-- Use at least 2048 MiB
-- Be sure to select the proper network device, if you are unsure which to select leave it as default
-- Confirm your settings
+- [Kali 다운로드](/get-kali/#kali-installer-images)에서 최신 ISO를 다운로드하세요
+  - 참고: 표준, 주간, 또는 전체 설치 ISO를 사용하세요. 네트워크 설치 ISO는 Proxmox에서 지원하는 가상 네트워크 어댑터에 필요한 드라이버가 없어요.
+- "VM 생성"을 선택하세요
+- VM에 이름과 ID를 지정하세요
+- 이전에 다운로드한 ISO를 선택하세요
+- 기본값을 사용해서 "시스템" 설정을 건너뛸 수 있어요
+- 최소 20GiB의 디스크를 생성하세요. 필요에 따라 더 많은 용량이 필요할 수 있으니 저장소를 선택할 때 자신의 요구 사항을 고려하세요
+- "소켓"과 "코어" 모두 2로 선택해서 총 코어 수를 4개로 설정하세요. 필요에 따라 더 적거나 많이 사용할 수 있어요
+- 최소 2048MiB의 메모리를 사용하세요
+- 적절한 네트워크 장치를 선택하세요. 어떤 것을 선택해야 할지 모르겠다면 기본값으로 두세요
+- 설정을 확인하세요
 
-From here we select the new VM under our node and after selecting "Console" we select "Start Now". From here we can proceed as though it is a [normal install](/docs/installation/hard-disk-install/).
+여기서 노드 아래에 새 VM을 선택하고 "콘솔"을 선택한 후 "지금 시작"을 선택하세요. 이제 [일반 설치](/docs/installation/hard-disk-install/)와 같은 방법으로 진행할 수 있어요.
 
-## Kali as a Proxmox CT (Containerization)
+## Proxmox CT로 Kali 설치하기(컨테이너화)
 
-We will go over the steps and discuss some of the changes that can be made.
+단계별로 살펴보고 가능한 변경 사항도 알려드릴게요.
 
-We first need to install the container template to be used. To do this we navigate to [a LXD repo](https://images.lxd.canonical.com/images/kali/current/) and determine what our requirements are. For this guide, we have a Proxmox system that is run on amd64 hardware, so we select that. We are going to select default, this will go for all hardware options. Next we select the most recent date. Now we download the "rootfs.squashfs".
+먼저 사용할 컨테이너 템플릿을 설치해야 해요. 이를 위해 [LXD 저장소](https://images.lxd.canonical.com/images/kali/current/)로 이동해서 요구 사항을 결정하세요. 이 가이드에서는 amd64 하드웨어에서 실행되는 Proxmox 시스템을 사용하니까 해당 항목을 선택해요. 모든 하드웨어 옵션에 대해 기본값을 선택할 거예요. 다음으로 가장 최근 날짜를 선택하고 "rootfs.squashfs"를 다운로드하세요.
 
-To convert "rootfs.squashfs" to "rootfs.tar.xz" you can use [sqfs2tar](https://manpages.ubuntu.com/manpages/focal/man1/sqfs2tar.1.html):
-- Install sqfs2tar with `sudo apt install squashfs-tools-ng`.
-- Run `sqfs2tar rootfs.squashfs | xz > rootfs.tar.xz`
-- Upload rootfs.tar.xz to your "CT Templates" location in Proxmox (rename as needed).
+"rootfs.squashfs"를 "rootfs.tar.xz"로 변환하려면 [sqfs2tar](https://manpages.ubuntu.com/manpages/focal/man1/sqfs2tar.1.html)를 사용할 수 있어요:
+- `sudo apt install squashfs-tools-ng`로 sqfs2tar을 설치하세요
+- `sqfs2tar rootfs.squashfs | xz > rootfs.tar.xz` 명령을 실행하세요
+- rootfs.tar.xz를 Proxmox의 "CT Templates" 위치에 업로드하세요(필요에 따라 이름 변경)
 
-To create a container in Proxmox using this template:
+이 템플릿을 사용해서 Proxmox에서 컨테이너를 생성하려면:
 
-- Select "Create CT"
-- Assign the container a hostname and a password. If relevant, supply a SSH public key as well.
-- Select the template we uploaded previously
-- Depending on the use-case of this container, you may want to give the system more storage. A good balance would be to give it 20 GiB for a typical Kali install.
-- Up the "Cores" to be 2, you may be able to use less or may need more, think about your needs
-- Again, depending on the use case you may want to up the amount of memory. A good balance would be to give it 2048 for a typical Kali install, with 1024 swap.
-- Select network settings if necessary, otherwise leave as default.
-- If necessary change the DNS settings
-- Confirm settings and finish setup
+- "CT 생성"을 선택하세요
+- 컨테이너에 호스트 이름과 비밀번호를 지정하세요. 관련이 있다면 SSH 공개 키도 제공하세요
+- 이전에 업로드한 템플릿을 선택하세요
+- 이 컨테이너의 사용 목적에 따라 더 많은 저장 공간을 할당할 수 있어요. 일반적인 Kali 설치의 경우 20GiB를 할당하는 것이 좋아요
+- "코어" 수를 2로 늘리세요. 필요에 따라 더 적거나 많이 사용할 수 있어요
+- 마찬가지로, 사용 목적에 따라 메모리 양을 늘릴 수 있어요. 일반적인 Kali 설치의 경우 2048MiB 메모리와 1024 스왑을 할당하는 것이 좋아요
+- 필요한 경우 네트워크 설정을 선택하고, 그렇지 않으면 기본값으로 두세요
+- 필요한 경우 DNS 설정을 변경하세요
+- 설정을 확인하고 설정을 완료하세요
 
-From here we wait for the container to be created and finish with "TASK OK". Once this is complete we can close this window, select the container under our node, select console, and select "Start" on the top bar. We login with "root" user and the password we input earlier.
+이제 컨테이너가 생성되고 "TASK OK"로 완료될 때까지 기다려요. 완료되면 이 창을 닫고 노드 아래에서 컨테이너를 선택한 다음 콘솔을 선택하고 상단 바에서 "시작"을 선택하세요. "root" 사용자와 이전에 입력한 비밀번호로 로그인하세요.
