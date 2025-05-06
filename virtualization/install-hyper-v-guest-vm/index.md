@@ -1,82 +1,82 @@
 ---
-title: Kali inside Hyper-V (Guest VM)
+title: Hyper-V 안의 Kali (게스트 VM)
 description:
 icon:
 weight: 215
 author: ["gamb1t","serval123"]
 ---
 
-For most Windows users Hyper-V is already enabled. However, in case it isn't enabled on your system you can follow one of the following docs pages from Microsoft:
+대부분의 Windows 사용자들은 Hyper-V가 이미 활성화되어 있어요. 하지만, 시스템에서 활성화되어 있지 않은 경우 Microsoft의 문서 페이지를 따르세요:
 
-- For [Windows 8, 8.1](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))
-- For [Windows 10, 11](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)
+- [Windows 8, 8.1](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))용
+- [Windows 10, 11](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)용
 
-After we enable Hyper-V we can create a new VM very easily. We first need to [download](/get-kali/) an installer iso. Then we can boot Hyper-V:
+Hyper-V가 활성화 되었다면 새로운 VM을 매우 쉽게 생성할 수 있어요. 우선 우리는 설치 iso [다운로드](/get-kali/)가 필요해요. 그런 다음 Hyper-V를 부팅할 수 있어요:
 
 ![](hyper-v-first-boot.png)
 
-We will need to select our computer on the left-hand side under 'Hyper-V Manager':
+왼쪽의 'Hyper-V 관리자'에서 컴퓨터를 선택하세요:
 
 ![](hyper-v-machine-look.png)
 
-We can then select 'Quick Create...' on the right-hand side:
+오른쪽의 '빨리 만들기...'를 선택하세요:
 
 ![](hyper-v-create-vm.png)
 
-We will have to configure some things on this screen. We first be sure to have selected 'Local installation source' and then select our iso after selecting 'Change installation source...'. After this we can de-select the option 'This machine will run Windows' and can also use the drop-down 'More options' menu to name our virtual machine.
+이 화면에서 설정을 구성할 수 있어요. 먼저 '로컬 설치 원본'을 선택하고 '설치 소스 변경...'으로 iso를 선택하세요. 다음 '이 가상 컴퓨터에서 Windows 실행'을 선택 해제하고 '옵션 더 보기' 드롭다운 메뉴에서 가상 머신의 이름을 정할 수 있어요.
 
-Once we are happy we can select 'Create Virtual Machine' and wait for it to finish. We will then see this screen:
+만족스러우면 '가상 컴퓨터 만들기'를 누르고 끝날 때까지 기다리세요. 그러면 다음과 같은 화면이 표시돼요:
 
 ![](hyper-v-vm-created.png)
 
-From here we can either select 'Connect' if we are confident in Windows's selections for options, or we can select 'Edit Settings...':
+Windows가 선택한 옵션이 괜찮다고 생각되면 '연결'을 선택하고, 그렇지 않다면 '설정 편집...'을 선택할 수 있어요:
+
 
 ![](hyper-v-cpu-settings.png)
 
-In the case of this machine, the only change needed was for the number of virtual processors. We dropped it down from 6 to 2. We are then ready to connect to our VM and continue [setup like normal](/docs/installation/hard-disk-install/)
+이 가상 머신의 경우 변경이 필요한 항목은 가상 프로세서 수이고 6개에서 2개로 줄였어요. 이제 VM에 연결하여 [일반적인 설치 방법](/docs/installation/hard-disk-install/)으로 계속 진행하세요
 
-- - -
+---
 
-### Expanding Storage
+### 스토리지 확장
 
 ##### Hyper-V:
 
-Ensure that your kali linux virtual machine is powered off.
+kali linux 가상 머신이 꺼져 있는지 확인해야 해요.
 
-- - -
+---
 
-Right click on your kali linux virtual machine in Hyper-V Manager and click on settings.
+Hyper-V 관리자에서 kali linux 가상 머신을 우클릭하고 설정을 클릭하세요.
 
 ![](hyper-v-1.png)
 
-- - -
+---
 
-Now click on the virtual hard drive that contain your kali linux virtual machine.
-Now click on Edit button on the dialog box on the right.
+kali linux 가상 머신의 가상 하드 드라이브를 클릭하고 오른쪽 대화 상자에서 편집 버튼을 클릭하세요.
 
 ![](hyper-v-2.png)
 
-- - -
+---
 
-Click Next.
+다음을 클릭하세요.
 
 ![](hyper-v-3.png)
 
-- - -
+---
 
-Now click on the Expand option.
+확장 옵션을 클릭하세요.
 
 ![](hyper-v-4.png)
 
-- - -
+---
 
-Enter your new size of the Virtual Machine and click next.
+가상 머신의 새 크기를 입력하고 다음을 클릭하세요.
 
 ![](hyper-v-5.png)
 
-- - -
+---
 
-Click on Finish.
+마침을 클릭하세요.
 
 ![](hyper-v-6.png)
 
