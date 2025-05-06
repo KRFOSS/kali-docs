@@ -4,6 +4,7 @@ description:
 icon:
 weight: 215
 author: ["gamb1t","serval123"]
+번역: ["kmw0410"]
 ---
 
 대부분의 Windows 사용자들은 Hyper-V가 이미 활성화되어 있어요. 하지만, 시스템에서 활성화되어 있지 않은 경우 Microsoft의 문서 페이지를 따르세요:

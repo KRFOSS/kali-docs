@@ -4,6 +4,7 @@ description:
 icon:
 weight: 195
 author: ["steev",]
+번역: ["kmw0410"]
 ---
 
 이 가이드는 가상화 Parallels 안에서 Kali Linux를 가상화하고 Kali VM을 보유하는 방법에 대해 설명해요. 이는 호스트와 완전히 분리되어 있고, 다른 VM(호스트나 네트워크에 있는 다른 머신)과 상호작용 할 수 있고 스냅샷으로 되돌릴 수 있기 때문에 Kali를 사용하기에 좋은 방법이에요.
