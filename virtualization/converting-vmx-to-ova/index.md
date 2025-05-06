@@ -15,7 +15,7 @@ VMware의 VMX에서 OVA로 변환하려면 다음과 같이 하면돼요, 우리
 - OS X/macOS: `/Applications/VMware Fusion.app/Contents/Library/VMware OVF Tool/ovftool`
 - Windows: `C:\Program Files (x86)\VMware\VMware Workstation\OVFTool\ovftool.exe`
 
-- - -
+---
 
 우리는 [공식 Kali Linux VMware 이미지](/get-kali/#kali-virtual-machines)를 변환하는 데 사용할 거에요. 시작하려면 압축을 풀고 그 안에 있는 vmx 파일에 접근하세요:
 
@@ -28,7 +28,7 @@ kali-linux-2025.1-vmware-amd64.vmwarevm/kali-linux-2025.1-vmware-amd64.vmx
 kali@kali:~$
 ```
 
-- - -
+---
 
 다음을 따라 변환을 시작할 수 있어요:
 
@@ -48,7 +48,7 @@ kali@kali:~$ ls -lah kali-linux-rolloing.ova
 kali@kali:~$
 ```
 
-- - -
+---
 
 그게 전부에요!
 
