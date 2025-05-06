@@ -1,5 +1,5 @@
 ---
-title: 기본 구성의 칼리 리눅스 (Bare-bones Kali)
+title: 베어본 칼리 (Bare-bones Kali)
 description:
 icon:
 weight:
