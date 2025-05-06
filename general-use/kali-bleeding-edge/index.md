@@ -100,8 +100,7 @@ kali@kali:~$ sudo rm -f /etc/apt/sources.list.d/kali-bleeding-edge.list
 ## Install a package from kali-bleeding-edge
 
 Once the repository has been enabled, installing a package from
-kali-bleeding-edge is trivial with `apt install
-<package>/kali-bleeding-edge`. Here's an example for gitleaks:
+kali-bleeding-edge is trivial with `apt install<package>/kali-bleeding-edge`. Here's an example for gitleaks:
 
 ```console
 kali@kali:~$ sudo apt install gitleaks/kali-bleeding-edge
