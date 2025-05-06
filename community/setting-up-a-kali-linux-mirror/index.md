@@ -14,7 +14,7 @@ author: ["g0tmi1k",]
 {{% /notice %}}
 
 아래의 설명은 공개적으로 접근 가능한 미러를 제공하고 이를 미러 리다이렉터(<https://http.kali.org> 및 <https://cdimage.kali.org>)에 통합하고 싶을 때 유용해요.
-[ROKFOSS 프로젝트](https://krfoss.org/doc/setup-mirror/#kali-mirror)에서는 다른 방법으로도 미러를 구축하는 방법을 안내하고 있어요. 필요하시면 읽어보세요.
+[ROKFOSS 프로젝트](https://docs.krfoss.org/mirror/%EB%A6%AC%EB%88%85%EC%8A%A4%20%EB%AF%B8%EB%9F%AC%20%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0/)에서는 다른 방법으로도 미러를 구축하는 방법을 안내하고 있어요. 필요하시면 읽어보세요.
 
 **사설 미러**를 운영하고 싶다면, 문서 끝에 있는 전용 섹션을 참고하세요.
 
