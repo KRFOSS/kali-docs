@@ -33,6 +33,8 @@
 - xenix4845
 - kmw0410
 
+기여해주신 모든 분들께 감사드립니다!
+
 ## 저작권 및 상표
 
 Kali Linux 및 그 로고는 [Offensive Security](https://www.offensive-security.com/)의 상표입니다. 이 문서는 Kali Linux의 공식 문서가 아니며, Offensive Security와 직접적인 관련이 없습니다. 이것은 커뮤니티 차원에서 이뤄지는 문서 번역입니다. 공식 문서는 [Kali-Docs](https://www.kali.org/docs/)에서 확인하십시오.
