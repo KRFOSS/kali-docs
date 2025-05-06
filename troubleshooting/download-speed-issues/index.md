@@ -1,18 +1,25 @@
 ---
-title: Discovering Problems With Download Speed
+title: "다운로드 속도 문제 진단"
 description:
 icon:
 weight:
-author: ["gamb1t",]
+author: ["zzuniPark"]
 ---
 
-### How our downloads work
+### 다운로드 작동 방식
 
-Kali Linux operates off of a network of [community](/docs/community/kali-linux-mirrors/) and official mirrors. What this means is that when you click to [download](/get-kali/) Kali Linux there are some steps that are done before you actually begin the download. First you hit [cdimage.kali.org](http://cdimage.kali.org/README?mirrorlist) which is our redirector. This determines where the request is coming from and will send you to one of the best mirrors for your situation. For example, if you are in the US you may get send to Berkeley University's mirror. After you are sent to the best mirror your download request is submitted to it, and your download actually begins.
+Kali Linux는 커뮤니티 및 공식 미러 네트워크를 통해 배포됩니다. 즉, Kali Linux를 [다운로드](/get-kali/)할 때 실제 다운로드가 시작되기 전에 다음과 같은 단계가 수행됩니다.
 
-### Determining which mirror we are at
+1. [cdimage.kali.org](http://cdimage.kali.org/README?mirrorlist)에 요청이 전송됩니다.
+2. 사용자의 위치 등을 파악하여 가장 적합한 미러로 리디렉션합니다. 예를 들어, 미국에서는 버클리 대학교 미러로 연결될 수 있습니다.
+3. 선택된 미러에 다운로드 요청이 제출되면 실제로 파일 다운로드가 시작됩니다.
 
-Now that we know how this happens we can determine which mirror we are actually getting sent to ourselves. We can do this in a couple of different ways. The first is to simply click [download](/get-kali/) and then in the downloads tab right click the download and copy the URL. This works for the majority of web browsers. The second option is to use `curl`:
+### 연결된 미러 확인 방법
+
+실제로 어느 미러로 연결되었는지 확인하는 방법은 두 가지가 있습니다.
+
+1. [다운로드](/get-kali/)를 클릭한 뒤 브라우저의 다운로드 탭에서 해당 항목을 우클릭하고 URL을 복사합니다. 대부분의 웹 브라우저에서 동작합니다.
+2. `curl` 명령을 사용하여 확인합니다:
 
 ```console
 kali@kali:~$ curl https://cdimage.kali.org/kali-2022.4/kali-linux-2022.4-installer-amd64.iso
@@ -25,35 +32,30 @@ kali@kali:~$ curl https://cdimage.kali.org/kali-2022.4/kali-linux-2022.4-install
 <hr>
 <address>Apache/2.4.10 (Debian) Server at cdimage.kali.org Port 443</address>
 </body></html>
-
 kali@kali:~$
 ```
 
-Here we can see that we were redirected to `kali.download`.
+위 출력에서 `<a href="…">here</a>`에 표시된 URL이 실제 다운로드를 수행하는 미러입니다.
 
-### Submitting bugs
+### 버그 제출
 
-If the download speed is noticeably slow or the mirror is not working, we would love to know. This can be the result of a few different problems and none of them are able to be fixed without us knowing which mirror and what speeds. So lets get that information wrapped up nicely.
-
-We can use `wget` to download the iso file and learn just how fast the download is taking. If we are on Windows, we can either get the download speed from the web browser or install [wget for Windows](https://medium.com/nerd-for-tech/using-wget-command-in-windows-10-environment-d766b8f526e9)
+다운로드 속도가 현저히 느리거나 미러가 작동하지 않는 경우, 미러 정보 및 속도를 알려주시면 문제 해결에 큰 도움이 됩니다. 다음과 같이 `wget`을 사용하여 다운로드 속도를 측정할 수 있습니다. Windows 사용자의 경우 웹 브라우저에서 속도를 확인하거나 [Windows용 wget](https://medium.com/nerd-for-tech/using-wget-command-in-windows-10-environment-d766b8f526e9)을 설치할 수 있습니다.
 
 ```console
 kali@kali:~$ wget https://kali.download/base-images/kali-2022.4/kali-linux-2022.4-installer-amd64.iso
 --2022-07-15 15:56:17--  https://kali.download/base-images/kali-2022.4/kali-linux-2022.4-installer-amd64.iso
-Resolving kali.download (kali.download)... 104.18.103.100, 104.18.102.100, 2606:4700::6812:6764, ...
+Resolving kali.download (kali.download)... 104.18.103.100, 104.18.102.100, ...
 Connecting to kali.download (kali.download)|104.18.103.100|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 2944139264 (2.7G) [application/octet-stream]
 Saving to: ‘kali-linux-2022.4-installer-amd64.iso’
 
-kali-linux-2022.4-installer-amd64.iso   6%[====>                                                                     ] 196.46M  31.6MB/s    eta 81s
-
-kali@kali:~$
+kali-linux-2022.4-installer-amd64.iso   6%[====>             ] 196.46M  31.6MB/s    eta 81s
 ```
 
-As we can see we are downloading at about 31.6MB/s and we are using the mirror link we got from the previous section.
+위 예제에서는 약 31.6 MB/s의 속도로 다운로드가 진행됩니다. 측정된 속도와 미러 URL을 포함하여 [버그 리포트](/docs/community/submitting-issues-kali-bug-tracker/)를 제출해주세요.
 
-Lets look at another example, this time with a connection from France:
+### 프랑스에서의 예시
 
 ```console
 kali@kali:~$ curl https://cdimage.kali.org/kali-2022.4/kali-linux-2022.4-installer-amd64.iso
@@ -75,13 +77,11 @@ HTTP request sent, awaiting response... 200 OK
 Length: 2944139264 (2.7G) [application/octet-stream]
 Saving to: ‘kali-linux-2022.4-installer-amd64.iso.1’
 
-kali-linux-2022.4-installer-amd64.iso   0%[                                                                          ] 615.75K   610KB/s
-
-kali@kali:~$
+kali-linux-2022.4-installer-amd64.iso   0%[                                          ] 615.75K   610KB/s
 ```
 
-Now that we know the download speed and the mirror link we can submit a [bug report](/docs/community/submitting-issues-kali-bug-tracker/) with all our information.
+이 예시에서는 약 610 KB/s의 속도로 다운로드가 진행됩니다. 이처럼 위치에 따라 속도가 크게 달라질 수 있습니다.
 
-### Using a different mirror
+### 다른 미러 사용하기
 
-We can consult back to the [community](/docs/community/kali-linux-mirrors/) mirrors and manually select a different mirror to see if our download speed improves. To do this we simply will copy the mirror link we want to use from the list and then change "README" to be `kali-2022.4/kali-linux-2022.4-installer-amd64.iso` or whichever download link we are using. We can see this in the previous section, right after `kali-images/`.
+[커뮤니티 미러 목록](/docs/community/kali-linux-mirrors/)에서 원하는 미러의 링크를 복사한 뒤, URL 중 **README** 부분을 `kali-2022.4/kali-linux-2022.4-installer-amd64.iso`(또는 사용 중인 ISO 경로)로 변경하여 사용하면 됩니다. 앞서 `curl` 예제에서 `kali-images/` 뒤에 나오는 부분을 참고하세요.

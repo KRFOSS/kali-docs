@@ -1,23 +1,25 @@
 ---
-title: Minimum Install Setup Information
+title: "최소 설치 설정 정보"
 description:
 icon:
 weight: 11
-author: ["gamb1t",]
+author: ["zzuniPark"]
 ---
 
-A minimum install is one that does not have `kali-linux-headless` or at least one of the `kali-tools-` installed. There may be many reasons for this, however should those reasons change and someone want to have more utility out of their system after install they will need to know how to get certain information.
+최소 설치(minimum install)란 `kali-linux-headless` 또는 하나 이상의 `kali-tools-` 메타패키지가 설치되지 않은 상태를 말합니다. 여러 가지 이유로 최소 설치를 선택할 수 있지만, 설치 후 시스템의 유틸리티를 늘리고자 할 때는 필요한 정보를 어떻게 얻어야 하는지 알아야 합니다.
 
-- [Metapackages](/docs/general-use/metapackages/) are helpful to quickly and easily install many tools at once. This is good to easily go from a minimal install to a fully functional desktop environment.
-- [Kali Network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and [Kali Branches](/docs/general-use/kali-branches/) are useful to know about in case a user may want to have a more static install or not.
+-   [메타패키지](/docs/general-use/metapackages/)를 사용하면 여러 도구를 한 번에 빠르고 쉽게 설치할 수 있습니다. 이를 통해 최소 설치 상태에서 완전한 데스크탑 환경으로 손쉽게 전환할 수 있습니다.
+-   [Kali 네트워크 저장소](/docs/general-use/kali-linux-sources-list-repositories/) 및 [Kali 브랜치](/docs/general-use/kali-branches/)는 보다 안정적인 설치를 원하는 사용자가 참고하면 유용합니다.
 
-Due to the EOL of Python 2, there may be some confusion on certain topics involving it.
+Python 2의 지원 종료(EOL)로 인해 관련 주제에 대해 혼란이 있을 수 있습니다.
 
-- What happened to _blank_ [Python 2 tool](/blog/python-2-end-of-life/)
-- How to get [Python 2 working](/docs/general-use/using-eol-python-versions/) after it has been removed
+-   _blank_ [Python 2 도구](/blog/python-2-end-of-life/)는 어떻게 되었나요?
+-   제거된 후 [Python 2를 다시 사용하는 방법](/docs/general-use/using-eol-python-versions/)은 무엇인가요?
 
 ### WSL
-- [Win-KeX](/docs/wsl/win-kex/) which provides GUI access
+
+-   [Win‑KeX](/docs/wsl/win-kex/)를 통해 GUI 환경에 접근할 수 있습니다.
 
 ### Docker
-- [How to use Docker Images](/docs/containers/using-kali-docker-images/) and information on systemd functionality
+
+-   [Docker 이미지 사용 방법](/docs/containers/using-kali-docker-images/) 및 systemd 기능 관련 정보입니다.
