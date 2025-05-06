@@ -3,7 +3,8 @@ title: "다운로드 속도 문제 진단"
 description:
 icon:
 weight:
-author: ["zzuniPark"]
+author: ["gamb1t"]
+번역: ["zzunipark"]
 ---
 
 ### 다운로드 작동 방식

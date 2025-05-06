@@ -3,7 +3,8 @@ title: "최소 설치 설정 정보"
 description:
 icon:
 weight: 11
-author: ["zzuniPark"]
+author: ["gamb1t"]
+번역: ["zzunipark"]
 ---
 
 최소 설치(minimum install)란 `kali-linux-headless` 또는 하나 이상의 `kali-tools-` 메타패키지가 설치되지 않은 상태를 말합니다. 여러 가지 이유로 최소 설치를 선택할 수 있지만, 설치 후 시스템의 유틸리티를 늘리고자 할 때는 필요한 정보를 어떻게 얻어야 하는지 알아야 합니다.

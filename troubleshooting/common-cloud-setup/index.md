@@ -3,7 +3,8 @@ title: "클라우드 기반 설정 정보"
 description:
 icon:
 weight: 11
-author: ["zzuniPark"]
+author: ["gamb1t"]
+번역: ["zzunipark"]
 ---
 
 클라우드 이미지는 핵심 도구만 포함하여 가볍게 설계되어 있습니다. 기본 설치에 필요한 항목이 부족하다면, 다음 내용이 대부분의 질문을 해결해 줄 것입니다.
