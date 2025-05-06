@@ -4,6 +4,7 @@ description:
 icon:
 weight: 105
 author: ["gamb1t","Fetti.Wop",]
+번역: ["kmw0410"]
 ---
 
 {{% notice info %}}
