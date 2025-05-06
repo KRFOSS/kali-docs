@@ -41,3 +41,5 @@
 Kali Linux 및 그 로고는 [Offensive Security](https://www.offensive-security.com/)의 상표입니다. 이 문서는 Kali Linux의 공식 문서가 아니며, Offensive Security와 직접적인 관련이 없습니다. 이것은 커뮤니티 차원에서 이뤄지는 문서 번역입니다. 공식 문서는 [Kali-Docs](https://www.kali.org/docs/)에서 확인하십시오.
 
 Kali Linux and its logo are trademarks of [Offensive Security](https://www.offensive-security.com/). This document is not an official document of Kali Linux and is not directly affiliated with Offensive Security. This is a community-driven document translation effort. Please refer to the official documentation at [Kali-Docs](https://www.kali.org/docs/).
+
+..
