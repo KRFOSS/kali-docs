@@ -1,0 +1,12 @@
+addReviewers: true
+
+addAssignees: author
+
+reviewers:
+    - zzunipark
+    - xenix4845
+
+numberOfReviewers: 0
+
+skipKeywords:
+    - exclude-review
