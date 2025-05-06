@@ -7,6 +7,10 @@ author: ["gamb1t",]
 번역: ["xenix4845"]
 ---
 
+{{% notice info %}}
+이 문서에 있는 사진들은 모두 영어판 기준이기 때문에 한국어판과는 조금 다를 수 있어요.
+{{% /notice %}}
+
 시작하기 전에 Linode가 직접 제작한 멋진 영상을 소개해 드립니다! [이 비디오](https://www.youtube.com/watch?v=Oox2hF4SZLU)에서는 Kali Linux가 무엇인지, 그리고 Linode에서 어떻게 설치하고 사용하는지 설명합니다. Linode에 감사드립니다!
 
 Kali Linux Linode 인스턴스를 배포하는 데는 두 가지 옵션이 있습니다. 두 방법을 간단히 설명한 다음, 각각의 설정 방법을 자세히 알려드리겠습니다.

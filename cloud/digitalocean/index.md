@@ -7,6 +7,10 @@ author: ["gamb1t",]
 번역: ["xenix4845"]
 ---
 
+{{% notice info %}}
+이 문서에 있는 사진들은 모두 영어판 기준이기 때문에 한국어판과는 조금 다를 수 있어요.
+{{% /notice %}}
+
 [DigitalOcean](https://www.digitalocean.com/)은 AWS, Microsoft Azure, Google Cloud Platform 등과 유사한 클라우드 제공업체입니다. 이들은 "드롭릿"이라 불리는 인스턴스를 제공하며, Debian, Ubuntu, FreeBSD 등 다양한 Linux 배포판을 사용할 수 있습니다. AWS와 마찬가지로 DigitalOcean은 전 세계에 데이터센터를 두고 있으며 각 국가에 여러 데이터센터가 있는 경우도 있습니다.
 
 하지만 한 가지 특별한 기능이 경쟁사와 차별화됩니다. 얼마 전 DigitalOcean는 [커스텀 이미지](https://blog.digitalocean.com/custom-images/) 지원을 추가했는데, 이를 통해 사용자가 가상 머신 디스크를 가져와 드롭릿으로 사용할 수 있습니다. 이는 우리가 자체 Kali Linux 버전을 DigitalOcean 클라우드에서 사용할 수 있어 완벽하죠.

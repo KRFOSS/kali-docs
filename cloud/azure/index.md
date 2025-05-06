@@ -7,6 +7,10 @@ author: ["gamb1t",]
 번역: ["xenix4845"]
 ---
 
+{{% notice info %}}
+이 문서에 있는 사진들은 모두 영어판 기준이기 때문에 한국어판과는 조금 다를 수 있어요.
+{{% /notice %}}
+
 2022.3 릴리스부터 Kali가 Azure에 돌아왔습니다. 이 복귀와 함께 Azure에서 Kali를 어떻게 사용하는지 알아보겠습니다.
 
 가장 먼저 [Azure 계정](https://portal.azure.com/#home)을 생성해야 합니다. 다음 화면이 보일 때만 Kali VM 설정을 진행할 수 있습니다.
