@@ -11,7 +11,7 @@ UTM VM으로 설치하는 것은 매우 간단합니다. 우선 [UTM](https://ma
 
 ![](utm-setup-2.png)
 
-우리는 [Kali Apple M1 설치 프로그램](/get-kali/#kali-installer-images) iso를 사용할 거니 를 선택하게 되면 다음으로 넘어가게 돼요:
+우리는 [Kali Apple M1 설치 프로그램](/get-kali/#kali-installer-images) iso를 사용할 거니 Virtualize를 눌러 다음 페이지로 이동하세요:
 
 ![](utm-setup-3.png)
 
