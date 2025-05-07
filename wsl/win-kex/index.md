@@ -3,7 +3,7 @@ title: Win-KeX
 description: Windows Subsystem for Linux 2 & Win-KeX
 icon: ti-pin
 weight: 30
-author: ["Re4son",]
+author: ["Re4son","xenix4845"]
 번역: ["xenix4845"]
 ---
 
