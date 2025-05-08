@@ -1,11 +1,12 @@
 ---
-title: Cloud
+title: 클라우드
 description: AWS, Azure, Digital Ocean, & Linode
 icon: ti-cloud
 weight: 40
-author: ["",]
+author: ["xenix4845",]
 ---
-## AWS, Azure, Digital Ocean, & Linode
+
+클라우드 환경에서 어떻게 해야 칼리 리눅스를 사용할 수 있는지 설명해요. 아래 문서들을 클릭해서 읽어볼 수 있어요.
 
 [> AWS](https://kali.krfoss.org/cloud/aws/) 
 

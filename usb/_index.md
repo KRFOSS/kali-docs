@@ -1,5 +1,5 @@
 ---
-title: USB
+title: USB 부팅
 description: Portable Kali on a USB drive/key/stick
 icon: ti-widget
 weight: 25
