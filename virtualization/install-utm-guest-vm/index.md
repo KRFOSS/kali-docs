@@ -1,61 +1,69 @@
 ---
-title: Kali inside UTM (Guest VM)
+title: UTM 안의 Kali (게스트 VM)
 description:
 icon:
 weight: 217
 author: ["gamb1t",]
+번역: ["kmw0410"]
 ---
 
-To install and set up a UTM VM it is pretty straightforward. We first download [UTM](https://mac.getutm.app/) and then launch the app. After this we can click create VM and start the short process:
+UTM VM으로 설치하는 것은 매우 간단합니다. 우선 [UTM](https://mac.getutm.app/)을 다운로드 하고 앱을 여세요. 그런 다음 VM을 생성하고 시작 버튼을 짧게 누르세요:
 
 ![](utm-setup-2.png)
 
-We will select Virtualize, as we will be using a [Kali Apple M1 installer](/get-kali/#kali-installer-images) iso which will bring us to the next page:
+우리는 [Kali Apple M1 설치 프로그램](/get-kali/#kali-installer-images) iso를 사용할 거니 Virtualize를 눌러 다음 페이지로 이동하세요:
 
 ![](utm-setup-3.png)
 
-From here, we will select "Other" which will again bring us to the next page:
+여기에서 "Other"을 선택하게 되면 다음으로 넘어가게 돼요:
 
 ![](utm-setup-4.png)
 
-Now we are only going to change one item, which is selecting our "Boot ISO Image" and choosing the ISO we downloaded previously. Once that is done we can hit continue:
+"Boot ISO Image"를 선택하고 이전에 다운로드한 ISO를 선택하는 한 가지만 변경할게요. 완료되었다면 계속을 누를 수 있어요:
 
 ![](utm-setup-5.png)
 
-We won't change any of the settings here, and will just continue forward:
+여기에서는 아무런 설정도 변경하지 않을 거니 계속 진행하세요:
 
 ![](utm-setup-6.png)
 
-Here we will be sure to lower or raise the size of the drive to what we will need. In our case, we will be lowering it to 20GB and continue:
+여기에서 드라이브의 사이즈를 필요한 만큼 줄이거나 늘릴 수 있어요. 우리의 경우 20GB 미만으로 하고 계속할 거에요:
 
 ![](utm-setup-7.png)
 
-We again will skip changing anything on this page, however if you want a shared directory feel free to add it:
+여기서도 아무런 변경 없이 넘길 거지만, 원한다면 공유 폴더를 자유롭게 추가하세요: 
 
 ![](utm-setup-8.png)
 
-Now we are at the summary and we can re-name our VM to be "Kali Linux". Once complete, we will hit save and then press the settings button. Due to a bug in the current UTM version, we will have to install Kali in console only mode.
+이제 요약이 끝났으며 VM의 이름을 "Kali Linux"로 변경할 수 있어요. 완료되면 save를 누르세요. 
+
+현재 UTM 버전에서는 버그가 있어 Kali를 콘솔 전용 모드로만 설치할 수 있어요.
+
+{{% notice info %}}
+
+해당 문서는 2년 전에 작성되었으므로 버그가 해결됐을 수도 있어요.
+
+{{% /notice %}}
 
 ![](utm-setup-9.png)
 
-From here we can add the device "Serial" under "Devices":
+여기에서 "Devices" 아래에 "Serial" 장치를 추가할 수 있어요:
 
 ![](utm-setup-10.png)
 ![](utm-setup-10.5.png)
 
-Now we can save and press play on the VM. Once prompted, we select "Install":
+저장 후 VM을 실행하고 프롬프트가 표시되면 "Install"을 선택하세요:
 
 ![](utm-setup-11.png)
 
-Once the install is finished, clear the ISO from the VM's CD/DVD drive. 
+설치가 완료되었다면, VM의 CD/DVD 드라이브에서 ISO를 제거하세요.
 
-Then, go to the VM's settings and remove the "Serial" device by right-clicking and selecting "Remove":
+그런 다음, VM의 설정으로 가서 "Serial" 장치를 우클릭 하고 "Remove"를 선택하세요:
 
 ![](utm-setup-12.png)
 
-We should also update the Display Card emulation. Select the `virtio-gpu-pci`
-option:
+디스플레이 카드 에뮬레이터도 업데이트 해야해요. `virtio-gpu-pci` 옵션을 선택하세요:
 
 ![](utm-setup-13.png)
 
-We should scroll down under "Shared Directory" and select the installer iso image and remove it, now we can now use our VM like normal.
+아래로 내려서 "공유 디렉토리" 아래에 있는 설치 iso 이미지를 선택 후 제거하세요, 이제 VM을 일반적으로 사용할 수 있어요.
