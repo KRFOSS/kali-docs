@@ -60,7 +60,7 @@ kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 
 ### 05. Raspberry Pi 커널과 모듈 컴파일
 
-개발 환경에서 ARM 하드웨어를 사용하지 않으면 ARM 커널과 모듈을 빌드하는 데 [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) 설치가 필요할 수 있어요. 완료되면 다음 단계를 진행 할 수 있어요:
+개발 환경에서 ARM 하드웨어를 사용하지 않으면 ARM 커널과 모듈을 빌드하는 데 [ARM 크로스 컴파일 환경](/docs/development/arm-cross-compilation-environment/) 설치가 필요할 수 있어요. 완료되면 다음 단계를 진행 할 수 있어요:
 
 ```console
 kali@kali:~$ mkdir -p ~/arm-stuff/kernel/
