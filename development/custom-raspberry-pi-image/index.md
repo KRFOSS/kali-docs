@@ -1,24 +1,25 @@
 ---
-title: Custom Raspberry Pi Image
+title: 커스텀 Raspberry Pi 이미지
 description:
 icon:
 weight:
 author: ["steev",]
+번역: ["kmw0410"]
 ---
 
-The following document describes our own method of creating a **custom Kali Linux Raspberry Pi ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on Raspberry Pi](/docs/arm/raspberry-pi/) article.
+이 문서에서는 개발자를 대상으로 **커스텀 Kali Linux Raspberry Pi ARM 이미지**를 만드는 방법에 대해 설명하고 있어요. 미리 만들어진 Kali 이미지로 설치하려면 [Raspberry Pi에 Kali 설치](/docs/arm/raspberry-pi/) 문서를 확인하세요
 
 {{% notice info %}}
-You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+이 절차를 진행하기 위해서는 root 권한이나 "sudo su"로 루트 권한을 얻을 수 있는 권한이 필요해요.
 {{% /notice %}}
 
-### 01. Create a Kali rootfs
+### 01. Kali rootfs 생성
 
-Build a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armel** architecture. By the end of this process, you should have a populated rootfs directory in **~/arm-stuff/rootfs/kali-armel**.
+문서에 설명된 대로 [Kali rootfs](/docs/development/kali-linux-arm-chroot/)를 빌드하려면 **armel** 아키텍처를 사용하세요. 이 프로세스를 끝나면 rootfs 디렉토리가 **~/arm-stuff/rootfs/kali-armel**에 채워져 있어야 해요.
 
-### 02. Create the Image File
+### 02. 이미지 파일 생성
 
-Next, we create the physical image file, which will hold our Raspberry Pi rootfs and boot images:
+다음으로, 이미지 파일을 만들면 Raspberry Pi의 rootfs와 부트 이미지가 보관돼요:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils sharutils
@@ -27,7 +28,7 @@ kali@kali:~$ cd ~/arm-stuff/images/
 kali@kali:~$ dd if=/dev/zero of=kali-custom-rpi.img conv=fsync bs=4M count=7000
 ```
 
-### 03. Partition and Mount the Image File
+### 03. 파티션과 이미지 파일 마운트
 
 ```console
 kali@kali:~$ parted kali-custom-rpi.img --script -- mklabel msdos
@@ -50,16 +51,16 @@ kali@kali:~$ mount $rootp root
 kali@kali:~$ mount $bootp boot
 ```
 
-### 04. Copy and Modify the Kali rootfs
+### 04. Kali rootfs 복사 및 수정
 
 ```console
 kali@kali:~$ rsync -HPavz /root/arm-stuff/rootfs/kali-armel/ root
 kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 ```
 
-### 05. Compile the Raspberry Pi Kernel and Modules
+### 05. Raspberry Pi 커널과 모듈 컴파일
 
-If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following instructions:
+개발 환경에서 ARM 하드웨어를 사용하지 않으면 ARM 커널과 모듈을 빌드하는 데 [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) 설치가 필요할 수 있어요. 완료되면 다음 단계를 진행 할 수 있어요:
 
 ```console
 kali@kali:~$ mkdir -p ~/arm-stuff/kernel/
@@ -98,13 +99,13 @@ kali@kali:~$ losetup -d $loopdevice
 ```
 
 {{% notice info %}}
-While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the proper device label. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device label.
+명령어에서 '/dev/sdX'를 사용할 때, '/dev/sdX'는 적절한 장치 라벨로 변경해야 해요. '/dev/sdX'는 장치를 덮어씌우지 않아 문서에서 안전하게 사용할 수 있어요. 맞는 장치 라벨을 사용하세요.
 {{% /notice %}}
 
-Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdX`. **Change this as needed**:
+**[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 명령어를 사용하여 SD카드에 이미지를 쓰세요. 우리는 예시로 저장장치 위치를 `/dev/sdX`로 가정했어요. **변경이 필요해요**:
 
 ```console
 kali@kali:~$ dd if=kali-linux-rpi.img of=/dev/sdX conv=fsync bs=4M
 ```
 
-Once the dd operation is complete, unmount and eject the SD card and boot your Pi into Kali Linux
+dd 작업이 완료되면 SD 카드 마운트를 해제하고 Pi를 Kali Linux로 부팅하세요
