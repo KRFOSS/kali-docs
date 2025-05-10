@@ -1,71 +1,71 @@
 ---
-title: Win-KeX Window Mode
-description: Win-KeX Win (Window Mode)
+title: Win-KeX 윈도우 모드
+description: Win-KeX Win (윈도우 모드)
 icon: ti-pin
 weight: 50
 author: ["Re4son",]
 번역: ["xenix4845"]
 ---
 
-## Overview
+## 개요
 
-Win-KeX in Window Mode (Win) will run a Kali Linux desktop session in a separate window.
+윈도우 모드의 Win-KeX는 별도의 창에서 Kali Linux 데스크톱 세션을 실행해요.
 
-Window mode helps keeping the Windows and Kali environments visually apart.
+윈도우 모드는 Windows와 Kali 환경을 시각적으로 구분하는 데 도움이 돼요.
 
-Win-KeX utilises [TigerVNC](https://tigervnc.org/) for its client and server components.
+Win-KeX는 클라이언트와 서버 구성 요소에 [TigerVNC](https://tigervnc.org/)를 활용해요.
 
 ![](../win-kex/win-kex-full.png)
 
-## Usage
+## 사용법
 
-### Start Session
+### 세션 시작하기
 
-- Start Win-KeX as normal user in window mode via: `kex --win`
-  - Or simply via: `kex`
-  - **NOTE**: Window mode is the default Win-KeX mode so `--win` can be omitted in all commands on this page.
+- 윈도우 모드에서 일반 사용자로 Win-KeX 시작하기: `kex --win`
+  - 또는 간단히: `kex`
+  - **참고**: 윈도우 모드는 기본 Win-KeX 모드이므로 이 페이지의 모든 명령어에서 `--win`은 생략 가능해요.
 
-- You will be prompted to set a VNC server password during first launch.
-  - The password can be changed later via `kex --passwd`
+- 첫 실행 시 VNC 서버 비밀번호를 설정하라는 메시지가 표시돼요.
+  - 비밀번호는 나중에 `kex --passwd`로 변경할 수 있어요.
 
-This will start the Win-KeX server and launch the Win-KeX client in full screen mode:
+이렇게 하면 Win-KeX 서버가 시작되고 Win-KeX 클라이언트가 전체 화면 모드로 실행돼요:
 
 ![](../win-kex/win-kex-win.png)
 
-### Start Root Session
+### 루트 세션 시작하기
 
-- Start Win-KeX as root in window mode via: `sudo kex --win`
-- You will be prompted to set a VNC server password during first launch.
-  - The password can be changed later via: `sudo kex --passwd`
+- 윈도우 모드에서 루트로 Win-KeX 시작하기: `sudo kex --win`
+- 첫 실행 시 VNC 서버 비밀번호를 설정하라는 메시지가 표시돼요.
+  - 비밀번호는 나중에 `sudo kex --passwd`로 변경할 수 있어요.
 
-This will start the Win-KeX server as root and launch the Win-KeX client in full screen mode.
+이렇게 하면 Win-KeX 서버가 루트로 시작되고 Win-KeX 클라이언트가 전체 화면 모드로 실행돼요.
 
-**NOTE**: The Win-KeX client always prompts for the VNC server password when connecting to a root session.
+**참고**: Win-KeX 클라이언트는 루트 세션에 연결할 때 항상 VNC 서버 비밀번호를 요구해요.
 
-### Session Management
+### 세션 관리
 
-- Pressing **F8** will open the client's context menu, which allows to manage the client sessions, e.g. close the client, switch between full screen and window, etc.)
-- You can disconnect from active sessions by pressing **F8** -> Exit viewer. This will close the client but leave the session running in the background
-- You can re-connect to a session by typing: `kex --win --start-client`
+- **F8**을 누르면 클라이언트의 컨텍스트 메뉴가 열려요. 이를 통해 클라이언트 세션 관리(예: 클라이언트 닫기, 전체 화면과 창 모드 전환 등)를 할 수 있어요.
+- **F8** -> Exit viewer를 눌러 활성 세션에서 연결을 끊을 수 있어요. 이렇게 하면 클라이언트는 닫히지만 세션은 백그라운드에서 계속 실행돼요.
+- `kex --win --start-client`를 입력하여 세션에 다시 연결할 수 있어요.
 
-### Sound Support
+### 사운드 지원
 
-- Win-KeX includes pulse audio support
-- To start Win-KeX with sound support, add `--sound` or `-s`, e.g.: `kex --win --sound`
-- When starting Win-KeX with sounds support for the first time, ensure to select **Public networks** when asked for authorisation to allow traffic through the Windows Defender firewall
+- Win-KeX는 펄스 오디오 지원을 포함하고 있어요.
+- 사운드 지원으로 Win-KeX를 시작하려면 `--sound` 또는 `-s`를 추가하세요. 예: `kex --win --sound`
+- 처음으로 사운드 지원으로 Win-KeX를 시작할 때, Windows Defender 방화벽을 통한 트래픽 허용 권한을 요청받으면 **공용 네트워크**를 선택해야 해요.
 
 ![](../win-kex-sl/win-kex-pulseaudio_firewall.png)
 
-### Multiscreen Support
+### 멀티스크린 지원
 
-- Win-KeX supports multiscreen setups:
-  Press **F8** an go to Options -> Screen. Then untick "Enable full-screen mode over all monitors" & "Full screen mode", move Win-KeX to the desired screen and re-enable full-screen mode
+- Win-KeX는 멀티스크린 설정을 지원해요:
+  **F8**을 누르고 옵션 -> 화면으로 이동해요. 그런 다음 "모든 모니터에서 전체 화면 모드 활성화" 및 "전체 화면 모드" 체크를 해제하고, Win-KeX를 원하는 화면으로 이동한 후 전체 화면 모드를 다시 활성화하세요.
 
 ![](win-kex-multiscreen.png)
 
-### Stop Session
+### 세션 중지하기
 
-- To close the Win-KeX client, press **F8** and select "Exit viewer"
-- To optionally shutdown Win-KeX Win mode, type: `kex --win --stop`
+- Win-KeX 클라이언트를 닫으려면 **F8**을 누르고 "Exit viewer"를 선택하세요.
+- 필요한 경우 Win-KeX 윈도우 모드를 종료하려면 다음을 입력하세요: `kex --win --stop`
 
-Enjoy Win-KeX!
+Win-KeX를 즐겨보세요!
