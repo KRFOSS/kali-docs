@@ -1,12 +1,13 @@
 ---
-title: Fixing PostgreSQL 'collation version mismatch'
+title: PostgreSQL '콜레이션 버전 불일치' 오류 해결하기
 description:
 icon:
 weight: 5000
 author: ["daniruiz"]
+번역: ["xenix4845"]
 ---
 
-After a system upgrade, when running tools such as Metasploit, GVM, or Bloodhound, you may encounter PostgreSQL error messages. These errors prevent the tools from functioning properly, citing **"collation version mismatch"** errors such as the following:
+시스템 업그레이드 후에 Metasploit(메타스플로잇), GVM(그린본 취약점 관리자), Bloodhound(블러드하운드) 같은 도구를 실행할 때 PostgreSQL(포스트그레SQL) 오류 메시지가 나타날 수 있어요. 이 오류들은 도구가 제대로 작동하는 것을 방해하는데, 다음과 같은 **"collation version mismatch"(콜레이션 버전 불일치)** 오류를 표시해요:
 
 ```plain
 WARNING:  database "postgres" has a collation version mismatch
@@ -17,7 +18,7 @@ HINT:  Rebuild all objects in this database that use the default collation and r
 
 ![](images/postgresql-collation-mismatch-errors.png)
 
-This errors can be fixed by running the following command in Kali's terminal:
+이 오류는 Kali의 터미널에서 다음 명령어를 실행하여 해결할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]

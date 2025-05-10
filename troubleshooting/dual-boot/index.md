@@ -1,30 +1,31 @@
 ---
-title: Fixing Dual Boot
+title: 듀얼 부팅 문제 해결하기
 description:
 icon:
 weight: 12
 author: ["arnaudr"]
+번역: ["xenix4845"]
 ---
 
-This page explains how to fix Dual Boot, in the particular case where the GRUB boot menu only allows you to boot Kali Linux, and doesn't show entries for other operating systems.
+이 페이지에서는 듀얼 부팅 환경에서 GRUB(부트로더) 메뉴에 Kali Linux만 보이고, 다른 운영체제 항목이 안 나올 때 어떻게 해결하는지 알려드려요.
 
-## Assumptions
+## 전제 조건
 
-This guide assumes that you have Kali Linux installed alongside another operating system. In this setup, when you boot your machine, you're supposed to see the GRUB boot menu (GRUB is the bootloader installed by Kali Linux). This menu lists the different operating systems that are installed, so that you can select which one to boot.
+이 가이드는 Kali Linux와 다른 운영체제를 함께 설치한 상황을 가정해요. 이런 환경에서는 컴퓨터를 켜면 GRUB(칼리에서 설치된 부트로더) 메뉴가 보여야 해요. 이 메뉴에는 설치된 여러 운영체제가 나와서 원하는 걸 선택해 부팅할 수 있어요.
 
-This guide also assumes that the GRUB bootloader was installed by Kali Linux. This is easy to see, as in this case the Kali Linux theming is applied to the GRUB menu. Note that if you run Kali alongside another Linux distribution, it's possible that the GRUB bootloader was installed by this _other_ distribution, and in this case this guide will not help you.
+또한, GRUB 부트로더가 Kali Linux에서 설치된 경우를 기준으로 해요. 쉽게 확인하는 방법은 GRUB 메뉴에 Kali Linux 테마가 적용되어 있으면 맞아요. 만약 Kali가 아닌 다른 리눅스에서 GRUB을 설치했다면, 이 가이드로는 해결이 어려울 수 있어요.
 
-Finally, for the purpose of this guide, we assume that the _other operating system_ is Debian. In practice, it doesn't matter, it could be any other operating system, but we need to pick one for the text and the screenshots.
+그리고 예시와 스크린샷에서는 _다른 운영체제_ 를 Debian(데비안)으로 가정할게요. 실제로는 어떤 운영체제든 상관없지만, 설명을 위해 하나를 정했어요.
 
-## Troubleshooting and fixing
+## 문제 상황과 해결 방법
 
-Let's assume that one day, when you boot your machine, you only see the Kali Linux entries in the GRUB boot menu, and you don't see any entry for the other operating system (Debian in this case). Those entries mysteriously disappeared, and now you can only boot Kali.
+어느 날 컴퓨터를 켰는데, GRUB 부트 메뉴에 Kali Linux만 보이고 다른 운영체제(여기선 Debian)는 안 보인다고 해볼게요. 예전엔 잘 나왔는데, 어느 순간 항목이 사라져서 Kali만 부팅할 수 있는 상황이에요.
 
-The GRUB boot menu looks more or less like the screenshot below:
+GRUB 부트 메뉴는 아래 스크린샷처럼 나올 거예요:
 
 ![](grub-boot-menu-1.png)
 
-In order to fix it, let's boot Kali Linux. Then open a root terminal, and edit the file `/etc/default/grub`. Find the line `GRUB_DISABLE_OS_PROBER=false` and make sure it's NOT commented out (ie. it doesn't start with a hash):
+이럴 땐 Kali Linux로 부팅한 뒤, 루트 터미널(관리자 권한 터미널)을 열고 `/etc/default/grub` 파일을 수정해야 해요. `GRUB_DISABLE_OS_PROBER=false`라는 줄을 찾아서, 주석(맨 앞에 #)이 없는 상태로 만들어주세요:
 
 ```console
 kali@kali:~$ cat /etc/default/grub | grep GRUB_DISABLE_OS_PROBER
@@ -37,7 +38,7 @@ GRUB_DISABLE_OS_PROBER=false
 kali@kali:~$
 ```
 
-Then run the command `update-grub`. The output should look like that:
+이제 `update-grub` 명령어를 실행해 주세요. 결과는 아래처럼 나올 거예요:
 
 ```console
 kali@kali:~$ sudo update-grub
@@ -54,10 +55,10 @@ done
 kali@kali:~$
 ```
 
-The lines that matter in the screenshot above are:
-- « _os-prober will be executed to detect other bootable partitions_ » which means that the command attempts to find os operating systems.
-- « _Found Debian GNU/Linux 12 (bookworm) on ..._ » which means that the other operating system (Debian in this case) was found. 
+여기서 중요한 부분은 아래 두 줄이에요:
+- « _os-prober will be executed to detect other bootable partitions_ » (os-prober가 다른 부팅 가능한 파티션을 찾으려고 실행된다는 뜻이에요)
+- « _Found Debian GNU/Linux 12 (bookworm) on ..._ » (다른 운영체제, 여기선 Debian이 정상적으로 발견됐다는 뜻이에요)
 
-Assuming that all went well, the problem is fixed! Just reboot your machine, and this time the GRUB boot menu shows entries for both Kali Linux and Debian:
+여기까지 잘 따라왔다면 문제는 해결된 거예요! 이제 컴퓨터를 재부팅하면 GRUB 부트 메뉴에 Kali Linux와 Debian 둘 다 나올 거예요:
 
 ![](grub-boot-menu-2.png)
