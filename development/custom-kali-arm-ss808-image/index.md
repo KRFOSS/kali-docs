@@ -1,24 +1,25 @@
 ---
-title: Custom MK/SS808 Image
+title: 커스텀 MK/SS808 이미지
 description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
-The following document describes our own method of creating a **custom Kali Linux MK/SS808 ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on MK/SS808](/docs/arm/ss808-mk808/) article.
+이 문서는 **커스텀 Kali Linux MK/SS808 ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali 이미지를 설치하고 싶다면, [MK/SS808에 Kali 설치하기](/docs/arm/ss808-mk808/) 문서를 참고하세요.
 
 {{% notice info %}}
-You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+이 과정을 수행하려면 루트 권한이 필요하거나, "sudo su" 명령어로 권한을 상승시킬 수 있어야 해요.
 {{% /notice %}}
 
-### 01. Create a Kali rootfs
+### 01. Kali rootfs 만들기
 
-Build yourself a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in `~/arm-stuff/rootfs/kali-armhf`.
+Kali 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [Kali rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
 
-### 02. Create the Image File
+### 02. 이미지 파일 만들기
 
-Next, we create the physical image file which will hold our MK/SS808 rootfs and boot images:
+다음으로, MK/SS808 rootfs와 부팅 이미지를 담을 물리적 이미지 파일을 만들어요:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils sharutils
@@ -27,7 +28,7 @@ kali@kali:~$ cd ~/arm-stuff/images/
 kali@kali:~/arm-stuff/images$ dd if=/dev/zero of=kali-custom-ss808.img conv=fsync bs=4M count=7000
 ```
 
-### 03. Partition and Mount the Image File
+### 03. 이미지 파일 파티션 나누기 및 마운트하기
 
 ```console
 kali@kali:~$ parted kali-custom-ss808.img --script -- mklabel msdos
@@ -45,16 +46,16 @@ kali@kali:~$ mkdir -p root/
 kali@kali:~$ mount $rootp root
 ```
 
-### 04. Copy and Modify the Kali rootfs
+### 04. Kali rootfs 복사 및 수정하기
 
 ```console
 kali@kali:~$ rsync -HPavz /root/arm-stuff/rootfs/kali-armhf-xfce4/ root
 kali@kali:~$ echo nameserver 8.8.8.8 > root/etc/resolv.conf
 ```
 
-### 05. Compile the rk3066 Kernel and Modules
+### 05. rk3066 커널 및 모듈 컴파일하기
 
-If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following steps:
+개발 환경으로 ARM 하드웨어를 사용하지 않는 경우, ARM 커널 및 모듈을 빌드하려면 [ARM 크로스 컴파일 환경](/docs/development/arm-cross-compilation-environment/)을 설정해야 해요. 완료되면 다음 단계를 따르세요:
 
 ```console
 kali@kali:~$ sudo apt install -y xz-utils
@@ -70,16 +71,16 @@ kali@kali:~$ sed -i "/vpu_service/d" arch/arm/plat-rk/Makefile
 kali@kali:~$ export ARCH=arm
 kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-4.6.2/bin/arm-eabi-
 kali@kali:~$
-kali@kali:~$ # A basic configuration for the UG802 and MK802 III
+kali@kali:~$ # UG802 및 MK802 III를 위한 기본 구성
 kali@kali:~$ # make rk30_hotdog_ti_defconfig
 
-kali@kali:~$ # A basic configuration for the MK808
+kali@kali:~$ # MK808을 위한 기본 구성
 kali@kali:~$ make rk30_hotdog_defconfig
 
-kali@kali:~$ # configure your kernel !
+kali@kali:~$ # 커널 구성하기!
 kali@kali:~$ make menuconfig
 
-kali@kali:~$ # Configure the kernel as per http://www.armtvtech.com/armtvtechforum/viewtopic.php?f=66&t;=835
+kali@kali:~$ # http://www.armtvtech.com/armtvtechforum/viewtopic.php?f=66&t;=835에 따라 커널 구성하기
 kali@kali:~$ mkdir -p ../initramfs/
 kali@kali:~$ wget http://208.88.127.99/initramfs.cpio -O ../initramfs/initramfs.cpio
 kali@kali:~$
@@ -107,16 +108,16 @@ kali@kali:~$ kpartx -dv $loopdevice
 kali@kali:~$ losetup -d $loopdevice
 ```
 
-### 07. dd the Image to a USB device
+### 07. 이미지를 USB 장치에 dd로 복사하기
 
 {{% notice info %}}
-While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the proper device label. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device label.
+명령어에 '/dev/sdX'가 사용되지만, '/dev/sdX'는 적절한 장치 라벨로 바꿔야 해요. '/dev/sdX'는 어떤 장치도 덮어쓰지 않으며, 실수로 덮어쓰는 것을 방지하기 위해 문서에서 안전하게 사용될 수 있어요. 올바른 장치 라벨을 사용해주세요.
 {{% /notice %}}
 
-Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** command to image this file to your SD card. In our example, we assume the storage device is located at `/dev/sdX`. **Change this as needed**:
+**[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 명령어를 사용하여 이 파일을 SD 카드에 이미징하세요. 아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정해요. **필요에 따라 변경하세요**:
 
 ```console
 kali@kali:~$ dd if=kali-linux-ss808.img of=/dev/sdX conv=fsync bs=4M
 ```
 
-Once the dd operation is complete, unmount and eject the SD card and boot your MK/SS808 into Kali Linux
+dd 작업이 완료되면, SD 카드를 마운트 해제하고 꺼낸 다음 MK/SS808을 Kali Linux로 부팅하세요
