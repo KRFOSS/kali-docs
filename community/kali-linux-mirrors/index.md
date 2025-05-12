@@ -3,11 +3,15 @@ title: 공식 칼리 리눅스 미러
 description:
 icon:
 weight:
-author: ["g0tmi1k",]
+author: ["g0tmi1k","xenix4845"]
 번역: ["xenix4845"]
 ---
 
 ## 공식 저장소 사용하기
+
+{{% notice info %}}
+ROKFOSS 프로젝트에서는 Kali Linux 분산미러를 운영하고 있어요. 자세한 사항은 [분산미러](https://http.krfoss.org/) 사이트에서 확인하실 수 있어요. 
+{{% /notice %}}
 
 칼리 리눅스 배포판은 전 세계에 미러링된 두 개의 [저장소](/docs/general-use/kali-linux-sources-list-repositories/)가 있습니다:
 
