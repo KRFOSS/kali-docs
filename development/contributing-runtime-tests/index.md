@@ -1,5 +1,5 @@
 ---
-title: Contributing run-time tests with autopkgtest
+title: autopkgtest로 런타임 테스트 기여하기
 description:
 icon:
 date: 2020-07-11
@@ -7,28 +7,29 @@ weight:
 author: ["gamb1t",]
 keywords: ["",]
 og_description:
+번역: ["xenix4845"]
 ---
 
-## Why Kali could benefit from your help
+## Kali가 여러분의 도움을 필요로 하는 이유
 
-With Kali Linux being a rolling distribution it will occasionally have packages that break due to changes in their dependencies. To best combat this, we have set up [automated runtime tests](https://autopkgtest.kali.org/) that have to be passed in order to allow the packages to migrate into [kali-rolling](/docs/general-use/kali-branches/). However, most packages at this time don't have a comprehensive autopkgtest associated with it causing this process to not reach its full potential. This is where the community can help us, by contributing test for packages that lack them.
+Kali Linux는 롤링 배포판(계속 업데이트되는 배포판)이기 때문에 의존성 변화로 인해 간혹 패키지가 작동하지 않는 경우가 있어요. 이를 최대한 방지하기 위해 [자동화된 런타임 테스트](https://autopkgtest.kali.org/)를 설정해서 패키지가 [kali-rolling](/docs/general-use/kali-branches/) 브랜치로 이동하기 전에 통과해야 하도록 했어요. 하지만 현재 대부분의 패키지에는 포괄적인 autopkgtest(자동 패키지 테스트)가 없어서 이 프로세스가 완전한 잠재력을 발휘하지 못하고 있어요. 커뮤니티가 테스트가 부족한 패키지에 테스트를 기여해 주시면 큰 도움이 돼요.
 
-### A bit of autopkgtest background
+### autopkgtest 배경 지식
 
-Autopkgtests were created as a way to test a package as accurately as possible on a real Debian system. This method can leverage virtualization and containers to create an accurate and re-usable environment that will be the testing area. There is a lot more information available on this topic. For a more in depth look than what will be covered here please see the following articles (which served as sources of information during writing):
+autopkgtest는 실제 Debian 시스템에서 패키지를 가능한 정확하게 테스트하기 위해 만들어졌어요. 이 방법은 가상화와 컨테이너를 활용해 정확하고 재사용 가능한 테스트 환경을 만들 수 있어요. 이 주제에 대한 정보는 훨씬 더 많아요. 여기서 다루는 것보다 더 깊이 알고 싶다면 다음 자료들을 참고하세요(이 글을 작성할 때도 정보 출처로 사용했어요):
 
-* [The official Debian CI doc page](https://ci.debian.net/doc/file.TUTORIAL.html)
-* [A great talk covering autopkgtests](http://meetings-archive.debian.net/pub/debian-meetings/2015/debconf15/Tutorial_functional_testing_of_Debian_packages.webm)
-* [A paper going in-depth on writing As-Installed tests](https://gitlab.com/terceiro/installed-tests-patterns/raw/pdf/final/installed-tests-patterns.pdf)
-* [The best practices Debian wiki page](https://wiki.debian.org/ContinuousIntegration/AutopkgtestBestPractices)
+* [Debian CI 공식 문서 페이지](https://ci.debian.net/doc/file.TUTORIAL.html)
+* [autopkgtest에 관한 좋은 강연](http://meetings-archive.debian.net/pub/debian-meetings/2015/debconf15/Tutorial_functional_testing_of_Debian_packages.webm)
+* [설치 후 테스트 작성에 관한 심층 논문](https://gitlab.com/terceiro/installed-tests-patterns/raw/pdf/final/installed-tests-patterns.pdf)
+* [Debian 위키의 모범 사례 페이지](https://wiki.debian.org/ContinuousIntegration/AutopkgtestBestPractices)
 
-We encourage users to spend some time looking through these after finishing reading the rest of this doc. We will only be really covering a small portion of what is a large topic to explore and learn.
+이 문서를 다 읽은 후에는 위 자료들도 한번 살펴보시길 권해요. 여기서는 이 방대한 주제의 작은 부분만 다룰 거예요.
 
-### Structuring Test Files
+### 테스트 파일 구조화하기
 
-Adding autopkgtests to a source package is a matter of creating a `debian/tests/control` file: that file describes all the tests that have to be run. Just like `debian/control`, it uses a set of entries structured like mail headers (e.g. `Field-Name: some value`). In the simplest case, the test can be fully described in the control file, but for most non-trivial tests, you will just reference an external test script that you will just put alongside in `debian/tests/`.
+소스 패키지에 autopkgtest를 추가하려면 `debian/tests/control` 파일을 만들면 돼요. 이 파일은 실행해야 할 모든 테스트를 설명해요. `debian/control` 파일과 마찬가지로, 메일 헤더처럼 구성된 항목들을 사용해요(예: `Field-Name: some value`). 가장 간단한 경우에는 control 파일에서 테스트를 완전히 설명할 수 있지만, 대부분의 복잡한 테스트에서는 옆에 둔 외부 테스트 스크립트를 참조할 거예요. 이 스크립트는 `debian/tests/` 폴더에 넣으면 돼요.
 
-Have a look a the [official documentation of those control files](https://salsa.debian.org/ci-team/autopkgtest/-/blob/master/doc/README.package-tests.rst) to gain a good idea of what we are doing and what's possible. A lot of the options are explained quite well, and through active experimentation and learning can be utilized in helpful ways, but for now we will stick to some of the basics. Lets take a look at their example control file:
+어떤 일을 하고 있고 어떤 것들이 가능한지 잘 이해하려면 [control 파일 공식 문서](https://salsa.debian.org/ci-team/autopkgtest/-/blob/master/doc/README.package-tests.rst)를 살펴보세요. 많은 옵션들이 잘 설명되어 있어요. 실험과 학습을 통해 유용하게 활용할 수 있지만, 지금은 기본적인 것에만 집중할게요. 그들의 예제 control 파일을 살펴봅시다:
 
 ```plaintext
 Tests: fred, bill, bongo
@@ -36,9 +37,9 @@ Depends: pkg1, pkg2 [amd64] | pkg3 (>= 3)
 Restrictions: needs-root, breaks-testbed
 ```
 
-We can break this down pretty quickly. There are three test scripts: fred, bill, and bongo. These three test scripts exist in `debian/tests/`. While we don't know what these tests do, we do know through the `Depends` fields that they will require two packages (the example voluntarily shows some advanced dependency syntax that you will usually not need, but for the sake of the explanation it means that you always want `pkg1`, and on an amd64 machine, you also need `pkg2`, while on other machines, you will want `pkg3` with a version greater or equalt to 3). We also know that this test suite needs to use the root user, or have elevated privileges, and also has the potential to break the testbed (which means that autopkgtest will refuse to run the test if the testbed can't be easily restored).
+이것을 간단히 분석해볼게요. 세 개의 테스트 스크립트가 있어요: fred, bill, bongo. 이 세 테스트 스크립트는 `debian/tests/` 폴더에 있어요. 이 테스트들이 정확히 무엇을 하는지는 모르지만, `Depends` 필드를 통해 두 개의 패키지가 필요하다는 걸 알 수 있어요(이 예제는 일부러 복잡한 의존성 구문을 보여주는데, 대개는 필요 없지만 설명을 위해 말하자면 `pkg1`은 항상 필요하고, amd64 머신에서는 `pkg2`도 필요하며, 다른 머신에서는 버전 3 이상의 `pkg3`이 필요하다는 뜻이에요). 또한 이 테스트 모음은 루트 사용자 또는 높은 권한이 필요하고, 테스트 환경을 손상시킬 가능성이 있다는 것도 알 수 있어요(즉, autopkgtest는 테스트 환경을 쉽게 복원할 수 없다면 테스트 실행을 거부해요).
 
-Looking at another example that they have:
+그들이 가지고 있는 또 다른 예제를 살펴봅시다:
 
 ```plaintext
 Test-Command: foo-cli --list --verbose
@@ -46,27 +47,27 @@ Depends: foo
 Restrictions: needs-root
 ```
 
-Here we see that they are running a test through `Test-Command`. This is a way to prevent creating scripts to run tests, and can come in handy to prevent having a one-liner script that is being called. In this case, they run `foo-cli` which we can tell is part of the `foo` package, as shown by the Depends field. It seems like this test is superficial, as it is only one line, which should be noted in the Restrictions, so if this was a real package we may have wanted to investigate further. We can most commonly tell if a test should contain `Restrictions: superficial` if they only use one line of commands to test the tool.
+여기서는 `Test-Command`를 통해 테스트를 실행하고 있어요. 이렇게 하면 테스트를 위한 스크립트를 만들 필요가 없어서, 한 줄짜리 스크립트를 호출하는 것을 방지할 수 있어요. 이 경우 `foo-cli`를 실행하는데, Depends 필드를 보면 이것이 `foo` 패키지의 일부라는 것을 알 수 있어요. 한 줄짜리 명령어만 있어서 이 테스트는 표면적인(superficial) 것 같은데, 이는 Restrictions에 명시되어야 해요. 실제 패키지였다면 더 자세히 조사해볼 필요가 있었을 거예요. 테스트가 한 줄짜리 명령어만 사용한다면 대부분 `Restrictions: superficial`을 포함해야 해요.
 
-Control files will include one of the methods of testing, whether it is a script or a one-liner, what the test depends on, and any potential restrictions or problems that the test might have. Keep in mind that if your test only needs the built binary packages, then you don't need to specify any explicit `Depends` field as you can rely on the default value of `Depends: @`.
+control 파일에는 스크립트나 한 줄짜리 명령어 같은 테스트 방법, 테스트가 의존하는 것들, 그리고 테스트가 가질 수 있는 잠재적 제한 사항이나 문제점이 포함돼요. 테스트에 빌드된 바이너리 패키지만 필요하다면, 명시적인 `Depends` 필드를 지정할 필요 없이 기본값인 `Depends: @`을 사용할 수 있어요.
 
-If you want to install a supplementary package `foobar` for your test, then you would use `Depends: @, foobar` as `@` is as shorthand for the binary packages generated by the source package containing the tests.
+테스트를 위해 `foobar`라는 추가 패키지를 설치하고 싶다면, `Depends: @, foobar`를 사용하면 돼요. 여기서 `@`는 테스트가 포함된 소스 패키지에서 생성된 바이너리 패키지를 나타내는 축약형이에요.
 
-A few other important restrictions that should be remembered (but do look through all that are possible!):
+기억해야 할 몇 가지 중요한 제한 사항들(다른 모든 가능한 옵션도 살펴보세요!):
 
-- `allow-stderr` - Accepts output to `stderr` and will not fail when there it receives any.
-- `rw-build-tree` - The test will have access to the built source tree, with certain conditions applied.
-- `isolation-container` - Any services or open TCP ports that are a part of the test will utilize their own container or VM to prevent fails.
-- `isolation-machine` - The test will likely interact with the container/VM in a way that would typically result in an error, such as rebooting or interacting with the kernel.
-- `needs-internet` - The test will need unrestricted access to the internet.
+- `allow-stderr` - `stderr`로의 출력을 허용하고, 출력이 있어도 실패하지 않아요.
+- `rw-build-tree` - 특정 조건이 적용된 상태에서 테스트가 빌드된 소스 트리에 접근할 수 있어요.
+- `isolation-container` - 테스트의 일부인 서비스나 열린 TCP 포트는 실패를 방지하기 위해 자체 컨테이너나 VM을 사용해요.
+- `isolation-machine` - 테스트가 재부팅이나 커널과 상호작용하는 것처럼 일반적으로 오류를 발생시키는 방식으로 컨테이너/VM과 상호작용할 가능성이 있어요.
+- `needs-internet` - 테스트에 인터넷에 대한 제한 없는 액세스가 필요해요.
 
-### Learning by examples
+### 예제로 배우기
 
-There are a few things to learn about with autopkgtests that we can see in action already. We will look at what tests can look like, what types are more beneficial, and a few tricks that we can see.
+autopkgtest에 대해 배울 수 있는 몇 가지가 이미 실제로 보이고 있어요. 테스트가 어떻게 생겼는지, 어떤 유형이 더 유익한지, 그리고 볼 수 있는 몇 가지 트릭을 살펴보겠습니다.
 
-The [cloud_enum](https://gitlab.com/kalilinux/packages/cloud-enum/-/tree/kali/master/debian/tests) control file looks like the following:
+[cloud_enum](https://gitlab.com/kalilinux/packages/cloud-enum/-/tree/kali/master/debian/tests) control 파일은 다음과 같아요:
 
-<p class="codeblock-label">cloud_enum control file</p>
+<p class="codeblock-label">cloud_enum control 파일</p>
 
 ```plaintext
 Test-Command: cloud_enum --help
@@ -74,9 +75,9 @@ Depends: @
 Restrictions: superficial
 ```
 
-Whereas the [python-pip](https://gitlab.com/kalilinux/packages/python-pip/-/tree/kali/master/debian/tests) control file looks like the following:
+반면에 [python-pip](https://gitlab.com/kalilinux/packages/python-pip/-/tree/kali/master/debian/tests) control 파일은 이렇게 생겼어요:
 
-<p class="codeblock-label">python-pip control file</p>
+<p class="codeblock-label">python-pip control 파일</p>
 
 ```plaintext
 Tests: pip3-root.sh
@@ -88,9 +89,9 @@ Restrictions: breaks-testbed
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823358
 Tests: pip3-editable.sh
 ```
-With includes a test that looks like:
+여기에는 다음과 같은 테스트가 포함되어 있어요:
 
-<p class="codeblock-label">python-pip pip3-user.sh test file</p>
+<p class="codeblock-label">python-pip pip3-user.sh 테스트 파일</p>
 
 ```sh
 #!/bin/sh
@@ -124,26 +125,26 @@ then
 fi
 ```
 
-It is apparent that there is a big difference between the two. Both will technically create a pass or a fail, and one might think that the first option, the cloud_enum control file, seems easier and better to use. However, this is a superficial test which means "The test does not provide significant test coverage, so if it passes, that does not necessarily mean that the package under test is actually functional". Because of this, we would rather have the python-pip test environment. It is more detailed and includes tests of different types of end-user environments.
+둘 사이에는 큰 차이가 있어요. 둘 다 기술적으로 통과 또는 실패를 만들어내고, 첫 번째 옵션인 cloud_enum control 파일이 더 쉽고 좋아 보일 수 있어요. 하지만 이는 표면적인 테스트로, "테스트가 충분한 테스트 범위를 제공하지 않아서, 통과했다고 해서 테스트 중인 패키지가 실제로 기능한다는 것을 의미하지 않는다"는 뜻이에요. 그래서 우리는 python-pip 테스트 환경을 선호해요. 더 자세하고 다양한 유형의 최종 사용자 환경 테스트가 포함되어 있거든요.
 
-We did just throw a bunch of text and code at you all to look at without much explanation, as it was important to note the differences before getting too involved. But lets take a step back now and look more closely at this.
+방금 많은 텍스트와 코드를 별 설명 없이 보여드렸는데, 너무 깊이 빠지기 전에 차이점을 이해하는 것이 중요해요. 이제 한 발 물러서서 더 자세히 살펴봅시다.
 
-Looking more closely at the `cloud_enum` control file, we have three things going on:
+`cloud_enum` control 파일을 자세히 살펴보면 다음 세 가지가 있어요:
 
 ```plaintext
 Test-Command: cloud_enum --help
 Depends: @
 Restrictions: superficial
 ```
-The first thing we do is tell what command we are running. Because this is just a superficial test, we do not tell it to run a script and instead just do one line to test if it outputs the help. We then tell it to depend on the same dependencies that the package depends on, by using '@'. Should the test need other dependencies, we can list them here. In another test we will look at, this will be seen in action. We finally tell it that yes, this test is just a superficial one. We could tell it other things, like that `cloud_enum` needs root, or that after running this test the testing environment will need to be scrapped.
+첫 번째로 실행할 명령어를 알려줘요. 이것은 표면적인 테스트이기 때문에, 스크립트를 실행하라고 하지 않고 도움말 출력을 테스트하는 한 줄만 있어요. 그런 다음 '@'를 사용해 패키지가 의존하는 것과 동일한 의존성에 의존하도록 지정해요. 테스트에 다른 의존성이 필요하다면 여기에 나열할 수 있어요. 다른 테스트에서 이러한 방법을 볼 수 있을 거예요. 마지막으로 이 테스트가 표면적인 테스트라고 알려줘요. `cloud_enum`이 루트 권한이 필요하다거나, 이 테스트 후에 테스트 환경을 폐기해야 한다는 등의 다른 정보도 알려줄 수 있어요.
 
-The next control file we will learn from is [pytest-factoryboy's](https://gitlab.com/kalilinux/packages/pytest-factoryboy/-/tree/kali/master/debian/tests):
+다음으로 배울 control 파일은 [pytest-factoryboy](https://gitlab.com/kalilinux/packages/pytest-factoryboy/-/tree/kali/master/debian/tests)의 것이에요:
 
 ```plaintext
 Tests: test3-pytest-factoryboy
 Depends: @, python3-pytest-pep8
 ```
-As we can see, it depends on a python module. This python module will help us to test the tool, as we can see being done in the test:
+보시다시피, 파이썬 모듈에 의존하고 있어요. 이 파이썬 모듈은 다음 테스트에서 볼 수 있듯이 도구를 테스트하는 데 도움을 줄 거예요:
 
 ```sh
 #!/bin/sh
@@ -153,46 +154,46 @@ for py in $(py3versions -i); do
     $py -Wd -m pytest -v -x tests 2>&1;
 done
 ```
-We can also see something else being done that is a good practice. `$AUTOPKGTEST_TMP` can be used during these tests, and will help to clean a system and start on a next test, assuming the `breaks-testbed` flag is not set.
+또한 좋은 관행인 다른 것도 볼 수 있어요. `$AUTOPKGTEST_TMP`는 이러한 테스트에서 사용할 수 있으며, `breaks-testbed` 플래그가 설정되지 않은 경우 시스템을 정리하고 다음 테스트를 시작하는 데 도움이 돼요.
 
-Another package that can show a lot of info is [hyperion](https://gitlab.com/kalilinux/packages/hyperion/-/tree/kali/master/debian/tests). However, due to the size of the files and the breakdowns associated that will not be explained here.
+[hyperion](https://gitlab.com/kalilinux/packages/hyperion/-/tree/kali/master/debian/tests)은 많은 정보를 보여주는 또 다른 패키지예요. 하지만 파일 크기와 관련된 세부 사항 때문에 여기서는 설명하지 않을게요.
 
-### What to do
+### 무엇을 해야 하나요
 
-So you have a system set up, have seen tests in practice, but now you need to actually write the tests. Once you find a package that has no test or a superficial test, you should learn the tool. Let us say that we have a tool that pings a server and then depending on the response will tell the user something. What does a fail look like? What does a success look like? Are there any edge cases that might mess up your test?
+이제 시스템이 설정되었고 실제 테스트도 봤으니, 이제 테스트를 직접 작성해야 해요. 테스트가 없거나 표면적인 테스트만 있는 패키지를 찾았다면, 먼저 그 도구에 대해 배워야 해요. 서버에 핑을 보낸 다음 응답에 따라 사용자에게 무언가를 알려주는 도구가 있다고 가정해봐요. 실패는 어떻게 생겼나요? 성공은 어떻게 생겼나요? 테스트를 망칠 수 있는 특이 케이스가 있나요?
 
-The next step after learning about a tool's purpose is to figure out what you will need to tell autopkgtest. Using our tool from the previous example, will it need root to ping properly? What else might need to be done with the machine or environment to get the tool to work? What about after the test? Will there be an output file, and so therefore you should use $AUTOPKGTEST_TMP?
+도구의 목적에 대해 배운 후 다음 단계는 autopkgtest에게 무엇을 알려야 할지 파악하는 거예요. 이전 예제의 도구를 사용하면, 핑을 제대로 보내기 위해 루트 권한이 필요할까요? 도구가 작동하도록 하기 위해 머신이나 환경에서 무엇을 더 해야 할까요? 테스트 후에는 어떨까요? 출력 파일이 생성되어 $AUTOPKGTEST_TMP를 사용해야 할까요?
 
-Once you learn and note what you can test about the tool, you should start to write the test using the best practices and tips given earlier. There are many available resources that stem from those resources, and lots more packages that have solid tests that you can learn from example with if need be.
+도구에 대해 테스트할 수 있는 것을 배우고 기록한 후에는, 앞서 제공된 모범 사례와 팁을 사용하여 테스트 작성을 시작해야 해요. 이러한 리소스에서 파생된 많은 가용 리소스가 있고, 필요하다면 예제로 배울 수 있는 많은 패키지가 있어요.
 
-Given that Kali uses GitLab, you should fork the [source package](https://gitlab.com/kalilinux/packages) where you want to add tests, and add your tests in a new branch. Our GitLab CI configuration should run the autopkgtest, so you can have a look at the output of the pipelines to see whether your tests have been correctly run and whether they succeeded. If they do not work, you can iterate (adding more commits) until you are satisfied with your test scripts.
+Kali는 GitLab을 사용하므로, [소스 패키지](https://gitlab.com/kalilinux/packages)를 포크하고 새 브랜치에 테스트를 추가해야 해요. GitLab CI 설정이 autopkgtest를 실행하므로, 파이프라인 출력을 확인하여 테스트가 올바르게 실행되었고 성공했는지 확인할 수 있어요. 작동하지 않는다면 테스트 스크립트에 만족할 때까지 반복(더 많은 커밋 추가)할 수 있어요.
 
-Once you do get a completed green test, you should submit a merge request since your work is already on GitLab. The [Save & Share](/docs/development/intro-to-packaging-example/#save--share) section of contributing to packages gives a good example of this.
+완성된 성공적인 테스트를 얻었다면, 이미 GitLab에 작업이 있으니 머지 리퀘스트를 제출해야 해요. 패키지에 기여하는 [저장 및 공유](/docs/development/intro-to-packaging-example/#save--share) 섹션에서 좋은 예를 확인할 수 있어요.
 
-For more information on the environment itself, the `autopkgtest-build-qemu` and `autopkgtest-virt-qemu` man pages are beneficial. As are the docs located at `/usr/share/doc/autopkgtest/`.
+환경 자체에 대한 자세한 정보는 `autopkgtest-build-qemu`와 `autopkgtest-virt-qemu` 맨 페이지가 유용해요. `/usr/share/doc/autopkgtest/`에 있는 문서도 도움이 돼요.
 
-### Running tests locally
+### 로컬에서 테스트 실행하기
 
-If it is needed to run the tests locally, it is luckily fairly straightforward but needs some preparation.
+로컬에서 테스트를 실행해야 한다면, 다행히 꽤 간단하지만 몇 가지 준비가 필요해요.
 
-We first download the actual testing software and also `vmdb2` which is to create the disk images to be used for the tests:
+먼저 실제 테스트 소프트웨어와 테스트에 사용할 디스크 이미지를 만들기 위한 `vmdb2`를 다운로드해요:
 
 ```console
 kali@kali:~$ sudo apt install -y autopkgtest vmdb2
 ```
 
-We then need to make a directory that can store our images and data:
+그런 다음 이미지와 데이터를 저장할 디렉토리를 만들어야 해요:
 
 ```console
 kali@kali:~$ sudo mkdir /srv/autopkgtest-images/
 ```
 
-The following command creates a kali-rolling based image that is compatible with autopkgtests, we can now use this image for future tests:
+다음 명령어는 autopkgtest와 호환되는 kali-rolling 기반 이미지를 만들어요. 앞으로의 테스트에 이 이미지를 사용할 수 있어요:
 
 ```console
 kali@kali:~$ sudo autopkgtest-build-qemu kali-rolling /srv/autopkgtest-images/kali-rolling.img http://http.kali.org/kali
 ```
 
-Now to run your tests, all you have to do is run the following command: `autopkgtest ~/packages/mytest/ -- qemu /srv/autopkgtest-images/kali-rolling.img` and point to the directory that contains the package you want to test.
+이제 테스트를 실행하려면 다음 명령어를 실행하기만 하면 돼요: `autopkgtest ~/packages/mytest/ -- qemu /srv/autopkgtest-images/kali-rolling.img`. 이 명령어는 테스트하려는 패키지가 있는 디렉토리를 가리켜요.
 
-There are many other variations which will potentially be needed, and can be found at /usr/share/doc/autopkgtest/README.running-tests.html. It is encouraged to use the GitLab CI however, as many things have the potential to go wrong with local tests and it is easier to get help if needed when using GitLab.
+필요할 수도 있는 다른 많은 변형들이 있으며, /usr/share/doc/autopkgtest/README.running-tests.html에서 찾을 수 있어요. 그러나 로컬 테스트에서는 여러 가지 문제가 발생할 수 있고, GitLab을 사용하는 경우 필요한 도움을 받기가 더 쉽기 때문에 GitLab CI를 사용하는 것이 좋아요.

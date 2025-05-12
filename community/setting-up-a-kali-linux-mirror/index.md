@@ -166,7 +166,7 @@ $ rsync -qaH ftp.halifax.rwth-aachen.de::kali-images /srv/mirrors/kali-images/ &
 ### 방화벽 규칙
 
 네트워크 트래픽을 제한하는 경우, 다음 서비스에 대한 접근이 허용되었는지 확인해 주세요:
-
+- HTTP (80,443/TCP) - 172.104.27.124 (이 아이피는 미러 추적에 사용됩니다)
 - SSH (22/TCP) - <archive.kali.org> (또는 `192.99.45.140` 및 `2607:5300:60:508c::`)
 - RSYNC (873/TCP) - <archive.kali.org> (또는 `192.99.45.140` 및 `2607:5300:60:508c::`)
 - RSYNC (873/TCP) - <http.kali.org> (또는 `54.39.128.230` 및 `2607:5300:203:3fe6::`)
@@ -195,4 +195,4 @@ archive.kali.org가 동시에 너무 많은 미러로 과부하되지 않도록 
 사설 미러를 설정하고 싶다면, 다음과 같은 차이점을 제외하고는 공개 미러와 동일한 도구를 사용할 수 있어요:
 
 - 패키지 저장소를 위한 SSH 푸시 미러링을 사용할 수 없어서, 미러 소유 사용자(위 설명에서는 `archvsync`)의 crontab에 `~/bin/ftpsync sync:archive:kali`를 추가해야 해요.
-- 소스 미러로 kali.org가 아닌 미러를 사용해야 해요. 대부분은 공개 rsync 액세스를 제공하니까요(kali.org 서버는 제한됨)
+- 소스 미러로 kali.org가 아닌 미러를 사용해야 해요. 대부분은 공개 rsync 액세스를 제공하니까요(archive.kali.org 서버는 제한됨)

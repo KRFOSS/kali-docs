@@ -1,28 +1,29 @@
 ---
-title: Custom Chromebook Image
+title: 커스텀 Chromebook 이미지
 description:
 icon:
 weight:
 author: ["steev",]
+번역: ["xenix4845"]
 ---
 
-The following document describes our own method of creating a **custom Kali Linux Samsung Chromebook ARM image** and is targeted at developers. If you would like to install a pre-made Kali image, check out our [Install Kali on Samsung Chromebook](/docs/arm/chromebook-exynos/) article.
+이 문서는 **커스텀 Kali Linux Samsung Chromebook ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali 이미지를 설치하고 싶다면, [Samsung Chromebook에 Kali 설치하기](/docs/arm/chromebook-exynos/) 문서를 참고하세요.
 
 {{% notice info %}}
-In this guide, we create an image with two boot partitions - one containing a kernel hard-coded to boot from the SD card and the other containing a kernel hard-coded to boot from USB. Depending on your USB storage media type, make sure to mark the relevant boot partition with higher priority after you dd the image to your USB device as instructed in the last stages of this guide.
+이 가이드에서는 두 개의 부트 파티션이 있는 이미지를 만들어요 - 하나는 SD 카드에서 부팅하도록 하드코딩된 커널을 포함하고, 다른 하나는 USB에서 부팅하도록 하드코딩된 커널을 포함해요. USB 저장 장치 유형에 따라 이 가이드의 마지막 단계에서 설명하는 대로 이미지를 USB 장치에 dd로 복사한 후 관련 부트 파티션에 더 높은 우선순위를 표시해야 해요.
 {{% /notice %}}
 
 {{% notice info %}}
-You'll need to have root privileges to do this procedure, or the ability to escalate your privileges with the command "sudo su".
+이 절차를 수행하려면 루트 권한이 필요하거나, "sudo su" 명령어로 권한을 상승시킬 수 있어야 해요.
 {{% /notice %}}
 
-#### 01. Create a Kali rootfs
+#### 01. Kali rootfs 만들기
 
-Start by building a [Kali rootfs](/docs/development/kali-linux-arm-chroot/) as described in our Kali documentation, using an **armhf** architecture. By the end of this process, you should have a populated rootfs directory in `~/arm-stuff/rootfs/kali-armhf`.
+Kali 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [Kali rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하는 것부터 시작하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
 
-#### 02. Create the Image File
+#### 02. 이미지 파일 만들기
 
-Next, we create the physical image file that will hold our Chromebook rootfs and boot images:
+다음으로, Chromebook rootfs와 부팅 이미지를 담을 물리적 이미지 파일을 만들어요:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
@@ -31,7 +32,7 @@ kali@kali:~$ cd ~/arm-stuff/images/
 kali@kali:~$ dd if=/dev/zero of=kali-custom-chrome.img conv=fsync bs=4M count=7000
 ```
 
-#### 03. Partition and Mount the Image File
+#### 03. 이미지 파일 파티션 나누기 및 마운트하기
 
 ```console
 kali@kali:~$ parted kali-custom-chrome.img --script -- mklabel msdos
@@ -72,9 +73,9 @@ kali@kali:~$ mkdir -p root
 kali@kali:~$ mount $rootp root
 ```
 
-#### 04. Copy and Modify the Kali rootfs
+#### 04. Kali rootfs 복사 및 수정하기
 
-Copy over the Kali rootfs you bootstrapped earlier using **[rsync](https://packages.debian.org/testing/rsync)** to the mounted image:
+이전에 부트스트랩한 Kali rootfs를 **[rsync](https://packages.debian.org/testing/rsync)**를 사용하여 마운트된 이미지로 복사하세요:
 
 ```console
 kali@kali:~$ cd ~/arm-stuff/images/
@@ -98,11 +99,11 @@ EndSection
 EOF
 ```
 
-#### 05. Compile the Samsung Chromium Kernel and Modules
+#### 05. Samsung Chromium 커널 및 모듈 컴파일하기
 
-If you're not using ARM hardware as the development environment, you will need to set up an [ARM cross-compilation environment](/docs/development/arm-cross-compilation-environment/) to build an ARM kernel and modules. Once that's done, proceed with the following instructions.
+ARM 하드웨어를 개발 환경으로 사용하지 않는 경우, ARM 커널 및 모듈을 빌드하기 위해 [ARM 크로스 컴파일 환경](/docs/development/arm-cross-compilation-environment/)을 설정해야 해요. 설정이 완료되면 다음 지침을 따르세요.
 
-Fetch the Chromium kernel sources and place them in our development tree structure:
+Chromium 커널 소스를 가져와 개발 트리 구조에 배치하세요:
 
 ```console
 kali@kali:~$ mkdir -p ~/arm-stuff/kernel/
@@ -151,7 +152,7 @@ fdt = "fdt@1";
 EOF
 ```
 
-Patch the kernel, in our case, with wireless injection patches:
+커널을 패치하세요. 여기서는 무선 인젝션 패치를 사용합니다:
 
 ```console
 kali@kali:~$ mkdir -p ../patches/
@@ -161,7 +162,7 @@ kali@kali:~$ patch -p1 < ../patches/negative.patch
 kali@kali:~$ patch -p1 < ../patches/mac80211.patch
 ```
 
-Configure, then cross-compile the Chromium kernel as shown below:
+Chromium 커널을 설정하고 크로스 컴파일하세요:
 
 ```console
 kali@kali:~$ export ARCH=arm
@@ -169,10 +170,10 @@ kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/arm-eabi-linaro-
 kali@kali:~$
 kali@kali:~$ ./chromeos/scripts/prepareconfig chromeos-exynos5
 
-# Disable LSM
+# LSM 비활성화
 kali@kali:~$ sed -i 's/CONFIG_SECURITY_CHROMIUMOS=y/# CONFIG_SECURITY_CHROMIUMOS is not set/g' .config
 
-# If cross compiling, do this once:
+# 크로스 컴파일 시, 한 번만 수행:
 kali@kali:~$ sed -i 's/if defined(__linux__)/if defined(__linux__) ||defined(__KERNEL__) /g' include/drm/drm.h
 
 kali@kali:~$ make menuconfig
@@ -182,7 +183,7 @@ kali@kali:~$ cp ./scripts/dtc/dtc /usr/bin/
 kali@kali:~$ mkimage -f kernel.its kernel.itb
 kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root/
 
-# Copy over firmware. Ideally use the original firmware (/lib/firmware) from the Chromebook.
+# 펌웨어 복사. Chromebook의 원래 펌웨어(/lib/firmware)를 사용하는 것이 이상적입니다.
 kali@kali:~$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git
 kali@kali:~$ cp -rf linux-firmware/* ~/arm-stuff/images/root/lib/firmware/
 kali@kali:~$ rm -rf linux-firmware
@@ -196,11 +197,11 @@ kali@kali:~$ vbutil_kernel --pack /tmp/newkern-sd --keyblock /usr/share/vboot/de
 kali@kali:~$ vbutil_kernel --pack /tmp/newkern-usb --keyblock /usr/share/vboot/devkeys/kernel.keyblock --version 1 --signprivate /usr/share/vboot/devkeys/kali@kali:~$ kernel_data_key.vbprivk --config=/tmp/config-usb --vmlinuz kernel.itb --arch arm
 ```
 
-#### 06. Prepare the Boot Partition
+#### 06. 부트 파티션 준비하기
 
 ```console
-kali@kali:~$ dd if=/tmp/newkern-sd of=$bootp1 conv=fsync # first boot partition for SD
-kali@kali:~$ dd if=/tmp/newkern-usb of=$bootp2 conv=fsync # second boot partition for USB
+kali@kali:~$ dd if=/tmp/newkern-sd of=$bootp1 conv=fsync # SD용 첫 번째 부트 파티션
+kali@kali:~$ dd if=/tmp/newkern-usb of=$bootp2 conv=fsync # USB용 두 번째 부트 파티션
 kali@kali:~$
 kali@kali:~$ umount $rootp
 kali@kali:~$
@@ -208,10 +209,10 @@ kali@kali:~$ kpartx -dv $loopdevice
 kali@kali:~$ losetup -d $loopdevice
 ```
 
-#### 07. dd the Image and Mark the USB Drive Bootable
+#### 07. 이미지 dd 및 USB 드라이브 부팅 가능 설정
 
 {{% notice info %}}
-While '/dev/sdX' is used in the command, the '/dev/sdX' should be replaced with the proper device label. '/dev/sdX' will not overwrite any devices, and can safely be used in documentation to prevent accidental overwrites. Please use the correct device label.
+'/dev/sdX'가 명령어에서 사용되지만, '/dev/sdX'는 적절한 장치 레이블로 대체되어야 해요. '/dev/sdX'는 어떤 장치도 덮어쓰지 않으며, 문서에서 안전하게 사용될 수 있어요. 올바른 장치 레이블을 사용하세요.
 {{% /notice %}}
 
 ```console
@@ -220,7 +221,7 @@ kali@kali:~$ cgpt repair /dev/sdX
 ```
 
 {{% notice info %}}
-This is the point where you need to mark either boot partition 1 or 2 to have higher priority. The number with the higher priority will boot first. The example below will give priority 10 to the first partition (-i) and will thus boot successfully from a SD card.
+이 시점에서 부트 파티션 1 또는 2 중 하나에 더 높은 우선순위를 표시해야 해요. 더 높은 우선순위를 가진 번호가 먼저 부팅됩니다. 아래 예시는 첫 번째 파티션(-i)에 우선순위 10을 부여하여 SD 카드에서 성공적으로 부팅되도록 합니다.
 {{% /notice %}}
 
 ```console
@@ -228,7 +229,7 @@ kali@kali:~$ cgpt add -i 1 -S 1 -T 5 -P 10 -l KERN-A /dev/sdX
 kali@kali:~$ cgpt add -i 2 -S 1 -T 5 -P 5 -l KERN-B /dev/sdX
 ```
 
-To see your partition list and order, use the command **cgpt show**:
+파티션 목록과 순서를 확인하려면 **cgpt show** 명령어를 사용하세요:
 
 ```console
 kali@kali:~$ cgpt show /dev/sdX
@@ -252,4 +253,4 @@ UUID: E9E67EE1-C02E-481C-BA3F-18E721515DBB
 kali@kali:~$
 ```
 
-Once this operation is complete, boot up your Samsung Chromebook with the SD/USB device plugged in. At the developer mode boot screen, hit CTRL+u to boot from from your USB storage device. Log in to Kali (`root` / `toor`) and `startx`.
+이 작업이 완료되면 SD/USB 장치가 연결된 상태에서 Samsung Chromebook을 부팅하세요. 개발자 모드 부팅 화면에서 CTRL+u를 눌러 USB 저장 장치에서 부팅하세요. 그런 다음 Kali에 로그인(`root` / `toor`)하고 `startx`를 실행하세요.

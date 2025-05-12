@@ -15,7 +15,7 @@ Kali NetHunter는 세 부분으로 구성됩니다:
 - 앱 (및 앱스토어)
 - Kali Chroot
 
-Kali NetHunter는 [2014년 9월에 처음 출시](https://twitter.com/kalilinux/status/514404154933260288)되었으며 v1.0에서는 Nexus 기기(5, 7, 10)만 지원했습니다. 2015년 1월에 Kali NetHunter v1.1의 마이너 릴리스가 있었고, 같은 시기에 OnePlus One과 Nexus 4와 같은 기기 지원이 시작되었습니다.
+Kali NetHunter는 [2014년 9월에 처음 출시](https://x.com/kalilinux/status/514404154933260288)되었으며 v1.0에서는 Nexus 기기(5, 7, 10)만 지원했습니다. 2015년 1월에 Kali NetHunter v1.1의 마이너 릴리스가 있었고, 같은 시기에 OnePlus One과 Nexus 4와 같은 기기 지원이 시작되었습니다.
 
 Kali NetHunter v3는 2016년 1월에 나온 다음 메이저 릴리스로, NetHunter 앱을 완전히 재작성하여 앱에서 더 많은 제어와 작업을 수행할 수 있게 했으며, 빌드 스크립트와 Android 5 및 6 지원이 포함되었습니다. Nexus 6 기기도 지원되기 시작했습니다.
 

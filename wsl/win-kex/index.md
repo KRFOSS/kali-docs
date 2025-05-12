@@ -24,7 +24,7 @@ Win-KeX는 Windows Subsystem for Linux (WSL 2)에서 Kali Linux의 GUI 데스크
 
 ## 설치
 
-Win-KeX를 설치하는 지점까지의 모든 설치 단계는 [NetworkChuck](https://twitter.com/NetWorkChuck)의 5분 비디오 가이드에서도 설명되어 있습니다
+Win-KeX를 설치하는 지점까지의 모든 설치 단계는 [NetworkChuck](https://x.com/NetWorkChuck)의 5분 비디오 가이드에서도 설명되어 있습니다
 
 아래는 [보안프로젝트[boanproject]](https://www.youtube.com/@boanproject)의 영상입니다. 간단히 WSL2에서의 Kali Linux GUI를 소개합니다.
 
