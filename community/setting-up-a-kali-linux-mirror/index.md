@@ -192,7 +192,22 @@ archive.kali.org가 동시에 너무 많은 미러로 과부하되지 않도록 
 
 ## 사설 칼리 리눅스 미러 설정 방법
 
-사설 미러를 설정하고 싶다면, 다음과 같은 차이점을 제외하고는 공개 미러와 동일한 도구를 사용할 수 있어요:
+사설 미러를 설정하고 싶다면, 다음과 같은 차이점을 제외하고 공개 미러와 동일한 도구를 사용할 수 있어요:
 
-- 패키지 저장소를 위한 SSH 푸시 미러링을 사용할 수 없어서, 미러 소유 사용자(위 설명에서는 `archvsync`)의 crontab에 `~/bin/ftpsync sync:archive:kali`를 추가해야 해요.
-- 소스 미러로 kali.org가 아닌 미러를 사용해야 해요. 대부분은 공개 rsync 액세스를 제공하니까요(archive.kali.org 서버는 제한됨)
+- 패키지 저장소에 SSH 푸시 미러링을 사용할 수 없어요. 대신 미러 소유 사용자(위 설명에서는 `archvsync`)의 crontab에 `~/bin/ftpsync sync:archive:kali`를 추가해야 해요.
+- kali.org가 아닌 미러를 소스 미러로 사용해야 해요. 대부분의 미러는 공개 rsync 액세스를 제공해요(kali.org 서버는 제한되어 있음).
+
+## 문제 해결
+
+### 오래된 `.~tmp~` 디렉토리
+
+증상: 미러 동기화가 매번 일관되게 실패하고, 오류 로그에 다음과 같은 줄이 표시돼요:
+
+```
+rsync: connection unexpectedly closed (5757 bytes received so far) [generator]
+rsync error: error in rsync protocol data stream (code 12) at io.c(232) [generator=3.2.7]
+```
+
+가능한 원인 및 해결 방법 (Stefan Nikolov 덕분에):
+
+> rsync(`--delay-updates`)에 의해 남겨진 오래된 `.~tmp~` 디렉토리가 있었어요. [...] 우리의 해결 방법은 `.~tmp~` 디렉토리를 수동으로 삭제하고 다시 동기화하는 거예요.
