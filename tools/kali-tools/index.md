@@ -4,14 +4,22 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
+번역 : ["ryuyijun",]
 ---
 
-Users have a few areas where they can look for information about a tool in Kali.
+사용자들은 칼리의 도구에 대한 정보를 찾아볼 수 있는 곳이 몇 군데 있습니다.
 
-## Local information
+## 오프라인 정보
 
-The first place users should look to is whatever local information is available. Through man pages and help output, many uses of tools will be seen. Remember to just run `man tool-name` or `tool-name --help` when you're unsure of a certain flag and you should be good. However, what if you don't know at all what a tool is used for, and you don't learn much from either resource?
+사용자들이 가장 먼저 참고해야 할 곳은 사용 가능한 로컬 정보입니다. man 페이지나 help 출력을 통해 도구의 많은 사용법을 확인할 수 있습니다. 어떤 플래그가 확실하지 않을 때는
+```console
+man (도구이름)
+(도구이름) --help
+```
+를 실행하면 대부분의 경우 충분합니다.
+하지만, 도구가 정확히 어떤 용도로 사용되는지 전혀 모를 때, 그리고 man 페이지나 --help 출력을 통해서도 충분한 정보를 얻지 못했을 때는 어떻게 해야 할까요?
 
-## Online information
+## 온라인 정보
 
-If man pages and help output didn't answer questions, then perhaps [kali.org/tools/](/tools/) will be of assistance. With use case examples, the man page/help output, and descriptions for the tool, there is a lot of information to be gained by looking at a tool. Additionally, each tool's page links to the upstream website which may provide additional information for the tool.
+man 페이지나 help 출력이 답을 해주지 못했다, [kali.org/tools/](/tools/)가 도움이 될 수 있습니다. 이 사이트에서는 사용 예시, man 페이지/도움말 출력, 그리고 도구의 설명 등을 통해 많은 정보를 얻을 수 있습니다.
+또한 각 도구의 페이지에는 상위 웹사이트(공식 사이트) 링크도 포함되어 있어, 해당 도구에 대한 추가적인 정보를 제공받을 수 있습니다.
