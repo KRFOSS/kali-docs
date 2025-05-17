@@ -31,7 +31,7 @@ kali@kali:~$ sudo apt install gnome-software-plugin-flatpak
 
 ![](flatpak-store.png)
 
-#### 테마 지원
+#### 테마
 
 Flatpak 앱이 시스템과 더 일관되게 보이도록 하려면 로컬 테마를 사용하도록 강제할 수 있습니다:
 
