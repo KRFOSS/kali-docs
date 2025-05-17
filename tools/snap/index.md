@@ -1,5 +1,5 @@
 ---
-title: Installing snapd on Kali Linux
+title: 칼리 리눅스에 snap 설치하기
 description:
 icon:
 weight:

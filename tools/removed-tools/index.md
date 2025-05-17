@@ -1,5 +1,5 @@
 ---
-title: Removed Tools From Kali
+title: 칼리에서 삭제된 도구
 description:
 icon:
 weight:

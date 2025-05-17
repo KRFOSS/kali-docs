@@ -1,5 +1,5 @@
 ---
-title: Installing Flatpak on Kali Linux
+title: 칼리리눅스에 flatpak 설치하기
 description:
 icon:
 weight:
