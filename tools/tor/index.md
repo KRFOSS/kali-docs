@@ -4,11 +4,12 @@ description:
 icon:
 weight:
 author: ["gad3r",]
+번역: ["ryuyijun",]
 ---
 
-#### Install Instructions
+#### 설치 방법
 
-Open the terminal then run the following commands:
+터미널을 열고 다음 명령어를 입력하세요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -17,16 +18,16 @@ kali@kali:~$ sudo apt install -y tor torbrowser-launcher
 kali@kali:~$
 ```
 
-As user run the following command:
+그다음 다음 명령어를 입력하세요:
 
 ```console
 kali@kali:~$ torbrowser-launcher
 ```
 
-First time it will download and install Tor Browser including the signature verification.
+처음 명령어를 실행하면 Tor 브라우저를 다운로드하고 설치하며, 서명 검증도 포함됩니다.
 
-Next time it will be used to update and launch Tor Browser.
+그 이후부터는 Tor 브라우저를 업데이트하고 실행하는데 사용됩니다
 
-###### Reference
+###### 참
 
 - [Debian Wiki: TorBrowser](https://wiki.debian.org/TorBrowser)
