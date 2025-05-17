@@ -28,6 +28,6 @@ kali@kali:~$ torbrowser-launcher
 
 그 이후부터는 Tor 브라우저를 업데이트하고 실행하는데 사용됩니다
 
-###### 참
+###### 참고
 
 - [Debian Wiki: TorBrowser](https://wiki.debian.org/TorBrowser)
