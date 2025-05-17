@@ -1,15 +1,16 @@
 ---
-title: Packages That Behave Differently With Non-root
+title: 루트가 아닌 사용자로 실행 시 다르게 동작하는 패키지들
 description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-There are many packages that require privileged access to use. There are also packages that may run without privileged access but lose some of their functionality. This page will be continually updated to include any tools that fall under the latter.
+특권 액세스가 필요한 패키지가 많이 있어요. 또한 특권 액세스 없이도 실행될 수 있지만 일부 기능이 손실되는 패키지도 있어요. 이 페이지는 후자에 속하는 도구들을 포함하기 위해 지속적으로 업데이트될 예정이에요.
 
 ### Nmap
 
-`Nmap` is one of the most common tools that may have issues running non-root vs root. Nmap has many different [scanning techniques](https://nmap.org/book/man-port-scanning-techniques.html) that have a different function and utilize different methods to get results. One example of this is with the `TCP SYN` scan which utilizes raw sockets which are only available to the root user. This scan is the default when you are a privileged user, otherwise the `TCP connect` scan is the default.
+`Nmap`은 루트와 비루트 사용자 간에 실행 시 문제가 발생할 수 있는 가장 일반적인 도구 중 하나예요. Nmap은 다양한 [스캐닝 기술](https://nmap.org/book/man-port-scanning-techniques.html)을 가지고 있으며, 이들은 각기 다른 기능을 수행하고 결과를 얻기 위해 다양한 방법을 활용해요. 이러한 예 중 하나는 `TCP SYN` 스캔으로, 루트 사용자만 사용할 수 있는 raw 소켓을 활용해요. 이 스캔은 특권 사용자일 때 기본값이며, 그렇지 않으면 `TCP connect` 스캔이 기본값이 돼요.
 
-The difference between these two scans is well explained in the official Nmap port scanning techniques page. A short breakdown is that the `SYN` scan ends the handshake early, while the `connect` scan completes it completely. Each has their own benefits or setbacks, so it is good to understand what is happening with each.
+이 두 스캔의 차이점은 공식 Nmap 포트 스캐닝 기술 페이지에 잘 설명되어 있어요. 간략히 말하자면, `SYN` 스캔은 핸드셰이크를 일찍 종료하는 반면, `connect` 스캔은 완전히 완료해요. 각각의 스캔은 고유한 이점이나 단점이 있으므로, 각 스캔에서 어떤 일이 일어나는지 이해하는 것이 중요해요.

@@ -1,23 +1,24 @@
 ---
-title: Enabling Root
+title: 루트 계정 활성화하기
 description:
 icon:
 date: 2021-03-30
 weight:
 author: ["gamb1t",]
 keywords: ["",]
+번역: ["xenix4845"]
 og_description:
 ---
 
-## Permanent vs temporary usage
+## 영구적 사용과 임시적 사용
 
-There are some cases where you may need to use superuser, root, for an extended period of time. In these cases we can easily access the root account with a simple `sudo su` (which will ask for the current user's password), selecting the root terminal icon in the Kali menu, or alternatively using `su -` (which will ask for the root user's password) if you have set a password for the root account that you know of. When finished, `exit` or CTRL+D will take us out of this elevated shell.
+수퍼유저, 즉 루트 권한을 장시간 사용해야 하는 경우가 있어요. 이런 경우에는 간단히 `sudo su` 명령어(현재 사용자의 비밀번호를 요구함), Kali 메뉴에서 루트 터미널 아이콘 선택, 또는 `su -` 명령어(루트 사용자의 비밀번호를 요구함)를 사용하여 루트 계정에 쉽게 접근할 수 있어요. 작업이 끝나면 `exit` 명령어나 CTRL+D를 눌러 권한이 상승된 셸에서 나갈 수 있어요.
 
-However, there may be other times where you may want to use root across multiple sessions without the hassle of elevating privileges. In these situations we will need to install a package and make a few modifications to fully enable the root account for use due to security reasons of keeping the root account disabled by default.
+하지만 여러 세션에 걸쳐 권한 상승 없이 루트 계정을 사용하고 싶은 경우도 있어요. 이러한 상황에서는 보안상의 이유로 기본적으로 비활성화되어 있는 루트 계정을 완전히 활성화하기 위해 패키지를 설치하고 몇 가지 수정을 해야 해요.
 
-## Enabling the root account
+## 루트 계정 활성화하기
 
-The first thing to do is set a root password, which should be different to the current user's password ([in this case `kali`](/docs/introduction/default-credentials/)). We can do this by doing the following:
+먼저 루트 비밀번호를 설정해야 하는데, 이는 현재 사용자의 비밀번호([이 경우 `kali`](/docs/introduction/default-credentials/))와 다르게 설정해야 해요. 다음과 같이 설정할 수 있어요:
 
 ```console
 kali@kali:~$ sudo passwd
@@ -29,14 +30,14 @@ kali@kali:~$
 ```
 
 {{% notice info %}}
-Please note that the password prompt will not display output as you are typing in the password, but it will still register the keystrokes.
+비밀번호 입력 시 화면에 출력되지 않지만, 키 입력은 정상적으로 등록된다는 점을 참고하세요.
 {{% /notice %}}
 
-The next thing we need to decide is if we are wanting to use root via SSH or through the login prompt on whichever desktop environment is installed.
+다음으로 결정해야 할 사항은 SSH를 통해 루트를 사용할지, 또는 설치된 데스크톱 환경의 로그인 프롬프트를 통해 사용할지 여부예요.
 
-### Enabling root for SSH
+### SSH를 위한 루트 활성화
 
-If we look at `/etc/ssh/sshd_config` we will see a **PermitRootLogin** line. We will want to change this line to match our use case:
+`/etc/ssh/sshd_config` 파일을 살펴보면 **PermitRootLogin** 행이 있어요. 우리의 사용 사례에 맞게 이 행을 변경해야 해요:
 
 ```console
 kali@kali:~$ grep PermitRootLogin /etc/ssh/sshd_config
@@ -55,11 +56,11 @@ kali@kali:~$ sudo systemctl restart ssh
 kali@kali:~$
 ```
 
-If we have set up SSH key based login for the root account, then we can simply uncomment the appropriate line and continue on. Otherwise, we should change **PermitRootLogin** to be **yes** which will allow us to input a password.
+루트 계정에 대한 SSH 키 기반 로그인을 설정했다면, 해당 행의 주석을 제거하고 계속 진행하면 돼요. 그렇지 않으면 **PermitRootLogin**을 **yes**로 변경해서 비밀번호를 입력할 수 있게 해야 해요.
 
-### Enabling root for GNOME and KDE login
+### GNOME 및 KDE 로그인을 위한 루트 활성화
 
-We will first install `kali-root-login` to change multiple configuration files that will permit us to login to the root account through the GNOME GDM3 and the KDE login prompt. This step is not necessary when using other desktop environments:
+먼저 `kali-root-login`을 설치해서 GNOME GDM3 및 KDE 로그인 프롬프트를 통해 루트 계정에 로그인할 수 있도록 여러 구성 파일을 변경해야 해요. 다른 데스크톱 환경을 사용하는 경우에는 이 단계가 필요하지 않아요:
 
 ```console
 kali@kali:~$ sudo apt -y install kali-root-login
@@ -93,4 +94,4 @@ Installing /usr/share/kali-root-login/sddm.conf as /etc/sddm.conf
 kali@kali:~$
 ```
 
-We can now log out of our non-root user account and login to root using the password that we set earlier.
+이제 비루트 사용자 계정에서 로그아웃하고 앞서 설정한 비밀번호를 사용하여 루트로 로그인할 수 있어요.

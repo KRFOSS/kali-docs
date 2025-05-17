@@ -136,37 +136,38 @@ kali@kali:~$
 - CAF  - CodeAurora Forum: <https://bye.codeaurora.org/> (where Qualcomm releases source codes & nobody knows Qualcomm CPUs better than Qualcomm) aka optimization!
 -->
 
-We are going to be covering how to install Kali NetHunter on a OnePlus One.
-This guide will use Kali Linux (as the host), a USB cable (to connect), TWRP (for recovery), Magisk (for root access) and LineageOS (Android 11, for the ROM).
+OnePlus One에 Kali NetHunter를 설치하는 방법을 알려줄게요.
+이 가이드에서는 Kali Linux(호스트), USB 케이블(연결), TWRP(복구), Magisk(루트 권한 획득), LineageOS(Android 11, ROM)를 사용해요.
 
-At a higher level, the stages are:
+큰 흐름은 이래요:
 
-- Configure host _(Install packages)_
-- Configure device _(Set options in developer settings)_
-- Unlock the bootloader _(Allow write in bootloader)_
-- Flash recovery ROM _(Install TWRP)_
-- Flash system ROM _(Install LineageOS)_
-- Root device _(Install Magisk)_
-- Install Kali NetHunter<!--Not Rootless or Lite-->
+    호스트 설정하기 (패키지 설치)
 
-- - -
+    기기 설정하기 (개발자 옵션 설정)
 
-## Overview
+    부트로더 잠금 해제하기 (fastboot 쓰기 권한 허용)
 
-_System mode -> Enable developer settings -> Enable debugging/advance power menu + disable update recovery -> Unlock bootloader -> Boot to bootloader -> Replace recovery -> Boot to recovery -> Replace ROM -> Install Magisk -> Install Kali NetHunter -> Boot to system mode -> Update & Configure -> Done!_
+    복구 이미지 플래싱하기 (TWRP 설치)
 
-- - -
+    시스템 ROM 플래싱하기 (LineageOS 설치)
 
-Preparing the host is straight forward as we are using Linux (Kali Linux) on a laptop/desktop<!--aka workstation--> - the steps to cover Windows/macOS/another Android device are not in this guide.
+    기기 루팅하기 (Magisk 설치)
 
-We are also opting for the straight forward method of using a USB cable, rather than networking _(allowing for remote Wi-Fi access)_.
+    Kali NetHunter 설치하기 (Rootless나 Lite 버전 아님)
 
 - - -
 
-Getting the device, OnePlus One, ready is a little more work.
-Depending on the circumstances, it is possible to install Kali NetHunter without losing any data _(or settings)_ on the device. However, this guide is **NOT** that. It will be making the assumption that **all data will be lost**, thus a backup needs to be done before continuing.
+## 개요
 
-We are also going to revert the device back to the default ROM _(CyanogenMod 11S)_ and configurations, losing any alterations previously applied _(aka "stock")_.
+시스템 모드 → 개발자 옵션 활성화 → USB 디버깅/고급 재시작 활성화 + 복구 자동 업데이트 비활성화 → 부트로더 잠금 해제 → 부트로더 모드 진입 → 복구 이미지 교체 → 복구 모드 부팅 → ROM 교체 → Magisk 설치 → Kali NetHunter 설치 → 시스템 모드로 부팅 → 업데이트 및 설정 마무리 → 완료!
+
+호스트 설정은 어렵지 않아요. Kali Linux를 사용하는 데스크탑이나 노트북 환경이라서 따로 복잡한 준비는 필요하지 않아요.Windows나 macOS, 또는 다른 Android 기기를 사용하는 방법은 이 가이드에 포함되지 않았어요.
+
+그리고 우리는 네트워크 연결 방식(예: Wi-Fi 원격 설치)이 아니라 USB 케이블을 이용한 간단한 방식으로 진행할 거예요. 안정적이고 직관적인 방법이에요.
+
+기기 준비는 조금 더 손이 가요.상황에 따라, 기기에 있는 데이터를 그대로 유지한 채 Kali NetHunter를 설치할 수도 있지만,이 가이드는 그런 방식이 아니에요. 이 가이드는 모든 데이터가 삭제될 것을 전제로 작성되었어요.그러니까 중요한 데이터가 있다면 반드시 백업을 먼저 해두세요.
+
+그리고 기기를 초기 상태(CyanogenMod 11S, 기본 ROM과 설정)로 되돌릴 거예요.이전에 해둔 커스터마이징이나 설정들은 모두 사라지게 돼요. (즉, 공장 초기화처럼 깨끗한 상태로 돌아가는 거예요)
 
 <!--
 ```console
@@ -210,37 +211,45 @@ This has been automated using `OnePlusOne-OnlyTamperBitToggle.zip` (or `OnePlusO
 
 - - -
 
-Besides the normal booting of an Android device (this is called "system"), depending on the manufacturer, it may have at least another two maintenance modes - recovery and bootloader/fastboot mode<!--Not sure the difference between the two terms?-->. _There are other modes, such as Download/Odin, but they are most commonly found on Samsung or LG devices._
+일반적으로 안드로이드 기기는 '시스템 모드'(system mode)로 부팅되지만, 제조사에 따라 최소 두 가지 이상의 유지보수 모드가 추가로 있을 수 있어요. 대표적으로는 복구 모드(recovery mode)와 부트로더/패스트부트 모드(bootloader/fastboot mode)가 있어요.<!--Not sure the difference between the two terms?--> *또 다른 모드로는 다운로드 모드(Download Mode)나 오딘 모드(Odin Mode) 등이 있는데, 이런 모드는 삼성이나 LG 기기에서 주로 사용돼요.*
 
-It is possible to access the OnePlus One maintenance modes by pressing keys during start up (`Power` + `Volume Down` + = Recovery, `Power` + `Volume Up` = bootloader)<!--As soon as the screen turns on and the device vibrates, let go. Alt is to use advance power menu via developer settings-->.
+OnePlus One은 전원을 켤 때 특정 키를 누르면 이런 유지보수 모드로 들어갈 수 있어요.
 
-These maintenance modes give us the ability to replace recovery and system ROMs with custom options.
+* `전원 버튼 + 볼륨 다운` → 복구 모드로 진입
+* `전원 버튼 + 볼륨 업` → 부트로더 모드로 진입<!--As soon as the screen turns on and the device vibrates, let go. Alt is to use advance power menu via developer settings-->
 
-- - -
+이런 유지보수 모드를 활용하면, 기본 복구나 시스템 ROM을 커스텀 ROM으로 바꿀 수 있어요.
 
-By getting into the bootloader, we are able to get more lower level access over the device. When the bootloader is unlocked, it gives us write access to the partitions, so we can now install a different recovery option by completely replacing the recovery partition on the device<!--Or we could replace the bootloader itself as we can flash/replace ANY partitions on the device - this is what `-fastboot` does-->. ROM/Stock recoveries, like CyanogenMod, LineageOS and OxygenOS, often do not give as much flexibility in their features/options, such as allowing us to disable certain checks or wiping all partitions, which custom recovery's do (like [TeamWin Recovery Project (TWRP)](https://twrp.me/) or [OrangeFox](https://orangefox.download/))<!--Over the years, there have been many other projects which are no longer being maintained, such as [CyanogenMod Recovery (CMR)](https://github.com/CyanogenMod/android_bootable_recovery) or [ClockworkMod Recovery (CWM/CWMR)](https://www.clockworkmod.com/)-->. This is due to the fact that most stock recoveries are designed with the idea of recovering their ROM and being as simple and stable to use as possible - they do not require the advance power user features<!--also able to disable signature checks-->.
-Whilst the bootloader allows for low level access to the device, its functionally is simple (as that's how its designed to be). For more complicated maintenance tasks, using recovery mode is required.
+---
 
-- - -
+부트로더 모드에 들어가면 기기에 더 낮은 수준에서 접근할 수 있어요. 부트로더 잠금을 해제하면 파티션에 대한 쓰기 권한이 생기기 때문에, 복구 파티션을 완전히 교체해서 다른 복구 툴(TWRP 등)을 설치할 수 있어요.<!--Or we could replace the bootloader itself as we can flash/replace ANY partitions on the device - this is what `-fastboot` does--> CyanogenMod, LineageOS, OxygenOS 같은 기본 ROM의 복구 모드는 대부분 기능이 제한되어 있어요. 일부 체크 기능을 끄거나 전체 파티션을 초기화하는 등의 고급 기능은 커스텀 복구에서만 가능하거든요. 대표적으로는 [TWRP (TeamWin Recovery Project)](https://twrp.me/)나 [OrangeFox](https://orangefox.download/)가 있어요.<!--Over the years, there have been many other projects which are no longer being maintained, such as [CyanogenMod Recovery (CMR)](https://github.com/CyanogenMod/android_bootable_recovery) or [ClockworkMod Recovery (CWM/CWMR)](https://www.clockworkmod.com/)-->
 
-Using recovery mode allows for a "factory reset", which wipes everything that is writable by a normal user (`/data` & `/cache` partitions, and clears the RAM)<!--`/system`, `/boot`, `/recovery` require 'root'-->. Depending on the recovery mode, you may also be able to wipe the `/media` & `/system` partitions.
-It is also possible to install/apply/run updates/packages/scripts using sideloading via adb/USB, or the internal/SDcard storage (such as Kali NetHunter!). This is also how we can upgrade/downgrade our Android version by flashing another ROM<!--System or recovery-->.
-Depending on [LineageOS recovery mode version](https://github.com/LineageOS/android_bootable_recovery), it may also be able to enable adb and view logs.
+기본 복구는 단순히 기존 ROM을 복원하기 위해 설계되어 있어서 사용은 간편하지만 고급 기능은 거의 없어요.<!--also able to disable signature checks--> 반면, 부트로더는 더 낮은 수준의 작업이 가능하지만 기능은 제한적이에요. 그래서 복잡한 유지보수 작업에는 복구 모드를 사용하는 게 좋아요.
 
-However, using a TWRP recovery mode, you can:
+---
 
-- [x] Do everything that LineageOS recovery mode offers
-- Installing/applying/running
-  - [x] Enable/disable various signature checks when installing/applying
-  - [x] Queue up multiple updates to be installed at once
-- Partitions
-  - [x] Get overview of partition usage
- - [x] Format any partition
- - [x] Repair/resize partitions
- - [x] Change partitions file system
- - [x] Backup and restore partitions (aka complete device backup)
- - [x] Mount any partition
-- [x] Terminal & file manager access
+복구 모드를 사용하면 '공장 초기화'(factory reset)를 할 수 있어요. 일반 사용자 영역인 `/data`와 `/cache` 파티션을 모두 지우고, RAM도 초기화돼요.<!--`/system`, `/boot`, `/recovery` require 'root'--> 복구 모드 종류에 따라서는 `/media`나 `/system` 파티션까지 지울 수 있는 경우도 있어요.
+
+또한 ADB/USB나 내부 저장소(SD 카드 포함)를 통해 업데이트나 패키지, 스크립트를 설치하거나 실행할 수도 있어요. Kali NetHunter 설치도 이 방법으로 가능해요. 이런 방식으로 안드로이드 버전을 업그레이드하거나 다운그레이드할 수도 있어요.<!--System or recovery-->
+
+LineageOS 복구 모드의 버전에 따라 ADB 연결을 허용하거나 로그를 확인할 수도 있어요.([관련 링크](https://github.com/LineageOS/android_bootable_recovery))
+
+그런데 TWRP 복구 모드를 쓰면 할 수 있는 게 훨씬 많아져요:
+
+* 기본 LineageOS 복구에서 가능한 모든 작업 수행 가능
+* 설치/적용 관련
+
+  * 설치 시 서명 체크 비활성화 가능
+  * 여러 업데이트 파일을 한꺼번에 설치 가능
+* 파티션 관련
+
+  * 전체 파티션 사용량 확인
+  * 파티션 포맷
+  * 파티션 복구 또는 리사이즈
+  * 파일 시스템 변경
+  * 전체 파티션 백업 및 복원 (전체 기기 백업)
+  * 원하는 파티션 마운트 가능
+* 터미널 & 파일 관리자 기능도 제공돼요
 
 <!--
   Android version support: https://twrp.me/faq/howtocompiletwrp.html
@@ -254,14 +263,16 @@ However, using a TWRP recovery mode, you can:
 - - -
 
 <!--Should this be here or lower down in the top section?-->
-Inside of the bootloader, it is possible to replace partition(s) using a binary image(s), giving a direct 1:1 copy, however, it lacks the the ability to be dynamic by running pre/post tasks scripts<!--which happens when installing from a ".ZIP" as `updater-script` will be executed (not sure about .img) - found this a confusing term, "installing a zip"-->.
+부트로더 모드에서는 바이너리 이미지 파일을 이용해 파티션을 직접 1:1로 교체할 수 있어요. 하지만 이 방식은 설치 전이나 후에 실행되는 스크립트 같은 동적인 작업은 할 수 없어요<!--which happens when installing from a ".ZIP" as `updater-script` will be executed (not sure about .img) - found this a confusing term, "installing a zip"-->.
 <!--
 - boot-patcher/META-INF/com/google/android/update-binary) - Kali NetHunter kernel installer (backend)
 - nethunter/META-INF/com/google/android/update-binary) - Kali NetHunter part (frontend)
 - uninstaller/META-INF/com/google/android/update-binary) - Kali NetHunter uninstaller
 -->
-As Kali NetHunter is not a ROM but an "[add-on](https://web.archive.org/web/20230315170356/https://wiki.lineageos.org/devices/bacon/install)"<!--Overlay? Injects?-->, it takes full advantage of this. Kali NetHunter is a series/bundle of apps and scripts to alter the device into a certain state.
-Because of this, we need to match the Kali NetHunter kernel, to the Android system ROM kernel and version that is installed on the device.
+Kali NetHunter는 ROM이 아니라 [애드온](https://web.archive.org/web/20230315170356/https://wiki.lineageos.org/devices/bacon/install) 형식이에요.<!--Overlay? Injects?--> 그래서 이를 최대한 활용할 수 있어요.
+NetHunter는 여러 앱과 스크립트 묶음으로 구성되어 있고, 기기를 특정 상태로 바꿔주는 역할을 해요.
+
+그래서 중요한 점은, 기기에 설치된 안드로이드 시스템의 커널과 버전에 맞는 Kali NetHunter 커널을 사용해야 한다는 거예요.
 
 <!--
 The images needed to flash a system ROM via the bootloader are not as common as they once were (especially with LineageOS, this was more of apart of CyanogenMod).
@@ -276,10 +287,11 @@ These image often can be identified/indicated from their filename, by having `-f
 <!-- ### Flash Path -->
 <!--Not sure if this should at the start/top or with the commands between: Flash back to stock (mostly)/Flash back to stock (mostly)-->
 
-Here we can now flash ROMs, either system or recovery. By flashing custom ROMs, we can upgrade our Android version to a newer version or do a revert back to stock default (which is different to a factory wipe).
+이제 여기서 시스템이나 복구용 ROM을 플래싱할 수 있어요. 커스텀 ROM을 플래싱하면 안드로이드 버전을 최신으로 업그레이드하거나, 기본 출고 상태의 ROM으로 되돌릴 수도 있어요. (이건 공장 초기화와는 달라요)
 
-Upon doing various testing at this stage, depending on the desired ROM/Android version, may require multiple flashing steps to jump/hop each upgrade. _It may not be possible to jump too far ahead in versions._
-Example:
+여러 가지 테스트를 해본 결과, 원하는 안드로이드 버전이나 ROM에 따라 중간 단계들을 거쳐야 할 수도 있어요. 즉, 너무 높은 버전으로 한 번에 건너뛰는 건 어려울 수 있어요.
+
+예를 들어 이렇게 단계적으로 넘어가야 할 수도 있어요:
 
 ```plaintext
 --------------------    ----------------------    ------------------    ---------------------
@@ -312,14 +324,14 @@ An example of this; CM 11, has disabled "update recovery partition". If upgradin
 _Settings may get carried over when updating vs fresh install_
 -->
 
-Breaking this down a bit, our flash path could be:
+조금 더 나눠서 정리해 보면, 우리의 플래싱 경로는 다음과 같아요:
 
-- [ ] Using bootloader, we can flash CyanogenMod 11.0 (CM 11)
-- Then using recovery we can **either**:
-  - [ ] Flash CM 12.1.x _OR_ 13.1.x
-  - [ ] Flash CM 13.0 _OR_ 14.1, but would require us to wipe the `/data` partition before we are able to flash<!-- $ adb shell 'twrp wipe data' -->
-- [ ] Afterwards, able to flash LineageOS 17.1 (LOS 17.1)
-- [ ] Finally, flash LOS 18.1, but it requires us to wipe the `/data` partition before we reboot<!--wipe /data either before or after flashing LOS - doesn't matter, otherwise we get a black unresponsive app-like screen straight after the first time install wizard-->
+- [ ] 부트로더를 이용해 CyanogenMod 11.0 (CM 11)을 플래싱할 수 있어요
+- 그리고 복구 모드를 이용해서 **다음 중 하나를** 진행할 수 있어요:
+  - [ ] CM 12.1.x 또는 13.1.x 플래싱
+  - [ ] CM 13.0 또는 14.1 플래싱 → 이 경우에는 `/data` 파티션을 지운 뒤에만 설치할 수 있어요 <!-- $ adb shell 'twrp wipe data' -->
+- [ ] 이후에는 LineageOS 17.1 (LOS 17.1)을 플래싱할 수 있어요
+- [ ] 마지막으로 LOS 18.1을 플래싱하는데, 이때는 재부팅 전에 `/data` 파티션을 반드시 지워야 해요 <!--wipe /data either before or after flashing LOS - doesn't matter, otherwise we get a black unresponsive app-like screen straight after the first time install wizard-->
 
 <!--
   If trying to flash CM 13.0 and `/data` hasn't been wiped/format, flashing will fail with the following error:
@@ -413,11 +425,14 @@ adb push cm-13.1.2-ZNH2KAS3P0-bacon-signed-8502142fdc.zip /sdcard/Download/cm-13
 ```
 -->
 
-There is an element of trial and error here. Best of luck!
+여기에는 시행착오가 조금 있을 수 있어요. 잘 되길 바랄게요!
 
-- - -
+---
 
-From here, we can then aim to get superuser access (aka "root"), which would previously be locked away in Android, and just like in Linux, this is the highest level of privilege. We now have complete freedom and control over the device. There has been various different solutions with the aim of getting root, such as [SuperSU](https://chainfire.eu/articles/995/SuperSU_v2.82-SR5_and_suhide_v1.09_released), [APatch](https://apatch.dev/), [KernelSU](https://kernelsu.org/) or [Magisk](https://github.com/topjohnwu/Magisk).
+이제부터는 슈퍼유저 권한(즉, root 권한)을 얻는 걸 목표로 할 수 있어요. 안드로이드에서는 기본적으로 잠겨 있던 권한인데, 리눅스에서의 루트와 마찬가지로 가장 높은 권한이에요.  이제 우리는 기기를 완전히 자유롭게, 원하는 대로 제어할 수 있게 되는 거예요.
+
+이러한 루트 권한을 얻기 위해 여러 가지 방법이 있었어요. 예를 들어 [SuperSU](https://chainfire.eu/articles/995/SuperSU_v2.82-SR5_and_suhide_v1.09_released), [APatch](https://apatch.dev/), [KernelSU](https://kernelsu.org/), 그리고 [Magisk](https://github.com/topjohnwu/Magisk) 같은 도구들이 있어요.
+
 <!--
 **SuperSU**:
   - Android 2.x -> 10.x? (Can't find this confirmed online, I just had issues!)
@@ -447,12 +462,12 @@ From here, we can then aim to get superuser access (aka "root"), which would pre
 
 - - -
 
-This means we are finally are in a place to start to install Kali NetHunter on the device!
-We can do this either from recovery mode (via TWRP) or system mode (via Magisk).
+이제 마침내 Kali NetHunter를 기기에 설치할 준비가 끝난 거예요!  
+설치는 복구 모드(TWRP 사용)를 통해 할 수도 있고, 시스템 모드(Magisk 사용)에서 진행할 수도 있어요.
 
 - - -
 
-Once Kali NetHunter is on the device, we can use the new app store to make sure everything is up-to-date and then run the main NetHunter app to complete the first time setup.
+Kali NetHunter가 기기에 설치되면, 새로운 앱 스토어를 이용해 모든 구성 요소가 최신 상태인지 확인할 수 있어요. 그다음 NetHunter 메인 앱을 실행해서 처음 설정을 마무리하면 돼요.
 
 - - -
 
@@ -497,15 +512,18 @@ Once Kali NetHunter is on the device, we can use the new app store to make sure 
 
 - - -
 
-## Guide
+## 가이드
 
-### Configure Host
+### 호스트 설정하기
 
-The first thing is to install packages on our host (Kali Linux) in order to communicate and interact with the mobile device (OnePlus One) when in various different states.
-We will be using [Android Debug Bridge (ADB)](https://developer.android.com/tools/adb) and fastboot. This is because:
+가장 먼저 할 일은 호스트(Kali Linux)에 필요한 패키지를 설치하는 거예요.  
+이렇게 해야 OnePlus One과 다양한 상태(복구 모드, 시스템 모드 등)에서 연결하고 상호작용할 수 있어요.
 
-- adb lets you connect directly to your Android device and and perform a variety of operations when in recovery or system (aka "default normal operation")
-- fastboot lets you install (flash) Android and interact with the device's bootloader
+우리는 [ADB(Android Debug Bridge)](https://developer.android.com/tools/adb)와 fastboot를 사용할 거예요.  
+각 도구는 다음과 같은 역할을 해요:
+
+- **adb**는 안드로이드 기기와 직접 연결해 복구 모드나 시스템 모드(일반적인 사용 상태)에서 다양한 작업을 실행할 수 있어요  
+- **fastboot**는 안드로이드를 설치(플래싱)하거나, 부트로더 모드에서 기기와 직접 상호작용할 수 있게 해줘요
 
 <!--
 ```plaintext
@@ -529,41 +547,46 @@ kali@kali:~$
 
 - - -
 
-### Configure Device
+### 기기 설정하기
 
-_Using developer options is not a hard requirement, but is highly recommended._
+_개발자 옵션을 반드시 설정해야 하는 건 아니지만, 설정해두는 걸 강력히 추천해요._
 
-Next on the OnePlus One, we can:
+이제 OnePlus One에서 다음과 같은 설정을 해볼게요:
 
-- Allow the host to communicate with the device, which is done by enabling "Android debugging"<!--Easier to automate, able to install Magisk later-->
-- Easier accesses the device's maintenance modes, which is done by enabling "Advanced restart"<!--Easier than pressing physical buttons on the device-->
-- Stop Android updates from reverting recovery back to stock, which is done by disabling "Update recovery"<!--Allow TWRP to be installed/kept, otherwise flashing may not work-->
-  - Failing to-do this may result in TWRP not being able to install<!--Depending on the ROM and version, you may be prompt during first-time install wizard to enable/disable this. This value may carry depending if you do a "fresh" install vs upgrade-->
+- 호스트(PC)와 기기가 통신할 수 있도록 **Android 디버깅**을 켜주세요<!--Easier to automate, able to install Magisk later-->
+- 유지보수 모드에 쉽게 진입할 수 있도록 **고급 재시작**을 켜주세요<!--Easier than pressing physical buttons on the device-->
+- Android 업데이트가 TWRP 복구를 덮어쓰지 않도록 **복구 업데이트**를 꺼주세요<!--Allow TWRP to be installed/kept, otherwise flashing may not work-->
+  - 이걸 끄지 않으면 TWRP가 제대로 설치되지 않을 수 있어요<!--Depending on the ROM and version, you may be prompt during first-time install wizard to enable/disable this. This value may carry depending if you do a "fresh" install vs upgrade-->
 
-For developer options to be visible:
+개발자 옵션을 보이게 하려면:
 
-- Settings -> About phone -> Build number: Press/tap 7 times
+- **설정 > 휴대전화 정보 > 빌드 번호**를 7번 연속으로 누르세요
 
-Afterwards, go into the Developer options, _which depending on the Android version_:
+이후 안드로이드 버전에 따라 개발자 옵션은 다음 위치에 있어요:
 
-- Settings -> Developer options                          (Android 8 "Oreo"/LineageOS 15 or lower)
-- Settings -> System -> Advanced -> Developer options    (Android 9 "Pie"/LineageOS 16 or higher)
+- Android 8 (Oreo) / LineageOS 15 이하:  
+  **설정 > 개발자 옵션**
+- Android 9 (Pie) / LineageOS 16 이상:  
+  **설정 > 시스템 > 고급 > 개발자 옵션**
 
-Then either scroll down or search for:
+아래 항목들을 찾아서 설정해 주세요:
 
-- [ ] Android debugging: **Enable**
-  - Android 11 "Eleven"/LineageOS 18, this has been renamed to "USB Debugging"<!--May also be on lower versions-->
-- [ ] Advanced restart: **Enable**
-  - Android 11 "Eleven"/LineageOS 18, this has been moved to: Settings -> System -> Advanced -> Gestures -> Power menu -> Advance restart
-- [ ] Update recovery: **Disable**
-  - Android 11 "Eleven"/LineageOS 18, this has been moved to: Settings -> System -> Updater -> Preferences -> Update recovery<!--Searching doesn't show it up too!-->
+- [ ] **Android 디버깅** 켜기  
+  - Android 11(LineageOS 18)에서는 'USB 디버깅'으로 표시돼요<!--May also be on lower versions-->
+- [ ] **고급 재시작** 켜기  
+  - Android 11(LineageOS 18)에서는:  
+    **설정 > 시스템 > 고급 > 제스처 > 전원 메뉴 > 고급 재시작**에 있어요
+- [ ] **복구 업데이트** 끄기  
+  - Android 11(LineageOS 18)에서는:  
+    **설정 > 시스템 > 업데이터 > 설정 > 복구 업데이트**<!--Searching doesn't show it up too!-->
 
-_If there is already a USB cable attached to the device, you may be prompted to trust the RSA key fingerprint._
+_기기에 이미 USB 케이블이 연결되어 있다면 RSA 지문 인증 요청이 뜰 수 있어요._
 
-- - -
+---
 
-If you haven't already attached the USB cable from the host to the device, go ahead now.
-Since enabling Android debugging, as soon as the host tries to communicate with the device for the first time, you will then be prompted to allow the connected device to interact with the device. You will need to trust the RSA key fingerprint. _You may want to always trust it to stop being repeatedly asked._
+아직 USB 케이블을 연결하지 않았다면 지금 연결해 주세요.  
+Android 디버깅을 켰기 때문에, 호스트가 기기와 처음 통신하려 할 때 RSA 지문을 신뢰할지 묻는 창이 나타나요.  
+‘항상 허용’에 체크하면 반복적으로 묻지 않아서 편해요.
 
 <!--
 Otherwise:
@@ -578,8 +601,9 @@ kali@kali:~$
 
 - - -
 
-Afterwards, we should be able to communicate with the device.
-Starting with `adb`, as the device should be normal/system operational state, we will check to see what devices we can see:
+이제 기기와 정상적으로 통신이 가능해야 해요. 먼저 `adb`를 사용해서, 기기가 시스템(정상 부팅) 상태에 있는지 확인해볼게요.
+
+adb 명령어를 실행해서 연결된 기기를 확인해보세요:
 
 ```console
 kali@kali:~$ adb devices
@@ -591,16 +615,20 @@ dea044c9    device
 kali@kali:~$
 ```
 
-We can see there is a device attached, which has the serial number of `dea044c9`.
+연결된 기기가 하나 보이네요. 시리얼 넘버는 `dea044c9`예요.
 
-_The first time running in hosts/Kali's session, the daemon should start up._
+_처음 Kali에서 adb를 실행하면, 백그라운드에서 데몬이 자동으로 시작될 거예요._
 
 - - -
 
-### Unlock The Bootloader
+### 부트로더 잠금 해제하기
 
-Next we want to put the device into bootloader mode, as this allows us to unlock the device, with the end result being more control and freedom (such as write access to be able to flash ROMs).
-We can now reboot either using the new power options menu (press and hold the power button -> tap restart -> bootloader) or run:
+이제 기기를 부트로더 모드로 전환할 거예요.  
+
+이 모드는 기기의 잠금을 해제해서 ROM을 플래싱할 수 있는 쓰기 권한을 포함한 더 많은 제어 권한을 얻게 해줘요.
+
+전원 버튼을 길게 눌러 **고급 재시작 > 부트로더**를 선택하거나, 아래 명령어를 실행해서 부트로더 모드로 재부팅할 수 있어요:
+
 
 ```console
 kali@kali:~$ adb reboot bootloader
@@ -609,11 +637,11 @@ kali@kali:~$
 
 <!-- NOT $ adb reboot fastboot -->
 
-The device should now restart and say "Fastboot Mode" on the screen.<!--bootloader/fastboot mode - Not sure the difference between the two terms?-->
+기기가 이제 재부팅되면서 화면에 “Fastboot Mode”라는 문구가 나타날 거예요.<!--bootloader/fastboot mode - Not sure the difference between the two terms?-->
 
 - - -
 
-Making sure we can still interact, we can check with `fastboot`, as we are now in the bootloader:
+부트로더 모드에서도 여전히 기기와 잘 연결되었는지 확인하기 위해 `fastboot` 명령어를 실행해 볼게요:
 
 ```console
 kali@kali:~$ fastboot devices
@@ -622,11 +650,11 @@ dea044c9     fastboot
 kali@kali:~$
 ```
 
-Great! A valid response and got the same device serial number.
+좋아요! 제대로 응답이 왔고, 아까와 동일한 시리얼 번호가 보이네요.
 
 - - -
 
-Let's now check the status of the device:
+이제 기기의 현재 상태를 확인해 볼게요:
 
 ```console
 kali@kali:~$ fastboot oem device-info
@@ -640,11 +668,11 @@ Finished. Total time: 0.005s
 kali@kali:~$
 ```
 
-We can see the device's bootloader is "locked". We need to unlock it, which will give us write access to partitions, in order to flash a different ROM.
+지금 기기의 부트로더가 '잠금 상태(locked)'인 걸 확인할 수 있어요. 부트로더 잠금을 해제하면 파티션에 대한 쓰기 권한을 얻을 수 있어서 다른 ROM을 플래싱할 수 있게 돼요.
 
 - - -
 
-To unlock the bootloader, we can issue:
+부트로더 잠금을 해제하려면, 아래 명령어를 입력하면 돼요:
 
 ```console
 kali@kali:~$ fastboot oem unlock
@@ -660,11 +688,11 @@ kali@kali:~$ fastboot flashing unlock  <-- isn't working (not sure if device or 
 ```
 -->
 
-Depending on the device state, ROM and version, it may:
+기기의 상태나 설치된 ROM, 버전에 따라 다음과 같은 반응이 있을 수 있어요:
 
-- Reboot into recovery mode
-- Reboot back into normal/system operational state - if the device was previously locked and without TWRP recovery
-- Nothing - such as if the device was already unlocked and you re-ran the same command
+- 복구 모드로 자동 재부팅될 수 있어요  
+- 또는 일반적인 시스템 모드로 다시 재부팅될 수도 있어요 (기기가 이전에 잠겨 있었고, TWRP가 설치되지 않은 경우)  
+- 아무 일도 일어나지 않을 수도 있어요 (예: 이미 부트로더가 잠금 해제된 상태에서 같은 명령어를 다시 실행한 경우)
 
 <!--
 If the device, was previously locked, thus changing state, the device will restart again.
@@ -673,7 +701,7 @@ If the device was already unlocked and you re-ran the same command, nothing!
 
 - - -
 
-### Flash Back To Stock (Mostly)
+### (거의) 출고 상태로 되돌리기
 
 <!--
 Author note:
@@ -685,14 +713,22 @@ Author note:
     - Thus I was unable to use CM 13 as a starting ROM
 -->
 
-During testing, we had more success using fastboot image as a starting point, doing a complete re-image of the device (not to be confused with factory reset). This meant **every** partition was changed. This may be overkill for some people, however as a result it means the steps are repeatable and consistent, therefore reliable and stable.
+테스트해본 결과, 기기를 완전히 새로 이미지로 덮어쓰는 fastboot 이미지를 시작점으로 쓰는 방식이 더 안정적이었어요.  
+(이건 공장 초기화와는 달라요!) 이 방법은 **모든** 파티션이 새롭게 덮어쓰기 되기 때문에 좀 과하다고 느껴질 수 있지만,  
+과정이 반복 가능하고 안정적이어서 결과적으로 더 믿을 수 있었어요.
 
-Regardless of the current Android version, thanks to fastboot images we are going downgrade to shipped ROM.
-At the same time, going to flash [TWRP recovery (v3.6.0_9-0)](https://twrp.me/oneplus/oneplusone.html) rather than using CyanogenMod's recovery.
+현재 안드로이드 버전이 무엇이든 관계없이, fastboot 이미지를 이용해 출고 당시 ROM으로 다운그레이드할 수 있어요.  
+이때 복구 모드는 CyanogenMod의 것이 아닌 [TWRP (v3.6.0_9-0)](https://twrp.me/oneplus/oneplusone.html)를 설치할 거예요.
 
-Turn off the device, and remove any USB cables. Turn on the device by pressing & holding power and + volume up. When the screen turns on and device vibrates, let go.
-It should shortly show "fastboot mode" on the screen.
-Re-attach the USB cable back in and run the following commands:
+이제 기기를 끄고, USB 케이블도 분리하세요.  
+
+그 다음 전원 버튼과 볼륨 업 버튼을 동시에 길게 눌러 전원을 켜세요.  
+
+화면이 켜지고 진동이 울리면 버튼을 떼면 돼요.  
+
+잠시 후 화면에 “fastboot mode”가 표시될 거예요.
+
+이제 USB 케이블을 다시 연결하고, 아래 명령어들을 실행하세요:
 
 ```console
 kali@kali:~$ mkdir -pv cm/ && cd cm/ && unzip ../cm-11.0-XNPH44S-bacon-signed-fastboot.zip
@@ -719,7 +755,8 @@ kali@kali:~$ fastboot boot twrp-3.6.2_9-0-bacon.img
 ```
 <!--Removed all output-->
 
-_Note, we have the 64GB OnePlus One model, toggle comments if doing 16GB device!_
+_참고: 여기에서는 64GB 모델 기준으로 설명하고 있어요. 16GB 모델을 사용 중이라면 주석 처리를 바꿔서 해당 명령어를 사용하세요!_
+
 
 <!--
 NOTE:`fastboot boot`vs `fastboot reboot`
@@ -738,7 +775,7 @@ When at the installation wizard, turn off the device (either press or hold the p
 _If you did complete the installation wizard, and enabled developer mode and advance power menu just press the power button, tap reboot -> recovery._
 -->
 
-If everything went well, you should shortly see TWRP splash screen<!--takes a little longer than bootloader mode-->:
+모든 과정이 잘 진행됐다면, 곧 TWRP 시작 화면이 나타날 거예요<!--takes a little longer than bootloader mode-->:
 
 ```console
 kali@bdesktop:~$ adb devices
@@ -750,20 +787,18 @@ kali@bdesktop:~$
 
 - - -
 
-### Upgrade System ROM (Update Android Version)
+### 시스템 ROM 업그레이드하기 (안드로이드 버전 업데이트)
 
-The plan is to go from CM 11 to CM 13.1.2 to LOS 17.1 to finally LOS 18.1 _(Android 4.4.4 "KitKat" -> Android 6 "Marshmallow" -> Android 10 "Ten" -> Android 11 "eleven")_.
+이번에 진행할 순서는 CM 11 → CM 13.1.2 → LOS 17.1 → 최종적으로 LOS 18.1이에요 _(Android 4.4.4 "KitKat" → Android 6 "Marshmallow" → Android 10 "Ten" → Android 11 "Eleven")_
 
 <!--
 Unfortunately, whilst we are in recovery mode, we cannot install Magisk at the same time before doing a reboot.
 Note, at the time of writing, v28 is the latest stable release, however installing Magisk v28 via recovery/TWRP will fail later - v27 works without issues.
 -->
 
-During testing, it was found that when LOS 18.1 required `/data` to be wiped, otherwise after the first time installation wizard completed, the phone would become unresponsive (only the power button worked, screen would be on but black, like a crashed app, and phone would vibrate, but no actions taken).
-The ordering of flashing LOS 18.1 and wiping `/data` does not matter, as long as its done before the device is restarted.
+테스트 중 확인된 바로는 LOS 18.1을 설치할 때 `/data`를 반드시 초기화해야 했어요, 그렇지 않으면 초기 설정 마법사가 끝난 뒤 기기가 먹통이 되는 문제가 있었어요 (전원 버튼만 작동하고, 화면은 검게 유지되며 진동만 울리는 상태). LOS 18.1을 플래싱하는 순서와 `/data`를 지우는 순서는 상관없지만, 반드시 재부팅 전에 초기화를 완료해야 해요.
 
-Using TWRP, by default it will have ABD enabled (unlike CyanogenMod/LineageOS recovery), so we can straight away start to upload (aka push) files to the device!<!--Can only `adb sideload` with CM 13, can't `adb push`-->
-After uploading the files, we can use the screen and tap away, or we can stick to [command line](https://twrp.me/faq/openrecoveryscript.html):
+TWRP에서는 기본적으로 ADB가 활성화되어 있어서(CyanogenMod나 LineageOS의 복구 모드와는 다르게) 기기에 파일을 바로 업로드(push)할 수 있어요.<!--Can only `adb sideload` with CM 13, can't `adb push--> 파일을 올린 뒤에는 직접 화면을 터치해서 설치하거나, [커맨드라인](https://twrp.me/faq/openrecoveryscript.html)을 통해 설치할 수도 있어요.
 
 ```console
 kali@kali:~$ adb push cm-13.1.2-ZNH2KAS3P0-bacon-signed-8502142fdc.zip /sdcard/Download/cm-13.1.2.zip; adb shell 'twrp install /sdcard/Download/cm-13.1.2.zip'
@@ -778,23 +813,25 @@ kali@kali:~$ adb reboot
 
 <!--Removed all output-->
 
-_Note, we did not need to reboot in-between flashing/upgrades._
+_참고: 플래싱이나 업그레이드 중간에 재부팅할 필요는 없었어요._
 
-After the device restarts, apps will start to be optimized again. Once complete, the first time installation wizard will be shown. After answering the wizards questions, we are back in Android and see the launcher (aka home screen).
+기기가 재부팅되면 앱 최적화 과정이 다시 시작돼요. 최적화가 완료되면 초기 설정 마법사가 나타나고, 설정을 마친 뒤에는 안드로이드 홈 화면(런처)로 돌아오게 돼요.
 
 - - -
 
-### Root Device
+### 기기 루팅하기
 
-The last thing before installing Kali NetHunter, we need to be able to get root access on the device. In order to-do this, we will be using Magisk.
-Magisk can be installed by either using recovery/TWRP or installing via `adb` (developer settings).
-Both methods have their advantages and disadvantages; `adb` will require us to enable developer settings once again as well as generate an image file to be flashed, however recovery/TWRP will require Internet access on the device.
-_Note: At the time of writing, v28 is the latest stable version. Using `adb` its possible to install any version, but in our testing via recovery/TWRP was failing to install v28 - needed to be v27_<!--Upon trying to download the rest of the external data, would just "crash"-->.
+Kali NetHunter를 설치하기 전에 마지막으로 해야 할 일은, 기기에서 루트 권한을 얻는 거예요.  
+이를 위해 우리는 Magisk를 사용할 거예요.  
+Magisk는 복구 모드(TWRP)를 통해 설치할 수도 있고, `adb`(개발자 옵션)를 통해 설치할 수도 있어요.  
+두 방법 모두 장단점이 있어요. `adb`를 사용할 경우 개발자 옵션을 다시 활성화해야 하고, 플래싱할 이미지 파일도 따로 생성해야 해요. 반면 복구 모드에서는 기기에 인터넷 연결이 필요해요.  
+_참고: 이 글을 작성하는 시점에서 v28이 최신 안정 버전이에요. `adb`를 통해서는 어떤 버전이든 설치할 수 있었지만, 테스트 결과 복구 모드(TWRP)에서는 v28 설치가 실패했고, v27만 문제 없이 작동했어요._<!--Upon trying to download the rest of the external data, would just "crash"-->
 
-#### Install via ADB
+#### ADB를 이용한 설치
 
-Once developer settings are enabled again, also enable Android debugging for `adb` to work and accept the RSA key fingerprint.
-Then after downloading Magisk on the host, its possible to install via:
+개발자 옵션을 다시 켜고, Android 디버깅도 활성화해서 `adb`가 작동할 수 있도록 해주세요. RSA 키 지문 인증도 허용해야 해요.  
+그 다음 Magisk를 호스트에서 다운로드하면, 다음과 같이 설치할 수 있어요:
+
 
 ```console
 kali@kali:~$ wget 'https://github.com/topjohnwu/Magisk/releases/download/v28.0/Magisk-v28.0.apk'
@@ -812,47 +849,45 @@ kali@kali:~$ adb push lineage-18.1-20240306-nightly-bacon-signed.zip /sdcard/Dow
 ```
 -->
 
-This will upload and install Magisk to the device.
+이 명령어는 Magisk를 기기로 업로드하고 설치해줘요.
 
 ![](magisk-adb-01.png)
 
 - - -
 
-After tapping on the Magisk app for the first time, it should prompt you to patch your boot image.
+Magisk 앱을 처음 실행하면, 부트 이미지(boot image)를 패치하라는 안내가 나타날 거예요.
 
 <!--![](magisk-adb-02.png)-->
 
 - - -
 
-The only option should be "Select and Patch a File".
+표시되는 유일한 옵션은 “파일 선택 및 패치(Select and Patch a File)”일 거예요.
 
 ![](magisk-adb-03-cropped.png)
 
 - - -
 
-Locate the same ROM used (Download -> `los-18.1.zip`).
+사용한 것과 동일한 ROM 파일을 선택하세요 (Download → `los-18.1.zip`).
 
-![](magisk-adb-04.png)
-
-![](magisk-adb-05-cropped.png)
-
+![](magisk-adb-04.png)  
+![](magisk-adb-05-cropped.png)  
 ![](magisk-adb-06-cropped.png)
 
-- - -
+---
 
-Then tap on "Let's Go"
+그다음 “Let's Go”를 눌러주세요.
 
 ![](magisk-adb-07-cropped.png)
 
-- - -
+---
 
-Magisk will then generate a `magisk_patched-*.img` in the same directory.
+그러면 Magisk가 같은 폴더에 `magisk_patched-*.img` 파일을 생성할 거예요.
 
 ![](magisk-adb-08-cropped.png)
 
-- - -
+---
 
-Reboot into recovery and we can use TWRP to install.
+복구 모드로 재부팅한 뒤, TWRP를 이용해 설치할 수 있어요.
 
 ```console
 kali@kali:~$ adb reboot recovery
@@ -860,17 +895,17 @@ kali@kali:~$ adb reboot recovery
 
 Install -> Install Image -> `/sdcard/Download/: magisk_patched-*.img` -> Boot -> Swipe to confirm Flash -> Reboot System
 
-_Note, Can't use CLI to install a image (only zip)_
+_참고: CLI에서는 .img 파일을 설치할 수 없고 .zip만 지원돼요._
 
 - - -
 
-When the device is back up, we are now in a place to finally install Kali NetHunter!
+기기가 다시 부팅되면, 이제 Kali NetHunter를 설치할 준비가 완료된 거예요!
 
 - - -
 
-#### Install via Recovery/TWRP
+#### 복구 모드(TWRP)를 통한 설치
 
-After booting into recovery mode, using `adb` & `twrp` we can manually upload then install it:
+복구 모드로 부팅한 후, `adb`와 `twrp`를 사용해 Magisk를 수동으로 업로드하고 설치할 수 있어요:
 
 ```console
 kali@kali:~$ wget 'https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk'
@@ -906,9 +941,9 @@ kali@kali:~$
 kali@kali:~$ adb reboot
 ```
 
-Upon the device booting back into system, when the app is run for the first time, it will request to download the rest of the required data from the Internet.
-<!--When doing v28, after accepting/agreeing to download it will "crash" - never allowing/completing-->
-_Notice how the icon currenly is the stock Android._
+기기가 시스템으로 다시 부팅되고 나서 앱을 처음 실행하면, 필요한 나머지 데이터를 인터넷에서 다운로드하겠냐는 요청이 뜰 거예요.  
+<!--When doing v28, after accepting/agreeing to download it will "crash" - never allowing/completing-->  
+_아이콘이 아직 기본 안드로이드 아이콘인 것에 주목하세요._
 
 ![](magisk-recovery-01.png)
 
@@ -918,7 +953,7 @@ _Notice how the icon currenly is the stock Android._
 
 - - -
 
-When its pulled the external data, it will then prompt before installing/upgrading.
+외부 데이터를 받아오면, 설치 또는 업그레이드를 진행할지 물어보는 안내가 나타날 거예요.
 
 ![](magisk-recovery-04-cropped.png)
 
@@ -926,34 +961,35 @@ When its pulled the external data, it will then prompt before installing/upgradi
 
 - - -
 
-After tapping on the Magisk app for the first time, it should prompt you to patch your boot image - which can now be done all inside of the Magisk app.
+Magisk 앱을 처음 실행하면 부트 이미지를 패치하라는 안내가 다시 뜰 거예요 — 이제는 이 과정을 Magisk 앱 안에서 전부 처리할 수 있어요.
 
 ![](magisk-recovery-06.png)
 
-- - -
+---
 
-Give the app the necessary permissions, select "Direct Install (Recommended)" and wait. After it is complete, the reboot button will show up. Final step is to tab Reboot.
+앱에 필요한 권한을 부여하고, "Direct Install (Recommended)"을 선택한 뒤 기다려 주세요. 완료되면 재부팅 버튼이 나타날 거예요. 마지막으로 Reboot을 탭하면 끝이에요.
 
-![](magisk-recovery-09-cropped.png)
-
+![](magisk-recovery-09-cropped.png)  
 ![](magisk-recovery-10.png)
 
-- - -
+---
 
-When the device is back up, we are now in a place to finally install Kali NetHunter!
+기기가 다시 부팅되면, 이제 Kali NetHunter를 설치할 준비가 완료된 거예요!
 
-- - -
+---
 
-### Install Kali NetHunter
+### Kali NetHunter 설치하기
 
-Installing Kali NetHunter can currently be done two in ways:
+Kali NetHunter는 현재 두 가지 방식 중 하나로 설치할 수 있어요:
 
-- Recovery/TWRP
-- Magisk via Modules
+- 복구 모드 (TWRP)
+- Magisk 모듈을 통한 설치
 
-Again, both methods have their advantages and disadvantages; Recovery/TWRP has been around for longer, is more mature, but requires rebooting the device. Magisk is the newer method, easier, but does not (yet) support installing everything!<!--NetHunterStorePrivilegedExtension.apk doesn't get installed on /system/priv-app/ correctly... yet!-->
+각 방식마다 장단점이 있어요. 복구 모드를 사용하는 방식은 좀 더 오래되고 안정적이지만, 기기를 재부팅해야 해요. Magisk 방식은 비교적 새롭고 간편하지만 아직은 모든 구성 요소를 설치하진 못해요.<!--NetHunterStorePrivilegedExtension.apk doesn't get installed on /system/priv-app/ correctly... yet!-->
 
-Either method, you will need to [download a pre-created image](/get-kali/), or [build one yourself](/docs/nethunter/building-nethunter/) _(it is simple to-do!)_.
+어떤 방식을 쓰든, [미리 만들어진 이미지 파일을 다운로드](/get-kali/)하거나, [직접 빌드](/docs/nethunter/building-nethunter/)해서 사용할 수 있어요 _(생각보다 간단해요!)_
+
+---
 
 <!--
 ```console
@@ -961,13 +997,13 @@ kali@kali:~$ rm *.zip; ./build.py -k oneplus1-los -11 --rootfs minimal; adb push
 ```
 -->
 
-Note, the Kali NetHunter Android version needs to match the same ROM and version as what is on the device!
+참고: Kali NetHunter의 안드로이드 버전은, 기기에 설치된 ROM의 버전과 정확히 일치해야 해요!
 
 - - -
 
-**Install via Recovery/TWRP**
+**복구 모드(TWRP)로 설치하기**
 
-After booting into recovery mode (either by advance power menu or button combinations):
+복구 모드로 부팅하세요 (고급 전원 메뉴를 사용하거나 버튼 조합으로 진입할 수 있어요):
 
 ```console
 kali@kali:~$ adb push nethunter-*-oneplus1-los-eleven-kalifs-full.zip /sdcard/Download/nh-11.zip; adb shell 'twrp install /sdcard/Download/nh-11.zip'
@@ -985,11 +1021,11 @@ kali@kali:~$ adb shell 'cat /tmp/recovery.log'
 
 - - -
 
-**Install via Magisk**
+**Magisk를 통한 설치**
 
-Kali NetHunter can be either uploaded by using `adb` or downloaded on the device itself.
+Kali NetHunter는 `adb`를 이용해 업로드할 수도 있고, 기기에서 직접 다운로드해서 설치할 수도 있어요.
 
-In system mode:
+시스템 모드에서:
 
 ```console
 kali@kali:~$ adb push nethunter-*-oneplus1-los-eleven-kalifs-full.zip /sdcard/Download/nh-11.zip
@@ -997,23 +1033,18 @@ kali@kali:~$ adb push nethunter-*-oneplus1-los-eleven-kalifs-full.zip /sdcard/Do
 
 - - -
 
-Then, start up Magisk.
-Tap on Modules -> Install from storage -> hamburger icon (3 lines) -> Downloads -> `nh-11.zip` -> Ok -> Reboot
+그다음 Magisk를 실행하세요. 
+Modules 탭 -> Install from storage -> hamburger icon (3 lines) -> Downloads -> `nh-11.zip` -> Ok -> 재부팅(reboot)
 
-![](magisk-nethunter-01.png)
-
-![](magisk-nethunter-02.png)
-
-![](magisk-nethunter-03-cropped.png)
-
-![](magisk-nethunter-04-cropped.png)
-
-![](magisk-nethunter-05-cropped.png)
-
+![](magisk-nethunter-01.png)  
+![](magisk-nethunter-02.png)  
+![](magisk-nethunter-03-cropped.png)  
+![](magisk-nethunter-04-cropped.png)  
+![](magisk-nethunter-05-cropped.png)  
 ![](magisk-nethunter-06.png)
 
-{{% notice info %}}
-The above output may change depending on the Kali NetHunter version
+{{% notice info %}}  
+위 결과 화면은 Kali NetHunter 버전에 따라 달라질 수 있어요  
 {{% /notice %}}
 
 <!--
@@ -1031,53 +1062,53 @@ kali@kali:~$ adb shell 'cat /sdcard/Download/*.log; rm /sdcard/Download/*.log'
 
 - - -
 
-## First Time Using Kali NetHunter
+## Kali NetHunter 첫 실행
 
-Upon rebooting the device, you should see:
+기기가 재부팅되면 다음과 같은 것들이 보일 거예요:
 
-- A new [boot animation](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-bootanimation/)
-- The home screen has a [new wallpaper](https://gitlab.com/kalilinux/nethunter/nh-resources/-/tree/main/wallpaper)
-- Various [new apps](https://store.nethunter.com/)!
-
-- - -
-
-**Updating via NetHunter Store**
-
-Using the NetHunter Store, its possible to check and update the NetHunter app.
-
-Its recommended to check to see if there has been an update and if so, upgrade!
+- 새로운 [부트 애니메이션](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-bootanimation/)
+- 홈 화면에 적용된 [새 배경화면](https://gitlab.com/kalilinux/nethunter/nh-resources/-/tree/main/wallpaper)
+- 여러 가지 [새로운 앱들](https://store.nethunter.com/)!
 
 - - -
 
-**NetHunter App**
+**NetHunter 스토어를 통한 업데이트**
 
-Upon opening the NetHunter app for the first time, you will have a permissions requests - Root Access (Magisk)
+NetHunter 스토어를 이용하면 NetHunter 앱의 업데이트 여부를 확인하고, 최신 버전으로 업그레이드할 수 있어요.
+
+업데이트가 있는지 꼭 확인하고, 있다면 적용하는 걸 추천드려요!
+
+- - -
+
+**NetHunter 앱**
+
+NetHunter 앱을 처음 실행하면 권한 요청이 나타날 거예요 — 루트 권한 요청(Magisk)
 
 ![](nethunter-01.png)
 
 - - -
 
-Afterwards, if there is an included filesystem/rootfs/chroot in the Kali NetHunter image that was installed, it will extract it (do not worry if not, it can be installed afterwards!)
+그다음, 설치된 Kali NetHunter 이미지에 filesystem/rootfs/chroot가 포함되어 있다면 자동으로 압축이 풀릴 거예요 (혹시 포함되어 있지 않아도 걱정 마세요 — 나중에 따로 설치할 수 있어요!)
 
 ![](nethunter-03.png)
 
 - - -
 
-That's it!
+바로 그거예요!
 
-Done!
+완료됐어요!
 
 ![](nethunter-04.png)
 
 - - -
 
-## Post Installation
+## 설치 이후 정리
 
-Feel free to delete everything/anything in `/sdcard/Downloads/` that we have uploaded.<!-- $ adb shell 'twrp wipe data' -->
+`/sdcard/Downloads/`에 업로드했던 파일들은 이제 자유롭게 삭제해도 괜찮아요.<!-- $ adb shell 'twrp wipe data' -->
 
-You may want to look into flashing some [Open GApps](https://opengapps.org/).
+필요하다면 [Open GApps](https://opengapps.org/)를 플래싱해서 구글 앱을 설치하는 것도 고려해볼 수 있어요.
 
-Remember the OnePlus One is a `ARM` platform (not `ARM64`):
+참고로 OnePlus One은 `ARM` 플랫폼이에요 (`ARM64`가 아니에요).
 
 ```console
 kali@kali:~$ adb shell

@@ -1,86 +1,47 @@
 ---
-title: Get the latest unreleased features and bug fixes with Kali Bleeding Edge
+title: Kali Bleeding Edge로 최신 출시되지 않은 기능과 버그 수정 받기
 description:
 icon:
 weight: 62
 author: ["rhertzog",]
+번역: ["xenix4845"]
 ---
 
-## Introduction
+## 소개
 
-`kali-bleeding-edge` is the name of a [Kali
-repository](/docs/general-use/kali-branches/) that you can enable in your
-APT configuration to have access to packages built with the latest 
-version of the source code found in the upstream git repository.
+`kali-bleeding-edge`는 APT 구성에서 활성화할 수 있는 [Kali 저장소](/docs/general-use/kali-branches/)의 이름으로, 업스트림 git 저장소에 있는 최신 버전의 소스 코드로 빌드된 패키지에 접근할 수 있게 해줘요.
 
-## Use cases
+## 사용 사례
 
-### Ensure you have the latest version of a specific tool
+### 특정 도구의 최신 버전 보장
 
-With over 300 tools in our repository, it's close to impossible for us to
-keep every tool updated to their latest git version all the time - it's
-already hard to do with official releases. However there are certainly
-cases where you really want the latest version. Consider this:
+저장소에 300개 이상의 도구가 있어 모든 도구를 항상 최신 git 버전으로 유지하는 것은 거의 불가능해요 - 공식 릴리스만으로도 이미 힘든 일이니까요. 하지만 정말 최신 버전이 필요한 경우가 있어요. 이런 상황을 생각해보세요:
 
-You have an audit tomorrow, and you're getting your tools ready. You boot
-Kali Linux up, run `sudo apt update && sudo apt full-upgrade` to make sure
-that you are running the latest stable versions of *$your_favorite_tool*. After
-the update, you notice that it was updated to last week's version.
-However, in the past week, some pretty awesome updates were added to
-the git repository of *$your_favorite_tool*, and you really need those new
-features for the upcoming assessment. What do you do?
+내일 보안 감사가 있고, 도구들을 준비하고 있어요. Kali Linux를 부팅하고, `sudo apt update && sudo apt full-upgrade`를 실행하여 *$your_favorite_tool*의 최신 안정 버전을 실행하고 있는지 확인해요. 업데이트 후, 그것이 지난주 버전으로 업데이트되었다는 것을 알게 돼요. 그러나 지난주에 *$your_favorite_tool*의 git 저장소에 정말 멋진 업데이트가 추가되었고, 다가오는 평가를 위해 이러한 새로운 기능이 정말 필요해요. 어떻게 해야 할까요?
 
-You can `git clone` the upstream repository in your home directory and
-work from there but then you lose any integration with Kali. You also
-have to take care of dependencies manually. No, the smartest solution
-is to rely on the tireless work of our Kali Bot that constantly crunches
-upstream git repository to populate our kali-bleeding-edge repository.
+홈 디렉토리에서 업스트림 저장소를 `git clone`하고 거기서 작업할 수 있지만, 그러면 Kali와의 통합이 손실돼요. 또한 의존성도 수동으로 처리해야 해요. 아니요, 가장 스마트한 해결책은 업스트림 git 저장소를 지속적으로 처리해 kali-bleeding-edge 저장소를 채우는 우리의 Kali Bot의 끊임없는 작업에 의존하는 거예요.
 
-### Verify bug fixes committed by upstream authors
+### 업스트림 작성자가 커밋한 버그 수정 확인
 
-You're an avid user of *$your_favorite_tool* and you have found some
-bug. As a good open source citizen, you checked the upstream project
-on GitHub, saw that the bug was not yet reported and you sent a detailed
-report on how to reproduce the issue.
+*$your_favorite_tool*을 열심히 사용하는 중에 버그를 발견했어요. 좋은 오픈 소스 시민으로서, GitHub에서 업스트림 프로젝트를 확인했고, 버그가 아직 보고되지 않았음을 확인한 후 문제를 재현하는 방법에 대한 상세한 보고서를 보냈어요.
 
-Thanks to this, the upstream developer identified the problem, committed
-a possible fix and asked you to verify whether the problem is fixed with
-the latest git version.
+이 덕분에 업스트림 개발자가 문제를 식별하고, 가능한 수정을 커밋한 후 최신 git 버전으로 문제가 해결되었는지 확인해달라고 요청했어요.
 
-You like the tool and the open-source philosophy, but you're not a
-developer and don't really want to build a git version of the tool just
-for this.
+당신은 이 도구와 오픈소스 철학을 좋아하지만, 개발자가 아니어서 이를 위해 git 버전의 도구를 빌드하고 싶지는 않아요.
 
-Thankfully, you remember the kali-bleeding-edge repository
-and after a quick check on [pkg.kali.org](https://pkg.kali.org/) you
-notice that the Kali bot already prepared an updated package. You
-quickly install it and reply to the upstream developer with the desired
-confirmation (or further information).
+다행히도, kali-bleeding-edge 저장소를 기억하고 [pkg.kali.org](https://pkg.kali.org/)에서 빠르게 확인한 결과 Kali 봇이 이미 업데이트된 패키지를 준비했다는 것을 알게 됐어요. 신속하게 설치하고 업스트림 개발자에게 원하는 확인(또는 추가 정보)으로 답변할 수 있어요.
 
-## Caution: watch for the blood
+## 주의: 출혈에 주의하세요
 
-Remember that it's called “Kali **bleeding edge**” for a reason. While
-the poor Kali bot does its best, its AI is not always smart enough to detect
-new dependencies, backward incompatible changes, and any other
-instructions left by the upstream developer in the README. So while
-it will usually manage to build some package, there's no guaranty
-that the updated package will work.
+"Kali **bleeding edge**"라고 불리는 이유가 있어요. 가련한 Kali 봇이 최선을 다하지만, 그 AI는 새로운 의존성, 이전 버전과 호환되지 않는 변경 사항 및 업스트림 개발자가 README에 남긴 기타 지침을 감지할 만큼 항상 똑똑하지는 않아요. 그래서 일반적으로 패키지를 빌드할 수는 있지만, 업데이트된 패키지가 작동한다는 보장은 없어요.
 
-Some upstream developers deliberately break their tool while they are
-working on some refactoring, or other major changes. They recommend their
-users to use only the official releases. In that case, the
-kali-bleeding-edge package will be useless if not actively harmful (the
-non-finished code could for example break some of the data managed by
-the tool).
+일부 업스트림 개발자들은 리팩토링이나 기타 주요 변경 작업을 하는 동안 의도적으로 도구를 손상시키기도 해요. 그들은 사용자들에게 공식 릴리스만 사용하도록 권장해요. 이런 경우, kali-bleeding-edge 패키지는 무용지물이거나 적극적으로 해를 끼칠 수 있어요(미완성 코드가 도구에서 관리하는 일부 데이터를 손상시킬 수 있어요).
 
-Thus it's a good idea to have a look at the changes that landed in the
-upstream git repository before deciding to upgrade a package to its
-kali-bleeding-edge version.
+따라서 패키지를 kali-bleeding-edge 버전으로 업그레이드하기로 결정하기 전에 업스트림 git 저장소에 도착한 변경 사항을 살펴보는 것이 좋아요.
 
-## How to enable the repository
+## 저장소 활성화 방법
 
-Ok. You have been warned and you promised to use kali-bleeding-edge
-in a reasonable way. How do you enable that repository? Easy:
+좋아요. 경고를 받았고 kali-bleeding-edge를 합리적인 방식으로 사용하겠다고 약속했어요. 이 저장소는 어떻게 활성화하나요? 간단해요:
 
 ```console
 kali@kali:~$ sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list <<EOF
@@ -90,17 +51,15 @@ kali@kali:~$ sudo apt update
 [...]
 ```
 
-If you later want to disable the repository, it's as easy as removing
-the file that you just created:
+나중에 저장소를 비활성화하고 싶다면, 방금 생성한 파일을 제거하는 것만큼 간단해요:
 
 ```console
 kali@kali:~$ sudo rm -f /etc/apt/sources.list.d/kali-bleeding-edge.list
 ```
 
-## Install a package from kali-bleeding-edge
+## kali-bleeding-edge에서 패키지 설치
 
-Once the repository has been enabled, installing a package from
-kali-bleeding-edge is trivial with `apt install<package>/kali-bleeding-edge`. Here's an example for gitleaks:
+저장소가 활성화되면, `apt install <package>/kali-bleeding-edge`로 kali-bleeding-edge에서 패키지를 설치하는 것은 간단해요. 여기 gitleaks의 예가 있어요:
 
 ```console
 kali@kali:~$ sudo apt install gitleaks/kali-bleeding-edge
@@ -122,26 +81,13 @@ Setting up gitleaks (7.4.0+git20210412.1.6f5ad9d-0kali1~jan+nus1) ...
 Processing triggers for kali-menu (2021.1.4) ...
 ```
 
-Notice that the versioning scheme is a bit special. It starts with the
-version of the last upstream release and is followed by
-`+git<date>.<number>.<commit>` (where `<date>` is the date of the last
-upstream commit, `<number>` is a simple increment to cater for multiple
-versions in the same day, and `<commit>` is a short commit identifier).
-The Debian revision contains `~jan+nus<X>` indicating that this is
-a "new uptsream snapshot" (`nus`) that was created by the [Janitor
-Bot](https://salsa.debian.org/jelmer/debian-janitor) (which powers the
-[Kali Bot](https://janitor.kali.org/)). The tilde ensures that this
-sorts lower than any subsequent manual release of the same version.
+버전 체계가 약간 특이하다는 점을 주목하세요. 마지막 업스트림 릴리스 버전으로 시작하고 `+git<date>.<number>.<commit>`이 뒤따라요(여기서 `<date>`는 마지막 업스트림 커밋 날짜, `<number>`는 같은 날 여러 버전을 위한 단순 증분, `<commit>`은 짧은 커밋 식별자). Debian 수정 버전에는 `~jan+nus<X>`가 포함되어 있어요. 이는 [Janitor Bot](https://salsa.debian.org/jelmer/debian-janitor)([Kali Bot](https://janitor.kali.org/)을 구동하는)에 의해 생성된 "새 업스트림 스냅샷"(`nus`)임을 나타내요. 물결표(~)는 이것이 동일한 버전의 후속 수동 릴리스보다 낮게 정렬되도록 해요.
 
-Be aware that once you have installed a package from kali-bleeding-edge,
-`apt` will continue to fetch updates for that package from this repository
-for as long as the kali-bleeding-edge version is newer than the
-kali-rolling version.
+kali-bleeding-edge에서 패키지를 설치하면, kali-bleeding-edge 버전이 kali-rolling 버전보다 새로운 한 `apt`가 계속해서 이 저장소에서 해당 패키지 업데이트를 가져온다는 점을 알아두세요.
 
-## Switch back to the stable version
+## 안정적인 버전으로 돌아가기
 
-If you want to go back to the stable version of the package, it works
-the same way, except that you set the target distribution to kali-rolling:
+패키지의 안정적인 버전으로 돌아가고 싶다면, 같은 방식으로 작동하지만, 대상 배포판을 kali-rolling으로 설정해야 해요:
 
 ```console
 kali@kali:~$ $ sudo apt install gitleaks/kali-rolling

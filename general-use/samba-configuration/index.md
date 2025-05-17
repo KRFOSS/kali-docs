@@ -1,19 +1,20 @@
 ---
-title: Samba Configuration
+title: Samba 설정
 description:
 icon:
 weight:
 author: ["arnaudr",]
+번역: ["xenix4845"]
 ---
 
-Since our release of [Kali Linux 2021.4](/blog/kali-linux-2021-4-release/), the Samba client has been configured for **wider compatibility** to allow Kali to talk to as many Samba servers as possible. This means that legacy protocols _(such as LANMAN1, LANMAN2 and NT1)_ are **enabled by default**. This is a change from standard behavior, as these are disabled to enforce communication over more secure channels. As a result of this change tools used inside of Kali will be able to communicate using these outdated methods. _This is done to help increase Kali's ability to talk to older, obsolete Samba servers that are still using these older protocols. Older services using this may be at end of life, thus increasing the chances of discovering vulnerabilities or other problems_.
+[Kali Linux 2021.4](/blog/kali-linux-2021-4-release/) 출시 이후로, Samba 클라이언트는 Kali가 가능한 한 많은 Samba 서버와 통신할 수 있도록 **넓은 호환성**을 위해 구성되었어요. 이는 레거시 프로토콜 _(예: LANMAN1, LANMAN2 및 NT1)_ 이 **기본적으로 활성화**되어 있다는 것을 의미해요. 이는 표준 동작에서 변경된 것으로, 일반적으로 이러한 프로토콜은 더 안전한 채널을 통한 통신을 강제하기 위해 비활성화되어 있어요. 이러한 변경의 결과로 Kali 내에서 사용되는 도구들은 이러한 오래된 방법을 사용하여 통신할 수 있게 되었어요. _이는 Kali가 이러한 오래된 프로토콜을 여전히 사용하고 있는 구형 Samba 서버와 통신할 수 있는 능력을 향상시키기 위해 수행돼요. 이를 사용하는 구형 서비스는 수명이 다했을 수 있으므로, 취약점이나 다른 문제를 발견할 가능성이 높아져요_.
 
-However, if you would rather keep Samba as secure as possible using today's modern standards, you can enable the **Strong Security** mode.
+그러나 오늘날의 현대적인 표준을 사용하여 Samba를 가능한 한 안전하게 유지하고 싶다면, **강력한 보안**(Strong Security) 모드를 활성화할 수 있어요.
 
-These settings can be changed easily using the `kali-tweaks` tool. Simply:
+이러한 설정은 `kali-tweaks` 도구를 사용하여 쉽게 변경할 수 있어요. 다음과 같이 하세요:
 
-- Open a terminal and run `kali-tweaks`. 
-- From there, select the _Hardening_ menu.
-- Now you can choose between **Wide Compatibility** _(the default)_ and **Strong Security**.
+- 터미널을 열고 `kali-tweaks`를 실행하세요. 
+- 그 다음, _Hardening_ 메뉴를 선택하세요.
+- 이제 **넓은 호환성**(Wide Compatibility) _(기본값)_ 과 **강력한 보안**(Strong Security) 중에서 선택할 수 있어요.
 
-_Note: This is achieved by changing the setting `client min protocol` in the Samba configuration file `/etc/samba/smb.conf`._
+_참고: 이는 Samba 구성 파일 `/etc/samba/smb.conf`에서 `client min protocol` 설정을 변경함으로써 이루어져요._

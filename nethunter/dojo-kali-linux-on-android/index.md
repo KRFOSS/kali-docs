@@ -1,5 +1,5 @@
 ---
-title: Kali Linux on Android
+title: 안드로이드에서의 Kali Linux
 description:
 icon:
 date: 2019-11-25
@@ -8,6 +8,7 @@ author: ["g0tmi1k",]
 keywords: ["",]
 og_description:
 archived: "true"
+번역: ["xenix4845"]
 ---
 
-Kali Linux supports ARMEL and ARMHF architectures. This allows us to put Kali on a variety of interesting hardware platforms, as well as easily conduct chroot installs of Kali Linux on Android. In this workshop, we will show you how to install Kali Linux within a chroot environment on an Android device. We will also introduce and demonstrate Kali Linux NetHunter.
+Kali Linux는 ARMEL 및 ARMHF 아키텍처를 지원해요. 이를 통해 다양한 흥미로운 하드웨어 플랫폼에 Kali를 설치할 수 있으며, 안드로이드에서 Kali Linux의 chroot 설치를 쉽게 수행할 수 있어요. 이 워크숍에서는 안드로이드 기기에서 chroot 환경 내에 Kali Linux를 설치하는 방법을 보여드릴 거예요. 또한 Kali Linux NetHunter를 소개하고 시연할 예정이에요.

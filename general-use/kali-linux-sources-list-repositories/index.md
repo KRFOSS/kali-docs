@@ -1,16 +1,17 @@
 ---
-title: Kali Network Repositories (/etc/apt/sources.list)
+title: Kali 네트워크 저장소 (/etc/apt/sources.list)
 description:
 icon:
 weight: 61
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
-The topic of repositories is always a large one, and comes up frequently. It is an item which people often get wrong and confused with. Please take the time to read the information below and any references which is linked to before acting on anything.
+저장소(repositories)라는 주제는 항상 크고 자주 대두되는 주제예요. 사람들이 자주 잘못 이해하고 혼동하는 항목이기도 해요. 어떤 조치를 취하기 전에 아래 정보와 연결된 참조를 읽어 주세요.
 
-## Default Network Repository Value
+## 기본 네트워크 저장소 값
 
-On a standard, clean install of Kali Linux, with network access, you should have the following entry present in `/etc/apt/sources.list`:
+표준 클린 설치된 Kali Linux에서 네트워크 액세스가 있다면, `/etc/apt/sources.list`에 다음과 같은 항목이 있어야 해요:
 
 ```console
 kali@kali:~$ grep -v '#' /etc/apt/sources.list | sort -u
@@ -19,91 +20,91 @@ deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmwa
 kali@kali:~$
 ```
 
-If the output doesn't exactly match up to the above output, you may not be able to install any new additional packages or receive updates.
-This may happen for any number of reasons, such as:
+출력이 위와 정확히 일치하지 않는다면, 새로운 추가 패키지를 설치하거나 업데이트를 받지 못할 수 있어요.
+이는 다음과 같은 이유로 발생할 수 있어요:
 
-- You have switched your [branch](/docs/general-use/kali-branches/).
-- Using a different hardcoded [mirror](/docs/community/kali-linux-mirrors/).
+- [브랜치](/docs/general-use/kali-branches/)를 전환했을 경우.
+- 하드코딩된 다른 [미러](/docs/community/kali-linux-mirrors/)를 사용하는 경우.
 
-You will probably want to read the "switching branches" section to alter this.
+이를 변경하려면 "브랜치 전환하기" 섹션을 읽는 것이 좋아요.
 
-Since [Kali 2020.3](/blog/kali-linux-2020-3-release/), after Kali's setup is complete, network repositories will be enabled by default, even if there was no network access during installation.
+[Kali 2020.3](/blog/kali-linux-2020-3-release/) 이후부터는, Kali 설정이 완료된 후에는 설치 중 네트워크 접속이 없었더라도 기본적으로 네트워크 저장소가 활성화돼요.
 
-## Switching Kali Main Branch
+## Kali 메인 브랜치 전환하기
 
-Kali has two [main branches](/docs/general-use/kali-branches/) to choose from (please take the time to read which one would be the best option for your setup):
+Kali에는 선택할 수 있는 두 가지 [메인 브랜치](/docs/general-use/kali-branches/)가 있어요(설정에 가장 적합한 옵션을 읽어보세요):
 
-- **kali-rolling** - default & frequently updated
-- **kali-last-snapshot** - point release so more "stable" & the "safest"
+- **kali-rolling** - 기본 & 자주 업데이트됨
+- **kali-last-snapshot** - 포인트 릴리스로 더 "안정적" & "가장 안전함"
 
-Enabling the `kali-rolling` branch is done with the command:
+`kali-rolling` 브랜치 활성화는 다음 명령어로 수행돼요:
 
 ```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
 ```
 
-Enabling the `kali-last-snapshot` branch is done with the command:
+`kali-last-snapshot` 브랜치 활성화는 다음 명령어로 수행돼요:
 
 ```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
 ```
 
-Note that such a change is effective only after running `sudo apt update`.
+이러한 변경은 `sudo apt update`를 실행한 후에만 적용된다는 점을 참고하세요.
 
-## Enabling Kali Additional Branches
+## Kali 추가 브랜치 활성화하기
 
-Kali also proposes [additional branches](/docs/general-use/kali-branches/) for special cases. In theory, it's possible to enable those regardless of the main branch you use. In practice though, they are meant to be used in addition to `kali-rolling`. We discourage using it in addition to `kali-last-snapshot` unless you know exactly what you're doing. Those additional branches are:
+Kali는 특수한 경우를 위해 [추가 브랜치](/docs/general-use/kali-branches/)를 제공해요. 이론적으로는 사용하는 메인 브랜치에 상관없이 이러한 브랜치를 활성화할 수 있어요. 그러나 실제로는 `kali-rolling`과 함께 사용하도록 설계되었어요. 정확히 어떻게 하는지 알지 못한다면 `kali-last-snapshot`과 함께 사용하는 것은 권장하지 않아요. 이러한 추가 브랜치는 다음과 같아요:
 
-- **kali-experimental** - packages which are under testing or work in progress
-- **kali-bleeding-edge** - packages automatically updated from upstream git repositories
+- **kali-experimental** - 테스트 중이거나 작업 진행 중인 패키지
+- **kali-bleeding-edge** - 업스트림 git 저장소에서 자동으로 업데이트되는 패키지
 
-Enabling or disabling those branches is best done using the command-line tool `kali-tweaks`, under the *Network Repositories* section:
+이러한 브랜치의 활성화 또는 비활성화는 명령줄 도구 `kali-tweaks`의 *Network Repositories* 섹션에서 가장 잘 수행돼요:
 
 ![](kali-tweaks-network-repositories.png)
 
-If you prefer, you can also enable those branches manually from the command-line. For example, enabling `kali-experimental` is done with the command:
+원하는 경우 명령줄에서 수동으로 이러한 브랜치를 활성화할 수도 있어요. 예를 들어, `kali-experimental`은 다음 명령어로 활성화돼요:
 
 ```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/kali-experimental.list
 ```
 
-Note that in the command above, we don't modify the file `/etc/apt/sources.list`, but instead we create a new file `/etc/apt/sources.list.d/kali-experimental.list`. This is a convention: the file `/etc/apt/sources.list` should only contain the main branch, while additional branches should go in `/etc/apt/sources.list.d/`, one branch per file.
+위 명령어에서는 `/etc/apt/sources.list` 파일을 수정하지 않고 대신 새 파일 `/etc/apt/sources.list.d/kali-experimental.list`을 생성한다는 점에 유의하세요. 이는 하나의 관례예요: `/etc/apt/sources.list` 파일은 메인 브랜치만 포함해야 하며, 추가 브랜치는 `/etc/apt/sources.list.d/`에 있어야 하며, 파일 하나에 브랜치 하나씩이에요.
 
-If you follow this convention, then disabling the `kali-experimental` branch is straightforward:
+이 관례를 따르면 `kali-experimental` 브랜치를 비활성화하는 것이 간단해요:
 
 ```console
 kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-experimental.list
 ```
 
-The branch `kali-bleeding-edge` can be enabled with a similar command, we just need to change the name of the branch:
+`kali-bleeding-edge` 브랜치는 비슷한 명령어로 활성화할 수 있으며, 브랜치 이름만 변경하면 돼요:
 
 ```console
 kali@kali:~$ echo "deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list
 ```
 
-To disable `kali-bleeding-edge`:
+`kali-bleeding-edge` 비활성화하기:
 
 ```console
 kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-bleeding-edge.list
 ```
 
-## Sources.list Format
+## Sources.list 형식
 
 ```plaintext
 deb   http://http.kali.org/kali   kali-rolling   main contrib non-free non-free-firmware
-<Archive>   <Mirror>                <Branch>                <Components>
+<아카이브>   <미러>                <브랜치>                <구성 요소>
 ```
 
-- **Archive** is going to be `deb` (Regular Binary) or `deb-src` (Source), depending if you want a package or the source of the package.
-- **Mirror** should be `http://http.kali.org/kali` as this is our load balancer, which will direct you to best [mirror](/docs/community/kali-linux-mirrors/).
-- **Branch** is what [version of Kali](/docs/general-use/kali-branches/) you wish to use.
-- **Components** are what packages you wish to use, based on the [Debian Free Software Guidelines (DFSG)](https://www.debian.org/social_contract#guidelines). Kali defaults to everything.
+- **아카이브**는 패키지 또는 패키지의 소스를 원하는지에 따라 `deb`(일반 바이너리) 또는 `deb-src`(소스)가 될 거예요.
+- **미러**는 `http://http.kali.org/kali`이어야 해요. 이것은 가장 좋은 [미러](/docs/community/kali-linux-mirrors/)로 안내할 로드 밸런서예요.
+- **브랜치**는 사용하고자 하는 [Kali 버전](/docs/general-use/kali-branches/)이에요.
+- **구성 요소**는 [Debian 자유 소프트웨어 지침(DFSG)](https://www.debian.org/social_contract#guidelines)을 기반으로 사용하고자 하는 패키지예요. Kali는 기본적으로 모든 것을 포함해요.
 
-## Default Offline Install Values
+## 기본 오프라인 설치 값
 
-During the Kali setup process, if you don't have access to a network connection to reach a repository, you will perform an offline installation of Kali Linux. You will be limited to the packages & the version which is on the medium you installed Kali from. This will then configure Kali to continue to use this medium to install packages from, even after Kali has been installed.
+Kali 설정 프로세스 중에 저장소에 접근할 네트워크 연결이 없는 경우, Kali Linux의 오프라인 설치를 수행하게 돼요. 이는 Kali를 설치한 매체에 있는 패키지와 버전으로 제한될 거예요. 그러면 Kali가 설치된 후에도 이 매체에서 패키지를 계속 설치하도록 구성돼요.
 
-This means you will not get any updates to packages, or any new additional tools, which can be frustrating. You can see if you the offline media enabled if your values match up with what's below (or if you want to enable this option):
+이는 패키지 업데이트나 새로운 추가 도구를 받지 못하게 되어 답답할 수 있어요. 아래 값과 일치한다면 오프라인 미디어가 활성화되어 있는지 확인할 수 있어요(또는 이 옵션을 활성화하고 싶은 경우):
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
@@ -134,30 +135,30 @@ Repeat this process for the rest of the CDs in your set.
 kali@kali:~$
 ```
 
-If your output matches what's above, please see the switching branch section, if you wish to receive updates.
+출력이 위와 일치한다면, 업데이트를 받고 싶은 경우 브랜치 전환 섹션을 참조하세요.
 
-However, if you do have network connection, which has access to network repositories, it will be enabled for you. You don't need to do anything.
+하지만 네트워크 연결이 있고 네트워크 저장소에 액세스할 수 있다면, 자동으로 활성화될 거예요. 따로 할 일은 없어요.
 
-## Non-Kali Repositories
+## 비-Kali 저장소
 
-If you want to install additional tools and software (such as [signal](https://signal.org/)) outside of what Kali has to offer, you may need to include an extra repository for this to happen. Please do not alter `/etc/apt/sources.list`, as this is used for the Kali Linux Operating System. Any extra tools and software needs to be placed into their own file in the directory `/etc/apt/sources.list.d/` (such as `/etc/apt/sources.list.d/repo-name.list`, replacing `repo-name` with the mirror name). It is highly recommended that each mirror should be in its own file.
+Kali가 제공하는 것 외에 추가 도구와 소프트웨어(예: [signal](https://signal.org/))를 설치하려면 추가 저장소를 포함해야 할 수도 있어요. `/etc/apt/sources.list`를 수정하지 마세요. 이 파일은 Kali Linux 운영 체제용이에요. 추가 도구와 소프트웨어는 `/etc/apt/sources.list.d/` 디렉토리의 자체 파일에 배치되어야 해요(예: `/etc/apt/sources.list.d/repo-name.list`, `repo-name`을 미러 이름으로 대체). 각 미러는 자체 파일에 있는 것이 좋아요.
 
-By adding Kali's repository to a non-Kali OS (such as trying to add Kali to Ubuntu), this will highly increase the chance of your system not working. It may not happen straight away, but without any warning, it may break. We will not be able to offer support (and based on what we have seen over the years, most other OS will not help too).
+비-Kali OS에 Kali 저장소를 추가하면(예: Ubuntu에 Kali 추가 시도), 시스템이 작동하지 않을 가능성이 크게 높아져요. 바로 발생하지 않을 수도 있지만, 경고 없이 손상될 수 있어요. 우리는 지원을 제공할 수 없을 거에요(수년 동안 보아온 바에 따르면, 대부분의 다른 OS도 도움이 되지 않을 거예요).
 
-Likewise, adding other operating system's repositories into Kali (such as trying to put Ubuntu on Kali), will break your installation. This is the single most common reason why Kali Linux systems break.
+마찬가지로, 다른 운영 체제의 저장소를 Kali에 추가하면(예: Kali에 Ubuntu를 넣으려는 시도), 설치가 손상될 거예요. 이것은 Kali Linux 시스템이 손상되는 가장 일반적인 이유예요.
 
-If any guides are telling you to do anything else than the above, this is unofficial advice, and completely not supported by Kali Linux. More often than not, users in this case end up doing a reinstall after learning this lesson.
+어떤 안내서에서 위와 다른 것을 하라고 한다면, 이는 비공식 조언이며 Kali Linux에서 전혀 지원되지 않아요. 대부분의 경우, 이 교훈을 배운 후 사용자들은 재설치를 하게 돼요.
 
-## Mirrors
+## 미러
 
-We have a list of [official Kali Linux mirrors](/docs/community/kali-linux-mirrors/), as well as a [guide on how to setup your own](/docs/community/setting-up-a-kali-linux-mirror/). This may be kept as a local repository which is only accessible on a LAN, or a remote private one, or if you have the ability to, you may wish to [share back to the community](/docs/community/contribute/) and make it public allowing for anyone else in your geographical area to benefit from it.
+우리는 [공식 Kali Linux 미러](/docs/community/kali-linux-mirrors/) 목록과 [자신만의 미러 설정 방법에 대한 가이드](/docs/community/setting-up-a-kali-linux-mirror/)를 제공해요. 이는 LAN에서만 접근 가능한 로컬 저장소로 유지되거나 원격 개인 저장소가 될 수 있어요. 또는 가능하다면, [커뮤니티에 다시 공유](/docs/community/contribute/)하여 지리적 지역에 있는 다른 사람들이 혜택을 받을 수 있도록 공개할 수도 있어요.
 
-## Source Repositories
+## 소스 저장소
 
-By using a `deb` in the repositories, it will allow for binary packages to be downloaded. However, should you require the source to a package (so you can compile the package yourself if you so wish, or look into debugging a problem with a package), you can add `deb-src` as a extra line in the repositories:
+저장소에서 `deb`를 사용하면 바이너리 패키지를 다운로드할 수 있어요. 그러나 패키지의 소스가 필요한 경우(원하는 경우 패키지를 직접 컴파일하거나 패키지 문제를 디버깅하기 위해), 저장소에 `deb-src`를 추가 줄로 추가할 수 있어요:
 
 ```console
 kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
 ```
 
-We used `kali-rolling` for the [branch](/docs/general-use/kali-branches/) above, but you can select any value you wish.
+위의 [브랜치](/docs/general-use/kali-branches/)에는 `kali-rolling`을 사용했지만, 원하는 값을 선택할 수 있어요.

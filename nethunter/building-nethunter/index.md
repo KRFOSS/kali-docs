@@ -1,14 +1,15 @@
 ---
-title: Building NetHunter
+title: NetHunter 빌드하기
 description:
 icon:
 weight: 10
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
-### Clone
+### 클론
 
-Those of you who want to build a Kali NetHunter image from our GitLab repository may do so using our Python build-scripts:
+GitLab 저장소에서 Kali NetHunter 이미지를 빌드하고 싶으신 분들은 Python 빌드 스크립트를 사용하여 할 수 있어요:
 
 ```console
 kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer.git
@@ -19,9 +20,9 @@ kali@kali:~$ cd kali-nethunter-installer/
 
 - - -
 
-### Bootstrap
+### 부트스트랩
 
-Before you can build for a device, you will need to enter the **kali-nethunter-installer** directory and run `./bootstrap.sh`. This will ask you a few questions before downloading the devices folder.
+기기를 위한 빌드를 시작하기 전에, **kali-nethunter-installer** 디렉토리로 들어가서 `./bootstrap.sh`를 실행해야 해요. 이 스크립트는 기기 폴더를 다운로드하기 전에 몇 가지 질문을 할 거예요.
 
 ```console
 kali@kali:~$ ./bootstrap.sh
@@ -35,9 +36,9 @@ kali@kali:~$
 
 - - -
 
-### Help
+### 도움말
 
-The main build-script is also located in the **kali-nethunter-installer** directory and can be used to build images for multiple devices and Android OS versions as shown below:
+메인 빌드 스크립트도 **kali-nethunter-installer** 디렉토리에 위치하며, 아래와 같이 여러 기기와 Android OS 버전을 위한 이미지를 빌드하는 데 사용할 수 있어요:
 
 ```console
 kali@kali:~/kali-nethunter-installer$ python3 build.py -h
@@ -90,10 +91,10 @@ kali@kali:~/kali-nethunter-installer$
 
 - - -
 
-### Examples
-#### Example \#1
+### 예시
+#### 예시 \#1
 
-To build an Android 10 image with Kalifs for a OnePlus 7 device, we would run **build.py** as follows:
+OnePlus 7 기기를 위한 Kalifs가 포함된 Android 10 이미지를 빌드하려면, 다음과 같이 **build.py**를 실행하면 돼요:
 
 ```console
 kali@kali:~/kali-nethunter-installer$ python3 build.py -k oneplus7-oos --ten -fs full
@@ -128,20 +129,20 @@ kali@kali:~/kali-nethunter-installer$ ls -lh nethunter-20241022_132726-oneplus7-
 kali@kali:~/kali-nethunter-installer$
 ```
 
-#### Example \#2
+#### 예시 \#2
 
-To build an app and scripts updater image for a OnePlus 7 device, we would run **build.py** as follows:
+OnePlus 7 기기를 위한 앱 및 스크립트 업데이터 이미지를 빌드하려면, 다음과 같이 **build.py**를 실행하면 돼요:
 
 ```console
 kali@kali:~/kali-nethunter-installer$ python3 build.py -k oneplus7-oos --ten
 ```
 
-#### Example \#3
+#### 예시 \#3
 
-To build a installer updater image for a OnePlus 7 device, we would run **build.py** as follows:
+OnePlus 7 기기를 위한 인스톨러 업데이터 이미지를 빌드하려면, 다음과 같이 **build.py**를 실행하면 돼요:
 
 ```console
 kali@kali:~/kali-nethunter-installer$ python3 build.py -k oneplus7-oos --ten -i
 ```
 
-The resulting zip file image will be created in the **kali-nethunter-installer** directory – this is the zip file you will need to flash on your device later on.
+결과 zip 파일 이미지는 **kali-nethunter-installer** 디렉토리에 생성될 거예요 – 이것이 나중에 기기에 플래시할 필요가 있는 zip 파일이에요.

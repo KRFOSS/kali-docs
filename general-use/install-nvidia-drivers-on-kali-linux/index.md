@@ -1,33 +1,34 @@
 ---
-title: Install NVIDIA GPU Drivers
+title: NVIDIA GPU 드라이버 설치
 description:
 icon:
 weight: 50
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 {{% notice info %}}
-Live boot currently is not supported. The following documentation assumes an installed version of Kali Linux, whether that is a VM or bare-metal.
+라이브 부팅은 현재 지원되지 않아요. 다음 문서는 VM이든 베어메탈이든 설치된 버전의 Kali Linux를 가정하고 있어요.
 {{% /notice %}}
 
-This document explains how to install NVIDIA GPU drivers and CUDA support, allowing integration with popular penetration testing tools. We will **not** be using **nouveau**, being the open-source driver for NVIDIA, instead we will installing the close-source from NVIDIA.
+이 문서는 NVIDIA GPU 드라이버와 CUDA 지원을 설치하는 방법을 설명하며, 이를 통해 많이 사용되는 침투 테스트 도구와의 통합을 가능하게 해요. 우리는 NVIDIA용 오픈소스 드라이버인 **nouveau**를 사용하지 **않고**, 대신 NVIDIA에서 제공하는 비공개 소스를 설치할 거예요.
 
-This will cover a **[dedicated card (desktops users)](#dedicated)** and **[optimus (laptops and notebook users)](#optimus)**.
+이 가이드는 **[독립 그래픽 카드(데스크톱 사용자)](#dedicated)**와 **[옵티머스(랩톱과 노트북 사용자)](#optimus)**를 다룰 거예요.
 
-We recommend that you do **not** attempt this in a Virtual Machine. It is [possible](https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/), however its not straight forward, and should only be done if you have a deep understanding of Linux. It is not covered in this guide, as there are too many items to cover for everyone's environment and setup.
+가상 머신에서 이 작업을 시도하지 **않는** 것을 권장해요. [가능하긴](https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/) 하지만 간단하지 않으며, Linux에 대한 깊은 이해가 있는 경우에만 수행해야 해요. 이 가이드에서는 모든 환경과 설정에 대해 다룰 수 없는 항목이 너무 많기 때문에 다루지 않아요.
 
-## Prerequisites
+## 선행 조건
 
-First, you'll need to ensure that your NVIDIA card supports [CUDA](https://developer.nvidia.com/cuda-gpus).
+먼저, NVIDIA 카드가 [CUDA](https://developer.nvidia.com/cuda-gpus)를 지원하는지 확인해야 해요.
 
 {{% notice info %}}
-GPUs with a <a href="https://developer.nvidia.com/cuda-gpus">CUDA compute capability</a> > 5.0 are recommended, but GPUs with less will still work.
+<a href="https://developer.nvidia.com/cuda-gpus">CUDA 컴퓨팅 기능</a> > 5.0을 가진 GPU가 권장되지만, 더 낮은 버전의 GPU도 작동해요.
 {{% /notice %}}
 
 - - -
 
-Afterwards, make sure you have [`contrib` & `non-free*` components are enabled in your network Repositories](/docs/general-use/kali-linux-sources-list-repositories/) and that your system is [fully up-to-date](/docs/general-use/updating-kali/).
-Additionally, ensure you have the appropriate kernel headers installed for your system:
+그 다음, 네트워크 저장소에서 [`contrib` 및 `non-free*` 구성 요소가 활성화](/docs/general-use/kali-linux-sources-list-repositories/)되어 있고 시스템이 [완전히 최신 상태](/docs/general-use/updating-kali/)인지 확인하세요.
+또한 시스템에 적절한 커널 헤더가 설치되어 있는지 확인하세요:
 
 ```console
 kali@kali:~$ grep "contrib non-free" /etc/apt/sources.list
@@ -44,9 +45,9 @@ kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 ```
 
-## Dedicated cards
+## 독립 그래픽 카드
 
-Let's determine the exact GPU installed, and check the kernel modules it's using. Take note, the `lspci` command contains a unique PCI bus address. Be sure to include the correct address `lspci -s XX.XX.X -v`:
+설치된 정확한 GPU를 확인하고 사용 중인 커널 모듈을 확인해 보세요. `lspci` 명령에는 고유한 PCI 버스 주소가 포함되어 있다는 점에 유의하세요. 반드시 올바른 주소를 포함시켜야 해요 `lspci -s XX.XX.X -v`:
 
 ```console
 kali@kali:~$ lspci | grep -i vga
@@ -68,9 +69,9 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 
-## Optimus cards
+## 옵티머스 카드
 
-For optimus (laptops and notebooks), you will not see NVIDIA for the primary card. You may also not even see NVIDIA listed at all. You can see what the primary card is by doing:
+옵티머스(랩톱 및 노트북)의 경우, 기본 카드로 NVIDIA가 표시되지 않아요. NVIDIA가 전혀 나열되지 않을 수도 있어요. 다음과 같이 기본 카드가 무엇인지 확인할 수 있어요:
 
 ```console
 kali@kali:~$ lspci | grep -i vga
@@ -80,7 +81,7 @@ kali@kali:~$
 
 - - -
 
-To detect the NVIDIA card, we need to install `nvidia-detect`:
+NVIDIA 카드를 감지하려면 `nvidia-detect`를 설치해야 해요:
 
 ```console
 kali@kali:~$ sudo apt install -y nvidia-detect
@@ -108,27 +109,27 @@ kali@kali:~$
 ```
 
 {{% notice info %}}
-They `nvidia-detect` package may fail in places due to Kali being a [rolling distribution](/docs/general-use/kali-branches/) as it requires a stable release.
+Kali가 [롤링 배포판](/docs/general-use/kali-branches/)이기 때문에 `nvidia-detect` 패키지가 일부 지점에서 실패할 수 있어요. 이 패키지는 안정적인 릴리스를 필요로 해요.
 {{% /notice %}}
 
-## Installation
+## 설치
 
-Notice how `Kernel driver in use` & `Kernel modules` from `lspci` are using **nouveau**, signalling the open-source driver for NVIDIA cards. We are now going to switch to the close-source **drivers**, and the **CUDA toolkit** _(allowing for tool to take advantage of the GPU)_.
+`lspci`의 `Kernel driver in use` 및 `Kernel modules`가 어떻게 **nouveau**를 사용하고 있는지 보세요. 이는 NVIDIA 카드용 오픈소스 드라이버를 의미해요. 이제 비공개 소스 **드라이버**와 **CUDA 툴킷**(GPU를 활용할 수 있는 도구)으로 전환할 거예요.
 
 {{% notice info %}}
-Quick Lesson: Understanding kernel modules, dependencies, and kbuild
+빠른 강의: 커널 모듈, 의존성 및 kbuild 이해하기
 
-Before we begin installing the `nvidia-driver` [metapackage](https://wiki.debian.org/metapackage), let's talk about what it is. It's a collection of packages that, together, install all the required files, binaries, and libraries needed for the driver (i.e. kernel module). Since one, or more, of the dependencies (`nvidia-kernel-dkms`) will build the driver as an out-of-tree kernel module (i.e. an external module that is not built into the kernel), [kernel headers must be installed for that build to succeed](https://www.kernel.org/doc/html/latest/kbuild/modules.html#how-to-build-external-modules).  The system that performs this build operation is known as [kbuild](https://www.kernel.org/doc/html/latest/kbuild/modules.html#how-to-build-external-modules).
+`nvidia-driver` [메타패키지](https://wiki.debian.org/metapackage)를 설치하기 전에, 이것이 무엇인지 알아보세요. 이는 드라이버(즉, 커널 모듈)에 필요한 모든 파일, 바이너리 및 라이브러리를 함께 설치하는 패키지 모음이에요. 의존성 중 하나 이상(`nvidia-kernel-dkms`)이 드라이버를 외부 커널 모듈로 빌드하므로(즉, 커널에 내장되지 않은 외부 모듈), [빌드가 성공하려면 커널 헤더가 설치되어 있어야 해요](https://www.kernel.org/doc/html/latest/kbuild/modules.html#how-to-build-external-modules). 이 빌드 작업을 수행하는 시스템은 [kbuild](https://www.kernel.org/doc/html/latest/kbuild/modules.html#how-to-build-external-modules)로 알려져 있어요.
 {{% /notice %}}
 
-That being said, let's install the kernel headers and kbuild infrastructure:
+말한 대로, 커널 헤더와 kbuild 인프라를 설치해 보세요:
 
 ```console
 kali@kali:~$ sudo apt install -y linux-headers-amd64
 kali@kali:~$
 ```
 
-During installation of the drivers the system created new kernel modules, so it's best to reboot the system afterwards:
+드라이버를 설치하는 동안 시스템이 새로운 커널 모듈을 생성했으므로, 이후에 시스템을 재부팅하는 것이 좋아요:
 
 ```console
 kali@kali:~$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
@@ -150,16 +151,16 @@ kali@kali:~$ sudo reboot -f
 kali@kali:~$
 ```
 
-## Dots Per Inch (DPI) & Pixels Per Inch PPI
+## Dots Per Inch (DPI) 및 Pixels Per Inch (PPI)
 
-Upon Kali starting back up, certain things may appear different than what is expected:
+Kali가 다시 시작된 후, 특정 요소들이 예상과 다르게 보일 수 있어요:
 
-- If certain things are **smaller**, this could because of [HiDPI](/docs/general-use/hidpi/)
-- However, if certain things are **larger**, this could because the [DPI](/docs/general-use/fixing-dpi/) is incorrect
+- 특정 요소가 **작게** 보이면, 이는 [HiDPI](/docs/general-use/hidpi/) 때문일 수 있어요
+- 그러나 특정 요소가 **크게** 보이면, 이는 [DPI](/docs/general-use/fixing-dpi/)가 올바르지 않기 때문일 수 있어요
 
-## Verify Driver Installation
+## 드라이버 설치 확인
 
-Now that our system should be ready to go, we need to verify the drivers have been loaded correctly. We can quickly verify this by running the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) tool and `lspci` once again:
+이제 시스템이 준비되었을 테니, 드라이버가 올바르게 로드되었는지 확인해 봅시다. [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 도구와 `lspci`를 다시 실행하여 빠르게 확인할 수 있어요:
 
 ```console
 kali@kali:~$ nvidia-smi
@@ -193,11 +194,11 @@ kali@kali:~$ lspci -s 07:00.0 -v
 kali@kali:~$
 ```
 
-You can see our hardware has been detected we are using **nvidia** rather than **nouveau** drive now!
+우리의 하드웨어가 감지되었고 이제 **nouveau** 드라이버가 아닌 **nvidia** 드라이버를 사용하고 있는 것을 볼 수 있어요!
 
 ## Hashcat
 
-With the output displaying our driver and GPU correctly, we can now dive into benchmarking (using the CUDA toolkit). Before we get too far ahead, let's double check to make sure [hashcat](/tools/hashcat/) and CUDA are working together:
+드라이버와 GPU가 올바르게 표시되었으니, 이제 (CUDA 툴킷을 사용한) 벤치마킹을 시작해 볼 수 있어요. 그러나 먼저, [hashcat](/tools/hashcat/)과 CUDA가 함께 작동하는지 확인해 보세요:
 
 ```console
 kali@kali:~$ sudo apt install -y hashcat
@@ -241,9 +242,9 @@ OpenCL Platform ID #1
 kali@kali:~$
 ```
 
-It appears everything is working, let's go ahead and run hashcat's inbuilt benchmark test.
+모든 것이 작동하는 것 같으니, hashcat의 내장 벤치마크 테스트를 실행해 보세요.
 
-#### Benchmarking
+#### 벤치마킹
 
 ```console
 kali@kali:~$ hashcat -b | uniq
@@ -283,11 +284,11 @@ Stopped: Tue Jul 21 17:16:10 2020
 kali@kali:~$
 ```
 
-There are a multitude of configurations to improve cracking speed, not mentioned in this guide. However, we encourage you to take a look at the [hashcat documentation](https://hashcat.net/wiki/) for your specific cases.
+해시 크래킹 속도를 향상시키는 다양한 설정이 있지만, 이 가이드에서는 다루지 않아요. 그러나 특정 사례에 대해서는 [hashcat 문서](https://hashcat.net/wiki/)를 살펴보는 것을 권장해요.
 
-## Troubleshooting
+## 문제 해결
 
-In the event setup isn't going as planned, we'll install [clinfo](https://packages.debian.org/testing/clinfo) for detailed troubleshooting information:
+설정이 계획대로 진행되지 않는 경우, 상세한 문제 해결 정보를 위해 [clinfo](https://packages.debian.org/testing/clinfo)를 설치해 보세요:
 
 ```console
 kali@kali:~$ sudo apt install -y clinfo
@@ -309,9 +310,9 @@ kali@kali:~$ clinfo | wc -l
 kali@kali:~$
 ```
 
-#### OpenCL Loaders
+#### OpenCL 로더
 
-It may be necessary to check for additional packages that may be conflicting with our setup. Let's first check to see what **OpenCL Loader** we have installed. The NVIDIA OpenCL Loader and the generic OpenCL Loader will both work for our system:
+설정과 충돌하는 추가 패키지가 있는지 확인해야 할 수 있어요. 먼저 설치된 **OpenCL 로더**가 무엇인지 확인해 보세요. NVIDIA OpenCL 로더와 일반 OpenCL 로더 모두 우리 시스템에서 작동해요:
 
 ```console
 kali@kali:~$ dpkg -l |  grep -i icd
@@ -323,7 +324,7 @@ ii  ocl-icd-opencl-dev:amd64             2.2.12-2                        amd64  
 kali@kali:~$
 ```
 
-If **mesa-opencl-icd** is installed, we should remove it:
+**mesa-opencl-icd**가 설치되어 있다면, 제거해야 해요:
 
 ```console
 kali@kali:~$ dpkg -l |  grep -i mesa-opencl-icd
@@ -333,7 +334,7 @@ kali@kali:~$ sudo apt remove mesa-opencl-icd
 kali@kali:~$
 ```
 
-Since we have determined that we have a compatible ICD loader installed, we can easily determine which loader is currently being used:
+호환되는 ICD 로더가 설치되어 있다는 것을 확인했으니, 현재 어떤 로더가 사용되고 있는지 쉽게 확인할 수 있어요:
 
 ```console
 kali@kali:~$ clinfo | grep -i "icd loader"
@@ -345,11 +346,11 @@ ICD loader properties
 kali@kali:~$
 ```
 
-As expected, our setup is using the open source loader that was installed earlier. Now, let's get some detailed information about the system.
+예상대로 우리 설정은 이전에 설치한 오픈소스 로더를 사용하고 있어요. 이제 시스템에 대한 자세한 정보를 얻어 볼게요.
 
-#### Querying GPU Information
+#### GPU 정보 쿼리하기
 
-We'll use [nvidia-smi](https://packages.debian.org/testing/nvidia-smi) once again, but with a much more verbose output:
+[nvidia-smi](https://packages.debian.org/testing/nvidia-smi)를 다시 사용하되, 더 자세한 출력으로 사용해 볼게요:
 
 ```console
 kali@kali:~$ nvidia-smi -i 0 -q
@@ -393,7 +394,7 @@ GPU 00000000:07:00.0
 kali@kali:~$
 ```
 
-It looks like our GPU is being recognized correctly, so let's use [glxinfo](https://dri.freedesktop.org/wiki/glxinfo/) to determine if 3D Rendering is enabled:
+GPU가 올바르게 인식되고 있는 것 같으니, [glxinfo](https://dri.freedesktop.org/wiki/glxinfo/)를 사용하여 3D 렌더링이 활성화되어 있는지 확인해 보세요:
 
 ```console
 kali@kali:~$ sudo apt install -y mesa-utils
@@ -403,24 +404,24 @@ direct rendering: Yes
 kali@kali:~$
 ```
 
-The combination of these tools should assist the troubleshooting process greatly. If you still experience issues, we recommend searching for similar setups and any nuances that may affect your specific system.
+이러한 도구들의 조합은 문제 해결 과정을 크게 도울 거예요. 여전히 문제가 발생한다면, 비슷한 설정과 특정 시스템에 영향을 미칠 수 있는 특별한 사항들을 검색해 보는 것을 권장해요.
 
 {{% notice info %}}
-The following is user generated content. In general, the Kali team does not recommend to utilize non-apt tools and downloads. This is a case where a non-apt driver is necessary, but this should only be performed if the previous documentation does not work.
+다음은 사용자가 생성한 내용이에요. 일반적으로 Kali 팀은 비 apt 도구 및 다운로드 사용을 권장하지 않아요. 이는 비 apt 드라이버가 필요한 경우이지만, 이전 문서가 작동하지 않을 때만 수행해야 해요.
 {{% /notice %}}
 
-#### Hashcat not detecting GPU
+#### Hashcat이 GPU를 감지하지 못하는 문제
 
-If `Hashcat` is not detected the GPU even after following the above steps then do the following:
+위 단계를 따랐는데도 `Hashcat`이 GPU를 감지하지 못한다면 다음을 수행하세요:
 
-1. Go to https://www.nvidia.com/Download/index.aspx?lang=en-us & select your proper GPU driver to install.
-2. Run `sudo su -`. 
-3. Do `init 3` (which will disable the Linux desktop and switch to a text interface.).
-4. If you have already installed Nvidia drivers using a package manager like `apt`, `nala` etc. you have to remove them first. You can do `sudo apt remove nvidia*` which removed all of the previously installed Nvidia drivers. If you don't do this you'll get a warning when you try to run the next step & the installation will be aborted.
-5. Install the driver file by doing `sudo ./Nvidia-<your version>.run`. Follow the installation flow & choose appropriate options. 
-6. If the installation is successful Reboot by typing `sudo reboot`
+1. https://www.nvidia.com/Download/index.aspx?lang=en-us 에 가서 설치할 적절한 GPU 드라이버를 선택하세요.
+2. `sudo su -`를 실행하세요.
+3. `init 3`을 실행하세요(Linux 데스크톱을 비활성화하고 텍스트 인터페이스로 전환).
+4. 이미 `apt`, `nala` 등과 같은 패키지 관리자를 사용하여 Nvidia 드라이버를 설치한 경우 먼저 제거해야 해요. `sudo apt remove nvidia*`를 수행하면 이전에 설치된 모든 Nvidia 드라이버가 제거돼요. 그렇지 않으면 다음 단계를 실행할 때 경고가 표시되고 설치가 중단돼요.
+5. `sudo ./Nvidia-<your version>.run`으로 드라이버 파일을 설치하세요. 설치 과정을 따르고 적절한 옵션을 선택하세요.
+6. 설치가 성공하면 `sudo reboot`를 입력하여 재부팅하세요.
 
-Now run `hashcat -I` & if everything goes well then `Hashcat` will detect the GPU now and the output will look something like this
+이제 `hashcat -I`를 실행하고 모든 것이 잘 되면 `Hashcat`이 이제 GPU를 감지하고 출력은 다음과 비슷할 거예요:
 
 ```sh
 kali@kali:~$ hashcat -I
@@ -443,8 +444,8 @@ OpenCL Platform ID #1
 [...]
 ```
 
-Now it's not over yet. After following this my laptop display went dark and only the external monitor display was visible this was expected because of the new updated drivers the system will use the `dedicated GPU` i.e. `Nvidia` one for as the primary graphics driver. Now to fix this thanks to `hackterr` on Discord you can either set your laptop display card to `Nvidia` or `integrated AMD` GPU for `laptop display` & keep the `Nvidia` one for the external display. I choose the latter one.
-- Add the following to your `/etc/X11/xorg.conf` file. (You need `sudo` to edit this)
+아직 끝나지 않았어요. 이 방법을 따르고 나면 랩톱 디스플레이가 어두워지고 외부 모니터 디스플레이만 보일 수 있어요. 이는 새로 업데이트된 드라이버로 인해 시스템이 주 그래픽 드라이버로 `전용 GPU`, 즉 `Nvidia`를 사용하기 때문에 예상된 결과예요. Discord의 `hackterr` 덕분에 이 문제를 해결하기 위해 `랩톱 디스플레이`의 랩톱 디스플레이 카드를 `Nvidia` 또는 `통합 AMD` GPU로 설정하고 외부 디스플레이에는 `Nvidia`를 유지할 수 있어요. 저는 후자를 선택했어요.
+- `/etc/X11/xorg.conf` 파일에 다음을 추가하세요. (이 작업에는 `sudo`가 필요해요)
 
 ```sh
 Section "Device"

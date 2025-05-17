@@ -1,36 +1,33 @@
 ---
-title: Updating a Package
+title: 패키지 업데이트하기
 description:
 icon:
 weight:
 author: ["serval123",]
+번역: ["xenix4845"]
 ---
 
-To update a package in Kali Linux, you can use the package management tools provided by Debian, which Kali Linux is based on. The primary package management tool is apt. Regularly updating your system is crucial for security, as updates often include patches for vulnerabilities. You can update the packages in the following ways :
+Kali Linux에서 패키지를 업데이트하려면 Kali Linux가 기반으로 하는 Debian에서 제공하는 패키지 관리 도구를 사용할 수 있어요. 주요 패키지 관리 도구는 apt예요. 업데이트는 종종 취약점에 대한 패치를 포함하므로 시스템을 정기적으로 업데이트하는 것은 보안에 중요해요. 다음과 같은 방법으로 패키지를 업데이트할 수 있어요:
 
-## Updating all Packages
+## 모든 패키지 업데이트하기
 
-To update all packages on Kali Linux, you can run the following commands in the terminal.
+Kali Linux의 모든 패키지를 업데이트하려면, 터미널에서 다음 명령어를 실행하면 돼요.
 
 ```console
 kali@kali:~$ sudo apt update
 ```
-This command updates the packages list.
+이 명령어는 패키지 목록을 업데이트해요.
 
 ```console
 kali@kali:~$ sudo apt full-upgrade
 ```
-Upgrades all installed packages to their latest versions.
+설치된 모든 패키지를 최신 버전으로 업그레이드해요.
 
-## Upgrading a specific Package
+## 특정 패키지 업그레이드하기
 
-It is also possible to update a single specific package.
+단일 특정 패키지만 업데이트하는 것도 가능해요.
 
 ```console
 kali@kali:~$ sudo apt install --only-upgrade package_name
 ```
-Replace `package_name` with the name of the package you want to update(for example nmap).This command will install the latest version of the specified package, and effectively updates it. The `--only-upgrade` option ensures that only the selected package is upgraded without attempting to install any new packages. After running this command, the specified package will be updated to the latest version available in the repositories.
-
-
-
-
+`package_name`을 업데이트하려는 패키지 이름(예: nmap)으로 바꾸세요. 이 명령어는 지정된 패키지의 최신 버전을 설치하여 효과적으로 업데이트해요. `--only-upgrade` 옵션은 새 패키지 설치를 시도하지 않고 선택한 패키지만 업그레이드되도록 해요. 이 명령어를 실행하면 지정된 패키지가 저장소에서 사용 가능한 최신 버전으로 업데이트돼요.

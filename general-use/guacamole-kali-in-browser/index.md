@@ -1,18 +1,19 @@
 ---
-title: Kali In The Browser (Guacamole)
+title: 브라우저에서 Kali 사용하기 (Guacamole)
 description:
 icon:
 weight:
 author: ["g0tmi1k", "gamb1t",]
+번역: ["xenix4845"]
 ---
 
-There are various ways you can interact with Kali, such as sitting down and being direct at the console (more often than not, for a graphic experience), alternatively using Kali remotely via SSH (which gives you command line access). Alternatively, you may have setup VNC which will allow for remote graphical access (please make sure to do this securely by having VNC listen on loopback and port forward via SSH). Another approach would be to interact with Kali in a browser, rather than having to install necessary VNC clients.
+Kali와 상호작용하는 여러 방법이 있어요. 콘솔에 직접 앉아서 그래픽 환경을 사용하거나, SSH를 통해 원격으로 Kali를 사용할 수도 있어요(이 방법은 명령줄 액세스를 제공해요). 또는 VNC를 설정하여 원격 그래픽 액세스가 가능하게 할 수도 있어요(이 경우 로컬호스트에서만 VNC가 수신 대기하고 SSH를 통해 포트 포워딩을 하는 등 보안을 철저히 하세요). 또 다른 방법으로는 필요한 VNC 클라이언트를 설치하는 대신 브라우저에서 Kali와 상호작용할 수도 있어요.
 
-This guide covers Apache Guacamole, but we also have another guide [noVNC](/docs/general-use/novnc-kali-in-browser/). Each have their pros and cons. Guacamole is a more complete solution, it supports multiple protocols and allows clients to connect to it from a central page with user authentication.
+이 가이드는 Apache Guacamole를 다루고 있지만, [noVNC](/docs/general-use/novnc-kali-in-browser/)에 대한 가이드도 있어요. 각각 장단점이 있어요. Guacamole는 더 완전한 솔루션으로, 여러 프로토콜을 지원하고 사용자 인증이 있는 중앙 페이지에서 클라이언트가 연결할 수 있어요.
 
-Apache Guacamole is [not packaged with Debian](https://wiki.debian.org/Guacamole), and has [various steps to complete](https://guacamole.apache.org/doc/gug/installing-guacamole.html) its setup (or you can use a [docker image](https://guacamole.apache.org/doc/gug/guacamole-docker.html)). There is a automated script to help the installation process.
+Apache Guacamole은 [Debian에 패키지로 포함되어 있지 않으며](https://wiki.debian.org/Guacamole), 설정을 완료하기 위한 [여러 단계](https://guacamole.apache.org/doc/gug/installing-guacamole.html)가 있어요 (또는 [도커 이미지](https://guacamole.apache.org/doc/gug/guacamole-docker.html)를 사용할 수도 있어요). 설치 과정을 돕는 자동화 스크립트가 있어요.
 
-The first stage is to download the script:
+첫 번째 단계는 스크립트를 다운로드하는 거예요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -24,10 +25,10 @@ kali@kali:~$
 ```
 
 {{% notice info %}}
-IMPORTANT! If you are in the Eastern time zone, you will have to change to a different one. There is a bug with Apache that does not see EDT as a valid time zone.
+중요! 동부 표준시(Eastern time zone)에 있다면 다른 시간대로 변경해야 해요. Apache에는 EDT를 유효한 시간대로 인식하지 않는 버그가 있어요.
 {{% /notice %}}
 
-To fix this issue, we will change our time zone to be Central time:
+이 문제를 해결하기 위해 시간대를 중부 표준시(Central time)로 변경할 거예요:
 
 ```console
 kali@kali:~$ sudo rm /etc/localtime
@@ -35,7 +36,7 @@ kali@kali:~$
 kali@kali:~$ sudo ln -s /usr/share/zoneinfo/US/Central /etc/localtime
 ```
 
-We are going to do a "standalone" installation, where there isn't a separate MySQL database host as well as not enabling any MFA _(as we are going to hide this behind a SSH tunnel)_:
+별도의 MySQL 데이터베이스 호스트가 없고 MFA(다중 인증)도 사용하지 않는 "독립형(standalone)" 설치를 진행할 거예요 _(SSH 터널 뒤에 숨길 예정이기 때문에)_:
 
 ```console
 kali@kali:~$ cd /tmp/guac-install/
@@ -51,7 +52,7 @@ Installation Complete
 kali@kali:/tmp/guac-install$
 ```
 
-We can quickly check all the services are happy:
+모든 서비스가 정상적으로 동작하는지 빠르게 확인해보세요:
 
 ```console
 kali@kali:/tmp/guac-install$ systemctl status tomcat9 guacd mysql
@@ -94,11 +95,11 @@ tcp    LISTEN  0       100                        *:8080               *:*      
 kali@kali:/tmp/guac-install$
 ```
 
-All the services are up and running correctly.
+모든 서비스가 제대로 실행되고 있어요.
 
-Next is to enable VNC service on Kali.
+다음으로 Kali에서 VNC 서비스를 활성화할 거예요.
 
-We are going to use TigerVNC:
+TigerVNC를 사용할 거예요:
 
 ```console
 kali@kali:~$ sudo apt install -y tigervnc-standalone-server
@@ -142,16 +143,16 @@ kali@kali:~$
 kali@kali:~$ vncserver :1
 ```
 
-Next we are going to go to the guacamole admin panel and create a new connection.
+다음으로 guacamole 관리자 패널에 가서 새 연결을 만들 거예요.
 
-First we click "Settings" in the upper right drop-down menu
+먼저 오른쪽 상단 드롭다운 메뉴에서 "Settings"를 클릭하세요
 
 ![](guacamole-kali-in-browser-1.png)
 
-Next we will click on the "Connections" tab and click "New connection". We will populate these the fields below:
+그런 다음 "Connections" 탭을 클릭하고 "New connection"을 클릭하세요. 아래 필드들을 채우세요:
 
 ![](guacamole-kali-in-browser-2.png)
 
-We make sure to set "Color depth" as we do so the colors come through properly. If set wrongly, some of the greys can turn purple or other colors.
+색상이 제대로 표시되도록 "Color depth"를 설정해야 해요. 잘못 설정하면 일부 회색이 보라색이나 다른 색상으로 표시될 수 있어요.
 
-With all that done, you can go "Home" from the upper right drop-down and click on the new connection.
+모든 설정이 완료되면 오른쪽 상단 드롭다운에서 "Home"으로 이동한 다음 새로 만든 연결을 클릭하세요.

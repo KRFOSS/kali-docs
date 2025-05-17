@@ -1,50 +1,51 @@
 ---
-title: Kali Branches
+title: Kali 브랜치
 description:
 icon:
 weight: 60
 author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
+번역: ["xenix4845"]
 ---
 
-## What is a Branch?
+## 브랜치란 무엇인가요?
 
-A branch is an alternative version of some software, in this case of the Kali OS. Kali Linux has multiple branches which allows for users to decide how up-to-date their packages will be. Kali Linux is [similar to Debian](/docs/policy/kali-linux-relationship-with-debian/) in many regards, one of which is the use of branches.
+브랜치는 소프트웨어의 대체 버전으로, 이 경우에는 Kali OS의 대체 버전이에요. Kali Linux는 여러 브랜치를 가지고 있어 사용자가 패키지의 업데이트 상태를 어떻게 유지할지 결정할 수 있어요. Kali Linux는 브랜치 사용을 포함하여 [여러 면에서 Debian과 유사](/docs/policy/kali-linux-relationship-with-debian/)해요.
 
-You may have multiple branches enabled at once. However, switching branches may introduce problems, as packages may be at different versions, and unavailable or unstable in certain cases.
+한 번에 여러 브랜치를 활성화할 수 있어요. 그러나 브랜치를 전환하면 패키지가 다른 버전에 있거나 특정 상황에서 사용할 수 없거나 불안정할 수 있기 때문에 문제가 발생할 수 있어요.
 
-Please see the [network sources](/docs/general-use/kali-linux-sources-list-repositories/) page for how to switch branches. For an example of how to use multiple branches, please see our [NVIDIA GPU Drivers](/docs/general-use/install-nvidia-drivers-on-kali-linux/) guide.
+브랜치를 전환하는 방법은 [네트워크 소스](/docs/general-use/kali-linux-sources-list-repositories/) 페이지를 참조하세요. 여러 브랜치 사용 예제는 [NVIDIA GPU 드라이버](/docs/general-use/install-nvidia-drivers-on-kali-linux/) 가이드를 확인하세요.
 
-## Kali Branches
+## Kali 브랜치
 
-First are the *main branches*, which are the most frequently used, and the most stable. These are often seen as "safe".
+첫째로 *주요 브랜치*는 가장 자주 사용되고 가장 안정적인 브랜치예요. 이들은 종종 "안전"하다고 여겨져요.
 
-- **kali-rolling** is the main default branch that most should be using. It is being continuously updated, as it pulls from `kali-dev` after ensuring questionable packages are stable and combining them with packages from `kali-rolling-only`. From time to time, a package bug may slip into here, due to bugs in `debian-testing`.
-- **kali-last-snapshot** is a branch of Kali that can be used if users want a more standard feeling of software control. For every new release, we freeze the code and merge `kali-rolling` into `kali-last-snapshot`, at which point users will get all of the updates between [versioned releases](/releases/) (i.e. 2020.3 -> 2020.4). This often is more stable, as packages are not updated (until the next release as it's a "Point Release") and go thought our release testing. This is the "safest" option.
+- **kali-rolling**은 대부분이 사용해야 하는 기본 브랜치예요. 의심스러운 패키지가 안정적인지 확인한 후 `kali-dev`에서 가져오고 `kali-rolling-only`의 패키지와 결합하여 지속적으로 업데이트돼요. `debian-testing`의 버그로 인해 가끔 패키지 버그가 여기에 들어올 수 있어요.
+- **kali-last-snapshot**은 사용자가 소프트웨어 제어에 대해 더 표준적인 느낌을 원할 때 사용할 수 있는 Kali의 브랜치예요. 새로운 릴리스마다 코드를 동결하고 `kali-rolling`을 `kali-last-snapshot`에 병합하는데, 이때 사용자는 [버전이 지정된 릴리스](/releases/) 간의 모든 업데이트를 받게 돼요(예: 2020.3 -> 2020.4). 패키지가 업데이트되지 않고(다음 릴리스까지 "포인트 릴리스"이므로) 릴리스 테스트를 거치기 때문에 더 안정적인 경우가 많아요. 이것이 "가장 안전한" 옵션이에요.
 
-Each of these branches provide a complete distribution of the Kali OS. You should be using either one or the other, but there's no point having both enabled at the same time.
+이 브랜치들 각각은 Kali OS의 완전한 배포판을 제공해요. 둘 중 하나만 사용해야 하며, 둘 다 동시에 활성화하는 것은 의미가 없어요.
 
-Next are the *partial branches*, which are meant to be used *in addition* to the the `kali-rolling` branch. They usually provide more recent versions of the packages that are found in kali-rolling, and at time they might even provide additional packages. These branches can't be used alone, as they don't contain a complete distribution of Kali.
+다음은 *부분 브랜치*로, `kali-rolling` 브랜치에 *추가*하여 사용하도록 설계되었어요. 일반적으로 kali-rolling에서 찾을 수 있는 패키지의 최신 버전을 제공하며, 때로는 추가 패키지도 제공할 수 있어요. 이 브랜치들은 Kali의 완전한 배포판을 포함하지 않으므로 단독으로 사용할 수 없어요.
 
-Note that the casual user will likely not need those branches, except in very special cases. The partial branches are:
+일반 사용자는 매우 특별한 경우를 제외하고는 이러한 브랜치가 필요하지 않을 가능성이 높다는 점에 유의하세요. 부분 브랜치는 다음과 같아요:
 
-- **kali-experimental** is a staging area for work-in-progress packages.
-- **kali-bleeding-edge** contains packages that are [automatically updated from the upstream](/blog/bleeding-edge-kali-repositories/) git repositories. This branch has the potential to be very unstable.
+- **kali-experimental**은 개발 중인 패키지를 위한 준비 영역이에요.
+- **kali-bleeding-edge**는 [업스트림 git 저장소에서 자동으로 업데이트](/blog/bleeding-edge-kali-repositories/)되는 패키지를 포함해요. 이 브랜치는 매우 불안정할 가능성이 있어요.
 
-### Development
+### 개발
 
-- **kali-dev** is the development version of Kali Linux. It is created by combining three other branches: `kali-dev-only`, `kali-debian-picks` and `debian-testing`. Its mainly used for merging Debian's updates with the changes maintained by Kali Linux.
-- **kali-dev-only** is the development distribution with Kali-specific packages. This branch is auto-merged into `kali-dev`.
-- **kali-rolling-only** is a repository for packages that need to quickly reach `kali-rolling`.
+- **kali-dev**는 Kali Linux의 개발 버전이에요. `kali-dev-only`, `kali-debian-picks` 및 `debian-testing` 세 가지 다른 브랜치를 결합하여 생성돼요. 주로 Debian의 업데이트와 Kali Linux에서 유지 관리하는 변경 사항을 병합하는 데 사용돼요.
+- **kali-dev-only**는 Kali 특화 패키지가 있는 개발 배포판이에요. 이 브랜치는 자동으로 `kali-dev`에 병합돼요.
+- **kali-rolling-only**는 `kali-rolling`에 빠르게 도달해야 하는 패키지를 위한 저장소예요.
 
-### Branches Used to Assist With Other Branches
+### 다른 브랜치 지원에 사용되는 브랜치
 
-- **kali-debian-picks** contains packages cherry-picked from `debian-experimental` and `debian-unstable`. It is auto-merged into `kali-dev`.
-- **[debian-testing](https://wiki.debian.org/DebianTesting)** is a mirror of Debian's testing distribution. This is used to build `kali-dev`.
-- **[debian-experimental](https://wiki.debian.org/DebianExperimental)** and **[debian-unstable](https://wiki.debian.org/DebianUnstable)** are partial mirrors for specific packages that we want to cherry-pick.
+- **kali-debian-picks**는 `debian-experimental`과 `debian-unstable`에서 선별한 패키지를 포함해요. 자동으로 `kali-dev`에 병합돼요.
+- **[debian-testing](https://wiki.debian.org/DebianTesting)**은 Debian의 테스팅 배포판 미러예요. 이것은 `kali-dev`를 구축하는 데 사용돼요.
+- **[debian-experimental](https://wiki.debian.org/DebianExperimental)**과 **[debian-unstable](https://wiki.debian.org/DebianUnstable)**은 선별하고 싶은 특정 패키지를 위한 부분 미러예요.
 
-## Mapping
+## 매핑
 
-Below is a diagram showing the relationship between the branches:
+아래는 브랜치 간의 관계를 보여주는 다이어그램이에요:
 
 ```plaintext
 debian-experimental -> debian-unstable -> debian-testing -> kali-dev -> kali-rolling -> kali-last-snapshot
@@ -57,34 +58,34 @@ kali-experimental -> kali-dev-only -----------------------------|         |     
 kali-rolling-only --------------------------------------------------------|
 ```
 
-## Debian's Relation
+## Debian과의 관계
 
-[Debian](https://www.debian.org/releases/) has three main options:
+[Debian](https://www.debian.org/releases/)에는 세 가지 주요 옵션이 있어요:
 
 - [Stable](https://www.debian.org/releases/stable/)
 - [Testing](https://www.debian.org/releases/testing/)
 - [Unstable](https://www.debian.org/releases/unstable/)
 
-**Stable** is the "safe" Debian branch. Around every two months, it is updated with a "[Point Release](https://wiki.debian.org/DebianReleases/PointReleases)", which is often just security updates. Packages don't generally get a version upgrade during this time, due to potential incompatibility and thus instability. This is the Debian equivalent of **kali-last-snapshot**.
+**Stable**은 "안전한" Debian 브랜치예요. 약 두 달마다 "[포인트 릴리스](https://wiki.debian.org/DebianReleases/PointReleases)"로 업데이트되는데, 이는 주로 보안 업데이트일 뿐이에요. 패키지는 잠재적인 비호환성과 불안정성 때문에 이 기간 동안 일반적으로 버전 업그레이드를 받지 않아요. 이것은 **kali-last-snapshot**의 Debian 동등물이에요.
 
-**Testing** is the closest thing there is to a Debian "rolling" distribution, where "rolling" means that as soon as a package update is available, it's pushed out. Kali has used this branch as a starter for **kali-rolling** since January 2016.
+**Testing**은 Debian "롤링" 배포판과 가장 가까운 것으로, "롤링"은 패키지 업데이트가 사용 가능해지는 즉시 배포된다는 것을 의미해요. Kali는 2016년 1월부터 이 브랜치를 **kali-rolling**의 시작점으로 사용하고 있어요.
 
-**Unstable** is just after Debian's package development happens. The packages have been created, but not fully tested. Kali doesn't have an equivalent, as it is a rolling distribution.
+**Unstable**은 Debian 패키지 개발 직후에 있어요. 패키지가 생성되었지만 완전히 테스트되지 않았어요. Kali는 롤링 배포판이기 때문에 이에 해당하는 것이 없어요.
 
-For more information about how Kali relates to Debian, please see our [policy page](/docs/policy/kali-linux-relationship-with-debian/) on the matter.
+Kali가 Debian과 어떻게 관련되는지에 대한 자세한 내용은 해당 주제에 관한 [정책 페이지](/docs/policy/kali-linux-relationship-with-debian/)를 참조하세요.
 
-### The kali-rolling Repository
+### kali-rolling 저장소
 
-Contrary to kali-dev, kali-rolling is expected to be of better quality because it's managed by a tool that ensures installability of all the package it contains. That tool picks updated packages from kali-dev and copies them to kali-rolling only when they have been verified to be installable. Note however that those checks do not include any functional testing. It might still contain broken software due to other problems that are not covered by the package dependencies. **Kali Rolling is the primary repository that most users should be using**. They can also report any issue they have with Kali specific packages on [bugs.kali.org](https://bugs.kali.org/). Make sure to select the "kali-dev" version in "Product version".
+kali-dev와 달리, kali-rolling은 포함된 모든 패키지의 설치 가능성을 보장하는 도구로 관리되기 때문에 품질이 더 좋을 것으로 예상돼요. 이 도구는 kali-dev에서 업데이트된 패키지를 선택하고 설치 가능하다고 확인된 경우에만 kali-rolling에 복사해요. 그러나 이러한 검사에는 기능 테스트가 포함되지 않는다는 점에 유의하세요. 패키지 종속성으로 해결되지 않는 다른 문제로 인해 여전히 손상된 소프트웨어가 포함될 수 있어요. **Kali Rolling은 대부분의 사용자가 사용해야 하는 기본 저장소예요**. 또한 Kali 특화 패키지에 대한 문제를 [bugs.kali.org](https://bugs.kali.org/)에 보고할 수 있어요. "Product version"에서 "kali-dev" 버전을 선택해야 해요.
 
-Kali Rolling users are expected to have the following entry in their [/etc/apt/sources.list](/docs/general-use/kali-linux-sources-list-repositories/):
+Kali Rolling 사용자는 [/etc/apt/sources.list](/docs/general-use/kali-linux-sources-list-repositories/)에 다음 항목이 있어야 해요:
 
 ```plaintext
 deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 ```
 
-### The kali-dev Repository
+### kali-dev 저장소
 
-**WARNING: While kali-dev is publicly accessible to everybody on all Kali mirrors, this distribution should not be used by end-users as it will regularly break**.
+**경고: kali-dev는 모든 Kali 미러에서 누구에게나 공개적으로 접근할 수 있지만, 이 배포판은 정기적으로 손상되기 때문에 최종 사용자가 사용해서는 안 돼요**.
 
-This repository is actually Debian's Testing distribution with all the kali-specific packages (available in the kali-dev-only repository) force-injected. Kali packages take precedence over the Debian packages. Sometimes when Testing changes, some Kali packages must be updated and this will not happen immediately. During this time, kali-dev is likely to be broken. This repository is where Kali developers push updated packages and is the basis used to create kali-rolling.
+이 저장소는 실제로 Debian의 Testing 배포판에 kali-dev-only 저장소에서 사용할 수 있는 모든 kali 특화 패키지가 강제로 주입된 것이에요. Kali 패키지는 Debian 패키지보다 우선시돼요. Testing이 변경될 때 일부 Kali 패키지를 업데이트해야 하는 경우가 있지만, 이것이 즉시 이루어지지 않을 수 있어요. 이 기간 동안 kali-dev가 손상될 가능성이 높아요. 이 저장소는 Kali 개발자가 업데이트된 패키지를 푸시하는 곳이며 kali-rolling을 만드는 데 사용되는 기반이에요.

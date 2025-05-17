@@ -1,16 +1,17 @@
 ---
-title: Installing Python Applications via pipx
+title: pipx를 통한 Python 애플리케이션 설치하기
 description:
 icon:
 weight: 16
 author: ["arnaudr",]
+번역: ["xenix4845"]
 ---
 
-## Introduction: say good-bye to `pip install`
+## 소개: `pip install`에게 작별을 고하세요
 
-Starting Kali Linux 2024.4, using `pip` to install external Python packages _is strongly discouraged_. Instead, we recommend using `pipx`. On the surface, it provides a similar user experience, but under the hood it overcomes the one outstanding issue with pip: the lack of environment isolation.
+Kali Linux 2024.4부터, 외부 Python 패키지를 설치하기 위해 `pip`를 사용하는 것은 _강력히 권장되지 않아요_. 대신, `pipx`를 사용하는 것이 좋아요. 표면적으로는 비슷한 사용자 경험을 제공하지만, 내부적으로는 pip의 가장 큰 문제점인 환경 격리 부재를 해결해요.
 
-If you try to use `pip` to perform system-wide installs (`sudo pip install`) or user home directory installs (`pip install --user`), you'll get this message:
+`pip`를 사용하여 시스템 전체 설치(`sudo pip install`)나 사용자 홈 디렉토리 설치(`pip install --user`)를 시도하면, 다음과 같은 메시지가 표시돼요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -42,19 +43,19 @@ at the risk of breaking your Python installation or OS, by passing
 hint: See PEP 668 for the detailed specification.
 ```
 
-The reason for this change, in short, is that using both `apt` (Kali's package manager) and `pip` to install Python packages on a Kali system has never really been supported. Given that both `apt` and `pip` installs Python packages in the same environment, they basically step on each others toes, and it can quickly become a broken mess. [pipx](https://pipx.pypa.io/) is the solution to this problem: please use it.
+간단히 말해, 이 변경의 이유는 Kali 시스템에서 Python 패키지를 설치하기 위해 `apt`(Kali의 패키지 관리자)와 `pip`를 함께 사용하는 것이 실제로 지원되지 않았기 때문이에요. `apt`와 `pip` 모두 동일한 환경에 Python 패키지를 설치하기 때문에, 기본적으로 서로 충돌하여 빠르게 망가질 수 있어요. [pipx](https://pipx.pypa.io/)는 이 문제에 대한 해결책이니 사용해 주세요.
 
-For longer (and more formal) explanations, you can refer to the [PEP 668 – Marking Python base environments as externally managed](https://peps.python.org/pep-0668/), or for something shorter, our blog post [Pip install and Python's externally managed](/blog/python-externally-managed/).
+더 길고 공식적인 설명은 [PEP 668 – 외부 관리되는 Python 기본 환경 표시](https://peps.python.org/pep-0668/)를 참조하거나, 더 간단한 설명은 블로그 포스트 [Pip install과 Python의 외부 관리](/blog/python-externally-managed/)를 참조하세요.
 
-Below, we'll follow the suggestions from the error message above, and give concrete examples.
+아래에서는 위의 오류 메시지에서 제안한 내용을 따라 구체적인 예제를 제공할게요.
 
-## Prefer installing packages and programs via APT
+## APT를 통한 패키지 및 프로그램 설치 선호하기
 
-Always check if the Python program that you're looking for is already packaged in Kali Linux, and if so, install it with APT.
+찾고 있는 Python 프로그램이 이미 Kali Linux에 패키지로 제공되는지 항상 확인하고, 제공된다면 APT로 설치하세요.
 
-For an example, let's check [Faraday's README](https://github.com/infobyte/faraday). The page mentions several installation methods, among which Docker images, a PyPi package (installed via `pip`), or installing distro packages published by Faraday itself.
+예를 들어, [Faraday의 README](https://github.com/infobyte/faraday)를 확인해 보세요. 이 페이지에는 Docker 이미지, PyPi 패키지(`pip`로 설치), 또는 Faraday가 직접 게시한 배포판 패키지를 포함한 여러 설치 방법이 언급되어 있어요.
 
-Before doing any of that, we can check if Faraday is already packaged in Kali Linux with:
+그 어떤 것도 하기 전에, Faraday가 이미 Kali Linux에 패키지로 제공되는지 확인할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -62,7 +63,7 @@ Before doing any of that, we can check if Faraday is already packaged in Kali Li
 [...]
 ```
 
-The output is a bit too long, so let's match only package names that start with `faraday`:
+출력이 너무 길어서, `faraday`로 시작하는 패키지 이름만 찾아보겠어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -72,7 +73,7 @@ faraday-agent-dispatcher/kali-rolling 3.2.1-0kali2 all
 faraday-cli/kali-rolling 2.1.8-0kali1 all
 ```
 
-We're getting there: there's a package named `faraday`, let's check if it's indeed what we're after:
+이제 가까워졌어요: `faraday`라는 패키지가 있습니다. 원하는 것이 맞는지 확인해 보겠어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -85,27 +86,27 @@ Description: Collaborative Penetration Test IDE
 [...]
 ```
 
-Indeed, it's the right one! We can install it simply with:
+맞아요! 간단하게 설치할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt install faraday
 ```
 
-Done!
+완료됐어요!
 
-## Not packaged in Kali? Too old in Kali? Install it with pipx
+## Kali에 패키지가 없거나 너무 오래됐나요? pipx로 설치하세요
 
-In this example, we're going to install [XSStrike](https://github.com/s0md3v/XSStrike). This time, APT returns nothing:
+이 예시에서는 [XSStrike](https://github.com/s0md3v/XSStrike)를 설치해 볼게요. 이번에는 APT가 아무 결과도 반환하지 않아요:
 
 ```console
 ┌──(kali㉿kali)-[~]
 └─$ apt search xsstrike
 ```
 
-So we're going to install it with `pipx.` This assumes that the project is published on the Python Package Index, and [indeed it is](https://pypi.org/project/xsstrike/).
+그래서 `pipx`로 설치할 거예요. 이 방법은 프로젝트가 Python 패키지 인덱스에 게시되어 있다고 가정하며, [실제로 그렇습니다](https://pypi.org/project/xsstrike/).
 
-Installation is pretty straightforward:
+설치는 매우 간단해요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -116,7 +117,7 @@ Installation is pretty straightforward:
 done!
 ```
 
-That's all, now we can run it:
+이게 전부에요. 이제 실행할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -133,24 +134,24 @@ usage: xsstrike [-h] [-u target] [--data paramdata] [-e encode] [--fuzzer]
 [...]
 ```
 
-And it works already!
+벌써 작동하네요!
 
-## Pipx troubleshooting
+## Pipx 문제 해결
 
-### Install pipx
+### pipx 설치
 
-From Kali Linux 2024.4, `pipx` should be pre-installed. If ever it's not the case, you can install it via `apt` as usual:
+Kali Linux 2024.4부터 `pipx`가 사전 설치되어 있어야 해요. 그렇지 않은 경우, 평소처럼 `apt`를 통해 설치할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
 └─$ sudo apt install -y pipx
 ```
 
-### Add `~/.local/sbin` to the path
+### `~/.local/bin`을 경로에 추가하기
 
-`~/.local/bin` is the directory where `pipx` installs Python applications. It needs to be in the `PATH` environment variable, so that when you install, for example, an application `xyz` via pipx, you can then run it simply by typing `xyz` in the terminal.
+`~/.local/bin`은 `pipx`가 Python 애플리케이션을 설치하는 디렉토리예요. 이 디렉토리는 `PATH` 환경 변수에 포함되어야 하므로, pipx를 통해 예를 들어 `xyz`라는 애플리케이션을 설치하면 터미널에서 간단히 `xyz`를 입력하여 실행할 수 있어요.
 
-From Kali Linux 2024.4, `~/.local/bin` should already be in the `PATH`. You can check that by opening a terminal and running the command:
+Kali Linux 2024.4부터 `~/.local/bin`은 이미 `PATH`에 포함되어 있어야 해요. 터미널을 열고 다음 명령을 실행하여 확인할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -158,9 +159,9 @@ From Kali Linux 2024.4, `~/.local/bin` should already be in the `PATH`. You can 
 /home/kali/.local/bin:[...]
 ```
 
-If you see `/home/kali/.local/bin` somewhere in the output, it's all good.
+출력 어딘가에 `/home/kali/.local/bin`이 보인다면 문제 없어요.
 
-If for some reason it's not there, you might get this message after installing a program with `pipx`:
+어떤 이유로 그것이 없다면, `pipx`로 프로그램을 설치한 후 다음과 같은 메시지가 표시될 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -175,6 +176,6 @@ If for some reason it's not there, you might get this message after installing a
 done!
 ```
 
-Contrary to what the messagae says, there should be no need to run `pipx ensurepath`. Instead, just log out, then log back in. Then open a terminal, run `echo $PATH`, and you should see `/home/kali/.local/bin` somewhere in the output.
+메시지와 다르게, `pipx ensurepath`를 실행할 필요는 없어요. 대신, 로그아웃한 다음 다시 로그인하세요. 그런 다음 터미널을 열고 `echo $PATH`를 실행하면 출력 어딘가에 `/home/kali/.local/bin`이 보일 거예요.
 
-If for some very mysterious reason it's not there, then maybe it's time to run `pipx ensurepath` and follows the instructions.
+아주 신비한 이유로 여전히 보이지 않는다면, `pipx ensurepath`를 실행하고 지시를 따르는 것이 좋아요.

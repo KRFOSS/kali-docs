@@ -1,89 +1,90 @@
 ---
-title: Installing NetHunter on the Gemini PDA
+title: Gemini PDA에 NetHunter 설치하기
 description:
 icon:
 weight:
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
 ![](NetHunter-Gemini_tiny.png)
 
-# From unpacking to running NetHunter in 4 steps:
+# 포장 풀기부터 NetHunter 실행까지 4단계:
 
-1. Flash stock rooted Android image
-2. Run Magisk Manager to finish the rooting process
-3. Install TWRP recovery
-4. Install NetHunter
+1. 기본 루팅된 안드로이드 이미지 플래시하기
+2. Magisk Manager를 실행하여 루팅 과정 마무리하기
+3. TWRP 리커버리 설치하기
+4. NetHunter 설치하기
 
-## 1. Flash stock rooted Android
+## 1. 기본 루팅된 안드로이드 플래시하기
 
-The Gemini PDA ships with a non-rooted Android image which needs to be replaced.
-Either install the "Pentester Pro" image with rooted Android and Kali Linux partitions as detailed here: [Kali Linux Gemini PDA](/docs/arm/gemini-pda/)
+Gemini PDA는 루팅되지 않은 안드로이드 이미지와 함께 제공되며, 이를 교체해야 해요.
+"Pentester Pro" 이미지를 설치하면 루팅된 안드로이드와 Kali Linux 파티션이 함께 제공돼요. 자세한 내용은 여기를 참조하세요: [Kali Linux Gemini PDA](/docs/arm/gemini-pda/)
 
-~~or create your own image if you prefer a different partition layout:
+~~또는 다른 파티션 레이아웃을 원한다면 자신만의 이미지를 만드세요:
 [support.planetcom.co.uk/index.php/Linux_Flashing_Guide](https://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)~~
-**Note:** The official partition tool does not offer a rooted android image at the time of writing (26/02/2019). The image advertised as rooted is the same as the non-rooted version.
+**참고:** 이 글을 작성하는 시점(2019년 2월 26일)에는 공식 파티션 도구가 루팅된 안드로이드 이미지를 제공하지 않아요. 루팅된 것으로 광고된 이미지는 루팅되지 않은 버전과 동일해요.
 
-Reboot the newly imaged Gemini into Android and:
-- Configure the keyboard
-- Connect to Wi-Fi
-- Open the "Play Store" app and sign in with your google account
-- Update all apps
+새로 이미지를 설치한 Gemini를 안드로이드로 재부팅하고:
+- 키보드 설정하기
+- Wi-Fi에 연결하기
+- "Play 스토어" 앱을 열고 google 계정으로 로그인하기
+- 모든 앱 업데이트하기
 
-## 2. Run Magisk Manager to finish the rooting process
+## 2. Magisk Manager를 실행하여 루팅 과정 완료하기
 
-- Run the "Magisk Manager" app and follow the prompts to update the app
+- "Magisk Manager" 앱을 실행하고 앱을 업데이트하라는 메시지를 따르세요
 
-Sometimes the magisk version shipped with an android image is not compatible with the latest version of the magisk manager which will require a little workaround.
-If you are prompted with an error message that "Magisk Manager" is incompatible with the installed version of "Magisk", downgrade the manager app, upgrade magisk via TWRP, and upgrade the manager app again like this:
-- uninstall the existing Magisk Manager
-- download Magisk Manager v6.1.0 from [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)
-- goto "security" settings and turn on "allow installation of apps from unknown sources"
-- install magisk manager apk from the download folder
-- open Magisk Manager, say "no" to update
-- disable "Check Updates" in "Settings"
-- exit Magisk Manager
-- ~~Download the latest version of "Magisk" (not "Magisk Manager") from [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)~~
-- ~~Continue with the installation of TWRP and install the new magisk version via TWRP when convenient. Once installed open the "Magisk Manager" app and follow the prompts to update the app~~
-Note: Newer versions of Magisk seem to be breaking auto rotation. Let's stick with the previous version for now.
+때로는 안드로이드 이미지와 함께 제공되는 magisk 버전이 최신 버전의 magisk manager와 호환되지 않아 약간의 해결책이 필요할 수 있어요.
+"Magisk Manager"가 설치된 "Magisk" 버전과 호환되지 않는다는 오류 메시지가 표시되면, 관리자 앱을 다운그레이드하고, TWRP를 통해 magisk를 업그레이드한 다음, 다시 관리자 앱을 업그레이드하세요:
+- 기존 Magisk Manager 제거
+- [github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)에서 Magisk Manager v6.1.0 다운로드
+- "보안" 설정으로 이동하여 "알 수 없는 소스에서 앱 설치 허용" 활성화
+- 다운로드 폴더에서 magisk manager apk 설치
+- Magisk Manager 열기, 업데이트에 "아니오" 선택
+- "설정"에서 "업데이트 확인" 비활성화
+- Magisk Manager 종료
+- ~~[github.com/topjohnwu/Magisk/releases](https://github.com/topjohnwu/Magisk/releases)에서 최신 버전의 "Magisk"("Magisk Manager" 아님) 다운로드~~
+- ~~TWRP 설치를 계속 진행하고 편리할 때 TWRP를 통해 새 magisk 버전을 설치하세요. 설치가 완료되면 "Magisk Manager" 앱을 열고 메시지에 따라 앱을 업데이트하세요~~
+참고: 최신 버전의 Magisk는 자동 회전을 손상시키는 것 같아요. 지금은 이전 버전을 유지하는 것이 좋겠어요.
 
-## 3. Install TWRP recovery
+## 3. TWRP 리커버리 설치하기
 
-- install the "Official TWRP App" from Playstore
-- open the "Official TWRP App"
-- select your account
-- tick "I agree", "Run with root permissions"
-- press "OK"
-- press "TWRP Flash"
-- press "ok when prompted for allowing root access
-- If superuser permissions are not granted automatically, open Magisk Manager and enable TWRP manually
-- Select device "Planet Gemini PDA -- geminipda"
-- select latest version
-- download image
-- go back
-- select image
-- Flash to recovery
+- Play 스토어에서 "Official TWRP App" 설치
+- "Official TWRP App" 열기
+- 계정 선택
+- "동의합니다", "루트 권한으로 실행" 체크
+- "확인" 누르기
+- "TWRP Flash" 누르기
+- 루트 액세스 허용 메시지가 나타나면 "확인" 누르기
+- 슈퍼유저 권한이 자동으로 부여되지 않으면 Magisk Manager를 열고 TWRP를 수동으로 활성화하세요
+- 기기 선택 "Planet Gemini PDA -- geminipda"
+- 최신 버전 선택
+- 이미지 다운로드
+- 뒤로 가기
+- 이미지 선택
+- 리커버리에 플래시
 
-## 4. Install NetHunter
+## 4. NetHunter 설치하기
 
-- Download the NetHunter image from here: [kali.org/get-kali/](https://www.kali.org/get-kali/#kali-mobile) -> Gemini -> Gemini PDA (Nougat)
-- connect the Gemini PDA to your computer
-- transfer the NetHunter image to the Gemini PDA
-- reboot the Gemini PDA into recovery via the "Official TWRP App" (TWRP Flash->Menu->Reboot-Reboot Recovery)
-- press "Install"
-- select the NetHunter image
-- swipe to confirm flash
-- reboot
-- start the "NetHunter" app
-- click "allow" seven times and allow root access
-- let setup finish
-- reboot
+- NetHunter 이미지를 여기에서 다운로드하세요: [kali.org/get-kali/](https://www.kali.org/get-kali/#kali-mobile) -> Gemini -> Gemini PDA (Nougat)
+- Gemini PDA를 컴퓨터에 연결하세요
+- NetHunter 이미지를 Gemini PDA로 전송하세요
+- "Official TWRP App"을 통해 Gemini PDA를 리커버리로 재부팅하세요 (TWRP Flash->Menu->Reboot-Reboot Recovery)
+- "설치" 누르기
+- NetHunter 이미지 선택
+- 스와이프하여 플래시 확인
+- 재부팅
+- "NetHunter" 앱 시작
+- "허용"을 7번 클릭하고 루트 액세스 허용
+- 설정 완료하기
+- 재부팅
 
-### Enjoy Kali NetHunter on the Gemini PDA
+### Gemini PDA에서 Kali NetHunter 즐기기
 
-## Current status
+## 현재 상태
 
-- HID attacks are not yet supported. The drivers are still being worked on.
-- SearchSploit is not fully working yet.
+- HID 공격은 아직 지원되지 않아요. 드라이버는 계속 개발 중이에요.
+- SearchSploit이 아직 완전히 작동하지 않아요.
 
-Please help with the development by submitting issues and pull requests. We much appreciate it.
+이슈와 풀 리퀘스트를 제출하여 개발에 도움을 주세요. 많은 감사를 드립니다.

@@ -1,79 +1,80 @@
 ---
-title: Installing NetHunter on the OnePlus 7
+title: OnePlus 7에 NetHunter 설치하기
 description:
 icon:
 weight:
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
 ![](one-plus-7p.png)
 
-# From a reset to running NetHunter in 4 steps:
+# 초기화부터 NetHunter 실행까지 4단계:
   
-1. Flash latest Android 10 with the unbrick tool
-2. Flash TWRP and Magisk
-3. Disable force encryption of data partition
-4. Install NetHunter
-5. Disable OnePlus update service
+1. 언브릭 도구로 최신 Android 10 플래시하기
+2. TWRP와 Magisk 플래시하기
+3. 데이터 파티션의 강제 암호화 비활성화하기
+4. NetHunter 설치하기
+5. OnePlus 업데이트 서비스 비활성화하기
   
-## 1. Flash latest stock (OOS) Android 10
+## 1. 최신 기본(OOS) Android 10 플래시하기
   
-1.01.	Download and unzip [guacamoleb_14_P.32_210127.zip](https://kali.download/nethunter-images/devices/guacamole/guacamoleb_14_P.32_210127.zip) on your Windows computer
-1.02	Open admin cmd and type: "bcdedit /set testsigning on", reboot  
-1.03	Run MsmDownloadTool V4.0.exe  
-1.04	Power off OnePlus 7, press vol + & vol - at the same time, count to 5 and connect phone to laptop  
-1.05	When device is detected (bing) press start  
-1.06	reboot and set up device  
-1.07	In developer options, enable OEM unlock & USB debugging  
+1.01.	Windows 컴퓨터에 [guacamoleb_14_P.32_210127.zip](https://kali.download/nethunter-images/devices/guacamole/guacamoleb_14_P.32_210127.zip) 다운로드 및 압축 해제
+1.02	관리자 명령 프롬프트를 열고 "bcdedit /set testsigning on" 입력 후 재부팅  
+1.03	MsmDownloadTool V4.0.exe 실행  
+1.04	OnePlus 7 전원 끄고, 볼륨 + 와 볼륨 - 동시에 누르고, 5초 세고 노트북에 연결  
+1.05	기기가 감지되면(삑 소리) 시작 누르기  
+1.06	재부팅하고 기기 설정  
+1.07	개발자 옵션에서 OEM 잠금 해제 및 USB 디버깅 활성화  
 1.08	sudo apt install adb  
 1.09	adb kill-server && ./adb start-server  
 1.10	adb reboot bootloader  
 1.11	sudo fastboot oem unlock  
-1.12	Reboot and set up phone  
+1.12	재부팅하고 폰 설정  
   
-## 2. Flash TWRP and Magisk
+## 2. TWRP와 Magisk 플래시하기
   
-2.01	Copy to Oneplus7  
-2.02	Download [Magisk-v19.3.zip](https://kali.download/nethunter-images/devices/guacamole/Magisk-v19.3.zip) to Oneplus7
-2.03	Download [twrp-3.3.1-1-guacamoleb.img](https://kali.download/nethunter-images/devices/guacamole/twrp-3.3.1-1-guacamoleb.img) to your PC
-2.04	Install Android platform tools  
-2.05	In developer options of your phone, enable USB debugging  
+2.01	Oneplus7에 복사  
+2.02	Oneplus7에 [Magisk-v19.3.zip](https://kali.download/nethunter-images/devices/guacamole/Magisk-v19.3.zip) 다운로드
+2.03	PC에 [twrp-3.3.1-1-guacamoleb.img](https://kali.download/nethunter-images/devices/guacamole/twrp-3.3.1-1-guacamoleb.img) 다운로드
+2.04	Android 플랫폼 도구 설치  
+2.05	휴대폰의 개발자 옵션에서 USB 디버깅 활성화  
 2.06	adb kill-server && ./adb start-server  
 2.07	adb reboot bootloader  
 2.08	sudo fastboot boot twrp-3.3.1-1-guacamoleb.img  
-2.09	Device automatically reboots into trwp  
-2.10	In twrp, install twrp-installer-3.3.1-1-guacamoleb.zip & Magisk-v19.3.zip, reboot  
-2.11	Reboot  
+2.09	기기가 자동으로 TWRP로 재부팅  
+2.10	TWRP에서 twrp-installer-3.3.1-1-guacamoleb.zip 및 Magisk-v19.3.zip 설치, 재부팅  
+2.11	재부팅  
   
-## 3. Disable force ecryption of data partition
+## 3. 데이터 파티션의 강제 암호화 비활성화하기
   
-3.01	Reboot into recovery  
-3.02	format /data  
-3.03	reboot into recovery  
-3.04	install magisk  
-3.05	install Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip  
-3.06	reboot to system  
-3.07	set up phone but skip fingerprint or any other security. Set up later (not sure if that re-encrypts the phone)  
+3.01	리커버리 모드로 재부팅  
+3.02	/data 포맷  
+3.03	리커버리 모드로 재부팅  
+3.04	magisk 설치  
+3.05	Disable_Dm-Verity_ForceEncrypt_11.02.2020.zip 설치  
+3.06	시스템으로 재부팅  
+3.07	폰 설정하되 지문이나 기타 보안 설정 건너뛰기. 나중에 설정 (폰이 다시 암호화되는지 확실하지 않음)  
   
-## 4. Install NetHunter
+## 4. NetHunter 설치하기
   
-4.01	Download image from [our download page](/get-kali/#kali-mobile)  
-4.02    there is a bug in the current installer requiring to install the kernel separately, [download it here](https://kali.download/nethunter-images/devices/guacamole/kernel-nethunter-2021.3-oneplus7-oos-ten.zip)
-4.03	reboot into recovery  
-4.04	install nethunter zip  
-4.06    install magisk again  
-4.07	install disable-force-encrypter again  
-4.08    reboot  
-4.09	run NetHunter app, wait for the initial setup to finish then reboot  
-4.10	update NetHunter app from store  
+4.01	[다운로드 페이지](/get-kali/#kali-mobile)에서 이미지 다운로드  
+4.02    현재 설치 프로그램에는 커널을 별도로 설치해야 하는 버그가 있어, [여기에서 다운로드](https://kali.download/nethunter-images/devices/guacamole/kernel-nethunter-2021.3-oneplus7-oos-ten.zip)  
+4.03	리커버리로 재부팅  
+4.04	nethunter zip 설치  
+4.06    magisk 다시 설치  
+4.07	disable-force-encrypter 다시 설치  
+4.08    재부팅  
+4.09	NetHunter 앱 실행, 초기 설정이 완료될 때까지 기다린 다음 재부팅  
+4.10	스토어에서 NetHunter 앱 업데이트  
   
-## 5. Disable OnePlus update service
+## 5. OnePlus 업데이트 서비스 비활성화하기
   
-5.01	Open Android terminal as root  
+5.01	Android 터미널을 루트로 열기  
 5.02	su -c pm disable com.oneplus.opbackup  
-5.03	"System Update" service is now disabled  
+5.03	이제 "시스템 업데이트" 서비스가 비활성화됨  
   
-### Enjoy Kali NetHunter on the OnePlus 7  
+### OnePlus 7에서 Kali NetHunter 즐기기  
   
   
-Please help with the development by submitting issues and pull requests. We much appreciate it.
+이슈와 풀 리퀘스트를 제출하여 개발에 도움을 주세요. 많은 감사를 드립니다.

@@ -1,17 +1,18 @@
 ---
-title: Kali Training
+title: Kali 트레이닝
 description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-# What is Kali Training?
+# Kali 트레이닝이란 무엇인가요?
 
-[Kali Training](https://kali.training) is the official site for the book all about Kali -- Kali Linux Revealed. Kali Training will allow you to go through the book's material and take practice exams to test your knowledge on chapters from the book. The book covers topics from installing Kali and what the base requirements are all the way to recompiling the kernel.
+[Kali 트레이닝](https://kali.training)은 Kali에 대한 모든 것을 담은 책 -- Kali Linux Revealed의 공식 사이트예요. Kali 트레이닝을 통해 책의 내용을 살펴보고 연습 시험을 치러 책의 각 장에 대한 지식을 테스트할 수 있어요. 이 책은 Kali 설치 방법과 기본 요구 사항부터 커널 재컴파일까지 다양한 주제를 다루고 있어요.
 
-Users are encouraged to read and complete the practice exams to gain useful knowledge on many aspects of Kali Linux. Everyday tasks can be quickened, issues that pop up can be pinpointed and potentially corrected easier, and a good understanding of what is happening beneath the surface is all able to be gained with completion of the book.
+사용자는 책을 읽고 연습 시험을 완료하여 Kali Linux의 여러 측면에 대한 유용한 지식을 얻을 것을 권장해요. 일상적인 작업을 더 빠르게 수행하고, 발생하는 문제를 정확히 파악하여 더 쉽게 해결할 수 있으며, 표면 아래에서 일어나는 일에 대한 좋은 이해를 책을 완료함으로써 얻을 수 있어요.
 
-## What can I do next?
+## 다음에는 무엇을 할 수 있나요?
 
-After completing all of Kali Training and the practice test, there is a following certificate that can be achieved. The Kali Linux Certified Profession (KLCP) certificate is a recognition that you are knowledgeable in Kali Linux, many Linux fundamentals, and certain more advanced features of Linux.
+모든 Kali 트레이닝과 연습 테스트를 완료한 후에는 취득할 수 있는 인증서가 있어요. Kali Linux 공인 전문가(KLCP) 인증서는 Kali Linux, 많은 Linux 기초 지식, 그리고 특정 고급 Linux 기능에 대한 지식을 인정받는 증서예요.

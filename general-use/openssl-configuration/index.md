@@ -1,19 +1,20 @@
 ---
-title: OpenSSL Configuration
+title: OpenSSL 설정
 description:
 icon:
 weight:
 author: ["arnaudr", "elwood-offsec", "g0tmi1k", "rhertzog",]
+번역: ["xenix4845"]
 ---
 
-Since our release of [Kali Linux 2021.3](/blog/kali-linux-2021-3-release/) OpenSSL has been configured for **wider compatibility** to allow Kali to talk to as many services as possible. This means that legacy protocols _(such as TLS 1.0 and TLS 1.1)_ and older ciphers are **enabled by default**. This is a change from standard behavior, as these are disabled to enforce communication over more secure channels. As a result of this change tools used inside of Kali will be able to communicate using these outdated methods. _This is done to help increase Kali's ability to talk to older, obsolete systems and servers that are still using these older protocols. Older services using this may be at end of life, thus increasing the chances of discovering vulnerabilities or other problems_.
+[Kali Linux 2021.3](/blog/kali-linux-2021-3-release/) 출시 이후로 OpenSSL은 Kali가 가능한 한 많은 서비스와 통신할 수 있도록 **넓은 호환성**을 위해 구성되었어요. 이는 레거시 프로토콜 _(예: TLS 1.0 및 TLS 1.1)_ 및 오래된 암호화 방식이 **기본적으로 활성화**되어 있다는 것을 의미해요. 이는 표준 동작에서 변경된 것으로, 일반적으로 이러한 프로토콜은 더 안전한 채널을 통한 통신을 강제하기 위해 비활성화되어 있어요. 이러한 변경의 결과로 Kali 내에서 사용되는 도구들은 이러한 오래된 방법을 사용하여 통신할 수 있게 되었어요. _이는 Kali가 이러한 오래된 프로토콜을 여전히 사용하고 있는 구형 시스템 및 서버와 통신할 수 있는 능력을 향상시키기 위해 수행돼요. 이를 사용하는 구형 서비스는 수명이 다했을 수 있으므로, 취약점이나 다른 문제를 발견할 가능성이 높아져요_.
 
-However, if you would rather keep your communication as secure as possible using today's modern standards, you can enable the **Strong Security** mode.
+그러나 오늘날의 현대적인 표준을 사용하여 통신을 가능한 한 안전하게 유지하고 싶다면, **강력한 보안**(Strong Security) 모드를 활성화할 수 있어요.
 
-These settings can be changed easily using the `kali-tweaks` tool. Simply:
+이러한 설정은 `kali-tweaks` 도구를 사용하여 쉽게 변경할 수 있어요. 다음과 같이 하시면 돼요:
 
-- Open a terminal and run `kali-tweaks`. 
-- From there, select the _Hardening_ menu.
-- Now you can choose between **Wide Compatibility** _(the default)_ and **Strong Security**.
+- 터미널을 열고 `kali-tweaks`를 실행하세요. 
+- 그 다음, _Hardening_ 메뉴를 선택하세요.
+- 이제 **넓은 호환성**(Wide Compatibility) _(기본값)_ 과 **강력한 보안**(Strong Security) 중에서 선택할 수 있어요.
 
-_Note: This is achieved by changing the OpenSSL configuration through `/etc/ssl/openssl.cnf` and `/etc/ssl/kali.cnf`, so while it can restore access to some legacy services, it will not allow access to servers running protocols that are no longer compiled in the `libssl` library (for example SSLv3)._
+_참고: 이는 `/etc/ssl/openssl.cnf`와 `/etc/ssl/kali.cnf`를 통해 OpenSSL 구성을 변경함으로써 이루어지므로, 일부 레거시 서비스에 대한 접근은 복원할 수 있지만 `libssl` 라이브러리에 더 이상 컴파일되지 않은 프로토콜(예: SSLv3)을 실행하는 서버에 대한 접근은 허용하지 않아요._

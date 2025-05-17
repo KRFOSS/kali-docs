@@ -1,16 +1,17 @@
 ---
-title: Using EoL Python Versions on Kali
+title: Kali에서 지원 종료된 Python 버전 사용하기
 description:
 icon:
 weight: 15
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-In December of 2019 we released a [blog post](/blog/python-2-end-of-life/) talking about how we will deal with Python 2's End-of-Life. Since then there has been quite a lot of tools that users use that have not been ported to Python 3, causing issues when they try to use them. This page will cover a way of using the depreciated version in a safe way.
+2019년 12월에 우리는 Python 2의 지원 종료(End-of-Life)에 어떻게 대응할 것인지에 대한 [블로그 포스트](/blog/python-2-end-of-life/)를 발표했어요. 그 이후로 사용자들이 사용하는 많은 도구들이 Python 3로 포팅되지 않아 사용할 때 문제가 발생하고 있어요. 이 페이지에서는 더 이상 지원되지 않는 버전을 안전하게 사용하는 방법을 다룰 거예요.
 
 # pyenv
 
-Python 2 is no longer being maintained in the Debian repositories. This means that we must find a way to work around this issue. `pyenv` solves this problem by allowing us to install multiple versions of Python that do not conflict with each other. Currently it is not in the Debian or Kali repository, so we will need to install it from source. Thankfully, there is a handy [installation script](https://github.com/pyenv/pyenv-installer) that the authors have released. Let's go through the installation and setup together:
+Python 2는 더 이상 Debian 저장소에서 유지 관리되지 않아요. 이는 우리가 이 문제를 해결할 방법을 찾아야 한다는 것을 의미해요. `pyenv`는 서로 충돌하지 않는 여러 Python 버전을 설치할 수 있게 해줌으로써 이 문제를 해결해요. 현재 Debian이나 Kali 저장소에는 없기 때문에 소스에서 설치해야 해요. 다행히도 개발자들이 편리한 [설치 스크립트](https://github.com/pyenv/pyenv-installer)를 제공했어요. 함께 설치와 설정을 진행해 봐요:
 
 ```console
 kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
@@ -18,7 +19,7 @@ kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-de
 kali@kali:~$
 ```
 
-We will next be quickly running the bash install script. If `ZSH` is the default shell we will have to edit the `.zshrc` file after this:
+다음으로 bash 설치 스크립트를 빠르게 실행할 거예요. `ZSH`가 기본 쉘이라면 이후에 `.zshrc` 파일을 편집해야 해요:
 
 ```console
 kali@kali:~$ curl https://pyenv.run | bash
@@ -26,7 +27,7 @@ kali@kali:~$ curl https://pyenv.run | bash
 kali@kali:~$
 ```
 
-If we are using `ZSH` then we will now add the proper lines to our `.zshrc`:
+`ZSH`를 사용하는 경우 이제 `.zshrc`에 적절한 줄을 추가할 거예요:
 
 ```console
 kali@kali:~$ echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
@@ -34,13 +35,13 @@ kali@kali:~$ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 kali@kali:~$ echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init --path)"\nfi' >> ~/.zshrc
 ```
 
-Check if `$SHELL` is empty and add zsh if it is.
+`$SHELL`이 비어 있는지 확인하고 비어 있다면 zsh를 추가해요.
 
 ```console
 kali@kali:~$ [ -z "$SHELL" ] && SHELL=/usr/bin/zsh
 ```
 
-Lets continue with the setup
+설정을 계속 진행해주세요.
 
 ```console
 kali@kali:~$ exec $SHELL
@@ -86,7 +87,7 @@ For full documentation, see: https://github.com/pyenv/pyenv#readme
 kali@kali:~$
 ```
 
-We can now install Python 2 and set it as our default Python version:
+이제 Python 2를 설치하고 기본 Python 버전으로 설정할 수 있어요:
 
 ```console
 kali@kali:~$ pyenv install 2.7.18
@@ -112,20 +113,20 @@ Type "help", "copyright", "credits" or "license" for more information.
 kali@kali:~$
 ```
 
-We can now install dependencies as needed for whatever tools we are using. When we want to swap back to Python 3, we just need to set the global to be system.
+이제 우리가 사용하는 도구에 필요한 의존성을 필요에 따라 설치할 수 있어요. Python 3로 다시 전환하고 싶을 때는 전역을 시스템으로 설정하기만 하면 돼요.
 
-One thing to keep in mind is to stick with installing the dependencies via `pip`. `apt` will not be very kind if you are trying to install Python 2 dependencies through it and through pip, so just stick with pip in this case.
+기억해야 할 한 가지는 `pip`를 통해 의존성을 설치하는 것을 고수하는 것이에요. `apt`를 통해 그리고 pip를 통해 Python 2 의존성을 설치하려고 하면 친절하지 않을 거예요. 따라서 이 경우에는 pip만 사용하는 것이 좋아요.
 
 # Get Pip
 
-Another option available is [get-pip](https://pip.pypa.io/en/stable/installation/). Using git-pip you can simply run a python script and install pip for the version used. In this case, Python 2. We can do this with the following:
+또 다른 사용 가능한 옵션은 [get-pip](https://pip.pypa.io/en/stable/installation/)이에요. git-pip를 사용하면 간단히 파이썬 스크립트를 실행하고 사용 중인 버전에 pip를 설치할 수 있어요. 이 경우에는 Python 2예요. 다음과 같이 할 수 있어요:
 
 ```console
 kali@kali:~$ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py
 kali@kali:~$ python2.7 get-pip.py
 ```
 
-After this is done, we can use pip like normal if we remember to use the `-m pip` flag following the python version. For example, if we want to run a script that requires the *requests* module, we can install and run it like so:
+이것이 완료되면 파이썬 버전 다음에 `-m pip` 플래그를 사용한다는 것을 기억한다면 평소처럼 pip를 사용할 수 있어요. 예를 들어, *requests* 모듈이 필요한 스크립트를 실행하려면 다음과 같이 설치하고 실행할 수 있어요:
 
 ```console
 kali@kali:~$ python2.7 -m pip install requests

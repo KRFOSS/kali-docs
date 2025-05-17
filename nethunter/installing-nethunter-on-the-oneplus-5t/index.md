@@ -1,143 +1,144 @@
 ---
-title: Installing NetHunter on the OnePlus 5T
+title: OnePlus 5T에 NetHunter 설치하기
 description:
 icon:
 weight:
 author: ["i-liek-turtals",]
+번역: ["xenix4845"]
 ---
 
-## Overview
+## 개요
 
-We’ll be covering how to install NetHunter on OnePlus 5T. Steps are as follows:
+OnePlus 5T에 NetHunter를 설치하는 방법을 다룰게요. 단계는 다음과 같아요:
 
-- Enable Developer options, OEM Unlocking and USB Debugging
-- Install LineageOS
-- Root the device with Magisk and TWRP
-- Install NetHunter
+- 개발자 옵션, OEM 잠금 해제 및 USB 디버깅 활성화하기
+- LineageOS 설치하기
+- Magisk와 TWRP로 기기 루팅하기
+- NetHunter 설치하기
 
-We’re going to use a pre-made NetHunter image created for this device but in order to install it, we’ll be changing stock OxygenOS v10.0.1 (Android v10) to LineageOS v20 (Android 13). A Windows 10 VM was used to create this guide but you should be able to follow the steps on Linux or MacOS.
+이 기기를 위해 사전 제작된 NetHunter 이미지를 사용할 것이지만, 이를 설치하기 위해 기본 OxygenOS v10.0.1(Android v10)에서 LineageOS v20(Android 13)으로 변경할 예정이에요. 이 가이드는 Windows 10 VM에서 작성되었지만 Linux나 MacOS에서도 따라할 수 있어요.
 
-Before we begin, backup all your files, remove your Google account and disable security options (like PIN, fingerprint etc). Then wipe your phone by going into *Settings* > *System* > *Reset options* > *Erase all data (factory reset)*. After reboot, you don’t need to connect to WiFi, sign in with your Google account or set a PIN. Just skip every step. We’ll be changing the OS like I mentioned anyway.
+시작하기 전에 모든 파일을 백업하고, Google 계정을 제거하고, 보안 옵션(PIN, 지문 등)을 비활성화하세요. 그런 다음 *설정* > *시스템* > *초기화 옵션* > *모든 데이터 삭제(공장 초기화)*로 이동하여 폰을 초기화하세요. 재부팅 후, WiFi에 연결하거나 Google 계정으로 로그인하거나 PIN을 설정할 필요가 없어요. 모든 단계를 건너뛰세요. 어쨌든 언급했듯이 OS를 변경할 예정이에요.
 
-## Developer Options, OEM Unlocking & USB Debug Mode
+## 개발자 옵션, OEM 잠금 해제 및 USB 디버그 모드
 
-In order to enable Developer mode go to *Settings* > *About Phone* and tap *Build Number* 7 times. Now go back to *Settings* > *System* and you will see a new section called *Developer*. Under *Developer Options* you will need to enable *OEM unlocking* and *USB debugging*. While at it, you may want to enable *Advanced reboot* aswell for the sake of convenience. This will allow you to reboot to Bootloader or Fastboot modes from the power menu.
+개발자 모드를 활성화하려면 *설정* > *휴대폰 정보*로 이동하여 *빌드 번호*를 7번 탭하세요. 이제 *설정* > *시스템*으로 돌아가면 *개발자*라는 새 섹션이 보일 거예요. *개발자 옵션*에서 *OEM 잠금 해제*와 *USB 디버깅*을 활성화해야 해요. 또한 편의를 위해 *고급 재부팅*도 활성화하는 것이 좋아요. 이렇게 하면 전원 메뉴에서 부트로더나 패스트부트 모드로 재부팅할 수 있어요.
 
-## Installing LineageOS
+## LineageOS 설치하기
 
-v20’s installation process is identical to v22’s so I’ll be following their [guide](https://wiki.lineageos.org/devices/dumpling/install/). For this step, you’re going to need to download two files.
+v20의 설치 과정은 v22와 동일하므로 그들의 [가이드](https://wiki.lineageos.org/devices/dumpling/install/)를 따를 거예요. 이 단계에서는 두 개의 파일을 다운로드해야 해요.
 
-- [LineageOS v20 (dumpling)](https://web.archive.org/web/20230314184423/https://download.lineageos.org/devices/dumpling/builds) (you just need lineage-20.0-20230314-nightly-dumpling-signed.zip file)
+- [LineageOS v20 (dumpling)](https://web.archive.org/web/20230314184423/https://download.lineageos.org/devices/dumpling/builds) (lineage-20.0-20230314-nightly-dumpling-signed.zip 파일만 필요해요)
 - [Android Debug Bridge SDK](https://developer.android.com/tools/releases/platform-tools)
 
-Extract ADB to a folder. Then open up the archive you just downloaded, grab the *recovery.img* file and put it in the same folder.
+ADB를 폴더에 압축 해제하세요. 그런 다음 방금 다운로드한 아카이브를 열고, *recovery.img* 파일을 같은 폴더에 넣으세요.
 
 ![](01.png)
 
-Now disconnect your device from your computer, hold the power button on your device and hit Bootloader.
+이제 기기를 컴퓨터에서 분리하고, 기기의 전원 버튼을 누른 다음 부트로더를 선택하세요.
 
-**Tip:** You can also enter *Fastboot mode* by pressing `Vol Up` + `Power` while the device is powered off. To enter *Bootloader mode*, press `Vol Down` + `Power`.
+**팁:** 기기 전원이 꺼진 상태에서 `볼륨 업` + `전원` 버튼을 눌러 *패스트부트 모드*에 들어갈 수도 있어요. *부트로더 모드*에 들어가려면 `볼륨 다운` + `전원` 버튼을 누르세요.
 
 ![](02.png)
 
-When you see this screen on your phone, connect it to your computer and start a Terminal. Type `fastboot devices` and you should see your device with the same serial number.
+폰에 이 화면이 보이면, 기기를 컴퓨터에 연결하고 터미널을 실행하세요. `fastboot devices`를 입력하면 동일한 일련번호로 기기가 표시될 거예요.
 
-**Note:** If you can’t see your device, you need to install drivers. Go to Windows Update > Check for updates > Advanced options > Optional updates > Driver updates. Then restart your computer.
+**참고:** 기기가 보이지 않는다면, 드라이버를 설치해야 해요. Windows Update > 업데이트 확인 > 고급 옵션 > 선택적 업데이트 > 드라이버 업데이트로 이동하세요. 그런 다음 컴퓨터를 재시작하세요.
 
 ![](03.png)
 
-In order to unlock bootloader, type `fastboot oem unlock`. You will see a prompt on your device. Use `Vol down` button to select unlock and press the `Power` button to confirm.
+부트로더 잠금을 해제하려면 `fastboot oem unlock`을 입력하세요. 기기에 프롬프트가 표시될 거예요. `볼륨 다운` 버튼을 사용하여 잠금 해제를 선택하고 `전원` 버튼을 눌러 확인하세요.
 
 ![](04.png)
 
-**Note:** From this point on, you will see a warning message about bootloader being unlocked everytime you restart your phone. This is normal and there is no way of disabling it.
+**참고:** 이 시점부터, 기기를 재시작할 때마다 부트로더가 잠금 해제되었다는 경고 메시지가 표시될 거예요. 이는 정상이며 비활성화할 수 없어요.
 
-The phone will wipe again and you’ll be greeted with the initial setup process of OOS. Skip everything again. Redo **Step 2** to enable Dev mode and USB Debugging. This time your device will ask if you want to Allow USB Debugging. Hit Allow. Now go back to Terminal and type `adb devices`. You should see your device on the list.
+폰이 다시 초기화되고 OOS의 초기 설정 과정이 표시될 거예요. 다시 모든 단계를 건너뛰세요. **단계 2**를 다시 수행하여 개발자 모드와 USB 디버깅을 활성화하세요. 이번에는 기기에서 USB 디버깅을 허용할지 물을 거예요. 허용을 누르세요. 이제 터미널로 돌아가서 `adb devices`를 입력하세요. 목록에서 기기가 보일 거예요.
 
 ![](05.png)
 
-**Note:** If you can’t see your device, you need to install another set of drivers. Go to Windows Update > Check for updates > Advanced options > Optional updates > Driver updates. Then restart your computer again.
+**참고:** 기기가 보이지 않는다면, 다른 드라이버 세트를 설치해야 해요. Windows Update > 업데이트 확인 > 고급 옵션 > 선택적 업데이트 > 드라이버 업데이트로 이동하세요. 그런 다음 컴퓨터를 다시 재시작하세요.
 
-Reboot your device to Fastboot mode by typing `adb -d reboot bootloader`. After the reboot, type `fastboot devices` to confirm you can access the device in fastboot mode. And finally flash the recovery.img to your device by typing `fastboot flash recovery recovery.img`.
+`adb -d reboot bootloader`를 입력하여 기기를 패스트부트 모드로 재부팅하세요. 재부팅 후, `fastboot devices`를 입력하여 패스트부트 모드에서 기기에 접근할 수 있는지 확인하세요. 마지막으로 `fastboot flash recovery recovery.img`를 입력하여 recovery.img를 기기에 플래시하세요.
 
-The process should look like this:
+이 과정은 다음과 같아 보여야 해요:
 
 ![](06.png)
 
-Now go back to your phone and hit `Vol down` twice. You’ll see *Recovery mode* up top. Press the `Power` button.
+이제 폰으로 돌아가서 `볼륨 다운`을 두 번 누르세요. 맨 위에 *복구 모드*가 보일 거예요. `전원` 버튼을 누르세요.
 
 ![](07.png)
 
-This time you’ll be greeted with LineageOS’ Recovery screen.
+이번에는 LineageOS 복구 화면이 표시될 거예요.
 
 ![](08.png)
 
-Hit *Apply update* then *Apply from ADB*. Now put the LineageOS v20 zip file you downloaded to the adb folder and push it to your device with `adb -d sideload filename.zip`.
+*업데이트 적용*을 누른 다음 *ADB에서 적용*을 누르세요. 이제 다운로드한 LineageOS v20 zip 파일을 adb 폴더에 넣고 `adb -d sideload filename.zip`으로 기기에 푸시하세요.
 
 ![](09.png)
 
-It should start installing. After completion, you should see a log like this:
+설치가 시작될 거예요. 완료 후, 다음과 같은 로그가 표시되어야 해요:
 
 ![](10.png)
 
-At this point you should install *Google Apps* (like Play Store etc) if you’d like to use them before you boot into LineageOS but since I’m going to be using this device purely for NetHunter, I skipped that step.
+이 시점에서 LineageOS로 부팅하기 전에 *Google 앱*(Play Store 등)을 설치하면 좋지만, 저는 이 기기를 순전히 NetHunter용으로 사용할 것이므로 이 단계를 건너뛰었어요.
 
-Go back a menu and reboot the device. You should be greeted with LineageOS’ initial setup. Before you connect your device to WiFi, you may want to disable automatic updates just to be safe (Settings > System > Updater > Three Dots > Preferences > Auto updates check > Never).
+메뉴로 돌아가서 기기를 재부팅하세요. LineageOS의 초기 설정이 표시될 거예요. 기기를 WiFi에 연결하기 전에, 안전을 위해 자동 업데이트를 비활성화하는 것이 좋아요(설정 > 시스템 > 업데이터 > 세 개의 점 > 환경설정 > 자동 업데이트 확인 > 안함).
 
 ![](11.png) ![](12.png)
 
-## Rooting the Device
+## 기기 루팅하기
 
-You’re going to need couple things for this step.
+이 단계에서 몇 가지가 필요해요.
 
 - [Magisk](https://github.com/topjohnwu/Magisk/releases/tag/v28.1)
-- boot.img from LineageOS zip file
+- LineageOS zip 파일의 boot.img
 - [TWRP](https://eu.dl.twrp.me/cheeseburger_dumpling/)
 
-Let’s start with creating a rooted boot image with Magisk. Download the apk and send it to your phone along with the boot.img file.
+Magisk로 루팅된 부트 이미지를 만드는 것부터 시작하겠습니다. apk를 다운로드하여 boot.img 파일과 함께 폰으로 전송하세요.
 
 ![](13.png)
 
-Open the file manager and install Magisk. You’re going to get a security warning, hit yes and open up the app.
+파일 관리자를 열고 Magisk를 설치하세요. 보안 경고가 표시되면 예를 누르고 앱을 열어주세요.
 
 ![](14.png)
 
-Hit *Install* next to Magisk, hit *Select and Patch a File* and then pick the **boot.img** file. Finally hit *LET’S GO* to create a rooted boot.img file. If everything went smoothly, you should see a log like this:
+Magisk 옆의 *설치*를 누르고, *파일 선택 및 패치*를 누른 다음 **boot.img** 파일을 선택하세요. 마지막으로 *시작하자*를 눌러 루팅된 boot.img 파일을 만드세요. 모든 것이 순조롭게 진행되면 다음과 같은 로그가 표시될 거예요:
 
 ![](15.png)
 
-Your rooted boot file should be in the same folder (`magisk_patched-***.img`). Back it up to your computer (just in case). Turn off your phone and disconnect it from your PC.
+루팅된 부트 파일은 같은 폴더에 있을 거예요(`magisk_patched-***.img`). 컴퓨터에 백업해 두세요(만일을 위해). 폰 전원을 끄고 PC에서 분리하세요.
 
-Now it’s time to install TWRP. Hold `Vol up` and `Power` button to start the device in Fastboot mode. Connect your phone back to your PC (the reason I'm doing it this way is because my phone would ignore the fastboot or bootloader commands if it's connected to my PC but your milage may vary), go back to your terminal and type `fastboot devices` to confirm you can communicate with it in Fastboot mode. Then type `fastboot flash recovery filename.img` to flash TWRP.
+이제 TWRP를 설치할 시간이에요. `볼륨 업`과 `전원` 버튼을 길게 눌러 패스트부트 모드로 기기를 시작하세요. 폰을 PC에 다시 연결하고(이 방식으로 하는 이유는 폰이 PC에 연결되어 있을 때 fastboot나 bootloader 명령을 무시하는 경우가 있기 때문이지만, 상황에 따라 다를 수 있어요), 터미널로 돌아가서 `fastboot devices`를 입력하여 패스트부트 모드에서 기기와 통신할 수 있는지 확인하세요. 그런 다음 `fastboot flash recovery filename.img`를 입력하여 TWRP를 플래시하세요.
 
 ![](16.png)
 
-Then go back to your phone, press `Vol down` twice to select Recovery Mode and press `Power` button to restart the device. Once TWRP is booted up hit *Install* > go to *Download folder* > hit *Install Image* (bottom right) and pick the rooted boot file you created with Magisk. On the next screen pick the `boot` partition and swipe to flash the device.
+그런 다음 폰으로 돌아가 `볼륨 다운`을 두 번 눌러 복구 모드를 선택하고 `전원` 버튼을 눌러 기기를 재시작하세요. TWRP가 부팅되면 *설치* > *다운로드 폴더*로 이동 > *이미지 설치*(오른쪽 하단)를 누르고 Magisk로 만든 루팅된 부트 파일을 선택하세요. 다음 화면에서 `부트` 파티션을 선택하고 스와이프하여 기기를 플래시하세요.
 
 ![](17.png) ![](18.png) ![](19.png)
 
-Once it’s done, reboot the system. When you’re back in LOS, open up Magisk and now you should be able to access *Super User* and *Modules* tabs. This indicates that your device is rooted.
+완료되면 시스템을 재부팅하세요. LOS로 돌아오면 Magisk를 열고 이제 *슈퍼 유저*와 *모듈* 탭에 접근할 수 있어야 해요. 이것은 기기가 루팅되었음을 나타냅니다.
 
-## Installing NetHunter
+## NetHunter 설치하기
 
-This is the easiest part. Download NetHunter for OnePlus 5T from [kali.org](https://www.kali.org/get-kali/#kali-mobile) and transfer it to your device. Open up *Magisk* > *Modules* > *Install from storage* and pick NetHunter you just transferred.
+이것이 가장 쉬운 부분이에요. [kali.org](https://www.kali.org/get-kali/#kali-mobile)에서 OnePlus 5T용 NetHunter를 다운로드하고 기기로 전송하세요. *Magisk* > *모듈* > *저장소에서 설치*를 열고 방금 전송한 NetHunter를 선택하세요.
 
 ![](20.png)
 
-The installation process will take a while to complete.
+설치 과정은 시간이 걸릴 거예요.
 
 ![](21.png)
 
-After you reboot the device, it may take a while to boot up to OS. Just be patient and don’t power off your device. We’ll fix this after the initial NetHunter setup. Connect your device to your WiFi if you haven’t already.
+기기를 재부팅한 후, OS로 부팅하는 데 시간이 걸릴 수 있어요. 인내심을 가지고 기기의 전원을 끄지 마세요. 초기 NetHunter 설정 후에 이 문제를 해결할 거예요. 아직 연결하지 않았다면 기기를 WiFi에 연결하세요.
 
-First open *NetHunter Terminal* and close it. Then open *Magisk* > *Superuser* and enable *NetHunter* and *NetHunter Terminal*. Now you can open *NetHunter* and go through the initial setup process. After completion, update *NetHunter Store* aswell.
+먼저 *NetHunter Terminal*을 열고 닫으세요. 그런 다음 *Magisk* > *슈퍼유저*를 열고 *NetHunter*와 *NetHunter Terminal*을 활성화하세요. 이제 *NetHunter*를 열고 초기 설정 과정을 진행하세요. 완료 후, *NetHunter Store*도 업데이트하세요.
 
 ![](22.png)
 
-That’s it. Your NetHunter is ready.
+이게 다예요. NetHunter가 준비되었어요.
 
 ![](00.png)
 
-**Note:** If your device takes a long time to boot to OS, go back to Recovery mode. Once you’re in TWRP, hit *Wipe* then select *Dalvik / ART Cache* and *Cache*. Finally swipe to wipe and reboot. It should boot up in seconds.
+**참고:** 기기가 OS로 부팅하는 데 시간이 오래 걸린다면, 복구 모드로 돌아가세요. TWRP에 들어가면 *초기화*를 누른 다음 *Dalvik / ART 캐시*와 *캐시*를 선택하세요. 마지막으로 스와이프하여 초기화하고 재부팅하세요. 몇 초 내에 부팅될 거예요.
 
 ![](23.png) ![](24.png)
