@@ -17,7 +17,7 @@ kali@kali:~$ sudo apt install -y snapd
 kali@kali:~$
 ```
 
-'snapd' 와 'snapd.apparmor' 서비스를 활성화하고 실행합니다:
+`snapd` 와 `snapd.apparmor` 서비스를 활성화하고 실행합니다:
 
 ```console
 kali@kali:~$ sudo systemctl enable --now snapd apparmor
