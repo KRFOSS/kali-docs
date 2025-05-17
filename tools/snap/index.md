@@ -4,11 +4,11 @@ description:
 icon:
 weight:
 author: ["gad3r",]
+번역: ["ryuyijun",]
 ---
 
-#### Install Instructions
-
-On Kali Linux, `snap` can be installed through:
+#### 설치 과정
+칼리 리눅스에선, `snap` 은 다음을 통해 설치할수 있습니다:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -17,14 +17,14 @@ kali@kali:~$ sudo apt install -y snapd
 kali@kali:~$
 ```
 
-Enabling and starting `snapd` and `snapd.apparmor` services:
+'snapd' 와 'snapd.apparmor' 서비스를 활성화하고 실행합니다:
 
 ```console
 kali@kali:~$ sudo systemctl enable --now snapd apparmor
 ```
 
-Log out and back in again, or restart your system, to ensure snap's paths are updated correctly.
+snap의 경로가 올바르게 업데이트되도록 하려면, 시스템에서 로그아웃후 다시 로그인하거나 시스템을 재시작 하세요.
 
-###### Reference
+###### 참고
 
 - [Installing snap on Kali Linux](https://snapcraft.io/docs/installing-snap-on-kali)
