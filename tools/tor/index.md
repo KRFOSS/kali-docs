@@ -1,5 +1,5 @@
 ---
-title: Installing Tor Browser on Kali Linux
+title: 칼리리눅스에 Tor 브라우저 설치하기
 description:
 icon:
 weight:
