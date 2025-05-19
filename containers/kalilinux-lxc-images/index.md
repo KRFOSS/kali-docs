@@ -1,62 +1,62 @@
 ---
 title: Kali Linux LXC/LXD Images
-description:
-icon:
-weight:
-author: ["re4son",]
+description: 
+icon: 
+weight: 
+author:
+  - re4son
+번역:
+  - ryuyijun
+---
+## 목차:
+
+- [개요](#%EA%B0%9C%EC%9A%94)
+- [Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너](#ubuntu-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%EB%AA%85%EB%A0%B9%EC%A4%84-kali-lxd-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
+- [Ubuntu 호스트에서 GUI Kali LXD 컨테이너](#ubuntu-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-gui-kali-lxd-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
+- [Kali 호스트에서 권한 있는 Kali LXC 컨테이너](#kali-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%EA%B6%8C%ED%95%9C-%EC%9E%88%EB%8A%94-kali-lxc-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
+- [Kali 호스트에서 권한 없는 Kali LXC 컨테이너](#kali-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%EA%B6%8C%ED%95%9C-%EC%97%86%EB%8A%94-kali-lxc-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
+- [참고 자료](#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C)
+
 ---
 
-## Content:
+## 개요
 
-- [Overview](#overview)
-- [Command line Kali LXD container on Ubuntu host](#command-line-kali-lxd-container-on-ubuntu-host)
-- [Gui Kali LXD container on Ubuntu host](#gui-kali-lxd-container-on-ubuntu-host)
-- [Privileged Kali LXC container on Kali host](#privileged-kali-lxc-container-on-kali-host)
-- [Unprivileged Kali LXC container on Kali host](#unprivileged-kali-lxc-container-on-kali-host)
-- [References](#references)
+**Kali Linux 컨테이너는 다음 용도에 이상적인 솔루션입니다**
 
-- - -
+- **다른 Linux 배포판 내에서 Kali Linux 실행**
+- 개발 또는 테스트 활동을 위한 격리된 환경 제공**
 
-## Overview
+****가상 머신의 오버헤드 없이, Docker는 애플리케이션에 선호되는 솔루션인 반면, LXC/LXD는 전체 시스템에 선호됩니다**.
 
-**Kali Linux containers are the ideal solution to**
+Linux 컨테이너는 소프트웨어 개발이나 테스트에 매우 유용한 스냅샷 및 프리징과 같은 기능을 제공합니다.
 
-- **run Kali Linux within other Linux distributions**
-- **provide isolated environments for development or testing activities**
+Kali 이미지는 [LXC 및 LXD용 이미지 서버](https://images.linuxcontainers.org/)([amd64](https://images.linuxcontainers.org/images/kali/current/amd64/) 및 [arm64](https://images.linuxcontainers.org/images/kali/current/arm64/))에서 제공되며, "images:" 이미지 서버를 사용하는 LXD나 "lxc-download" 템플릿을 사용하는 LXC에서 쉽게 실행할 수 있습니다.
 
-**without the overhead of virtual machines**.
-**Docker is the preferred solution for applications whilst LXC/LXD are preferred for entire systems**.
+LXC는 Linux kernel containment 기능을 위한 사용자 공간 인터페이스입니다. 강력한 API와 간단한 도구를 통해 Linux 사용자가 시스템이나 애플리케이션 컨테이너를 쉽게 생성하고 관리할 수 있게 해줍니다.
 
-Linux containers provide features like snapshots and freezing which comes in very handy when developing or testing software.
-
-Kali images are available on the [image server for LXC and LXD](https://images.linuxcontainers.org/) ([amd64](https://images.linuxcontainers.org/images/kali/current/amd64/) and [arm64](https://images.linuxcontainers.org/images/kali/current/arm64/)) and can easily be launched either in LXD using the "images:" image server or in LXC using the "lxc-download" template.
-
-LXC is a userspace interface for the Linux kernel containment features. Through a powerful API and simple tools, it lets Linux users easily create and manage system or application containers.
-
-LXD is a next generation system container manager. It offers a user experience similar to virtual machines but using Linux containers instead.
-It's image based with pre-made images available for a wide number of Linux distributions and is built around a very powerful, yet pretty simple, REST API.
+LXD는 차세대 시스템 컨테이너 관리자입니다. 가상 머신과 유사한 사용자 경험을 제공하지만 대신 Linux 컨테이너를 사용합니다. 이것은 다양한 Linux 배포판에서 사용할 수 있는 사전 제작된 이미지를 기반으로 하며, 매우 강력하면서도 꽤 간단한 REST API를 중심으로 구축되었습니다.
 
 <u>LXD vs LXC:</u>
 
-LXD is the more convenient of the two but is only available in Ubuntu or other distributions (such as Kali) as snap package.
+LXD는 둘 중 더 편리하지만 Ubuntu나 다른 배포판(Kali 등)에서는 스냅 패키지로만 사용할 수 있습니다.
 
-LXC is available in more distributions and preferred in Kali as it is supported natively and does not required snapd to be running.
+LXC는 더 많은 배포판에서 사용 가능하며 기본적으로 지원되고 snapd 실행이 필요하지 않기 때문에 Kali에서 선호됩니다.
 
-- - -
+---
 
-### Command line Kali LXD container on Ubuntu host
+### Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너
 
-Installing a Kali Linux container in Ubuntu only requires a few steps:
+Ubuntu에 Kali Linux 컨테이너를 설치하는 것은 몇 가지 단계만 필요합니다:
 
-1. Install LXD
-2. Launch a Kali container
-3. Install additional packages inside the container
-4. Create non-root user
-5. Login
+1. LXD 설치
+2. Kali 컨테이너 실행
+3. 컨테이너 내 추가 패키지 설치
+4. 비루트 사용자 생성
+5. 로그인
 
-- - -
+---
 
-1 - Install lxd via snap and perform initial setup:
+1 - snap을 통해 lxd를 설치하고 초기 설정을 수행합니다:
 
 ```console
 kali@kali:~$ sudo snap install lxd
@@ -64,14 +64,14 @@ kali@kali:~$ lxd init
 ```
 
 ![](010_Ubuntu-SnapInstallLXD.png)
-2 - Launch your first Kali Linux container with
+2 - 다음 명령으로 첫 번째 Kali Linux 컨테이너를 실행합니다:
 
 ```console
 kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
 ```
 
 ![](020_Ubuntu-CreateKaliContainer.png)
-3 - Install additional packages inside the container via
+3 - 다음을 통해 컨테이너 내부에 추가 패키지를 설치합니다:
 
 ```console
 kali@kali:~$ lxc exec my-kali -- apt update
@@ -79,7 +79,7 @@ kali@kali:~$ lxc exec my-kali -- apt install -y kali-linux-default kali-desktop-
 ```
 
 ![](030_Ubuntu-InstallPackages.png)
-4 - Create non-root user - "kali" in this example:
+4 - 비루트 사용자를 생성합니다 - 이 예제에서는 "kali"를 생성합니다:
 
 ```console
 kali@kali:~$ lxc exec my-kali -- adduser kali
@@ -89,7 +89,7 @@ kali@kali:~$ lxc exec my-kali -- sh -c "echo 'Set disable_coredump false' > /etc
 ```
 
 ![](040_Ubuntu-Adduser.png)
-5 - Login to the new container as user "kali" via
+5 - "kali" 사용자로 새 컨테이너에 로그인합니다:
 
 ```console
 kali@kali:~$ lxc console my-kali
@@ -99,37 +99,41 @@ kali@kali:~$ lxc console my-kali
 
 ![](055_Ubuntu_KaliCliSession_DE.png)
 
-Voila!
+완료되었습니다!
 
-##### Container management:
+##### 컨테이너 관리:
 
-- Start: `lxc start my-kali`
-- Stop: `lxc stop my-kali`
-- Remove: `lxc destroy my-kali`
+- 시작: `lxc start my-kali`
+- 중지: `lxc stop my-kali`
+- 제거: `lxc destroy my-kali`
 
-- - -
+---
 
-### GUI Kali LXD container on Ubuntu host
+### Ubuntu 호스트에서 GUI Kali LXD 컨테이너
 
-Installing a Kali container to run GUI applications is similar to the previous example with a few additional steps:
+GUI 애플리케이션을 실행하기 위한 Kali 컨테이너 설치는 몇 가지 추가 단계가 있는 이전 예제와 유사합니다:
 
-1. Install LXD
-2. Create GUI profile and launch a Kali GUI container
-3. Install additional packages inside the container
-4. Create non-root user
-5. Start Kali Xfce panel
-6. Customise Kali Xfce panel
+1. LXD 설치
+2. GUI 프로필 생성 및 Kali GUI 컨테이너 실행
+3. 컨테이너 내 추가 패키지 설치
+4. 비루트 사용자 생성
+5. Kali Xfce 패널 시작
+6. Kali Xfce 패널 사용자 정의
 
-- - -
+---
 
-1 - Install lxd via snap and perform initial setup (if not already done):
+1 - snap을 통해 lxd를 설치하고 초기 설정을 수행합니다(아직 수행하지 않은 경우):
+
+console
 
 ```console
 kali@kali:~$ sudo snap install lxd
 kali@kali:~$ lxd init
 ```
 
-2 - Launch your first Kali Linux container with
+2 - 다음 명령으로 첫 번째 Kali Linux 컨테이너를 실행합니다:
+
+console
 
 ```console
 kali@kali:~$ wget https://blog.simos.info/wp-content/uploads/2018/06/lxdguiprofile.txt
@@ -139,8 +143,9 @@ kali@kali:~$ lxc profile list
 kali@kali:~$ lxc launch --profile default --profile gui images:kali/current/amd64    gui-kali
 ```
 
-![](080_Ubuntu_KaliGuiSetup.png)
-3 - Install additional packages inside the container via
+3 - 다음을 통해 컨테이너 내부에 추가 패키지를 설치합니다:
+
+console
 
 ```console
 kali@kali:~$ lxc exec gui-kali -- apt update
@@ -148,7 +153,9 @@ kali@kali:~$ lxc exec gui-kali -- apt install -y kali-linux-default
 kali@kali:~$ lxc exec gui-kali -- apt install -y kali-desktop-xfce
 ```
 
-4 - Create non-root user - "kali" in this example:
+4 - 비루트 사용자를 생성합니다 - 이 예제에서는 "kali":
+
+console
 
 ```console
 kali@kali:~$ lxc exec gui-kali -- adduser kali
@@ -157,7 +164,10 @@ kali@kali:~$ lxc exec gui-kali -- sed -i '1 i\TERM=xterm-256color' /home/kali/.b
 kali@kali:~$ lxc exec gui-kali -- echo "export DISPLAY=:0" >> /home/kali/.bashrc
 kali@kali:~$ lxc exec gui-kali -- sh -c "echo 'Set disable_coredump false' > /etc/sudo.conf"
 ```
-5 - Fix audio in container for user KALI and ROOT. 
+
+5 - KALI 및 ROOT 사용자를 위한 컨테이너 내 오디오 수정:
+
+console
 
 ```console
 kali@kali:~$ lxc exec my-kali -- sh -c "echo 'export PULSE_SERVER=unix:/tmp/.pulse-native' | tee --append /root/.profile"
@@ -166,37 +176,38 @@ kali@kali:~$ lxc exec my-kali -- sh -c "echo 'default-server = unix:/tmp/.pulse-
 kali@kali:~$ lxc restart my-kali
 ```
 
-6 - Start Kali Xfce panel via
+6 - 다음을 통해 Kali Xfce 패널 시작:
+
+console
 
 ```console
 kali@kali:~$ lxc exec gui-kali -- sudo -u kali xfce4-panel
 ```
 
-![](090_Ubuntu_KaliGuiSession.png)
+원하는 대로 패널을 사용자 정의하세요.
 
-Customise the panel as desired.
+##### 컨테이너 관리:
 
-##### Container management:
+- 시작: `lxc start gui-kali`
+- 중지: `lxc stop gui-kali`
+- 제거: `lxc destroy gui-kali`
 
-- Start: `lxc start gui-kali`
-- Stop: `lxc stop gui-kali`
-- Remove: `lxc destroy gui-kali`
+---
 
-- - -
+### Kali 호스트에서 권한 있는 Kali LXC 컨테이너
 
-### Privileged Kali LXC container on Kali host
+권한 있는 컨테이너는 루트에 의해 생성되고 루트로 실행되는 컨테이너입니다. 권한 없는 컨테이너보다 설정이 더 빠르지만 본질적으로 안전하지 않습니다. Kali 호스트에 권한 있는 Kali Linux 컨테이너를 설치하려면 다음만 필요합니다:
 
-Privileged containers are containers created by root and running as root. They are quicker to setup than unprivileged  containers but are inherently unsafe.
-Installing a privileged Kali Linux container on a Kali host only requires to:
+1. lxc 설치 및 설정
+2. 이미지 서버에서 kali 이미지 다운로드
+3. 컨테이너 시작
+4. 컨테이너에 연결
 
-1. Install and setup lxc
-2. Download the kali image from the image server
-3. Start the container
-4. Attach to the container
+---
 
-- - -
+1 - lxc를 설치하고 네트워크를 설정합니다:
 
-1 - Install lxc and setup the network:
+console
 
 ```console
 kali@kali:~$ sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
@@ -213,74 +224,75 @@ kali@kali:~$ sudo virsh net-start default
 kali@kali:~$ sudo virsh net-autostart default
 ```
 
-![](110_Kali-VirtNetStart.png)
-2 - Download the Kali Linux image from the image server via
+2 - 다음을 통해 이미지 서버에서 Kali Linux 이미지를 다운로드합니다:
+
+console
 
 ```console
 kali@kali:~$ lxc-create -t download -n my-kali
 ```
 
-![](120_Kali-PrivContainerCreate.png)
+이것은 사용 가능한 모든 이미지를 나열합니다.
 
-This will list all available images.
+메시지가 표시되면 다음을 입력하세요:
 
-![](130_Kali-PrivContainerCreate_2.png)
+- Distribution: _kali_
+- Release: _current_
+- Architecture: _amd64_ (또는 필요에 따라 다른 아키텍처)
 
-When prompted, enter:
+3 - 다음으로 컨테이너를 시작합니다:
 
-- Distribution: *kali*
-- Release: *current*
-- Architecture: *amd64* (or other as applicable)
-
-![](140_Kali-PrivContainerCreate_3.png)
-3 - Start the container with
+console
 
 ```console
 kali@kali:~$ sudo lxc-start -n my-kali -d
 ```
 
-![](150_Kali-PrivContainerStart.png)
-4 - Attach to the container via
+4 - 다음을 통해 컨테이너에 연결합니다:
+
+console
 
 ```console
 kali@kali:~$ sudo lxc-attach -n my-kali
 ```
 
-![](170_Kali-PrivContainerAttach.png)
+이제 완료되었습니다. 다음으로 루트 비밀번호를 설정하고 "kali-linux-default" 메타패키지를 설치해야 합니다.
 
-There you have it. Next you should set a root password and install the "kali-linux-default" metapackage.
+##### 컨테이너 관리:
 
-##### Container management:
+- 시작: `sudo lxc-start -n my-kali -d`
+- 중지: `sudo lxc-stop -n my-kali`
+- 목록: `sudo lxc-ls -f`
+- 정보: `sudo lxc-info -n my-kali`
+- 제거: `sudo lxc-destroy -n my-kali`
 
-- Start: `sudo lxc-start -n my-kali -d`
-- Stop: `sudo lxc-stop -n my-kali`
-- List: `sudo lxc-ls -f`
-- Info: `sudo lxc-info -n my-kali`
-- Remove: `sudo lxc-destroy -n my-kali`
+---
 
-- - -
+### Kali 호스트에서 권한 없는 Kali LXC 컨테이너
 
-### Unprivileged Kali LXC container on Kali host
+권한 없는 컨테이너는 사용자 컨텍스트에서 실행되며 더 안전한 것으로 간주되어 권한 있는 컨테이너보다 선호됩니다. 설정이 약간 더 복잡합니다:
 
-Unprivileged containers run in a user context and are considered safer and are preferred over using privileged container.
-The setup it slightly more involved:
+1. lxc 설치 및 설정
+2. 권한 없는 컨테이너를 위한 LXC 설정
+3. 이미지 서버에서 kali 이미지 다운로드
+4. 컨테이너 시작
+5. 추가 패키지 설치
+6. 비루트 사용자 생성
+7. 로그인
 
-1. Install and setup lxc
-2. Setup LXC for unprivileged containers
-3. Download the kali image from the image server
-4. Start the container
-5. Install some additional packages
-6. Create non-root user
-7. Login
+---
 
-- - -
+1 - lxc 설치(필요한 경우):
 
-1 - Install lxc (if required):
+console
 
 ```console
 kali@kali:~$ sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
 ```
-2 - Setup LXC for unprivileged containers
+
+2 - 권한 없는 컨테이너를 위한 LXC 설정
+
+console
 
 ```console
 kali@kali:~$ echo "$USER veth virbr0 10" | sudo tee -i /etc/lxc/lxc-usernet
@@ -293,91 +305,96 @@ kali@kali:~$ cp /etc/lxc/default.conf ~/.config/lxc/default.conf
 kali@kali:~$ sed -i 's/lxc.apparmor.profile = generated/lxc.apparmor.profile = unconfined/g' ~/.config/lxc/default.conf
 ```
 
-Next we have to add two lines into `~/.config/lxc/default.conf` whose subuid & subguid match those listed in `/etc/subuid` and `/etc/subgid`.
-First let's get the id's via `cat /etc/s*i d grep $USER`
-The result should look like this:
+다음으로 `/etc/subuid` 및 `/etc/subgid`에 나열된 것과 일치하는 subuid 및 subgid가 있는 두 줄을 `~/.config/lxc/default.conf`에 추가해야 합니다. 먼저 `cat /etc/s*i d grep $USER`를 통해 ID를 확인합니다. 결과는 다음과 같아야 합니다:
+
+plaintext
 
 ```plaintext
 kali:100000:65536
 kali:100000:65536
 ```
 
-Substitute the ID's in the following commands with the ones in the previous output:
+다음 명령에서 ID를 이전 출력의 ID로 대체하세요:
+
+console
 
 ```console
 kali@kali:~$ echo lxc.idmap = u 0 100000 65536 >> ~/.config/lxc/default.conf
 kali@kali:~$ echo lxc.idmap = g 0 100000 65536 >> ~/.config/lxc/default.conf
 ```
 
-![](200_Kali-UnPrivPrep.png)
-3 - Download the Kali Linux image from the image server via
+3 - 다음을 통해 이미지 서버에서 Kali Linux 이미지를 다운로드합니다:
+
+console
 
 ```console
 kali@kali:~$ lxc-create -t download -n my-kali
 ```
 
-![](200_Kali-UnPriv-ContainerCreate_1.png)
+이것은 사용 가능한 모든 이미지를 나열합니다.
 
-This will list all available images.
+메시지가 표시되면 다음을 입력하세요:
 
-![](210_Kali-UnPriv-ContainerCreate_2.png)
+- Distribution: _kali_
+- Release: _current_
+- Architecture: _amd64_ (또는 필요에 따라 다른 아키텍처)
 
-When prompted, enter:
+4 - 다음으로 컨테이너를 시작합니다:
 
-- Distribution: *kali*
-- Release: *current*
-- Architecture: *amd64* (or other as applicable)
-
-![](220_Kali-UnPrivContainerAttach.png)
-4 - Start the container with
+console
 
 ```console
 kali@kali:~$ lxc-start -n my-kali -d
 ```
 
-But before we login, we perform some post-installation setup tasks
+하지만 로그인하기 전에 몇 가지 설치 후 설정 작업을 수행합니다
 
-5 - Install default packages:
+5 - 기본 패키지 설치:
+
+console
+
 ```console
 kali@kali:~$ lxc-attach -n my-kali apt update
 kali@kali:~$ lxc-attach -n my-kali apt install -y kali-linux-default
 ```
 
-![](220_Kali-UnPrivContainerInstallPackages.png)
-6 - Create a non-root user:
+6 - 비루트 사용자 생성:
+
+console
 
 ```console
 kali@kali:~$ lxc-attach -n my-kali --clear-env adduser <username>
 kali@kali:~$ lxc-attach -n my-kali --clear-env adduser <username> sudo
 ```
 
-![](230_Kali-UnPrivCreateUser.png)
-7 - Login as non-root user via
+7 - 다음을 통해 비루트 사용자로 로그인:
+
+console
 
 ```console
 kali@kali:~$ lxc-console
 ```
 
-And perform the following on initial login to get some colors in the console:
+그리고 콘솔에서 색상을 얻기 위해 초기 로그인 시 다음을 수행합니다:
+
+console
 
 ```console
 kali@kali:~$ sed -i '1 i\TERM=xterm-256color' ~/.bashrc
 kali@kali:~$ . ~/.bashrc
 ```
 
-![](230_Kali-UnPrivCreateUser.png)
+##### 컨테이너 관리:
 
-##### Container management:
+- 시작: `sudo lxc-start -n my-kali -d`
+- 중지: `sudo lxc-stop -n my-kali`
+- 목록: `sudo lxc-ls -f`
+- 정보: `sudo lxc-info -n my-kali`
+- 제거: `sudo lxc-destroy -n my-kali`
 
-- Start: `sudo lxc-start -n my-kali -d`
-- Stop: `sudo lxc-stop -n my-kali`
-- List: `sudo lxc-ls -f`
-- Info: `sudo lxc-info -n my-kali`
-- Remove: `sudo lxc-destroy -n my-kali`
+---
 
-- - -
-
-## References:
+## 참고 자료:
 
 - [Linux Containers](https://linuxcontainers.org/)
 - [How to run GUI apps in LXD containers on your Ubuntu desktop](https://blog.simos.info/how-to-easily-run-graphics-accelerated-gui-apps-in-lxd-containers-on-your-ubuntu-desktop/)

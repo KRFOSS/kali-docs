@@ -1,12 +1,14 @@
 ---
-title: Using Kali Linux Podman Images
-description:
-icon:
-weight:
-author: ["gamb1t",]
+title: Podman 이미지를 사용하여 칼리 리눅스 사용하기
+description: 
+icon: 
+weight: 
+author:
+  - gamb1t
+번역:
+  - ryuyijun
 ---
-
-Podman has very nice documentation on [how to install it](https://podman.io/getting-started/installation) on various systems. We recommend to follow the official documentation, however for a Debian-based system it is a very simple command:
+Podman은 다양한 시스템에서 [설치 방법](https://podman.io/getting-started/installation)에 대한 매우 좋은 문서를 제공합니다. 우리는 공식 문서를 따르는 것을 권장하지만, Debian 기반 시스템에서는 매우 간단한 명령어로 설치할 수 있습니다:
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install -y podman
@@ -14,11 +16,9 @@ kali@kali:~$ sudo apt update && sudo apt install -y podman
 kali@kali:~$
 ```
 
-{{% notice info %}}
-The Kali images are in the [containers shortnames list](https://github.com/containers/shortnames). This allows the functionality of only calling `kali-rolling`, rather than using the full image name `docker.io/kalilinux/kali-rolling`. This works if the host system provides an up-to-date shortnames list in `/etc/containers/registries.conf.d/shortnames.conf`. As we are using Kali Linux, which does, we can utilize this functionality.
-{{% /notice %}}
+{{% notice info %}} Kali 이미지는 [containers shortnames 목록](https://github.com/containers/shortnames)에 포함되어 있습니다. 이를 통해 전체 이미지 이름 `docker.io/kalilinux/kali-rolling` 대신 `kali-rolling`만 호출하는 기능을 사용할 수 있습니다. 이는 호스트 시스템이`/etc/containers/registries.conf.d/shortnames.conf`에 최신 단축 이름 목록을 제공하는 경우에 작동합니다. 우리는 이를 제공하는 Kali Linux를 사용하고 있으므로 이 기능을 활용할 수 있습니다. {{% /notice %}}
 
-To use the Kali Linux Podman image, we will do the following commands:
+Kali Linux Podman 이미지를 사용하려면 다음 명령어를 실행합니다:
 
 ```console
 kali@kali:~$ podman pull kali-rolling
@@ -26,17 +26,16 @@ kali@kali:~$
 kali@kali:~$ podman run --tty --interactive kali-rolling
 ┌──(root㉿7df5f0dbe6b7)-[/]
 └─#
-
 ┌──(root㉿7df5f0dbe6b7)-[/]
 └─# exit
 kali@kali:~$
 ```
 
-Please note, that this does not allow for systemd functionality, which would allow access to items such as `systemctl`.
+주의: 이 방식은 `systemctl`과 같은 항목에 접근할 수 있는 systemd 기능을 제공하지 않습니다.
 
-Please also note, **the images do not come with the "default" [metapackage](/docs/general-use/metapackages/)**. You will need to `apt update && apt -y install kali-linux-headless`.
+또한 주의하세요, **이미지에는 "기본" [메타패키지](/general-use/metapackages/)가 포함되어 있지 않습니다**. `apt update && apt -y install kali-linux-headless` 명령어를 실행하여 설치해야 합니다.
 
-To resume an exited container we will complete the following:
+종료된 컨테이너를 다시 시작하려면 다음을 수행합니다:
 
 ```console
 kali@kali:~$ podman ps -a
@@ -47,18 +46,17 @@ kali@kali:~$ podman start 7df5f0dbe6b7
 kali@kali:~$
 ```
 
-After you execute the following command you will attach to the Podman container, however you must press return once to fully see the prompt:
+다음 명령어를 실행한 후 Podman 컨테이너에 연결되지만, 프롬프트를 완전히 보려면 Return 키를 한 번 눌러야 합니다:
 
 ```console
 kali@kali:~$ podman attach 7df5f0dbe6b7
-
 ┌──(root㉿7df5f0dbe6b7)-[/]
 └─#
 ```
 
-This will resume the container in whatever state you left it after running the initial `podman run` command or the last `podman start` and `podman attach` sequence.
+이렇게 하면 초기 `podman run` 명령어 또는 마지막 `podman start`와 `podman attach` 시퀀스 실행 후 남겨둔 상태 그대로 컨테이너가 다시 시작됩니다.
 
-Finally, if you're done with the container you can remove it with the following command:
+마지막으로, 컨테이너 사용이 끝났다면 다음 명령어로 제거할 수 있습니다:
 
 ```console
 kali@kali:~$ podman rm 7df5f0dbe6b7
