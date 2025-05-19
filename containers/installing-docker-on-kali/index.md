@@ -1,5 +1,5 @@
 ---
-title: 칼리 리눅스에 docker 설치하기
+title: Installing Docker on Kali Linux
 description: 
 icon: 
 weight: 

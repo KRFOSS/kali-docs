@@ -33,6 +33,7 @@
 - xenix4845
 - kmw0410
 - zzunipark
+- ryuyijun
 
 기여해주신 모든 분들께 감사드립니다!
 

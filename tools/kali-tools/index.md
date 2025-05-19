@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
-번역 : ["ryuyijun",]
+번역: ["ryuyijun",]
 ---
 
 사용자들은 칼리의 도구에 대한 정보를 찾아볼 수 있는 곳이 몇 군데 있습니다.
