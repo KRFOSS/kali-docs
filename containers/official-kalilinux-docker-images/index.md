@@ -19,7 +19,7 @@ Kali는 [Docker Hub](https://hub.docker.com/u/kalilinux/)에서 일주일에 한
 
 그리고 매우 특별한 경우를 제외하고는 필요하지 않을 이미지들입니다:
 
-- [kalilinux/kali-bleeding-edge](https://hub.docker.com/r/kalilinux/kali-bleeding-edge)는 ["kali-bleeding-edge" 저장소](https://claude.ai/blog/bleeding-edge-kali-repositories/)가 활성화된 점을 제외하면 `kalilinux/kali-rolling`과 동일합니다.
+- [kalilinux/kali-bleeding-edge](https://hub.docker.com/r/kalilinux/kali-bleeding-edge)는 ["kali-bleeding-edge" 저장소](/blog/bleeding-edge-kali-repositories/)가 활성화된 점을 제외하면 `kalilinux/kali-rolling`과 동일합니다.
 - [kalilinux/kali-experimental](https://hub.docker.com/r/kalilinux/kali-experimental)은 `kali-experimental` 저장소가 활성화된 점을 제외하면 `kalilinux/kali-rolling`과 동일합니다. Kali 개발자가 피드백을 구하기 위해 "kali-experimental"에 업로드한 아직 준비되지 않은 업데이트를 테스트하는 데 유용할 수 있습니다.
 - [kalilinux/kali-dev](https://hub.docker.com/r/kalilinux/kali-dev)는 Kali 개발자가 Debian에서 오는 업데이트와 Kali Linux에서 유지 관리하는 변경 사항을 병합하는 데 사용하는 `kali-dev` 저장소를 추적하는 이미지입니다. Kali 패키지를 재빌드(또는 테스트 재빌드)하는 데 유용할 수 있습니다.
 
