@@ -1,5 +1,5 @@
 ---
-title: Kali Linux LXC/LXD Images
+title: 칼리 리눅스 LXC/LXD Images
 description: 
 icon: 
 weight: 
