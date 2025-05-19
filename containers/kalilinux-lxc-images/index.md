@@ -1,5 +1,5 @@
 ---
-title: 칼리 리눅스 LXC/LXD Images
+title: 칼리 리눅스 LXC/LXD 이미지들
 description: 
 icon: 
 weight: 
