@@ -3,10 +3,8 @@ title: 공식 칼리 리눅스 도커 이미지
 description: 
 icon: 
 weight: 
-author:
-  - rhertzog
-번역:
-  - ryuyijun
+author: ["rhertzog"]
+번역 : ["ryuyijun"]
 ---
 Kali는 [Docker Hub](https://hub.docker.com/u/kalilinux/)에서 일주일에 한 번 업데이트되는 공식 Kali Docker 이미지를 제공합니다. 따라서 Kali에서 제공하는 이미지를 기반으로 자신만의 Kali 컨테이너를 쉽게 구축할 수 있습니다. 각기 다른 [소스 브랜치](/general-use/kali-branches/)를 사용하는 다양한 Kali Linux 버전을 제공하여 사용자의 필요에 맞는 다양한 이미지를 제공합니다.
 

@@ -3,10 +3,8 @@ title: Kali Linux LXC/LXD Images
 description: 
 icon: 
 weight: 
-author:
-  - re4son
-번역:
-  - ryuyijun
+author: ["re4son",]
+번역 : ["ryuyijun",]
 ---
 ## 목차:
 

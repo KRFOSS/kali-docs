@@ -3,10 +3,8 @@ title: 칼리 리눅스 도커 이미지 사용하기
 description: 
 icon: 
 weight: 
-author:
-  - gamb1t
-번역:
-  - ryuyijun
+author: ["gamb1t"]
+번역 : ["ryuyijun"]
 ---
 [Kali Linux Docker 이미지](/containers/official-kalilinux-docker-images/)를 사용하기 위해 다음 명령어를 실행합니다:
 

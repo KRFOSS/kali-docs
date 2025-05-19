@@ -3,10 +3,8 @@ title: Podman 이미지를 사용하여 칼리 리눅스 사용하기
 description: 
 icon: 
 weight: 
-author:
-  - gamb1t
-번역:
-  - ryuyijun
+author: ["gamb1t"]
+번역 : ["ryuyijun"]
 ---
 Podman은 다양한 시스템에서 [설치 방법](https://podman.io/getting-started/installation)에 대한 매우 좋은 문서를 제공합니다. 우리는 공식 문서를 따르는 것을 권장하지만, Debian 기반 시스템에서는 매우 간단한 명령어로 설치할 수 있습니다:
 
