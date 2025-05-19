@@ -13,7 +13,7 @@ author: ["gamb1t", "steev"]
 
 기술적인 세부 사항을 본격적으로 살펴보기 전에, 우리가 달성하고자 하는 목표와 그 과정을 간략하게 알아보겠습니다:
 
-- [라즈베리 파이 4](/docs/arm/raspberry-pi-4/)(이하 "RPi")에 [Kali Linux 설치](#installing-kali-linux-on-rpi)
+- [라즈베리 파이 4](/docs/arm/raspberry-pi-4/)(이하 "RPi")에 [칼리 리눅스 설치](#installing-kali-linux-on-rpi)
 - 원격 디스크 잠금 해제를 위한 [시스템 준비](#preparing-the-system)
 - 원격 잠금 해제를 위한 [SSH 키 설정](#)(initramfs와 Dropbear 사용)
 - 기존 데이터 [백업](#configuring-remote-ssh-unlock)
@@ -32,7 +32,7 @@ author: ["gamb1t", "steev"]
 
 - - -
 
-## RPi에 Kali Linux 설치하기
+## RPi에 칼리 리눅스 설치하기
 
 {{% notice info %}}
 이 과정을 따라한다면, 이미지를 어디에 쓰는지 반드시 알고 있어야 하며, `/dev/sdX`를 교체해야 합니다. 맹목적으로 복사/붙여넣기하지 마세요!

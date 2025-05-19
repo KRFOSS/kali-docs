@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-이 문서는 **커스텀 Kali Linux ODROID 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali ODROID 이미지를 설치하고 싶다면, [ODROID에 Kali 설치하기](/docs/arm/odroid-u/) 문서를 참고하세요.
+이 문서는 **커스텀 칼리 리눅스 ODROID 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali ODROID 이미지를 설치하고 싶다면, [ODROID에 Kali 설치하기](/docs/arm/odroid-u/) 문서를 참고하세요.
 
 {{% notice info %}}
 이 과정을 수행하려면 루트 권한이 필요하거나, "sudo su" 명령어로 권한을 상승시킬 수 있어야 해요.

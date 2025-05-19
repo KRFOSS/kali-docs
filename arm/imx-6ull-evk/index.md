@@ -10,9 +10,9 @@ author: ["steev",]
 
 <!-- @steev: TODO: This is a community contributed image, so we don't know that much about it, nor do we test it. -->
 
-[i.MX 6ULL EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK)는 i.MX 6ULL 애플리케이션 프로세서 기반의 시장 중심 개발 도구입니다. Kali Linux는 microSD 카드에 설치할 수 있습니다.
+[i.MX 6ULL EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK)는 i.MX 6ULL 애플리케이션 프로세서 기반의 시장 중심 개발 도구입니다. 칼리 리눅스는 microSD 카드에 설치할 수 있습니다.
 
-기본적으로 Kali Linux i.MX 6ULL EVK 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
+기본적으로 칼리 리눅스 i.MX 6ULL EVK 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 ## i.MX 6ULL EVK용 Kali - 빌드 스크립트 지침
 
@@ -20,7 +20,7 @@ Kali는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지�
 
 빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이후 과정은 사전 빌드된 이미지를 다운로드한 경우와 동일합니다.
 
-이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 Kali Linux 환경 내에서** 작업하는 것입니다.
+이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 칼리 리눅스 환경 내에서** 작업하는 것입니다.
 
 1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
 2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
@@ -35,7 +35,7 @@ Kali는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지�
 $ xzcat kali-linux-2025.1-imx-6ull-evk-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 카드 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 PC, microSD 카드 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
 <!-- @steev: TODO: mention the jumper settings according to the documentation once @1y gets back to me about the questions I have. -->
 

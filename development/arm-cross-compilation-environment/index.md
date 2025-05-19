@@ -11,7 +11,7 @@ author: ["steev",]
 이 작업은 **root 권한**이 필요해요. `sudo su`(루트로 전환) 같은 방법으로 권한을 올려 두세요.
 {{% /notice %}}
 
-Kali Linux에서 **ARM 크로스 컴파일(cross‑compile) 환경**을 준비하는 가이드를 정리했어요. 이 과정은 여러 *Custom ARM Image* 문서의 출발점이 되니, 차근차근 따라와 주세요.
+칼리 리눅스에서 **ARM 크로스 컴파일(cross‑compile) 환경**을 준비하는 가이드를 정리했어요. 이 과정은 여러 *Custom ARM Image* 문서의 출발점이 되니, 차근차근 따라와 주세요.
 
 ---
 
@@ -30,7 +30,7 @@ kali@kali:~$ sudo apt install -y git-core gnupg flex bison gperf libesd0-dev bui
                        libncurses5-dev zlib1g-dev gcc-multilib g++-multilib
 ```
 
-시스템이 **64비트 Kali Linux**라면 i386(32비트) 지원을 추가로 켜 주세요:
+시스템이 **64비트 칼리 리눅스**라면 i386(32비트) 지원을 추가로 켜 주세요:
 
 ```console
 kali@kali:~$ sudo dpkg --add-architecture i386

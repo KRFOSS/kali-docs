@@ -19,9 +19,9 @@ author: ["re4son",]
 
 ## 개요
 
-**Kali Linux 컨테이너는 다음 용도에 이상적인 솔루션입니다**
+**칼리 리눅스 컨테이너는 다음 용도에 이상적인 솔루션입니다**
 
-- **다른 Linux 배포판 내에서 Kali Linux 실행**
+- **다른 Linux 배포판 내에서 칼리 리눅스 실행**
 - 개발 또는 테스트 활동을 위한 격리된 환경 제공**
 
 ****가상 머신의 오버헤드 없이, Docker는 애플리케이션에 선호되는 솔루션인 반면, LXC/LXD는 전체 시스템에 선호됩니다**.
@@ -44,7 +44,7 @@ LXC는 더 많은 배포판에서 사용 가능하며 기본적으로 지원되�
 
 ### Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너
 
-Ubuntu에 Kali Linux 컨테이너를 설치하는 것은 몇 가지 단계만 필요합니다:
+Ubuntu에 칼리 리눅스 컨테이너를 설치하는 것은 몇 가지 단계만 필요합니다:
 
 1. LXD 설치
 2. Kali 컨테이너 실행
@@ -62,7 +62,7 @@ kali@kali:~$ lxd init
 ```
 
 ![](010_Ubuntu-SnapInstallLXD.png)
-2 - 다음 명령으로 첫 번째 Kali Linux 컨테이너를 실행합니다:
+2 - 다음 명령으로 첫 번째 칼리 리눅스 컨테이너를 실행합니다:
 
 ```console
 kali@kali:~$ lxc launch images:kali/current/amd64 my-kali
@@ -129,7 +129,7 @@ kali@kali:~$ sudo snap install lxd
 kali@kali:~$ lxd init
 ```
 
-2 - 다음 명령으로 첫 번째 Kali Linux 컨테이너를 실행합니다:
+2 - 다음 명령으로 첫 번째 칼리 리눅스 컨테이너를 실행합니다:
 
 console
 
@@ -194,7 +194,7 @@ kali@kali:~$ lxc exec gui-kali -- sudo -u kali xfce4-panel
 
 ### Kali 호스트에서 권한 있는 Kali LXC 컨테이너
 
-권한 있는 컨테이너는 루트에 의해 생성되고 루트로 실행되는 컨테이너입니다. 권한 없는 컨테이너보다 설정이 더 빠르지만 본질적으로 안전하지 않습니다. Kali 호스트에 권한 있는 Kali Linux 컨테이너를 설치하려면 다음만 필요합니다:
+권한 있는 컨테이너는 루트에 의해 생성되고 루트로 실행되는 컨테이너입니다. 권한 없는 컨테이너보다 설정이 더 빠르지만 본질적으로 안전하지 않습니다. Kali 호스트에 권한 있는 칼리 리눅스 컨테이너를 설치하려면 다음만 필요합니다:
 
 1. lxc 설치 및 설정
 2. 이미지 서버에서 kali 이미지 다운로드
@@ -222,7 +222,7 @@ kali@kali:~$ sudo virsh net-start default
 kali@kali:~$ sudo virsh net-autostart default
 ```
 
-2 - 다음을 통해 이미지 서버에서 Kali Linux 이미지를 다운로드합니다:
+2 - 다음을 통해 이미지 서버에서 칼리 리눅스 이미지를 다운로드합니다:
 
 console
 
@@ -321,7 +321,7 @@ kali@kali:~$ echo lxc.idmap = u 0 100000 65536 >> ~/.config/lxc/default.conf
 kali@kali:~$ echo lxc.idmap = g 0 100000 65536 >> ~/.config/lxc/default.conf
 ```
 
-3 - 다음을 통해 이미지 서버에서 Kali Linux 이미지를 다운로드합니다:
+3 - 다음을 통해 이미지 서버에서 칼리 리눅스 이미지를 다운로드합니다:
 
 console
 

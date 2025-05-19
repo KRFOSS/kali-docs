@@ -13,7 +13,7 @@ author: ["steev",]
 ODROID-U2와 ODROID-U3 하드웨어는 동일한 기본 플랫폼을 기반으로 하므로, U2 이미지는 수정 없이 U3에서도 작동합니다.
 {{% /notice %}}
 
-기본적으로 Kali Linux ODROID-U2/U3 이미지는 다른 Kali 플랫폼에서 흔히 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
+기본적으로 칼리 리눅스 ODROID-U2/U3 이미지는 다른 Kali 플랫폼에서 흔히 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 {{% notice info %}}
 ODROID-U2/U3용 빌드 스크립트는 새로운 방식으로 변환되지 않았기 때문에 빌드가 실패할 수 있습니다. 이 보드용으로 빌드를 계획하고 있다면, 스크립트를 새로운 방식으로 업데이트하여 병합 요청으로 제출하는 것을 고려해 주세요.
@@ -25,7 +25,7 @@ Kali는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지�
 
 빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이 시점부터는 사전 빌드된 이미지를 다운로드한 경우와 동일한 방식으로 진행하면 됩니다.
 
-이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 Kali Linux 환경 내에서** 작업하는 것입니다.
+이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 칼리 리눅스 환경 내에서** 작업하는 것입니다.
 
 ## ODROID-U2/U3용 Kali - 사용자 지침
 
@@ -44,7 +44,7 @@ ODROID-U2/U3에 Kali를 설치하려면 다음 지침을 따르세요:
 $ xzcat kali-linux-2025.1-odroid-u-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
 _dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 ODROID-U2/U3를 부팅하세요.
 

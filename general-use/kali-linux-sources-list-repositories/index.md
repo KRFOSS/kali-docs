@@ -11,7 +11,7 @@ author: ["g0tmi1k",]
 
 ## 기본 네트워크 저장소 값
 
-표준 클린 설치된 Kali Linux에서 네트워크 액세스가 있다면, `/etc/apt/sources.list`에 다음과 같은 항목이 있어야 해요:
+표준 클린 설치된 칼리 리눅스에서 네트워크 액세스가 있다면, `/etc/apt/sources.list`에 다음과 같은 항목이 있어야 해요:
 
 ```console
 kali@kali:~$ grep -v '#' /etc/apt/sources.list | sort -u
@@ -102,7 +102,7 @@ deb   http://http.kali.org/kali   kali-rolling   main contrib non-free non-free-
 
 ## 기본 오프라인 설치 값
 
-Kali 설정 프로세스 중에 저장소에 접근할 네트워크 연결이 없는 경우, Kali Linux의 오프라인 설치를 수행하게 돼요. 이는 Kali를 설치한 매체에 있는 패키지와 버전으로 제한될 거예요. 그러면 Kali가 설치된 후에도 이 매체에서 패키지를 계속 설치하도록 구성돼요.
+Kali 설정 프로세스 중에 저장소에 접근할 네트워크 연결이 없는 경우, 칼리 리눅스의 오프라인 설치를 수행하게 돼요. 이는 Kali를 설치한 매체에 있는 패키지와 버전으로 제한될 거예요. 그러면 Kali가 설치된 후에도 이 매체에서 패키지를 계속 설치하도록 구성돼요.
 
 이는 패키지 업데이트나 새로운 추가 도구를 받지 못하게 되어 답답할 수 있어요. 아래 값과 일치한다면 오프라인 미디어가 활성화되어 있는지 확인할 수 있어요(또는 이 옵션을 활성화하고 싶은 경우):
 
@@ -141,17 +141,17 @@ kali@kali:~$
 
 ## 비-Kali 저장소
 
-Kali가 제공하는 것 외에 추가 도구와 소프트웨어(예: [signal](https://signal.org/))를 설치하려면 추가 저장소를 포함해야 할 수도 있어요. `/etc/apt/sources.list`를 수정하지 마세요. 이 파일은 Kali Linux 운영 체제용이에요. 추가 도구와 소프트웨어는 `/etc/apt/sources.list.d/` 디렉토리의 자체 파일에 배치되어야 해요(예: `/etc/apt/sources.list.d/repo-name.list`, `repo-name`을 미러 이름으로 대체). 각 미러는 자체 파일에 있는 것이 좋아요.
+Kali가 제공하는 것 외에 추가 도구와 소프트웨어(예: [signal](https://signal.org/))를 설치하려면 추가 저장소를 포함해야 할 수도 있어요. `/etc/apt/sources.list`를 수정하지 마세요. 이 파일은 칼리 리눅스 운영 체제용이에요. 추가 도구와 소프트웨어는 `/etc/apt/sources.list.d/` 디렉토리의 자체 파일에 배치되어야 해요(예: `/etc/apt/sources.list.d/repo-name.list`, `repo-name`을 미러 이름으로 대체). 각 미러는 자체 파일에 있는 것이 좋아요.
 
 비-Kali OS에 Kali 저장소를 추가하면(예: Ubuntu에 Kali 추가 시도), 시스템이 작동하지 않을 가능성이 크게 높아져요. 바로 발생하지 않을 수도 있지만, 경고 없이 손상될 수 있어요. 우리는 지원을 제공할 수 없을 거에요(수년 동안 보아온 바에 따르면, 대부분의 다른 OS도 도움이 되지 않을 거예요).
 
-마찬가지로, 다른 운영 체제의 저장소를 Kali에 추가하면(예: Kali에 Ubuntu를 넣으려는 시도), 설치가 손상될 거예요. 이것은 Kali Linux 시스템이 손상되는 가장 일반적인 이유예요.
+마찬가지로, 다른 운영 체제의 저장소를 Kali에 추가하면(예: Kali에 Ubuntu를 넣으려는 시도), 설치가 손상될 거예요. 이것은 칼리 리눅스 시스템이 손상되는 가장 일반적인 이유예요.
 
-어떤 안내서에서 위와 다른 것을 하라고 한다면, 이는 비공식 조언이며 Kali Linux에서 전혀 지원되지 않아요. 대부분의 경우, 이 교훈을 배운 후 사용자들은 재설치를 하게 돼요.
+어떤 안내서에서 위와 다른 것을 하라고 한다면, 이는 비공식 조언이며 칼리 리눅스에서 전혀 지원되지 않아요. 대부분의 경우, 이 교훈을 배운 후 사용자들은 재설치를 하게 돼요.
 
 ## 미러
 
-우리는 [공식 Kali Linux 미러](/docs/community/kali-linux-mirrors/) 목록과 [자신만의 미러 설정 방법에 대한 가이드](/docs/community/setting-up-a-kali-linux-mirror/)를 제공해요. 이는 LAN에서만 접근 가능한 로컬 저장소로 유지되거나 원격 개인 저장소가 될 수 있어요. 또는 가능하다면, [커뮤니티에 다시 공유](/docs/community/contribute/)하여 지리적 지역에 있는 다른 사람들이 혜택을 받을 수 있도록 공개할 수도 있어요.
+우리는 [공식 칼리 리눅스 미러](/docs/community/kali-linux-mirrors/) 목록과 [자신만의 미러 설정 방법에 대한 가이드](/docs/community/setting-up-a-kali-linux-mirror/)를 제공해요. 이는 LAN에서만 접근 가능한 로컬 저장소로 유지되거나 원격 개인 저장소가 될 수 있어요. 또는 가능하다면, [커뮤니티에 다시 공유](/docs/community/contribute/)하여 지리적 지역에 있는 다른 사람들이 혜택을 받을 수 있도록 공개할 수도 있어요.
 
 ## 소스 저장소
 

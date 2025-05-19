@@ -4,9 +4,9 @@ description:
 icon: 
 weight: 
 author: ["gamb1t"]
-번역: ["ryuyijun"]
+번역: ["ryuyijun","xenix4845"]
 ---
-Podman은 다양한 시스템에서 [설치 방법](https://podman.io/getting-started/installation)에 대한 매우 좋은 문서를 제공합니다. 우리는 공식 문서를 따르는 것을 권장하지만, Debian 기반 시스템에서는 매우 간단한 명령어로 설치할 수 있습니다:
+Podman(포드맨)은 다양한 시스템에서 [설치 방법](https://podman.io/getting-started/installation)에 대한 매우 좋은 문서를 제공합니다. 우리는 공식 문서를 따르는 것을 권장하지만, Debian 기반 시스템에서는 매우 간단한 명령어로 설치할 수 있습니다:
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install -y podman
@@ -14,9 +14,11 @@ kali@kali:~$ sudo apt update && sudo apt install -y podman
 kali@kali:~$
 ```
 
-{{% notice info %}} Kali 이미지는 [containers shortnames 목록](https://github.com/containers/shortnames)에 포함되어 있습니다. 이를 통해 전체 이미지 이름 `docker.io/kalilinux/kali-rolling` 대신 `kali-rolling`만 호출하는 기능을 사용할 수 있습니다. 이는 호스트 시스템이`/etc/containers/registries.conf.d/shortnames.conf`에 최신 단축 이름 목록을 제공하는 경우에 작동합니다. 우리는 이를 제공하는 Kali Linux를 사용하고 있으므로 이 기능을 활용할 수 있습니다. {{% /notice %}}
+{{% notice info %}} 
+칼리 리눅스 이미지는 [containers shortnames 목록](https://github.com/containers/shortnames)에 포함되어 있습니다. 이를 통해 전체 이미지 이름 `docker.io/kalilinux/kali-rolling` 대신 `kali-rolling`만 호출하는 기능을 사용할 수 있습니다. 이는 호스트 시스템이`/etc/containers/registries.conf.d/shortnames.conf`에 최신 단축 이름 목록을 제공하는 경우에 작동합니다. 우리는 이를 제공하는 칼리 리눅스를 사용하고 있으므로 이 기능을 활용할 수 있습니다. 
+{{% /notice %}}
 
-Kali Linux Podman 이미지를 사용하려면 다음 명령어를 실행합니다:
+칼리 리눅스 Podman 이미지를 사용하려면 다음 명령어를 실행합니다:
 
 ```console
 kali@kali:~$ podman pull kali-rolling

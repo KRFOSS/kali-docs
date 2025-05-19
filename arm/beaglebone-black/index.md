@@ -16,12 +16,12 @@ BeagleBone Black은 대용량 저장을 위한 microSD 카드 슬롯을 제공�
 <!--
 ## Kali on BeagleBone Black - User Instructions
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+If you're unfamiliar with the details of [downloading and validating a 칼리 리눅스 image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
 
-To install a pre-built image of the standard build of Kali Linux on your BeagleBone Black, follow these instructions:
+To install a pre-built image of the standard build of 칼리 리눅스 on your BeagleBone Black, follow these instructions:
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali BeagleBone Black` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
+2. Download _and validate_ the `Kali BeagleBone Black` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading 칼리 리눅스](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
@@ -34,7 +34,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 $ xzcat kali-linux-2025.1-beaglebone-black-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+This process can take a while, depending on your PC, your microSD card's speed, and the size of the 칼리 리눅스 image.
 
 Once the _dd_ operation is complete, insert the microSD card into the BeagleBone Black and power it on.
 

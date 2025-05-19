@@ -7,18 +7,18 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-Inverse Path의 [USB Armory MKII](https://inversepath.com/usbarmory)는 USB 플래시 드라이브 크기의 컴퓨터를 구현한 오픈 소스 하드웨어 디자인입니다. Kali Linux는 microSD 카드에 설치할 수 있습니다.
+Inverse Path의 [USB Armory MKII](https://inversepath.com/usbarmory)는 USB 플래시 드라이브 크기의 컴퓨터를 구현한 오픈 소스 하드웨어 디자인입니다. 칼리 리눅스는 microSD 카드에 설치할 수 있습니다.
 
-기본적으로 Kali Linux USB Armory MKII 이미지는 다른 Kali 플랫폼에서 흔히 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
+기본적으로 칼리 리눅스 USB Armory MKII 이미지는 다른 Kali 플랫폼에서 흔히 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 ## USB Armory MKII용 Kali - 사용자 지침
 
-[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 만들기](/docs/usb/live-usb-install-with-windows/)에 대한 자세한 내용에 익숙하지 않은 경우, 해당 주제에 대해 특정 문서에 설명된 더 자세한 절차를 참조하는 것이 좋습니다.
+[칼리 리눅스 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 만들기](/docs/usb/live-usb-install-with-windows/)에 대한 자세한 내용에 익숙하지 않은 경우, 해당 주제에 대해 특정 문서에 설명된 더 자세한 절차를 참조하는 것이 좋습니다.
 
-USB Armory MKII에 Kali Linux의 표준 빌드 사전 구축 이미지를 설치하려면 다음 지침을 따르세요:
+USB Armory MKII에 칼리 리눅스의 표준 빌드 사전 구축 이미지를 설치하려면 다음 지침을 따르세요:
 
 1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
-2. [다운로드](/get-kali/) 영역에서 `Kali USB Armory MKII` 이미지를 다운로드하고 _검증하세요_. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에서 더 자세히 설명되어 있습니다.
+2. [다운로드](/get-kali/) 영역에서 `Kali USB Armory MKII` 이미지를 다운로드하고 _검증하세요_. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에서 더 자세히 설명되어 있습니다.
 3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요. 이 예시에서는 `/dev/sdX`에 위치한 microSD 카드를 사용합니다. **_필요에 따라 이 경로를 변경하세요._**
 
 {{% notice info %}}
@@ -29,7 +29,7 @@ USB Armory MKII에 Kali Linux의 표준 빌드 사전 구축 이미지를 설치
 $ xzcat kali-linux-2025.1-usb-armory-mkii-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
 _dd_ 작업이 완료되면, USB armory를 꽂은 상태로 컴퓨터를 부팅하세요.
 

@@ -7,22 +7,22 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-[Gateworks Ventana](https://www.gateworks.com/products/industrial-single-board-computers/imx6-single-board-computer-gateworks-ventana-family/)는 플래시 드라이브 크기의 컴퓨터를 구현했습니다. Kali Linux는 microSD 카드에 설치할 수 있습니다.
+[Gateworks Ventana](https://www.gateworks.com/products/industrial-single-board-computers/imx6-single-board-computer-gateworks-ventana-family/)는 플래시 드라이브 크기의 컴퓨터를 구현했습니다. 칼리 리눅스는 microSD 카드에 설치할 수 있습니다.
 
 _이 이미지는 "NXP (이전 Freescale) i.MX6" 기반 보드용입니다._
 
-기본적으로 Kali Linux Gateworks Ventana 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
+기본적으로 칼리 리눅스 Gateworks Ventana 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
  <!-- @steev: TODO: This is a community contributed image, so find out which specific ventana this is for as they have a number of them. -->
 
 ## Gateworks Ventana용 Kali - 사용자 지침
 
-[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않은 경우, 해당 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
+[칼리 리눅스 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않은 경우, 해당 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
 
-Ventana에 Kali Linux의 사전 빌드된 표준 이미지를 설치하려면 다음 지침을 따르세요:
+Ventana에 칼리 리눅스의 사전 빌드된 표준 이미지를 설치하려면 다음 지침을 따르세요:
 
 1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
-2. [다운로드](/get-kali/) 영역에서 `Kali Ventana` 이미지를 다운로드 _및 검증_ 하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에 자세히 설명되어 있습니다.
+2. [다운로드](/get-kali/) 영역에서 `Kali Ventana` 이미지를 다운로드 _및 검증_ 하세요. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에 자세히 설명되어 있습니다.
 3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요. 아래 예시에서는 microSD 카드가 `/dev/sdX`에 위치한다고 가정합니다. **_필요에 따라 이 경로를 변경하세요._**
 
 {{% notice info %}}
@@ -33,7 +33,7 @@ Ventana에 Kali Linux의 사전 빌드된 표준 이미지를 설치하려면 �
 $ xzcat kali-linux-2025.1-gateworks-ventana-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
 _dd_ 작업이 완료되면, Gateworks Ventana가 연결된 상태로 컴퓨터를 부팅하세요.
 

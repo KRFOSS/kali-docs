@@ -24,7 +24,7 @@ Kali 라즈베리 파이 이미지를 마이크로SD 카드나 USB 장치에 쓰
 
 - - -
 
-그리고 이 목록에서 `Kali Linux`를 선택합니다:
+그리고 이 목록에서 `칼리 리눅스`를 선택합니다:
 
 ![](images/rpi-imager-choose-os-other-specific.png)
 

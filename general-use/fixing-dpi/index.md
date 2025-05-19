@@ -7,7 +7,7 @@ author: ["g0tmi1k",]
 번역: ["xenix4845"]
 ---
 
-Kali Linux를 시작할 때 특정 요소들이 예상보다 크게 보일 수 있어요. 이는 **DPI** (**Dots Per Inch**) / **PPI** (**Pixels Per Inch**)가 올바르지 않기 때문일 수 있어요. 만약 요소들이 예상보다 작게 보인다면 [HiDPI 가이드](/docs/general-use/hidpi/)를 참고해 보세요.
+칼리 리눅스를 시작할 때 특정 요소들이 예상보다 크게 보일 수 있어요. 이는 **DPI** (**Dots Per Inch**) / **PPI** (**Pixels Per Inch**)가 올바르지 않기 때문일 수 있어요. 만약 요소들이 예상보다 작게 보인다면 [HiDPI 가이드](/docs/general-use/hidpi/)를 참고해 보세요.
 
 이런 현상은 그래픽 카드 드라이버나 모니터 프로필 문제 등 다양한 이유로 발생할 수 있어요.
 

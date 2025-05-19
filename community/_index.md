@@ -17,12 +17,12 @@ author: ["",]
 
 [> 칼리 리눅스 커뮤니티 포럼](https://kali.krfoss.org/community/kali-linux-community-forums/)
 
-[> Kali Linux IRC 채널](https://kali.krfoss.org/community/kali-linux-irc-channel/)
+[> 칼리 리눅스 IRC 채널](https://kali.krfoss.org/community/kali-linux-irc-channel/)
 
 [> 공식 칼리 리눅스 미러](https://kali.krfoss.org/community/kali-linux-mirrors/)
 
-[> 공식 Kali Linux 사이트](https://kali.krfoss.org/community/list-of-official-kali-sites/)
+[> 공식 칼리 리눅스 사이트](https://kali.krfoss.org/community/list-of-official-kali-sites/)
 
-[> Kali Linux 미러 구축하기](https://kali.krfoss.org/community/setting-up-a-kali-linux-mirror/)
+[> 칼리 리눅스 미러 구축하기](https://kali.krfoss.org/community/setting-up-a-kali-linux-mirror/)
 
-[> Kali Linux 버그 제보하기](https://kali.krfoss.org/community/submitting-issues-kali-bug-tracker/)
+[> 칼리 리눅스 버그 제보하기](https://kali.krfoss.org/community/submitting-issues-kali-bug-tracker/)

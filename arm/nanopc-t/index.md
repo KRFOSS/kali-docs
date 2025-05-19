@@ -9,16 +9,16 @@ author: ["steev",]
 
 [NanoPC-T3](http://wiki.friendlyarm.com/wiki/index.php/NanoPC-T3)는 삼성 S5P6818, 옥타 코어 Cortex™-A53(ARMv8 64비트) 프로세서와 1GB 또는 2GB DDR3 RAM을 탑재하고 있습니다. NanoPC-T3에는 8GB eMMC가 있지만 기본 Kali 설치에는 너무 작기 때문에, 외장 microSD 카드에서 실행합니다.
 
-기본적으로 Kali Linux NanoPC-T3 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
+기본적으로 칼리 리눅스 NanoPC-T3 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 ## NanoPC-T3 microSD 카드용 Kali - 사용자 지침
 
-[Kali Linux 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않은 경우, 해당 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
+[칼리 리눅스 이미지 다운로드 및 검증](/docs/introduction/download-official-kali-linux-images/) 또는 [해당 이미지를 사용하여 부팅 가능한 장치 생성](/docs/usb/live-usb-install-with-windows/)에 익숙하지 않은 경우, 해당 주제에 대해 더 자세히 설명된 절차를 참조하는 것이 좋습니다.
 
-NanoPC-T3에 Kali Linux의 사전 빌드된 표준 이미지를 설치하려면 다음 지침을 따르세요:
+NanoPC-T3에 칼리 리눅스의 사전 빌드된 표준 이미지를 설치하려면 다음 지침을 따르세요:
 
 1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
-2. [다운로드](/get-kali/) 영역에서 `Kali NanoPC-T3` 이미지를 다운로드 _및 검증_ 하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에 자세히 설명되어 있습니다.
+2. [다운로드](/get-kali/) 영역에서 `Kali NanoPC-T3` 이미지를 다운로드 _및 검증_ 하세요. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에 자세히 설명되어 있습니다.
 3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
 아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
@@ -31,7 +31,7 @@ NanoPC-T3에 Kali Linux의 사전 빌드된 표준 이미지를 설치하려면 
 $ xzcat kali-linux-2025.1-nanopc-t-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
 _dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 NanoPC-T3를 부팅하세요.
 

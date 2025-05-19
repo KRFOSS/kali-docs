@@ -7,7 +7,7 @@ author: ["gamb1t",]
 번역: ["xenix4845"]
 ---
 
-Kali Linux는 다양한 장치와 시스템에서 지원돼요. 이러한 시스템 중 일부에서는 기본적인 설치만 가능하며 WSL이나 Docker와 같이 GUI에 직접 접근하지 못할 수도 있어요. Kali에서 GUI에 접근하는 간단한 방법 중 하나는 Xfce를 설치하고 RDP를 설정하는 것이에요. 이 작업은 수동으로 하거나 [여기](https://gitlab.com/kalilinux/recipes/kali-scripts/-/blob/main/xfce4.sh)에서 제공되는 스크립트를 사용하여 수행할 수 있으며, 아래에서 확인할 수 있어요:
+칼리 리눅스는 다양한 장치와 시스템에서 지원돼요. 이러한 시스템 중 일부에서는 기본적인 설치만 가능하며 WSL이나 Docker와 같이 GUI에 직접 접근하지 못할 수도 있어요. Kali에서 GUI에 접근하는 간단한 방법 중 하나는 Xfce를 설치하고 RDP를 설정하는 것이에요. 이 작업은 수동으로 하거나 [여기](https://gitlab.com/kalilinux/recipes/kali-scripts/-/blob/main/xfce4.sh)에서 제공되는 스크립트를 사용하여 수행할 수 있으며, 아래에서 확인할 수 있어요:
 
 ```plaintext
 #!/bin/sh

@@ -9,7 +9,7 @@ author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
 
 ## 브랜치란 무엇인가요?
 
-브랜치는 소프트웨어의 대체 버전으로, 이 경우에는 Kali OS의 대체 버전이에요. Kali Linux는 여러 브랜치를 가지고 있어 사용자가 패키지의 업데이트 상태를 어떻게 유지할지 결정할 수 있어요. Kali Linux는 브랜치 사용을 포함하여 [여러 면에서 Debian과 유사](/docs/policy/kali-linux-relationship-with-debian/)해요.
+브랜치는 소프트웨어의 대체 버전으로, 이 경우에는 Kali OS의 대체 버전이에요. 칼리 리눅스는 여러 브랜치를 가지고 있어 사용자가 패키지의 업데이트 상태를 어떻게 유지할지 결정할 수 있어요. 칼리 리눅스는 브랜치 사용을 포함하여 [여러 면에서 Debian과 유사](/docs/policy/kali-linux-relationship-with-debian/)해요.
 
 한 번에 여러 브랜치를 활성화할 수 있어요. 그러나 브랜치를 전환하면 패키지가 다른 버전에 있거나 특정 상황에서 사용할 수 없거나 불안정할 수 있기 때문에 문제가 발생할 수 있어요.
 
@@ -33,7 +33,7 @@ author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
 
 ### 개발
 
-- **kali-dev**는 Kali Linux의 개발 버전이에요. `kali-dev-only`, `kali-debian-picks` 및 `debian-testing` 세 가지 다른 브랜치를 결합하여 생성돼요. 주로 Debian의 업데이트와 Kali Linux에서 유지 관리하는 변경 사항을 병합하는 데 사용돼요.
+- **kali-dev**는 칼리 리눅스의 개발 버전이에요. `kali-dev-only`, `kali-debian-picks` 및 `debian-testing` 세 가지 다른 브랜치를 결합하여 생성돼요. 주로 Debian의 업데이트와 칼리 리눅스에서 유지 관리하는 변경 사항을 병합하는 데 사용돼요.
 - **kali-dev-only**는 Kali 특화 패키지가 있는 개발 배포판이에요. 이 브랜치는 자동으로 `kali-dev`에 병합돼요.
 - **kali-rolling-only**는 `kali-rolling`에 빠르게 도달해야 하는 패키지를 위한 저장소예요.
 

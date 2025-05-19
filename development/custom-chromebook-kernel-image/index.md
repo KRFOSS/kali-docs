@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-이 문서는 **커스텀 Kali Linux Samsung Chromebook ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali 이미지를 설치하고 싶다면, [Samsung Chromebook에 Kali 설치하기](/docs/arm/chromebook-exynos/) 문서를 참고하세요.
+이 문서는 **커스텀 칼리 리눅스 Samsung Chromebook ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali 이미지를 설치하고 싶다면, [Samsung Chromebook에 Kali 설치하기](/docs/arm/chromebook-exynos/) 문서를 참고하세요.
 
 {{% notice info %}}
 이 가이드에서는 두 개의 부트 파티션이 있는 이미지를 만들어요 - 하나는 SD 카드에서 부팅하도록 하드코딩된 커널을 포함하고, 다른 하나는 USB에서 부팅하도록 하드코딩된 커널을 포함해요. USB 저장 장치 유형에 따라 이 가이드의 마지막 단계에서 설명하는 대로 이미지를 USB 장치에 dd로 복사한 후 관련 부트 파티션에 더 높은 우선순위를 표시해야 해요.

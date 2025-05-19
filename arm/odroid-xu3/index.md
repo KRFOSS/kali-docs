@@ -7,19 +7,19 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-[ODROID-XU3](https://www.hardkernel.com/main/products/prdt_info.php?g_code=g140448267127)는 옥타코어 개발 보드입니다. 4개의 A15 코어와 4개의 A7 코어, 그리고 4GB RAM을 갖추고 있어 ODROID-XU3는 빠른 ARM 장치입니다. Kali Linux는 외장 microSD 카드나 eMMC 모듈에 설치할 수 있습니다.
+[ODROID-XU3](https://www.hardkernel.com/main/products/prdt_info.php?g_code=g140448267127)는 옥타코어 개발 보드입니다. 4개의 A15 코어와 4개의 A7 코어, 그리고 4GB RAM을 갖추고 있어 ODROID-XU3는 빠른 ARM 장치입니다. 칼리 리눅스는 외장 microSD 카드나 eMMC 모듈에 설치할 수 있습니다.
 
-기본적으로 Kali Linux ODROID-XU3 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
+기본적으로 칼리 리눅스 ODROID-XU3 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 <!--
 ## Kali on the ODROID-XU3 microSD card - User Instructions
 
-If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+If you're unfamiliar with the details of [downloading and validating a 칼리 리눅스 image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
 
-To install a pre-built image of the standard build of Kali Linux on your ODROID-XU3, follow these instructions:
+To install a pre-built image of the standard build of 칼리 리눅스 on your ODROID-XU3, follow these instructions:
 
 1. Get a fast microSD card or eMMC module with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali ODROID-XU3` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
+2. Download _and validate_ the `Kali ODROID-XU3` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading 칼리 리눅스](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
@@ -32,7 +32,7 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 $ xzcat kali-linux-2025.1-odroid-xu3-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
+This process can take a while, depending on your PC, your microSD card's speed, and the size of the 칼리 리눅스 image.
 
 Once the _dd_ operation is complete, boot up the ODROID-XU3 with the microSD card plugged in.
 
@@ -54,7 +54,7 @@ This process will wipe out your eMMC module. If you choose the wrong storage dev
 $ xzcat kali-linux-2025.1-odroid-xu3-armhf.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your eMMC's speed, and the size of the Kali Linux image.
+This process can take a while, depending on your PC, your eMMC's speed, and the size of the 칼리 리눅스 image.
 
 Once the _dd_ operation is complete, boot up the ODROID-XU3 with the eMMC plugged in.
 
@@ -71,7 +71,7 @@ Kali는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지�
 
 빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리의 `images` 폴더에 "img.xz" 파일이 생성됩니다. 이 시점부터는 사전 빌드된 이미지를 다운로드한 경우와 동일한 방식으로 진행하면 됩니다.
 
-이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 Kali Linux 환경 내에서** 작업하는 것입니다.
+이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 칼리 리눅스 환경 내에서** 작업하는 것입니다.
 
 ## ODROID-XU3/XU4용 Kali - 사용자 지침
 
@@ -90,7 +90,7 @@ ODROID-XU3/XU4에 Kali를 설치하려면 다음 지침을 따르세요:
 $ xzcat images/kali-linux-2025.1-odroid-xu3-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
 _dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 ODROID-C2를 부팅하세요.
 

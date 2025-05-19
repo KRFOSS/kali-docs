@@ -13,9 +13,9 @@ author: ["gamb1t",]
 
 [DigitalOcean](https://www.digitalocean.com/)은 AWS, Microsoft Azure, Google Cloud Platform 등과 유사한 클라우드 제공업체입니다. 이들은 "드롭릿"이라 불리는 인스턴스를 제공하며, Debian, Ubuntu, FreeBSD 등 다양한 Linux 배포판을 사용할 수 있습니다. AWS와 마찬가지로 DigitalOcean은 전 세계에 데이터센터를 두고 있으며 각 국가에 여러 데이터센터가 있는 경우도 있습니다.
 
-하지만 한 가지 특별한 기능이 경쟁사와 차별화됩니다. 얼마 전 DigitalOcean는 [커스텀 이미지](https://blog.digitalocean.com/custom-images/) 지원을 추가했는데, 이를 통해 사용자가 가상 머신 디스크를 가져와 드롭릿으로 사용할 수 있습니다. 이는 우리가 자체 Kali Linux 버전을 DigitalOcean 클라우드에서 사용할 수 있어 완벽하죠.
+하지만 한 가지 특별한 기능이 경쟁사와 차별화됩니다. 얼마 전 DigitalOcean는 [커스텀 이미지](https://blog.digitalocean.com/custom-images/) 지원을 추가했는데, 이를 통해 사용자가 가상 머신 디스크를 가져와 드롭릿으로 사용할 수 있습니다. 이는 우리가 자체 칼리 리눅스 버전을 DigitalOcean 클라우드에서 사용할 수 있어 완벽하죠.
 
-[공식 Kali Linux 가상 이미지](https://http.krfoss.org/)를 로드하는 것도 가능하지만, 그리 효율적이지 않을 것입니다. 대신 가볍고 최소한의 Kali 설치본을 구축하겠습니다.
+[공식 칼리 리눅스 가상 이미지](https://http.krfoss.org/)를 로드하는 것도 가능하지만, 그리 효율적이지 않을 것입니다. 대신 가볍고 최소한의 Kali 설치본을 구축하겠습니다.
 
 ## 네트부트 ISO 얻기
 
@@ -140,7 +140,7 @@ Kali GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 ```
 
-이제 필요에 따라 배포하고 맞춤 설정할 수 있는 깔끔하고 최소한의 Kali Linux 설치가 완료되었습니다:
+이제 필요에 따라 배포하고 맞춤 설정할 수 있는 깔끔하고 최소한의 칼리 리눅스 설치가 완료되었습니다:
 
 ```console
 kali@kali-s-1vcpu-1gb-nyc3-01:~$ lsb_release -a

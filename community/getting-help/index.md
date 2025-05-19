@@ -70,6 +70,6 @@ _제 개인적인 의견으로는, StackOverflow와 비슷한 사이트/포럼, 
 
 ## 보고하기
 
-버그는 항상 적절한 곳에 보고해야 한다는 것을 기억하세요. Kali Linux는 특정 패키지를 관리하고, Debian은 다른 패키지를 관리합니다. 도구 제작자의 GitHub/GitLab을 찾을 수 없다면 Kali Linux나 Debian에 보고하는 것이 좋은 대안이 될 수 있습니다. 하지만 대부분의 경우 GitHub/GitLab은 찾을 수 있을 것입니다. `apt show 패키지`를 실행하면 GitHub/GitLab로 연결될 수 있는 홈페이지가 표시됩니다. 홈페이지가 표시되지 않거나 `apt show`에 홈페이지 정보가 없는 경우, 구글에서 검색하면 결과를 찾을 수 있을 것입니다.
+버그는 항상 적절한 곳에 보고해야 한다는 것을 기억하세요. 칼리 리눅스는 특정 패키지를 관리하고, Debian은 다른 패키지를 관리합니다. 도구 제작자의 GitHub/GitLab을 찾을 수 없다면 칼리 리눅스나 Debian에 보고하는 것이 좋은 대안이 될 수 있습니다. 하지만 대부분의 경우 GitHub/GitLab은 찾을 수 있을 것입니다. `apt show 패키지`를 실행하면 GitHub/GitLab로 연결될 수 있는 홈페이지가 표시됩니다. 홈페이지가 표시되지 않거나 `apt show`에 홈페이지 정보가 없는 경우, 구글에서 검색하면 결과를 찾을 수 있을 것입니다.
 
-Kali Linux에 버그를 보고하는 경우, [해당 주제에 관한 문서](/docs/community/submitting-issues-kali-bug-tracker/)를 참조하세요.
+칼리 리눅스에 버그를 보고하는 경우, [해당 주제에 관한 문서](/docs/community/submitting-issues-kali-bug-tracker/)를 참조하세요.
