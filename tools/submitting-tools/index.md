@@ -1,54 +1,55 @@
 ---
-title: Submitting tools to Kali
+title: Kali에 도구 제출하기
 description:
 icon:
 weight:
 author: ["gamb1t",]
+번역: ["ryuyijun",]
 ---
 
-## Preparations
+## 준비 사항
 
-In order for a tool to be added to any Debian-based distribution it needs to be packaged, this can be seen by a `debian/` directory in the source code. For developers, we have [documentation](/docs/development/intro-to-packaging-example/) that explains this process should they wish to do this themselves. Keep in mind if this tool is packaged for Debian or not when submitting the tool. Additional information that should be found is the license associated, what dependencies the tool has, what other tools are similar, how active is the development of the tool, and finally how to install the tool.
+도구가 Debian 기반 배포판에 추가되기 위해서는 패키징이 필요합니다. 이는 소스 코드에 `debian/` 디렉토리가 있는 것으로 확인할 수 있습니다. 개발자를 위해 직접 이 과정을 수행하고자 하는 경우 [문서](/development/intro-to-packaging-example/)를 제공하고 있습니다. 도구를 제출할 때 해당 도구가 Debian용으로 패키징되어 있는지 여부를 염두에 두세요. 또한 관련된 라이선스, 도구가 필요로 하는 의존성, 유사한 다른 도구, 도구 개발의 활발성, 그리고 도구 설치 방법에 대한 추가 정보를 찾아야 합니다.
 
-## Where to submit the tool
+## 도구를 제출하는 곳
 
-Once you have the correct information on the tool, a request for the tool to be added should be submitted on our [bug tracker](https://bugs.kali.org/). We have [documentation](/docs/community/submitting-issues-kali-bug-tracker/) on how to get started at the bug tracker if needed.
+도구에 대한 올바른 정보를 갖추면, 우리의 [버그 트래커](https://bugs.kali.org/)에 도구 추가 요청을 제출해야 합니다. 필요한 경우 버그 트래커 시작 방법에 대한 [문서](/community/submitting-issues-kali-bug-tracker/)가 있습니다.
 
-### Requesting the tool:
-1. Report issue
-2. Category - New Tool Requests
-3. Reproducibility - N/A
-4. Severity - minor
-5. Priority - normal
-6. Summary - Tool name, short description
-7. Description, answer the following questions:
+### 도구 요청 방법:
+1. 이슈 보고
+2. 카테고리 - New Tool Requests (새 도구 요청)
+3. 재현성 - N/A
+4. 심각도 - minor (경미)
+5. 우선순위 - normal (보통)
+6. 요약 - 도구 이름, 간단한 설명
+7. 설명, 다음 질문에 답하세요:
 
-     [Name] - The name of the tool
+     [Name] - 도구의 이름
 
-     [Version] - What version of the tool should be added?
-     - If it uses source control (such as git), please make sure there is a release to match (e.g. git tag)
+     [Version] - 어떤 버전의 도구가 추가되어야 하나요?
+     - 소스 컨트롤(예: git)을 사용하는 경우, 일치하는 릴리스(예: git 태그)가 있는지 확인하세요
 
-     [Homepage] - Where can the tool be found online? Where to go to get more information?
+     [Homepage] - 도구를 온라인 어디에서서 찾을 수 있나요? 더 많은 정보를 얻기 위해 어디로 가야 하나요?
 
-     [Download] - Where to go to get the tool? either a download page or a link to the latest version
+     [Download] - 도구를 받기 위해 어디로 가야 하나요?, 다운로드 페이지 또는 최신 버전 링크
 
-     [Author] - Who made the tool?
+     [Author] - 누가 이 도구를 만들었나요?
 
-     [Licence] - How is the software distributed? What conditions does it come with?
+     [Licence] - 소프트웨어는 어떻게 배포되나요? 어떤 조건이 있나요?
 
-     [Description] - What is the tool about? What does it do?
+     [Description] - 이 도구는 무엇에 관한 것인가요? 무엇을 하나요?
 
-     [Dependencies] - What is needed for the tool to work?
+     [Dependencies] - 도구가 작동하기 위해 필요한 것은 무엇인가요?
 
-     [Similar tools] - What other tools are out there?
+     [Similar tools] - 어떤 다른 유사한 도구들이 있나요?
 
-     [Activity] - When did the project start? Is is still actively being deployed?
+     [Activity] - 프로젝트는 언제 시작되었나요? 아직도 활발하게 개발되고 있나요?
 
-     [How to install] - How do you compile it?
+     [How to install] - 어떻게 컴파일하나요?
 
-     - Note, using source code to acquire (e.g. git clone/svn checkout) can't be used - Also downloading from the head. Please use a "tag" or "release" version.
+     - 참고로, 소스 코드 획득(예: git clone/svn checkout)은 사용할 수 없습니다 - 또한 HEAD에서 다운로드하는 것도 안 됩니다. "태그" 또는 "릴리스" 버전을 사용하세요.
 
-     [How to use] - What are some basic commands/functions to demonstrate it?
+     [How to use] - 기본 명령어/기능을 보여주는 예시는 무엇인가요?
 
-     [Packaged] - Is the tool already packaged for Debian?
-8. Submit issue
+     [Packaged] - 이 도구가 이미 Debian용으로 패키징되어 있나요?
+8. 이슈 제출
