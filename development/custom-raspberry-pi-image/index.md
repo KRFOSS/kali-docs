@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["kmw0410"]
 ---
 
-이 문서에서는 개발자를 대상으로 **커스텀 칼리 리눅스 Raspberry Pi ARM 이미지**를 만드는 방법에 대해 설명하고 있어요. 미리 만들어진 Kali 이미지로 설치하려면 [Raspberry Pi에 Kali 설치](/docs/arm/raspberry-pi/) 문서를 확인하세요
+이 문서에서는 개발자를 대상으로 **커스텀 칼리 리눅스 Raspberry Pi ARM 이미지**를 만드는 방법에 대해 설명하고 있어요. 미리 만들어진 칼리 이미지로 설치하려면 [Raspberry Pi에 칼리 리눅스 설치](/docs/arm/raspberry-pi/) 문서를 확인하세요
 
 {{% notice info %}}
 이 절차를 진행하기 위해서는 root 권한이나 "sudo su"로 루트 권한을 얻을 수 있는 권한이 필요해요.

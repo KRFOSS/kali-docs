@@ -1,70 +1,71 @@
 ---
-title: Introduction to packaging step-by-step example
+title: 패키징 입문 단계별 예제
 description:
 icon:
 weight: 11
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
 # Instaloader
 
-[Instaloader](https://github.com/instaloader/instaloader/) is a **Python 3** application with a single dependency (Python's `requests`). This makes it a relatively simple package, however not as straightforward as only packaging up a shell script would be. Because of the learning opportunities and simplicity, this makes it a good introduction package.
+[Instaloader](https://github.com/instaloader/instaloader/)는 하나의 의존성(Python의 `requests`)만 가진 **Python 3** 애플리케이션이에요. 이것은 비교적 간단한 패키지지만, 단순히 쉘 스크립트만 패키징하는 것보다는 복잡해요. 학습 기회와 단순함 때문에 이는 좋은 입문용 패키지가 돼요.
 
-## Instaloader Code Overview
+## Instaloader 코드 개요
 
-The first thing we do is look at the application's [GitHub page](https://github.com/instaloader/instaloader/). A few things stand out which we take a note of:
+우선 애플리케이션의 [GitHub 페이지](https://github.com/instaloader/instaloader/)를 살펴봐요. 몇 가지 눈에 띄는 사항들이 있어요:
 
 ![](instaloader-00.png)
 
-What we notice here is some information that will come in handy later:
+여기서 나중에 유용할 정보들이 보여요:
 
-- The tool contains a `setup.py` script
-- It has a release
-- The license is MIT based
+- 이 도구는 `setup.py` 스크립트를 포함하고 있어요
+- 릴리스가 있어요
+- 라이선스는 MIT 기반이에요
 
-We'll be digging into each of these more later, for now it is just information to know.
+나중에 각각에 대해 더 자세히 살펴볼 거예요. 지금은 알아두면 좋을 정보일 뿐이에요.
 
-## Setting Up The Environment
+## 환경 설정하기
 
-We will assume that we have already followed our [documentation on setting up a packing environment](/docs/development/setting-up-packaging-system/).
+우리는 이미 [패키징 환경 설정에 관한 문서](/docs/development/setting-up-packaging-system/)를 따랐다고 가정할게요.
 
-Let's set up our directories now for this package:
+이제 이 패키지를 위한 디렉토리를 설정해 볼게요:
 
 ```console
 kali@kali:~$ mkdir -p ~/kali/packages/instaloader/ ~/kali/upstream/
 kali@kali:~$
 ```
 
-Everything that relates to us building a package will be using `~/kali/`. In there will be two sub folders:
+패키지 빌드와 관련된 모든 것은 `~/kali/`를 사용할 거예요. 그 안에는 두 개의 하위 폴더가 있을 거예요:
 
-- `packages/` will be a source code of the package we are going to create
-- `upstream/` will be a compressed file of the source code of the application _(ideally from a tag version release which we saw before)_
+- `packages/`는 우리가 만들 패키지의 소스 코드가 될 거예요
+- `upstream/`은 애플리케이션 소스 코드의 압축 파일이 될 거예요 _(가능하면 이전에 보았던 태그 버전 릴리스를 사용하는 게 좋아요)_
 
-## Downloading Tag Releases
+## 태그 릴리스 다운로드하기
 
-Because we are making a new package from scratch, we'll manually download the version of the tool we want to package up. If we were updating a package (and it was packaged correctly), there is a process to help speed it up. However, this will be covered in [another guide](/docs/development/advanced-packaging-example/).
+처음부터 새 패키지를 만들고 있기 때문에 패키징하려는 도구의 버전을 수동으로 다운로드할 거예요. 만약 패키지를 업데이트하는 중이라면(그리고 올바르게 패키징되었다면), 이 과정을 더 빠르게 해주는 방법이 있어요. 하지만 이 내용은 [다른 가이드](/docs/development/advanced-packaging-example/)에서 다룰 거예요.
 
-Going to the [GitHub's release page](https://github.com/instaloader/instaloader/releases), we can see the latest version (which at the time of writing is `4.4.4`). Here is the option to download `instaloader-v4.4.4-windows-standalone.zip`, as well as `Source Code (zip)`, and  `Source Code (tar.gz)`. We are interested in the `tar.gz` option.
+[GitHub 릴리스 페이지](https://github.com/instaloader/instaloader/releases)로 가면 최신 버전(이 글을 쓰는 시점에서는 `4.4.4`)을 볼 수 있어요. 여기에는 `instaloader-v4.4.4-windows-standalone.zip`, `Source Code (zip)`, `Source Code (tar.gz)` 다운로드 옵션이 있어요. 우리는 `tar.gz` 옵션에 관심이 있어요.
 
-We will use `wget` and make sure to format its name appropriately according to Debian's standards for source packages (take note of `.orig.tar.gz`):
+`wget`을 사용해서 Debian 표준에 따라 소스 패키지의 이름을 적절하게 지정할 거예요(`.orig.tar.gz`에 주목하세요):
 
 ```console
 kali@kali:~$ wget https://github.com/instaloader/instaloader/archive/refs/tags/v4.4.4.tar.gz  -O ~/kali/upstream/instaloader_4.4.4.orig.tar.gz
 kali@kali:~$
 ```
 
-If there isn't a tag release for the software _(or it hasn't had an release in some time)_, we can use the latest git commit. This is covered in another guide. However, it is preferred to use a tag release when available.
+소프트웨어에 태그 릴리스가 없거나 _(또는 한동안 릴리스가 없었다면)_, 최신 git 커밋을 사용할 수 있어요. 이 내용은 다른 가이드에서 다루고 있어요. 하지만 가능한 경우 태그 릴리스를 사용하는 것이 좋아요.
 
-## Creating Package Source Code
+## 패키지 소스 코드 생성하기
 
-We need to switch paths to the working location of the package:
+패키지의 작업 위치로 경로를 변경해야 해요:
 
 ```console
 kali@kali:~$ cd ~/kali/packages/instaloader/
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We are now going to create a new blank git repository:
+이제 새로운 빈 git 저장소를 만들 거예요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git init
@@ -72,7 +73,7 @@ Initialized empty Git repository in /home/kali/kali/packages/instaloader/.git/
 kali@kali:~/kali/packages/instaloader$
 ```
 
-If we wanted to, we can confirm this by looking at "status" and "log":
+원한다면 "status"와 "log"를 보고 확인할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git status
@@ -87,9 +88,9 @@ fatal: your current branch 'master' does not have any commits yet
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Great. Everything is empty; we have a clean working area.
+좋아요. 모든 것이 비어 있어요. 깨끗한 작업 영역이 준비되었어요.
 
-We can now import the upstream version into our packing source code by using the file downloaded from `wget` before. Because of the filename format, `gbp` is able to detect the values `instaloader` as the package name, and `4.4.4` as the version. We just press enter to accept the default values:
+이제 이전에 `wget`으로 다운로드한 파일을 사용하여 upstream 버전을 패키징 소스 코드로 가져올 수 있어요. 파일 이름 형식 덕분에 `gbp`는 패키지 이름으로 `instaloader`, 버전으로 `4.4.4`를 감지할 수 있어요. 기본값을 그대로 받아들이기 위해 Enter를 누르기만 하면 돼요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp import-orig ~/kali/upstream/instaloader_4.4.4.orig.tar.gz
@@ -102,7 +103,7 @@ gbp:info: Successfully imported version 4.4.4 of /home/kali/kali/upstream/instal
 kali@kali:~/kali/packages/instaloader$
 ```
 
-If we wanted to check everything is okay, once again, we can use git to do so:
+모든 것이 괜찮은지 확인하고 싶다면, 다시 한번 git을 사용할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git status
@@ -123,12 +124,12 @@ kali@kali:~/kali/packages/instaloader$ git branch -v
 kali@kali:~/kali/packages/instaloader$
 ```
 
-So there is now an automatic commit created in the master branch _(which is the current active branch, shown by the `*`)_, as well as two other branches:
+이제 master 브랜치에 자동 커밋이 생성되었어요 _(`*`로 표시된 현재 활성 브랜치)_, 그리고 다른 두 개의 브랜치도 함께 있어요:
 
-- `pristine-tar` which is metadata from the import
-- `upstream` which is the source code of the application, without any of our package modifications
+- `pristine-tar`는 가져오기에서 생성된 메타데이터예요
+- `upstream`은 우리의 패키지 수정 없이 애플리케이션의 소스 코드를 포함하고 있어요
 
-We are creating a Kali package, and we don't use the `master` branch, but rather `kali/master`. So let's switch:
+우리는 칼리 패키지를 만들고 있는데, `master` 브랜치가 아닌 `kali/master` 브랜치를 사용해요. 그러니 브랜치를 바꾸죠:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git checkout -b kali/master
@@ -144,14 +145,14 @@ kali@kali:~/kali/packages/instaloader$ git branch -v
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Now we can generate the necessary files required to build a Debian-based package and also remove any example files created. During the process, we will be asked if its:
+이제 Debian 기반 패키지를 빌드하는 데 필요한 파일을 생성하고, 생성된 예제 파일들을 제거할 수 있어요. 이 과정에서 다음과 같은 옵션 중에서 선택하라는 메시지가 표시돼요:
 
-- `Single binary`
-- `Arch-Independent`
-- `Library`
-- `Python`
+- `Single binary` (단일 바이너리)
+- `Arch-Independent` (아키텍처 독립적)
+- `Library` (라이브러리)
+- `Python` (파이썬)
 
-We are going to keep it simple, and go with "**S**ingle". Then accept what's on the screen with `Y`. If you would like more information about when to use what option, please see the [manpage for dh_make](https://manpages.debian.org/jessie/dh-make/dh_make.8.en.html).:
+간단하게 하기 위해 "**S**ingle"을 선택할 거예요. 그런 다음 화면에 보이는 내용을 `Y`로 수락하세요. 어떤 옵션을 언제 사용해야 하는지에 대한 자세한 정보가 필요하면 [dh_make의 매뉴얼 페이지](https://manpages.debian.org/jessie/dh-make/dh_make.8.en.html)를 참조하세요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ dh_make --file ~/kali/upstream/instaloader_4.4.4.orig.tar.gz -p instaloader_4.4.4
@@ -174,9 +175,9 @@ kali@kali:~/kali/packages/instaloader$ rm -r debian/upstream
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We use `--file` to say where the `orig.tar.gz` file is. If the file was one directory back (`../`), this would not be needed, however as we have created a separate location for the file it is.
+`--file`을 사용해서 `orig.tar.gz` 파일의 위치를 지정해요. 파일이 한 디렉토리 뒤에 있었다면 (`../`), 이것이 필요하지 않았겠지만, 우리는 파일을 위한 별도의 위치를 만들었기 때문에 필요해요.
 
-If you would like to see what got generated when using `dh_make`, we can use `git`:
+`dh_make`를 사용했을 때 어떤 파일이 생성되었는지 보고 싶다면, `git`을 사용할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git status
@@ -196,15 +197,19 @@ format
 kali@kali:~/kali/packages/instaloader$
 ```
 
-A quick overview of each of those files:
+각 파일에 대한 간단한 개요는 다음과 같아요:
 
-- `changelog` - tracks when the package gets an update (including why and by who). This is responsible for the package version
-- `control` - is the metadata for the package (often seen with `apt`)
-- `copyright` - what is under what license. The package can be under something different to the work we have put in to create the package
-- `rules` - how to install the package
-- `source/format` - is the source package format
+- `changelog` - 패키지가 업데이트될 때 추적해요(이유와 누가 했는지 포함). 이것이 패키지 버전을 담당해요
+- `control` - 패키지의 메타데이터예요(`apt`와 함께 자주 볼 수 있어요)
+- `copyright` - 어떤 것이 어떤 라이선스 하에 있는지 나타내요. 패키지는 우리가 패키지를 만드는 데 들인 작업과 다른 라이선스 하에 있을 수 있어요
+- `rules` - 패키지를 설치하는 방법이에요
+- `source/format` - 소스 패키지 형식이에요
+- `control` - 패키지의 메타데이터예요(`apt`와 함께 자주 볼 수 있어요)
+- `copyright` - 어떤 것이 어떤 라이선스 하에 있는지 나타내요. 패키지는 우리가 패키지를 만드는 데 들인 작업과 다른 라이선스 하에 있을 수 있어요
+- `rules` - 패키지를 설치하는 방법이에요
+- `source/format` - 소스 패키지 형식이에요
 
-At this point, we have the base packaging files in place, and it feels like a good idea to commit before starting some real work:
+이 시점에서 기본 패키징 파일이 준비되었고, 실제 작업을 시작하기 전에 커밋하는 것이 좋을 것 같아요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git add debian/
@@ -220,18 +225,18 @@ kali@kali:~/kali/packages/instaloader$ git commit -m "Initial packaging files"
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We now need to edit most of these to make sure the information is accurate. We can use what we found on GitHub to supply the correct info into the `debian/` files:
+이제 정보가 정확한지 확인하기 위해 이들 대부분을 편집해야 해요. GitHub에서 찾은 내용을 활용하여 `debian/` 파일에 올바른 정보를 제공할 수 있어요:
 
-- License
-- Dependencies
-- Maintainers
-- Description
+- 라이선스
+- 의존성
+- 관리자
+- 설명
 
-## Collecting Information
+## 정보 수집하기
 
-### License/Maintainers
+### 라이선스/관리자
 
-For this package, its straight forward. GitHub has given us a helping hand, and detected the [license](https://github.com/instaloader/instaloader/blob/master/LICENSE) as MIT. We can also see there is a license file:
+이 패키지의 경우 매우 간단해요. GitHub가 도움을 주었고, [라이선스](https://github.com/instaloader/instaloader/blob/master/LICENSE)를 MIT로 감지했어요. 또한 라이선스 파일도 있다는 것을 확인할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat LICENSE
@@ -242,18 +247,18 @@ Copyright (c) 2016-2019 Alexander Graf and André Koch-Kramer.
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Reading the license, we can see there are two authors which are given credit too: `Alexander Graf` and `André Koch-Kramer`. However, we don't have a method of contact for them. We continue to explore the rest of the git repository, looking for something which may give us more authors so we can give credit to them. There isn't a fixed structure in place, however there are some things to check and look out for:
+라이선스를 읽어보면 `Alexander Graf`와 `André Koch-Kramer` 두 명의 저자가 있다는 것을 알 수 있어요. 하지만 그들에게 연락할 방법은 없어요. 저자들에게 크레딧을 줄 수 있도록 더 많은 저자를 알려줄 수 있는 무언가를 찾기 위해 나머지 git 저장소를 계속 탐색해요. 정해진 구조는 없지만, 확인하고 주의해야 할 몇 가지 사항이 있어요:
 
-- `README*` - authors may put contact information here
-    - A few examples could be: `README`, `README.txt`, `README.MD` `README.MKDOCS`, or `Readme.txt`
-- `AUTHOR*` - They may have a dedicated file for author information
-- `CREDIT*` - They may have a dedicated file to who they give credit to
-- `LICENSE*` - Like mentioned above, the license file may give author information
-- `docs/` - They may place all their documentation in a separate folder
-- The "main" starting point of the application may have comments at the top of the file - in this, `instaloader.py`
-- Git commits - `git --no-pager log -s --format="%ae" | sort -u`
+- `README*` - 저자들이 연락처 정보를 여기에 넣을 수 있어요
+    - 몇 가지 예: `README`, `README.txt`, `README.MD` `README.MKDOCS`, 또는 `Readme.txt`
+- `AUTHOR*` - 저자 정보를 위한 전용 파일이 있을 수 있어요
+- `CREDIT*` - 누구에게 크레딧을 주는지에 대한 전용 파일이 있을 수 있어요
+- `LICENSE*` - 위에서 언급한 것처럼, 라이선스 파일에 저자 정보가 있을 수 있어요
+- `docs/` - 모든 문서를 별도의 폴더에 배치할 수 있어요
+- 애플리케이션의 "주요" 시작점에는 파일 맨 위에 주석이 있을 수 있어요 - 이 경우 `instaloader.py`
+- Git 커밋 - `git --no-pager log -s --format="%ae" | sort -u`
 
-For our package, we can see:
+우리 패키지의 경우, 다음과 같은 것들을 볼 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ ls
@@ -266,7 +271,7 @@ cli-options.rst  conf.py           index.rst         logo.png          README.md
 kali@kali:~/kali/packages/instaloader$
 ```
 
-As it turns out, there is: `AUTHORS.md`, `docs/`, `instaloader.py`, and `README.rst`, so we have a few places to look at. Starting with `AUTHORS.md`, we can see the authors name and their method of contact:
+보시다시피, `AUTHORS.md`, `docs/`, `instaloader.py`, 그리고 `README.rst`가 있어서 살펴볼 곳이 몇 군데 있어요. `AUTHORS.md`부터 시작하면, 저자의 이름과 연락 방법을 볼 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat AUTHORS.md
@@ -281,9 +286,9 @@ Instaloader is written by
 kali@kali:~/kali/packages/instaloader$
 ```
 
-So rather than an email address, it appears to be a username (could be just for GitHub, or a generic Internet handle). This is enough for us to go forward (even though its not ideal).
+이메일 주소가 아니라 사용자 이름인 것 같아요(GitHub용일 수도 있고, 일반적인 인터넷 핸들일 수도 있어요). 이것만으로도 계속 진행할 수 있어요(이상적이진 않지만).
 
-Another trick we could try is looking to see if they used a "legit" email address with git:
+시도해볼 수 있는 또 다른 방법은 그들이 git에서 "정당한" 이메일 주소를 사용했는지 확인하는 거예요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git clone https://github.com/instaloader/instaloader/ /tmp/instaloader
@@ -296,20 +301,20 @@ kali@kali:/tmp/instaloader$ cd ~/kali/packages/instaloader/
 kali@kali:~/kali/packages/instaloader$
 ```
 
-It doesn't appear so. Was worth a try!
+그렇지 않은 것 같아요. 시도해볼 가치는 있었어요!
 
-### Dependencies/Maintainers
+### 의존성/관리자
 
-We need to see what is required to be installed on the machine in order for the application to work. Either pre-installed or will be installed using the application.
+애플리케이션이 작동하기 위해 어떤 것이 머신에 설치되어야 하는지 확인해야 해요. 미리 설치되어 있거나 애플리케이션을 사용하여 설치될 수 있어요.
 
-Some starting places to look at for this information:
+이 정보를 찾아볼 수 있는 몇 가지 시작점:
 
 - `README*`
 - `SETUP*`
 - `INSTALL*`
 - `docs/`
 
-There is a README for this application, but it just says how to install the application, rather than how to build it/compile from source:
+이 애플리케이션에는 README가 있지만, 소스에서 빌드/컴파일하는 방법이 아니라 애플리케이션을 설치하는 방법만 알려주고 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ grep -C 3 -i install README.rst
@@ -323,9 +328,9 @@ kali@kali:~/kali/packages/instaloader$ grep -C 3 -i install README.rst
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Exploring the [pip option](https://pypi.org/project/instaloader/) is something we could do, but out of scope for this guide.
+[pip 옵션](https://pypi.org/project/instaloader/)을 살펴볼 수도 있지만, 이 가이드의 범위를 벗어나요.
 
-Next we spot `setup.py`, which contains a lot of useful information:
+다음으로 많은 유용한 정보가 포함된 `setup.py`를 발견했어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat setup.py
@@ -352,35 +357,35 @@ if platform.system() == 'Windows' and sys.version_info < (3, 6):
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We managed to get the following information from this:
+이 파일에서 다음과 같은 정보를 얻을 수 있었어요:
 
-- From the shebang, we can see its Python 3 (`#!/usr/bin/env python3`).
-- We can see it wants Python 3.5 or higher
-- We can see it wants `requests` and for it to be `v2.4` or higher
-- We can see if its on Windows, it requires another dependency, but we are Linux, so not the case
-- We can see the program's home URL
-- We can see the license (MIT)
-- We can see the authors and their email addresses
-- We can get a description of the program
+- 셔뱅(shebang)을 통해 이것이 Python 3임을 알 수 있어요 (`#!/usr/bin/env python3`).
+- Python 3.5 이상이 필요하다는 것을 알 수 있어요
+- `requests`가 필요하고 `v2.4` 이상이어야 한다는 것을 알 수 있어요
+- Windows에서는 다른 의존성이 필요하지만, 우리는 Linux이므로 해당 사항이 없어요
+- 프로그램의 홈 URL을 볼 수 있어요
+- 라이선스(MIT)를 볼 수 있어요
+- 저자와 그들의 이메일 주소를 볼 수 있어요
+- 프로그램에 대한 설명을 얻을 수 있어요
 
-Handy!
+유용하네요!
 
-When packing, we are building a standalone package, which needs to be able to install offline. Something else which needs to be kept in mind, other systems package management systems, such as Python's pip, or ruby's gems. Any of these dependencies also need to be in the main OS package management. In our case, we need Python's `requests`.
+패키징을 할 때, 오프라인에서도 설치할 수 있는 독립형 패키지를 만들고 있어요. 또한 Python의 pip나 Ruby의 gems와 같은 다른 시스템 패키지 관리 시스템도 염두에 두어야 해요. 이러한 모든 의존성도 주 OS 패키지 관리에 있어야 해요. 우리의 경우 Python의 `requests`가 필요해요.
 
-We have two ways of searching for it. We can use either:
+이것을 검색하는 두 가지 방법이 있어요:
 
 - [pkg.kali.org](https://pkg.kali.org/)
 - `apt-cache`
 
-But we also need to know what we are searching for. There is a naming convention, but if you are un-sure, doing multiple searches may help:
+하지만 우리가 무엇을 검색하고 있는지 알아야 해요. 명명 규칙이 있지만, 확실하지 않다면 여러 검색을 수행하는 것이 도움이 될 수 있어요:
 
 - `requests`
 - `python-requests`
 - `python3-requests`
 
-We will stick with the command line option for the time being.
+일단 지금은 명령줄 옵션을 고수할게요.
 
-Doing just `requests` gives a little too many results:
+그냥 `requests`만 검색하면 너무 많은 결과가 나와요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search requests | wc -l
@@ -388,7 +393,7 @@ kali@kali:~/kali/packages/instaloader$ apt-cache search requests | wc -l
 kali@kali:~/kali/packages/instaloader$
 ```
 
-So we need to do better to shorten the list, by just searching **the short version** of the description (we will cover this more later, but its the visible part of the output):
+그래서 설명의 **짧은 버전**만 검색하여 목록을 줄여야 해요(나중에 더 자세히 다루겠지만, 이는 출력의 보이는 부분이에요):
 
 ```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search --names-only requests | wc -l
@@ -405,7 +410,7 @@ kali@kali:~/kali/packages/instaloader$ apt-cache search --names-only python-requ
 kali@kali:~/kali/packages/instaloader$
 ```
 
-After removing the documentation from the results, we don't get any results. So on with the next search!:
+결과에서 문서를 제거한 후에는 결과를 얻지 못했어요. 그래서 다음 검색을 진행해 볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ apt-cache search --names-only python3-requests
@@ -423,7 +428,7 @@ python3-requestsexceptions - import exceptions from bundled packages in requests
 kali@kali:~/kali/packages/instaloader$
 ```
 
-The first result, `python3-requests`, looks exactly right! We can look closer:
+첫 번째 결과인 `python3-requests`가 정확히 맞는 것 같아요! 더 자세히 살펴볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ apt-cache show python3-requests
@@ -434,29 +439,29 @@ Version: 2.23.0+dfsg-2
 kali@kali:~/kali/packages/instaloader$
 ```
 
-And we can see its version is `2.23.0`, which is higher than than `2.4`, so we don't need to update the package. This will be covered in another guide when required.
+그리고 버전이 `2.23.0`인 것을 볼 수 있는데, 이는 `2.4`보다 높으므로 패키지를 업데이트할 필요가 없어요. 필요할 때 다른 가이드에서 다룰 거예요.
 
-### Maintainers
+### 관리자
 
-While doing the other parts, we have discovered the authors and maintainers of the software, so we don't need to do anything extra for this.
+다른 부분을 진행하면서 이미 소프트웨어의 저자와 관리자를 발견했기 때문에 이에 대해 추가 작업을 할 필요가 없어요.
 
-### Description
+### 설명
 
-There are two descriptions that we need to supply, a long description and a short description. When we look at the GitHub page we can see an about section that we can use for the short description. For the long description, we can use the description in the README.
+우리는 두 가지 설명을 제공해야 해요: 긴 설명과 짧은 설명. GitHub 페이지를 보면 짧은 설명에 사용할 수 있는 정보 섹션이 있어요. 긴 설명에는 README에 있는 설명을 사용할 수 있어요.
 
 ![](instaloader-01.png)
 
-We also have a value from the `setup.py`.
+또한 `setup.py`에서도 값을 얻었어요.
 
-## Editing Package Source Code
+## 패키지 소스 코드 편집하기
 
-Now that we have that information copied down, we can start to populate the files in the `debian/` folder we created with `dh_make`.
+이제 이 정보를 복사했으니 `dh_make`로 생성한 `debian/` 폴더의 파일을 채우기 시작할 수 있어요.
 
-More information on the subject can be found on the [Debian documentation](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html).
+이 주제에 대한 자세한 정보는 [Debian 문서](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html)에서 찾을 수 있어요.
 
 ### Changelog
 
-If we followed the documentation on [setting up a packaging environment](/docs/development/setting-up-packaging-system/), the only values we will need to alter would be **distribution** (from `UNRELEASED` to `kali-dev`), **version** (from `4.4.4-1` to `4.4.4-0kali1`) and the **log entry**:
+[패키징 환경 설정](/docs/development/setting-up-packaging-system/) 문서를 따랐다면, 변경해야 할 값은 **배포판**(distribution, `UNRELEASED`에서 `kali-dev`로), **버전**(`4.4.4-1`에서 `4.4.4-0kali1`로), 그리고 **로그 항목**뿐이에요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat debian/changelog
@@ -479,11 +484,11 @@ kali@kali:~/kali/packages/instaloader$
 
 ### Control
 
-This file is the metadata for the package, and contains a lot of information.
+이 파일은 패키지의 메타데이터이며, 많은 정보를 포함하고 있어요.
 
-More information on the subject can be found on the [Debian documentation](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html).
+이 주제에 대한 자세한 정보는 [Debian 문서](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html)에서 찾을 수 있어요.
 
-Out of the box, it will look a little like this:
+기본적으로, 이 파일은 다음과 같이 생겼어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat debian/control
@@ -509,20 +514,20 @@ Description: <insert up to 60 chars description>
 kali@kali:~/kali/packages/instaloader$
 ```
 
-So we can see a few things that need updating:
+여기서 업데이트가 필요한 몇 가지 사항을 확인할 수 있어요:
 
-- `Section` - we set this to be misc, or if we know for sure it should be another section based off of the sections in [Debian testing](https://packages.debian.org/testing/) we can set it to that section
-- `Maintainer` - we switch to be the Kali team, rather than an individual
-- `Uploaders` - this is the individual(s) who are responsible for packaging up the application
-- `Build-Depends` - what packages are required to BUILD the package
-- `Homepage` - where is the tool located on the Internet
-- `Vcs-Browser` - package source code to view online
-- `Vcs-Git` - package source code location
-- `Architecture` - what machines can this work on
-- `Depends` - what other packages are required for this package to work
-- `Description` - short and long description
+- `Section` - misc로 설정하거나, [Debian testing](https://packages.debian.org/testing/)의 섹션을 기반으로 다른 섹션이라고 확실히 알고 있다면 해당 섹션으로 설정할 수 있어요
+- `Maintainer` - 개인이 아닌 Kali 팀으로 변경해요
+- `Uploaders` - 애플리케이션 패키징을 담당하는 개인(들)이에요
+- `Build-Depends` - 패키지를 빌드하는 데 필요한 패키지들이에요
+- `Homepage` - 인터넷에서 도구가 위치한 곳이에요
+- `Vcs-Browser` - 온라인에서 볼 수 있는 패키지 소스 코드예요
+- `Vcs-Git` - 패키지 소스 코드 위치예요
+- `Architecture` - 어떤 기계에서 작동할 수 있는지에 대한 정보예요
+- `Depends` - 이 패키지가 작동하는 데 필요한 다른 패키지들이에요
+- `Description` - 짧은 설명과 긴 설명이에요
 
-Most of this we have now figured out from before, so it should make it easier to fill in. We went ahead and created a remote empty git repository on our GitLab account. In our example, this is the end result:
+이전에 이미 대부분을 파악했으므로 이제 쉽게 채워넣을 수 있어요. GitLab 계정에 빈 원격 git 저장소를 만들었어요. 우리 예제에서는 결과가 다음과 같아요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/control
@@ -561,37 +566,36 @@ Description: Download media along with their metadata from Instagram
    downloaded media
 kali@kali:~/kali/packages/instaloader$
 ```
+NOTE: `Build-Depends`와 `Depends`는 한 칸 들여쓰기(그리고 쉼표로 끝남)되어 있어요. `Description`도 한 칸 들여쓰기되어 있어요.
 
-NOTE: The `Build-Depends` & `Depends` are indented with one space (and end with commas). The `Description` is also indentend with one space.
+여기에는 많은 내용이 있으니, 몇 가지 사항을 짚어볼게요.
 
-There is a lot going on here, so lets point out a few things
+**긴 설명**의 서식을 지정할 때 명심해야 할 점은, 약 70자마다(가장 가까운 단어 기준으로) 새 줄을 삽입해야 한다는 거예요. 이렇게 하면 서식을 깔끔하게 유지할 수 있어요.
 
-Something to keep in mind with the formatting of the **long descriptions**, at about every 70 characters in (to the nearest whole word), we would put a new line, to help keep the formatting under control.
-
-Now onto the dependencies, of which we have: **Build** & **Package**. For the build-dependencies of Python 3 we will have to have four things:
+이제 의존성으로 넘어가볼게요. 여기에는 **빌드**와 **패키지** 의존성이 있어요. Python 3의 빌드 의존성은 네 가지가 필요해요:
 
 - `debhelper-compat`
 - `dh-python`
 - `python3-all`
 - `python3-setuptools`
 
-In a separate guide there will be an explanation as to why these are included, however only the first two are going to be a staple of Python 3 packaging as the latter two are for more specific cases.
+별도의 가이드에서 이들이 포함되는 이유에 대한 설명이 있을 거예요. 하지만 앞의 두 가지만 Python 3 패키징의 기본 요소이고, 나머지 두 가지는 더 특정한 경우에 사용돼요.
 
-In our application, we have another one, `python3-requests`, which we got from `setup.py` and that is a requirement from the application. Typically, if there was not a `setup.py` file, we would not need to include `python3-requests` in our "Build-Depends". However, due to the `setup.py` file, we will need to include `python3-requests` in both the "Build-Depends" as well as the package "Depends". This ensures these packages are always on the system when we install our package (especially handy when using "sbuild").
+우리 애플리케이션에는 `setup.py`에서 가져온 또 다른 의존성인 `python3-requests`가 있어요. 이는 애플리케이션에서 요구하는 사항이에요. 일반적으로 `setup.py` 파일이 없다면 "Build-Depends"에 `python3-requests`를 포함할 필요가 없어요. 그러나 `setup.py` 파일이 있기 때문에, "Build-Depends"와 패키지 "Depends" 모두에 `python3-requests`를 포함해야 해요. 이렇게 하면 패키지를 설치할 때 이러한 패키지들이 항상 시스템에 존재하게 돼요(특히 "sbuild"를 사용할 때 편리해요).
 
-The `debhelper-compat` level determines how the package will be built. The higher the compat level, the newer the version. Newer versions have certain menial tasks done automatically, so this should not be lowered.
+`debhelper-compat` 수준은 패키지가 빌드되는 방식을 결정해요. 호환성 수준이 높을수록 더 새로운 버전이에요. 새 버전은 일부 단순 작업을 자동으로 처리하므로, 이 값을 낮추지 않는 것이 좋아요.
 
-The package dependencies are relatively straightforward. We get rid of the `${shlibs:Depends}` as we are packaging up a Python tool, and instead replace it with the python3 depends version `${python3:Depends}`. We also ensure that `python3-requests` is included as the tool requires this. No other dependencies are needed by this tool, so we are done.
+패키지 의존성은 비교적 간단해요. Python 도구를 패키징하고 있으므로 `${shlibs:Depends}`를 제거하고, 대신 Python3 의존성 버전인 `${python3:Depends}`로 대체해요. 또한 도구에 필요하므로 `python3-requests`도 포함시켜요. 이 도구에는 다른 의존성이 필요하지 않으므로 이것으로 충분해요.
 
-The final thing we need to ensure we change is the architecture from **any** to **all**, as this tool can be installed on all architectures.
+마지막으로 아키텍처를 **any**에서 **all**로 변경해야 해요. 이 도구는 모든 아키텍처에 설치될 수 있기 때문이에요.
 
-### Copyright
+### 저작권
 
-Everything that gets created has an original author. They control what happens with it and it needs to be respected. We can call out this in the copyright file.
+모든 생성물에는 원저작자가 있어요. 그들은 작품에 대한 제어권을 가지고 있으며, 이를 존중해야 해요. 저작권 파일에서 이를 명시할 수 있어요.
 
-More information on the subject can be found on the [Debian documentation](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html) and [here](https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/).
+이 주제에 대한 자세한 정보는 [데비안 문서](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html)와 [여기](https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/)에서 찾을 수 있어요.
 
-Below is the skeleton template output (with comments removed):
+아래는 스켈레톤 템플릿 출력(주석 제거됨)이에요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ grep -v '#' debian/copyright
@@ -635,8 +639,8 @@ Comment:
 kali@kali:~/kali/packages/instaloader$
 ```
 
-The original tool's author has ownership on their work, and the work we have put into creating the package belongs to us.
-After updating it, it looks like the following:
+원래 도구의 저자는 자신의 작업에 대한 소유권을 가지고 있고, 우리가 패키지를 만드는 데 들인 작업은 우리에게 속해요.
+업데이트 후에는 다음과 같이 보여요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/copyright
@@ -679,21 +683,21 @@ License: MIT
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We altered the following:
+다음과 같은 사항들을 변경했어요:
 
-- We removed an optional parameter (`Upstream-Contact`), as that is touched on in the copyright file.
-- We put in the homepage of the application to `Source`
-- Put the two authors name and addresses from `setup.py`. The dates came from the `LICENSE` file
-- Rather than putting the whole block of MIT license text directly after, we placed it towards the end of the file, and gave a header to it.
-- We replaced the `GPL-2+` used as default for the packaging section with the **same** `MIT` license, which is used in the application. This is the standard for Debian packages (packaging work should match the application's license).
+- 선택적 매개변수(`Upstream-Contact`)를 제거했어요. 이는 저작권 파일에서 이미 다뤄졌기 때문이에요.
+- 애플리케이션의 홈페이지를 `Source`에 넣었어요
+- `setup.py`에서 두 저자의 이름과 주소를 가져왔어요. 날짜는 `LICENSE` 파일에서 가져왔어요
+- MIT 라이선스 텍스트 전체를 바로 뒤에 두는 대신, 파일 끝 부분에 배치하고 제목을 붙였어요.
+- 패키징 섹션의 기본값으로 사용된 `GPL-2+`를 애플리케이션에서 사용하는 것과 **동일한** `MIT` 라이선스로 대체했어요. 이것이 데비안 패키지의 표준이에요(패키징 작업은 애플리케이션의 라이선스와 일치해야 함).
 
 ### Rules
 
-This file is a Makefile, for building the Debian package.
+이 파일은 데비안 패키지를 빌드하기 위한 Makefile이에요.
 
-More information on the subject can be found on the [Debian documentation](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html).
+이 주제에 대한 더 자세한 정보는 [데비안 문서](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html)에서 찾을 수 있어요.
 
-The output of the template looks like the following:
+템플릿의 출력은 다음과 같이 생겼어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat debian/rules
@@ -727,17 +731,17 @@ kali@kali:~/kali/packages/instaloader$ cat debian/rules
 kali@kali:~/kali/packages/instaloader$
 ```
 
-So there are a lot of items which are pre-commented out, that may be handy for debugging & troubleshooting.
-Other than the shebang (`#!/usr/bin/make -f`), there is only two other lines which are currently in use:
+댓글과 주석이 미리 주석 처리되어 있는 항목들이 많은데, 이것들은 디버깅과 문제 해결에 유용할 수 있어요.
+(shebang)셔뱅(`#!/usr/bin/make -f`) 외에도 현재 사용 중인 두 줄이 더 있어요:
 
 ```plaintext
 %:
 	dh $@
 ```
 
-Which is a wildcard (`%`), and feed in all the arguments into `dh`.
+이것은 와일드카드(`%`)이고, 모든 인수를 `dh`에 전달해요.
 
-What needs to go here now starts to depend on the program and how complex it is. As our program is a python application we are going to have to tell it to build with `python3`. We also need to tell it to use `pybuild` to build, as we have a `setup.py` file included in the source of the application. If there was not a `setup.py` file, we would not add this flag. We also need to tell PyBuild the name of the application. This looks like:
+이제 여기에 들어갈 내용은 프로그램과 그 복잡성에 따라 달라져요. 우리 프로그램은 파이썬 애플리케이션이므로 `python3`로 빌드하도록 지시해야 해요. 또한 애플리케이션 소스에 `setup.py` 파일이 포함되어 있기 때문에 `pybuild`를 사용하여 빌드하도록 지시해야 해요. `setup.py` 파일이 없었다면 이 플래그를 추가할 필요가 없었을 거예요. 또한 PyBuild에 애플리케이션 이름을 알려줘야 해요. 다음과 같이 작성할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/rules
@@ -757,10 +761,10 @@ NOTE: It uses TAB for indentation, as its a Makefile.
 
 ### Watch
 
-An additional file which we highly recommend to include is a `watch` file. This points to upstream, and is then used to detect if there is a more recent version of the application than what is packaged. This is useful when doing updates to packages.
+추가로 포함하는 것을 강력히 권장하는 파일은 `watch` 파일이에요. 이 파일은 업스트림을 가리키며, 패키징된 것보다 더 최신 버전의 애플리케이션이 있는지 감지하는 데 사용돼요. 이는 패키지 업데이트 시에 유용해요.
 
-For more information, and example formats, please see the [Debian wiki](https://wiki.debian.org/debian/watch).
-Using this wiki, we can see there is an example for GitHub which is where our project is stored - [github.com/instaloader/instaloader/](https://github.com/instaloader/instaloader/):
+자세한 정보와 예제 형식은 [Debian wiki](https://wiki.debian.org/debian/watch)를 참조하세요.
+이 위키를 통해 GitHub에 대한 예제를 볼 수 있는데, 우리 프로젝트가 저장된 곳이 바로 [github.com/instaloader/instaloader/](https://github.com/instaloader/instaloader/)예요:
 
 ```plaintext
 version=4
@@ -768,7 +772,7 @@ opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/<project>-$1\.tar\.gz/ \
   https://github.com/<user>/<project>/tags .*/v?(\d\S+)\.tar\.gz
 ```
 
-So lets now alter it to fit our needs:
+이제 우리의 필요에 맞게 수정해볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/watch
@@ -780,9 +784,9 @@ opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/instaloader-$1\.tar\.gz/ \
 kali@kali:~/kali/packages/instaloader$
 ```
 
-NOTE: This has two spaces for any indentation
+참고: 들여쓰기는 두 칸 띄어쓰기를 사용해요
 
-So let's do a quick check to see if its working right:
+그럼 제대로 작동하는지 빠르게 확인해볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ uscan -vv --no-download
@@ -804,21 +808,21 @@ uscan info: Scan finished
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Looks like its not! Its correctly detected all the versions, but its not sorted the order correctly (due to the release candidate). We know this by going to the [release page](https://github.com/instaloader/instaloader/tags):
+제대로 작동하지 않네요! 모든 버전은 올바르게 감지했지만, 릴리스 후보(RC) 때문에 순서가 제대로 정렬되지 않았어요. 이는 [릴리스 페이지](https://github.com/instaloader/instaloader/tags)를 보면 알 수 있어요:
 
 ![](instaloader-02.png)
 
-Looking back at the [Debian wiki](https://wiki.debian.org/debian/watch), there is a section called [Common mistakes](https://wiki.debian.org/debian/watch#Common_mistakes):
+[Debian wiki](https://wiki.debian.org/debian/watch)를 다시 살펴보면 [일반적인 실수](https://wiki.debian.org/debian/watch#Common_mistakes)라는 섹션이 있어요:
 
-> Not mangling upstream versions that are alphas, betas or release candidates to make them sort before the final release. The solution is to use "uversionmangle" like this:
+> 알파, 베타 또는 릴리스 후보 버전을 최종 릴리스보다 먼저 정렬되도록 수정하지 않는 문제. 해결책은 다음과 같이 "uversionmangle"을 사용하는 것입니다:
 
 ```plaintext
 opts=uversionmangle=s/(\d)[_\.\-\+]?((RC|rc|pre|dev|beta|alpha)\d*)$/$1~$2/
 ```
 
-However, we need to edit it a bit to fit Instaloader. This can be figured out through trial and error using the above uversionmangle as the base.
+하지만 Instaloader에 맞게 약간 수정해야 해요. 위 uversionmangle을 기반으로 시행착오를 통해 알아낼 수 있어요.
 
-Let's see how it works:
+작동 방식을 확인해 볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/watch
@@ -837,11 +841,11 @@ uscan info: Scan finished
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Success!
+성공이에요!
 
 ## .Install & Helper-Scripts
 
-Everything we have done so far would just be for building the package, but we haven't said how to install the application:
+지금까지 우리가 한 모든 작업은 패키지를 빌드하기 위한 것이었지만, 애플리케이션을 어떻게 설치해야 하는지는 아직 말하지 않았어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.install
@@ -852,9 +856,9 @@ instaloader usr/share/instaloader/
 kali@kali:~/kali/packages/instaloader$
 ```
 
-NOTE: There is no leading slash in the target directory
+참고: 대상 디렉토리에 앞에 슬래시(/)가 없어요
 
-We can go forward with this, but it may not behave like we were expecting. This is because we don't have anything in `$PATH`, so if we went to the command line and tried typing in `instaloader.py` its not going to work (also it has the file extension, `.py`). The solution is to create a **helper-script**, which is placed into `$PATH` (and we include in the `.install` file):
+이대로 진행할 수 있지만, 예상대로 작동하지 않을 수 있어요. 이는 `$PATH`에 아무것도 없기 때문에, 명령줄에서 `instaloader.py`를 입력해도 작동하지 않을 거예요(또한 파일 확장자 `.py`가 붙어 있어요). 해결책은 `$PATH`에 위치하는 **헬퍼 스크립트**를 만드는 것이에요(그리고 이를 `.install` 파일에 포함시켜요):
 
 ```console
 kali@kali:~/kali/packages/instaloader$ mkdir -p debian/helper-script/
@@ -874,15 +878,15 @@ debian/helper-script/instaloader usr/bin/
 kali@kali:~/kali/packages/instaloader$
 ```
 
-With that, all the necessary `debian/` files are added. Time to build!
+이제 모든 필요한 `debian/` 파일들이 추가되었어요. 이제 빌드할 시간이에요!
 
-## Packing Up
+## 패키징하기
 
-Time to bundle everything into a file. We are going to use **sbuild** to create the package. This has its pros and cons. One of the pros is that if it builds here, it will also build elsewhere as its meant for build daemons. The down side is, it will require access to a network repository as it will try and handle detecting and installing any dependencies missing in the chroot, making it slower to build.
+모든 것을 하나의 파일로 묶을 시간이에요. 패키지를 만들기 위해 **sbuild**를 사용할 거예요. 이것에는 장단점이 있어요. 장점 중 하나는 여기서 빌드되면 빌드 데몬을 위해 설계되었기 때문에 다른 곳에서도 빌드된다는 거예요. 단점은 chroot에서 누락된 종속성을 감지하고 설치하려고 시도하기 때문에 네트워크 저장소에 접근해야 하며, 이로 인해 빌드 속도가 느려질 수 있어요.
 
-If you don't want to use **sbuild**, just drop it from the arguments (e.g. `gbp buildpackage`), However, you will be required then to install what's in `debian/control` in the `Build-Depends` section (e..g `sudo apt install -y dh-python python3-all python3-setuptools python3-requests`).
+**sbuild**를 사용하고 싶지 않다면, 인수에서 이를 제외하면 돼요(예: `gbp buildpackage`). 하지만, 그럴 경우 `debian/control`의 `Build-Depends` 섹션에 있는 것을 직접 설치해야 해요(예: `sudo apt install -y dh-python python3-all python3-setuptools python3-requests`).
 
-So lets give sbuild a try:
+그럼 sbuild를 한번 시도해 볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
@@ -890,9 +894,9 @@ gbp:error: Can't determine package type: Failed to read changelog: can't get HEA
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Oops! We haven't committed our changes to git. Shame on us.
+앗! git에 변경 사항을 커밋하지 않았네요. 부끄럽네요.
 
-If we wanted to, we could bypass this by doing `gbp buildpackage --git-builder=sbuild --git-export=WC`, which would allow us to test out our values in `debian/` before committing to it, rather than cluttering up the git history with various debugging/troubleshooting commits. Then when we have our package in a working state, we can then commit to git, and try again, like so:
+만약 원한다면 `gbp buildpackage --git-builder=sbuild --git-export=WC`를 사용해서 이 과정을 우회할 수 있어요. 이렇게 하면 git 이력에 여러 디버깅/문제 해결 커밋으로 지저분해지는 것을 방지하면서 `debian/` 값들을 테스트해볼 수 있어요. 그런 다음 패키지가 제대로 작동하는 상태가 되면 git에 커밋하고 다시 시도할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git status
@@ -919,9 +923,9 @@ kali@kali:~/kali/packages/instaloader$ git commit -m "Initial release"
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Let's try and build again:
+다시 빌드해봐요!:
 
-NOTE: You may not get the following error (as it depends on how "clean" your OS is):
+참고: 다음 오류가 발생하지 않을 수도 있어요(운영체제의 "깨끗함" 정도에 따라 다름):
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
@@ -937,14 +941,14 @@ gbp:error: 'sbuild' failed: it exited with 1
 kali@kali:~/kali/packages/instaloader$
 ```
 
-If you see the above error, this is because `dh-python` is missing from our OS. We can quickly fix this by doing:
+위 오류가 발생한다면, 이는 운영체제에 `dh-python`이 없기 때문이에요. 다음 명령어로 빠르게 해결할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ sudo apt install -y dh-python
 kali@kali:~/kali/packages/instaloader$
 ```
 
-So, one more try and building:
+한 번 더 빌드를 시도해 볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
@@ -999,9 +1003,9 @@ Build needed 00:00:45, 2460k disk space
 kali@kali:~/kali/packages/instaloader$
 ```
 
-The output here is very long, so we have truncated it, but we can see its being built successfully. Even with an error, warning, and information from `lintian`!
+여기 출력이 매우 길어서 내용을 줄였지만, 성공적으로 빌드된 것을 볼 수 있어요. `lintian`에서 나온 오류, 경고, 정보가 있더라도 말이죠!
 
-Let's double check to see what got created:
+생성된 파일을 확인해 볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ ls ~/kali/build-area/instaloader*
@@ -1012,24 +1016,24 @@ kali@kali:~/kali/packages/instaloader$ ls ~/kali/build-area/instaloader*
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We have output!
+출력물이 생겼어요!
 
-## Making Lintian Happy
+## Lintian 만족시키기
 
-For more information, see [Debian's documentation](https://www.debian.org/doc/manuals/maint-guide/checkit.en.html).
+더 자세한 정보는 [Debian 문서](https://www.debian.org/doc/manuals/maint-guide/checkit.en.html)를 참조하세요.
 
-Let's try to understand the error `E: instaloader source: source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]`:
+오류 `E: instaloader source: source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]`를 이해해 보겠습니다:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ lintian-explain-tags source-is-missing
 N:
 E: source-is-missing
 N: 
-N:   The source of the following file is missing. Lintian checked a few possible paths to find the source, and did not find it.
+N:   다음 파일의 소스가 누락되었습니다. Lintian은 소스를 찾기 위해 몇 가지 가능한 경로를 확인했지만 찾지 못했습니다.
 N:   
-N:   Please repack your package to include the source or add it to "debian/missing-sources" directory.
+N:   패키지를 다시 패키징하여 소스를 포함하거나 "debian/missing-sources" 디렉토리에 추가하세요.
 N:   
-N:   Please note, that very-long-line-length-in-source-file tagged files are likely tagged source-is-missing. It is a feature not a bug.
+N:   참고로 very-long-line-length-in-source-file로 태그된 파일은 source-is-missing으로 태그될 가능성이 큽니다. 이는 버그가 아니라 기능입니다.
 N: 
 N:   Visibility: error
 N:   Show-Always: no
@@ -1038,9 +1042,9 @@ N:
 kali@kali:~/kali/packages/instaloader$
 ```
 
-The issue with the file `docs/_static/bootstrap-4.1.3.bundle.min.js` is that it's a minified Javascript. It's not human readable, it can't be modified, therefore it's not considered as a source file. As Lintian suggests, we can provide the source for this file in `debian/missing-sources`, however as we do not have the source handy we should explore other options. For this guide we will focus on Lintian overrides. Because the offending file is in the `docs` directory, which, if we investigate the included files, is what Instaloader uses to host their [documentation site](https://instaloader.github.io/) pages, we can ignore this file and tell Lintian to as well.
+`docs/_static/bootstrap-4.1.3.bundle.min.js` 파일의 문제는 이것이 축소된 자바스크립트라는 거예요. 사람이 읽을 수 있는 형태가 아니고, 수정할 수 없기 때문에 소스 파일로 간주되지 않아요. Lintian이 제안하듯이 `debian/missing-sources`에 이 파일의 소스를 제공할 수 있지만, 소스가 바로 준비되어 있지 않기 때문에 다른 옵션을 탐색해야 해요. 이 가이드에서는 Lintian 오버라이드에 초점을 맞출 거예요. 문제가 되는 파일이 `docs` 디렉토리에 있고, 포함된 파일을 조사해보면 이것은 Instaloader가 [문서 사이트](https://instaloader.github.io/) 페이지를 호스팅하는 데 사용하는 것이므로, 이 파일을 무시하고 Lintian에게도 무시하도록 지시할 수 있어요.
 
-To do this we will create the file `instaloader.lintian-overrides` located in the `debian` directory. From here we can copy and paste the error message from the `:` on. While we are here, we may as well ignore the warning about `no-manual-page`. Here is our resulting file:
+이를 위해 `debian` 디렉토리에 위치한 `instaloader.lintian-overrides` 파일을 생성할 거예요. 여기에서 오류 메시지에서 `:`부터 복사하여 붙여넣을 수 있어요. 이 기회에 `no-manual-page`에 대한 경고도 무시하도록 설정해 볼게요. 다음은 결과 파일입니다:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.lintian-overrides
@@ -1054,7 +1058,7 @@ no-manual-page [usr/bin/instaloader]
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We can now commit our changes and rebuild the package with the same command and see if it was successful with no error:
+이제 변경 사항을 커밋하고 같은 명령으로 패키지를 다시 빌드하여 오류 없이 성공했는지 확인할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
@@ -1082,7 +1086,7 @@ E: Lintian run failed (runtime error)
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Uh oh! It looks like it still failed, and that it didn't even use our override for the `source-is-missing` error! If we look closer, we can see a difference between the previous warning we were getting about `no-manual-page` and `source-is-missing`. The section before the `:`, telling us the level of error and the package name, includes `source` in our `source-is-missing` error. This is because the issue resides in the _source package_, or the imported package, rather than the output, or the _binary package_. To solve this we will need to create a new `source` directory in `debian/` and a new `lintian-overrides` file. Lets do that now:
+이런! 여전히 실패한 것 같고, `source-is-missing` 오류에 대한 오버라이드가 사용되지도 않았어요! 자세히 살펴보면 `no-manual-page`와 `source-is-missing`에 대한 이전 경고 사이에 차이가 있어요. `:` 앞의 섹션은 오류 수준과 패키지 이름을 알려주는데, `source-is-missing` 오류에는 `source`가 포함되어 있어요. 이는 문제가 출력 또는 _바이너리 패키지_가 아닌 _소스 패키지_ 또는 가져온 패키지에 있기 때문이에요. 이를 해결하기 위해 `debian/`에 새로운 `source` 디렉토리와 새로운 `lintian-overrides` 파일을 만들어야 해요. 지금 해 볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ mkdir debian/source/
@@ -1099,7 +1103,7 @@ source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Don't forget to remove the override from our previous file as well!
+이전 파일에서도 오버라이드를 제거하는 것을 잊지 마세요!
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/instaloader.lintian-overrides
@@ -1112,7 +1116,7 @@ no-manual-page [usr/bin/instaloader]
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We can once more commit our changes and rebuild the package and see it was successful with no error:
+다시 한번 변경 사항을 커밋하고 패키지를 다시 빌드하여 오류 없이 성공했는지 확인할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ gbp buildpackage --git-builder=sbuild
@@ -1137,9 +1141,9 @@ I: Lintian run was successful.
 kali@kali:~/kali/packages/instaloader$
 ```
 
-## Manual Install
+## 수동 설치
 
-Let's now give our package a test drive:
+이제 패키지를 테스트해 보겠습니다:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ sudo apt install ~/kali/build-area/instaloader_4.4.4-0kali1_all.deb
@@ -1160,14 +1164,14 @@ instaloader.py --help
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Success!
+성공했어요!
 
-This is looking good (not perfect), and eagle eye spotters may be able to spot why (in the output) - there is the file extension in the output (`instaloader.py`), yet the command used to call it doesn't have it (`instaloader`).
-We are going to need to either patch the application or find a different way to call the application to address this. But this will be covered in another guide.
+이제 좋아 보이네요(완벽하진 않지만), 그리고 눈썰미 있는 분들은 (출력에서) 왜 그런지 알아챌 수 있을 거예요 - 출력에는 파일 확장자가 있지만(`instaloader.py`), 호출하는 데 사용된 명령에는 확장자가 없어요(`instaloader`).
+이 문제를 해결하기 위해 애플리케이션을 패치하거나 애플리케이션을 호출하는 다른 방법을 찾아야 할 거예요. 하지만 이 내용은 다른 가이드에서 다룰 거예요.
 
-## Save & Share
+## 저장 및 공유
 
-Let's now make sure everything is in git locally, before we push it out to the remote repository (the one we defined in `debian/control`):
+이제 원격 저장소(`debian/control`에 정의한 것)에 푸시하기 전에 모든 것이 로컬 git에 있는지 확인해 볼게요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git status
@@ -1183,9 +1187,9 @@ kali@kali:~/kali/packages/instaloader$ git remote -v
 kali@kali:~/kali/packages/instaloader$
 ```
 
-We don't (yet) have a remote repository setup, so we go to GitLab and [create a new project](https://gitlab.com/projects/new) before continuing.
+아직 원격 저장소 설정이 없으므로, 계속하기 전에 GitLab으로 가서 [새 프로젝트를 생성](https://gitlab.com/projects/new)해야 해요.
 
-Afterwards:
+그 후:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git remote add origin git@gitlab.com:kalilinux/packages/instaloader.git
@@ -1196,7 +1200,7 @@ origin  git@gitlab.com:kalilinux/packages/instaloader.git (push)
 kali@kali:~/kali/packages/instaloader$
 ```
 
-Now we need to send our local work to the new remote repository (and don't forget the tags):
+이제 로컬 작업을 새 원격 저장소로 보내야 해요(태그도 잊지 마세요):
 
 ```console
 kali@kali:~/kali/packages/instaloader$ git push --all
@@ -1228,4 +1232,4 @@ To gitlab.com:kalilinux/packages/instaloader.git
 kali@kali:~/kali/packages/instaloader$
 ```
 
-At this point now, a ticket can be opened up on the [Kali Linux bug tracker](https://bugs.kali.org/), with a suggestion of the tool & package which you have created, and our tool team will handle it from there.
+이 시점에서 [Kali Linux 버그 트래커](https://bugs.kali.org/)에 티켓을 열어서 여러분이 만든 도구와 패키지를 제안할 수 있고, 우리 도구 팀이 그곳에서 처리할 거예요.
