@@ -1,6 +1,6 @@
 ---
 title: 시작하기
-description: What is Kali Linux & Kali's features
+description: 칼리 리눅스 & 칼리의 기능은 무엇인가요?
 icon: ti-info
 weight: 10
 author: ["xenix4845",]
