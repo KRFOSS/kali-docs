@@ -24,11 +24,11 @@ author: ["re4son",]
 - **다른 Linux 배포판 내에서 칼리 리눅스 실행**
 - 개발 또는 테스트 활동을 위한 격리된 환경 제공**
 
-****가상 머신의 오버헤드 없이, Docker는 애플리케이션에 선호되는 솔루션인 반면, LXC/LXD는 전체 시스템에 선호됩니다**.
+****가상 머신의 오버헤드 없이, 도커는 애플리케이션에 선호되는 솔루션인 반면, LXC/LXD는 전체 시스템에 선호됩니다**.
 
-Linux 컨테이너는 소프트웨어 개발이나 테스트에 매우 유용한 스냅샷 및 프리징과 같은 기능을 제공합니다.
+리눅스 컨테이너는 소프트웨어 개발이나 테스트에 매우 유용한 스냅샷 및 프리징과 같은 기능을 제공합니다.
 
-Kali 이미지는 [LXC 및 LXD용 이미지 서버](https://images.linuxcontainers.org/)([amd64](https://images.linuxcontainers.org/images/kali/current/amd64/) 및 [arm64](https://images.linuxcontainers.org/images/kali/current/arm64/))에서 제공되며, "images:" 이미지 서버를 사용하는 LXD나 "lxc-download" 템플릿을 사용하는 LXC에서 쉽게 실행할 수 있습니다.
+칼리 이미지는 [LXC 및 LXD용 이미지 서버](https://images.linuxcontainers.org/)([amd64](https://images.linuxcontainers.org/images/kali/current/amd64/) 및 [arm64](https://images.linuxcontainers.org/images/kali/current/arm64/))에서 제공되며, "images:" 이미지 서버를 사용하는 LXD나 "lxc-download" 템플릿을 사용하는 LXC에서 쉽게 실행할 수 있습니다.
 
 LXC는 Linux kernel containment 기능을 위한 사용자 공간 인터페이스입니다. 강력한 API와 간단한 도구를 통해 Linux 사용자가 시스템이나 애플리케이션 컨테이너를 쉽게 생성하고 관리할 수 있게 해줍니다.
 
@@ -36,18 +36,18 @@ LXD는 차세대 시스템 컨테이너 관리자입니다. 가상 머신과 유
 
 <u>LXD vs LXC:</u>
 
-LXD는 둘 중 더 편리하지만 Ubuntu나 다른 배포판(Kali 등)에서는 스냅 패키지로만 사용할 수 있습니다.
+LXD는 둘 중 더 편리하지만 Ubuntu나 다른 배포판(칼리 등)에서는 스냅 패키지로만 사용할 수 있습니다.
 
-LXC는 더 많은 배포판에서 사용 가능하며 기본적으로 지원되고 snapd 실행이 필요하지 않기 때문에 Kali에서 선호됩니다.
+LXC는 더 많은 배포판에서 사용 가능하며 기본적으로 지원되고 snapd 실행이 필요하지 않기 때문에 칼리에서 선호됩니다.
 
 ---
 
-### Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너
+### Ubuntu 호스트에서 명령줄 칼리 LXD 컨테이너
 
-Ubuntu에 칼리 리눅스 컨테이너를 설치하는 것은 몇 가지 단계만 필요합니다:
+우분투에 칼리 리눅스 컨테이너를 설치하는 것은 몇 가지 단계만 필요합니다:
 
 1. LXD 설치
-2. Kali 컨테이너 실행
+2. 칼리 컨테이너 실행
 3. 컨테이너 내 추가 패키지 설치
 4. 비루트 사용자 생성
 5. 로그인
@@ -109,14 +109,14 @@ kali@kali:~$ lxc console my-kali
 
 ### Ubuntu 호스트에서 GUI Kali LXD 컨테이너
 
-GUI 애플리케이션을 실행하기 위한 Kali 컨테이너 설치는 몇 가지 추가 단계가 있는 이전 예제와 유사합니다:
+GUI 애플리케이션을 실행하기 위한 칼리 컨테이너 설치는 몇 가지 추가 단계가 있는 이전 예제와 유사합니다:
 
 1. LXD 설치
-2. GUI 프로필 생성 및 Kali GUI 컨테이너 실행
+2. GUI 프로필 생성 및 칼리 GUI 컨테이너 실행
 3. 컨테이너 내 추가 패키지 설치
 4. 비루트 사용자 생성
-5. Kali Xfce 패널 시작
-6. Kali Xfce 패널 사용자 정의
+5. 칼리 Xfce 패널 시작
+6. 칼리 Xfce 패널 사용자 정의
 
 ---
 
@@ -174,7 +174,7 @@ kali@kali:~$ lxc exec my-kali -- sh -c "echo 'default-server = unix:/tmp/.pulse-
 kali@kali:~$ lxc restart my-kali
 ```
 
-6 - 다음을 통해 Kali Xfce 패널 시작:
+6 - 다음을 통해 칼리 Xfce 패널 시작:
 
 console
 
@@ -192,12 +192,12 @@ kali@kali:~$ lxc exec gui-kali -- sudo -u kali xfce4-panel
 
 ---
 
-### Kali 호스트에서 권한 있는 Kali LXC 컨테이너
+### 칼리 호스트에서 권한 있는 칼리 LXC 컨테이너
 
-권한 있는 컨테이너는 루트에 의해 생성되고 루트로 실행되는 컨테이너입니다. 권한 없는 컨테이너보다 설정이 더 빠르지만 본질적으로 안전하지 않습니다. Kali 호스트에 권한 있는 칼리 리눅스 컨테이너를 설치하려면 다음만 필요합니다:
+권한 있는 컨테이너는 루트에 의해 생성되고 루트로 실행되는 컨테이너입니다. 권한 없는 컨테이너보다 설정이 더 빠르지만 본질적으로 안전하지 않습니다. 칼리 호스트에 권한 있는 칼리 리눅스 컨테이너를 설치하려면 다음만 필요합니다:
 
 1. lxc 설치 및 설정
-2. 이미지 서버에서 kali 이미지 다운로드
+2. 이미지 서버에서 칼리 이미지 다운로드
 3. 컨테이너 시작
 4. 컨테이너에 연결
 
@@ -266,13 +266,13 @@ kali@kali:~$ sudo lxc-attach -n my-kali
 
 ---
 
-### Kali 호스트에서 권한 없는 Kali LXC 컨테이너
+### 칼리 호스트에서 권한 없는 칼리 LXC 컨테이너
 
 권한 없는 컨테이너는 사용자 컨텍스트에서 실행되며 더 안전한 것으로 간주되어 권한 있는 컨테이너보다 선호됩니다. 설정이 약간 더 복잡합니다:
 
 1. lxc 설치 및 설정
 2. 권한 없는 컨테이너를 위한 LXC 설정
-3. 이미지 서버에서 kali 이미지 다운로드
+3. 이미지 서버에서 칼리 이미지 다운로드
 4. 컨테이너 시작
 5. 추가 패키지 설치
 6. 비루트 사용자 생성
@@ -394,5 +394,5 @@ kali@kali:~$ . ~/.bashrc
 
 ## 참고 자료:
 
-- [Linux Containers](https://linuxcontainers.org/)
-- [How to run GUI apps in LXD containers on your Ubuntu desktop](https://blog.simos.info/how-to-easily-run-graphics-accelerated-gui-apps-in-lxd-containers-on-your-ubuntu-desktop/)
+- [리눅스 컨테이너](https://linuxcontainers.org/)
+- [우분투 데스크탑에에서 LXD 컨테이너의 GUI 앱을 실행하는 방법](https://blog.simos.info/how-to-easily-run-graphics-accelerated-gui-apps-in-lxd-containers-on-your-ubuntu-desktop/)

@@ -19,7 +19,7 @@ kali@kali:~$ docker run --tty --interactive kalilinux/kali-rolling
 kali@kali:~$
 ```
 
-주의: 이 방식은 `systemctl`과 같은 항목에 접근할 수 있는 systemd 기능을 제공하지 않습니다. Docker에서 systemd를 작동시키는 방법이 있지만, Dockerfile과 `docker run` 플래그를 수정해야 합니다. 현재 이 내용은 다루지 않을 예정입니다.
+주의: 이 방식은 `systemctl`과 같은 항목에 접근할 수 있는 systemd 기능을 제공하지 않습니다. 도커에서 systemd를 작동시키는 방법이 있지만, Dockerfile과 `docker run` 플래그를 수정해야 합니다. 현재 이 내용은 다루지 않을 예정입니다.
 
 또한 주의하세요, **아래의 모든 이미지에는 "기본" [메타패키지](/general-use/metapackages/)가 포함되어 있지 않습니다**. `apt update && apt -y install kali-linux-headless` 명령어를 실행하여 설치해야 합니다.
 
@@ -34,7 +34,7 @@ kali@kali:~$ docker start d36922fa21e8
 kali@kali:~$
 ```
 
-다음 명령어를 실행한 후 Docker 컨테이너에 연결되지만, 프롬프트를 완전히 보려면 Return 키를 한 번 눌러야 합니다:
+다음 명령어를 실행한 후 도커 컨테이너에 연결되지만, 프롬프트를 완전히 보려면 Return 키를 한 번 눌러야 합니다:
 
 ```console
 kali@kali:~$ docker attach d36922fa21e8
