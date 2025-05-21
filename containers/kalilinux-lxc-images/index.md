@@ -9,10 +9,10 @@ author: ["re4son",]
 ## 목차:
 
 - [개요](#개요)
-- [Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너](#Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너)
-- [Ubuntu 호스트에서 GUI Kali LXD 컨테이너](#Ubuntu 호스트에서 GUI Kali LXD 컨테이너)
-- [Kali 호스트에서 권한 있는 Kali LXC 컨테이너](#Kali 호스트에서 권한 있는 Kali LXC 컨테이너)
-- [Kali 호스트에서 권한 없는 Kali LXC 컨테이너](#Kali 호스트에서 권한 없는 Kali LXC 컨테이너)
+- [Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너](#Ubuntu-호스트에서-명령줄-Kali-LXD-컨테이너)
+- [Ubuntu 호스트에서 GUI Kali LXD 컨테이너](#Ubuntu-호스트에서-GUI-Kali-LXD-컨테이너)
+- [Kali 호스트에서 권한 있는 Kali LXC 컨테이너](#Kali-호스트에서-권한-있는-Kali-LXC-컨테이너)
+- [Kali 호스트에서 권한 없는 Kali LXC 컨테이너](#Kali-호스트에서-권한-없는-Kali-LXC-컨테이너)
 - [참고 자료](#참고자료)
 
 ---
