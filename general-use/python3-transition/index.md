@@ -9,7 +9,7 @@ author: ["rhertzog",]
 
 ### 전환에 관하여
 
-Kali Linux는 완전히 Python 3로 전환했어요. 이는 Python 2를 사용하던 Kali에 패키지된 모든 도구가 제거되거나 Python 3를 사용하도록 변환되었음을 의미해요. Python 3로 변환된 모든 도구는 오직 shebang으로 `/usr/bin/python3`를 사용하는 스크립트만 포함하고 있어요.
+칼리 리눅스는 완전히 Python 3로 전환했어요. 이는 Python 2를 사용하던 Kali에 패키지된 모든 도구가 제거되거나 Python 3를 사용하도록 변환되었음을 의미해요. Python 3로 변환된 모든 도구는 오직 shebang으로 `/usr/bin/python3`를 사용하는 스크립트만 포함하고 있어요.
 
 Debian에서 직접 가져온 패키지에 관해서는, 대부분의 패키지에서 동일하게 했지만, Python 2에 계속 의존할 수 있도록 허용된 몇 가지 예외가 있어요. 그러나 이러한 패키지들은 모든 스크립트가 shebang으로 `/usr/bin/python2`를 사용하고, (이전의 `python` 대신) `python2` 바이너리 패키지에 의존하도록 업데이트되었어요.
 

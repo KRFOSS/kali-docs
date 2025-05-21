@@ -96,7 +96,7 @@ Discord와 유사하게, 우리는 사용자들이 질문하고 서로 도울 �
 
 ### QA 테스팅에 기여하기
 
-칼리 팀은 가끔 특정 장치나 패키지 테스트에 도움을 요청합니다. 이러한 요청은 일반적으로 [칼리 리눅스 & 프렌즈 Discord](https://discord.kali.org/) 또는 [칼리 포럼](https://forums.kali.org/)을 통해 이루어집니다. 이러한 요청에 주목하고 도움을 줄 수 있는 장치가 있을 수 있습니다.
+칼리 팀은 가끔 특정 장치나 패키지 테스트에 도움을 요청합니다. 이러한 요청은 일반적으로 [칼리 리눅스 & 프렌즈 디스코드](https://discord.kali.org/) 또는 [칼리 포럼](https://forums.kali.org/)을 통해 이루어집니다. 이러한 요청에 주목하고 도움을 줄 수 있는 장치가 있을 수 있습니다.
 
 ### 칼리 미러 호스팅
 
@@ -104,7 +104,7 @@ Discord와 유사하게, 우리는 사용자들이 질문하고 서로 도울 �
 
 ### 칼리를 새로운 플랫폼에 포팅하기
 
-우리는 칼리가 생각할 수 있는 거의 모든 유형의 시스템에서 찾을 수 있다는 사실을 자랑스럽게 생각합니다. x64 컴퓨터부터 모바일 폰, ARM 단일 보드 컴퓨터까지, 칼리는 다양한 장치에서 찾을 수 있습니다. 그러나 현재 지원하지 않는 장치도 있다는 것을 알고 있습니다. 그러한 장치가 있고 칼리를 그 장치에서 보고 싶다면, 해당 장치에서 칼리를 개발하는 데 도움을 주어 칼리에 기여할 수 있습니다. 플랫폼에 따라 특정 GitLab 프로젝트에 요청을 제출해야 할 수 있습니다. 장치가 ARM 기반이라면 [ARM](https://gitlab.com/kalilinux/build-scripts/kali-arm) 빌드 스크립트 프로젝트에 제출해야 합니다. [클라우드](https://gitlab.com/kalilinux/build-scripts/kali-cloud), [VM](https://gitlab.com/kalilinux/build-scripts/kali-vm), 또는 [NetHunter](https://gitlab.com/kalilinux/nethunter/build-scripts)에도 마찬가지입니다.
+우리는 칼리가 생각할 수 있는 거의 모든 유형의 시스템에서 찾을 수 있다는 사실을 자랑스럽게 생각합니다. x64 컴퓨터부터 모바일 폰, ARM 단일 보드 컴퓨터까지, 칼리는 다양한 장치에서 찾을 수 있습니다. 그러나 현재 지원하지 않는 장치도 있다는 것을 알고 있습니다. 그러한 장치가 있고 칼리를 그 장치에서 보고 싶다면, 해당 장치에서 칼리를 개발하는 데 도움을 주어 칼리에 기여할 수 있습니다. 플랫폼에 따라 특정 GitLab 프로젝트에 요청을 제출해야 할 수 있습니다. 장치가 ARM 기반이라면 [ARM](https://gitlab.com/kalilinux/build-scripts/kali-arm) 빌드 스크립트 프로젝트에 제출해야 합니다. [클라우드](https://gitlab.com/kalilinux/build-scripts/kali-cloud), [VM](https://gitlab.com/kalilinux/build-scripts/kali-vm), 또는 [넷헌터](https://gitlab.com/kalilinux/nethunter/build-scripts)에도 마찬가지입니다.
 
 ### 칼리 토렌트 시딩
 

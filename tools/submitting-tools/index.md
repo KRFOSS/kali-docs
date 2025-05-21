@@ -1,10 +1,11 @@
 ---
-title: Kali에 도구 제출하기
+
+title: 칼리에 도구 제출하기
 description:
 icon:
 weight:
 author: ["gamb1t",]
-번역: ["ryuyijun",]
+번역: ["ryuyijun","xenix4845"]
 ---
 
 ## 준비 사항

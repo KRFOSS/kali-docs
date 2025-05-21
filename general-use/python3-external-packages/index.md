@@ -9,7 +9,7 @@ author: ["arnaudr",]
 
 ## 소개: `pip install`에게 작별을 고하세요
 
-Kali Linux 2024.4부터, 외부 Python 패키지를 설치하기 위해 `pip`를 사용하는 것은 _강력히 권장되지 않아요_. 대신, `pipx`를 사용하는 것이 좋아요. 표면적으로는 비슷한 사용자 경험을 제공하지만, 내부적으로는 pip의 가장 큰 문제점인 환경 격리 부재를 해결해요.
+칼리 리눅스 2024.4부터, 외부 Python 패키지를 설치하기 위해 `pip`를 사용하는 것은 _강력히 권장되지 않아요_. 대신, `pipx`를 사용하는 것이 좋아요. 표면적으로는 비슷한 사용자 경험을 제공하지만, 내부적으로는 pip의 가장 큰 문제점인 환경 격리 부재를 해결해요.
 
 `pip`를 사용하여 시스템 전체 설치(`sudo pip install`)나 사용자 홈 디렉토리 설치(`pip install --user`)를 시도하면, 다음과 같은 메시지가 표시돼요:
 
@@ -51,11 +51,11 @@ hint: See PEP 668 for the detailed specification.
 
 ## APT를 통한 패키지 및 프로그램 설치 선호하기
 
-찾고 있는 Python 프로그램이 이미 Kali Linux에 패키지로 제공되는지 항상 확인하고, 제공된다면 APT로 설치하세요.
+찾고 있는 Python 프로그램이 이미 칼리 리눅스에 패키지로 제공되는지 항상 확인하고, 제공된다면 APT로 설치하세요.
 
 예를 들어, [Faraday의 README](https://github.com/infobyte/faraday)를 확인해 보세요. 이 페이지에는 Docker 이미지, PyPi 패키지(`pip`로 설치), 또는 Faraday가 직접 게시한 배포판 패키지를 포함한 여러 설치 방법이 언급되어 있어요.
 
-그 어떤 것도 하기 전에, Faraday가 이미 Kali Linux에 패키지로 제공되는지 확인할 수 있어요:
+그 어떤 것도 하기 전에, Faraday가 이미 칼리 리눅스에 패키지로 제공되는지 확인할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -140,7 +140,7 @@ usage: xsstrike [-h] [-u target] [--data paramdata] [-e encode] [--fuzzer]
 
 ### pipx 설치
 
-Kali Linux 2024.4부터 `pipx`가 사전 설치되어 있어야 해요. 그렇지 않은 경우, 평소처럼 `apt`를 통해 설치할 수 있어요:
+칼리 리눅스 2024.4부터 `pipx`가 사전 설치되어 있어야 해요. 그렇지 않은 경우, 평소처럼 `apt`를 통해 설치할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]
@@ -151,7 +151,7 @@ Kali Linux 2024.4부터 `pipx`가 사전 설치되어 있어야 해요. 그렇�
 
 `~/.local/bin`은 `pipx`가 Python 애플리케이션을 설치하는 디렉토리예요. 이 디렉토리는 `PATH` 환경 변수에 포함되어야 하므로, pipx를 통해 예를 들어 `xyz`라는 애플리케이션을 설치하면 터미널에서 간단히 `xyz`를 입력하여 실행할 수 있어요.
 
-Kali Linux 2024.4부터 `~/.local/bin`은 이미 `PATH`에 포함되어 있어야 해요. 터미널을 열고 다음 명령을 실행하여 확인할 수 있어요:
+칼리 리눅스 2024.4부터 `~/.local/bin`은 이미 `PATH`에 포함되어 있어야 해요. 터미널을 열고 다음 명령을 실행하여 확인할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]

@@ -1,5 +1,5 @@
 ---
-title: Samsung Galaxy Note 10.1
+title: 삼성 갤럭시 노트 10.1
 description:
 icon:
 archived: "true"

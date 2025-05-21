@@ -1,5 +1,5 @@
 ---
-title: Kali Linux 이미지 안전하게 다운로드하기
+title: 칼리 리눅스 이미지 안전하게 다운로드하기
 description:
 icon:
 weight: 51
@@ -7,7 +7,7 @@ author: ["daniruiz",]
 번역: ["xenix4845"]
 ---
 
-이미지를 다운로드할 때는 다운로드한 이미지 옆에 있는(즉, [Kali Linux 다운로드 서버](http://cdimage.kali.org/)의 동일한 디렉토리에 있는) **SHA256SUMS** 및 **SHA256SUMS.gpg** 파일도 함께 다운로드하세요. 이미지의 체크섬을 확인하기 전에, SHA256SUMS 파일이 Kali에서 생성한 것인지 확인해야 합니다. 이것이 바로 해당 파일이 Kali의 공식 키로 서명되어 SHA256SUMS.gpg에 분리된 서명으로 제공되는 이유입니다. Kali의 공식 키는 다음과 같이 다운로드할 수 있습니다:
+이미지를 다운로드할 때는 다운로드한 이미지 옆에 있는(즉, [칼리 리눅스 다운로드 서버](http://cdimage.kali.org/)의 동일한 디렉토리에 있는) **SHA256SUMS** 및 **SHA256SUMS.gpg** 파일도 함께 다운로드하세요. 이미지의 체크섬을 확인하기 전에, SHA256SUMS 파일이 칼리에서 생성한 것인지 확인해야 합니다. 이것이 바로 해당 파일이 칼리의 공식 키로 서명되어 SHA256SUMS.gpg에 분리된 서명으로 제공되는 이유입니다. 칼리의 공식 키는 다음과 같이 다운로드할 수 있습니다:
 
 <!--
 ```
@@ -59,4 +59,4 @@ gpg: WARNING: This key is not certified with a trusted signature!
 gpg:          There is no indication that the signature belongs to the owner.
 </code></pre>
 
-"Good signature" 메시지를 받지 못하거나 키 ID가 일치하지 않는 경우, 과정을 중단하고 정상적인 Kali 미러에서 이미지를 다운로드했는지 확인해야 합니다.
+"Good signature" 메시지를 받지 못하거나 키 ID가 일치하지 않는 경우, 과정을 중단하고 정상적인 칼리 미러에서 이미지를 다운로드했는지 확인해야 합니다.

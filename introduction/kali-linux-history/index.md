@@ -1,5 +1,5 @@
 ---
-title: Kali Linux 역사
+title: 칼리 리눅스 역사
 description:
 icon:
 weight: 450
@@ -7,7 +7,7 @@ author: ["g0tmi1k",]
 번역: ["xenix4845"]
 ---
 
-Kali Linux는 침투 테스팅 운영 체제를 구축하는 수년간의 지식과 경험을 바탕으로 만들어졌으며, 이는 여러 이전 프로젝트에 걸쳐 있습니다. 이 모든 프로젝트의 수명 동안 [팀](/about-us/)이 항상 작았기 때문에 개발자는 몇 명뿐이었습니다. 그 결과, Kali는 수년에 걸쳐 만들어졌고 긴 여정을 거쳐왔습니다.
+칼리 리눅스는 침투 테스팅 운영 체제를 구축하는 수년간의 지식과 경험을 바탕으로 만들어졌으며, 이는 여러 이전 프로젝트에 걸쳐 있습니다. 이 모든 프로젝트의 수명 동안 [팀](/about-us/)이 항상 작았기 때문에 개발자는 몇 명뿐이었습니다. 그 결과, Kali는 수년에 걸쳐 만들어졌고 긴 여정을 거쳐왔습니다.
 
 첫 번째 프로젝트는 **Whoppix**라고 불렸으며, 이는 **WhiteHat Knoppix**의 약자였습니다. 이름에서 알 수 있듯이, 기본 OS로 Knoppix를 사용했습니다. Whoppix는 v2.0부터 v2.7까지의 버전이 있었습니다.
 
@@ -15,11 +15,11 @@ Kali Linux는 침투 테스팅 운영 체제를 구축하는 수년간의 지식
 
 같은 시기에 유사한 OS인 **Auditor Security Collection** _(주로 **Auditor**로 줄여 부름)_이 개발되고 있었으며, 이 역시 Knoppix를 사용했습니다. 이러한 노력이 (WHAX와) 합쳐져서 **[BackTrack](https://www.backtrack-linux.org/)**이 탄생했습니다. BackTrack은 v1부터 v3까지는 Slackware를 기반으로 했지만, 나중에 v4와 v5에서는 Ubuntu로 전환했습니다.
 
-이 모든 경험을 바탕으로, **Kali Linux**는 [2013년](/docs/introduction/press-release/)에 BackTrack 이후에 출시되었습니다. Kali는 처음에는 Debian 안정 버전을 기반으로 했으나, Kali가 롤링 OS가 되면서 [Debian](/docs/policy/kali-linux-relationship-with-debian/) 테스팅 버전으로 전환했습니다.
+이 모든 경험을 바탕으로, **칼리 리눅스**는 [2013년](/docs/introduction/press-release/)에 BackTrack 이후에 출시되었습니다. Kali는 처음에는 Debian 안정 버전을 기반으로 했으나, Kali가 롤링 OS가 되면서 [Debian](/docs/policy/kali-linux-relationship-with-debian/) 테스팅 버전으로 전환했습니다.
 
 - - -
 
-아래는 Kali Linux가 어떻게 만들어졌는지에 대한 대략적인 개요입니다:
+아래는 칼리 리눅스가 어떻게 만들어졌는지에 대한 대략적인 개요입니다:
 
 | 날짜            | 프로젝트 출시             | 기본 OS                     |
 |----------------|---------------------------|-----------------------------|
@@ -64,4 +64,4 @@ Kali Linux는 침투 테스팅 운영 체제를 구축하는 수년간의 지식
 이는 주요 릴리스만 나열한 것이며, 버그 수정, 릴리스, 도구 업데이트를 위한 마이너 릴리스도 있었습니다.
 {{% /notice %}}
 
-[Kali Linux의 역사에 대한 더 자세한 내용은 이 페이지](https://web.archive.org/web/20210914172345/https://kali.training/topic/a-bit-of-history/)와 우리의 [보도 자료](/docs/introduction/press-release/)를 참조하세요. 그리고 [Kali Linux의 릴리스에 대한 더 자세한 정보는 이 페이지](/releases/)를 참조하세요.
+[칼리 리눅스의 역사에 대한 더 자세한 내용은 이 페이지](https://web.archive.org/web/20210914172345/https://kali.training/topic/a-bit-of-history/)와 우리의 [보도 자료](/docs/introduction/press-release/)를 참조하세요. 그리고 [칼리 리눅스의 릴리스에 대한 더 자세한 정보는 이 페이지](/releases/)를 참조하세요.

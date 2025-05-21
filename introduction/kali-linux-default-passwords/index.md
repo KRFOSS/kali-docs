@@ -1,5 +1,5 @@
 ---
-title: Kali Linux 기본 비밀번호
+title: 칼리 리눅스 기본 비밀번호
 description:
 icon:
 archived: "true"
@@ -12,4 +12,4 @@ author: ["g0tmi1k",]
 
 - - -
 
-설치 중에 Kali Linux는 사용자가 _root_ 사용자의 비밀번호를 구성할 수 있게 합니다. 그러나 대신 라이브 이미지로 부팅하기로 선택한 경우, amd64, VMware 및 ARM 이미지는 **기본 `root` 비밀번호 - "`toor`"** (따옴표 제외)로 구성되어 있습니다.
+설치 중에 칼리 리눅스는 사용자가 _root_ 사용자의 비밀번호를 구성할 수 있게 합니다. 그러나 대신 라이브 이미지로 부팅하기로 선택한 경우, amd64, VMware 및 ARM 이미지는 **기본 `root` 비밀번호 - "`toor`"** (따옴표 제외)로 구성되어 있습니다.

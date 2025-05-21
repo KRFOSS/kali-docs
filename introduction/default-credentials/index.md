@@ -1,13 +1,13 @@
 ---
-title: Kali의 기본 자격 증명
-description: Kali의 비밀번호는 무엇인가요
+title: 칼리의 기본 자격 증명
+description: 칼리의 비밀번호는 무엇인가요
 icon:
 weight: 60
 author: ["g0tmi1k",]
 번역: ["xenix4845"]
 ---
 
-Kali는 [**2020.1** 버전 출시](/blog/kali-default-non-root-user/) 이후로 기본적으로 [비루트 사용자 정책](/docs/policy/kali-linux-user-policy/)으로 변경되었습니다.
+칼리는 [**2020.1** 버전 출시](/blog/kali-default-non-root-user/) 이후로 기본적으로 [비루트 사용자 정책](/docs/policy/kali-linux-user-policy/)으로 변경되었습니다.
 
 이는 다음을 의미합니다:
 
@@ -27,7 +27,7 @@ Kali는 [**2020.1** 버전 출시](/blog/kali-default-non-root-user/) 이후로 
 
 ## 도구 기본 자격 증명
 
-Kali와 함께 제공되는 일부 도구는 자체 하드코딩된 기본 자격 증명을 사용합니다(다른 일부는 처음 사용할 때 새 비밀번호를 생성합니다). 다음 도구들은 기본값을 가지고 있습니다:
+칼리와 함께 제공되는 일부 도구는 자체 하드코딩된 기본 자격 증명을 사용합니다(다른 일부는 처음 사용할 때 새 비밀번호를 생성합니다). 다음 도구들은 기본값을 가지고 있습니다:
 
 - [BeEF-XSS](/tools/beef-xss/)
     - 사용자 이름: `beef`
@@ -55,4 +55,4 @@ Kali와 함께 제공되는 일부 도구는 자체 하드코딩된 기본 자�
 
 - - -
 
-2020.1보다 이전 버전의 Kali Linux에 대해서는 [이전 자격 증명 정보](/docs/introduction/kali-linux-default-passwords/) 및 [루트 정책](/docs/policy/kali-linux-root-user-policy/) 정보를 참조하세요.
+2020.1보다 이전 버전의 칼리 리눅스에 대해서는 [이전 자격 증명 정보](/docs/introduction/kali-linux-default-passwords/) 및 [루트 정책](/docs/policy/kali-linux-root-user-policy/) 정보를 참조하세요.

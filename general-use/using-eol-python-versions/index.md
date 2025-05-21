@@ -1,5 +1,5 @@
 ---
-title: Kali에서 지원 종료된 Python 버전 사용하기
+title: 칼리 리눅스에서 지원 종료된 Python 버전 사용하기
 description:
 icon:
 weight: 15

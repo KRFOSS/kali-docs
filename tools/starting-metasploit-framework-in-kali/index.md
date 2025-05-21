@@ -4,10 +4,10 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
-번역: ["ryuyijun"]
+번역: ["ryuyijun","xenix4845"]
 ---
 
-[Kali Linux 네트워크 서비스 정책](/policy/kali-linux-network-service-policy/)에 따라, 데이터베이스 서비스를 포함한 모든 네트워크 서비스는 기본적으로 부팅 시 실행되지 않습니다. 따라서 [Metasploit](https://www.metasploit.com/)을 데이터베이스 지원과 함께 실행하기 위해서는 몇 가지 단계를 거쳐야 합니다.
+[칼리 리눅스 네트워크 서비스 정책](/policy/kali-linux-network-service-policy/)에 따라, 데이터베이스 서비스를 포함한 모든 네트워크 서비스는 기본적으로 부팅 시 실행되지 않습니다. 따라서 [Metasploit](https://www.metasploit.com/)을 데이터베이스 지원과 함께 실행하기 위해서는 몇 가지 단계를 거쳐야 합니다.
 
 ## 빠른 방법
 
@@ -99,7 +99,7 @@ kali@kali:~$ sudo msfdb init
 kali@kali:~$
 ```
 
-## Kali에서 msfconsole 실행
+## 칼리에서 msfconsole 실행
 
 이제 **PostgreSQL** 서비스가 실행 중이고 데이터베이스가 초기화되었으므로, **msfconsole**을 실행하고 아래와 같이 **db_status** 명령어로 데이터베이스 연결을 확인할 수 있습니다:
 

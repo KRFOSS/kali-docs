@@ -1,6 +1,6 @@
 ---
-title: Kali On ARM
-description: Everything about ARM devices
+title: ARM에서의 칼리
+description: ARM 디바이스에 대한 모든 것
 icon: ti-harddrive
 weight: 30
 author: ["xenix4845",]

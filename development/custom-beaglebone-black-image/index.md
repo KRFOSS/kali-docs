@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-이 문서는 **커스텀 Kali Linux Beaglebone Black ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali 이미지를 설치하고 싶다면, [Beaglebone Black에 Kali 설치하기](/docs/arm/beaglebone-black/) 문서를 참고하세요.
+이 문서는 **커스텀 칼리 리눅스 Beaglebone Black ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 Kali 이미지를 설치하고 싶다면, [Beaglebone Black에 Kali 설치하기](/docs/arm/beaglebone-black/) 문서를 참고하세요.
 
 {{% notice info %}}
 이 과정을 수행하려면 루트 권한이 필요하거나, "sudo su" 명령어로 권한을 상승시킬 수 있어야 해요.
@@ -145,4 +145,4 @@ kali@kali:~$ losetup -d $loopdevice
 kali@kali:~$ dd if=kali-linux-bbb.img of=/dev/sdX conv=fsync bs=4M
 ```
 
-dd 작업이 완료되면 SD 카드를 마운트 해제하고 꺼내서 Beaglebone Black을 Kali Linux로 부팅하세요. 부팅할 때 "BOOT" 버튼을 누르고 있어야 해요. 이 버튼은 microSD 카드에 가장 가까운 버튼이에요.
+dd 작업이 완료되면 SD 카드를 마운트 해제하고 꺼내서 Beaglebone Black을 칼리 리눅스로 부팅하세요. 부팅할 때 "BOOT" 버튼을 누르고 있어야 해요. 이 버튼은 microSD 카드에 가장 가까운 버튼이에요.

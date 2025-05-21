@@ -726,7 +726,7 @@ kali@kali:~/kali/packages/python-icmplib$
 
 이것은 `Section: python`으로 이전에 본 것과 약간 달라요. 이는 이것이 **파이썬 라이브러리**이기 때문이에요. 자세한 내용은 [데비안 작성 가이드](https://www.debian.org/doc/debian-policy/ch-archive.html#s-subsections)와 [다양한 옵션](https://packages.debian.org/testing/)을 참조하세요.
 
-또한 패키지 이름을 다르게 지정해야 해요. `debian/control`의 소스 패키지 부분은 상단 부분이며, `Source:` 필드로 이름이 지정돼요. 반면에 바이너리 부분은 하단 절반이고 `Package:`를 사용하여 이름을 지정해요. _가능한 경우 Kali Linux는 항상 소스 패키지와 바이너리 패키지를 모두 만들려고 해요(자세한 내용은 [데비안 리소스](https://wiki.debian.org/Packaging/SourcePackage) 참조)._
+또한 패키지 이름을 다르게 지정해야 해요. `debian/control`의 소스 패키지 부분은 상단 부분이며, `Source:` 필드로 이름이 지정돼요. 반면에 바이너리 부분은 하단 절반이고 `Package:`를 사용하여 이름을 지정해요. _가능한 경우 칼리 리눅스는 항상 소스 패키지와 바이너리 패키지를 모두 만들려고 해요(자세한 내용은 [데비안 리소스](https://wiki.debian.org/Packaging/SourcePackage) 참조)._
 
 참고로, 소스 이름 `python-icmplib`는 `debian/changelog`와 일치해야 해요:
 
@@ -826,7 +826,7 @@ Python 3 라이브러리 파일인 icmplib 구축에 성공했어요!
 
 #### 최종 FinalRecon 빌드
 
-현재 `python3-icmplib`가 Kali Linux에 아직 수락되지 않았거나, 두 패키지를 동시에 제출하고 싶을 수 있어요. 이런 경우 **최근 생성된 패키지를 chroot에 포함**시켜서 `sbuild`가 사용할 수 있게 할 수 있어요. 이는 FinalRecon의 필수 요구 사항이에요.
+현재 `python3-icmplib`가 칼리 리눅스에 아직 수락되지 않았거나, 두 패키지를 동시에 제출하고 싶을 수 있어요. 이런 경우 **최근 생성된 패키지를 chroot에 포함**시켜서 `sbuild`가 사용할 수 있게 할 수 있어요. 이는 FinalRecon의 필수 요구 사항이에요.
 
 또한 패키지의 상태가 확실하지 않기 때문에, 최신 편집 내용을 Git에 커밋하지 않기로 결정할 수도 있어요. 따라서 **패키지를 빌드할 때** `--git-export=WC`를 추가할 거예요:
 
@@ -980,7 +980,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-이제 패키징을 완료할 수 있으며, 이러한 패키지를 추가하기 위해 **[Kali Linux 버그 트래커](https://bugs.kali.org/)에 요청을 제출**할 수 있어요!
+이제 패키징을 완료할 수 있으며, 이러한 패키지를 추가하기 위해 **[칼리 리눅스 버그 트래커](https://bugs.kali.org/)에 요청을 제출**할 수 있어요!
 
 ## Kali 팀의 메시지
 

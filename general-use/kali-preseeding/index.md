@@ -1,5 +1,5 @@
 ---
-title: Kali Preseed 예제들
+title: 칼리 Preseed 예제들
 description:
 icon:
 weight:

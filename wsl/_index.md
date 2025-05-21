@@ -1,15 +1,15 @@
 ---
 title: WSL
-description: Windows Subsystem for Linux
+description: 리눅스용 윈도우 하위 시스템
 icon: ti-pin
 weight: 37
 author: ["xenix4845",]
 ---
-이 문서에서는 WSL 상에서 Kali Linux를 사용하는 방법에 대해서 설명합니다.
+이 문서에서는 WSL 상에서 칼리 리눅스를 사용하는 방법에 대해서 설명합니다.
 
-[> Mesa 21 & Direct3D 12를 이용한 3D 가속](/wsl/mesa-21/)
+[> 메사 21 & 다이렉트3D 12를 이용한 3D 가속](/wsl/mesa-21/)
 
-[> Kali WSL](/wsl/wsl-preparations/)
+[> 칼리 WSL](/wsl/wsl-preparations/)
 
 [> Win-Kex](https://kali.krfoss.org/wsl/win-kex/)
 

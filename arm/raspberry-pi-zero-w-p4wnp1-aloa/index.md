@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi Zero W P4wnP1 A.L.O.A
+title: 라즈베리 파이 제로 W P4wnP1 A.L.O.A
 description:
 icon:
 weight:
@@ -9,18 +9,18 @@ author: ["steev",]
 
 ## 소개
 
-Raspberry Pi Zero W P4wnP1 A.L.O.A. (**A** **L**ittle **O**ffensive **A**pplication) 이미지는 Kali Linux의 고도로 커스터마이즈된 버전입니다. 라즈베리 파이를 컴퓨터에 연결하여 명령을 보내거나 직접 상호작용 없이도 네트워킹을 사용할 수 있으며, 물론 직접 상호작용도 가능합니다!
+라즈베리 파이 제로 W P4wnP1 A.L.O.A. (**A** **L**ittle **O**ffensive **A**pplication) 이미지는 칼리 리눅스의 고도로 커스터마이즈된 버전입니다. 라즈베리 파이를 컴퓨터에 연결하여 명령을 보내거나 직접 상호작용 없이도 네트워킹을 사용할 수 있으며, 물론 직접 상호작용도 가능합니다!
 
 P4wnP1 A.L.O.A 소프트웨어는 플러그 앤 플레이 USB 장치 에뮬레이션과 같은 [원래 P4wnP1](https://p4wnp1.readthedocs.io/en/latest/)이 가지고 있던 다양한 [기능](#features)을 포함하고 있습니다. 수정된 [Nexmon](https://github.com/seemoo-lab/nexmon) 펌웨어를 통한 Wi-Fi(KARMA 공격 가능), 블루투스 지원, Wi-Fi 은닉 채널을 제공하며, 모니터 모드도 포함되어 있지만 **공식 지원되지는 않습니다**. 또한 페이로드를 위한 [DuckyScript](https://github.com/hak5darren/USB-Rubber-Ducky/wiki/Duckyscript)와 유사하지만 JavaScript 기반인 HIDScript를 추가했습니다.
 
 {{% notice info %}}
-현재 P4wnP1 A.L.O.A. 이미지는 Raspberry Pi Zero W만 지원하며, Zero 2 W는 **지원하지 않습니다**.
+현재 P4wnP1 A.L.O.A. 이미지는 라즈베리 파이 제로 W만 지원하며, 제로 2 W는 **지원하지 않습니다**.
 <!-- Raspberry Pi Zero 2 W용 Nexmon 지원이 있지만, Wi-Fi 은닉 채널 지원과 함께 작동하지 않습니다. -->
 {{% /notice %}}
 
 ## 빠른 설치 및 사용법
 
-1. [다운로드](/get-kali/#kali-arm) 영역에서 `Kali Linux Raspberry Pi Zero W P4wnP1 ALOA` 이미지를 다운로드 _및 검증_하세요. 이미지 검증 과정은 [Kali Linux 다운로드](/docs/introduction/download-official-kali-linux-images/)에서 더 자세히 설명합니다.
+1. [다운로드](/get-kali/#kali-arm) 영역에서 `칼리 리눅스 라즈베리 파이 제로 W P4wnP1 ALOA` 이미지를 다운로드 _및 검증_하세요. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에서 더 자세히 설명합니다.
 
 2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 쓰세요. 예시에서는 `/dev/sdX`에 위치한 microSD를 사용합니다. **_필요에 따라 변경하세요._**
 
@@ -32,9 +32,9 @@ P4wnP1 A.L.O.A 소프트웨어는 플러그 앤 플레이 USB 장치 에뮬레�
 $ xzcat kali-linux-2025.1-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC 성능, microSD 카드 속도 및 Kali Linux 이미지 크기에 따라 시간이 걸릴 수 있습니다.
+이 과정은 PC 성능, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있습니다.
 
-3. _dd_ 작업이 완료되면 microSD 카드를 Raspberry Pi Zero W에 삽입하세요.
+3. _dd_ 작업이 완료되면 microSD 카드를 라즈베리 파이 제로 W에 삽입하세요.
 
 4. 다른 컴퓨터에서 P4wnP1 A.L.O.A.의 기본 무선 네트워크 `💥🖥💥 Ⓟ➃ⓌⓃ🅟❶`에 비밀번호 `MaMe82-P4wnP1`로 연결하세요.
 
@@ -45,7 +45,7 @@ $ xzcat kali-linux-2025.1-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd
 - 로컬에서 P4wnP1 A.L.O.A. CLI 소프트웨어를 컴파일하고, 명령과 함께 `host` 전달
 
 {{% notice info %}}
-이 Kali Linux 이미지의 중요한 커스터마이제이션 중 하나는 `root`와 `kali` 사용자 모두 SSH로 로그인할 수 있다는 점입니다.
+이 칼리 리눅스 이미지의 중요한 커스터마이제이션 중 하나는 `root`와 `kali` 사용자 모두 SSH로 로그인할 수 있다는 점입니다.
 `root` 사용자는 [기본 비밀번호](/docs/introduction/default-credentials/)인 `toor`를 사용합니다.
 {{% /notice %}}
 
@@ -53,7 +53,7 @@ $ xzcat kali-linux-2025.1-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd
 
 ## 기능
 
-MaMe82의 P4wnP1 A.L.O.A.는 Raspberry Pi Zero W를 유연하고 저비용의 펜테스팅, 레드 팀 및 물리적 관여를 위한 플랫폼으로 변환하는 프레임워크입니다... 또는 "A Little Offensive Appliance"(약간의 공격적 어플라이언스)로 변환합니다.
+MaMe82의 P4wnP1 A.L.O.A.는 라즈베리 파이 제로 W를 유연하고 저비용의 펜테스팅, 레드 팀 및 물리적 관여를 위한 플랫폼으로 변환하는 프레임워크입니다... 또는 "A Little Offensive Appliance"(약간의 공격적 어플라이언스)로 변환합니다.
 
 P4wnP1 A.L.O.A.는 다음을 목적으로 하지 않습니다:
 
