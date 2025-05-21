@@ -8,12 +8,12 @@ author: ["re4son",]
 ---
 ## 목차:
 
-- [개요](#%EA%B0%9C%EC%9A%94)
-- [Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너](#ubuntu-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%EB%AA%85%EB%A0%B9%EC%A4%84-kali-lxd-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
-- [Ubuntu 호스트에서 GUI Kali LXD 컨테이너](#ubuntu-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-gui-kali-lxd-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
-- [Kali 호스트에서 권한 있는 Kali LXC 컨테이너](#kali-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%EA%B6%8C%ED%95%9C-%EC%9E%88%EB%8A%94-kali-lxc-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
-- [Kali 호스트에서 권한 없는 Kali LXC 컨테이너](#kali-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%97%90%EC%84%9C-%EA%B6%8C%ED%95%9C-%EC%97%86%EB%8A%94-kali-lxc-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88)
-- [참고 자료](#%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C)
+- [개요](#개요)
+- [Ubuntu 호스트에서 명령줄 Kali LXD 컨테이너](#Ubuntu-호스트에서-명령줄-Kali-LXD-컨테이너)
+- [Ubuntu 호스트에서 GUI Kali LXD 컨테이너](#Ubuntu-호스트에서-GUI-Kali-LXD-컨테이너)
+- [Kali 호스트에서 권한 있는 Kali LXC 컨테이너](#Kali-호스트에서-권한-있는-Kali-LXC-컨테이너)
+- [Kali 호스트에서 권한 없는 Kali LXC 컨테이너](#Kali-호스트에서-권한-없는-Kali-LXC-컨테이너)
+- [참고 자료](#참고자료)
 
 ---
 
@@ -21,10 +21,11 @@ author: ["re4son",]
 
 **칼리 리눅스 컨테이너는 다음 용도에 이상적인 솔루션입니다**
 
-- **다른 Linux 배포판 내에서 칼리 리눅스 실행**
-- 개발 또는 테스트 활동을 위한 격리된 환경 제공**
 
-****가상 머신의 오버헤드 없이, 도커는 애플리케이션에 선호되는 솔루션인 반면, LXC/LXD는 전체 시스템에 선호됩니다**.
+- **다른 Linux 배포판 내에서 칼리 리눅스 실행**
+- 개발 또는 테스트 활동을 위한 격리된 환경 제공
+
+**가상 머신의 오버헤드 없이, Docker는 애플리케이션에 선호되는 솔루션인 반면, LXC/LXD는 전체 시스템에 선호됩니다**.
 
 리눅스 컨테이너는 소프트웨어 개발이나 테스트에 매우 유용한 스냅샷 및 프리징과 같은 기능을 제공합니다.
 
@@ -122,16 +123,12 @@ GUI 애플리케이션을 실행하기 위한 칼리 컨테이너 설치는 몇 
 
 1 - snap을 통해 lxd를 설치하고 초기 설정을 수행합니다(아직 수행하지 않은 경우):
 
-console
-
 ```console
 kali@kali:~$ sudo snap install lxd
 kali@kali:~$ lxd init
 ```
 
 2 - 다음 명령으로 첫 번째 칼리 리눅스 컨테이너를 실행합니다:
-
-console
 
 ```console
 kali@kali:~$ wget https://blog.simos.info/wp-content/uploads/2018/06/lxdguiprofile.txt
@@ -143,8 +140,6 @@ kali@kali:~$ lxc launch --profile default --profile gui images:kali/current/amd6
 
 3 - 다음을 통해 컨테이너 내부에 추가 패키지를 설치합니다:
 
-console
-
 ```console
 kali@kali:~$ lxc exec gui-kali -- apt update
 kali@kali:~$ lxc exec gui-kali -- apt install -y kali-linux-default
@@ -152,8 +147,6 @@ kali@kali:~$ lxc exec gui-kali -- apt install -y kali-desktop-xfce
 ```
 
 4 - 비루트 사용자를 생성합니다 - 이 예제에서는 "kali":
-
-console
 
 ```console
 kali@kali:~$ lxc exec gui-kali -- adduser kali
@@ -165,8 +158,6 @@ kali@kali:~$ lxc exec gui-kali -- sh -c "echo 'Set disable_coredump false' > /et
 
 5 - KALI 및 ROOT 사용자를 위한 컨테이너 내 오디오 수정:
 
-console
-
 ```console
 kali@kali:~$ lxc exec my-kali -- sh -c "echo 'export PULSE_SERVER=unix:/tmp/.pulse-native' | tee --append /root/.profile"
 kali@kali:~$ lxc exec my-kali -- sh -c "echo 'export PULSE_SERVER=unix:/tmp/.pulse-native' | tee --append /home/kali/.profile"
@@ -175,8 +166,6 @@ kali@kali:~$ lxc restart my-kali
 ```
 
 6 - 다음을 통해 칼리 Xfce 패널 시작:
-
-console
 
 ```console
 kali@kali:~$ lxc exec gui-kali -- sudo -u kali xfce4-panel
@@ -205,8 +194,6 @@ kali@kali:~$ lxc exec gui-kali -- sudo -u kali xfce4-panel
 
 1 - lxc를 설치하고 네트워크를 설정합니다:
 
-console
-
 ```console
 kali@kali:~$ sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
 kali@kali:~$
@@ -224,8 +211,6 @@ kali@kali:~$ sudo virsh net-autostart default
 
 2 - 다음을 통해 이미지 서버에서 칼리 리눅스 이미지를 다운로드합니다:
 
-console
-
 ```console
 kali@kali:~$ lxc-create -t download -n my-kali
 ```
@@ -240,15 +225,11 @@ kali@kali:~$ lxc-create -t download -n my-kali
 
 3 - 다음으로 컨테이너를 시작합니다:
 
-console
-
 ```console
 kali@kali:~$ sudo lxc-start -n my-kali -d
 ```
 
 4 - 다음을 통해 컨테이너에 연결합니다:
-
-console
 
 ```console
 kali@kali:~$ sudo lxc-attach -n my-kali
@@ -282,15 +263,11 @@ kali@kali:~$ sudo lxc-attach -n my-kali
 
 1 - lxc 설치(필요한 경우):
 
-console
-
 ```console
 kali@kali:~$ sudo apt install -y lxc libvirt0 libpam-cgfs bridge-utils libvirt-clients libvirt-daemon-system iptables ebtables dnsmasq-base
 ```
 
 2 - 권한 없는 컨테이너를 위한 LXC 설정
-
-console
 
 ```console
 kali@kali:~$ echo "$USER veth virbr0 10" | sudo tee -i /etc/lxc/lxc-usernet
@@ -305,8 +282,6 @@ kali@kali:~$ sed -i 's/lxc.apparmor.profile = generated/lxc.apparmor.profile = u
 
 다음으로 `/etc/subuid` 및 `/etc/subgid`에 나열된 것과 일치하는 subuid 및 subgid가 있는 두 줄을 `~/.config/lxc/default.conf`에 추가해야 합니다. 먼저 `cat /etc/s*i d grep $USER`를 통해 ID를 확인합니다. 결과는 다음과 같아야 합니다:
 
-plaintext
-
 ```plaintext
 kali:100000:65536
 kali:100000:65536
@@ -314,16 +289,12 @@ kali:100000:65536
 
 다음 명령에서 ID를 이전 출력의 ID로 대체하세요:
 
-console
-
 ```console
 kali@kali:~$ echo lxc.idmap = u 0 100000 65536 >> ~/.config/lxc/default.conf
 kali@kali:~$ echo lxc.idmap = g 0 100000 65536 >> ~/.config/lxc/default.conf
 ```
 
 3 - 다음을 통해 이미지 서버에서 칼리 리눅스 이미지를 다운로드합니다:
-
-console
 
 ```console
 kali@kali:~$ lxc-create -t download -n my-kali
@@ -339,8 +310,6 @@ kali@kali:~$ lxc-create -t download -n my-kali
 
 4 - 다음으로 컨테이너를 시작합니다:
 
-console
-
 ```console
 kali@kali:~$ lxc-start -n my-kali -d
 ```
@@ -349,16 +318,12 @@ kali@kali:~$ lxc-start -n my-kali -d
 
 5 - 기본 패키지 설치:
 
-console
-
 ```console
 kali@kali:~$ lxc-attach -n my-kali apt update
 kali@kali:~$ lxc-attach -n my-kali apt install -y kali-linux-default
 ```
 
 6 - 비루트 사용자 생성:
-
-console
 
 ```console
 kali@kali:~$ lxc-attach -n my-kali --clear-env adduser <username>
@@ -367,15 +332,11 @@ kali@kali:~$ lxc-attach -n my-kali --clear-env adduser <username> sudo
 
 7 - 다음을 통해 비루트 사용자로 로그인:
 
-console
-
 ```console
 kali@kali:~$ lxc-console
 ```
 
 그리고 콘솔에서 색상을 얻기 위해 초기 로그인 시 다음을 수행합니다:
-
-console
 
 ```console
 kali@kali:~$ sed -i '1 i\TERM=xterm-256color' ~/.bashrc
