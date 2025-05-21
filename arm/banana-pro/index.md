@@ -1,5 +1,5 @@
 ---
-title: Banana Pro
+title: 바나나 프로
 description:
 icon:
 weight:

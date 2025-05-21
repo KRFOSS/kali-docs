@@ -80,7 +80,7 @@ kali@kali:~$ sudo mv -v /etc/X11/Xorg.conf.d/99-vc4.conf ~
 
 - - -
 
-## 헤드리스(모니터 없이) 라즈베리 파이 3에서 Kali - 팁과 요령
+## 헤드리스(모니터 없이) 라즈베리 파이 3에서 칼리 - 팁과 요령
 
 무선 네트워크에 연결하기 위해 microSD 카드의 첫 번째 파티션에 `wpa_supplicant.conf` 파일을 추가할 수 있어요.
 
@@ -88,4 +88,4 @@ kali@kali:~$ sudo mv -v /etc/X11/Xorg.conf.d/99-vc4.conf ~
 
 ## 라즈베리 파이 3 - 이미지 사용자 지정
 
-설치되는 [패키지](/docs/general-use/metapackages/) 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 변경, 이미지 파일 크기 증가 또는 감소 등 Kali 라즈베리 파이 3 이미지를 사용자 지정하고 싶다면, GitLab의 [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용할 스크립트는 `raspberry-pi.sh`(32비트) 또는 `raspberry-pi-64-bit.sh`(64비트)예요.
+설치되는 [패키지](/docs/general-use/metapackages/) 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 변경, 이미지 파일 크기 증가 또는 감소 등 칼리 라즈베리 파이 3 이미지를 사용자 지정하고 싶다면, GitLab의 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용할 스크립트는 `raspberry-pi.sh`(32비트) 또는 `raspberry-pi-64-bit.sh`(64비트)예요.

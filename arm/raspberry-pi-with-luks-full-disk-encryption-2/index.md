@@ -1,5 +1,5 @@
 ---
-title: Raspberry Pi - 전체 디스크 암호화
+title: 라즈베리 파이 - 전체 디스크 암호화
 description:
 icon:
 archived: "false"
@@ -38,9 +38,9 @@ author: ["gamb1t", "steev"]
 이 과정을 따라한다면, 이미지를 어디에 쓰는지 반드시 알고 있어야 하며, `/dev/sdX`를 교체해야 합니다. 맹목적으로 복사/붙여넣기하지 마세요!
 {{% /notice %}}
 
-우리는 기존 Kali 설치에서 드롭 박스 머신을 만들 것입니다. 다른 Debian 기반 배포판에서도 매우 쉽게 할 수 있으며, 다른 운영체제에서도 상대적으로 간단합니다(Windows 사용자 제외!).
+우리는 기존 칼리 설치에서 드롭 박스 머신을 만들 것입니다. 다른 Debian 기반 배포판에서도 매우 쉽게 할 수 있으며, 다른 운영체제에서도 상대적으로 간단합니다(Windows 사용자 제외!).
 
-먼저 [최신 안정 버전](/releases/) Kali RPi 이미지를 [다운로드](/get-kali/#kali-arm)합니다. 이 글 작성 시점에는 [Kali 2022.2](/blog/kali-linux-2022-2-release/)입니다.
+먼저 [최신 안정 버전](/releases/) 칼리 RPi 이미지를 [다운로드](/get-kali/#kali-arm)합니다. 이 글 작성 시점에는 [칼리 2022.2](/blog/kali-linux-2022-2-release/)입니다.
 우리는 4GB 이상의 RAM을 가지고 있고 [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/)(Hardware Attached on Top)를 사용하지 않기 때문에 64비트 이미지를 선택했습니다. 32비트의 경우 파일 이름을 조정한 후 동일한 단계를 따릅니다:
 
 ```console
@@ -382,7 +382,7 @@ CRYPTSETUP=y
 {{% /notice %}}
 
 참고로, 우리는 RPi4, 64비트 이미지를 사용하므로 `Re4son-v8l+`가 필요합니다. 자신의 장치에 맞게 조정하세요.
-이제 사용할 커널 이름을 알았으니 커널 버전을 찾아야 합니다. 이는 장치마다 다를 수 있으며 Kali가 업데이트됨에 따라 변경됩니다. 현재 RPi에서는 `5.15.44`입니다:
+이제 사용할 커널 이름을 알았으니 커널 버전을 찾아야 합니다. 이는 장치마다 다를 수 있으며 칼리가 업데이트됨에 따라 변경됩니다. 현재 RPi에서는 `5.15.44`입니다:
 
 커널 버전은 변경될 수 있지만 이름은 변경되지 않습니다:
 

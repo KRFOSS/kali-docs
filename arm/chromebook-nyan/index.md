@@ -1,5 +1,5 @@
 ---
-title: Acer Tegra Chromebook 13" (Nyan)
+title: 에이서 테그라 크롬북 13" (Nyan)
 description:
 icon:
 weight:

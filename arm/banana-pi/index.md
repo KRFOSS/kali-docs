@@ -1,5 +1,5 @@
 ---
-title: Banana Pi
+title: 바나나 파이
 description:
 icon:
 weight:

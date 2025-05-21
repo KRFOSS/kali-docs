@@ -9,26 +9,26 @@ author: ["steev",]
 
 [Mini-X](http://www.minix.us/)는 듀얼 코어 1GHz 프로세서에 1GB RAM을 탑재하고 있습니다. 칼리 리눅스는 외장 microSD 카드에 설치할 수 있습니다.
 
-기본적으로 칼리 리눅스 Mini-X 이미지는 다른 Kali 플랫폼에서 흔히 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
+기본적으로 칼리 리눅스 Mini-X 이미지는 다른 칼리 플랫폼에서 흔히 볼 수 있는 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 **포함하지 않습니다**. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
 {{% notice info %}}
 Mini-X용 빌드 스크립트는 새로운 방식으로 변환되지 않았기 때문에 빌드가 실패할 수 있습니다. 이 보드용으로 빌드를 계획하고 있다면, 스크립트를 새로운 방식으로 업데이트하여 병합 요청으로 제출하는 것을 고려해 주세요.
 {{% /notice %}}
 
-## Mini-X용 Kali - 빌드 스크립트 지침
+## Mini-X용 칼리 - 빌드 스크립트 지침
 
-Kali에서는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지만, GitLab에서 [Kali-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용할 스크립트는 `mini-x.sh`입니다.
+칼리에서는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지만, GitLab에서 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용할 스크립트는 `mini-x.sh`입니다.
 
 빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이 시점부터는 사전 빌드된 이미지를 다운로드한 경우와 동일한 방식으로 진행하면 됩니다.
 
 이러한 이미지를 생성하는 가장 쉬운 방법은 **기존 칼리 리눅스 환경 내에서** 작업하는 것입니다.
 
-## Mini-X용 Kali - 사용자 지침
+## Mini-X용 칼리 - 사용자 지침
 
-Mini-X에 Kali를 설치하려면 다음 지침을 따르세요:
+Mini-X에 칼리를 설치하려면 다음 지침을 따르세요:
 
 1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
-2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([Kali USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
+2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
 아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
 
@@ -44,4 +44,4 @@ $ xzcat kali-linux-2025.1-mini-x-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status
 
 _dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 Mini-X를 부팅하세요.
 
-[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
+[칼리에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.

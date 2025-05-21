@@ -1,5 +1,5 @@
 ---
-title: ASUS Chromebook Flip (Veyron)
+title: 에이수스 크롬북 플립 (Veyron)
 description:
 icon:
 weight:

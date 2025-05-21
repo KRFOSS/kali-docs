@@ -27,7 +27,7 @@ EfikaMX는 저사양, 저비용 ARM 컴퓨터입니다. 다소 빛나지 않는 
 EfikaMX에 표준 칼리 리눅스의 사전 빌드된 이미지를 설치하려면 다음 지침을 따르세요:
 
 1. 최소 16GB 용량의 고속 마이크로SD 카드를 준비하세요. Class 10 카드를 적극 권장합니다.
-2. [다운로드](/get-kali/) 영역에서 `Kali EfikaMX` 이미지를 다운로드하고 검증하세요. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에 더 자세히 설명되어 있습니다.
+2. [다운로드](/get-kali/) 영역에서 `칼리 EfikaMX` 이미지를 다운로드하고 검증하세요. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에 더 자세히 설명되어 있습니다.
 3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 마이크로SD 카드에 기록하세요([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
 아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 그대로 복사하지 마시고, **반드시 실제 드라이브 경로로 변경하셔야 합니다**.

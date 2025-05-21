@@ -14,9 +14,9 @@ author: ["steev",]
 
 기본적으로 칼리 리눅스 i.MX 6ULL EVK 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
-## i.MX 6ULL EVK용 Kali - 빌드 스크립트 지침
+## i.MX 6ULL EVK용 칼리 - 빌드 스크립트 지침
 
-Kali는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지만, GitLab에서 [Kali-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용할 스크립트는 `imx-6ull-evk.sh`입니다.
+칼리는 사전 빌드된 이미지를 다운로드용으로 제공하지 않지만, GitLab에서 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용할 스크립트는 `imx-6ull-evk.sh`입니다.
 
 빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이후 과정은 사전 빌드된 이미지를 다운로드한 경우와 동일합니다.
 
@@ -41,4 +41,4 @@ $ xzcat kali-linux-2025.1-imx-6ull-evk-armhf.img.xz | sudo dd of=/dev/sdX bs=4M 
 
 _dd_ 작업이 완료되면 microSD 카드를 꽂은 상태로 부팅하세요.
 
-[Kali에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
+[칼리에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
