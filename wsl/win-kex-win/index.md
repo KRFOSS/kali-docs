@@ -52,7 +52,7 @@ Win-KeX는 클라이언트와 서버 구성 요소에 [TigerVNC](https://tigervn
 
 - Win-KeX는 펄스 오디오 지원을 포함하고 있어요.
 - 사운드 지원으로 Win-KeX를 시작하려면 `--sound` 또는 `-s`를 추가하세요. 예: `kex --win --sound`
-- 처음으로 사운드 지원으로 Win-KeX를 시작할 때, Windows Defender 방화벽을 통한 트래픽 허용 권한을 요청받으면 **공용 네트워크**를 선택해야 해요.
+- 처음으로 사운드 지원으로 Win-KeX를 시작할 때, 윈도우 디펜더 방화벽을 통한 트래픽 허용 권한을 요청받으면 **공용 네트워크**를 선택해야 해요.
 
 ![](../win-kex-sl/win-kex-pulseaudio_firewall.png)
 

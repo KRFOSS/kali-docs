@@ -1,26 +1,25 @@
 ---
 title: Win-KeX 심리스 모드
-description: Win-KeX SL (Seamless Mode)
-icon: ti-pin
+description: Win-KeX SL (심리스 모드)
 weight: 50
 author: ["Re4son",]
 번역: ["xenix4845"]
 ---
 
-Win-KeX의 심리스 모드(SL)는 Windows 데스크톱 화면 상단에 Kali Linux 패널을 실행합니다.
+Win-KeX의 심리스 모드(SL)는 윈도우 데스크톱 화면 상단에 칼리 리눅스 패널을 실행합니다.
 
-패널을 통해 시작된 애플리케이션은 Microsoft Windows 애플리케이션과 데스크톱을 공유합니다.
+패널을 통해 시작된 애플리케이션은 마이크로소프트 윈도우 애플리케이션과 데스크톱을 공유합니다.
 
-심리스 모드는 Linux와 Windows 앱 사이의 시각적 분리를 제거하여, Kali Linux에서 침투 테스트를 실행하고 그 결과를 Windows 앱으로 바로 복사하여 최종 보고서를 작성할 수 있는 훌륭한 플랫폼을 제공합니다.
+심리스 모드는 리눅스와 윈도우 앱 사이의 시각적 분리를 제거하여, 칼리 리눅스에서 침투 테스트를 실행하고 그 결과를 윈도우 앱으로 바로 복사하여 최종 보고서를 작성할 수 있는 훌륭한 플랫폼을 제공합니다.
 
-Win-KeX는 심리스 데스크톱 통합을 위해 [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/)를 활용합니다.
+Win-KeX는 심리스 데스크톱 통합을 위해 [VcXsrv 윈도우 X 서버](https://sourceforge.net/projects/vcxsrv/)를 활용합니다.
 
 ![](../win-kex/win-kex-sl.png)
 
 ## 사전 요구 사항
 
 - VcXsrv는 [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/en-US/download/details.aspx?id=48145) (`vcredist140`)가 필요합니다
-  - 이는 표준 Windows 설치에 포함되어 있지만, 누락되었다는 오류가 발생하면 다운로드하여 설치하면 됩니다
+  - 이는 표준 윈도우 설치에 포함되어 있지만, 누락되었다는 오류가 발생하면 다운로드하여 설치하면 됩니다
 - (선택 사항이지만 권장) [호스트에서 직접 VcXsrv 실행](https://sourceforge.net/p/vcxsrv/wiki/VcXsrv%20%26%20Win10/)
   - [VcXsrv 설정](https://github.com/microsoft/WSL/issues/4106#issuecomment-502920377)
   - 시작 -> 설정 -> 업데이트 및 보안 -> Windows 보안 -> Windows 보안 열기
@@ -56,7 +55,7 @@ Fatal server error:
 
 - 일반 사용자로 심리스 모드에서 Win-KeX를 시작하려면: `kex --sl`
 
-Win-KeX SL을 처음 시작할 때는 Windows Defender 방화벽을 통한 트래픽 허용 권한을 요청받을 때 **공용 네트워크**를 선택해야 합니다.
+Win-KeX SL을 처음 시작할 때는 윈도우 디펜더 방화벽을 통한 트래픽 허용 권한을 요청받을 때 **공용 네트워크**를 선택해야 합니다.
 
 ![](firewall.png)
 
@@ -64,18 +63,18 @@ Win-KeX SL을 처음 시작할 때는 Windows Defender 방화벽을 통한 트�
 
 ![](../win-kex/win-kex-sl.png)
 
-Kali 패널은 화면 상단에 위치하며 Windows 시작 메뉴는 하단에 위치합니다.
+칼리 패널은 화면 상단에 위치하며 윈도우 시작 메뉴는 하단에 위치합니다.
 
 - - -
 
-**팁**: Kali 패널이 최대화된 창의 제목 표시줄을 가릴 수 있습니다.
+**팁**: 칼리 패널이 최대화된 창의 제목 표시줄을 가릴 수 있습니다.
 이를 방지하려면 패널 환경설정에서 "자동으로 숨기기"로 설정하는 것이 좋습니다.
 
 ### 사운드 지원
 
 - Win-KeX는 펄스 오디오 지원을 포함합니다
 - 사운드 지원으로 Win-KeX를 시작하려면 `--sound` 또는 `-s`를 추가하세요. 예: `kex --win --sound`
-- 사운드 지원과 함께 Win-KeX를 처음 시작할 때는 Windows Defender 방화벽을 통한 트래픽 허용 권한을 요청받을 때 **공용 네트워크**를 선택해야 합니다.
+- 사운드 지원과 함께 Win-KeX를 처음 시작할 때는 윈도우 디펜더 방화벽을 통한 트래픽 허용 권한을 요청받을 때 **공용 네트워크**를 선택해야 합니다.
 
 ![](win-kex-pulseaudio_firewall.png)
 
