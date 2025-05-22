@@ -1,5 +1,5 @@
 ---
-title: NetHunter 빌드하기
+title: 넷헌터 빌드하기
 description:
 icon:
 weight: 10
@@ -9,7 +9,7 @@ author: ["g0tmi1k",]
 
 ### 클론
 
-GitLab 저장소에서 Kali NetHunter 이미지를 빌드하고 싶으신 분들은 Python 빌드 스크립트를 사용하여 할 수 있어요:
+GitLab 저장소에서 칼리 넷헌터 이미지를 빌드하고 싶으신 분들은 파이썬 빌드 스크립트를 사용하여 할 수 있어요:
 
 ```console
 kali@kali:~$ git clone https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer.git
@@ -38,7 +38,7 @@ kali@kali:~$
 
 ### 도움말
 
-메인 빌드 스크립트도 **kali-nethunter-installer** 디렉토리에 위치하며, 아래와 같이 여러 기기와 Android OS 버전을 위한 이미지를 빌드하는 데 사용할 수 있어요:
+메인 빌드 스크립트도 **kali-nethunter-installer** 디렉토리에 위치하며, 아래와 같이 여러 기기와 안드로이드 OS 버전을 위한 이미지를 빌드하는 데 사용할 수 있어요:
 
 ```console
 kali@kali:~/kali-nethunter-installer$ python3 build.py -h
@@ -94,7 +94,7 @@ kali@kali:~/kali-nethunter-installer$
 ### 예시
 #### 예시 \#1
 
-OnePlus 7 기기를 위한 Kalifs가 포함된 Android 10 이미지를 빌드하려면, 다음과 같이 **build.py**를 실행하면 돼요:
+OnePlus 7 기기를 위한 Kalifs가 포함된 안드로이드 10 이미지를 빌드하려면, 다음과 같이 **build.py**를 실행하면 돼요:
 
 ```console
 kali@kali:~/kali-nethunter-installer$ python3 build.py -k oneplus7-oos --ten -fs full

@@ -1,5 +1,5 @@
 ---
-title: TicWatch Pro에 NetHunter 설치하기
+title: 틱워치 프로에 넷헌터 설치하기
 description:
 icon:
 weight:
@@ -9,16 +9,16 @@ author: ["yesimxev",]
 
 ![](NetHunter-TicWatch.png)
 
-모든 버전이 지원됩니다 (TicWatch Pro, Pro 2020, Pro 4G/LTE)
+모든 버전이 지원됩니다 (틱워치 프로, 프로 2020, 프로 4G/LTE)
 
-# 포장 풀기부터 NetHunter 실행까지 6단계:
+# 포장 풀기부터 넷헌터 실행까지 6단계:
 
 1. 부트로더 잠금 해제하기
 2. 벤더 이미지, TWRP, 최적화된 WearOS 플래싱하기
 3. TWRP에서 시스템 파티션 크기 조정하기
 4. Magisk 앱을 플래싱하고 실행하여 루팅 과정 완료하기
-5. NetHunter 플래싱하기
-6. NetHunter 시계 화면(워치페이스) 설정하기
+5. 넷헌터 플래싱하기
+6. 넷헌터 시계 화면(워치페이스) 설정하기
 
 ## 1. 부트로더 잠금 해제하기
 
@@ -57,24 +57,24 @@ Magisk 21.0 버전이 권장되며, 아래 링크에 포함되어 있습니다.
 - Magisk Manager 실행
 - 더 쉬운 사용을 위해 자동 업데이트 비활성화, 자동 응답에서 권한 부여 설정, 토스트 알림 비활성화를 권장합니다
 
-## 5. NetHunter 플래싱하기
+## 5. 넷헌터 플래싱하기
 
 - `adb reboot recovery`
 - 시스템 파티션이 마운트되어 있는지 확인하세요: Mount(마운트) -> System ("mount as RO"가 비활성화되어 있어야 함), 일부 사용자들은 NetHunter 설치 프로그램에서 /system이 마운트되지 않는다고 보고합니다
 - Install(설치) -> ADB Sideload 선택
-- `adb sideload` NetHunter 이미지
+- `adb sideload` 넷헌터 이미지
 - 재부팅
-- NetHunter 앱 실행 및 chroot(루트 환경) 설정
+- 넷헌터 앱 실행 및 chroot(루트 환경) 설정
 - 재부팅
 
-## 6. NetHunter 시계 화면(워치페이스) 설정하기
+## 6. 넷헌터 시계 화면(워치페이스) 설정하기
 
 - Play 스토어에서 Facer 앱을 휴대폰에 설치
-- NetHunter 검색
+- 넷헌터 검색
 - Facer 보조 앱을 시계에 설치
 - 선택 및 동기화
 
-### TicWatch Pro에서 Kali NetHunter 즐기기
+### 틱워치 프로에서 칼리 넷헌터 즐기기
 
 ## 다운로드 링크
 
@@ -83,7 +83,7 @@ Magisk 21.0 버전이 권장되며, 아래 링크에 포함되어 있습니다.
   - [catfish](https://kali.download/nethunter-images/devices/catfish/twrp-3.4.0-0-catfish.img)용 TWRP 이미지
   - [벤더 이미지](https://kali.download/nethunter-images/devices/catfish/vendor.img)
   - [최적화된 WearOS](https://kali.download/nethunter-images/devices/catfish/2-ROM-PWDD.190617.074-AUG-09.zip)
-- [TicWatch Pro NetHunter zip](https://www.kali.org/get-kali/#kali-mobile) - TicWatch 섹션에서 최신 업데이트 받기
+- [틱워치 프로 넷헌터 zip](https://www.kali.org/get-kali/#kali-mobile) - 틱워치 섹션에서 최신 업데이트 받기
 
 ## 추가 지원 앱
 
@@ -94,7 +94,7 @@ Magisk 21.0 버전이 권장되며, 아래 링크에 포함되어 있습니다.
 
 ## 지원되는 기능
 
-- Kali 서비스
+- 칼리 서비스
 - 사용자 정의 명령어(Custom Commands)
 - MAC 주소 변경기
 - HID(Human Interface Device) 공격
@@ -116,5 +116,5 @@ Magisk 21.0 버전이 권장되며, 아래 링크에 포함되어 있습니다.
 - 외부 어댑터를 위한 전력이 충분하지 않음 / OTG(On-The-Go)용 xhcdi 칩을 사용할 수 없음
 
 {{% notice info %}}
-TicWatch Pro는 스마트워치이기 때문에 일반 스마트폰과 달리 하드웨어 자원이 제한적입니다. 그래서 일부 고급 기능들은 제한될 수 있습니다.
+틱워치 프로는 스마트워치이기 때문에 일반 스마트폰과 달리 하드웨어 자원이 제한적입니다. 그래서 일부 고급 기능들은 제한될 수 있습니다.
 {{% /notice %}}

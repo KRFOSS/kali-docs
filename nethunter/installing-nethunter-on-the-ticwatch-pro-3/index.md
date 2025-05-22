@@ -1,113 +1,113 @@
 ---
-title: Installing NetHunter on the TicWatch Pro 3
+title: 틱워치 프로 3에 넷헌터 설치하기
 description:
 icon:
 weight:
 author: ["yesimxev",]
+번역: ["kmw0410"]
 ---
 
 ![](NetHunter-TicWatchPro3.png)
 
-All variants are supported (TicWatch Pro 3 GPS/LTE/Ultra GPS/Ultra LTE) with a generic installer as of now.
+현재는 모든 버전 (틱워치 프로 3 GPS/LTE/울트라 GPS/울트라 LTE)이 일반 설치 프로그램으로 지원돼요.
 
-# From unpacking to running NetHunter in 5 steps:
+# 포장 풀고 넷헌터를 실행하기 까지 5단계
 
-1. Unlock the bootloader
-2. Flash TWRP, WearOS image, Magisk, dm-verity disabler
-3. Finalise Magisk app to finish the rooting process
-4. Install NetHunter
-5. Set NetHunter watch face 
+1. 부트로더 언락
+2. TWRP, WearOS 이미지, Magisk, dm-verity disabler 플래시
+3. 루팅 과정을 완료하기 위해 Magisk 앱 설정 마무리
+4. 넷헌터 설치
+5. 넷헌터 워치페이스 설정
 
-## 1. Unlock the bootloader
+## 1. 부트로더 언락하기
 
-- Connect your watch to your PC with a DIY USB cable or a [3D printed data dock](https://social.thangs.com/m/59021), and fire up a terminal. 
-- If you have set up your watch on the phone you can access settings, otherwise hold both buttons for a few seconds on the welcome screen.
-- Enable developer settings by going to System -> About -> tap Build number 10 times
-- Enable ADB, re-plug USB and accept debug from PC
-- Reboot into bootloader with `adb reboot bootloader` from the terminal 
-- Unlock bootloader with `fastboot oem unlock`
+- DIY USB 케이블 또는 [3D 프린트 데이터 독](https://social.thangs.com/m/59021)을 사용하여 워치를 PC에 연결하세요, 그리고 터미널을 실행하세요.
+- 만약 휴대폰에서 워치를 설정했다면 설정에 접근할 수 있습니다. 그렇지 않으면 환영 화면에서 두 버튼을 몇 초간 누르세요.
+- 시스템 -> 정보 -> 빌드 번호를 10번 탭하여 개발자 설정을 활성화하세요
+- ADB를 활성화하고, USB를 다시 꽂은 뒤 PC에서 디버그를 허용하세요
+- 터미널에서 `adb reboot bootloader`를 사용하여 부트로더로 재부팅하세요
+- `fastboot oem unlock`로 부트로더를 언락하세요
 
-## 2. Flash TWRP, WearOS image, Magisk, dm-verity disabler
+## 2. TWRP, WearOS 이미지, Magisk, dm-verity disabler 플래시
 
-Please note that Magisk 24.3 is recommended.
+Magisk는 24.3을 추천해요.
 
-- Again enable ADB, and reboot to bootloader with `adb reboot bootloader`
-- Disable vbmeta verification: `fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img`
-- Flash recovery `fastboot flash recovery recovery.img`
-- Boot into recovery by selecting it with the side buttons (switch with bottom one, select with upper button)
-- Select Wipe -> Next page -> Advanced Wipe -> Format Data
-- Reboot to recovery
-- Select "Install -> ADB Sideload"
-If you want to install OneOS:
-- Flash OneOS with `adb sideload`
-- Flash Mobvoi Apps package with `adb sideload`
-- If you have an Ultra, `adb sideload` the Ultra addon package.
-If you want to keep stock WearOS, continue from here. 
-- Make a copy of your Magisk apk file to Magisk-v24.3.zip
-- Flash Magisk with `adb sideload Magisk-v24.3.zip`
-- Copy and flash DM-Verity_ForceEncrypt Disabler with `adb push disabler.zip /sdcard/` and Install via TWRP
-- Reboot & do initial setup (pair with your phone through WearOS app)
+- ADB를 다시 활성화하고, `adb reboot bootloader`를 사용하여 부트로더로 재부팅하세요
+- vbmeta 인증 비활성화: `fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img`
+- `fastboot flash recovery recovery.img`로 리커버리를 플래시하세요
+- 사이드 버튼으로 리커버리를 선택해 부팅하세요 (아래 버튼은 전환, 위 버튼은 선택)
+- Wipe -> 다음 페이지 -> Advanced Wipe -> Format Data를 선택하세요
+- 리커버리로 재부팅하세요.
+- "Install -> ADB Sideload"을 선택하세요.
+OneOS 설치를 원할 경우:
+- `adb sideload`로 OneOS를 플래시하세요.
+- Mobvoi 앱 패키지를 `adb sideload`로 플래시하세요.
+- 울트라를 사용하는 경우, 울트라 패키지 애드온을 `adb sideload` 하세요.
+순정 WearOS를 사용하고 싶다면, 여기서부터 진행하세요. 
+- Magisk apk 파일을 Magisk-v24.3.zip에 복사하세요.
+- `adb sideload Magisk-v24.3.zip`로 Magisk를 플래시하세요.
+- `adb push disabler.zip /sdcard/`로 DM-Verity_ForceEncrypt Disabler를 복사 및 플래시 후 TWRP로 설치하세요
+- 재부팅 & 초기 설정 수행 (WearOS 앱을 통해 휴대폰과 페어링)
 
-## 3. Finalise Magisk app to finish the rooting process
+## 3. 루팅 과정을 완료하기 위해 Magisk 앱 설정 마무리
 
-- Enable ADB again
-- Finalise Magisk installation with app install `adb install Magisk-v24.3.apk`
-- Launch Magisk Manager
-- You may want to disable auto-update, set grant access in auto response, and disable toast notifications for easier navigation in the future
+- 다시 ADB를 활성화하세요
+- Magisk 설치를 마치려면 `adb install Magisk-v24.3.apk`로 설치하세요
+- Magisk 매니저를 여세요
+- 자동 업데이트 비활성화를 원하면 자동 응답에서 권한을 설정하고, 향후 더 쉬운 탐색을 위해 토스트 알림을 비활성화할 수 있습니다
 
-## 4. Install NetHunter
+## 4. 넷헌터 설치
 
-- Reboot to recovery
-- Select Install -> ADB Sideload
-- Flash NetHunter image with `adb sideload`
-- Reboot 
-- Start NetHunter app & chroot
-- Reboot
+- 리커버리로 재부팅하세요
+- Install -> ADB Sideload을 선택하세요
+- `adb sideload`로 넷헌터 이미지를 플래시하세요
+- 재부팅
+- 넷헌터 앱 & chroot를 시작하세요
+- 재부팅
 
-## 5. Set NetHunter watch face
+## 5. 넷헌터 워치페이스 설정
 
-- Install Facer onto your phone and watch from Play Store
-- Search for NetHunter
-- Select & Sync
-- Set density so NetHunter app menu buttons will be reachable on OneOS `adb shell wm density 300`
+- 휴대폰 또는 워치에서 Play 스토어를 통해 Facer을 설치하세요
+- 넷헌터를 검색하세요
+- 선택 & 동기화
+- OneOS에서 넷헌터 앱 버튼에 도달할 수 있게 `adb shell wm density 300`로 밀도를 설정하세요
 
-### Enjoy Kali NetHunter on the TicWatch Pro 3
+### 틱워치 프로 3에서 칼리 넷헌터를 즐기세요
 
-## Downloads
+## 다운로드
 
-- Build files:
+- 빌드 파일:
   - [Magisk](https://kali.download/nethunter-images/devices/rubyfish/Magisk-v24.3.apk)
   - TWRP image for [rover](https://kali.download/nethunter-images/devices/rubyfish/rover_recovery.img) or [rubyfish](https://kali.download/nethunter-images/devices/rubyfish/rubyfish_recovery.img)
-  - [vbmeta image](https://kali.download/nethunter-images/devices/rubyfish/vbmeta.img)
+  - [vbmeta 이미지](https://kali.download/nethunter-images/devices/rubyfish/vbmeta.img)
   - [dm-verity disabler](https://kali.download/nethunter-images/devices/rubyfish/Disable-DM-Verity_ForceEncrypt.zip)
-  - [OneOS, Stock ROMs and Mobvoi packages](https://kali.download/nethunter-images/devices/rubyfish/) _(optional)_
-- [TicWatch Pro 3 NetHunter zip](https://www.kali.org/get-kali/#kali-mobile) - Get the latest update under TicWatch section
+  - [OneOS, Stock ROMs and Mobvoi 패키지](https://kali.download/nethunter-images/devices/rubyfish/) _(optional)_
+- [틱워치 프로 3 넷헌터 zip](https://www.kali.org/get-kali/#kali-mobile) - Get the latest update under TicWatch section
 
-## Additional recommended apps
+## 추가 추천 앱
 
-- TotalCommander: useful for selecting eg. a Ducky script, use "adb install" method
-Download link: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
+- TotalCommander: Ducky script와 같은 항목을 선택할 때 유용하며, "adb install" 방법을 사용합니다
+다운로드 링크: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
 
-## Supported features
+## 지원되는 기능
 
-- Kali services
-- Custom Commands
-- Bluetooth Arsenal
+- 칼리 서비스
+- 커스텀 명령어
+- 블루투스 Arsenal
 - KeX
-- MAC Changer
-- HID Attacks
+- MAC 변경
+- HID 공격
 - DuckHunter
-- Nmap Scan
-- WPS Attacks
+- Nmap 스캔
+- WPS 공격
 
-## Upcoming features (not guaranteed)
+## 예정된 기능 (확정 아님)
 
-- Nexmon, as the chipset is supported, needs some time - ETA 2024.2
-- Router Keygen (to be optimised)
-- Hijacker (if nexmon succeeds) - ETA 2024.2
-- Mifare Classic Tool (need to build OS with android.hardware.nfc enabled) - ETA 2024.4
+- Nexmon, 칩셋은 지원되지만, 시간이 좀 더 필요함 - 2024.2 예정
+- Router Keygen (최적화가 필요함)
+- Hijacker (nexmon이 성공할 경우) - 2024.2 예정
+- Mifare Classic Tool (android.hardware.nfc가 활성화된 OS를 빌드해야 함) - 2024.4 예정
 
-## Hardware limitations
+## 하드웨어 제한
 
-- Power resource is not enough for any external adapters, although this kernel might support Y cable in the future!
-
+- 전원 공급이 부족하여 외부 어댑터는 사용할 수 없습니다. 다만, 이 커널치 추후 Y 케이블을 지원할 가능성은 있습니다!

@@ -1,9 +1,10 @@
 ---
-title: Installing NetHunter on the OnePlus One
+title: 원플러스 원에 넷헌터 설치하기
 description:
 icon:
 weight:
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
 <!-- REF: https://xdaforums.com/t/rom-official-kali-nethunter-for-the-oneplus-one-lineageos-18-1-r.4303579/ -->
@@ -136,8 +137,8 @@ kali@kali:~$
 - CAF  - CodeAurora Forum: <https://bye.codeaurora.org/> (where Qualcomm releases source codes & nobody knows Qualcomm CPUs better than Qualcomm) aka optimization!
 -->
 
-OnePlus One에 Kali NetHunter를 설치하는 방법을 알려줄게요.
-이 가이드에서는 Kali Linux(호스트), USB 케이블(연결), TWRP(복구), Magisk(루트 권한 획득), LineageOS(Android 11, ROM)를 사용해요.
+원플러스 원에 칼리 넷헌터를 설치하는 방법을 알려줄게요.
+이 가이드에서는 칼리 리눅스(호스트), USB 케이블(연결), TWRP(복구), Magisk(루트 권한 획득), LineageOS(안드로이드 11, ROM)를 사용해요.
 
 큰 흐름은 이래요:
 
@@ -153,19 +154,19 @@ OnePlus One에 Kali NetHunter를 설치하는 방법을 알려줄게요.
 
     기기 루팅하기 (Magisk 설치)
 
-    Kali NetHunter 설치하기 (Rootless나 Lite 버전 아님)
+    칼리 넷헌터 설치하기 (Rootless나 라이트 버전 아님)
 
 - - -
 
 ## 개요
 
-시스템 모드 → 개발자 옵션 활성화 → USB 디버깅/고급 재시작 활성화 + 복구 자동 업데이트 비활성화 → 부트로더 잠금 해제 → 부트로더 모드 진입 → 복구 이미지 교체 → 복구 모드 부팅 → ROM 교체 → Magisk 설치 → Kali NetHunter 설치 → 시스템 모드로 부팅 → 업데이트 및 설정 마무리 → 완료!
+시스템 모드 → 개발자 옵션 활성화 → USB 디버깅/고급 재시작 활성화 + 복구 자동 업데이트 비활성화 → 부트로더 잠금 해제 → 부트로더 모드 진입 → 복구 이미지 교체 → 복구 모드 부팅 → ROM 교체 → Magisk 설치 → 칼리 넷헌터 설치 → 시스템 모드로 부팅 → 업데이트 및 설정 마무리 → 완료!
 
-호스트 설정은 어렵지 않아요. Kali Linux를 사용하는 데스크탑이나 노트북 환경이라서 따로 복잡한 준비는 필요하지 않아요.Windows나 macOS, 또는 다른 Android 기기를 사용하는 방법은 이 가이드에 포함되지 않았어요.
+호스트 설정은 어렵지 않아요. 칼리 리눅스를 사용하는 데스크탑이나 노트북 환경이라서 따로 복잡한 준비는 필요하지 않아요. 윈도우나 macOS, 또는 다른 안드로이드 기기를 사용하는 방법은 이 가이드에 포함되지 않았어요.
 
 그리고 우리는 네트워크 연결 방식(예: Wi-Fi 원격 설치)이 아니라 USB 케이블을 이용한 간단한 방식으로 진행할 거예요. 안정적이고 직관적인 방법이에요.
 
-기기 준비는 조금 더 손이 가요.상황에 따라, 기기에 있는 데이터를 그대로 유지한 채 Kali NetHunter를 설치할 수도 있지만,이 가이드는 그런 방식이 아니에요. 이 가이드는 모든 데이터가 삭제될 것을 전제로 작성되었어요.그러니까 중요한 데이터가 있다면 반드시 백업을 먼저 해두세요.
+기기 준비는 조금 더 손이 가요.상황에 따라, 기기에 있는 데이터를 그대로 유지한 채 칼리 넷헌터를 설치할 수도 있지만,이 가이드는 그런 방식이 아니에요. 이 가이드는 모든 데이터가 삭제될 것을 전제로 작성되었어요.그러니까 중요한 데이터가 있다면 반드시 백업을 먼저 해두세요.
 
 그리고 기기를 초기 상태(CyanogenMod 11S, 기본 ROM과 설정)로 되돌릴 거예요.이전에 해둔 커스터마이징이나 설정들은 모두 사라지게 돼요. (즉, 공장 초기화처럼 깨끗한 상태로 돌아가는 거예요)
 
@@ -213,7 +214,7 @@ This has been automated using `OnePlusOne-OnlyTamperBitToggle.zip` (or `OnePlusO
 
 일반적으로 안드로이드 기기는 '시스템 모드'(system mode)로 부팅되지만, 제조사에 따라 최소 두 가지 이상의 유지보수 모드가 추가로 있을 수 있어요. 대표적으로는 복구 모드(recovery mode)와 부트로더/패스트부트 모드(bootloader/fastboot mode)가 있어요.<!--Not sure the difference between the two terms?--> *또 다른 모드로는 다운로드 모드(Download Mode)나 오딘 모드(Odin Mode) 등이 있는데, 이런 모드는 삼성이나 LG 기기에서 주로 사용돼요.*
 
-OnePlus One은 전원을 켤 때 특정 키를 누르면 이런 유지보수 모드로 들어갈 수 있어요.
+원플러스 원은 전원을 켤 때 특정 키를 누르면 이런 유지보수 모드로 들어갈 수 있어요.
 
 * `전원 버튼 + 볼륨 다운` → 복구 모드로 진입
 * `전원 버튼 + 볼륨 업` → 부트로더 모드로 진입<!--As soon as the screen turns on and the device vibrates, let go. Alt is to use advance power menu via developer settings-->
@@ -230,7 +231,7 @@ OnePlus One은 전원을 켤 때 특정 키를 누르면 이런 유지보수 모
 
 복구 모드를 사용하면 '공장 초기화'(factory reset)를 할 수 있어요. 일반 사용자 영역인 `/data`와 `/cache` 파티션을 모두 지우고, RAM도 초기화돼요.<!--`/system`, `/boot`, `/recovery` require 'root'--> 복구 모드 종류에 따라서는 `/media`나 `/system` 파티션까지 지울 수 있는 경우도 있어요.
 
-또한 ADB/USB나 내부 저장소(SD 카드 포함)를 통해 업데이트나 패키지, 스크립트를 설치하거나 실행할 수도 있어요. Kali NetHunter 설치도 이 방법으로 가능해요. 이런 방식으로 안드로이드 버전을 업그레이드하거나 다운그레이드할 수도 있어요.<!--System or recovery-->
+또한 ADB/USB나 내부 저장소(SD 카드 포함)를 통해 업데이트나 패키지, 스크립트를 설치하거나 실행할 수도 있어요. 칼리 넷헌터 설치도 이 방법으로 가능해요. 이런 방식으로 안드로이드 버전을 업그레이드하거나 다운그레이드할 수도 있어요.<!--System or recovery-->
 
 LineageOS 복구 모드의 버전에 따라 ADB 연결을 허용하거나 로그를 확인할 수도 있어요.([관련 링크](https://github.com/LineageOS/android_bootable_recovery))
 
@@ -269,10 +270,10 @@ LineageOS 복구 모드의 버전에 따라 ADB 연결을 허용하거나 로그
 - nethunter/META-INF/com/google/android/update-binary) - Kali NetHunter part (frontend)
 - uninstaller/META-INF/com/google/android/update-binary) - Kali NetHunter uninstaller
 -->
-Kali NetHunter는 ROM이 아니라 [애드온](https://web.archive.org/web/20230315170356/https://wiki.lineageos.org/devices/bacon/install) 형식이에요.<!--Overlay? Injects?--> 그래서 이를 최대한 활용할 수 있어요.
-NetHunter는 여러 앱과 스크립트 묶음으로 구성되어 있고, 기기를 특정 상태로 바꿔주는 역할을 해요.
+칼리 넷헌터는 ROM이 아니라 [애드온](https://web.archive.org/web/20230315170356/https://wiki.lineageos.org/devices/bacon/install) 형식이에요.<!--Overlay? Injects?--> 그래서 이를 최대한 활용할 수 있어요.
+넷헌터는 여러 앱과 스크립트 묶음으로 구성되어 있고, 기기를 특정 상태로 바꿔주는 역할을 해요.
 
-그래서 중요한 점은, 기기에 설치된 안드로이드 시스템의 커널과 버전에 맞는 Kali NetHunter 커널을 사용해야 한다는 거예요.
+그래서 중요한 점은, 기기에 설치된 안드로이드 시스템의 커널과 버전에 맞는 칼리 넷헌터 커널을 사용해야 한다는 거예요.
 
 <!--
 The images needed to flash a system ROM via the bootloader are not as common as they once were (especially with LineageOS, this was more of apart of CyanogenMod).
@@ -462,16 +463,16 @@ adb push cm-13.1.2-ZNH2KAS3P0-bacon-signed-8502142fdc.zip /sdcard/Download/cm-13
 
 - - -
 
-이제 마침내 Kali NetHunter를 기기에 설치할 준비가 끝난 거예요!  
+이제 마침내 칼리 넷헌터를 기기에 설치할 준비가 끝난 거예요!  
 설치는 복구 모드(TWRP 사용)를 통해 할 수도 있고, 시스템 모드(Magisk 사용)에서 진행할 수도 있어요.
 
 - - -
 
-Kali NetHunter가 기기에 설치되면, 새로운 앱 스토어를 이용해 모든 구성 요소가 최신 상태인지 확인할 수 있어요. 그다음 NetHunter 메인 앱을 실행해서 처음 설정을 마무리하면 돼요.
+칼리 넷헌터가 기기에 설치되면, 새로운 앱 스토어를 이용해 모든 구성 요소가 최신 상태인지 확인할 수 있어요. 그다음 넷헌터 메인 앱을 실행해서 처음 설정을 마무리하면 돼요.
 
 - - -
 
-## Links/Downloads
+## 링크/다운로드
 
 - [cm-11.0-XNPH44S-bacon-signed-fastboot.zip](https://web.archive.org/web/20150302130830if_/http://builds.cyngn.com/factory/bacon/cm-11.0-XNPH44S-bacon-signed-fastboot.zip)
   <!--- MD5: `cc9280f80963077014365c037bb9a5bf`-->
@@ -516,8 +517,8 @@ Kali NetHunter가 기기에 설치되면, 새로운 앱 스토어를 이용해 �
 
 ### 호스트 설정하기
 
-가장 먼저 할 일은 호스트(Kali Linux)에 필요한 패키지를 설치하는 거예요.  
-이렇게 해야 OnePlus One과 다양한 상태(복구 모드, 시스템 모드 등)에서 연결하고 상호작용할 수 있어요.
+가장 먼저 할 일은 호스트(칼리 리눅스)에 필요한 패키지를 설치하는 거예요.  
+이렇게 해야 원플러스 원과 다양한 상태(복구 모드, 시스템 모드 등)에서 연결하고 상호작용할 수 있어요.
 
 우리는 [ADB(Android Debug Bridge)](https://developer.android.com/tools/adb)와 fastboot를 사용할 거예요.  
 각 도구는 다음과 같은 역할을 해요:
@@ -551,7 +552,7 @@ kali@kali:~$
 
 _개발자 옵션을 반드시 설정해야 하는 건 아니지만, 설정해두는 걸 강력히 추천해요._
 
-이제 OnePlus One에서 다음과 같은 설정을 해볼게요:
+이제 원플러스 원에서 다음과 같은 설정을 해볼게요:
 
 - 호스트(PC)와 기기가 통신할 수 있도록 **Android 디버깅**을 켜주세요<!--Easier to automate, able to install Magisk later-->
 - 유지보수 모드에 쉽게 진입할 수 있도록 **고급 재시작**을 켜주세요<!--Easier than pressing physical buttons on the device-->
@@ -617,7 +618,7 @@ kali@kali:~$
 
 연결된 기기가 하나 보이네요. 시리얼 넘버는 `dea044c9`예요.
 
-_처음 Kali에서 adb를 실행하면, 백그라운드에서 데몬이 자동으로 시작될 거예요._
+_처음 칼리에서 adb를 실행하면, 백그라운드에서 데몬이 자동으로 시작될 거예요._
 
 - - -
 
@@ -821,7 +822,7 @@ _참고: 플래싱이나 업그레이드 중간에 재부팅할 필요는 없었
 
 ### 기기 루팅하기
 
-Kali NetHunter를 설치하기 전에 마지막으로 해야 할 일은, 기기에서 루트 권한을 얻는 거예요.  
+칼리 넷헌터를 설치하기 전에 마지막으로 해야 할 일은, 기기에서 루트 권한을 얻는 거예요.  
 이를 위해 우리는 Magisk를 사용할 거예요.  
 Magisk는 복구 모드(TWRP)를 통해 설치할 수도 있고, `adb`(개발자 옵션)를 통해 설치할 수도 있어요.  
 두 방법 모두 장단점이 있어요. `adb`를 사용할 경우 개발자 옵션을 다시 활성화해야 하고, 플래싱할 이미지 파일도 따로 생성해야 해요. 반면 복구 모드에서는 기기에 인터넷 연결이 필요해요.  
@@ -829,7 +830,7 @@ _참고: 이 글을 작성하는 시점에서 v28이 최신 안정 버전이에�
 
 #### ADB를 이용한 설치
 
-개발자 옵션을 다시 켜고, Android 디버깅도 활성화해서 `adb`가 작동할 수 있도록 해주세요. RSA 키 지문 인증도 허용해야 해요.  
+개발자 옵션을 다시 켜고, 안드로이드 디버깅도 활성화해서 `adb`가 작동할 수 있도록 해주세요. RSA 키 지문 인증도 허용해야 해요.  
 그 다음 Magisk를 호스트에서 다운로드하면, 다음과 같이 설치할 수 있어요:
 
 
@@ -867,7 +868,7 @@ Magisk 앱을 처음 실행하면, 부트 이미지(boot image)를 패치하라�
 
 - - -
 
-사용한 것과 동일한 ROM 파일을 선택하세요 (Download → `los-18.1.zip`).
+사용한 것과 동일한 ROM 파일을 선택하세요 (다운로드 → `los-18.1.zip`).
 
 ![](magisk-adb-04.png)  
 ![](magisk-adb-05-cropped.png)  
@@ -899,7 +900,7 @@ _참고: CLI에서는 .img 파일을 설치할 수 없고 .zip만 지원돼요._
 
 - - -
 
-기기가 다시 부팅되면, 이제 Kali NetHunter를 설치할 준비가 완료된 거예요!
+기기가 다시 부팅되면, 이제 칼리 넷헌터를 설치할 준비가 완료된 거예요!
 
 - - -
 
@@ -974,13 +975,13 @@ Magisk 앱을 처음 실행하면 부트 이미지를 패치하라는 안내가 
 
 ---
 
-기기가 다시 부팅되면, 이제 Kali NetHunter를 설치할 준비가 완료된 거예요!
+기기가 다시 부팅되면, 이제 칼리 넷헌터를 설치할 준비가 완료된 거예요!
 
 ---
 
-### Kali NetHunter 설치하기
+### 칼리 넷헌터 설치하기
 
-Kali NetHunter는 현재 두 가지 방식 중 하나로 설치할 수 있어요:
+칼리 넷헌터는 현재 두 가지 방식 중 하나로 설치할 수 있어요:
 
 - 복구 모드 (TWRP)
 - Magisk 모듈을 통한 설치
@@ -997,7 +998,7 @@ kali@kali:~$ rm *.zip; ./build.py -k oneplus1-los -11 --rootfs minimal; adb push
 ```
 -->
 
-참고: Kali NetHunter의 안드로이드 버전은, 기기에 설치된 ROM의 버전과 정확히 일치해야 해요!
+참고: 칼리 넷헌터의 안드로이드 버전은, 기기에 설치된 ROM의 버전과 정확히 일치해야 해요!
 
 - - -
 
@@ -1023,7 +1024,7 @@ kali@kali:~$ adb shell 'cat /tmp/recovery.log'
 
 **Magisk를 통한 설치**
 
-Kali NetHunter는 `adb`를 이용해 업로드할 수도 있고, 기기에서 직접 다운로드해서 설치할 수도 있어요.
+칼리 넷헌터는 `adb`를 이용해 업로드할 수도 있고, 기기에서 직접 다운로드해서 설치할 수도 있어요.
 
 시스템 모드에서:
 
@@ -1044,7 +1045,7 @@ Modules 탭 -> Install from storage -> hamburger icon (3 lines) -> Downloads -> 
 ![](magisk-nethunter-06.png)
 
 {{% notice info %}}  
-위 결과 화면은 Kali NetHunter 버전에 따라 달라질 수 있어요  
+위 결과 화면은 칼리 넷헌터 버전에 따라 달라질 수 있어요  
 {{% /notice %}}
 
 <!--
@@ -1062,7 +1063,7 @@ kali@kali:~$ adb shell 'cat /sdcard/Download/*.log; rm /sdcard/Download/*.log'
 
 - - -
 
-## Kali NetHunter 첫 실행
+## 칼리 넷헌터 첫 실행
 
 기기가 재부팅되면 다음과 같은 것들이 보일 거예요:
 
@@ -1072,23 +1073,23 @@ kali@kali:~$ adb shell 'cat /sdcard/Download/*.log; rm /sdcard/Download/*.log'
 
 - - -
 
-**NetHunter 스토어를 통한 업데이트**
+**넷헌터 스토어를 통한 업데이트**
 
-NetHunter 스토어를 이용하면 NetHunter 앱의 업데이트 여부를 확인하고, 최신 버전으로 업그레이드할 수 있어요.
+넷헌터 스토어를 이용하면 넷헌터 앱의 업데이트 여부를 확인하고, 최신 버전으로 업그레이드할 수 있어요.
 
 업데이트가 있는지 꼭 확인하고, 있다면 적용하는 걸 추천드려요!
 
 - - -
 
-**NetHunter 앱**
+**넷헌터 앱**
 
-NetHunter 앱을 처음 실행하면 권한 요청이 나타날 거예요 — 루트 권한 요청(Magisk)
+넷헌터 앱을 처음 실행하면 권한 요청이 나타날 거예요 — 루트 권한 요청(Magisk)
 
 ![](nethunter-01.png)
 
 - - -
 
-그다음, 설치된 Kali NetHunter 이미지에 filesystem/rootfs/chroot가 포함되어 있다면 자동으로 압축이 풀릴 거예요 (혹시 포함되어 있지 않아도 걱정 마세요 — 나중에 따로 설치할 수 있어요!)
+그다음, 설치된 칼리 넷헌터 이미지에 filesystem/rootfs/chroot가 포함되어 있다면 자동으로 압축이 풀릴 거예요 (혹시 포함되어 있지 않아도 걱정 마세요 — 나중에 따로 설치할 수 있어요!)
 
 ![](nethunter-03.png)
 
@@ -1108,7 +1109,7 @@ NetHunter 앱을 처음 실행하면 권한 요청이 나타날 거예요 — �
 
 필요하다면 [Open GApps](https://opengapps.org/)를 플래싱해서 구글 앱을 설치하는 것도 고려해볼 수 있어요.
 
-참고로 OnePlus One은 `ARM` 플랫폼이에요 (`ARM64`가 아니에요).
+참고로 원플러스 원은 `ARM` 플랫폼이에요 (`ARM64`가 아니에요).
 
 ```console
 kali@kali:~$ adb shell
