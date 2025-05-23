@@ -7,7 +7,15 @@ author: ["gamb1t",]
 번역: ["xenix4845"]
 ---
 
-칼리 리눅스는 다양한 부분으로 구성된 대규모 프로젝트입니다. 칼리 팀이 가장 자주 받는 질문 중 하나는 "어떻게 도울 수 있나요?"입니다. 이 질문에 답하기 위해, 이 페이지에서는 커뮤니티 구성원이 기여할 수 있는 모든 방법을 안내합니다.
+<!--
+관련 페이지:
+  - https://www.kali.org/docs/community/list-of-official-kali-sites/
+  - https://www.kali.org/community/
+  - https://www.kali.org/docs/community/contribute/
+-->
+
+칼리 리눅스는 다양한 부분으로 구성된 대규모 프로젝트입니다. 칼리 팀이 가장 자주 받는 질문 중 하나는 "**어떻게 도울 수 있나요?**"입니다. 이 질문에 답하기 위해, 이 페이지에서는 커뮤니티 구성원이 기여할 수 있는 모든 방법을 안내합니다.
+
 {{% notice info %}}
 ROKFOSS 프로젝트에서는 칼리리눅스의 문서 한글화 같은 것들을 기여할 수 있지만 칼리 리눅스 버그를 제보하는 곳이 아님을 알아주세요. 칼리리눅스 버그 제보는 아래에 적힌 방법대로 해야 합니다.
 {{% /notice %}}
@@ -16,15 +24,19 @@ ROKFOSS 프로젝트에서는 칼리리눅스의 문서 한글화 같은 것들�
 
 ## 칼리 커뮤니티
 
-칼리 커뮤니티는 다양한 플랫폼과 앱에 분산되어 있지만, 우리가 공식적으로 사용하는 다섯 개의 플랫폼이 있습니다. 첫 번째는 GitLab, 두 번째는 Discord, 세 번째는 IRC, 네 번째는 자체 포럼, 마지막으로 버그 트래커입니다. 이러한 커뮤니티에서의 도움은 모두 매우 감사하게 생각합니다.
+[칼리 커뮤니티](/community/)는 다양한 플랫폼과 앱에 분산되어 있지만, 우리가 공식적으로 사용하는 다섯 개의 플랫폼이 있습니다. 첫 번째는 [GitLab](#gitlab), 두 번째는 자체 [포럼](#포럼), 세 번째는 [Discord](#discord), 네 번째는 [IRC](#irc), 마지막으로 [버그 트래커](#버그-트래커)입니다. 이러한 커뮤니티에서의 도움은 모두 매우 감사하게 생각합니다.
 
 ### GitLab
 
-[GitLab](https://gitlab.com/kalilinux)은 우리의 패키지, 문서 페이지, 도구 페이지, 빌드 스크립트 등이 모두 있는 곳입니다. 모든 것이 오픈 소스이며 기여를 장려합니다. 비효율적인 부분이 있거나, 오타가 있거나, 또는 칼리에 새로운 기능을 추가하고 싶다면 이곳이 바로 그 장소입니다. 변경하고 싶은 것이 명확하다면 [병합 요청](https://gitlab.com/groups/kalilinux/-/merge_requests)을 생성해 주세요. 확실하지 않다면 변경하고 싶은 문제나 기능에 대해 설명하는 [이슈](https://gitlab.com/groups/kalilinux/-/issues)를 생성할 수 있습니다.
+[GitLab](https://gitlab.com/kalilinux)은 우리의 [패키지](https://gitlab.com/kalilinux/packages/), [문서 페이지](https://gitlab.com/kalilinux/documentation/kali-docs), [도구 페이지](https://gitlab.com/kalilinux/documentation/kali-tools), [빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/) 등이 모두 있는 곳입니다. 모든 것이 오픈 소스이며 기여를 장려합니다. 비효율적인 부분이 있거나, 오타가 있거나, 또는 칼리에 새로운 기능을 추가하고 싶다면 이곳이 바로 그 장소입니다. 변경하고 싶은 것이 명확하다면 [병합 요청](https://gitlab.com/groups/kalilinux/-/merge_requests)을 생성해 주세요. 확실하지 않다면 변경하고 싶은 문제나 기능에 대해 설명하는 [이슈](https://gitlab.com/groups/kalilinux/-/issues)를 생성할 수 있습니다.
 
 오래된 페이지에 관한 보고 예시:
 
 ![](gitlab.png)
+
+### 포럼
+
+[칼리 포럼](https://forums.kali.org/)은 사람들이 지원을 요청하고, 도구를 공유하고, 피드백을 제공하는 등의 활동을 할 수 있는 공간입니다. 누구나 포럼에 가서 다른 사람들을 올바른 방향으로 안내하거나 자신이 겪었던 문제에 대한 해결책을 공유할 수 있습니다. 포럼은 영구적이기 때문에 도움을 주기에 좋은 장소입니다. 웹사이트가 운영되는 한, 그 안의 정보는 항상 찾을 수 있습니다. 이는 정보가 쉽게 사라질 수 있는 Discord와는 다릅니다.
 
 ### Discord
 
@@ -33,10 +45,6 @@ Discord는 실시간 토론을 장려하는 채팅 앱입니다. [칼리 리눅�
 ### IRC
 
 Discord와 유사하게, 우리는 사용자들이 질문하고 서로 도울 수 있는 [IRC 서버](/docs/community/kali-linux-irc-channel/)도 운영하고 있습니다. Discord 서버 출시 이후, 대부분의 사람들은 그곳에서 소통하는 것을 선호하지만, IRC 서버에서도 여전히 질문에 답변해 줄 수 있는 누군가를 찾을 수 있습니다.
-
-### 포럼
-
-[칼리 포럼](https://forums.kali.org/)은 사람들이 지원을 요청하고, 도구를 공유하고, 피드백을 제공하는 등의 활동을 할 수 있는 공간입니다. 누구나 포럼에 가서 다른 사람들을 올바른 방향으로 안내하거나 자신이 겪었던 문제에 대한 해결책을 공유할 수 있습니다. 포럼은 영구적이기 때문에 도움을 주기에 좋은 장소입니다. 웹사이트가 운영되는 한, 그 안의 정보는 항상 찾을 수 있습니다. 이는 정보가 쉽게 사라질 수 있는 Discord와는 다릅니다.
 
 ### 버그 트래커
 
@@ -114,21 +122,16 @@ Discord와 유사하게, 우리는 사용자들이 질문하고 서로 도울 �
 
 ![](torrents.png)
 
+이는 [토렌트 RSS 피드](/torrents.xml)를 사용하여 자동화할 수 있습니다.
+
 # 칼리 소셜 플랫폼
 
-소셜 미디어에서 우리를 팔로우하고 콘텐츠에 참여하는 것은 도움을 주는 매우 쉬운 방법입니다! 이 페이지 하단의 푸터에서 다양한 플랫폼 및 소셜 미디어에 대한 모든 링크를 찾을 수 있습니다. 현재 우리는 다음과 같은 플랫폼에 있습니다:
+## 칼리 소셜 네트워크
 
-- [페이스북](https://www.facebook.com/kalilinux)
-- [인스타그램](https://www.instagram.com/kalilinux/)
-- [Mastodon](https://infosec.exchange/@kalilinux)
-- [X(구 트위터)](https://twitter.com/kalilinux)
+소셜 미디어에서 우리를 팔로우하고 콘텐츠에 참여하는 것은 도움을 주는 매우 쉬운 방법입니다! [공식 칼리 리눅스 사이트](/docs/community/list-of-official-kali-sites/#social-media-networks) 페이지에 나열되어 있거나, 이 페이지 하단의 푸터에서 다양한 플랫폼 및 소셜 미디어에 대한 모든 링크를 찾을 수 있습니다.
 
-또한 도움이 되는 것은 사용할 수 있는 플랫폼에서 리뷰나 평점을 남기는 것입니다. 이러한 마켓플레이스는 다음과 같습니다:
+## 칼리가 있는 마켓플레이스
 
-- [Amazon AWS](https://aws.amazon.com/marketplace/pp/prodview-fznsw3f7mq7to)
-- [Docker Hub](https://hub.docker.com/r/kalilinux/kali-rolling)
-- [Microsoft Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kali-linux.kali?tab=Reviews)
-- [Microsoft Store (WSL)](https://apps.microsoft.com/store/detail/kali-linux/9PKR34TNCV07?hl=en-us&gl=us)
+또한 도움이 되는 것은 사용 중인 [외부 플랫폼](/docs/community/list-of-official-kali-sites/#marketplaces-and-stores)에서 리뷰나 평점을 남기는 것입니다. 이러한 리뷰는 우리와 다른 사용자들을 돕기 때문에, 커뮤니티를 돕는 좋은 방법입니다!
 
 _리뷰하는 플랫폼을 실제로 사용하는 경우에만 작성하세요_.
-이러한 리뷰는 우리와 다른 사용자들을 돕기 때문에, 커뮤니티를 돕는 좋은 방법입니다!
