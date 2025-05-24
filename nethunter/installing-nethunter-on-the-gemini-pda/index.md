@@ -9,7 +9,7 @@ author: ["re4son",]
 
 ![](NetHunter-Gemini_tiny.png)
 
-# 포장 풀기부터 넷헌터 실행까지 4단계:
+# 넷헌터 실행을 위한 4단계:
 
 1. 기본 루팅된 안드로이드 이미지 플래시하기
 2. Magisk Manager를 실행하여 루팅 과정 마무리하기
@@ -21,8 +21,7 @@ author: ["re4son",]
 제미나이 PDA는 루팅되지 않은 안드로이드 이미지와 함께 제공되며, 이를 교체해야 해요.
 "Pentester Pro" 이미지를 설치하면 루팅된 안드로이드와 칼리 리눅스 파티션이 함께 제공돼요. 자세한 내용은 여기를 참조하세요: [칼리 리눅스 제미나이 PDA](/docs/arm/gemini-pda/)
 
-~~또는 다른 파티션 레이아웃을 원한다면 자신만의 이미지를 만드세요:
-[support.planetcom.co.uk/index.php/Linux_Flashing_Guide](https://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)~~
+~~또는 다른 파티션 레이아웃을 원한다면 자신만의 이미지를 만드세요:[support.planetcom.co.uk/index.php/Linux_Flashing_Guide](https://support.planetcom.co.uk/index.php/Linux_Flashing_Guide)~~
 **참고:** 이 글을 작성하는 시점(2019년 2월 26일)에는 공식 파티션 도구가 루팅된 안드로이드 이미지를 제공하지 않아요. 루팅된 것으로 광고된 이미지는 루팅되지 않은 버전과 동일해요.
 
 새로 이미지를 설치한 제미나이를 안드로이드로 재부팅하고:
