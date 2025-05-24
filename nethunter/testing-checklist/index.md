@@ -1,50 +1,51 @@
 ---
-title: Testing Checklist
+title: 테스트 체크리스트
 description:
 icon:
 weight: 40
 author: ["g0tmi1k",]
+번역: ["xenix4845"]
 ---
 
-Beginning a checklist for testing new devices:
+새로운 기기 테스트를 위한 체크리스트 시작:
 
-- Does it boot?
+- 부팅이 되나요?
 
-- Did applications install and do they work?
+- 애플리케이션이 설치되었고 작동하나요?
 
     - Android VNC
     - BlueNMEA
     - DriveDroid
     - Hacker's Keyboard
-    - Kali NetHunter Application
+    - 칼리 넷헌터 애플리케이션
     - RF Analyzer
-    - SuperSU (This is installed separately)
+    - SuperSU (별도 설치)
     - Terminal Emulator
 
-- Check Settings > About Phone > Kernel Version - Does it say Kali?
+- 설정 > 휴대전화 정보 > 커널 버전 확인 - Kali라고 표시되나요?
 
-- Launch Kali NetHunter Application
+- 칼리 넷헌터 애플리케이션 실행
 
-    - HID Keyboard Attack
-        - Can you update/write to config file
-        - Does it work?
+    - HID 키보드 공격
+        - 구성 파일을 업데이트/작성할 수 있나요?
+        - 작동하나요?
 
-- Launcher Kali terminal shell
+- 칼리 터미널 쉘 실행
 
     - Metasploit
-        - Run commands: `service postgresql start && service metasploit start`
-            - Did it generate username/database?
-        - Run command: msfconsole
-            - Be patient, this can take 10 minutes or longer
+        - 명령어 실행: `service postgresql start && service metasploit start`
+            - 사용자명/데이터베이스가 생성되었나요?
+        - 명령어 실행: msfconsole
+            - 인내심을 가지세요. 10분 이상 걸릴 수 있어요
 
     - Social Engineering Toolkit
 
-- External WiFi support
+- 외부 WiFi 지원
 
-    - Plugin device, run commands: `ifconfig wlan1 up && wifite`
-        - Does wifite see wlan1?
-    - Run commands (assume wlan1 up): `airmon-ng start wlan1 && airodump-ng mon0`
-        - Check for errors
-    - Run kalimenu > Wireless attacks > kismet
+    - 기기 연결 후 명령어 실행: `ifconfig wlan1 up && wifite`
+        - wifite가 wlan1을 보나요?
+    - 명령어 실행 (wlan1이 활성화되었다고 가정): `airmon-ng start wlan1 && airodump-ng mon0`
+        - 오류 확인
+    - kalimenu > Wireless attacks > kismet 실행
 
 - Kalimenu

@@ -1,55 +1,55 @@
 ---
-title: NetHunter CAN-Arsenal
+title: 넷헌터 CAN-아스날 (CAN-Arsenal)
 description:
 icon:
 weight:
 author: ["v0lk3n",]
+번역: ["xenix4845"]
 ---
 
-CAN-Arsenal is used to communicate with CAN Bus for testing, diagnostics or car hacking.
+CAN-아스날은 테스트, 진단 또는 자동차 해킹을 위해 CAN 버스(CAN Bus)와 통신하는 데 사용돼요.
 
-> Warning : Actually in Experimental Version
+> 경고: 현재 실험 버전입니다
 
-## Prerequisite - Kernel Modification
+## 전제 조건 - 커널 수정
 
-Your kernel should have CAN support enabled. For more informations, follow <a href="https://www.kali.org/docs/nethunter/nethunter-kernel-9-config-8/">"Configuring the Kernel - CAN Arsenal"</a> documentation.
+커널에서 CAN 지원이 활성화되어 있어야 해요. 자세한 정보는 <a href="/docs/nethunter/nethunter-kernel-9-config-8/">"커널 구성 - CAN 아스날"</a> 문서를 참조하세요.
 
-## Menu
+## 메뉴
 
 <img src="nethunter-canarsenal1.jpg" width="500">
 
-### Documentation
+### 문서
 
-This button will redirect to the following documentation.
+이 버튼은 다음 문서로 리다이렉트해요.
 
-### Setup
+### 설정
 
-This button will install needed CAN tools and packages. Note that it shouldn't be needed as it should be launched at first run of CAN Arsenal.
+이 버튼은 필요한 CAN 도구와 패키지를 설치해요. CAN 아스날을 처음 실행할 때 자동으로 실행되므로 필요하지 않을 수도 있어요.
 
-### Update
+### 업데이트
 
-This button will update the installed CAN tools and packages.
+이 버튼은 설치된 CAN 도구와 패키지를 업데이트해요.
 
-
-## Settings
+## 설정
 
 <img src="nethunter-canarsenal2.jpg" width="500">
 
-Settings are used to configure CAN Arsenal toolset.
+설정은 CAN 아스날 툴셋을 구성하는 데 사용돼요.
 
-## Interface
+## 인터페이스
 
 <img src="nethunter-canarsenal3.jpg" width="500">
 
-Interface section is used to Configure your CAN interfaces.
+인터페이스 섹션은 CAN 인터페이스를 구성하는 데 사용돼요.
 
 ### ldattach
 
-Attach your device. Set as default for /dev/rfcomm0 (Bluetooth)
+기기를 연결해요. /dev/rfcomm0 (블루투스)를 기본값으로 설정해요.
 
-***ldattach - Used command :***
+***ldattach - 사용 명령어:***
 
-You may modify this as your wish.
+원하는 대로 수정할 수 있어요.
 
 ```bash
 ldattach --debug --speed 38400 --eightbits --noparity --onestopbit --iflag -ICRNL,INLCR,-IXOFF 29 /dev/rfcomm0
@@ -57,11 +57,11 @@ ldattach --debug --speed 38400 --eightbits --noparity --onestopbit --iflag -ICRN
 
 ### slcand
 
-Daemon for Serial CAN devices.
+시리얼 CAN 기기용 데몬(daemon, 백그라운드 서비스)이에요.
 
-***slcand - Used command :***
+***slcand - 사용 명령어:***
 
-You may modify this as your wish.
+원하는 대로 수정할 수 있어요.
 
 ```bash
 slcand -s6 -t sw -S 200000 /dev/ttyUSB0
@@ -69,26 +69,26 @@ slcand -s6 -t sw -S 200000 /dev/ttyUSB0
 
 ### slcan_attach
 
-Attach your serial CAN device.
+시리얼 CAN 기기를 연결해요.
 
-***slcan_attach - Used command :***
+***slcan_attach - 사용 명령어:***
 
 ```bash
 slcan_attach -s6 -o /dev/ttyUSB0
 ```
 
-### RFCOMM bind
+### RFCOMM 바인드
 
-For bluetooth CAN adapter usage. Run it to bind bluetooth to your device.
+블루투스 CAN 어댑터 사용을 위해서예요. 블루투스를 기기에 바인드하려면 실행하세요.
 
-***Bind RFCOMM - Settings Prerequisite :*** 
+***RFCOMM 바인드 - 설정 전제 조건:***
 
-Set "Target" MAC address in Settings.
+설정에서 "Target" MAC 주소를 설정하세요.
 
-> Note : RFCOMM should be supported, you need to enable services in bluetooth arsenal prior this to work.
-> Pair and Trust your bluetooth device with bluetoothctl prior using this.
+> 참고: RFCOMM이 지원되어야 하며, 이것이 작동하려면 블루투스 아스날에서 서비스를 먼저 활성화해야 해요.
+> 이것을 사용하기 전에 bluetoothctl로 블루투스 기기를 페어링하고 신뢰하세요.
 
-***Bind RFCOMM - Used command :***
+***RFCOMM 바인드 - 사용 명령어:***
 
 ```bash
 rfcomm bind <Target MAC Address>
@@ -96,31 +96,31 @@ rfcomm bind <Target MAC Address>
 
 ### socketcand
 
-Daemon to bridge CAN interfaces.
+CAN 인터페이스를 브리지하는 데몬이에요.
 
-***socketcand - Settings Prerequisite :*** 
+***socketcand - 설정 전제 조건:***
 
-Set "CAN Inteface" in Settings.
+설정에서 "CAN Interface"를 설정하세요.
 
-***socketcand - Used command :***
+***socketcand - 사용 명령어:***
 
 ```bash
 socketcand -v -l wlan0 -i <CAN Interface>
 ```
 
-### CAN Interfaces
+### CAN 인터페이스
 
-***Start CAN Interface - Settings Prerequisite :*** 
+***CAN 인터페이스 시작 - 설정 전제 조건:***
 
-Set "CAN Interface", "MTU" in Settings and "CAN Type" in Inteface.
+설정에서 "CAN Interface", "MTU"를 설정하고 인터페이스에서 "CAN Type"을 설정하세요.
 
-> If you use adapter for CAN or SLCAN interfaces, you may need to setup "ldattach","slcand","slcan_attach","rfcomm bind" or "socketcand"
+> CAN 또는 SLCAN 인터페이스용 어댑터를 사용하는 경우 "ldattach", "slcand", "slcan_attach", "rfcomm bind" 또는 "socketcand"를 설정해야 할 수도 있어요
 
-***Start CAN Interface - Used command :***
+***CAN 인터페이스 시작 - 사용 명령어:***
 
-> Note : Actually you only may start one interface at a time. Will be rewritten for next release. If you need to start more than one, you will need to start these manually.
+> 참고: 현재는 한 번에 하나의 인터페이스만 시작할 수 있어요. 다음 릴리스에서 다시 작성될 예정이에요. 하나 이상을 시작해야 하는 경우 수동으로 시작해야 해요.
 
-If CAN Type is set to : CAN 
+CAN 타입이 CAN으로 설정된 경우
 
 ```bash
 sudo ip link set <CAN Interface> bitrate <Selected Bitrate>
@@ -128,7 +128,7 @@ sudo ip link set <CAN Interface> mtu <MTU>
 sudo ip link set <CAN Interface> up 
 ```
 
-If CAN Type is set to : VCAN
+CAN 타입이 VCAN으로 설정된 경우
 
 ```bash
 sudo ip link add dev <CAN Interface> type vcan
@@ -136,136 +136,137 @@ sudo ip link set <CAN Interface> mtu <MTU>
 sudo ip link set <CAN Interface> up 
 ```
 
-If CAN Type is set to : SLCAN
+CAN 타입이 SLCAN으로 설정된 경우
 
 ```bash
 sudo ip link set <CAN Interface> mtu <MTU>
 sudo ip link set <CAN Interface> up 
 ```
 
-***Stop CAN Interface - Settings Prerequisite :*** 
+***CAN 인터페이스 중지 - 설정 전제 조건:***
 
-Set "CAN Interface" in Settings
+설정에서 "CAN Interface"를 설정하세요
 
-***Stop CAN Interface - Used command :***
+***CAN 인터페이스 중지 - 사용 명령어:***
 
-If CAN Type is set to : CAN or SLCAN
+CAN 타입이 CAN 또는 SLCAN으로 설정된 경우
 
 ```bash
 sudo ip link set <CAN Interface> down
 ```
 
-If CAN Type is set to : VCAN
+CAN 타입이 VCAN으로 설정된 경우
 
 ```bash
 sudo ip link set <CAN Interface> down && sudo ip link delete <CAN Interface>
 ```
 
-## Tools
+## 도구
 
 <img src="nethunter-canarsenal4.jpg" width="500">
 
 
-### Can-Utils : CanGen
+### Can-Utils: CanGen
 
-Used to generate CAN Bus Traffic.
-
-
-***CanGen - Settings Prerequisite :*** 
-
-Your desired CAN Interface should be started and set in Settings.
+CAN 버스 트래픽을 생성하는 데 사용돼요.
 
 
-***CanGen - Used command :***
+***CanGen - 설정 전제 조건:*** 
+
+원하는 CAN 인터페이스가 시작되고 설정에서 설정되어야 해요.
+
+
+***CanGen - 사용 명령어:***
 
 ```bash
 cangen <CAN Interface> -v
 ```
 
 
-### Can-Utils : CanSniffer
+### Can-Utils: CanSniffer
 
-Used to sniff CAN Bus Traffic.
-
-
-***CanSniffer - Settings Prerequisite :*** 
-
-Your desired CAN Interface should be started and set in Settings.
+CAN 버스 트래픽을 스니핑(sniffing, 패킷 감청)하는 데 사용돼요.
 
 
-***CanSniffer - Used command :***
+***CanSniffer - 설정 전제 조건:*** 
+
+원하는 CAN 인터페이스가 시작되고 설정에서 설정되어야 해요.
+
+
+***CanSniffer - 사용 명령어:***
 
 ```bash
 cansniffer <CAN Interface>
 ```
 
 
-### Can-Utils : CanDump
+### Can-Utils: CanDump
 
-Used to dump CAN Bus traffic to an output file.
-
-
-***CanDump - Settings Prerequisite :*** 
-
-Your desired CAN Interface should be started and set with "Output" path in Settings. 
+CAN 버스 트래픽을 출력 파일로 덤프하는 데 사용돼요.
 
 
-***CanDump - Used command :***
+***CanDump - 설정 전제 조건:*** 
+
+원하는 CAN 인터페이스가 시작되고 설정에서 "Output" 경로와 함께 설정되어야 해요. 
+
+
+***CanDump - 사용 명령어:***
 
 ```bash
 candump <CAN Inteface> -f <Output Log>
 ```
 
 
-### Can-Utils : CanSend
+### Can-Utils: CanSend
 
-Used to replay a specific sequence to CAN bus.
+특정 시퀀스를 CAN 버스로 재생하는 데 사용돼요.
 
 
-***CanSend - Settings Prerequisite :*** 
+***CanSend - 설정 전제 조건:*** 
 
-Your desired CAN Interface should be started and set with "Sequence" in Settings. 
+원하는 CAN 인터페이스가 시작되고 설정에서 "Sequence"와 함께 설정되어야 해요. 
 
-***CanSend - Used command :***
+***CanSend - 사용 명령어:***
 
 ```bash
 cansend <CAN Interface> <Sequence>
 ```
 
-### Can-Utils : CanPlayer
+### Can-Utils: CanPlayer
 
-Used to replay dumped sequences from a log file to CAN bus.
+로그 파일에서 덤프된 시퀀스를 CAN 버스로 재생하는 데 사용돼요.
 
 
-***CanPlayer - Settings Prerequisite :*** 
+***CanPlayer - 설정 전제 조건:*** 
 
-Your desired CAN Interface should be started and set with "Input" path in Settings. 
+원하는 CAN 인터페이스가 시작되고 설정에서 "Input" 경로와 함께 설정되어야 해요. 
 
-> CAN Interface will be taken from the Input Log, check that your interface is the same one. (If you dump with vcan0, you should replay with vcan0)
+> CAN 인터페이스는 입력 로그에서 가져오므로 인터페이스가 동일한지 확인하세요. (vcan0로 덤프했다면 vcan0로 재생해야 해요)
 
-***CanPlayer - Used command :***
+***CanPlayer - 사용 명령어 :***
 
 ```bash
 canplayer -I <Input Log>
 ```
 
-### Custom Script : SequenceFinder
 
-<a href="https://raw.githubusercontent.com/V0lk3n/NetHunter-CANArsenal/refs/heads/main/sequence_finder.sh">You can see the source code here.</a>
+### 커스텀 스크립트: SequenceFinder
 
-Used to find the exact sequence of the desired action from a log file.
+<a href="https://raw.githubusercontent.com/V0lk3n/NetHunter-CANArsenal/refs/heads/main/sequence_finder.sh">여기서 소스 코드를 볼 수 있어요.</a>
 
->This custom script will auto split a log files using head and tail. Replay theses with user input in loop using CanPlayer, until finding the exact sequence of the desired action. Finally it replay it using CanSend.
+로그 파일에서 원하는 동작의 정확한 시퀀스를 찾는 데 사용돼요.
 
-
-***SequenceFinder - Settings Prerequisite :*** 
-
-Your desired CAN Interface should be started and set with "Input" path in Settings. 
-
-> CAN Interface will be taken from the Input Log, check that your interface is the same one. (If you dump with vcan0, you should replay with vcan0)
+>이 커스텀 스크립트는 head와 tail을 사용하여 로그 파일을 자동으로 분할해요. 원하는 동작의 정확한 시퀀스를 찾을 때까지 CanPlayer를 사용하여 사용자 입력과 함께 루프에서 재생해요. 마지막으로 CanSend를 사용하여 재생해요.
 
 
-***SequenceFinder - Used command :***
+***SequenceFinder - 설정 전제 조건:*** 
+
+원하는 CAN 인터페이스가 시작되고 설정에서 "Input" 경로와 함께 설정되어야 해요.
+
+> CAN 인터페이스는 입력 로그에서 가져오므로 인터페이스가 동일한지 확인하세요. (vcan0로 덤프했다면 vcan0로 재생해야 해요)
+
+
+***SequenceFinder - 사용 명령어:***
 
 ```bash
 /opt/car_hacking/sequence_finder.sh <Input Log>
@@ -274,22 +275,22 @@ Your desired CAN Interface should be started and set with "Input" path in Settin
 
 ### Freediag
 
-Used to diagnose your car.
+자동차를 진단하는 데 사용돼요.
 
 
-***Freediag - Used command :***
+***Freediag - 사용 명령어:***
 
 ```bash
 sudo -u kali freediag
 ```
 
 
-### Freediag : DiagTest
+### Freediag: DiagTest
 
-DiagTest is a standalone program from Freediag, used to exercise code paths.
+DiagTest는 코드 경로를 실행하는 데 사용되는 Freediag의 독립 실행형 프로그램이에요.
 
 
-***DiagTest - Used command :***
+***DiagTest - 사용 명령어:***
 
 ```bash
 sudo -u kali diag_test
@@ -300,35 +301,34 @@ sudo -u kali diag_test
 <img src="nethunter-canarsenal5.jpg" width="500">
 
 
-Mainly used to Dump and Send sequence using CAN USB Analyser.
+주로 CAN USB 분석기를 사용하여 시퀀스를 덤프하고 전송하는 데 사용돼요.
+
+***USB-CAN 덤프 - 설정 전제 조건:***
+
+설정에서 "USB Device"를 설정하세요.
+
+USB-CAN에서 "CAN Speed"와 "Baudrate"를 설정하세요. 선택적으로 디버그 매개변수를 추가하세요.
+
+> CAN USB 어댑터가 기기에 연결되어 있어야 하고 새로고침 버튼을 눌러서 연결된 어댑터로 USB 기기를 설정하세요.
 
 
-***USB-CAN Dump - Settings Prerequisite :*** 
-
-Set "USB Device" in Settings.
-
-In USB-CAN, set "CAN Speed" and "Baudrate". Optionally add debug parameter.
-
-> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
-
-
-***USB-CAN Dump - Used command :***
+***USB-CAN 덤프 - 사용 명령어 :***
 
 ```bash
 canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <Optional Debug Parameters>
 ```
 
 
-***USB-CAN Send - Settings Prerequisite :*** 
+***USB-CAN 전송 - 설정 전제 조건:***
 
-Set "USB Device" in Settings.
+설정에서 "USB Device"를 설정하세요.
 
-In USB-CAN, set "CAN Speed" and "Baudrate". Set "ID" and "Data" as what you want to send to CAN bus. Optionally add debug and sleep parameter.
+USB-CAN에서 "CAN Speed"와 "Baudrate"를 설정하세요. CAN 버스로 전송하려는 "ID"와 "Data"를 설정하세요. 선택적으로 디버그 및 슬립 매개변수를 추가하세요.
 
-> CAN USB Adapter should be plugged in your device and hit refresh button to set USB Device with you'r plugged adapter.
+> CAN USB 어댑터가 기기에 연결되어 있어야 하고 새로고침 버튼을 눌러서 연결된 어댑터로 USB 기기를 설정하세요.
 
 
-***USB-CAN Send - Used command :***
+***USB-CAN 전송 - 사용 명령어 :***
 
 ```bash
 canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <ID> <Data> <Optional Debug/Sleep Parameters>
@@ -339,41 +339,40 @@ canusb -d <USB Device> -s <USB CAN Speed> -b <USB Baudrate> <ID> <Data> <Optiona
 <img src="nethunter-canarsenal6.jpg" width="500">
 
 
-Used to communicate with two machine on a CAN bus by Ethernet.
+이더넷을 통해 CAN 버스에서 두 대의 머신과 통신하는 데 사용돼요.
+
+***Cannelloni - 설정 전제 조건:*** 
+
+원하는 CAN 인터페이스가 설정에서 설정되어야 해요.
+
+Cannelloni에서 "RHOST", "RPORT" 및 "LPORT"를 설정해야 해요.
+
+> 두 기기 모두 이더넷 케이블로 연결되어야 해요.
 
 
-***Cannelloni - Settings Prerequisite :*** 
-
-Your desired CAN Interface should be set in Settings.
-
-In Cannelloni, "RHOST", "RPORT" and "LPORT" need to be set.
-
-> Both device should be linked using an Ethernet Cable.
-
-
-***Cannelloni - Used command :***
+***Cannelloni - 사용 명령어 :***
 
 ```bash
 sudo cannelloni -I <CAN Interface> -R <RHOST> -r <RPORT> -l <LPORT>
 ```
 
 
-## Logging
+## 로깅
 
 <img src="nethunter-canarsenal7.jpg" width="500">
 
 
 ### Asc2Log
 
-From can-utils suite, Asc2Log is used to convert ASC file format to the classic LOG.
+can-utils 모음에서 Asc2Log는 ASC 파일 형식을 클래식 LOG로 변환하는 데 사용돼요.
 
 
-***Asc2Log - Settings Prerequisite :*** 
+***Asc2Log - 설정 전제 조건:*** 
 
-Set "Input" and "Output" path in Settings. 
+설정에서 "Input"과 "Output" 경로를 설정하세요. 
 
 
-***Asc2Log - Used command :***
+***Asc2Log - 사용 명령어 :***
 
 ```bash
 asc2log -I <Input Log> -O <Output File>
@@ -382,47 +381,46 @@ asc2log -I <Input Log> -O <Output File>
 
 ### Log2Asc
 
-From can-utils suite, Log2Asc is used to convert dumped LOG file to the ASC format.
+can-utils 모음에서 Log2Asc는 덤프된 LOG 파일을 ASC 형식으로 변환하는 데 사용돼요.
 
 
-***Log2Asc - Settings Prerequisite :*** 
+***Log2Asc - 설정 전제 조건:*** 
 
-Your desired CAN Interface should be started and set with "Input", "Output" path in Settings. 
+원하는 CAN 인터페이스가 시작되고 설정에서 "Input", "Output" 경로와 함께 설정되어야 해요. 
 
 
-***Log2Asc - Used command :***
+***Log2Asc - 사용 명령어 :***
 
 ```bash
 log2asc -I <Input Log> -O <Output File> <CAN Interface>
 ```
 
 
-## Custom Command
+## 커스텀 명령어
 
 <img src="nethunter-canarsenal8.jpg" width="500">
 
-Used in case you need to run a specific command which doesnt match the one provided.
+제공된 명령어와 일치하지 않는 특정 명령어를 실행해야 하는 경우에 사용돼요.
 
+## 리소스
 
-## Resources
-
-***Tools Documentations***
+***도구 문서***
 * <a href="https://github.com/linux-can/can-utils">can-utils</a>
 * <a href="https://freediag.sourceforge.io/">freediag</a>
 * <a href="https://github.com/kobolt/usb-can">usb-can</a>
 * <a href="https://github.com/mguentner/cannelloni">cannelloni</a>
 
 
-***Guide***
-* <a href="https://www.offsec.com/blog/introduction-to-car-hacking-the-can-bus/?utm_source=kali&utm_medium=web&utm_campaign=docs">Introduction to Car Hacking: The CAN Bus</a>
+***가이드***
+* <a href="https://www.offsec.com/blog/introduction-to-car-hacking-the-can-bus/?utm_source=kali&utm_medium=web&utm_campaign=docs">자동차 해킹 입문: CAN 버스</a>
 
 
-## Credits
+## 크레딧
 
-* <a href="https://github.com/fenugrec">Fenugrec</a> for freediag
-* <a href="https://gitlab.com/kimoc0der">Kimocoder</a> for help and support
-* <a href="https://github.com/kobolt">Kobolt</a> for usb-can
-* <a href="https://github.com/linux-can">Linux-Can</a> for can-utils and socketcand
-* <a href="https://github.com/mguentner">Mguentner</a> for cannelloni
-* <a href="https://gitlab.com/V0lk3n">V0lk3n</a> for Nethunter CAN Arsenal tab
-* <a href="https://gitlab.com/yesimxev">Yesimxev</a> for help and support
+* <a href="https://github.com/fenugrec">Fenugrec</a> - freediag
+* <a href="https://gitlab.com/kimoc0der">Kimocoder</a> - 도움과 지원
+* <a href="https://github.com/kobolt">Kobolt</a> - usb-can
+* <a href="https://github.com/linux-can">Linux-Can</a> - can-utils와 socketcand
+* <a href="https://github.com/mguentner">Mguentner</a> - cannelloni
+* <a href="https://gitlab.com/V0lk3n">V0lk3n</a> - 넷헌터 CAN 아스날 탭
+* <a href="https://gitlab.com/yesimxev">Yesimxev</a> - 도움과 지원

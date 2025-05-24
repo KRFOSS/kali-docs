@@ -1,52 +1,49 @@
 ---
-title: Configuring the Kernel - General
+title: 커널 구성하기 - 일반
 description:
 icon:
 weight: 24
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
-## Kernel Configuration
+## 커널 구성
 
-### General
+### 일반
 
-In section "General Setup":
+"General Setup" 섹션에서:
 
-- clear ***"Local version"***
-- set ***"Default host name"*** to "kali"
-- select ***"System V IPC"***
+- ***"Local version"*** 지우기
+- ***"Default host name"***을 "kali"로 설정
+- ***"System V IPC"*** 선택
   (CONFIG_SYSVIPC=y)
 
 ![](nh-kernel-110-general.png)
 
+### 모듈
 
+**modprobe**를 사용하여 명령줄을 통해 로드하려는 기기가 있을 경우를 대비해 _Enable Loadable Module Support_에서 모듈을 활성화하려고 해요. 자주 사용되는 드라이버를 모듈로 빌드하는 것은 권장하지 않아요:
 
-### Modules
-
-We want to enable modules in _Enable Loadable Module Support_ just in case there are any devices we want to load through the command line using **modprobe**. We discourage to build frequently used rivers as modules:
-
-- Enable ***"loadable module support"***
+- ***"loadable module support"*** 활성화
   (CONFIG_MODULES=y):
 
-- select ***"Module unloading"***
+- ***"Module unloading"*** 선택
   (CONFIG_MODULE_UNLOAD=y)
-- select ***"Forced module unloading"***
+- ***"Forced module unloading"*** 선택
   (CONFIG_MODULE_FORCE_UNLOAD=y)
-- select ***"Module versioning support"***
+- ***"Module versioning support"*** 선택
   (CONFIG_MODVERSIONS=y)
 
 ![](nh-kernel-120-modules.png)
 
+### 커널 이미지
 
+커널 소스가 허용한다면 압축되고 연결된 이미지 파일이 우리가 선호하는 이미지 타입이에요:
 
-### Kernel Image
-
-Our preferred image type is a compressed and concatenated image file if the kernel source permits it:
-
-- select ***"Build a concatenated Image.gz/dtb by default"***
+- ***"Build a concatenated Image.gz/dtb by default"*** 선택
   (CONFIG_BUILD_ARM64_APPENDED_DTB_IMAGE=y)
-- Under ***"Boot options ->"***
-- Selected ***"Appended DTB Kernel Image name (Image.gz-dtb)"***
+- ***"Boot options ->"*** 아래에서
+- ***"Appended DTB Kernel Image name (Image.gz-dtb)"*** 선택
   (IMG_GZ_DTB=y)
 
 ![](nh-kernel-130-kernel.png)

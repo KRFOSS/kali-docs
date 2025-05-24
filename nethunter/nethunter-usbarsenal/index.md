@@ -1,13 +1,14 @@
 ---
-title: NetHunter USB-Arsenal
+title: 넷헌터 USB-아스날
 description:
 icon:
 weight:
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
-USB-Arsenal is the control centre for USB based attacks.
-It is used to enable USB gadget modes using the *USB Function Selector*:
+USB-아스날은 USB 기반 공격을 위한 제어 센터예요.
+*USB Function Selector*를 사용하여 USB 가젯 모드를 활성화하는 데 사용돼요:
 
 
 
@@ -15,7 +16,7 @@ It is used to enable USB gadget modes using the *USB Function Selector*:
 
 
 
-If mass storage gadget mode has been enabled then .iso and .img files can be mounted in the *Image Mounter* menu, before connecting the device to the USB port of a computer which will then treat NetHunter as a USB drive on which the image was installed:
+대용량 저장장치 가젯 모드가 활성화된 경우 *Image Mounter* 메뉴에서 .iso와 .img 파일을 마운트할 수 있어요. 기기를 컴퓨터의 USB 포트에 연결하기 전에 마운트하면 컴퓨터에서 넷헌터를 이미지가 설치된 USB 드라이브로 인식해요:
 
 
 
@@ -23,7 +24,7 @@ If mass storage gadget mode has been enabled then .iso and .img files can be mou
 
 
 
-If RNDIS gadget mode is enabled then the *USB Network Tethering* menu can be used for various network interface based attacks:
+RNDIS 가젯 모드가 활성화된 경우 *USB Network Tethering* 메뉴를 다양한 네트워크 인터페이스 기반 공격에 사용할 수 있어요:
 
 
 

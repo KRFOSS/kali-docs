@@ -1,134 +1,99 @@
 ---
-title: NetHunter Bluetooth-Arsenal
+title: 넷헌터 블루투스-아스날(Bluetooth Arsenal)
 description:
 icon:
 weight:
 author: ["yesimxev",]
+번역: ["xenix4845"]
 ---
 
-Bluetooth-Arsenal is the control centre for Bluetooth based attacks.
+블루투스-아스날은 블루투스 기반 공격을 위한 제어 센터예요.
 
+## 블루투스 아스날 시작하기
 
+햄버거 메뉴 항목을 클릭하고 "Bluetooth Arsenal"을 선택하여 블루투스 메뉴를 열어요. 여기서 서비스를 시작하고 중지하고, 인터페이스를 활성화하고, 검색 가능한 기기를 스캔할 수 있어요. 다음 페이지의 Redfang을 사용하면 검색 모드가 아닌 기기도 찾을 수 있어요. BLE(Bluetooth Low Energy, 저전력 블루투스)는 아직 지원되지 않아요.
 
-## Start Bluetooth Arsenal
+첫 실행 시에만: 환영 팝업에서 "Check and install"을 탭하여 의존성(dependencies)을 설치해요. 나중에 설정하거나 업데이트해야 하는 경우, 오른쪽 상단 모서리의 옵션 메뉴를 언제든지 사용하세요.
 
-Click on the hamburger menu item and select “Bluetooth Arsenal” to open the Bluetooth menu. Here you can start & stop the services, enable the interfaces, and scan for discoverable devices. Note that devices can be also found which is not in discovery mode, using the Redfang in the next page. BLE is not supported yet.
+## 메인 메뉴
 
-Only first run: Tap on "Check and install" on the welcome popup to install dependencies. If you need to setup or update in the future, use the options menu at any time on the top right corner.
-
-
-
-## Main Menu
-
-Connect your bluetooth adapter(s) via OTG if you haven't done so, and press the refresh icon to have them in the spinner menu.
-Enable dbus, bluetooth services, and bring up the adapter (hci0) using the switches. If you select a second adapter (hci1), tap refresh again, and bring up that one too with the interface switch. Select the required interface for scanning in the spinner. Enter your scan time if 10 seconds is not ideal. You are ready to scan, press "SCAN FOR DEVICES". If any found, tap on it, so it will be selected for later usage.
-
-
+아직 연결하지 않았다면 OTG를 통해 블루투스 어댑터를 연결하고, 새로고침 아이콘을 눌러서 스피너 메뉴에 표시되도록 해요.
+스위치를 사용하여 dbus, 블루투스 서비스를 활성화하고 어댑터(hci0)를 활성화해요. 두 번째 어댑터(hci1)를 선택한 경우, 다시 새로고침을 탭하고 인터페이스 스위치로 그것도 활성화해요. 스피너에서 스캔에 필요한 인터페이스를 선택해요. 10초가 적절하지 않다면 스캔 시간을 입력해요. 이제 스캔할 준비가 됐어요. "SCAN FOR DEVICES"를 누르세요. 기기가 발견되면 탭하여 나중에 사용할 수 있도록 선택해요.
 
 ![](nethunter-btarsenal1.png)
 
-
-
-## Tools
-
-
+## 도구
 
 ![](nethunter-btarsenal2.png)
 
-
-
 ![](nethunter-btarsenal3.png)
 
-
-
-Enter your interface name, if your use multiple adapters. You can paste the selected target address by tapping on the "USE SELECTED TARGET".
+여러 어댑터를 사용하는 경우 인터페이스 이름을 입력해요. "USE SELECTED TARGET"을 탭하여 선택한 대상 주소를 붙여넣을 수 있어요.
 
 #### L2ping
 
-Ideal for crashing target's bluetooth stack, so the connected device(s) may get disconnected, available for discovery or attacks. Modify the size, or count if needed. Flood ping also boosts up the possibility to disconnect paired devices. Reverse ping sends echo response instead of echo request.
+대상의 블루투스 스택을 크래시시키는 데 이상적이어서, 연결된 기기가 연결 해제되어 검색이나 공격에 노출될 수 있어요. 필요한 경우 크기나 카운트를 수정해요. 플러드 핑(flood ping)은 페어링된 기기의 연결을 끊을 가능성도 높여줘요. 리버스 핑은 에코 요청 대신 에코 응답을 보내요.
 
 #### Redfang
 
-Use to find devices which are not in pairing mode. Enter the target range, and modify the logfile path if needed. Tap on "HUNT FOR DEVICES" to start.
+페어링 모드가 아닌 기기를 찾는 데 사용해요. 대상 범위를 입력하고 필요한 경우 로그 파일 경로를 수정해요. "HUNT FOR DEVICES"를 탭하여 시작해요.
 
 #### Blueranger
 
-See how close the target is. Tap on "CHECK PROXIMITY" to start.
+대상이 얼마나 가까이 있는지 확인해요. "CHECK PROXIMITY"를 탭하여 시작해요.
 
 #### SDPtool
 
-Look at the target's services to find open ones. Handsfree service is our vulnerable audio service. Tap on "DISCOVER SERVICES" to start.
+대상의 서비스를 살펴보고 열린 서비스를 찾아요. 핸즈프리 서비스는 우리가 공격할 수 있는 취약한 오디오 서비스예요. "DISCOVER SERVICES"를 탭하여 시작해요.
 
-
-
-## Spoof
-
-
+## 스푸핑
 
 ![](nethunter-btarsenal4.png)
 
+여러 어댑터를 사용하는 경우 인터페이스 이름을 입력해요. "USE SELECTED TARGET"을 탭하여 선택한 대상의 주소, 이름, 클래스를 붙여넣거나, 원하는 수정 사항을 입력해요.
 
-
-Enter your interface name, if your use multiple adapters. You can paste the selected target's address, name, and class by tapping on the "USE SELECTED TARGET", otherwise enter the desired modifications.
-
-Tap on "APPLY" to set. You can also verify by tapping on "CHECK".
-
-
+"APPLY"를 탭하여 설정해요. "CHECK"을 탭하여 확인할 수도 있어요.
 
 ## Carwhisperer
 
-
-
 ![](nethunter-btarsenal5.png)
 
+여러 어댑터를 사용하는 경우 인터페이스 이름을 입력해요. "USE SELECTED TARGET"을 탭하여 선택한 대상 주소를 붙여넣을 수 있어요.
 
+대상의 핸즈프리 서비스가 다른 채널에 있는 경우 채널을 수정해요. 모드를 선택해요:
 
-Enter your interface name, if your use multiple adapters. You can paste the selected target address by tapping on the "USE SELECTED TARGET".
+#### Listen(듣기)
 
-Modify the channel, if the target's Handsfree service is on a different one. Select the mode:
+대상의 마이크에서 오디오 녹음을 시작해요. 필요한 경우 녹음 파일명을 수정해요.
 
-#### Listen
+#### Inject(주입)
 
-Will start recording the audio from the target's microphone. Modify the record filename if needed.
+선택한 오디오를 대상에 주입하여 스피커에서 재생되도록 해요. 주입할 오디오 파일의 경로를 입력하거나 선택해요.
 
-#### Inject
-
-Will inject the selected audio to the target, so it will be played on it's speaker. Enter or select the audio file's path to inject.
-
-Tapping on "LAUNCH" starts the script in the terminal. You can kill in the terminal with CTRL+C or in the app by tapping on "KILL".
-Play button starts to stream live on your speaker if listening is running, otherwise it will play the last recording.
-Please note that the Stop button will stop the playback, pause is not supported.
-
-
+"LAUNCH"를 탭하면 터미널에서 스크립트가 시작돼요. 터미널에서 CTRL+C로 종료하거나 앱에서 "KILL"을 탭하여 종료할 수 있어요.
+재생 버튼은 듣기가 실행 중이면 스피커에서 라이브 스트리밍을 시작하고, 그렇지 않으면 마지막 녹음을 재생해요.
+정지 버튼은 재생을 중지하며, 일시정지는 지원되지 않아요.
 
 ## Bad Bluetooth
 
+![](nethunter-btarsenal6.png)
 
+#### 서버
+
+BadBT 서버에 사용할 원하는 키보드 블루투스 인터페이스, 주소, 이름을 입력해요. dbus와 블루투스 서비스를 포함하여 인터페이스가 작동 중인지 확인해요.
+
+"Start Server"를 탭하면 터미널 창에서 실행되어 대상 클라이언트의 연결을 받을 준비가 돼요. 일부 대상의 경우 페어링 과정에서 터미널에 "yes"를 입력해야 할 수도 있어요.
 
 ![](nethunter-btarsenal6.png)
 
+#### 클라이언트
 
+대상이 연결되면 넷헌터 앱으로 돌아가서 문자열을 보낼 차례예요. 또는 인터랙티브 모드를 사용할 수도 있어요(폰에 물리적 키보드가 연결되어야 함).
 
-#### Server
+문자열 보내기 모드에서는 Android Home, Browser, Windows CMD 등과 같은 기본 접두사를 설정할 수 있어요.
 
-Enter your desired Keyboard bluetooth interface, address, and name to use for BadBT Server. Make sure your interface is up and running including dbus, and bluetooth service.
+이러한 모드는 실험적이며, HID Ducky 형식이 구현될 가능성이 있어요.
 
-Tap on "Start Server", it will run in a Terminal window, ready to accept incoming connections from target clients. Some targets may require typing in "yes" in terminal for pairing process.
-
-
-
-![](nethunter-btarsenal6.png)
-
-
-
-#### Client
-
-Once a target is connected, head back to NetHunter app and it's time to send some strings, alternatively you can use interactive mode (needs a physical keyboard to be connected to your phone).
-
-For Send Strings mode, you can set basic prefixes such as Android Home, Browser, Windows CMD, etc..
-
-Please note these modes are experimental, and possilbly HID Ducky format will be implemented.
-
-When ready, tap "Send".
+준비가 되면 "Send"를 탭하세요.
 
 

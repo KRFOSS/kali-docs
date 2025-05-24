@@ -1,11 +1,12 @@
 ---
-title: NetHunter Exploit Database SearchSploit
+title: 넷헌터 익스플로잇 데이터베이스 SearchSploit
 description:
 icon:
 weight:
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
-The SearchSploit pane allows you to easily search [The Exploit Database](https://www.exploit-db.com/) archive for entries based on criteria of your choosing. Once you've found an exploit of interest, you can choose to view it online or even edit it locally to tailor it to your particular target.
+`SearchSploit` 패널을 사용하면 선택한 기준에 따라 [익스플로잇 데이터베이스](https://www.exploit-db.com/) 아카이브에서 항목을 쉽게 검색할 수 있어요. 관심 있는 익스플로잇을 찾으면 온라인으로 보거나 특정 대상에 맞게 로컬에서 편집할 수도 있어요.
 
 ![](nethunter-searchsploit.png)

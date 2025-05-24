@@ -1,21 +1,22 @@
 ---
-title: NetHunter Components
+title: 넷헌터 구성 요소
 description:
 icon:
 weight:
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
-The NetHunter ROM overlay is composed of several parts that interact and rely on each other for proper operation. These parts include a custom Android Kernel, a Kali Linux Chroot, and a NetHunter Android App.
+넷헌터 ROM 오버레이(overlay, 덮어씌우기)는 서로 상호작용하고 의존하여 제대로 작동하는 여러 부분으로 구성되어 있어요. 이러한 부분에는 커스텀 안드로이드 커널, 칼리 리눅스 Chroot, 그리고 넷헌터 안드로이드 앱이 포함돼요.
 
-## Custom Android Kernel
+## 커스텀 안드로이드 커널
 
-The custom kernel provides each device with unique features that are not available on stock kernels. All NetHunter kernels provide HID (keyboard to computer support), OTG wireless support, and CDROM emulation support. Also, most kernels also support external SDR/Bluetooth and "y-cable charging", which allows you to charge your device while using an external device. If you are a power Android user, then you will benefit from the Multirom support in each kernel with the KEXEC patch. Finally, the kernel provides additional patches/fixes to eliminate problems that may be caused by adding external wireless devices.
+커스텀 커널은 각 기기에 스톡 커널에서는 사용할 수 없는 고유한 기능을 제공해요. 모든 넷헌터 커널은 HID(키보드-컴퓨터 지원), OTG 무선 지원, 그리고 CDROM 에뮬레이션 지원을 제공해요. 또한 대부분의 커널은 외부 SDR/블루투스와 "y-케이블 충전"을 지원하여 외부 기기를 사용하면서 기기를 충전할 수 있게 해줘요. 파워 안드로이드 사용자라면 KEXEC 패치가 적용된 각 커널의 Multirom 지원의 혜택을 받을 수 있어요. 마지막으로, 커널은 외부 무선 기기를 추가할 때 발생할 수 있는 문제를 해결하기 위한 추가 패치/수정 사항을 제공해요.
 
-## Kali Linux chroot
+## 칼리 리눅스 chroot
 
-The Kali Linux chroot is the heart of NetHunter and has specifically modified configuration files to work well with the Android eco-system. You are given two chroot options to download or install: minimal or full. The minimal chroot, which is a little over 100mb in size, is a barebones basic Kali OS with nothing installed and is great for developers or anyone looking to customize their installation. The full chroot is what most users will want to download and comes in around 600mb. The full chroot has everything needed to integrate with the Android application.
+칼리 리눅스 chroot는 넷헌터의 심장이며, 안드로이드 생태계와 잘 작동하도록 특별히 수정된 구성 파일을 가지고 있어요. 다운로드하거나 설치할 수 있는 두 가지 chroot 옵션이 있어요: 미니멀(minimal) 또는 풀(full). 100MB를 조금 넘는 크기의 미니멀 chroot는 아무것도 설치되지 않은 기본적인 칼리 OS로, 개발자나 설치를 커스터마이징하려는 사람들에게 좋아요. 풀 chroot는 대부분의 사용자가 다운로드하고 싶어할 것이며 약 600MB 정도예요. 풀 chroot에는 안드로이드 애플리케이션과 통합하는 데 필요한 모든 것이 있어요.
 
-## NetHunter Android Application
+## 넷헌터 안드로이드 애플리케이션
 
-The NetHunter application provides a simple interface to manage the Kali Linux chroot and is a simple but powerful GUI. The Android application contains all the configuration files that are copied to the sdcard during the first run. It also acts as a bootup service and will run the services you select when the devices starts. Additionally, the Android application allows you to interact with some preselected applications more easily such as: MANA, MPC, VNC, DuckHunter, HID attacks, and much more. The latest version even includes a custom commands builder, allowing you to easily add/remove your favorite custom commands to NetHunter.
+넷헌터 애플리케이션은 칼리 리눅스 chroot를 관리하는 간단한 인터페이스를 제공하며, 간단하지만 강력한 GUI(그래픽 사용자 인터페이스)예요. 안드로이드 애플리케이션에는 첫 실행 시 SD 카드에 복사되는 모든 구성 파일이 포함되어 있어요. 또한 부팅 서비스 역할을 하여 기기가 시작될 때 선택한 서비스를 실행해요. 추가로, 안드로이드 애플리케이션을 사용하면 MANA, MPC, VNC, 덕헌터, HID 공격 등과 같은 미리 선택된 일부 애플리케이션과 더 쉽게 상호작용할 수 있어요. 최신 버전에는 커스텀 명령어 빌더도 포함되어 있어서 좋아하는 커스텀 명령어를 넷헌터에 쉽게 추가하거나 제거할 수 있어요.

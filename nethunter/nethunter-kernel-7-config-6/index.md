@@ -1,57 +1,54 @@
 ---
-title: Configuring the 4.x Kernel - USB
+title: 4.x 커널 구성하기 - USB
 description:
 icon:
 weight: 34
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
-## Kernel Configuration cont.
+## 커널 구성 계속
 
-### USB Modem
+### USB 모뎀
 
-CDC ACM support is required for Proxmark and similar devices
+CDC ACM 지원은 Proxmark와 유사한 기기에 필요해요
 
-Navigate to ***Device Drivers -> USB support*** and select the following option:
+***Device Drivers -> USB support***로 이동하여 다음 옵션을 선택하세요:
 
-- select ***"USB Modem (CDC ACM) support"***
+- ***"USB Modem (CDC ACM) support"*** 선택
   (CONFIG_USB_ACM=y)
 
 ![](nh-kernel-270-usb-1.png)
 
+### USB 가젯 지원
 
+4.x 이상 버전의 커널은 (대부분의 경우) 패치가 필요하지 않으며, 아래와 같이 커널 구성에서 간단히 활성화할 수 있다는 점을 유의하세요.
 
-### USB Gadget support
+다양한 USB 기반 공격에는 Generic serial, CDC ACM, CDC ECM, HID가 필요해요.
 
-Please note that kernels above 4.x version (in most cases) don't need any patches, we can simply enable in kernel config as seen below.
+***Device Drivers -> USB support -> USB Gadget Support***로 이동하여 다음을 선택하세요:
 
-Generic serial, CDC ACM, CDC ECM, and HID are required for various USB based attacks.
-
-Navigate to ***Device Drivers -> USB support -> USB Gadget Support*** and choose:
-
-- select ***"Generic serial bulk in/out"***
+- ***"Generic serial bulk in/out"*** 선택
   (CONFIG_USB_CONFIGFS_SERIAL=y)
-- select ***"Abstract Control Model (CDC ACM)"***
+- ***"Abstract Control Model (CDC ACM)"*** 선택
   (CONFIG_USB_CONFIGFS_ACM=y)
-- select ***"Object Exchange Model (CDC OBEX)"***
+- ***"Object Exchange Model (CDC OBEX)"*** 선택
   (CONFIG_USB_CONFIGFS_OBEX=y)
-- select ***"Network Control Model (CDC NCM)"***
+- ***"Network Control Model (CDC NCM)"*** 선택
   (CONFIG_USB_CONFIGFS_NCM=y)
-- select ***"Ethernet Control Model (CDC ECM)"***
+- ***"Ethernet Control Model (CDC ECM)"*** 선택
   (CONFIG_USB_CONFIGFS_ECM=y)
-- select ***"Ethernet Control Model (CDC ECM) subset"***
+- ***"Ethernet Control Model (CDC ECM) subset"*** 선택
   (CONFIG_USB_CONFIGFS_ECM_SUBSET=y)
-- select ***"RNDIS"***
+- ***"RNDIS"*** 선택
   (CONFIG_USB_CONFIGFS_RNDIS=y)
-- select ***"Ethernet Emulation Model (EEM)"***
+- ***"Ethernet Emulation Model (EEM)"*** 선택
   (CONFIG_USB_CONFIGFS_EEM=y)
-- select ***"Mass Storage"***
+- ***"Mass Storage"*** 선택
   (CONFIG_USB_CONFIGFS_MASS_STORAGE=y)
-- select ***"HID function"***
+- ***"HID function"*** 선택
   (CONFIG_USB_CONFIGFS_F_HID=y)
 
 ![](nh-kernel-280-usb-2.png)
 
-
-
-## Exit, save, and build
+## 종료, 저장 및 빌드

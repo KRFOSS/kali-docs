@@ -1,12 +1,13 @@
 ---
-title: NetHunter Custom Commands
+title: 넷헌터 커스텀 명령어
 description:
 icon:
 weight:
 author: ["re4son",]
+번역: ["xenix4845"]
 ---
 
-One of the cool features of the NetHunter Android application is the ability to add your own custom commands and functions. For example, if you do a lot of Wi-Fi work, it would make sense to add a custom button for **Wifite**, which would launch the respective script. Or, if you have an occasion where you need to quickly clone a mifare card, you could make a button to execute the **mfoc** command with the required parameters.
-This tab comes with a few custom commands preconfigured as an example.
+넷헌터 안드로이드 애플리케이션의 멋진 기능 중 하나는 자신만의 커스텀 명령어와 기능을 추가할 수 있다는 거예요. 예를 들어, Wi-Fi 작업을 많이 한다면 해당 스크립트를 실행하는 **Wifite**용 커스텀 버튼을 추가하는 것이 좋겠죠. 또는 mifare 카드를 빠르게 복제해야 하는 경우가 있다면 필요한 매개변수와 함께 **mfoc** 명령어를 실행하는 버튼을 만들 수 있어요.
+이 탭에는 예시로 몇 가지 커스텀 명령어가 미리 구성되어 있어요.
 
 ![](nethunter-commands.jpg)

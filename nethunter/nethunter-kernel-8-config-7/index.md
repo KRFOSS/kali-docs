@@ -1,30 +1,31 @@
 ---
-title: Configuring the Kernel - NFS
+title: 커널 구성하기 - NFS
 description:
 icon:
 weight: 35
 author: ["yesimxev",]
+번역: ["xenix4845"]
 ---
 
-### NFS Support
+### NFS 지원
 
-NFS client and server support is required in case it's disabled by default.
+기본적으로 비활성화된 경우를 대비해 NFS 클라이언트와 서버 지원이 필요해요.
 
-Navigate to ***File Systems -> Network File Systems*** and select the following option:
+***File Systems -> Network File Systems***로 이동하여 다음 옵션을 선택하세요:
 
-- select ***"Network File Systems"***
+- ***"Network File Systems"*** 선택
   (CONFIG_NETWORK_FILESYSTEMS=y)
-- select ***"NFS client support for NFS version 2"***
+- ***"NFS client support for NFS version 2"*** 선택
   (CONFIG_NFS_V2=y)
-- select ***"NFS client support for NFS version 3"***
+- ***"NFS client support for NFS version 3"*** 선택
   (CONFIG_NFS_V3=y)
-- select ***"NFS client support for NFS version 4"***
+- ***"NFS client support for NFS version 4"*** 선택
   (CONFIG_NFS_V4=y)
-- select ***"NFS server support"***
+- ***"NFS server support"*** 선택
   (CONFIG_NFSD=y)
-- select ***"NFS server support for NFS version 3"***
+- ***"NFS server support for NFS version 3"*** 선택
   (CONFIG_NFSD_V3=y)
-- select ***"NFS server support for NFS version 4"***
+- ***"NFS server support for NFS version 4"*** 선택
   (CONFIG_NFSD_V4=y)
 
 ![](nh-kernel-280-nfs-1.png)

@@ -1,30 +1,31 @@
 ---
-title: Configuring the 3.x Kernel - USB
+title: 3.x 커널 구성하기 - USB
 description:
 icon:
 weight: 32
 author: ["yesimxev",]
+번역: ["xenix4845"]
 ---
 
-## Kernel Configuration cont.
+## 커널 구성 계속
 
-**If your kernel is above 4.x please skip to the [next page](/docs/nethunter/nethunter-kernel-7-config-6/)**
+**커널이 4.x 이상인 경우 [다음 페이지](/docs/nethunter/nethunter-kernel-7-config-6/)로 건너뛰세요**
 
-### USB Modem
+### USB 모뎀
 
-CDC ACM support is required for Proxmark and similar devices
+CDC ACM 지원은 Proxmark와 유사한 기기에 필요해요
 
-Navigate to ***Device Drivers -> USB support*** and select the following option:
+***Device Drivers -> USB support***로 이동하여 다음 옵션을 선택하세요:
 
-- select ***"USB Modem (CDC ACM) support"***
+- ***"USB Modem (CDC ACM) support"*** 선택
   (CONFIG_USB_ACM=y)
 
 ![](nh-kernel-270-usb-1.png)
 
-### USB Gadget support
+### USB 가젯 지원
 
-USB Gadget support is only possible with patches on 3.x kernels.
+USB 가젯 지원은 3.x 커널에서는 패치를 통해서만 가능해요.
 
-Please refer to [patching kernel](/docs/nethunter/nethunter-kernel-1-patching/) page.
+[커널 패치하기](/docs/nethunter/nethunter-kernel-1-patching/) 페이지를 참조하세요.
 
-## Exit, save, and build
+## 종료, 저장 및 빌드
