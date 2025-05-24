@@ -1,22 +1,23 @@
 ---
-title: Kali inside Vagrant (Guest VM)
+title: 베이그런트 안의 칼리 (게스트 VM)
 description:
 icon:
 weight: 200
 author: ["gamb1t",]
+번역: ["kmw0410"]
 ---
 
-Vagrant is, according to their [website](https://www.vagrantup.com/), "a tool for building and managing virtual machine environments in a single workflow." This is all controlled through a single configuration file that has a large amount of configurations to tweak the virtual machine (VM) to your needs. We will look at what the default configuration file is doing, but much more than that is beyond the scope of this page.
+베이그런트는 그들의 [웹사이트](https://www.vagrantup.com/)를 따르면, "단일 워크플로우에서 가상 머신 환경을 구축하고 관리하기 위한 도구"에요. 이 모든 것은 가상 머신(VM)을 사용자의 필요에 맞게 조정할 수 있는 많은 구성 옵션이 포함된 다일 구성 파일을 통해 제어됩니다.
 
-#### System Setup
+#### 시스템 준비
 
-In order to properly use Vagrant we need two things. Vagrant itself, and a supported hyper-visor. The Kali Vagrant file supports two, VirtualBox and VMware.
+베이그런트를 제대로 사용하려면 두 가지가 필요해요. 베이그런트 자체와 지원되는 하이퍼바이저에요. 칼리 리눅스용 베이그런트 파일은 버추얼 박스와 VMware, 두 가지를 지원해요.
 
-We first will download [Vagrant](https://www.vagrantup.com/downloads).
+먼저 [베이그런트](https://www.vagrantup.com/downloads)를 다운로드하세요.
 
-If we are on Windows, we will need to follow the previous link and download the proper version (open Settings then go to About, download amd64 if 64 bit or 686 if 32 bit). This will also work for macOS, simply download Vagrant and complete setup.
+윈도우를 사용 중인 경우, 이전 링크를 따라가 적절한 버전을 다운로드 해야해요. (설정을 열고 정보로 들어가서 64비트를 사용 중인 경우 amd64를, 686을 사용 중인 경우 32비트를 다운로드하세요) 이 방법은 macOS에서도 동일하게 작동해요. 베이그런트를 다운로드하고 설치를 완료하세요.
 
-If we are on a Debian-based Linux system (like Kali Linux), we likely have the `vagrant` package available for download:
+칼리 리눅스와 같은 데비안 기반을 사용 중이라면, `베이그런트` 패키지를 다운로드할 수 있어요:
 
 ```console
 kali@kali:~$ sudo apt search vagrant
@@ -46,15 +47,15 @@ vagrant-sshfs/kali-dev,kali-dev,kali-rolling,kali-rolling 1.3.6-1 all
 kali@kali:~$
 ```
 
-Otherwise, we should follow the instructions on Vagrant's download page.
+그렇지 않으면, 베이그런트의 다운로드 페이지에 있는 지침을 따라야 해요.
 
-We next need to download a hypervisor. For the purposes of this guide we will download the free [VirtualBox](https://www.virtualbox.org/wiki/Downloads). If we are on Windows or macOS we can click the respective download link and complete setup. Otherwise, we can look for our distribution on the [Linux Hosts](https://www.virtualbox.org/wiki/Linux_Downloads) page. If we are using Kali Linux, there is already [documentation](/docs/virtualization/install-virtualbox-host/) we can follow.
+다음으로 하이퍼바이저를 다운로드 해야해요. 이 가이드의 목적을 위해 무료 [버추얼 박스](https://www.virtualbox.org/wiki/Downloads)를 다운로드 할게요. 윈도우나 macOS를 사용하는 경우라면 다운로드 링크를 클릭하고 설정을 완료할 수 있어요. 그렇지 않은 경우 [리눅스 호스트](https://www.virtualbox.org/wiki/Linux_Downloads) 페이지에서 배포판을 찾을 수 있어요. 칼리 리눅스를 사용하는 경우에는 이미 [문서](/virtualization/install-virtualbox-host/)를 참고할 수 있어요.
 
-#### Using Vagrant
+#### 베이그런트 사용하기
 
-Now that we have our hypervisor and Vagrant installed, we can pull our first configuration file.
+이제 하이퍼바이저와 베이그런트가 설치되었어요, 첫 번째 구성 파일을 가져올게요.
 
-We must be in a command line and create a new folder/directory that is empty. For this guide we will be using a Kali Linux host system, however the commands that start with `vagrant` will be the same no matter what host is being used:
+먼저 빈 폴더/디렉토리에서 명령행을 실행해야 해요. 이 가이드에서는 칼리 리눅스 호스트 시스템을 사용할 예정이지만, `vagrant`로 시작하는 명령어들은 어떤 호스트를 사용하든 동일해요:
 
 ```console
 kali@kali:~/vagrant$ vagrant init kalilinux/rolling
@@ -75,9 +76,9 @@ end
 kali@kali:~/vagrant$
 ```
 
-We can see it is a very minimal configuration file, however this will start up a VM with the latest release of Kali Linux and take up approximately 10GB after being downloaded and started.
+매우 간단한 구성 파일처럼 보이지만, 이것으로 최신 버전의 칼리 리눅스 VM을 시작할 수 있으며 다운로드와 시작 후에는 약 10GB의 공간을 차지하게 돼요.
 
-To start this machine, we will run the following command:
+머신을 시작하고, 명령어를 따라서 실행하세요:
 
 ```console
 kali@kali:~/vagrant$ vagrant up
@@ -118,7 +119,7 @@ kali@kali:~/vagrant$ vagrant halt
 kali@kali:~/vagrant$
 ```
 
-If we want to tweak our configuration file we can do something like the following:
+구성 파일 조정을 원할 경우 다음과 같이 하면 돼요:
 
 ```plaintext
 # -*- mode: ruby -*-
@@ -150,14 +151,14 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-Which we can then load into a running Vagrant instance by running the following command:
+그런 다음 아래 명령어를 실행하여 구동 중인 베이그런트 인스턴스에 적용할 수 있어요:
 
 ```console
 kali@kali:~$ vagrant reload
 kali@kali:~$
 ```
 
-If we want to re-provision our VM, which normally only runs the first time the machine boots, we can do one of the following commands:
+VM을 다시 프로피저닝하려면, 일반적으로 머신이 처음 부팅될 때만 실행되므로, 다음 중 하나의 명령어만 사용할 수 있어요:
 
 ```console
 $ vagrant provision  # provision the powered on VM
@@ -165,4 +166,4 @@ $ vagrant up --provision  # when VM is powered off, power it on then provision
 $ vagrant reload --provision  # reboot the VM then provision
 ```
 
-There are a lot more configuration options that can be found in [Vagrant's docs](https://www.vagrantup.com/docs/vagrantfile/machine_settings).
+[베이그런트 문서](https://www.vagrantup.com/docs/vagrantfile/machine_settings)에서 더 많은 구성 옵션을 확인할 수 있어요.
