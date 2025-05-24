@@ -1,84 +1,85 @@
 ---
-title: NetHunter Audio
+title: 넷헌터에서 소리 활성화하기
 description:
 icon:
 weight:
 author: ["IamCOD3X",]
+번역: ["xenix4845"]
 ---
 
-Introduction
-This modules enables Audio in KeX session.
+## 소개
+이 모듈은 KeX 세션에서 소리를 활성화해요.
 
-Here is the step-by-step instructions for setting up and using the Audio Manager with Kali NetHunter. 
+칼리 넷헌터와 함께 오디오 매니저를 설정하고 사용하는 단계별 지침이에요.
 
-Follow the steps carefully to enable live audio streaming while using the Kali NetHunter GUI interface.
+칼리 넷헌터 GUI 인터페이스를 사용하는 동안 라이브 오디오 스트리밍을 활성화하려면 단계를 주의 깊게 따라하세요.
 
-Step 1: One-Time Setup
+## 1단계: 일회성 설정
 
-1. Open Kali NetHunter
+### 1. 칼리 넷헌터 열기
 
-Launch the Kali NetHunter app on your device.
+기기에서 칼리 넷헌터 앱을 실행하세요.
 
-2. Go to KeX Manager
+### 2. KeX 매니저로 이동
 
-Inside the app, navigate to the KeX Manager.
+앱 내에서 KeX 매니저로 이동하세요.
 
-3. Setup Server (if any)
+### 3. 서버 설정 (필요한 경우)
 
-Set up the KeX server for your desired user.
+원하는 사용자를 위해 KeX 서버를 설정하세요.
 
-Step 2: Start the Server
+## 2단계: 서버 시작
 
-1. Go Back to KeX Manager
+### 1. KeX 매니저로 돌아가기
 
-Return to the Kali NetHunter app and open the KeX Manager again.
+칼리 넷헌터 앱으로 돌아가서 KeX 매니저를 다시 열어요.
 
-2. Run the Server
+### 2. 서버 실행
 
-Start the KeX server for your chosen user by selecting "Run Server."
+"Run Server"를 선택하여 선택한 사용자를 위한 KeX 서버를 시작하세요.
 
-Step 3: Enable Audio Server
+## 3단계: 오디오 서버 활성화
 
-1. Enable Audio Server
+### 1. 오디오 서버 활성화
 
-Once the KeX server is running, go back and enable Audio from the KeX Manager.
+KeX 서버가 실행되면 돌아가서 KeX 매니저에서 오디오를 활성화하세요.
 
-Step 4: Configure Audio Manager
+## 4단계: 오디오 매니저 구성
 
-1. Open Audio Manager
+### 1. 오디오 매니저 열기
 
-Open the Audio Manager on your device.
+기기에서 오디오 매니저를 열어요.
 
-2. Set IP and Port
+### 2. IP와 포트 설정
 
-Enter the following details in Audio Manager (default settings):
+오디오 매니저에서 다음 세부 정보를 입력하세요 (기본 설정):
 
 IP: 127.0.0.1
 
-Port: 8000
+포트: 8000
 
-3. Click Play
+### 3. 재생 클릭
 
-Press the Play button.
+재생 버튼을 누르세요.
 
-You will either see an error message or a success message based on the connection status.
+연결 상태에 따라 오류 메시지 또는 성공 메시지가 표시될 거예요.
 
-Step 5: Access the GUI Interface
+## 5단계: GUI 인터페이스 접근
 
-1. Go to KeX Client
+### 1. KeX 클라이언트로 이동
 
-Open the KeX Client.
+KeX 클라이언트를 열어요.
 
-2. Start GUI Interface
+### 2. GUI 인터페이스 시작
 
-You can now use the GUI Interface for Kali.
+이제 칼리용 GUI 인터페이스를 사용할 수 있어요.
 
-3. Enjoy Live Audio Streaming
+### 3. 라이브 오디오 스트리밍 즐기기
 
-If everything is set up correctly, you will have live audio streaming from the system.
+모든 것이 올바르게 설정되었다면 시스템에서 라이브 오디오 스트리밍을 할 수 있을 거예요.
 
-Conclusion
+## 결론
 
-Following these steps ensures that your Kali NetHunter setup is complete with an active audio stream. Enjoy using the Audio Manager for seamless sound integration while working within the NetHunter environment.
+이 단계들을 따르면 활성 오디오 스트림과 함께 칼리 넷헌터 설정이 완료돼요. 넷헌터 환경에서 작업하는 동안 원활한 사운드 통합을 위해 오디오 매니저 사용을 즐겨보세요.
 
 ![](nethunter-audio.png)
