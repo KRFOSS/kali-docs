@@ -1,47 +1,48 @@
 ---
-title: Public Packaging
+title: 퍼블릭 패키징
 description:
 icon:
 archived: "true"
 weight:
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-# Getting involved in the Kali ecosystem
+# 칼리 생태계에 참여하기
 
-Kali Linux has a large number of tools that it maintains and adds on a regular basis. However, we can't always consider every request for a package to be added because of the large number of requests. Because of this, we have developed requirements that we have users follow in order to increase the chances that we see them, and then are able to properly consider them. If you have visited the [bug tracker](https://bugs.kali.org/) you may have noticed the requirements posted on certain package requests. If you haven't, no worries, because they are as follows:
+칼리 리눅스는 정기적으로 유지 관리하고 추가하는 많은 도구들을 가지고 있어요. 하지만 요청 수가 많기 때문에 추가될 패키지에 대한 모든 요청을 항상 고려할 수는 없어요. 이 때문에 우리가 요청을 보고 제대로 고려할 수 있는 가능성을 높이기 위해 사용자가 따라야 할 요구사항을 개발했어요. [버그 트래커](https://bugs.kali.org/)를 방문해봤다면 특정 패키지 요청에 게시된 요구사항을 눈치챘을 수도 있어요. 그렇지 않다면 걱정 마세요. 요구사항은 다음과 같아요:
 
 ```plaintext
-- [Name] - The name of the tool
-- [Version] - What version of the tool should be added?
---- If it uses source control (such as git), please make sure there is a release to match (e.g. git tag)
-- [Homepage] - Where can the tool be found online? Where to go to get more information?
-- [Download] - Where to go to get the tool? Either a download page or a link to the latest version
-- [Author] - Who made the tool?
-- [License] - How is the software distributed? What conditions does it come with?
-- [Description] - What is the tool about? What does it do?
-- [Dependencies] - What is needed for the tool to work?
-- [Similar tools] - What other tools are out there?
-- [Activity] - When did the project start? Is is still actively being deployed?
-- [How to install] - How do you compile it?
---- Note, using source code to acquire (e.g. git clone/svn checkout) can't be used - Also downloading from the head. Please use a "tag" or "release" version.
-- [How to use] - What are some basic commands/functions to demonstrate it?
+- [Name] - 도구의 이름
+- [Version] - 어떤 버전의 도구가 추가되어야 하나요?
+--- 소스 제어(git 같은)를 사용한다면 일치하는 릴리스가 있는지 확인해주세요(예: git tag)
+- [Homepage] - 도구를 온라인에서 어디에서 찾을 수 있나요? 더 많은 정보를 얻기 위해 어디로 가야 하나요?
+- [Download] - 도구를 얻기 위해 어디로 가야 하나요? 다운로드 페이지나 최신 버전 링크
+- [Author] - 누가 도구를 만들었나요?
+- [License] - 소프트웨어는 어떻게 배포되나요? 어떤 조건이 함께 오나요?
+- [Description] - 도구가 무엇에 관한 것인가요? 무엇을 하나요?
+- [Dependencies] - 도구가 작동하기 위해 무엇이 필요한가요?
+- [Similar tools] - 다른 어떤 도구들이 있나요?
+- [Activity] - 프로젝트는 언제 시작되었나요? 여전히 활발하게 배포되고 있나요?
+- [How to install] - 어떻게 컴파일하나요?
+--- 참고: 소스 코드로 획득하는 것(예: git clone/svn checkout)은 사용할 수 없어요 - 또한 헤드에서 다운로드하는 것도 마찬가지예요. "tag"나 "release" 버전을 사용해주세요.
+- [How to use] - 이를 시연하기 위한 기본 명령어/기능은 무엇인가요?
 ```
 
-You may be asking at this point 'How does this relate to me getting involved?'. Well that's simple: users can now do most of the work on their own to get the tool added thanks to [our move to GitLab](https://gitlab.com/kalilinux). Keep in mind that we still will not be adding all tools that are requested; perhaps there is a different tool that does the same thing but has been around longer, or maybe the tool is too new and needs time to really get more user's opinion on. There are a few things that those who want to get involved need to do first, which is what we are going to walk you through now.
+이 시점에서 '이것이 내가 참여하는 것과 어떤 관련이 있을까?'라고 물어볼 수도 있어요. 그건 간단해요: [GitLab으로의 이동](https://gitlab.com/kalilinux) 덕분에 사용자들이 이제 도구를 추가하기 위한 대부분의 작업을 스스로 할 수 있게 되었어요. 요청된 모든 도구를 여전히 추가하지는 않을 것이라는 점을 명심하세요; 아마도 같은 일을 하지만 더 오래된 다른 도구가 있거나, 도구가 너무 새로워서 더 많은 사용자의 의견을 얻을 시간이 필요할 수도 있어요. 참여하고 싶은 사람들이 먼저 해야 할 몇 가지가 있는데, 이제 그것을 안내해드릴게요.
 
-Related:
-- [Setting Up A System For Packaging](/docs/development/setting-up-packaging-system/)
+관련 문서:
+- [패키징을 위한 시스템 설정](/docs/development/setting-up-packaging-system/)
 
 - - -
 
-For those of you who want to get involved and maintain your package, you're going to need to create a merge request. There are two things to know during this. The first is how to create the initial package and the other is how to continue supporting it. For easier understanding, let's take a visual look at this.
+참여하고 패키지를 유지 관리하고 싶은 분들을 위해, 병합 요청을 생성해야 해요. 이 과정에서 알아야 할 두 가지가 있어요. 첫 번째는 초기 패키지를 생성하는 방법이고 다른 하나는 계속 지원하는 방법이에요. 이해를 쉽게 하기 위해 시각적으로 살펴봅시다.
 
-## Creating the initial folder
+## 초기 폴더 생성하기
 
-Before we start the "packaging" we need to get the folder prepared properly. Assuming the tool you want to package is already prepared and you are the owner, it is recommended to create a separate branch and add it directly in the "debian" directory. After this is done, skip to "Creating the Debian files" and follow along from there.
+"패키징"을 시작하기 전에 폴더를 제대로 준비해야 해요. 패키징하려는 도구가 이미 준비되어 있고 여러분이 소유자라고 가정하면, 별도의 브랜치를 생성하고 "debian" 디렉토리에 직접 추가하는 것이 권장돼요. 이것이 완료되면 "데비안 파일 생성하기"로 건너뛰고 거기서부터 따라하세요.
 
-Otherwise, you need to pull the release if they have one. If they **do** have a release, skip to that header. If they **don't** have a release, clone the repo and do the following command:
+그렇지 않으면 릴리스가 있다면 릴리스를 가져와야 해요. 릴리스가 **있다면** 해당 헤더로 건너뛰세요. 릴리스가 **없다면** 저장소를 복제하고 다음 명령어를 실행하세요:
 
 ```console
 kali@kali:~$ git clone https://github.com/ambionics/phpggc.git phpgcc-official
@@ -52,9 +53,9 @@ kali@kali:~/phpggc-official$ git archive --format=tar master | gzip -c > ../PACK
 kali@kali:~/phpggc-official$
 ```
 
-Be sure to change both package and date to the appropriate names.
+패키지와 날짜를 모두 적절한 이름으로 변경해야 해요.
 
-We create an empty git repo and then clone it, then we can import the tool. _Be sure to create a new empty repo of your own for your own package for this step._
+빈 git 저장소를 생성한 다음 복제하고, 그 다음 도구를 가져올 수 있어요. _이 단계를 위해 자신만의 패키지용 새로운 빈 저장소를 생성해야 해요._
 
 ```console
 kali@kali:~$ git clone git@gitlab.com:PackageAllTheThings/phpggc.git
@@ -70,8 +71,8 @@ kali@kali:~/phpggc$ git push -u origin --all
 kali@kali:~/phpggc$
 ```
 
-#### Working with a release
-To get the release, we follow a similar process as to when there is no release. We first get the latest release tar.gz link and output the file to the proper Debian format:
+#### 릴리스로 작업하기
+릴리스를 가져오기 위해서는 릴리스가 없을 때와 유사한 과정을 따라요. 먼저 최신 릴리스 tar.gz 링크를 가져와서 파일을 적절한 데비안 형식으로 출력해요:
 
 ```console
 kali@kali:~$ wget -O phpggc_1.0.1.orig.tar.gz https://gitlab.com/PackageAllTheThings/phpggc/archive/v1.0.1.tar.gz
@@ -88,9 +89,9 @@ kali@kali:~/phpggc$ git push -u origin --all
 kali@kali:~/phpggc$
 ```
 
-## Creating the Debian files
+## 데비안 파일 생성하기
 
-First we need to generate the base Debian files and remove some of the ones that won't be needed. When prompted we select single for the package type, and assuming everything else is correct, the default values for the rest:
+먼저 기본 데비안 파일들을 생성하고 필요하지 않은 일부를 제거해야 해요. 프롬프트가 나타나면 패키지 타입으로 single을 선택하고, 다른 모든 것이 올바르다고 가정하면 나머지는 기본값을 사용해요:
 
 ```console
 kali@kali:~/phpggc$ dh_make -p phpggc_0.20191028
@@ -100,7 +101,7 @@ kali@kali:~/phpggc/debian$ rm *.ex *.EX README.* *.docs
 kali@kali:~/phpggc/debian$
 ```
 
-Next we will need to edit some of the files with the proper information:
+다음으로 적절한 정보로 일부 파일을 편집해야 해요:
 
 ```console
 kali@kali:~/phpggc/debian$ vim control
@@ -127,14 +128,14 @@ Description: A library of unserialize() payloads
 kali@kali:~$
 ```
 
-There are a number of things to take note of here. Section, priority, maintainer, uploaders, homepage, depends, and description are all changed. Going through them:
+여기서 주목해야 할 것들이 많아요. Section, priority, maintainer, uploaders, homepage, depends, description이 모두 변경돼요. 하나씩 살펴보면:
 
-- 'section' will be what type of tool it is. Put in your best guess as to what it may be in the general area (web, net, etc) and we will change it if need be
-- Priority can be set to optional
-- Maintainer should always be "Kali Developers <devel@kali.org>" and Uploaders should be your name (it can be account name) and the email associated with the account
-- The homepage is where the tool is originally from. Depends is whatever needs to be installed to make the tool work, which, in this case php is needed
-- Vcs-* should be set to your repo that you are pushing the package to.
-- Description is the combination of the short description and an extended one that explains what the package contains
+- 'section'은 도구가 어떤 타입인지예요. 일반적인 영역(web, net 등)에서 무엇일 수 있는지 최선의 추측을 하세요. 필요하면 변경할 거예요
+- Priority는 optional로 설정할 수 있어요
+- Maintainer는 항상 "Kali Developers <devel@kali.org>"이어야 하고 Uploaders는 여러분의 이름(계정 이름일 수 있음)과 계정과 연결된 이메일이어야 해요
+- Homepage는 도구가 원래 있던 곳이에요. Depends는 도구가 작동하기 위해 설치되어야 하는 것으로, 이 경우 php가 필요해요
+- Vcs-*는 패키지를 푸시하는 저장소로 설정되어야 해요.
+- Description은 짧은 설명과 패키지에 포함된 내용을 설명하는 확장된 설명의 조합이에요
 
 ```console
 kali@kali:~/phpggc/debian$ vim changelog
@@ -148,7 +149,7 @@ phpggc (0.20191028-0kali1) kali-dev; urgency=medium
 kali@kali:~$
 ```
 
-Be sure to set kali-dev rather than unstable before urgency, otherwise there will be issues later from sbuild. You can remove everything after "Initial release". We also use a Debian revision of "-0kali1" instead of the default "-1" to avoid conflicts with a version that would be used by an upstream Debian package:
+urgency 전에 unstable이 아닌 kali-dev로 설정해야 해요. 그렇지 않으면 나중에 sbuild에서 문제가 발생할 거예요. "Initial release" 이후의 모든 것을 제거할 수 있어요. 또한 업스트림 데비안 패키지에서 사용될 버전과의 충돌을 피하기 위해 기본 "-1" 대신 "-0kali1"의 데비안 수정본을 사용해요:
 
 ```console
 kali@kali:~/phpggc/debian$ vim copyright
@@ -185,7 +186,7 @@ License: GPL-2+
 kali@kali:~$
 ```
 
-There will be a lot of clutter when you first open copyright, most can be deleted but be sure to read what you are removing as some information may be important. The copyright and license for `Files: *` will be whatever the original package uses. In this case, the original package used Apache License 2.0, and as it has the full license already in Debian it can be linked to as above. A good command to know of is `licensecheck -r . --copyright` which will give a rough idea on if there are any licenses that were missed:
+copyright를 처음 열면 많은 잡동사니가 있을 거예요. 대부분 삭제할 수 있지만 일부 정보가 중요할 수 있으므로 제거하는 내용을 읽어야 해요. `Files: *`의 저작권과 라이선스는 원본 패키지가 사용하는 것이 될 거예요. 이 경우 원본 패키지는 Apache License 2.0을 사용했고, 데비안에 전체 라이선스가 이미 있으므로 위와 같이 링크할 수 있어요. 놓친 라이선스가 있는지 대략적인 아이디어를 제공하는 유용한 명령어는 `licensecheck -r . --copyright`예요:
 
 ```console
 kali@kali:~/phpggc/debian$ vim watch
@@ -197,18 +198,18 @@ opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/phpggc-$1\.tar\.gz/ \
 kali@kali:~$
 ```
 
-This file can look a bit intimidating, but what actually needs to be changed is very easy as demonstrated:
+이 파일은 조금 위협적으로 보일 수 있지만, 실제로 변경해야 하는 것은 시연된 바와 같이 매우 쉬워요:
 
 ```plaintext
 opts=filenamemangle=s/.+\/v?(\d\S*)\.tar\.gz/PACKAGENAME-$1\.tar\.gz/ \
   ORIGINALGITLINK/tags .*/v?(\d\S*)\.tar\.gz
 ```
 
-This file will _watch_ for any changes in the released version number of the upstream, which will allow updating the package on time later easier. There are more examples available on the [Debian wiki](https://wiki.debian.org/debian/watch).
+이 파일은 업스트림의 릴리스 버전 번호의 변경사항을 _감시_하여 나중에 패키지를 적시에 더 쉽게 업데이트할 수 있게 해줘요. [데비안 위키](https://wiki.debian.org/debian/watch)에서 더 많은 예시를 볼 수 있어요.
 
-## Final touches
+## 마무리 작업
 
-If we built the package now, it would not be installed. To fix this, let's create an .install file and a helper script. The reason we are creating these two files is that they both will work the majority of the time. In some cases, the different ways, like using a symlink, may not work and changes will have to be made. As we can't account for every scenario now, we will go with what works the majority of the time:
+지금 패키지를 빌드한다면 설치되지 않을 거예요. 이를 해결하기 위해 .install 파일과 헬퍼 스크립트를 생성해봅시다. 이 두 파일을 생성하는 이유는 대부분의 경우 둘 다 작동하기 때문이에요. 일부 경우에는 심볼릭 링크 사용과 같은 다른 방법이 작동하지 않을 수 있고 변경사항을 만들어야 해요. 지금 모든 시나리오를 설명할 수 없으므로 대부분의 경우 작동하는 것으로 가겠어요:
 
 ```console
 kali@kali:~/phpggc/debian$ mkdir -p helper-script/
@@ -231,9 +232,9 @@ exec ./phpggc
 kali@kali:~/phpggc/debian$
 ```
 
-Some of you may have caught something odd and are wondering what's up with the formatting of the .install file. With the way that the package builder interprets things, a `/` at the beginning of "usr/" will break things, likewise no slash at the end will as well. We include all the files that will be installed in the ".install" file. In the helper-script, we go to that directory and launch the file.
+여러분 중 일부는 뭔가 이상한 것을 눈치채고 .install 파일의 형식이 어떻게 된 건지 궁금해할 수도 있어요. 패키지 빌더가 해석하는 방식으로는 "usr/" 시작 부분의 `/`가 있으면 문제가 생기고, 마찬가지로 끝에 슬래시가 없어도 문제가 돼요. ".install" 파일에 설치될 모든 파일을 포함시켜요. 헬퍼 스크립트에서는 해당 디렉토리로 가서 파일을 실행해요.
 
-Now that all that is done, we can push everything to git and try it out!
+이제 모든 것이 완료되었으므로 모든 것을 git에 푸시하고 시도해볼 수 있어요!
 
 ```console
 kali@kali:~/phpggc/debian$ cd ../
@@ -248,11 +249,11 @@ kali@kali:~/phpggc$ gbp buildpackage --git-builder=sbuild
 kali@kali:~$
 ```
 
-This may take a little bit, and in the end a few things can occur. If lintian says "Failed" and there are errors, we recommend googling them and if no solution can be found then submit a post to the [forums](https://forums.kali.org/forumdisplay.php?8-Kali-Linux-Development) where we can assist. If lintian does not fail, then you can find your package in `/home/$USER/kali/build-area/`. Be sure to test it out by using dpkg to install the package and run it.
+이는 조금 시간이 걸릴 수 있고, 결국 몇 가지가 발생할 수 있어요. lintian이 "Failed"라고 하고 오류가 있다면, 구글링해보는 것을 권장하고 해결책을 찾을 수 없다면 도움을 드릴 수 있는 [포럼](https://forums.kali.org/forumdisplay.php?8-Kali-Linux-Development)에 게시글을 제출하세요. lintian이 실패하지 않으면 `/home/$USER/kali/build-area/`에서 패키지를 찾을 수 있어요. dpkg를 사용해서 패키지를 설치하고 실행해보며 테스트해보세요.
 
-## Menu icon
+## 메뉴 아이콘
 
-If a `.desktop` file is needed to be created for a menu icon, then this is best done by submitting a merge request to [the kali-menu package on GitLab](https://gitlab.com/kalilinux/packages/kali-menu). Fork the package, clone it, add in the file you'd like, and then you can submit a merge request with your changes. Below is an example of how the `.desktop` file should be done. Be sure to change "Categories" to whichever most closely fits the tool, and it is possible to include more than one:
+메뉴 아이콘을 위해 `.desktop` 파일을 생성해야 한다면, [GitLab의 kali-menu 패키지](https://gitlab.com/kalilinux/packages/kali-menu)에 병합 요청을 제출하는 것이 가장 좋아요. 패키지를 포크하고, 복제하고, 원하는 파일을 추가한 다음, 변경사항과 함께 병합 요청을 제출할 수 있어요. 아래는 `.desktop` 파일이 어떻게 만들어져야 하는지의 예시예요. "Categories"를 도구에 가장 가깝게 맞는 것으로 변경해야 하고, 하나 이상을 포함하는 것도 가능해요:
 
 ```console
 kali@kali:~$ vim desktop-files/phpggc.desktop
@@ -271,9 +272,9 @@ X-Kali-Package=phpggc
 kali@kali:~$
 ```
 
-# Submitting to the tracker
+# 트래커에 제출하기
 
-Just one last thing to do; submit it to us! To do this, lets head over to [Kali's issue tracker](https://bugs.kali.org/). We are going to want to submit a new issue with the category "New Tool Requests". For the title we will call it "phpggc: a library of unserialize() payloads along with a tool to generate them" and for the description we will include that list from earlier:
+마지막으로 할 일이 하나 남았어요; 우리에게 제출하는 것! 이를 위해 [칼리의 이슈 트래커](https://bugs.kali.org/)로 가봅시다. "New Tool Requests" 카테고리로 새로운 이슈를 제출하려고 해요. 제목은 "phpggc: a library of unserialize() payloads along with a tool to generate them"으로 하고 설명에는 앞서 나온 목록을 포함할 거예요:
 
 ```plaintext
 - [Name] - PHPGGC
@@ -289,8 +290,8 @@ Just one last thing to do; submit it to us! To do this, lets head over to [Kali'
 - [How to use] - phpggc -h
 ```
 
-Once done, simply submit the issue and we will review it.
+완료되면 이슈를 제출하기만 하면 우리가 검토할 거예요.
 
-## What happens after we accept
+## 승인 후 어떤 일이 일어나는가
 
-When we accept the package into Kali, we duplicate the git repository into our kalilinux/packages GitLab group (through forking and deleting the relationship). Because of this, future changes made will need to be submitted as merge requests. In order to do this, users will have to fork our git repository into their account.
+패키지를 칼리에 승인하면, 우리는 git 저장소를 kalilinux/packages GitLab 그룹으로 복제해요(포킹하고 관계를 삭제하는 방식으로). 이 때문에 향후 변경사항은 병합 요청으로 제출되어야 해요. 이를 위해서는 사용자가 우리의 git 저장소를 자신의 계정으로 포크해야 해요.

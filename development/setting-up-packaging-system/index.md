@@ -1,22 +1,23 @@
 ---
-title: Setting up a system for packaging
+title: 패키징을 위한 시스템 설정하기
 description:
 icon:
 weight: 10
 author: ["gamb1t",]
+번역: ["xenix4845"]
 ---
 
-## VM or install?
+## VM이냐 설치냐?
 
-In this walkthrough we will be explaining certain things that are only on a VM. It is your choice if you want to install a full Kali system (or if you already have one, if you want to use it) or if you want to use a VM, however keep in mind what commands you're entering if it is an install.
+이 연습에서는 VM에서만 가능한 특정 사항들을 설명할 거예요. 전체 칼리 시스템을 설치하거나(이미 있다면 사용하거나) VM을 사용할지는 여러분의 선택이지만, 설치인 경우 입력하는 명령어를 염두에 두세요.
 
-## Setting up the VM
+## VM 설정하기
 
-It's important to set up a development environment. The easiest way to go about this is to set up a VM with the [latest Kali image](https://cdimage.kali.org/kali-weekly/) and give it a large filesystem. 80GB+ is good for a few packages at a time, however 200GB+ is recommended if [you are using `mr`](https://gitlab.com/kalilinux/tools/packaging) to download all packaging repositories. Likely, you will not need all of the packages to be downloaded.
+개발 환경을 설정하는 것이 중요해요. 가장 쉬운 방법은 [최신 칼리 이미지](https://cdimage.kali.org/kali-weekly/)로 VM을 설정하고 큰 파일 시스템을 제공하는 것이에요. 80GB+는 한 번에 몇 개의 패키지에는 좋지만, [모든 패키징 저장소를 다운로드하기 위해 `mr`을 사용](https://gitlab.com/kalilinux/tools/packaging)한다면 200GB+ 권장해요. 아마도 모든 패키지를 다운로드할 필요는 없을 거예요.
 
-## Installing packages
+## 패키지 설치하기
 
-We will install tools that we will use later for packaging. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev) is a metapackage, and will install many of the proper packages that are needed:
+나중에 패키징에 사용할 도구들을 설치할 거예요. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev)는 메타패키지이고, 필요한 많은 적절한 패키지들을 설치할 거예요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -27,13 +28,13 @@ kali@kali:~$ sudo apt install -y packaging-dev sbuild apt-file gitk git-lfs myre
 kali@kali:~$
 ```
 
-## User accounts and keys
+## 사용자 계정과 키
 
-Packaging needs to be done on a non-root user with sudo privileges. _The default Kali user is suitable for this_.
+패키징은 sudo 권한이 있는 비루트 사용자에서 수행되어야 해요. _기본 칼리 사용자가 이에 적합해요_.
 
-You **must** log out of your account and switch to the new user _(rather than using `su`)_. This is done as some pieces (such as variables that are set) of the following setup require you to be on that account, `su` will not work.
+(`su`를 사용하는 대신) 계정에서 로그아웃하고 새 사용자로 전환**해야** 해요. 다음 설정의 일부(설정된 변수 같은)가 해당 계정에 있어야 하므로 이렇게 하는 거고, `su`는 작동하지 않을 거예요.
 
-Next, we should generate SSH and GPG keys. These are important for packaging as they will allow us to access our files on GitLab easily and ensure the work is ours. This step is not always necessary, however it is helpful in certain cases. You will know if you need to set up a GPG key, however we recommend setting up an SSH key as it will make the packaging process quicker:
+다음으로 SSH와 GPG 키를 생성해야 해요. 이것들은 GitLab에서 파일에 쉽게 접근할 수 있게 해주고 작업이 우리 것임을 보장하므로 패키징에 중요해요. 이 단계가 항상 필요한 것은 아니지만, 특정 경우에 도움이 돼요. GPG 키를 설정해야 하는지 알 수 있지만, 패키징 과정을 더 빠르게 만들어주므로 SSH 키 설정을 권장해요:
 
 ```console
 kali@kali:~$ ssh-keygen -t rsa
@@ -103,9 +104,9 @@ sub   2048R/12345A6B 2000-00-00
 kali@kali:~$
 ```
 
-**Please remember to change "First Last <email@domain.com>" to be your name and email**.
+**"First Last <email@domain.com>"을 여러분의 이름과 이메일로 변경하는 것을 기억해주세요**.
 
-The next step is to add the SSH key to your GitLab account. This can be done in the [keys section](https://gitlab.com/-/profile/keys). Run the commands below to put the key in the copy-paste buffer and paste it on GitLab's web page:
+다음 단계는 GitLab 계정에 SSH 키를 추가하는 것이에요. 이는 [키 섹션](https://gitlab.com/-/profile/keys)에서 할 수 있어요. 아래 명령어를 실행하여 키를 복사-붙여넣기 버퍼에 넣고 GitLab의 웹 페이지에 붙여넣으세요:
 
 ```console
 kali@kali:~$ sudo apt install -y xclip
@@ -115,9 +116,9 @@ kali@kali:~$ cat ~/.ssh/id_rsa.pub | xclip
 kali@kali:~$
 ```
 
-## Setting up files
+## 파일 설정하기
 
-We now need to set up git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html):
+이제 git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html)를 설정해야 해요:
 
 ```console
 kali@kali:~$ cat <<EOF > ~/.gbp.conf
@@ -150,11 +151,11 @@ kali@kali:~$ grep -q DEBEMAIL ~/.profile \
 kali@kali:~$
 ```
 
-**Be sure to replace `email@domain.com` with your email, and ensure it is the same one used with your GPG key, if that was setup**.
+**`email@domain.com`을 여러분의 이메일로 바꿔야 하고, GPG 키를 설정했다면 GPG 키와 같은 이메일인지 확인하세요**.
 
-We enable `pristine-tar` by default as we will use this tool to (efficiently) store a copy of the upstream tarball in the Git repository. We also set `export-dir` so that package builds happen outside of the git checkout directory.
+우리는 기본적으로 `pristine-tar`를 활성화해요. 이 도구를 사용해서 Git 저장소에 업스트림 tarball의 복사본을 (효율적으로) 저장할 거거든요. 또한 패키지 빌드가 git 체크아웃 디렉토리 외부에서 일어나도록 `export-dir`을 설정해요.
 
-Below, we're customizing some useful tools provided by the `devscripts` package:
+아래에서는 `devscripts` 패키지에서 제공하는 유용한 도구들을 커스터마이징하고 있어요:
 
 ```console
 kali@kali:~$ gpg -k
@@ -179,9 +180,9 @@ kali@kali:~$
 kali@kali:~$ mkdir -pv $HOME/kali/{build-area,upstream}
 ```
 
-**Be sure to put your own key id in `DEBSIGN_KEYID`. In this example we can see from `gpg -k` that our key is `ABC123DE45678F90123G4567HIJK890LM12345N6`**
+**`DEBSIGN_KEYID`에 여러분 자신의 키 ID를 넣어야 해요. 이 예시에서 `gpg -k`에서 우리의 키가 `ABC123DE45678F90123G4567HIJK890LM12345N6`인 것을 볼 수 있어요**
 
-You may also want to add the following to your git config:
+git 구성에 다음을 추가하고 싶을 수도 있어요:
 
 ```console
 kali@kali:~$ gpg -k
@@ -200,10 +201,10 @@ kali@kali:~$ git config --global commit.gpgsign true
 kali@kali:~$
 ```
 
-**The `user.name` and `user.email` must match your gpg key details (`gpg -k`) or you will get a "Secret Key Not Available" error later on**.
-**Be sure to put your own key id in `user.signingkey`. In this example we can see from `gpg -k` that our key is `ABC123DE45678F90123G4567HIJK890LM12345N6`**
+**`user.name`과 `user.email`은 gpg 키 세부사항(`gpg -k`)과 일치해야 해요. 그렇지 않으면 나중에 "Secret Key Not Available" 오류가 발생할 거예요**.
+**`user.signingkey`에 여러분 자신의 키 ID를 넣어야 해요. 이 예시에서 `gpg -k`에서 우리의 키가 `ABC123DE45678F90123G4567HIJK890LM12345N6`인 것을 볼 수 있어요**
 
-We also want to enable a dedicated git merge driver for the `debian/changelog` files:
+`debian/changelog` 파일을 위한 전용 git 병합 드라이버도 활성화하고 싶어요:
 
 ```console
 kali@kali:~$ cat <<EOF >> ~/.gitconfig
@@ -221,7 +222,7 @@ kali@kali:~$
 
 ## sbuild
 
-We also will need to set up sbuild. Although this isn't too difficult, it does require some extra setup:
+sbuild도 설정해야 해요. 너무 어렵지는 않지만, 약간의 추가 설정이 필요해요:
 
 ```console
 kali@kali:~$ sudo mkdir -pv /srv/chroots/
@@ -241,8 +242,8 @@ kali@kali:/srv/chroots$ cd ~/
 kali@kali:~$
 ```
 
-Once that is done, we need to edit `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*`, note that "\*" is used as it will generate the last bit randomly.
-_Alternatively, use TAB auto-completion_:
+완료되면 `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*`를 편집해야 해요. "\*"는 마지막 부분을 무작위로 생성하므로 사용된다는 점을 참고하세요.
+_또는 TAB 자동 완성을 사용하세요_:
 
 ```console
 kali@kali:~$ echo "source-root-groups=root,sbuild" | sudo tee -a /etc/schroot/chroot.d/kali-dev-amd64-sbuild*
@@ -260,7 +261,7 @@ source-root-groups=root,sbuild
 kali@kali:~$
 ```
 
-Finally, we just need to add our user to the group and do one last change:
+마지막으로 우리 사용자를 그룹에 추가하고 마지막 변경을 하면 돼요:
 
 ```console
 kali@kali:~$ sudo sbuild-adduser $USER
@@ -274,17 +275,17 @@ EOF
 kali@kali:~$
 ```
 
-_Reboot_
+_재부팅_
 
 ## Approx
 
-When building a package with a sbuild, a lot of time (and bandwidth) is spent downloading the build dependencies. To speed up this step, it's possible to use a caching proxy, such as `approx`:
+sbuild로 패키지를 빌드할 때 빌드 의존성을 다운로드하는 데 많은 시간(및 대역폭)이 소요돼요. 이 단계를 가속화하기 위해 `approx` 같은 캐싱 프록시를 사용할 수 있어요:
 
 ```console
 kali@kali:~$ sudo apt install -y approx
 ```
 
-After the package is installed, we just need a one-line edit of the configuration file `/etc/approx/approx.conf`, in order to define the remote repository to use for Kali. Add it just below the mappings already defined for Debian, so that your config file `/etc/approx/approx.conf` looks like that:
+패키지가 설치된 후, 칼리에 사용할 원격 저장소를 정의하기 위해 구성 파일 `/etc/approx/approx.conf`의 한 줄만 편집하면 돼요. 데비안에 이미 정의된 매핑 바로 아래에 추가하여 구성 파일 `/etc/approx/approx.conf`가 다음과 같이 보이도록 하세요:
 
 ```
 debian          http://ftp.debian.org/debian
@@ -292,7 +293,7 @@ debian-security	http://security.debian.org/debian-security
 kali            http://kali.download/kali
 ```
 
-Finally, we just need to add a line of configuration inside our chroot, so that apt is configured to use the proxy:
+마지막으로 apt가 프록시를 사용하도록 구성되도록 chroot 내부에 구성 라인을 추가하기만 하면 돼요:
 
 ```console
 kali@kali:~$ sudo sbuild-shell source:kali-dev-amd64-sbuild
@@ -302,7 +303,7 @@ I: /bin/sh
 kali@kali:~$
 ```
 
-## Quilt (Managing Patches)
+## Quilt (패치 관리)
 
 ```console
 kali@kali:~$ cat << EOF > ~/.quiltrc
