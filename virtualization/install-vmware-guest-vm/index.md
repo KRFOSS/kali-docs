@@ -1,5 +1,5 @@
 ---
-title: VMware 내부 칼리 (게스트 VM)
+title: VMware에서의 칼리 (게스트 VM)
 description:
 icon:
 weight: 205
