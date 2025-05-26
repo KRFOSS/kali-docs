@@ -1,161 +1,162 @@
 ---
-title: Kali inside VirtualBox (Guest VM)
+title: VirtualBox 내부 칼리 (게스트 가상머신)
 description:
 icon:
 weight: 210
 author: ["g0tmi1k","serval123",]
+번역: ["xenix4845"]
 ---
 
-This guide is about virtualizing Kali Linux inside of VirtualBox, allowing you to have a Kali VM. This is a great way to use Kali, as it is completely separate from the host, allows you to interact with other VMs (as well as the host machine and other machines on the network), and allows you to revert to snapshots.
+이 가이드는 VirtualBox 내부에서 칼리 리눅스를 가상화하여 칼리 가상머신을 갖는 방법에 관한 것이에요. 호스트와 완전히 분리되어 있고, 다른 가상머신들(호스트 머신 및 네트워크의 다른 머신들과 마찬가지로)과 상호작용할 수 있게 해주며, 스냅샷으로 되돌릴 수 있게 해주므로 칼리를 사용하는 좋은 방법이에요.
 
-You may wish to follow our other guide if you are trying to install VirtualBox on Kali Linux (as a [host](/docs/virtualization/install-virtualbox-host/)).
+칼리 리눅스에 VirtualBox를 설치하려고 한다면([호스트](/docs/virtualization/install-virtualbox-host/)로서) 다른 가이드를 따르고 싶을 수도 있어요.
 
-The guide below is what we use to generate our [pre-made Kali Linux VirtualBox images](/get-kali/#kali-virtual-machines). You may alter this to your needs. We always generate the images using the [latest version of VirtualBox](https://www.virtualbox.org/wiki/Downloads).
+아래 가이드는 우리가 [미리 만들어진 칼리 리눅스 VirtualBox 이미지](/get-kali/#kali-virtual-machines)를 생성하는 데 사용하는 것이에요. 필요에 따라 이를 변경할 수 있어요. 우리는 항상 [최신 버전의 VirtualBox](https://www.virtualbox.org/wiki/Downloads)를 사용하여 이미지를 생성해요.
 
 {{% notice info %}}
-You may need to enable virtualization in your BIOS/UEFI for (e.g. Intel VT-x/AMD-V)
+가상화를 위해 BIOS/UEFI에서 가상화를 활성화해야 할 수도 있어요(예: Intel VT-x/AMD-V)
 {{% /notice %}}
 
-### Wizard
+### 마법사
 
-Upon starting up VirtualBox, select "New" (Machine -> New).
+VirtualBox를 시작하면 "새로 만들기"를 선택하세요(머신 -> 새로 만들기).
 
 ![](vb-01.png)
 
 - - -
 
-The next screen is "Name and operating system" which is where you name the VM. This name is also used in any filenames (such as the configuration, hard disk and snapshot - which isn't changed from this point).
+다음 화면은 "이름 및 운영 체제"로 가상머신의 이름을 지정하는 곳이에요. 이 이름은 파일명(구성, 하드 디스크 및 스냅샷 같은 - 이 시점부터 변경되지 않음)에도 사용돼요.
 
-We are keeping it generic in this guide (as Kali is a [rolling distribution](/docs/general-use/kali-branches/), and we update it), however for our releases, we use the version number in the name as it is a fixed release _(`kali-linux-YYYY.N-vbox-ARCH`. Example: `kali-linux-2025.1-vbox-amd64`)_.
+이 가이드에서는 일반적으로 유지하고 있어요(칼리는 [롤링 배포판](/docs/general-use/kali-branches/)이고 우리가 업데이트하기 때문에). 하지만 우리 릴리스의 경우 고정 릴리스이므로 이름에 버전 번호를 사용해요 _(`kali-linux-YYYY.N-vbox-ARCH`. 예시: `kali-linux-2025.1-vbox-amd64`)_.
 
-For the "Type", we set it as `Linux`. For the "Version", we are going to be using the x64 desktop image, so we are going to select `Debian (64-bit)`.
+"종류"의 경우 `Linux`로 설정해요. "버전"의 경우 x64 데스크톱 이미지를 사용할 것이므로 `Debian (64-bit)`를 선택할 거예요.
 
 ![](vb-02.png)
 
 - - -
 
-"Memory size" is the next section, where we can define how much RAM to use. Again, the higher the amount of RAM, the more applications can be open and at increased performance. Various tools inside of Kali can be demanding of resources. When we make the general VMs, we select `2048 MB` (2GB) for RAM, but we often increase this for our personal machines as we have high-performing devices with spare RAM which Kali can utilize.
+"메모리 크기"는 RAM을 얼마나 사용할지 정의할 수 있는 다음 섹션이에요. 다시 말하지만, RAM의 양이 높을수록 더 많은 애플리케이션을 열 수 있고 성능이 향상돼요. 칼리 내부의 다양한 도구들은 리소스를 많이 요구할 수 있어요. 일반 가상머신을 만들 때는 RAM으로 `2048 MB` (2GB)를 선택하지만, 칼리가 활용할 수 있는 여분의 RAM이 있는 고성능 장치를 가지고 있으므로 개인 머신에서는 종종 이를 늘려요.
 
 ![](vb-03.png)
 
 - - -
 
-This screen below, "Hard disk", allows us to `Create a new virtual disk now`.
+아래 화면인 "하드 디스크"에서는 `지금 새 가상 디스크 만들기`를 할 수 있어요.
 
 ![](vb-04.png)
 
 - - -
 
-For the "Hard disk file type", we select `VDI (VirtualBox Disk Image)` (and its the default option).
+"하드 디스크 파일 형식"의 경우 `VDI (VirtualBox 디스크 이미지)`를 선택해요(그리고 이것이 기본 옵션이에요).
 
 ![](vb-05.png)
 
 - - -
 
-For the following screen, "Storage on physical hard disk", we go with the default option of `Dynamically allocated`.
+다음 화면인 "물리적 하드 디스크의 저장소"에서는 기본 옵션인 `동적 할당`을 선택해요.
 
 ![](vb-06.png)
 
 - - -
 
-Now with "File location and size", we can now define how large the virtual hard disk will be. We use `80.00 GB` for our VMs.
+이제 "파일 위치 및 크기"에서 가상 하드 디스크가 얼마나 클지 정의할 수 있어요. 가상머신에는 `80.00 GB`를 사용해요.
 
 ![](vb-07.png)
 
 - - -
 
-After clicking on "Create", the wizard is complete.
+"만들기"를 클릭한 후 마법사가 완료돼요.
 
-Now we click on "Settings", to customize the VM further.
+이제 "설정"을 클릭하여 가상머신을 더 자세히 커스터마이징해요.
 
 ![](vb-08.png)
 
 - - -
 
-In "General" -> "Advanced", we make sure to set "Shared Clipboard" to `bidirectional`, as well as "Drag'n'Drop" to `bidirectional`
+"일반" -> "고급"에서 "공유 클립보드"를 `양방향`으로 설정하고 "드래그 앤 드롭"도 `양방향`으로 설정해야 해요.
 
 ![](vb-09.png)
 
 - - -
 
-In "System" -> "Motherboard", we change the "Boot Order" to make sure `Hard Disk` is top and `Optical` is the second. Everything else is disabled.
+"시스템" -> "마더보드"에서 "부팅 순서"를 변경하여 `하드 디스크`가 맨 위에 있고 `광학`이 두 번째가 되도록 해요. 나머지는 모두 비활성화돼요.
 
 ![](vb-10.png)
 
 - - -
 
-In "System" -> "Processor", we increase the "Processor(s)" to be `2`.
+"시스템" -> "프로세서"에서 "프로세서"를 `2`로 늘려요.
 
-At the same time, we also enable "Extended Features" for `Enable PAE/NX`.
+동시에 `PAE/NX 활성화`를 위한 "확장 기능"도 활성화해요.
 
 ![](vb-11.png)
 
 - - -
 
-In "Display" -> "Screen", we make sure to have "Video Memory" set to `128 MB`
+"디스플레이" -> "화면"에서 "비디오 메모리"가 `128 MB`로 설정되어 있는지 확인해요.
 
-Another item to point out is to make sure that "Accelerated 3D graphics" is **disabled**, as people have reported that causes issues.
+지적할 또 다른 항목은 "가속 3D 그래픽"이 **비활성화**되어 있는지 확인하는 것인데, 사람들이 이것이 문제를 일으킨다고 보고했거든요.
 
 ![](vb-12.png)
 
 - - -
 
-The final settings view looks like the following:
+최종 설정 화면은 다음과 같이 보여요:
 
 ![](vb-13.png)
 
 - - -
 
-When we are ready to go, press "Start".
+준비가 되면 "시작"을 누르세요.
 
-The first time we run it, we will get a prompt saying do we wish to mount an image to use as a "start-up disk". We want to use our Kali image, rather than a physical drive, so we select the icon to the side of the drop down.
+처음 실행할 때 "시작 디스크"로 사용할 이미지를 마운트하고 싶은지 묻는 프롬프트가 나타날 거예요. 물리적 드라이브보다는 칼리 이미지를 사용하고 싶으므로 드롭다운 옆의 아이콘을 선택해요.
 
 ![](vb-14.png)
 
 - - -
 
-A new pop up will open, "Optical Disk Selector". We will now press "Add", then navigate to where our ISO is located.
+새 팝업이 열리는데, "광학 디스크 선택기"예요. 이제 "추가"를 누른 다음 ISO가 위치한 곳으로 이동해요.
 
 ![](vb-15.png)
 
 - - -
 
-After pressing "Open", we can see its been added, so we make sure its selected and press "Choose".
+"열기"를 누른 후 추가된 것을 볼 수 있으므로 선택되어 있는지 확인하고 "선택"을 누르세요.
 
 ![](vb-16.png)
 
 - - -
 
-All that is left now to do is press "Start".
+이제 남은 일은 "시작"을 누르는 것뿐이에요.
 
 ![](vb-17.png)
 
 - - -
 
-After all this is done, we save, start up the VM, and then continue installing Kali Linux as we normally would for a [bare metal install](/docs/installation/hard-disk-install/).
+이 모든 것이 완료되면 저장하고, 가상머신을 시작한 다음, [베어메탈 설치](/docs/installation/hard-disk-install/)에서처럼 평소대로 칼리 리눅스 설치를 계속해요.
 
-During Kali Linux setup process, the [install wizard](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) should **detect if its inside a VM**. If it is, should then **automatically install any additional tools** (such as `virtualbox-guest-x11`) to give a better user experience. If you want to manually re-install it, you can see our [VirtualBox Guest Guide](/docs/virtualization/install-virtualbox-guest-additions/).
+칼리 리눅스 설정 과정에서 [설치 마법사](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads)는 **가상머신 내부에 있는지 감지**해야 해요. 그렇다면 더 나은 사용자 경험을 제공하기 위해 **추가 도구들을 자동으로 설치**해야 해요(`virtualbox-guest-x11` 같은). 수동으로 다시 설치하고 싶다면 [VirtualBox 게스트 가이드](/docs/virtualization/install-virtualbox-guest-additions/)를 참조할 수 있어요.
 
 - - -
 
-### Expanding Storage
+### 저장소 확장하기
 
 ##### Oracle VirtualBox 7.0:
 
-Make sure that your Kali Linux virtual machine is powered off.
+칼리 리눅스 가상 머신이 종료되어 있는지 확인하세요.
 
 ![](vb-18.png)
 
 - - -
 
-Now after selecting your Virtual Machine from the Virtual Box menu, click on File -> Tools -> Virtual Media Manager
+이제 Virtual Box 메뉴에서 가상 머신을 선택한 후 파일 -> 도구 -> 가상 미디어 관리자를 클릭하세요.
 
 ![](vb-19.png)
 
 - - -
 
-Now click on the vdi file that contain your virtual machine. Now you can adjust the size of the virtual machine. After adjusting the size, click on 'Apply'.
+이제 가상 머신이 포함된 vdi 파일을 클릭하세요. 이제 가상 머신의 크기를 조정할 수 있어요. 크기를 조정한 후 '적용'을 클릭하세요.
 
 ![](vb-20.png)
 
-Boot up Kali Linux and utilize gparted or a comparable tool to extend the partition and filesystem, ensuring the new space is allocated correctly.
+칼리 리눅스를 부팅하고 gparted나 비슷한 도구를 활용하여 파티션과 파일 시스템을 확장하고, 새 공간이 올바르게 할당되도록 하세요.

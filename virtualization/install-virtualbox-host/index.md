@@ -1,27 +1,28 @@
 ---
-title: Installing VirtualBox on Kali (Host)
+title: 칼리에 VirtualBox 설치하기 (호스트)
 description:
 icon:
 weight: 110
 author: ["g0tmi1k", "Rclev4Sec", "gad3r"]
+번역: ["xenix4845"]
 ---
 
-You can install VirtualBox **on** Kali Linux, allowing you to use virtual machines (VMs) inside of Kali Linux. However if you are wanting to install Kali Linux **as** a VM, you want our [Kali Linux Guest VirtualBox](/docs/virtualization/install-virtualbox-guest-vm/) guide.
+칼리 리눅스 **에** VirtualBox를 설치하여 칼리 리눅스 내부에서 가상 머신을 사용할 수 있어요. 하지만 칼리 리눅스를 VM **으로** 설치하려고 한다면 [칼리 리눅스 게스트 VirtualBox](/docs/virtualization/install-virtualbox-guest-vm/) 가이드를 원할 거예요.
 
-VMs are great. There are many upsides with using them. One of the being, able to run multiple Operating Systems (OSs) at the same time. You can have your host machine "untouched", and then only interact with the guest VMs. Another is when something is going right, take a snapshot. When something goes wrong, revert back.
+VM은 훌륭해요. 사용하는 데 많은 장점이 있어요. 그 중 하나는 여러 운영 체제를 동시에 실행할 수 있다는 것이에요. 호스트 머신을 "건드리지 않고" 게스트 VM과만 상호작용할 수 있어요. 또 다른 장점은 뭔가 잘 되고 있을 때 스냅샷을 찍고, 뭔가 잘못될 때 되돌릴 수 있다는 것이에요.
 
-VirtualBox is free and open source. There are a few other software such as QEMU, KVM/Xen with virt-manager. Then there is also [VMware Workstation & Fusion](/docs/virtualization/install-vmware-host/), which is a commercial software (there is VMware Player which is free but it is limited in features).
+VirtualBox는 무료이고 오픈 소스예요. QEMU, virt-manager가 있는 KVM/Xen 같은 다른 소프트웨어들도 몇 가지 있어요. 그리고 상업용 소프트웨어인 [VMware Workstation & Fusion](/docs/virtualization/install-vmware-host/)도 있어요(VMware Player는 무료지만 기능이 제한적이에요).
 
-VirtualBox is officially available in kali-rolling repositories. 
+VirtualBox는 kali-rolling 저장소에서 공식적으로 사용할 수 있어요.
 
-There are two ways to install `virtualbox`:
+`virtualbox`를 설치하는 두 가지 방법이 있어요:
 
-1. From Kali repositories.
-2. From Oracle repository.
+1. 칼리 저장소에서
+2. Oracle 저장소에서
 
-### Preparation
+### 준비
 
-Before trying to install VirtualBox, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), our [apt sources are properly set](/docs/general-use/kali-linux-sources-list-repositories/#default-network-repository-value) and if required, reboot the machine:
+VirtualBox 설치를 시도하기 전에 칼리 리눅스 버전이 [최신 상태](/docs/general-use/updating-kali/)인지, [apt 소스가 적절히 설정](/docs/general-use/kali-linux-sources-list-repositories/#default-network-repository-value)되어 있는지 확인하고 필요하면 머신을 재부팅하세요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -33,9 +34,9 @@ kali@kali:~$
 kali@kali:~$ [ -f /var/run/reboot-required ] && sudo reboot -f
 kali@kali:~$
 ```
-### 1. From Kali Linux repositories
+### 1. 칼리 리눅스 저장소에서
 
-Install `virtualbox` and `linux-headers-generic`:
+`virtualbox`와 `linux-headers-generic`을 설치하세요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -45,7 +46,7 @@ kali@kali:~$ sudo apt install virtualbox linux-headers-generic
 [...]
 kali@kali:~$
 ```
-The extension pack can be installed through:
+확장 팩은 다음을 통해 설치할 수 있어요:
 
 ```console
 kali@kali:~$ sudo apt install virtualbox-ext-pack
@@ -53,11 +54,11 @@ kali@kali:~$ sudo apt install virtualbox-ext-pack
 kali@kali:~$
 ```
 
-### 2. From Oracle Virtualbox third-party repository
+### 2. Oracle VirtualBox 서드파티 저장소에서
 
-## Download
+## 다운로드
 
-The first thing we are going to do is import VirtualBox's repository key:
+먼저 VirtualBox의 저장소 키를 가져올 거예요:
 
 ```console
 kali@kali:~$ curl -fsSL https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/oracle_vbox_2016.gpg
@@ -69,11 +70,11 @@ kali@kali:~$
 
 - - -
 
-We then move onto adding VirtualBox's repository.
-We add this to a separate file, so it does not interfere with [Kali Linux's main repository](/docs/general-use/kali-linux-sources-list-repositories/). We also will be making sure to state where the keyring is at so the files can be properly signed.
-Our CPU architecture is amd64. You may need to alter the example below if yours is different.
+그다음 VirtualBox의 저장소를 추가해요.
+[칼리 리눅스의 메인 저장소](/docs/general-use/kali-linux-sources-list-repositories/)와 간섭하지 않도록 별도의 파일에 추가해요. 또한 파일이 적절히 서명될 수 있도록 키링이 어디에 있는지 명시해야 해요.
+우리의 CPU 아키텍처는 amd64예요. 여러분이 다르다면 아래 예시를 변경해야 할 수도 있어요.
 
-One thing to bear in mind, [Kali Linux is based on Debian](/docs/policy/kali-linux-relationship-with-debian/), so we need to use [Debian's current stable version](https://www.debian.org/releases/stable/) (even though Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/)). At the time of writing, its "bullseye":
+명심해야 할 한 가지는 [칼리 리눅스가 데비안 기반](/docs/policy/kali-linux-relationship-with-debian/)이므로 ([칼리 리눅스가 롤링 배포판](/docs/general-use/kali-branches/)임에도 불구하고) [데비안의 현재 안정 버전](https://www.debian.org/releases/stable/)을 사용해야 한다는 것이에요. 작성 시점에는 "bullseye"예요:
 
 ```console
 kali@kali:~$ echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bullseye contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
@@ -82,7 +83,7 @@ kali@kali:~$
 
 - - -
 
-As we have altered our network repository, we need to re-build the cache:
+네트워크 저장소를 변경했으므로 캐시를 재구축해야 해요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -92,7 +93,7 @@ kali@kali:~$
 
 - - -
 
-As VirtualBox has various kernel modules (e.g. `vboxdrv`, `vboxnetflt` and `vboxnetadp`), we need to make sure they are kept up-to-date when Kali Linux's kernel gets updated. This can be achieved using [dkms](https://packages.debian.org/testing/dkms):
+VirtualBox는 다양한 커널 모듈(`vboxdrv`, `vboxnetflt`, `vboxnetadp` 등)을 가지고 있으므로, 칼리 리눅스의 커널이 업데이트될 때 이들이 최신 상태로 유지되도록 해야 해요. 이는 [dkms](https://packages.debian.org/testing/dkms)를 사용하여 달성할 수 있어요:
 
 ```console
 kali@kali:~$ sudo apt install dkms
@@ -100,9 +101,9 @@ kali@kali:~$ sudo apt install dkms
 kali@kali:~$
 ```
 
-### Setup
+### 설정
 
-Now its time to install VirtualBox itself (along with its Extension Pack to expand VirtualBox's advanced features) and the Linux headers necessary:
+이제 VirtualBox 자체(VirtualBox의 고급 기능을 확장하는 확장 팩과 함께)와 필요한 리눅스 헤더를 설치할 시간이에요:
 
 ```console
 kali@kali:~$ sudo apt install virtualbox virtualbox-ext-pack linux-headers-generic
@@ -112,13 +113,13 @@ kali@kali:~$
 
 - - -
 
-When prompted, read and accept the license.
+프롬프트가 나타나면 라이선스를 읽고 동의하세요.
 
-You can now find VirtualBox in the menu or start it via the command line:
+이제 메뉴에서 VirtualBox를 찾거나 명령줄을 통해 시작할 수 있어요:
 
 ```console
 kali@kali:~$ virtualbox
 kali@kali:~$
 ```
 
-If you now wish, you are able to [install Kali Linux in a VirtualBox VM](/docs/virtualization/install-virtualbox-guest-vm/) (on Kali Linux).
+원한다면 이제 (칼리 리눅스에서) [VirtualBox VM에 칼리 리눅스를 설치](/docs/virtualization/install-virtualbox-guest-vm/)할 수 있어요.
