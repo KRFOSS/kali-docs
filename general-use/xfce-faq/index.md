@@ -44,7 +44,7 @@ author: ["re4son",]
 
 **Q:** Xfce 대신 GNOME이 있는 칼리 리눅스 이미지를 어떻게 얻을 수 있나요?
 
-**A:** [kali.org/downloads/](/get-kali/)에서 Kali GNOME 이미지를 다운로드하면 돼요.
+**A:** [kali.org/get-kali/](/get-kali/)에서 Kali GNOME 이미지를 다운로드하면 돼요.
 
 &nbsp;
 &nbsp;

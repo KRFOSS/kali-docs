@@ -52,7 +52,7 @@ kali@kali:~$ make -j$(nproc)
 ```
 
 준비가 되면 테스트 커널 설치 프로그램을 빌드할 수 있어요. 지침에 따라 복제된 커널 저장소에 커널을 추가한 다음 zip을 빌드하세요:
-커널 파일이 어떻게 추가되는지 볼 수 있어요. 일부는 모듈과 추가 패치가 있고, 일부는 없어요. 주로 [이 커밋](#https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/commit/3665052d125e09e8652144a03056d9c396c3fc9e)처럼 모듈이 없다면 부트 이미지만 있으면 괜찮아요.
+커널 파일이 어떻게 추가되는지 볼 수 있어요. 일부는 모듈과 추가 패치가 있고, 일부는 없어요. 주로 [이 커밋](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/commit/3665052d125e09e8652144a03056d9c396c3fc9e)처럼 모듈이 없다면 부트 이미지만 있으면 괜찮아요.
 
 ```console
 kali@kali:~$ cd kali-nethunter-installer/

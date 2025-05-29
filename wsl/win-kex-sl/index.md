@@ -22,7 +22,7 @@ Win-KeX는 심리스 데스크톱 통합을 위해 [VcXsrv 윈도우 X 서버](h
   - 이는 표준 윈도우 설치에 포함되어 있지만, 누락되었다는 오류가 발생하면 다운로드하여 설치하면 됩니다
 - (선택 사항이지만 권장) [호스트에서 직접 VcXsrv 실행](https://sourceforge.net/p/vcxsrv/wiki/VcXsrv%20%26%20Win10/)
   - [VcXsrv 설정](https://github.com/microsoft/WSL/issues/4106#issuecomment-502920377)
-  - 시작 -> 설정 -> 업데이트 및 보안 -> Windows 보안 -> Windows 보안 열기
+  - 시작 -> 설정 -> 개인 정보 및 보안 -> Windows 보안 -> Windows 보안 열기
     방화벽 및 네트워크 보호 -> 앱이 방화벽을 통해 통신하도록 허용 -> 설정 변경 -> "VcXsrv windows server"의 두 항목 모두 선택 -> 확인
   - [X 서버 보호를 위한 인바운드 방화벽 규칙 추가](https://x410.dev/cookbook/wsl/protecting-x410-public-access-for-wsl2-via-windows-defender-firewall/)
 <!--

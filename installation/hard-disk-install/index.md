@@ -185,7 +185,7 @@ DHCP 서비스가 있는 네트워크 액세스가 감지되지 않으면 네트
 
 14. 다음으로 설치할 [메타패키지](/docs/general-use/metapackages/)를 선택할 수 있어요. 기본 선택은 표준 칼리 리눅스 시스템을 설치하며 여기서 아무것도 변경할 필요가 없어요.
 
-기본 선택을 변경하고 싶다면 [이 가이드](/docs/introduction/what-image-to-download/#which-desktop-environment-and-software-collection-to-choose-during-installation)를 참조하세요.
+기본 선택을 변경하고 싶다면 [이 가이드](/docs/introduction/what-image-to-download/#which-desktop-environment-and-metapackages-to-choose-during-installation)를 참조하세요.
 
 ![](setup-default-metapackages.png)
 

@@ -71,7 +71,7 @@ _팁: 더 나은 보기 경험을 위해 KeX 클라이언트의 "Advanced Settin
 
 ## 넷헌터 에디션:
 
-다양한 넷헌터 에디션의 비교는 [이 표](/docs/nethunter/#1-0-nethunter-editions)를 참조하세요.
+다양한 넷헌터 에디션의 비교는 [이 표](/docs/nethunter/#10-nethunter-editions)를 참조하세요.
 
 ## 팁:
 

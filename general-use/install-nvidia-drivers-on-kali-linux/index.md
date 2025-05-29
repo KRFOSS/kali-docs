@@ -13,7 +13,7 @@ author: ["g0tmi1k",]
 
 이 문서는 NVIDIA GPU 드라이버와 CUDA 지원을 설치하는 방법을 설명하며, 이를 통해 많이 사용되는 침투 테스트 도구와의 통합을 가능하게 해요. 우리는 NVIDIA용 오픈소스 드라이버인 **nouveau**를 사용하지 **않고**, 대신 NVIDIA에서 제공하는 비공개 소스를 설치할 거예요.
 
-이 가이드는 **[독립 그래픽 카드(데스크톱 사용자)](#dedicated)**와 **[옵티머스(랩톱과 노트북 사용자)](#optimus)**를 다룰 거예요.
+이 가이드는 **[독립 그래픽 카드(데스크톱 사용자)](#dedicated-cards)**와 **[옵티머스(랩톱과 노트북 사용자)](#optimus-cards)**를 다룰 거예요.
 
 가상 머신에서 이 작업을 시도하지 **않는** 것을 권장해요. [가능하긴](https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/) 하지만 간단하지 않으며, Linux에 대한 깊은 이해가 있는 경우에만 수행해야 해요. 이 가이드에서는 모든 환경과 설정에 대해 다룰 수 없는 항목이 너무 많기 때문에 다루지 않아요.
 
@@ -109,7 +109,7 @@ kali@kali:~$
 ```
 
 {{% notice info %}}
-Kali가 [롤링 배포판](/docs/general-use/kali-branches/)이기 때문에 `nvidia-detect` 패키지가 일부 지점에서 실패할 수 있어요. 이 패키지는 안정적인 릴리스를 필요로 해요.
+`nvidia-detect` 패키지는 Kali가 [롤링 배포판](/docs/general-use/kali-branches/)이기 때문에 일부 지점에서 실패할 수 있어요. 이 패키지는 안정적인 릴리스를 필요로 해요.
 {{% /notice %}}
 
 ## 설치

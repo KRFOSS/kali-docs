@@ -1,5 +1,5 @@
 ---
-title: 넷헌터 설치하기
+title: 칼리 넷헌터 설치하기
 description:
 icon:
 weight:
@@ -7,6 +7,7 @@ author: ["re4son", "yesimxev",]
 번역: ["xenix4845"]
 ---
 
+<!--
 ## 개요
 
 넷헌터를 설치하려면 다음 단계가 필요해요:
@@ -21,6 +22,7 @@ author: ["re4son", "yesimxev",]
 8. [안드로이드 10 이상: 넷헌터 스토어에서 넷헌터 앱 업데이트하기](#5-넷헌터-이미지-설치하기)
 9. [넷헌터 앱을 실행하여 설치 완료하기](#5-넷헌터-이미지-설치하기)
 10. [Magisk를 통해 설치하기](#6-magisk-모듈로-넷헌터를-설치하는-새로운-방법)
+-->
 
 ## 1. 넷헌터 사전 빌드된 이미지와 지원
 
@@ -30,8 +32,8 @@ author: ["re4son", "yesimxev",]
 
 기기가 지원되지 않는 경우에도 제한된 하드웨어 기능으로 루팅된 모든 기기에서 넷헌터 라이트를 사용할 수 있어요.
 
-- [일반 ARM64 전체 설치 프로그램: `nethunter-20YY.X-generic-arm64-kalifs-full.zip`](https://kali.download/nethunter-images/current/)
-- [일반 ARM64 최소 설치 프로그램: `nethunter-20YY.X-generic-arm64-kalifs-minimal.zip`](https://kali.download/nethunter-images/current/)
+- [일반 ARM64 전체 설치 프로그램: `kali-nethunter-20YY.X-generic-arm64-kalifs-full.zip`](https://kali.download/nethunter-images/current/)
+- [일반 ARM64 최소 설치 프로그램: `kali-nethunter-20YY.X-generic-arm64-kalifs-minimal.zip`](https://kali.download/nethunter-images/current/)
 
 다른 아키텍처도 있어요(예: armhf, i386, amd64), [여기](https://kali.download/nethunter-images/current/)에서 확인하세요.
 
@@ -82,6 +84,6 @@ _이것이 새롭고 권장되는 방법이에요!_
 
 **중요 참고 사항** 강제 암호화가 비활성화되지 않은 기기:
 
-- 동일한 넷헌터 설치 프로그램 zip 파일을 사용하여 Magisk에서 모듈로 설치
+- 동일한 칼리 넷헌터 설치 프로그램 zip 파일을 사용하여 Magisk에서 모듈로 설치
 - 설치하는 동안 화면을 켜진 상태로 유지하세요. 화면이 잠기면 Android가 앱을 종료할 수 있어요
 - 재부팅
