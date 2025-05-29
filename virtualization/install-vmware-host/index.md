@@ -1,22 +1,23 @@
 ---
-title: Installing VMware on Kali (Host)
+title: 칼리에 VMware 설치하기 (호스트)
 description:
 icon:
 weight: 100
 author: ["g0tmi1k", "arszilla"]
+번역: ["kmw0410"]
 ---
 
-You can install VMware workstation or player **on** Kali Linux, allowing you to use Virtual Machines (VMs) inside of Kali Linux. However if you wish to use Kali Linux **as** a virtual machine, you will want our [Kali Linux Guest VMware](/docs/virtualization/install-vmware-guest-vm/) guide.
+칼리 리눅스에서 VMware 워크스테이션 또는 플레이어를 설치할 수 있으며, 칼리 리눅스에서 가상 머신(VM)을 사용할 수 있습니다. 그러나 칼리 리눅스를 **가상 머신으로** 사용하려면 [칼리 리눅스 게스트 VMwar](/docs/virtualization/install-vmware-guest-vm/)가 필요할 거에요.
 
-VMs are great, as there are many reasons why to use them. One of the being, able to run multiple Operating Systems at the same time. You can have your host machine "untouched", and then only interact with the guest VMs. Another is when something is going right, take a snapshot. When something goes wrong, revert back.
+VM은 훌륭하며 사용하는 이유는 여러 가지가 있어요. 첫번째로 여러 운영 체제를 동시에 실행할 수 있는 존재 중 하나에요. 호스트를 "손대지 않고" 게스트 VM과 상호 작용할 수 있어요. 또 다른 방법은 무언가가 제대로 진행되고 있을 때 스냅샷을 찍는 거에요. 문제가 생기면 되돌리세요.
 
-VMware Workstation & Fusion is a commercial software (there is VMware Player which is free but it is limited in features). There are various free or open source solution (such as [VirtualBox](/docs/virtualization/install-virtualbox-host/), QEMU, KVM/Xen with virt-manager).
+VMware 워크스테이션과 & 퓨전은 상용 소프트웨어에요. (VMware 플레이어는 무료지만 기능이 제한적) 다양한 무료 또는 오픈소스 해결책(예: [VirtualBox](/docs/virtualization/install-virtualbox-host/), QEMU, 가상 관리자가 있는 KVM/Xen)이 있어요.
 
 ---
 
-### Preparation
+### 준비 사항
 
-Before trying to install VMware, please make sure your version of Kali Linux is [up-to-date](/docs/general-use/updating-kali/), and if required, reboot the machine:
+VMware을 설치를 시도하기 전에, 칼리 리눅스의 버전이 [최신](/docs/general-use/updating-kali/)인지 확인하세요. 필요한 경우 머신을 재부팅하세요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -31,11 +32,11 @@ kali@kali:~$
 
 ---
 
-### Download
+### 다운로드
 
-To start with, you will need to download VMware. You can do this by going to [VMware's download page](https://www.vmware.com/uk/products/workstation-pro/). At the time of writing, the latest version is `15.5.1-15018445`.
+시작하려면 VMware 다운로드가 필요해요. [VMware 다운로드 페이지](https://www.vmware.com/uk/products/workstation-pro/)로 들어가세요. 이 글을 쓰는 시점을 기준으로, 최신 버전은 `15.5.1-15018445`에요.
 
-Alternatively, you can do the following command line method:
+또는, 명령어 방법을 사용할 수도 있어요:
 
 ```console
 kali@kali:~$ sudo apt install -y curl
@@ -53,7 +54,7 @@ kali@kali:~$ ls -lah Downloads/vmware.bundle
 kali@kali:~$
 ```
 
-When everything is up-to-date, and ready to go, make sure the file is executable and then call it:
+모든 것이 최신 상태가 되면 실행할 준비가 됐어요. 파일을 실행할 수 있는지 확인 후 호출하세요:
 
 ```console
 kali@kali:~$ chmod +x ~/Downloads/vmware.bundle
@@ -67,80 +68,79 @@ Installation was successful.
 kali@kali:~$
 ```
 
-We can see we have installed **VMware Workstation 17.0.2**. The version number may be needed later on.
+이제 **VMware 워크스테이션 17.0.2**가 설치된 것을 볼 수 있어요. 버전 번호는 나중에 필요할 수도 있어요.
 
-After the installer is installed, you should be able to just run `vmware` to continue setup:
+설치 프로그램이 설치되면 `vmware`을 실행하여 설정을 계속 할 수 있어요:
 
 ```console
 kali@kali:~$ vmware
 kali@kali:~$
 ```
 
-At this point, you should be be straight forward, often just clicking through.
+이 단계에서는 일반적으로 클릭만 하면 진행할 수 있어요.
 
 ---
 
-### Setup
+### 설정
 
-The first part may be VMware Kernel Modules.
+첫 부분은 VMware 커널 모듈일 수 있어요.
 
 ![](vmware-01.png)
 
-If `vmware` wasn't called with superuser privileges, you may be prompted for a password.
+`vmware`을 슈퍼유저 권한을 실행하지 않았다면, 비밀번호를 입력하라는 메시지가 표시될 수도 있어요.
 
 ![](vmware-02.png)
 
-At this point, it may not install correctly, and get the error message: `Unable to install all modules. See log /tmp/vmware-kali/vmware-*.log for details. (Exit code 1)`. This is often due to Kali's kernel being newer than what VMware is expecting.
+이 단계에서 설치가 제대로 이루어지지 않을 수 있으며 다음과 같은 오류 메시지가 표시될 수 있어요: `Unable to install all modules. See log /tmp/vmware-kali/vmware-*.log for details. (Exit code 1)`. 이는 주로 칼리의 커널이 VMware가 예상하는 버전보다 최신인 경우에 발생해요.
 
-Looking at the log may help with troubleshooting the issue as well as the **guide at the end of this post**, `vmware-host-modules`.
+로그를 확인하면 문제를 해결하는 데 도움을 줄 수 있고 **이 글에 마지막에 있는 가이드**, `vmware-host-modules`도 참고할 수 있어요.
 
-You will need to accept the legal agreement.
+법적 동의 수락이 필요해요.
 
 ![](vmware-03.png)
 
-You may wish for it VMware to check for any updates.
+VMware에서 업데이트를 확인하도록 설정할 수 있어요.
 
 ![](vmware-04.png)
 
-You may wish to join "VMware Customer Experience Improvement Program".
+"VMware 고객 경험 개선 프로그램"에 가입할 수 있어요.
 
 ![](vmware-05.png)
 
-Enter the current username.
+현재 사용자명을 입력하세요.
 
 ![](vmware-06.png)
 
-Enter a location for Shared VMs (this is different to each users own VMs).
+공유 VM의 위치를 입력하세요 (각 사용자 소유의 가상 머신마다 다름).
 
 ![](vmware-07.png)
 
-Enter a port for HTTPS access
+HTTPS 접속을 위해 포트 번호를 입력하세요
 
 ![](vmware-08.png)
 
-If you have a product key, you can enter it now, else it will be a trial for 30 days.
-
+제품 키를 보유하고 있다면 입력하고, 아니라면 30일 평가판으로 제공돼요.
 ![](vmware-09.png)
 
-You may be once again prompt for superuser privileges if you didn't execute the setup file with it.
+설치 파일을 슈퍼유저 권한으로 실행하지 않았다면 다시 한 번 권한을 요청할 수 있어요.
 
 ![](vmware-10.png)
 
-The final screen should look like this.
+마지막 화면은 다음과 같은 모습이여야 해요.
 
 ![](vmware-11.png)
 
-If you now wish, you are able to [install Kali Linux in a VMware VM](/docs/virtualization/install-vmware-guest-vm/) (on Kali Linux).
+이제 원한다면, 칼리 리눅스에서 [VMware VM에 칼리 리눅스 설치](/docs/virtualization/install-vmware-guest-vm/)를 할 수 있어요.
 
 ---
 
-### Troubleshooting
+### 문제 해결
 
-#### libaio missing
+#### libaio 누락
 
-If you see the following problem, upon trying to run `vmware`.
+`vmware`을 실행할 때 다음과 같은 문제가 발생할 수 있어요.
 
-Try installing the [libaio1](https://packages.debian.org/testing/libaio1) package:
+[libaio1](https://packages.debian.org/testing/libaio1) 패키지 설치를 시도해 보세요:
 
 ```console
 kali@kali:~$ vmware
@@ -152,13 +152,13 @@ kali@kali:~$ sudo apt install -y libaio1
 kali@kali:~$
 ```
 
-Then the next time you start `vmware`, it should of gone away.
+그 후 `vmware`을 다시 실행하면 문제가 해결될 거에요.
 
 ---
 
-#### Missing Packages
+#### 누락된 패키지
 
-From time to time, things may not go right. There could be a number of reasons why VMware may not install. The first thing to check would be you have all the necessary packages installed:
+때때로 일이 잘 풀리지 않을 수도 있어요. VMware가 설치되지 않는 데에는 여러가지 이유가 있을 수 있으며 가장 먼저 확인해봐야 할 것은 모든 패키지가 설치되어 있는지 확인해 보는 거에요:
 
 ```console
 kali@kali:~$ sudo apt install -y build-essential linux-headers-$( uname -r ) vlan libaio1
@@ -166,13 +166,13 @@ kali@kali:~$ sudo apt install -y build-essential linux-headers-$( uname -r ) vla
 kali@kali:~$
 ```
 
-Try running `vmware` again, and see if now setup continues.
+`vmware`을 다시 실행하고 설정이 계속 가능한지 확인하세요.
 
 ---
 
-#### Too Newer Kernel
+#### 커널 버전이 너무 최신인 경우
 
-A common issue is because the setup file for VMware isn't supporting the latest kernels, which could be an issue as Kali Linux is a [rolling distribution](/docs/general-use/kali-branches/) and receives frequent updates. If this is the case, we can patch VMware modules to support this:
+일반적인 문제는 VMware 설치 파일이 최신 커널을 지원하지 않기 때문이에요, 이는 칼리 리눅스가 [롤링 배포판](/docs/general-use/kali-branches/)으로 자주 업데이트를 받기 때문에 발생할 수 있어요. 이런 경우 VMware 모듈을 패치하여 문제를 해결할 수 있어요:
 
 ```console
 kali@kali:~$ sudo apt install -y git
@@ -194,15 +194,15 @@ kali@kali:/opt/vmware-host-modules$ sudo make install
 kali@kali:/opt/vmware-host-modules$
 ```
 
-Try now to install VMware, by doing `vmware.`
+이제 `vmware`를 실행하여 VMware을 설치해 보세요.
 
-If you are still having issues, you may need to restart your Kali Linux before trying one more final time.
+계속 문제를 겪고 있다면, 칼리 리눅스를 재부팅 후 마지막으로 시도해 보세요.
 
 ---
 
-#### vmware-host-modules + Kernel Updates
+#### vmware-host-modules + 커널 업데이트
 
-As VMware has various kernel modules, we need to make sure they are kept up-to-date and re-patched when Kali Linux's kernel gets updated. This can be achieved by the steps in the [following guide](https://docs.fedoraproject.org/en-US/quick-docs/how-to-use-vmware/):
+VMware에는 다양한 커널 모듈이 포함되어 있으므로, 칼리 리눅스의 커널이 업데이트될 때마다 최신 상태로 유지하고 다시 패치해야 해요. 이는 [다음 가이드](https://docs.fedoraproject.org/en-US/quick-docs/how-to-use-vmware/)의 단계를 따르세요:
 
 ```console
 kali@kali:~$ sudo tee /etc/kernel/install.d/99-vmmodules.install << EOF
@@ -243,9 +243,9 @@ kali@kali:~$
 
 ---
 
-#### Still can't start up VMware? vmware-modconfi
+#### VMware을 계속 시작할 수 없나요? vmware-modconfi
 
-If VMware is unsuccessful, we can dig a little further by running the following:
+VMware가 제대로 작동하지 않으면, 다음 명령어를 사용하여 좀 더 자세히 살펴볼 수 있어요:
 
 ```console
 kali@kali:~$ sudo vmware-modconfig --console --install-all
@@ -256,16 +256,16 @@ kali@kali:~$ sudo vmware-modconfig --console --install-all 2>&1 | grep error
 kali@kali:~$
 ```
 
-Looking at the output, may either give us the exact issue, or at the very least something to search the Internet for.
+출력을 확인하면 정확한 문제를 확인하거나 최소한 인터넷에서 검색할 단서를 얻을 수 있어요.
 
 ---
 
-#### Can't Power on a Virtual Machine
+#### 가상 머신의 전원을 켤 수 없음
 
-You may also face the following issues, when trying to power on a VM.
+VM의 전원을 키려고 시도 할 때, 다음과 같은 문제가 발생할 수도 있어요.
 
 - `Failed to initialize monitor device`
 - `Could not open /dev/vmmon: No such file or directory. Please make sure that kernel module 'vmmon' is loaded`
 - `Unable to change virtual machine power state: Transport (VMDB) error -14: Pipe connection has been broken.`
 
-The quickest solution to fix these would be to reboot Kali Linux and try again.
+가장 빠른 해결책은 칼리 리눅스를 재부팅 후 다시 시도하는 것이에요.
