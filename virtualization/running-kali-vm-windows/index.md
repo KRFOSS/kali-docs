@@ -1,42 +1,43 @@
 ---
-title: Running Kali Linux as a Virtual Machine in Windows
+title: Windows에서 가상 머신으로 칼리 리눅스 실행하기
 description:
 icon:
 weight:
 author: ["tjnull",]
+번역: ["xenix4845"]
 ---
 
-As time moves on Antivirus and EDR programs are working to implement new capabilities to identify hacking tools. These hacking tools are usually signatured by Antivirus programs to protect the host operating system from being infected. Many of the tools, exploits, and resources that are contained in Kali Linux have been signatured by these Antivirus products. So how does signature based detection work?
+시간이 지남에 따라 안티바이러스와 EDR 프로그램들은 해킹 도구를 식별하기 위한 새로운 기능들을 구현하고 있어요. 이러한 해킹 도구들은 보통 호스트 운영 체제가 감염되는 것을 방지하기 위해 안티바이러스 프로그램에 의해 시그니처(특성 정보)가 등록돼요. 칼리 리눅스에 포함된 많은 도구, 익스플로잇, 리소스들이 이러한 안티바이러스 제품들에 의해 시그니처가 등록되어 있어요. 그렇다면 시그니처 기반 탐지는 어떻게 작동할까요?
 
-An antivirus signature is a sequence of bytes that are contained within a program. The files on your host system are scanned and the antivirus program compares them against there database that contains these signatures to see if there is a match. When a match is identified the file is quarantined and removed from the host system.
+안티바이러스 시그니처는 프로그램 내에 포함된 바이트 시퀀스예요. 호스트 시스템의 파일들이 스캔되고 안티바이러스 프로그램은 이러한 시그니처를 포함하는 데이터베이스와 비교하여 일치하는지 확인해요. 일치하는 것이 발견되면 해당 파일은 격리되고 호스트 시스템에서 제거돼요.
 
-Although the antivirus program is doing its job, there are some ways that we can protect our Kali Linux Virtual Machine from being quarantined by the host Antivirus Software. This process will focus on implementing these exclusions with Windows Security: 
+안티바이러스 프로그램이 자신의 역할을 수행하고 있지만, 호스트 안티바이러스 소프트웨어에 의해 칼리 리눅스 가상 머신이 격리되는 것을 방지하는 몇 가지 방법이 있어요. 이 과정은 Windows 보안에서 이러한 예외 항목을 구현하는 데 중점을 둘 거예요:
 
-## Setting an Exclusion Folder in Windows Security
+## Windows 보안에서 예외 폴더 설정하기
 
 {{% notice info %}}
-This process will work on Windows 10 and Windows 11
+이 과정은 Windows 10과 Windows 11에서 작동해요
 {{% /notice %}}
 
-In Windows you can stop Windows Security from alerting you or blocking your virtual machine by adding it to the exclusion list. To do this you need to go to the following: 
+Windows에서는 예외 목록에 가상 머신을 추가하여 Windows 보안이 알림을 표시하거나 가상 머신을 차단하는 것을 방지할 수 있어요. 이를 위해서는 다음과 같이 진행해야 해요:
 
-1. Select "Start"  > "Settings"  > "Update & Security"  > "Windows Security" > "Virus & threat protection".
+1. "시작" > "설정" > "업데이트 및 보안" > "Windows 보안" > "바이러스 및 위협 방지"를 선택하세요.
 
 ![](run-kali-vm-windows-1.png)
 
-2. Under "Virus & threat protection settings", select "Manage settings", and then under "Exclusions", select "Add or remove exclusions".
+2. "바이러스 및 위협 방지 설정" 아래에서 "설정 관리"를 선택하고, "예외" 아래에서 "예외 추가 또는 제거"를 선택하세요.
 
 ![](run-kali-vm-windows-2.png)
 
-3. Select  "Add an exclusion". A drop down menu will appear and then you can select files, folders, file types, or process. If you select the folder exclusion will apply to all subfolders within the folder as well.
+3. "예외 추가"를 선택하세요. 드롭다운 메뉴가 나타나면 파일, 폴더, 파일 유형 또는 프로세스를 선택할 수 있어요. 폴더를 선택하면 예외가 해당 폴더 내의 모든 하위 폴더에도 적용돼요.
 
 ![](run-kali-vm-windows-3.png)
 
-4. Select the folder you want to use that will contain the files needed to run your Kali Linux Virtual Machine. (In this situation I want to save my Kali Linux Virtual Machine in a folder that I made on my Desktop.)
+4. 칼리 리눅스 가상 머신을 실행하는 데 필요한 파일을 포함할 폴더를 선택하세요. (이 상황에서는 내 데스크톱에 만든 폴더에 칼리 리눅스 가상 머신을 저장하고 싶어요.)
 
 ![](run-kali-vm-windows-4.png)
 
-Now that the folder is set as an exclusion, Windows Security will not scan the folder that contains your Kali Linux Virtual Machine. 
+이제 폴더가 예외로 설정되었으므로 Windows 보안은 칼리 리눅스 가상 머신이 포함된 폴더를 스캔하지 않을 거예요.
 
-## References
-- https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26
+## 참고 자료
+- https://support.microsoft.com/ko-kr/windows/windows-보안에-예외-추가-811816c0-4dfd-af4a-47e4-c301afe13b26
