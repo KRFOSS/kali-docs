@@ -20,7 +20,7 @@ author: ["Re4son", "yesimxev",]
 - [넷헌터 빌드](#40-넷헌터-빌드)
 - [넷헌터 설치](#50-안드로이드에-넷헌터-설치하기)
 - [설치 후 설정](#60-설치-후-설정)
-- [칼리 넷헌터 공격 및 기능](#70-칼리-넷헌터-공격-및-기능)
+- [칼리 넷헌터 애플리케이션](#70-칼리-넷헌터-애플리케이션)
 - [새로운 기기에 넷헌터 포팅](#80-새로운-기기에-넷헌터-포팅하기)
 - [동작 확인된 하드웨어](#90-동작-확인된-하드웨어)
 - [넷헌터 앱](#100-넷헌터-앱)
@@ -96,7 +96,7 @@ author: ["Re4son", "yesimxev",]
 
 넷헌터 라이트는 루팅되고 커스텀 리커버리가 있는 모든 안드로이드 기기에 설치할 수 있어요.
 전체 넷헌터 경험을 위해서는 칼리 넷헌터용으로 특별히 제작된 기기별 커널이 필요해요.
-[넷헌터 GitLab 저장소](https://gitlab.com/kalilinux/nethunter)에는 100개 이상의 기기를 위한 230개 이상의 커널이 포함되어 있어요. 칼리 리눅스는 [넷헌터 다운로드 페이지](https://kali.org/get-kali/)에서 가장 인기 있는 기기용 이미지를 게시해요.
+[넷헌터 GitLab 저장소](https://gitlab.com/kalilinux/nethunter)에는 100개 이상의 기기를 위한 230개 이상의 커널이 포함되어 있어요. 칼리 리눅스는 [넷헌터 다운로드 페이지](/get-kali/)에서 가장 인기 있는 기기용 이미지를 게시해요.
 다음 실시간 보고서는 GitLab CI에 의해 자동으로 생성돼요:
 
 - [분기별로 게시되는 공식 넷헌터 이미지 목록](https://nethunter.kali.org/images.html)
@@ -140,19 +140,29 @@ GitLab 저장소에서 넷헌터 이미지를 빌드하고 싶은 분들은 Pyth
 - 커스텀 명령어를 설정해요.
 - Exploit-Database를 초기화해요.
 
-## 7.0 칼리 넷헌터 공격 및 기능
+## 7.0 칼리 넷헌터 애플리케이션
 
-#### 칼리 넷헌터 애플리케이션
+이것은 대부분의 칼리 넷헌터 유저스페이스 도구를 포함하는 안드로이드 APK예요. 상태 정보와 넷헌터 자체(커널과 chroot)를 관리하는 도구들, 그리고 다양한 도구와 공격들이 포함되어 있어요.
+
+chroot가 실행되지 않으면 공격 메뉴들이 회색으로 표시돼요. 일부 공격은 첫 사용 시 추가 요구사항을 다운로드하라고 알려줄 거예요.
+
+### 넷헌터 관리
 
 - [**홈 화면**](/docs/nethunter/nethunter-home-screen/) - 일반 정보 패널, 네트워크 인터페이스 및 HID 기기 상태.
 - [**칼리 Chroot 매니저**](/docs/nethunter/nethunter-chroot-manager/) - chroot 메타패키지 설치 관리.
 - [**설정**](/docs/nethunter/nethunter-settings/) - 부트 애니메이션 선택 및 다양한 설정 수정.
 - [**커널**](/docs/nethunter/nethunter-kernel/) - 커널 검색, 다운로드 및 플래시
 - [**모듈**](/docs/nethunter/nethunter-modules/) - 모듈 로드
+
+### 도구
+
 - [**칼리 서비스**](/docs/nethunter/nethunter-kali-services/) - 다양한 chroot 서비스 시작/중지. 부팅 시 활성화 또는 비활성화.
 - [**커스텀 명령어**](/docs/nethunter/nethunter-custom-commands/) - 런처에 자신만의 커스텀 명령어와 기능 추가.
-- [**MAC 체인저**](/docs/nethunter/nethunter-mac-changer/) - Wi-Fi MAC 주소 변경 (특정 기기에서만)
+
+### 공격
+
 - [**KeX 매니저**](/docs/nethunter/nethunter-kex-manager/) - 칼리 chroot와 즉시 VNC 세션 설정.
+- [**MAC 체인저**](/docs/nethunter/nethunter-mac-changer/) - Wi-Fi MAC 주소 변경 (특정 기기에서만)
 - [**오디오 매니저**](/docs/nethunter/nethunter-audio/) - KeX용 오디오 활성화.
 - [**USB 아스날**](/docs/nethunter/nethunter-usbarsenal/) - USB 가젯 구성 제어.
 - [**HID 공격**](/docs/nethunter/nethunter-hid-attacks/) - Teensy 스타일의 다양한 HID 공격.
@@ -166,6 +176,9 @@ GitLab 저장소에서 넷헌터 이미지를 빌드하고 싶은 분들은 Pyth
 - [**NMap 스캔**](/docs/nethunter/nethunter-nmap/) - 빠른 Nmap 스캐너 인터페이스.
 - [**Metasploit 페이로드 생성기**](/docs/nethunter/nethunter-mpg/) - 실시간으로 Metasploit 페이로드 생성.
 - [**Searchsploit**](/docs/nethunter/nethunter-searchsploit/) - [Exploit-Database](https://www.exploit-db.com/)에서 익스플로잇 쉽게 검색.
+- [**파인애플 커넥터**] - USB를 통해 Hak5 WiFi 파인애플에 안드로이드로부터 wifi 제공
+- [**워드라이빙**](/docs/nethunter/nethunter-wardriving/) - 주변 wifi 네트워크를 수동적으로 스니핑
+- [**Deauth**] - wifi deauth 공격 수행
 - [**CAN 아스날**](/docs/nethunter/nethunter-canarsenal/) - CAN 버스 테스트, 진단 또는 자동차 해킹.
 
 ## 8.0 새로운 기기에 넷헌터 포팅하기
