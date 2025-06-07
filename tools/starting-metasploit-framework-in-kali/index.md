@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
-번역: ["ryuyijun","xenix4845"]
+번역: ["xjnkr","xenix4845"]
 ---
 
 [칼리 리눅스 네트워크 서비스 정책](/policy/kali-linux-network-service-policy/)에 따라, 데이터베이스 서비스를 포함한 모든 네트워크 서비스는 기본적으로 부팅 시 실행되지 않습니다. 따라서 [Metasploit](https://www.metasploit.com/)을 데이터베이스 지원과 함께 실행하기 위해서는 몇 가지 단계를 거쳐야 합니다.

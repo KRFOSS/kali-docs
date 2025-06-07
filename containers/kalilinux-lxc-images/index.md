@@ -4,7 +4,7 @@ description:
 icon: 
 weight: 
 author: ["re4son",]
-번역: ["ryuyijun",]
+번역: ["xjnkr",]
 ---
 ## 목차:
 

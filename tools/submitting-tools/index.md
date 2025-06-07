@@ -5,7 +5,7 @@ description:
 icon:
 weight:
 author: ["gamb1t",]
-번역: ["ryuyijun","xenix4845"]
+번역: ["xjnkr","xenix4845"]
 ---
 
 ## 준비 사항

@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["gad3r",]
-번역: ["ryuyijun",]
+번역: ["xjnkr",]
 ---
 
 #### 설치 과정
