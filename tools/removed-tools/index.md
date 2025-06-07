@@ -4,7 +4,7 @@ description:
 icon:
 weight:
 author: ["g0tmi1k",]
-번역: ["ryuyijun",]
+번역: ["xjnkr",]
 ---
 
 불행히도 여러 가지 이유로 인해 모든 도구를 Kali에 항상 포함시킬 수는 없습니다. 아래는 Kali Linux에서 삭제된 도구 목록입니다:
