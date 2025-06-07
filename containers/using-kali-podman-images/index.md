@@ -4,7 +4,7 @@ description:
 icon: 
 weight: 
 author: ["gamb1t"]
-번역: ["ryuyijun","xenix4845"]
+번역: ["xjnkr","xenix4845"]
 ---
 Podman(포드맨)은 다양한 시스템에서 [설치 방법](https://podman.io/getting-started/installation)에 대한 매우 좋은 문서를 제공합니다. 우리는 공식 문서를 따르는 것을 권장하지만, 데비안 기반 시스템에서는 매우 간단한 명령어로 설치할 수 있습니다:
 
