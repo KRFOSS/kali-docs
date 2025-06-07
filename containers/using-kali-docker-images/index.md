@@ -4,7 +4,7 @@ description:
 icon: 
 weight: 
 author: ["gamb1t"]
-번역: ["ryuyijun"]
+번역: ["xjnkr"]
 ---
 [칼리 리눅스 도커 이미지](/containers/official-kalilinux-docker-images/)를 사용하기 위해 다음 명령어를 실행합니다:
 
