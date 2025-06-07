@@ -4,7 +4,7 @@ description:
 icon: 
 weight: 
 author: ["gamb1t", "elreydetoda", "gad3r",]
-번역: ["ryuyijun",]
+번역: ["xjnkr",]
 ---
 
 칼리에 Docker를 설치하려면 이미 “docker”라는 이름의 패키지가 있으므로 다른 이름으로 Docker를 설치해야 합니다. 도커를 설치하면 컨테이너 버전으로 끝나지 않습니다. 설치할 버전의 이름은 `docker.io`입니다. 그러나 모든 명령은 동일하므로 명령줄에서 docker를 실행하면 적절한 명령어가 됩니다:
