@@ -149,11 +149,11 @@ kali@kali:~$ time ./build.sh \
   --verbose \
   --installer \
   --distribution kali-last-snapshot \
-  --version 2025.1 \
-  --subdir kali-2025.1
+  --version 2025.2 \
+  --subdir kali-2025.2
 [...]
 ***
-GENERATED KALI IMAGE: ./images/kali-2025.1/kali-linux-2025.1-installer-amd64.iso
+GENERATED KALI IMAGE: ./images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
 ***
 kali@kali:~$
 ```

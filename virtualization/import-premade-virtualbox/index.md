@@ -1,4 +1,4 @@
----
+ ---
 title: 미리 만들어진 칼리 VirtualBox VM 가져오기
 description:
 icon:
@@ -12,7 +12,7 @@ author: ["gamb1t", "arnaudr"]
 먼저 VirtualBox 이미지를 추출해야 해요:
 
 ```console
-kali@kali:~$ 7z x kali-linux-2025.1-virtualbox-amd64.7z
+kali@kali:~$ 7z x kali-linux-2025.2-virtualbox-amd64.7z
 [...]
 kali@kali:~$
 ```

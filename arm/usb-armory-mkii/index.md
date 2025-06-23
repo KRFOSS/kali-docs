@@ -26,7 +26,7 @@ USB 아머리 MKII에 칼리 리눅스의 표준 빌드 사전 구축 이미지�
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.1-usb-armory-mkii-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.2-usb-armory-mkii-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

@@ -32,7 +32,7 @@ author: ["steev",]
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2024.4-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
+$ xzcat kali-linux-2025.2-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdb bs=4M status=progress
 ```
 
 이 과정은 PC, micro SD 카드 속도, 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있어요.

@@ -20,11 +20,11 @@ VMware의 VMX에서 OVA로 변환하려면 다음과 같이 하면돼요, 우리
 우리는 [공식 Kali Linux VMware 이미지](/get-kali/#kali-virtual-machines)를 변환하는 데 사용할 거에요. 시작하려면 압축을 풀고 그 안에 있는 vmx 파일에 접근하세요:
 
 ```console
-kali@kali:~$ 7z x kali-linux-2025.1-vmware-amd64.7z
+kali@kali:~$ 7z x kali-linux-2025.2-vmware-amd64.7z
 [...]
 kali@kali:~$
 kali@kali:~$ ls kali-linux-*-vmware-amd64.vmwarevm/*vmx
-kali-linux-2025.1-vmware-amd64.vmwarevm/kali-linux-2025.1-vmware-amd64.vmx
+kali-linux-2025.2-vmware-amd64.vmwarevm/kali-linux-2025.2-vmware-amd64.vmx
 kali@kali:~$
 ```
 
@@ -34,7 +34,7 @@ kali@kali:~$
 
 ```console
 kali@kali:~$ ovftool kali-linux-*-vmware-amd64.vmwarevm/*vmx kali-linux-rolling-amd64.ova
-Opening VMX source: kali-linux-2025.1-vmware-amd64.vmwarevm/kali-linux-2025.1-vmware-amd64.vmx
+Opening VMX source: kali-linux-2025.2-vmware-amd64.vmwarevm/kali-linux-2025.2-vmware-amd64.vmx
 Opening OVA target: kali-linux-rolling-amd64.ova
 Writing OVA package: kali-linux-rolling-amd64.ova
 [...]

@@ -16,7 +16,7 @@ author: ["re4son",]
 
 - - -
 
-![](2018.11-Kali-Gem_medium.png)
+![](Kali-Gem_medium.png)
 
 [제미나이 PDA](https://planetcom.squarespace.com/device/)는 최대 3개의 운영 체제를 나란히 설치할 수 있는 키보드가 달린 멀티 부팅 안드로이드 스마트폰입니다(현재는 안드로이드, Sailfish, 데비안, 칼리 리눅스 중 아무거나 3개 선택 가능).
 

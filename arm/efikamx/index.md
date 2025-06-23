@@ -37,7 +37,7 @@ EfikaMX에 표준 칼리 리눅스의 사전 빌드된 이미지를 설치하려
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-2025.1-efikamx.img of=/dev/sdX conv=fsync bs=4M
+$ dd if=kali-linux-2025.2-efikamx.img of=/dev/sdX conv=fsync bs=4M
 ```
 
 이 작업은 여러분의 PC 성능, 마이크로SD 카드 속도, 그리고 칼리 리눅스 이미지 크기에 따라 다소 시간이 소요될 수 있습니다.

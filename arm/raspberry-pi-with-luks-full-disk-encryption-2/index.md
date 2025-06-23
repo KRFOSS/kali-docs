@@ -40,12 +40,12 @@ author: ["gamb1t", "steev"]
 
 우리는 기존 칼리 설치에서 드롭 박스 머신을 만들 것입니다. 다른 Debian 기반 배포판에서도 매우 쉽게 할 수 있으며, 다른 운영체제에서도 상대적으로 간단합니다(Windows 사용자 제외!).
 
-먼저 [최신 안정 버전](/releases/) 칼리 RPi 이미지를 [다운로드](/get-kali/#kali-arm)합니다. 이 글 작성 시점에는 [칼리 2022.2](/blog/kali-linux-2022-2-release/)입니다.
+먼저 [최신 안정 버전](/releases/) 칼리 RPi 이미지를 [다운로드](/get-kali/#kali-arm)합니다. 이 글 작성 시점에는 [칼리 2025.2](/blog/kali-linux-2025-2-release/)입니다.
 우리는 4GB 이상의 RAM을 가지고 있고 [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/)(Hardware Attached on Top)를 사용하지 않기 때문에 64비트 이미지를 선택했습니다. 32비트의 경우 파일 이름을 조정한 후 동일한 단계를 따릅니다:
 
 ```console
-$ wget https://kali.download/arm-images/kali-2025.1/kali-linux-2025.1-raspberry-pi-arm64.img.xz
-$ xzcat kali-linux-2025.1-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
+$ wget https://kali.download/arm-images/kali-2025.2/kali-linux-2025.2-raspberry-pi-arm64.img.xz
+$ xzcat kali-linux-2025.2-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
 ```
 
 - - -
@@ -545,7 +545,7 @@ exit 0
 crypt	PARTUUID=e1750e08-02	none	luks
 
 ┌──(root㉿kali)-[/]
-└─# mkinitramfs -o /boot/initramfs.gz 5.15.44-Re4son-v8l+
+└─# mkinitramfs -o /boot/initramfs.gz 5.15.44-Re4son-v8+
 ```
 
 {{% notice info %}}
@@ -604,65 +604,61 @@ kali@kali:~$ cat kali-encrypted-basic/cryptmypi.conf
 ## cryptmypi profile ##########################################################
 
 
-# EXAMPLE OF A ENCRYPTED KALI CONFIGURATION
-#   Will create a encrypted Kali system:
-#   - during boot the encryption password will be prompted
-#   - with ssh server (available after boot)
-#       The id_rsa.pub public key will be added to authorized_keys
+# ENCRYPTED KALI 예제 설정
+#   암호화된 칼리 시스템을 생성합니다:
+#   - 부팅 시 암호 해제 비밀번호를 입력받음
+#   - ssh 서버 제공(부팅 후 사용 가능)
+#       id_rsa.pub 공개키가 authorized_keys에 추가됨
 #
-#   Some optional hooks are defined on stage2:
-#   - "optional-sys-rootpassword" that sets root password
+#   stage2에서 일부 optional hook이 정의됨:
+#   - "optional-sys-rootpassword"는 root 비밀번호를 설정함
 
 
-# General settings ------------------------------------------------------------
-# You need to choose a kernel compatible with your RPi version.
-#   Kali RPi images name its kernels:
-#   - Re4son+ is for armv6 devices (ie. RPi1, RPi0, and RPi0w)
-#   - v7+ and v8+ suffixes are for the 32bit and 64bit armv7 devices (ie. RPi 3)
-#   - l+ suffix in the name means they will be ready for the RPi4.
+# 일반 설정 ------------------------------------------------------------
+# RPi 버전에 맞는 커널을 선택해야 합니다.
+#   Kali RPi 이미지는 다음과 같이 커널 이름을 가집니다:
+#   - Re4son+ : armv6 장치용(RPi1, RPi0, RPi0w)
+#   - v7+, v8+ 접미사는 32/64비트 armv7 장치용(RPi 3 등)
+#   - l+ 접미사는 RPi4용
 export _KERNEL_VERSION_FILTER="v8+"
 
 # HOSTNAME
-#   Each element of the hostname must be from 1 to 63 characters long and
-#   the entire hostname, including the dots, can be at most 253
-#   characters long. Valid characters for hostnames are ASCII(7) letters
-#   from a to z, the digits from 0 to 9, and the hyphen (-)
+#   각 호스트네임 요소는 1~63자, 전체는 253자 이하, 영문 소문자/숫자/하이픈만 허용
 export _HOSTNAME="kali-encrypted-basic"
 
 # BLOCK DEVICE
-#   The SD card or USD SD card reader block device
-#   - USB drives will show up as the normal /dev/sdX, /dev/sdc, etc.
-#   - MMC/SDcards may show up the same way if the card reader is USB-connected.
-#   - Internal card readers normally show up as /dev/mmcblk0, /dev/mmcblk1, ...
-#   You can use the lsblk command to get an easy quick view of all block
-#   devices on your system at a given moment.
+#   SD 카드 또는 USB SD 카드 리더의 블록 장치
+#   - USB 드라이브는 /dev/sdX, /dev/sdc 등으로 표시됨
+#   - MMC/SD카드는 USB 연결 시 동일하게 표시될 수 있음
+#   - 내장 리더는 /dev/mmcblk0, /dev/mmcblk1 등으로 표시됨
+#   lsblk 명령으로 블록 장치 목록을 쉽게 확인할 수 있음
 export _BLKDEV="/dev/sdX"
 
-# LUKS ENCRYPTION -------------------------------------------------------------
-## Encryption Cypher
+# LUKS 암호화 -------------------------------------------------------------
+## 암호화 알고리즘
 export _LUKSCIPHER="aes-cbc-essiv:sha256"
 
-## Encryption Password
+## 암호화 비밀번호
 export _LUKSPASSWD="luks_password"
 
-## Encryption Extra
-# On rpi0-1-2-3 you may want to reduce the required memory to unlock
+## 추가 옵션
+# rpi0-1-2-3에서는 unlock에 필요한 메모리를 줄이고 싶을 수 있음
 #  _LUKSEXTRA="--pbkdf-memory 131072"
 export _LUKSEXTRA=""
 
 
-# LINUX IMAGE FILE ------------------------------------------------------------
-export _IMAGEURL=https://images.kali.org/arm-images/kali-linux-2025.1-raspberry-pi-arm64.img.xz
+# 리눅스 이미지 파일 ------------------------------------------------------------
+export _IMAGEURL=https://kali.download/arm-images/kali-linux-2025.2/kali-linux-2025.2-raspberry-pi-arm64.img.xz
 export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
-# PACKAGE ACTIONS -------------------------------------------------------------
+# 패키지 작업 -------------------------------------------------------------
 export _PKGSPURGE=""
 export _PKGSINSTALL="tree htop"
 
 
-# MINIMAL SSH CONFIG ----------------------------------------------------------
-#   Keyfile to be used to access the system remotely through ssh.
-#   Its public key will be added to the system's root .ssh/autorized_keys
+# 최소 SSH 설정 ----------------------------------------------------------
+#   원격 ssh 접속에 사용할 키파일
+#   공개키가 시스템 root .ssh/authorized_keys에 추가됨
 export _SSH_LOCAL_KEYFILE="$_USER_HOME/.ssh/id_rsa"
 
 
@@ -670,9 +666,8 @@ export _SSH_LOCAL_KEYFILE="$_USER_HOME/.ssh/id_rsa"
 ## Stage 1 Settings ###########################################################
 
 # Custom Stage1 Profile
-#   Check functions/stage1profiles.fns for reference. You may instruct hooks
-#   here or you may call one predefined stage1profile functions.
-# Optional: if stage1_hooks function is not defined, a prompt will be displayed
+#   functions/stage1profiles.fns 참고. 여기서 hook을 지정하거나 미리 정의된 stage1profile 함수를 호출할 수 있음.
+# Optional: stage1_hooks 함수가 정의되지 않으면 프롬프트가 표시됨
 stage1_hooks(){
     stage1profile_encryption
 }
@@ -683,10 +678,9 @@ stage1_hooks(){
 
 
 # Optional stage 2 hooks
-#   If declared, this function is called during stage2 build by the
-#   stage2-runoptional hook.
+#   선언하면 stage2 빌드 중 stage2-runoptional hook에서 호출됨
 #
-#   Optional function: can be omitted.
+#   Optional function: 생략 가능
 stage2_optional_hooks(){
     myhooks "optional-sys-rootpassword"
 }
@@ -699,9 +693,9 @@ stage2_optional_hooks(){
 # ROOT PASSWORD CHANGER settings ----------------------------------------------
 # Hooks
 #   optional-sys-rootpassword
-#       Changes the system root password
+#       시스템 root 비밀번호 변경
 
-## The new root password
+## 새 root 비밀번호
 export _ROOTPASSWD="root_password"
 ```
 

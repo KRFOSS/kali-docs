@@ -103,11 +103,11 @@ user@mint:~$
 
 - - -
 
-3. (조심스럽게!) USB 장치에 칼리 ISO 파일을 이미징하세요. 작성하고 있는 ISO 이미지의 이름이 "kali-linux-2025.1-live-amd64.iso"이고 현재 작업 디렉토리에 있다고 가정할 거예요.
+3. (조심스럽게!) USB 장치에 칼리 ISO 파일을 이미징하세요. 작성하고 있는 ISO 이미지의 이름이 "kali-linux-2025.2-live-amd64.iso"이고 현재 작업 디렉토리에 있다고 가정할 거예요.
 
 ```console
-user@mint:~$ file kali-linux-2025.1-live-amd64.iso
-kali-linux-2025.1-live-amd64.iso: ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Kali Linux amd64' (bootable)
+user@mint:~$ file kali-linux-2025.2-live-amd64.iso
+kali-linux-2025.2-live-amd64.iso: ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Kali Linux amd64' (bootable)
 user@mint:~$
 ```
 
@@ -126,7 +126,7 @@ DD의 블록크기 매개변수는 증가할 수 있으며, dd 명령어의 작�
 이를 위해 간단히 `status` 플래그를 추가해요:
 
 ```console
-user@mint:~$ sudo dd if=kali-linux-2025.1-live-amd64.iso of=/dev/sdX conv=fsync bs=4M status=progress
+user@mint:~$ sudo dd if=kali-linux-2025.2-live-amd64.iso of=/dev/sdX conv=fsync bs=4M status=progress
 ```
 
 - - -
@@ -134,7 +134,7 @@ user@mint:~$ sudo dd if=kali-linux-2025.1-live-amd64.iso of=/dev/sdX conv=fsync 
 그렇지 않으면, 구형 시스템의 경우:
 
 ```console
-user@mint:~$ sudo dd if=kali-linux-2025.1-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
+user@mint:~$ sudo dd if=kali-linux-2025.2-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 ```
 
 USB 드라이브 이미징은 시간이 꽤 걸릴 수 있어요. 아래 샘플 출력에서 볼 수 있듯이, 10분 이상 걸리는 것은 드문 일이 아니니 참을성을 가지세요!
@@ -156,11 +156,11 @@ USB 드라이브 이미징은 시간이 꽤 걸릴 수 있어요. 아래 샘플 
 플래시를 위한 그래픽 옵션을 원한다면 [Etcher](https://www.balena.io/etcher/)를 권장해요.
 
 1. Etcher를 다운로드하고 실행해요.
-
 2. "이미지 선택"으로 이미징할 칼리 리눅스 ISO 파일을 선택하고 덮어쓸 USB 드라이브가 올바른 것인지 확인해요. 준비되면 "Flash!" 버튼을 클릭해요.
-
 ![](kali-usb-install-windows.png)
+3. Etcher가 이미지가 플래시되었다고 알리면 USB 드라이브를 안전하게 제거할 수 있어요.
 
+이제 USB 장치를 사용하여 칼리 라이브/설치 환경으로 부팅할 수 있어요.
 3. Etcher가 이미지가 플래시되었다고 알리면 USB 드라이브를 안전하게 제거할 수 있어요.
 
 이제 USB 장치를 사용하여 칼리 라이브/설치 환경으로 부팅할 수 있어요.

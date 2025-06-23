@@ -8,10 +8,9 @@ author: ["g0tmi1k",]
 ---
 
 <!--
-이것은 이전에 열렸던 칼리 도고 워크숍이에요
+이것은 이전에 열렸던 칼리 도조 워크숍이에요
 
 이 워크숍에서는 USB 장치에서 칼리 리눅스를 부팅할 때 사용할 수 있는 다양한 기능을 살펴볼 거예요. 영구 저장소, LUKS 암호화된 영구 저장소 생성, 그리고 USB 드라이브의 "LUKS 날리기" 기능까지 알아볼 거예요. 기본 칼리 리눅스 ISO(1.0.7 버전 이상)는 USB 암호화된 영구 저장소를 지원해요.
-
 -->
 
 칼리 리눅스 "라이브"의 기본 부트 메뉴에는 두 가지 영구 저장소 옵션이 있어요. 이를 통해 "Kali Live" USB 드라이브에서 재부팅해도 데이터가 보존되며 다음 중 하나를 사용할 수 있어요:
@@ -37,10 +36,12 @@ author: ["g0tmi1k",]
 
 ---
 
-**0x01 - Kali ISO 이미지를 USB 드라이브(예: /dev/sdX)에 기록하세요.**
+**0x01 - 칼리 ISO를 USB 드라이브에 이미징하는 것으로 시작하세요.**
+
+저희는 /dev/sdX를 사용했어요:
 
 ```console
-kali@kali:~$ sudo dd if=kali-linux-2025.1-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
+kali@kali:~$ sudo dd if=kali-linux-2025.2-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 ```
 
 작업이 끝나면 `parted /dev/sdX print` 명령으로 USB 파티션 구조를 확인할 수 있어요.
@@ -64,7 +65,7 @@ kali@kali:~$
 
 **0x02 - USB 드라이브에 추가 파티션을 만들고 포맷하세요.**
 
-이 예제에서는 Kali Live 파티션 위의 빈 공간에 영구 저장소 파티션을 만들어요.
+이 예제에서는 Kali Live 파티션 위의 빈 공간에 영구 저장소 파티션을 만들어요:
 
 ```console
 kali@kali:~$ sudo fdisk /dev/sdX <<< $(printf "p\nn\np\n\n\n\np\nw")
@@ -130,8 +131,6 @@ Creating journal (65536 blocks): done
 Writing superblocks and filesystem accounting information: done
 
 kali@kali:~$
-kali@kali:~$ sudo e2label /dev/mapper/my_usb persistence
-kali@kali:~$
 ```
 
 ---
@@ -172,7 +171,9 @@ kali@kali:~$ reboot
 
 ## 칼리에서 데이터 긴급 자체 파괴
 
-침투 테스터로서 우리는 종종 노트북에 민감한 데이터를 저장하고 이동해야 해요. 물론 가능한 모든 곳에서 전체 디스크 암호화(FDE)를 사용하며, 칼리 리눅스 기기에도 적용해요. 안전 조치로 [파괴용 비밀번호](/blog/nuke-kali-linux-luks/)를 설정해봅시다:
+<!-- Kali Boot Nuke -->
+
+침투 테스터로서 우리는 종종 노트북에 민감한 데이터를 저장하고 이동해야 해요. 물론 가능한 모든 곳에서 전체 디스크 암호화(FDE)를 사용하며, 가장 민감한 자료를 담고 있는 칼리 리눅스 기기에도 적용해요. 안전 조치로 [파괴용 비밀번호](/blog/nuke-kali-linux-luks/)를 설정해봅시다:
 
 ```console
 kali@kali:~$ sudo apt install -y cryptsetup-nuke-password
@@ -189,7 +190,7 @@ kali@kali:~$
 
 ---
 
-**LUKS 키 슬롯을 백업하고 암호화하세요**
+**LUKS 키슬롯을 백업하고 암호화하세요**
 
 ```console
 kali@kali:~$ sudo cryptsetup luksHeaderBackup --header-backup-file luksheader.back /dev/sdX3
@@ -215,11 +216,11 @@ shred: luksheader.back: pass 3/3 (random)...
 kali@kali:~$
 ```
 
-이제 암호화된 저장소로 부팅한 뒤, 실제 암호 해제 비밀번호 대신 파괴용 비밀번호를 입력하세요. 이렇게 하면 저장소의 모든 정보가 쓸모없게 됩니다. 완료 후 데이터에 접근할 수 없는지 확인하세요.
+이제 암호화된 저장소로 부팅한 뒤, 실제 암호 해제 비밀번호 대신 파괴용 비밀번호를 입력하세요. 이렇게 하면 암호화된 저장소의 모든 정보가 쓸모없게 됩니다. 완료 후 데이터에 접근할 수 없는지 확인하세요.
 
 ---
 
-**이제 데이터를 복원해봅시다.** 백업한 LUKS 키 슬롯을 복호화하여 암호화된 파티션에 복원해요:
+**이제 데이터를 복원해봅시다.** 백업한 LUKS 키슬롯을 복호화하여 암호화된 파티션에 복원해요:
 
 ```console
 kali@kali:~$ sudo openssl enc -d -aes-256-cbc -in luksheader.back.enc -out luksheader.back

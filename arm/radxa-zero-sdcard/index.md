@@ -69,7 +69,7 @@ If you want to customize the Kali Radxa Zero sdcard image, including changes to 
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.1-radxa-zero-sdcard-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.2-radxa-zero-sdcard-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

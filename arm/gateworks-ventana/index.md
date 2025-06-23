@@ -30,7 +30,7 @@ _이 이미지는 "NXP (이전 Freescale) i.MX6" 기반 보드용입니다._
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.1-gateworks-ventana-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.2-gateworks-ventana-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

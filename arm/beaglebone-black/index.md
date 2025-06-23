@@ -45,7 +45,7 @@ You should be able to [log in to Kali](/docs/introduction/default-credentials/).
 If you want to customize the Kali BeagleBone Black image, including changes to the [packages](/docs/general-use/metapackages/) being installed, changing the [desktop environment](/docs/general-use/switching-desktop-environments/), increasing or decreasing the image file size or generally being adventurous, check out the [Kali-ARM Build-Scripts](https://gitlab.com/kalilinux/build-scripts/kali-arm) repository on GitLab, and follow the _README.md_ file's instructions. The script to use is `beaglebone-black.sh`.
 -->
 
-## BeagleBone Black용 칼리 - 빌드 스크립트 안내
+## Beaglebone Black용 칼리 - 빌드 스크립트 안내
 
 칼리에서는 미리 빌드된 이미지를 다운로드 형태로 제공하지 않지만, [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) GitLab 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성할 수 있습니다. 사용해야 할 스크립트는 `beaglebone-black.sh`입니다.
 
@@ -53,9 +53,9 @@ If you want to customize the Kali BeagleBone Black image, including changes to t
 
 이러한 이미지를 생성하는 가장 효율적인 방법은 **기존의 칼리 리눅스 환경 내에서** 작업하는 것입니다.
 
-## BeagleBone Black용 칼리 - 사용자 가이드
+## Beaglebone Black용 칼리 - 사용자 가이드
 
-BeagleBone Black에 칼리를 설치하려면 다음 지침을 따르세요:
+Beaglebone Black에 칼리를 설치하려면 다음 지침을 따르세요:
 
 1. 최소 16GB 용량의 고속 microSD 카드를 준비하세요. Class 10 카드를 강력히 추천합니다.
 2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 기록하세요([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
@@ -67,11 +67,11 @@ BeagleBone Black에 칼리를 설치하려면 다음 지침을 따르세요:
 {{% /notice %}}
 
 ```console
-$ xzcat images/kali-linux-2025.1-beaglebone-black-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat images/kali-linux-2025.2-beaglebone-black-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC 성능, microSD 카드의 속도, 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-_dd_ 작업이 완료되면, microSD 카드를 BeagleBone에 삽입하고 전원을 켜세요.
+_dd_ 작업이 완료되면, microSD 카드를 꽂은 채로 Beaglebone을 부팅하세요.
 
 이제 [칼리에 로그인](/docs/introduction/default-credentials/)할 수 있을 것입니다.
