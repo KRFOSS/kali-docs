@@ -36,6 +36,7 @@ author: ["ShubhamVis98",]
 - 포코 F1(beryllium)
 - 원플러스 6(enchilada)
 - 원플러스 6T(fajita)
+- 낫싱 폰 1(spacewar)
 - 샤오미 Mi MIX 2S(polaris)
 - SHIFT SHIFT6mq(axolotl)
 
@@ -48,7 +49,7 @@ author: ["ShubhamVis98",]
 ##### 파인폰/프로 기기용 설치 단계
 
 ```console
-$ tar -xpf kali-nethunterpro-2025.2-pinephone-phosh.img.tar.xz
+$ xz -d kali-nethunterpro-2025.2-pinephone-phosh.img.xz
 $ dd if=kali-nethunterpro-2025.2-pinephone-phosh.img of=/dev/mmcblkX bs=1M oflag=sync status=progress
 ```
 
@@ -58,14 +59,14 @@ $ dd if=kali-nethunterpro-2025.2-pinephone-phosh.img of=/dev/mmcblkX bs=1M oflag
 
 ```console
 # SD카드에 설치하기:
-$ tar -xpf kali-nethunterpro-2025.2-sdm845.tar.xz
+$ xz -d kali-nethunterpro-2025.2-sdm845.img.xz
 $ simg2img flash userdata nethunterpro-*-sdm845*rootfs.img rootfs_ext4.img
 $ dd if=rootfs_ext4.img of={sdcard_block_device} bs=1M oflag=sync status=progress
 $ fastboot flash boot nethunterpro*boot-{model}-{variant}.img
 $ fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우
 
 # 내장 메모리(EMMC)에 설치하기 (fastboot 방식):
-$ tar -xpf kali-nethunterpro-2025.2-sdm845.tar.xz
+$ tz -d kali-nethunterpro-2025.2-sdm845.img.xz
 $ fastboot flash userdata nethunterpro-*-sdm845*rootfs.img
 $ fastboot flash boot nethunterpro*boot-{model}-{variant}.img
 $ fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우
