@@ -66,7 +66,7 @@ $ fastboot flash boot nethunterpro*boot-{model}-{variant}.img
 $ fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우
 
 # 내장 메모리(EMMC)에 설치하기 (fastboot 방식):
-$ tz -d kali-nethunterpro-2025.2-sdm845.img.xz
+$ xz -d kali-nethunterpro-2025.2-sdm845.img.xz
 $ fastboot flash userdata nethunterpro-*-sdm845*rootfs.img
 $ fastboot flash boot nethunterpro*boot-{model}-{variant}.img
 $ fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우
