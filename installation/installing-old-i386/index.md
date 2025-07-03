@@ -17,6 +17,6 @@ author: ["arnaudr", "gamb1t",]
 
 ## 오래된 i386 이미지 사용하기
 
-i386 아키텍처를 지원하는 마지막 칼리 리눅스 릴리스는 `2024.3`이었어요. 하지만 [잘 있어요 i386](https://www.kali.org/blog/kali-linux-2024-4-release/)이 발표됨에 따라서 미러에서는 볼 수 없게 되었어요.
+i386 아키텍처를 지원하는 마지막 칼리 리눅스 릴리스는 [2024.3](https://kali.org/blog/kali-linux-2024-3-release/)이었어요. 하지만 [잘 있어요 i386](https://www.kali.org/blog/kali-linux-2024-4-release/)이 발표됨에 따라서 미러에서는 볼 수 없게 되었어요.
 
 i386 이미지를 다운 받으려면 [old.kali.org](https://old.kali.org/kali-images/kali-2024.3/)에서 받을 수 있어요. 이곳에서는 과거 이미지들을 모두 보관하고 있답니다!
