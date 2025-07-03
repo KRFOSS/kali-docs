@@ -139,7 +139,7 @@ WSL(WSL 1 또는 WSL 2)을 설치하는 방법은 여러 가지가 있습니다:
 <!-- This is because WSL 2 was back ported for older Windows versions, and was initially released for this version which is why older versions are supported, but this command is not offered -->
 
 WSL 헬퍼 스크립트 방식은 (다른 방법과 달리) WSL과 칼리를 모두 설치합니다. WSL 1과 WSL 2를 모두 지원하므로, Hyper-V VM을 활성화하고 WSL 커널을 설정합니다.
-단점은 **2022년 11월 패치 이전의 윈도우 10**을 사용하는 경우, 알려진 문제로 인해 **이전 버전의 칼리**(칼리 2019.2)가 WSL에 설치된다는 것입니다.
+단점은 **2022년 11월 패치 이전의 윈도우 10**을 사용하는 경우, 알려진 문제로 인해 **이전 버전의 칼리**([칼리 2019.2](https://kali.org/blog/kali-linux-2019-2-release/))가 WSL에 설치된다는 것입니다.
 [2022년 11월 패치](https://devblogs.microsoft.com/commandline/the-windows-subsystem-for-linux-in-the-microsoft-store-is-now-generally-available-on-windows-10-and-11/)를 적용하면 헬퍼 스크립트가 마이크로소프트 스토어([WSL](#wsl-in-microsoft-store)과 [칼리](#kali-in-microsoft-store) 모두)에서 업데이트를 가져올 수 있게 됩니다.
 <!-- wrapper/helper-script which gets replaced with the 'real' program on install -->
 

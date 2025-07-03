@@ -22,4 +22,4 @@ author: ["gamb1t",]
 | [kali-linux-everything](https://kali.org/tools/kali-meta/#kali-linux-everything) | 34G  | 35G   | 36G  | 34G      |
 <!--| kali-linux-headless   |      |       |      |          |-->
 
-_위 내용은 2024년 2월, Kali 2024.1 버전 기준으로 작성되었어요._
+_위 내용은 2024년 2월, [칼리 2024.1](https://kali.org/blog/kali-linux-2024-1-release/)버전 기준으로 작성되었어요._

@@ -36,4 +36,4 @@ kali@kali:~$
 
 - - -
 
-이 정책은 칼리 리눅스 2020.1부터 적용되었어요. [이전 루트 정책](/docs/policy/kali-linux-root-user-policy/)도 여기서 확인할 수 있어요.
+이 정책은 [칼리 리눅스 2020.1](https://kali.org/blog/kali-linux-2020-1-release/)부터 적용되었어요. [이전 루트 정책](/docs/policy/kali-linux-root-user-policy/)도 여기서 확인할 수 있어요.

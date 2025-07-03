@@ -7,7 +7,7 @@ author: ["g0tmi1k",]
 번역: ["xenix4845"]
 ---
 
-"게스트 도구"를 설치하면 VMware VM에서 더 나은 사용자 경험을 제공해요. 이 때문에 칼리 리눅스 2019.3부터 [설정 과정](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) 중에 **칼리 리눅스가 VM 내부에 있는지 감지**해야 해요. 그렇다면 **추가 도구를 자동으로 설치**해요(VMware의 경우 `open-vm-tools`와 `open-vm-tools-desktop`). 게스트 도구는 칼리 리눅스 2021.3부터 라이브 이미지에도 사전 설치되어 있어요.
+"게스트 도구"를 설치하면 VMware VM에서 더 나은 사용자 경험을 제공해요. 이 때문에 [칼리 리눅스 2019.3](https://kali.org/blog/kali-linux-2019-3-release/)부터 [설정 과정](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) 중에 **칼리 리눅스가 VM 내부에 있는지 감지**해야 해요. 그렇다면 **추가 도구를 자동으로 설치**해요(VMware의 경우 `open-vm-tools`와 `open-vm-tools-desktop`). 게스트 도구는 [칼리 리눅스 2021.3](https://kali.org/blog/kali-linux-2021-3-release/)부터 라이브 이미지에도 사전 설치되어 있어요.
 
 2015년 9월부터 **VMware는 게스트 머신용 VMware Tools 패키지 대신 배포판별 [open-vm-tools](https://packages.debian.org/testing/open-vm-tools) (Open-VM-Tools) 사용을 [권장](https://blogs.vmware.com/vsphere/2015/09/open-vm-tools-ovt-the-future-of-vmware-tools-for-linux.html)하고** 있어요.
 

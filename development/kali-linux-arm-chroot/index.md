@@ -53,7 +53,7 @@ kali@kali:~$ git clone git://gitlab.com/kalilinux/packages/gcc-arm-eabi-linaro-4
 kali@kali:~$ export CROSS_COMPILE=~/arm-stuff/kernel/toolchains/gcc-arm-eabi-linaro-4.6.2/bin/arm-eabi-
 ```
 
-그런 다음 특정 플랫폼에 대한 빌드 스크립트를 간단히 실행하면 돼요. 예를 들어, 칼리 리눅스 2016.2의 라즈베리 파이 빌드는 다음 명령을 실행하면 돼요:
+그런 다음 특정 플랫폼에 대한 빌드 스크립트를 간단히 실행하면 돼요. 예를 들어, [칼리 리눅스 2016.2](https://www.kali.org/blog/kali-linux-2016-2-release/)의 라즈베리 파이 빌드는 다음 명령을 실행하면 돼요:
 
 ```console
 kali@kali:~$ cd ~/

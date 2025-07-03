@@ -27,7 +27,7 @@ _참고: 이는 구성 파일 `/etc/ssh/ssh_config.d/kali-wide-compat.conf`를 �
 
 이 패키지는 실용적으로 버전 7.5(2017년 3월 출시)에서 동결된 OpenSSH예요. `ssh`, `scp`, `ssh-keygen`에 대한 바이너리를 각각 `ssh1`, `scp1`, `ssh-keygen1`이라는 이름으로 제공해요. 왜 버전 7.5인지 물을 수 있어요? 이는 **SSH v.1 프로토콜**을 지원하는 OpenSSH의 마지막 릴리스이기 때문이에요. 시간이 지남에 따라 이 오래된 버전은 버전 9.8에서 제거된 **DSA 키** 지원과 같은 다른 제거된 기능을 계속 사용하는 데 유용해졌어요.
 
-[칼리 리눅스 2024.4](/blog/kali-linux-2024-4-release/) 출시 이후로, `openssh-client-ssh1` 패키지가 기본으로 설치돼요. 시스템을 업그레이드하고 이 기능이 필요한 다른 사용자의 경우 패키지를 설치하는 것이 쉬워요:
+[칼리 리눅스 2024.4](https://www.kali.org/blog/kali-linux-2024-4-release/) 출시 이후로, `openssh-client-ssh1` 패키지가 기본으로 설치돼요. 시스템을 업그레이드하고 이 기능이 필요한 다른 사용자의 경우 패키지를 설치하는 것이 쉬워요:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -49,7 +49,7 @@ kali@kali:~$
 ## SSH 클라이언트: GSS-API 지원
 
 {{% notice info %}}
-이것은 시스템을 업그레이드하여 이 기능을 잃은 칼리 리눅스 사용자를 위한 것이에요. 이 패키지는 2024.4부터 칼리 리눅스에 사전 설치되어 있어요.
+이것은 시스템을 업그레이드하여 이 기능을 잃은 칼리 리눅스 사용자를 위한 것이에요. 이 패키지는 [2024.4](https://www.kali.org/blog/kali-linux-2024-4-release/)부터 칼리 리눅스에 사전 설치되어 있어요.
 
 2024년 9월 23일 현재, 이 패키지는 현재 변경 로그만 포함하고 있어요. 이 패키지는 OpenSSH 패키지에서 GSS-API 변경이 발생할 때를 위한 자리 표시자예요.
 {{% /notice %}}
@@ -69,7 +69,7 @@ kali@kali:~$
 
 ## SSH 서버: 자동 호스트 키 생성
 
-[칼리 리눅스 2022.1](/blog/kali-linux-2022-1-release/) 출시 이후로, SSH 호스트 키는 누락된 경우 자동으로 생성돼요. 이는 systemd 서비스인 `regenerate-ssh-host-keys`를 통해 이루어져요.
+[칼리 리눅스 2022.1](https://www.kali.org/blog/kali-linux-2022-1-release/) 출시 이후로, SSH 호스트 키는 누락된 경우 자동으로 생성돼요. 이는 systemd 서비스인 `regenerate-ssh-host-keys`를 통해 이루어져요.
 
 그렇다면 SSH 호스트 키는 정확히 무엇인가요? 이 키들은 SSH 서버가 기능을 하기 위해 필요해요. 각 기기마다 고유해야 해요. 이 키들은 `/etc/ssh`에서 찾을 수 있으며 `ssh_host_*_key`라는 이름이 붙어 있어요. 일반적으로 이렇게 보여요:
 

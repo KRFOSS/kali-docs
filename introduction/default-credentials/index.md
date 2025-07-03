@@ -55,4 +55,4 @@ author: ["g0tmi1k",]
 
 - - -
 
-2020.1보다 이전 버전의 칼리 리눅스에 대해서는 [이전 자격 증명 정보](/docs/introduction/kali-linux-default-passwords/) 및 [루트 정책](/docs/policy/kali-linux-root-user-policy/) 정보를 참조하세요.
+[2020.1](https://kali.org/blog/kali-linux-2020-1-release/)보다 이전 버전의 칼리 리눅스에 대해서는 [이전 자격 증명 정보](/docs/introduction/kali-linux-default-passwords/) 및 [루트 정책](/docs/policy/kali-linux-root-user-policy/) 정보를 참조하세요.

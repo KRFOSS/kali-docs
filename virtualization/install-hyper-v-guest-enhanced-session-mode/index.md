@@ -7,7 +7,7 @@ author: ["jetbennett", "mimura1133",]
 번역: ["xenix4845"]
 ---
 
-"게스트 VM 패키지"를 설치하면 일반적으로 VM에서 더 나은 사용자 경험을 제공해요. 이 때문에 칼리 리눅스 2019.3부터 [설정 과정](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) 중에 **칼리 리눅스가 VM 내부에 있는지 감지**해야 해요. 그렇다면 **추가 도구를 자동으로 설치**해요(Hyper-V의 경우 `hyperv-daemons`). 칼리 리눅스 라이브 이미지도 칼리 리눅스 2021.3부터 hyperv-daemons가 사전 설치되어 제공돼요.
+"게스트 VM 패키지"를 설치하면 일반적으로 VM에서 더 나은 사용자 경험을 제공해요. 이 때문에 [칼리 리눅스 2019.3](https://kali.org/blog/kali-linux-2019-3-release/)부터 [설정 과정](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/blob/master/simple-cdd/profiles/offline.downloads) 중에 **칼리 리눅스가 VM 내부에 있는지 감지**해야 해요. 그렇다면 **추가 도구를 자동으로 설치**해요(Hyper-V의 경우 `hyperv-daemons`). 칼리 리눅스 라이브 이미지도 [칼리 리눅스 2021.3](https://kali.org/blog/kali-linux-2021-3-release/)부터 hyperv-daemons가 사전 설치되어 제공돼요.
 
 하지만 이것이 끝이 아니며, 이후에 경험을 개선하기 위해 더 많은 것을 할 수 있어요. Hyper-V가 **원격 데스크톱 프로토콜** (RDP, Remote Desktop Protocol)을 사용하여 가상 머신에 연결할 수 있기 때문이에요.
 

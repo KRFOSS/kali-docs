@@ -67,7 +67,7 @@ Wayland로 전환한 후에는 로그인 화면에서 Wayland와 X11 중에서 �
 
 ### KDE
 
-칼리 리눅스 2023.1<!-- ie. plasma-desktop 4:5.27.0-1 --> 이후부터, Wayland가 KDE 데스크톱의 기본 디스플레이 서버가 되었어요.
+[칼리 리눅스 2023.1](https://www.kali.org/blog/kali-linux-2023-1-release/)<!-- ie. plasma-desktop 4:5.27.0-1 --> 이후부터, Wayland가 KDE 데스크톱의 기본 디스플레이 서버가 되었어요.
 
 이로 인해 문제가 발생한다면(예: 일부 애플리케이션이 제대로 표시되지 않거나, 이전에 없던 그래픽 이슈가 발생한다면), 레거시 X11 서버를 대신 사용해 볼 수 있어요. 로그인 화면에서 선택할 수 있어요: 화면 왼쪽 하단에서 _Desktop Session_을 클릭하고 _Plasma (X11)_을 선택하세요.
 
