@@ -41,7 +41,7 @@ kali@kali:~$ cd kaboxer/hello-kbx
 
 Kaboxer는 도커 데몬에 접근이 필요하므로 사용자가 필요한 권한을 가지고 있는지 확인해야 해요: `docker` 그룹(도커 소켓에 직접 쓰기 접근 권한이 있는)이나 `kaboxer` 그룹(`sudo`로 필요한 권한을 얻을 수 있는)의 일부여야 해요.
 
-칼리 2020.4 이상을 설치했다면, 설치 중에 생성된 초기 사용자는 이미 `kaboxer` 그룹의 일부이고 필요한 권한을 가지고 있을 거예요. `groups` 명령어로 확인할 수 있어요:
+[칼리 2020.4](https://www.kali.org/blog/kali-linux-2020-4-release/) 이상을 설치했다면, 설치 중에 생성된 초기 사용자는 이미 `kaboxer` 그룹의 일부이고 필요한 권한을 가지고 있을 거예요. `groups` 명령어로 확인할 수 있어요:
 
 ```console
 kali@kali:~$ groups
