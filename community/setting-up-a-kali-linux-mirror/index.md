@@ -154,13 +154,13 @@ ftpsync.tar.gz를 홈 디렉토리에 풀지 않았다면, `.ssh/authorized_keys
 
 ### 초기 동기화
 
-archive.kali.org에서 첫 번째 푸시를 기다리는 대신, 가까운 미러와 초기 rsync를 실행하는 게 좋아요. 위에 링크된 미러 목록을 사용해서 하나를 선택해 보세요. ftp.halifax.rwth-aachen.de를 선택했다고 가정하면, 전용 미러 사용자로 다음을 실행할 수 있어요:
+archive.kali.org에서 첫 번째 푸시를 기다리는 대신, 국내 미러를 사용하여 초기 동기화를 수행할 수 있어요. 예를 들어, `mirror.techlabs.co.kr`을 사용할 수 있어요. 이 미러는 한국에 위치하고 있으며, 빠른 속도를 제공해요. 다음 명령어를 사용하여 초기 동기화를 수행할 수 있어요:
 
 ```console
 $ whoami
 archvsync
-$ rsync -qaH ftp.halifax.rwth-aachen.de::kali /srv/mirrors/kali/ &
-$ rsync -qaH ftp.halifax.rwth-aachen.de::kali-images /srv/mirrors/kali-images/ &
+$ rsync -qaH mirror.techlabs.co.kr::kali /srv/mirrors/kali/ &
+$ rsync -qaH mirror.techlabs.co.kr::kali-images /srv/mirrors/kali-images/ &
 ```
 
 ### 방화벽 규칙
