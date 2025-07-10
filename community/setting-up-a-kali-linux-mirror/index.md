@@ -55,7 +55,7 @@ author: ["g0tmi1k",]
   - 2015       :  50 GB
 -->
 
-공식 칼리 리눅스 미러가 되기 위해서는 웹으로 접근 가능한 서버(HTTP 필수, 가능하면 HTTPS도 지원)가 필요하고, **충분한 디스크 공간, 좋은 대역폭, rsync, 그리고 SSH 접속이 활성화**되어 있어야 해요. 서버는 **반드시 고정 IP 주소**를 가지고 있어야 해요. 2024년 3월 기준으로 메인 패키지 저장소는 약 500GB이고 이미지 저장소는 약 175GB인데, 이 수치는 변동될 수 있고 시간이 지남에 따라 천천히 증가할 거예요. 그래서 서버는 최소 1TB의 저장 공간을 확보해야 해요.
+공식 칼리 리눅스 미러가 되기 위해서는 웹으로 접근 가능한 서버(HTTP 필수, 가능하면 HTTPS도 지원)가 필요하고, **충분한 디스크 공간, 좋은 대역폭, rsync, 그리고 SSH 접속이 활성화**되어 있어야 해요. 서버는 **반드시 고정 IP 주소**를 가지고 있어야 해요. 2025년 7월 기준으로 메인 패키지 저장소는 약 500GB이고 이미지 저장소는 약 140GB인데, 이 수치는 변동될 수 있고 시간이 지남에 따라 천천히 증가할 거예요. 그래서 서버는 최소 1TB의 저장 공간을 확보해야 해요.
 
 미러 사이트는 HTTP와 RSYNC를 통해 파일을 제공해야 하니 이 서비스들이 활성화되어 있어야 해요. HTTPS는 선택 사항이에요. HTTP는 HTTPS로 리다이렉트되지 않아야 해요. FTP 액세스는 선택 사항이에요.
 
@@ -66,7 +66,7 @@ author: ["g0tmi1k",]
 미러 전용 계정이 아직 없다면, 계정을 만들어 보세요(여기서는 `archvsync`라고 부를게요):
 
 ```console
-$ sudo adduser --disabled-password archvsync
+$ sudo adduser --disabled-password --shell /bin/bash archvsync
 Adding user 'archvsync' ...
 [...]
 Is the information correct? [Y/n]
@@ -167,13 +167,13 @@ $ rsync -qaH mirror.techlabs.co.kr::kali-images /srv/mirrors/kali-images/ &
 
 네트워크 트래픽을 제한하는 경우, 다음 서비스에 대한 접근이 허용되었는지 확인해 주세요:
 - HTTP (80,443/TCP) - 172.104.27.124 및 54.39.128.230 (이 아이피는 미러 추적에 사용됩니다)
-- SSH (22/TCP) - <archive.kali.org> (또는 `192.99.45.140` 및 `2607:5300:60:508c::`)
-- RSYNC (873/TCP) - <archive.kali.org> (또는 `192.99.45.140` 및 `2607:5300:60:508c::`)
-- RSYNC (873/TCP) - <http.kali.org> (또는 `54.39.128.230` 및 `2607:5300:203:3fe6::`)
+- SSH (22/TCP) - <archive.kali.org> (즉 `192.99.45.140` 및 `2607:5300:60:508c::`)
+- RSYNC (873/TCP) - <archive.kali.org> (즉 `192.99.45.140` 및 `2607:5300:60:508c::`)
+- RSYNC (873/TCP) - <http.kali.org> (즉 `54.39.128.230` 및 `2607:5300:203:3fe6::`)
 
 ### ISO 이미지 수동 미러링을 위한 cron 설정
 
-ISO 이미지 저장소는 푸시 미러링을 사용하지 않아서 일일 rsync 실행을 예약해야 해요. 바로 사용할 수 있는 `bin/mirror-kali-images` 스크립트가 제공되니, 이걸 전용 사용자의 crontab에 추가해 보세요. `etc/mirror-kali-images.conf`만 설정하면 돼요:
+ISO 이미지 저장소는 푸시 미러링을 사용하지 않으므로, 일일 rsync 실행을 예약해야 해요. `bin/mirror-kali-images` 스크립트가 제공되니, 전용 사용자의 crontab에 추가하세요. `etc/mirror-kali-images.conf`만 설정하면 돼요:
 
 ```console
 $ whoami
@@ -188,16 +188,28 @@ $ crontab -l
 39 3 * * * ~/bin/mirror-kali-images
 ```
 
-archive.kali.org가 동시에 너무 많은 미러로 과부하되지 않도록 _정확한 시간은 조정해 주세요_.
+중요한 건 archive.kali.org에 너무 많은 미러가 동시에 몰리지 않게 조정해주세요. 예를 들어, 매일 오전 3시 39분에 실행되도록 설정했어요. 
+
+ROKFOSS 프로젝트에서는 칼리 이미지처럼 변동이 자주 있지 않은 저장소의 경우 국내 미러를 통해서 업데이트 하는 걸 권장해요. 이는 원본 서버에 대한 부담을 줄여줄 수 있고 국내 미러를 통해서 동기화하므로 속도도 빠를 거예요! 우리는 그중에서 mirror.techlabs.co.kr를 추천해요.
 
 ## 사설 칼리 리눅스 미러 설정 방법
 
 사설 미러를 설정하고 싶다면, 다음과 같은 차이점을 제외하고 공개 미러와 동일한 도구를 사용할 수 있어요:
 
 - 패키지 저장소에 SSH 푸시 미러링을 사용할 수 없어요. 대신 미러 소유 사용자(위 설명에서는 `archvsync`)의 crontab에 `~/bin/ftpsync sync:archive:kali`를 추가해야 해요.
-- kali.org가 아닌 미러를 소스 미러로 사용해야 해요. 대부분의 미러는 공개 rsync 액세스를 제공해요(kali.org 서버는 제한되어 있음).
+- kali.org가 아닌 미러를 소스 미러로 사용해야 해요. 국내에서는 `mirror.techlabs.co.kr`을 추천해요.
 
 ## 문제 해결
+
+### ftpsync 수동 실행
+
+테스트를 위해 ftpsync를 수동으로 실행해볼 수 있어요. 다음과 같이 해주세요:
+
+```
+$ whoami
+archvsync
+$ ~/bin/ftpsync sync:archive:kali
+```
 
 ### 오래된 `.~tmp~` 디렉토리
 
