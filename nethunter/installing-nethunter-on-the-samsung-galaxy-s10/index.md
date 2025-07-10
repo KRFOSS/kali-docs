@@ -232,7 +232,7 @@ adb -d sideload kernel-nethunter-20250629_173026-beyond1lte-los-fifteen.zip
 
 ### Nexmon 설정
 
-<a href="">@yesimxev</a>의 Nexmon Magisk 모듈을 다운로드하세요.
+<a href="https://gitlab.com/yesimxev">yesimxev</a>의 Nexmon Magisk 모듈을 다운로드하세요.
 
 Nexmon S10 : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/nexmon-s10.zip)
 
@@ -353,7 +353,7 @@ adb shell pm grant com.google.android.gms android.permission.ACCESS_FINE_LOCATIO
 # 크레딧
 
 도와주신 분들 :
-- 갤럭시 S10에 도움과 지원을 준 <a href="">Yesimxev</a>
-- 갤럭시 S10에 도움과 지원을 준 <a href="">Arti</a>
+- 갤럭시 S10에 도움과 지원을 준 <a href="https://gitlab.com/yesimxev">Yesimxev</a>
+- 갤럭시 S10에 도움과 지원을 준 Arti
 - <a href="https://github.com/seemoo-lab/nexmon">Nexmon</a>
 - Nexmon의 <a href="https://x.com/MarkusTieger">MarkusTieger</a>
