@@ -164,28 +164,6 @@ adb -d sideload Magisk-v28.1.zip
 
 완료되면 재부팅하세요.
 
-## Magisk 모듈
-
-Magisk Overlayfs 모듈을 다운로드하세요.
-
-Magisk Overlayfs : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/magisk-overlayfs-release.zip)
-
-PlayIntegrityFix 모듈을 다운로드하세요.
-
-PlayIntegrityFix : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/PlayIntegrityFix_v3.3-inject-manual.zip)
-
-패키지를 안드로이드 기기에 전송하세요.
-
-```bash
-adb push magisk-overlayfs-release.zip /sdcard/
-adb push PlayIntegrityFix_v3.3-inject-manual.zip /sdcard/
-```
-
-Magisk를 열고 "Modules > Install from storage"로 이동하여 Magisk Overlayfs 모듈을 선택하세요. "Ok"를 눌러 설치하고 설치 완료 후 재부팅하세요.
-
-Magisk를 다시 열고, 설정에서 "Zygisk"를 활성화하세요.
-
-"Modules > Install from storage"로 이동하여 PlayIntegrityFix 모듈을 선택하세요. "Ok"를 눌러 설치하고 설치 완료 후 재부팅하세요.
 
 ## 넷헌터
 
@@ -243,6 +221,29 @@ adb -d sideload kernel-nethunter-20250629_173026-beyond1lte-los-fifteen.zip
 휴대폰에 "Signature verification failed Install anyway?" 경고가 나타나면 "Yes"를 누르고, 넷헌터 커널 플래시가 완료될 때까지 기다리세요.
 
 플래시가 완료되면 시스템으로 재부팅하세요.
+
+## Magisk 모듈
+
+Magisk Overlayfs 모듈을 다운로드하세요.
+
+Magisk Overlayfs : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/magisk-overlayfs-release.zip)
+
+PlayIntegrityFix 모듈을 다운로드하세요.
+
+PlayIntegrityFix : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/PlayIntegrityFix_v3.3-inject-manual.zip)
+
+패키지를 안드로이드 기기에 전송하세요.
+
+```bash
+adb push magisk-overlayfs-release.zip /sdcard/
+adb push PlayIntegrityFix_v3.3-inject-manual.zip /sdcard/
+```
+
+Magisk를 열고 "Modules > Install from storage"로 이동하여 Magisk Overlayfs 모듈을 선택하세요. "Ok"를 눌러 설치하고 설치 완료 후 재부팅하세요.
+
+Magisk를 다시 열고, 설정에서 "Zygisk"를 활성화하세요.
+
+"Modules > Install from storage"로 이동하여 PlayIntegrityFix 모듈을 선택하세요. "Ok"를 눌러 설치하고 설치 완료 후 재부팅하세요.
 
 ## Nexmon
 
@@ -351,20 +352,6 @@ mount -o rw,remount /system/lib
 # NH 안드로이드 루트 터미널에서
 mv /sdcard/modules /system/lib
 ```
-
-## GPS 수정
-
-Google Maps를 설치하고 열어서, 위치 찾기 기능을 사용하고 요청된 권한을 허용하세요.
-
-adb나 안드로이드 루트 셸을 사용하여 gms에 위치 권한을 부여하세요.
-
-```bash
-adb root
-adb shell pm grant com.google.android.gms android.permission.ACCESS_COARSE_LOCATION
-adb shell pm grant com.google.android.gms android.permission.ACCESS_FINE_LOCATION
-```
-
-넷헌터 앱 > Wardriving을 확인하여 모든 것이 작동하는지 확인하세요. GPS 좌표가 보이면 모든 설정이 완료된 거예요.
 
 # 크레딧
 
