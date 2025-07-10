@@ -77,7 +77,9 @@ OEM 잠금을 해제하려면 먼저 개발자 모드를 활성화해야 해요.
 LineageOS 빌드, 리커버리, MindTheGapps를 다운로드하세요.
 
 LineageOS 22.2 : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/lineage-22.2-20250627-nightly-beyond1lte-signed.zip)
+
 리커버리 : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/recovery.img)
+
 MindTheGapps : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/MindTheGapps-15.0.0-arm64-20250214_082511.zip)
 
 ### 리커버리 플래시
@@ -87,6 +89,12 @@ MindTheGapps : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung
 ```bash
 heimdall flash --RECOVERY recovery.img --no-reboot
 ```
+> 스톡 롬을 사용하려는 경우 다운로드 모드로 부팅하여 heimdall을 사용하여 vbmeta를 플래시해야 할 수 있어요.
+> vbmeta : <a href="https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/vbmeta.img">다운로드</a>
+>
+>```bash
+> heimdall flash --VBMETA vbmeta.img --no-reboot
+>```
 
 ### LineageOS ROM 플래시
 
@@ -224,7 +232,7 @@ adb -d sideload kernel-nethunter-20250629_173026-beyond1lte-los-fifteen.zip
 
 ### Nexmon 설정
 
-@yesimxev의 Nexmon Magisk 모듈을 다운로드하세요.
+<a href="">@yesimxev</a>의 Nexmon Magisk 모듈을 다운로드하세요.
 
 Nexmon S10 : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/nexmon-s10.zip)
 
@@ -341,3 +349,11 @@ adb shell pm grant com.google.android.gms android.permission.ACCESS_FINE_LOCATIO
 ```
 
 넷헌터 앱 > Wardriving을 확인하여 모든 것이 작동하는지 확인하세요. GPS 좌표가 보이면 모든 설정이 완료된 거예요.
+
+# 크레딧
+
+도와주신 분들 :
+- 갤럭시 S10에 도움과 지원을 준 <a href="">Yesimxev</a>
+- 갤럭시 S10에 도움과 지원을 준 <a href="">Arti</a>
+- <a href="https://github.com/seemoo-lab/nexmon">Nexmon</a>
+- Nexmon의 <a href="https://x.com/MarkusTieger">MarkusTieger</a>
