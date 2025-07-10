@@ -44,6 +44,7 @@ author: ["v0lk3n",]
 # 설치
 
 설치를 시작해 봅시다. 다음 단계를 거쳐야 해요:
+- 순정 롬 플래시
 - OEM 잠금 해제
 - LineageOS와 리커버리 플래시
 - 기기 루팅
@@ -51,6 +52,25 @@ author: ["v0lk3n",]
 - 칼리 넷헌터와 커널 플래시
 - 부팅 시 경고 제거용 부트로더 플래시
 - 최종 조정 및 문제 해결
+
+## 순정 롬 플래시
+순정 상태로 되돌리거나 설치를 처음부터 다시 깨끗하게 하고싶으면 여기에서 맞는 펌웨어를 받으세요 (권장) :
+
+https://www.sammobile.com/samsung/galaxy-s10/firmware/SM-G973F/
+
+콘텐츠를 압축 풀면 다음과 같이 끝나게 돼요 :
+```bash
+AP_G973FXXSGHWC1_CL25257816_QB62768582_REV01_user_low_ship_meta_OS12.tar.md5
+BL_G973FXXSGHWC1_CL25257816_QB62768582_REV01_user_low_ship.tar.md5
+CP_G973FXXSGHWB3_CP23788344_CL25257816_QB62585640_REV01_user_low_ship.tar.md5
+CSC_OXM_G973FOXMGHWA3_CL25257816_QB61057831_REV01_user_low_ship.tar.md5 <= (데이터 삭제 / 공장 초기화 권장)
+HOME_CSC_OXM_G973FOXMGHWA3_CL25257816_QB61057831_REV01_user_low_ship.tar.md5 <= (데이버 보존)
+```
+
+OS 없이 부팅을 시도하여 실패할 경우 휴대폰을 다운로드 모드로 부팅하고, 자동으로 다운로드 모드에 진입하기 까지 기다리세요.
+
+순정 롬을 플래시하세요, 예를 들어 리눅스에서는 odin4를 사용할 수 있어요 : https://github.com/Adrilaw/OdinV4
+
 
 ## OEM 잠금 해제
 
@@ -74,11 +94,13 @@ OEM 잠금을 해제하려면 먼저 개발자 모드를 활성화해야 해요.
 
 ## ROM 플래시
 
-LineageOS 빌드, 리커버리, MindTheGapps를 다운로드하세요.
+LineageOS 빌드, vbmeta, 리커버리, MindTheGapps를 다운로드하세요.
 
 LineageOS 22.2 : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/lineage-22.2-20250627-nightly-beyond1lte-signed.zip)
 
 리커버리 : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/recovery.img)
+
+vbmeta : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/vbmeta.img)
 
 MindTheGapps : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/MindTheGapps-15.0.0-arm64-20250214_082511.zip)
 
@@ -87,14 +109,8 @@ MindTheGapps : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung
 기기를 다운로드 모드로 부팅하세요. Heimdall을 사용하여 리커버리를 플래시하세요. 이 부분은 [LineageOS 설치 가이드](https://wiki.lineageos.org/devices/beyond1lte/install/#preparing-for-installation)를 따라할 수 있어요.
 
 ```bash
-heimdall flash --RECOVERY recovery.img --no-reboot
+ heimdall flash --RECOVERY recovery.img --VBMETA vbmeta.img --no-reboot
 ```
-> 스톡 롬을 사용하려는 경우 다운로드 모드로 부팅하여 heimdall을 사용하여 vbmeta를 플래시해야 할 수 있어요.
-> vbmeta : <a href="https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/releases/download/nethunter-22.2/vbmeta.img">다운로드</a>
->
->```bash
-> heimdall flash --VBMETA vbmeta.img --no-reboot
->```
 
 ### LineageOS ROM 플래시
 
