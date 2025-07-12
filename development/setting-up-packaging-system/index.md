@@ -3,7 +3,7 @@ title: 패키징을 위한 시스템 설정하기
 description:
 icon:
 weight: 10
-author: ["gamb1t",]
+author: ["gamb1t", "Funeoz",]
 번역: ["xenix4845"]
 ---
 
@@ -17,13 +17,13 @@ author: ["gamb1t",]
 
 ## 패키지 설치하기
 
-나중에 패키징에 사용할 도구들을 설치할 거예요. [`packaging-dev`](https://packages.debian.org/sid/packaging-dev)는 메타패키지이고, 필요한 많은 적절한 패키지들을 설치할 거예요:
+나중에 패키징에 사용할 도구들을 설치할 거예요.
 
 ```console
 kali@kali:~$ sudo apt update
 [...]
 kali@kali:~$
-kali@kali:~$ sudo apt install -y packaging-dev sbuild apt-file gitk git-lfs myrepos
+kali@kali:~$ sudo apt install -y sbuild apt-file gitk git-lfs myrepos debhelper devscripts dput lintian quilt
 [...]
 kali@kali:~$
 ```
@@ -266,7 +266,7 @@ kali@kali:~$
 ```console
 kali@kali:~$ sudo sbuild-adduser $USER
 kali@kali:~$
-kali@kali:~$ cat <<'EOF' > ~/.sbuildrc
+kali@kali:~$ cat <<'EOF' > ~/.config/sbuild/config.pl
 $build_arch_all = 1;
 $build_source = 1;
 $run_lintian = 1;
