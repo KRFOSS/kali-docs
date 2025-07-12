@@ -7,7 +7,7 @@ author: ["gamb1t",]
 번역: ["xenix4845"]
 ---
 
-[칼리 VMware 이미지](/get-kali/#kali-virtual-machines)를 가져오는 과정은 매우 쉬워요.
+[칼리 VMware 이미지](/get-kali/#kali-virtual-machines)를 가져오는 과정은 매우 간단해요.
 
 먼저 VMware 이미지를 추출해야 해요:
 
