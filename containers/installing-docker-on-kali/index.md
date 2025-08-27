@@ -37,7 +37,7 @@ kali@kali:~$
 작성 시점(2023년 12월) 기준으로는 "bookworm"이 해당 버전입니다.
 
 ```console
-kali@kali:~$ echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" | \
+kali@kali:~$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian bookworm stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list 
 ```
 
