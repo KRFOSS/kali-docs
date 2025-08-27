@@ -36,7 +36,7 @@ author: ["ShubhamVis98",]
 - 포코 F1(beryllium)
 - 원플러스 6(enchilada)
 - 원플러스 6T(fajita)
-- 낫싱 폰 1(spacewar)
+- 낫싱 폰 1(spacewar) (사전 출시, 테스트 안 됨)
 - 샤오미 Mi MIX 2S(polaris)
 - SHIFT SHIFT6mq(axolotl)
 
