@@ -171,6 +171,11 @@ $ rsync -qaH mirror.techlabs.co.kr::kali-images /srv/mirrors/kali-images/ &
 - RSYNC (873/TCP) - <archive.kali.org> (즉 `192.99.45.140` 및 `2607:5300:60:508c::`)
 - RSYNC (873/TCP) - <http.kali.org> (즉 `54.39.128.230` 및 `2607:5300:203:3fe6::`)
 
+추가적으로 `archive.kali.org`는 곧 다른 머신으로 이동되며, 다음 IP 주소가 허용되었는지 확인해 주세요:
+
+- SSH (22/TCP) - <rhea.kali.org> (즉 `148.113.211.220` 및 `2607:5300:214:dc00::`)
+- RSYNC (873/TCP) - <rhea.kali.org> (즉 `148.113.211.220` 및 `2607:5300:214:dc00::`)
+
 ### ISO 이미지 수동 미러링을 위한 cron 설정
 
 ISO 이미지 저장소는 푸시 미러링을 사용하지 않으므로, 일일 rsync 실행을 예약해야 해요. `bin/mirror-kali-images` 스크립트가 제공되니, 전용 사용자의 crontab에 추가하세요. `etc/mirror-kali-images.conf`만 설정하면 돼요:
