@@ -162,10 +162,9 @@ chroot가 실행되지 않으면 공격 메뉴들이 회색으로 표시돼요. 
 - [**NMap 스캔**](/docs/nethunter/nethunter-nmap/) - 빠른 Nmap 스캐너 인터페이스.
 - [**Metasploit 페이로드 생성기**](/docs/nethunter/nethunter-mpg/) - 실시간으로 Metasploit 페이로드 생성.
 - [**Searchsploit**](/docs/nethunter/nethunter-searchsploit/) - [Exploit-Database](https://www.exploit-db.com/)에서 익스플로잇 쉽게 검색.
-- [**파인애플 커넥터**] - USB를 통해 Hak5 WiFi 파인애플에 안드로이드로부터 wifi 제공
-- [**워드라이빙**](/docs/nethunter/nethunter-wardriving/) - 주변 wifi 네트워크를 수동적으로 스니핑
-- [**Deauth**] - wifi deauth 공격 수행
-- [**CAN 아스날**](/docs/nethunter/nethunter-canarsenal/) - CAN 버스 테스트, 진단 또는 자동차 해킹.
+- **파인애플 커넥터** - USB를 통해 Hak5 WiFi 파인애플에 안드로이드로부터 WiFi 제공
+- [**워드라이빙**](/docs/nethunter/nethunter-wardriving/) - 주변 Wi-Fi 네트워크를 수동적으로 스니핑
+- [**CARsenal**](/docs/nethunter/nethunter-carsenal/) - 자동차 보안 도구.
 
 ## 8.0 새로운 기기에 넷헌터 포팅하기
 
