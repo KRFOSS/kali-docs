@@ -69,7 +69,7 @@ author: ["Re4son", "yesimxev",]
 |   WiFi 인젝션   |         아니오         |       아니오       |    예    |
 |    HID 공격     |         아니오         |       아니오       |    예    |
 |    BT 아스날      |         아니오         |       아니오       |    예    |
-|    CAN 아스날     |         아니오         |       아니오       |    예    |
+|    CARsenal        |         아니오         |       아니오       |    예    |
 
 넷헌터 루트리스의 설치는 여기에 문서화되어 있어요:
 [넷헌터-루트리스](/docs/nethunter/nethunter-rootless/)
