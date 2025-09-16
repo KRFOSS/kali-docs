@@ -13,7 +13,7 @@ author: ["",]
 
 [> 칼리에 기여하는 방법](https://kali.krfoss.org/community/contribute/)
 
-[> 어디에서 도움을 요청하고 받을 수 있는가?](https://kali.krfoss.org/community/getting-help/)
+[> 어디에서 도움을 요청하고 받을 수 있나요?](https://kali.krfoss.org/community/getting-help/)
 
 [> 칼리 리눅스 커뮤니티 포럼](https://kali.krfoss.org/community/kali-linux-community-forums/)
 

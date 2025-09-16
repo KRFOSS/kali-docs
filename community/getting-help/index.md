@@ -1,5 +1,5 @@
 ---
-title: 어디에서 도움을 요청하고 받을 수 있는가?
+title: 어디에서 도움을 요청하고 받을 수 있나요?
 description:
 icon:
 weight:
