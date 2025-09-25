@@ -124,7 +124,7 @@ $ tar zxf ftpsync.tar.gz
 ```console
 $ whoami
 archvsync
-$ cp etc/ftpsync.conf.sample etc/ftpsync-kali.conf
+$ cp etc/ftpsync-kali.conf.sample etc/ftpsync-kali.conf
 $ vim etc/ftpsync-kali.conf
 $ grep -E '^[^#]' etc/ftpsync-kali.conf
 MIRRORNAME=`hostname -f`
