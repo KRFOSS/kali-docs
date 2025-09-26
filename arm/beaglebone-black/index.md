@@ -67,7 +67,7 @@ Beaglebone Black에 칼리를 설치하려면 다음 지침을 따르세요:
 {{% /notice %}}
 
 ```console
-$ xzcat images/kali-linux-2025.2-beaglebone-black-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat images/kali-linux-2025.3-beaglebone-black-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC 성능, microSD 카드의 속도, 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

@@ -167,7 +167,7 @@ adb -d sideload Magisk-v28.1.zip
 
 ## 넷헌터
 
-제가 선호하는 방법은 설치 프로그램을 직접 빌드하는 거예요. 하지만 원한다면 [다운로드](https://kali.download/nethunter-images/kali-2025.2/kali-nethunter-2025.2-beyond1lte-los-fifteen-full.zip)할 수도 있어요.
+제가 선호하는 방법은 설치 프로그램을 직접 빌드하는 거예요. 하지만 원한다면 [다운로드](https://kali.download/nethunter-images/kali-2025.3/kali-nethunter-2025.3-beyond1lte-los-fifteen-full.zip)할 수도 있어요.
 
 먼저 소스에서 빌드해봅시다.
 

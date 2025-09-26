@@ -40,12 +40,12 @@ author: ["gamb1t", "steev"]
 
 우리는 기존 칼리 설치에서 드롭 박스 머신을 만들 것입니다. 다른 Debian 기반 배포판에서도 매우 쉽게 할 수 있으며, 다른 운영체제에서도 상대적으로 간단합니다(Windows 사용자 제외!).
 
-먼저 [최신 안정 버전](/releases/) 칼리 RPi 이미지를 [다운로드](/get-kali/#kali-arm)합니다. 이 글 작성 시점에는 [칼리 2025.2](/blog/kali-linux-2025-2-release/)입니다.
+먼저 [최신 안정 버전](/releases/) 칼리 RPi 이미지를 [다운로드](/get-kali/#kali-arm)합니다. 이 글 작성 시점에는 [칼리 2025.3](/blog/kali-linux-2025-2-release/)입니다.
 우리는 4GB 이상의 RAM을 가지고 있고 [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/)(Hardware Attached on Top)를 사용하지 않기 때문에 64비트 이미지를 선택했습니다. 32비트의 경우 파일 이름을 조정한 후 동일한 단계를 따릅니다:
 
 ```console
-$ wget https://kali.download/arm-images/kali-2025.2/kali-linux-2025.2-raspberry-pi-arm64.img.xz
-$ xzcat kali-linux-2025.2-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
+$ wget https://kali.download/arm-images/kali-2025.3/kali-linux-2025.3-raspberry-pi-arm64.img.xz
+$ xzcat kali-linux-2025.3-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
 ```
 
 - - -
@@ -648,7 +648,7 @@ export _LUKSEXTRA=""
 
 
 # 리눅스 이미지 파일 ------------------------------------------------------------
-export _IMAGEURL=https://kali.download/arm-images/kali-linux-2025.2/kali-linux-2025.2-raspberry-pi-arm64.img.xz
+export _IMAGEURL=https://kali.download/arm-images/kali-linux-2025.3/kali-linux-2025.3-raspberry-pi-arm64.img.xz
 export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
 # 패키지 작업 -------------------------------------------------------------

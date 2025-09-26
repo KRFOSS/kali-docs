@@ -29,6 +29,7 @@ author: ["g0tmi1k",]
   # bound that mirror operators want to know.
   #
   ## /kali, aka. the main package repository
+  - 2025.3     : 567 GB
   - Pre-2024.3 : 653 GB
   - Pre-2024.1 : 813 GB
   - 2023.3     : 739 GB
@@ -42,6 +43,7 @@ author: ["g0tmi1k",]
   - 2015       : 450 GB
 
   ## /kali-images, aka. the base images repository
+  - 2025.3     : 567 GB
   - Pre-2024.3 : 158 GB
   - Pre-2024.1 : 171 GB
   - 2023.3     : 153 GB

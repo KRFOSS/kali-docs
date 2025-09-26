@@ -38,7 +38,7 @@ Nyan 기반 크롬북용 빌드 스크립트는 아직 새로운 방식으로 �
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.2-chromebook-nyan-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.3-chromebook-nyan-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC 성능, 풀사이즈 SD 카드나 USB 드라이브의 속도, 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

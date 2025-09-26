@@ -20,7 +20,7 @@ Proxmox에서는 중첩 환경에 접근하는 두 가지 방법이 있어요. �
 - [Kali 이미지](/get-kali/#kali-installer-images)로 가서 "Pre-built Virtual Machines(미리 빌드된 가상 머신)"를 선택하세요
 - 적절한 이미지(Qemu64 또는 Qemu32)를 다운로드하세요
 - 다운로드한 파일에서 이미지를 압축 해제하세요([7Zip](https://www.7-zip.org/) 형식이에요)
-- 파일 확장자를 *.iso로 변경하세요(즉, qcow2에서 iso로 바꿔요). 파일 이름을 기억해두세요(예: ```kali-linux-2025.2c-qemu-amd64.iso```)
+- 파일 확장자를 *.iso로 변경하세요(즉, qcow2에서 iso로 바꿔요). 파일 이름을 기억해두세요(예: ```kali-linux-2025.3c-qemu-amd64.iso```)
 - Proxmox를 열어주세요
 - 왼쪽 창에서 사용할 저장소를 선택하세요(예: 올바른 노드를 찾고 local 선택)
 - 중앙 창에서 ISO 이미지를 선택하고 업로드를 클릭하세요
@@ -35,10 +35,10 @@ Proxmox에서는 중첩 환경에 접근하는 두 가지 방법이 있어요. �
   - 필요에 따라 네트워크를 설정하거나 기본값으로 두세요. 다음을 클릭하세요
   - 구성을 검토하고 완료를 클릭하세요
 - 노드를 마우스 오른쪽 버튼으로 클릭하고 셸을 선택하세요
-- ```find / -name {파일이름}``` 명령으로 업로드된 파일을 찾으세요(예: ```find / -name kali-linux-2025.2c-qemu-amd64.iso```)
+- ```find / -name {파일이름}``` 명령으로 업로드된 파일을 찾으세요(예: ```find / -name kali-linux-2025.3c-qemu-amd64.iso```)
 - 파일이 있는 디렉토리로 이동하세요
-- 파일 확장자를 *.iso에서 *.qcow2로 변경하세요(예: ```mv kali-linux-2025.2c-qemu-amd64.iso kali-linux-2025.2c-qemu-amd64.qcow2```)
-- ```qm importdisk VM-ID {파일이름.qcow2} {저장소}``` 명령을 실행하세요(예: ```qm importdisk 108 kali-linux-2025.2c-qemu-amd64.qcow2 local-lvm```)
+- 파일 확장자를 *.iso에서 *.qcow2로 변경하세요(예: ```mv kali-linux-2025.3c-qemu-amd64.iso kali-linux-2025.3c-qemu-amd64.qcow2```)
+- ```qm importdisk VM-ID {파일이름.qcow2} {저장소}``` 명령을 실행하세요(예: ```qm importdisk 108 kali-linux-2025.3c-qemu-amd64.qcow2 local-lvm```)
 - 셸을 닫으세요
 - Proxmox에서 생성된 VM을 찾으세요
 - 중앙 창에서 하드웨어를 클릭하고 오른쪽 창에서 '사용되지 않은 디스크 0'을 찾으세요. 편집을 클릭하세요

@@ -32,8 +32,8 @@ $ sudo ./raspberry-pi.sh
 ```
 
 * 빌드 시간은 **CPU·RAM·디스크·네트워크** 상황에 따라 달라요. 4코어 CPU + 8 GB RAM + SSD인 VM에서 [로컬 미러](/docs/community/setting-up-a-kali-linux-mirror/)를 쓰면 스크립트 하나에 보통 **100 분**쯤 걸려요.
-* **x64 / arm64** 환경이라면 스크립트가 끝난 뒤 `~/kali-arm/images/`에 `kali-linux-2025.2-raspberry-pi-xfce-armhf.img.xz`가 생겨요.
-* **x86** 환경은 메모리가 부족해 압축하지 못해요. 대신 같은 경로에 `kali-linux-2025.2-raspberry-pi-xfce-armhf.img`(무압축)이 생겨요.
+* **x64 / arm64** 환경이라면 스크립트가 끝난 뒤 `~/kali-arm/images/`에 `kali-linux-2025.3-raspberry-pi-xfce-armhf.img.xz`가 생겨요.
+* **x86** 환경은 메모리가 부족해 압축하지 못해요. 대신 같은 경로에 `kali-linux-2025.3-raspberry-pi-xfce-armhf.img`(무압축)이 생겨요.
 
   * 용량을 줄이고 싶다면 원하는 방식으로 직접 압축해 주세요.
 

@@ -44,7 +44,7 @@ SS808에 칼리만 설치하려면 아래 지침을 따르세요:
 {{% /notice %}}
 
 ```console
-$ dd if=kali-linux-2025.2-SS808.img of=/dev/sdX conv=fsync bs=4M
+$ dd if=kali-linux-2025.3-SS808.img of=/dev/sdX conv=fsync bs=4M
 ```
 
 이 과정은 PC 성능, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있습니다.

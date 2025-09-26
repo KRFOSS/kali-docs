@@ -98,7 +98,7 @@ Bus 001 Device 048: ID 1b8e:c003 Amlogic, Inc. GX-CHIP
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.2-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.3-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, 락사 제로의 저장 장치 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
@@ -127,7 +127,7 @@ Linux(SD 카드로 부팅, eMMC에 쓰기):
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.2-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
+$ xzcat kali-linux-2025.3-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
 ```
 
 이 과정은 microSD 카드, 락사 제로의 저장 장치 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

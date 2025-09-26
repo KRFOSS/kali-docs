@@ -23,7 +23,7 @@ Kali Linux는 커뮤니티 및 공식 미러 네트워크를 통해 배포됩니
 2. `curl` 명령을 사용하여 확인합니다:
 
 ```console
-kali@kali:~$ curl -i https://cdimage.kali.org/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
+kali@kali:~$ curl -i https://cdimage.kali.org/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
 HTTP/1.1 302 Found
 Server: nginx
 Date: Wed, 18 Jun 2025 10:52:17 GMT
@@ -31,10 +31,10 @@ Content-Type: text/html; charset=utf-8
 Content-Length: 0
 Connection: keep-alive
 Cache-Control: private, no-cache
-Link: <https://kali.download/base-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso>; rel=duplicate; pri=1; geo=ae
-Link: <https://ask4.mm.fcix.net/kali-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso>; rel=duplicate; pri=2; geo=gb
-Link: <https://ftp.hands.com/kali-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso>; rel=duplicate; pri=3; geo=gb
-Location: https://mirror.vinehost.net/kali-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
+Link: <https://kali.download/base-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso>; rel=duplicate; pri=1; geo=ae
+Link: <https://ask4.mm.fcix.net/kali-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso>; rel=duplicate; pri=2; geo=gb
+Link: <https://ftp.hands.com/kali-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso>; rel=duplicate; pri=3; geo=gb
+Location: https://mirror.vinehost.net/kali-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
 
 kali@kali:~$
 ```
@@ -46,15 +46,15 @@ kali@kali:~$
 다운로드 속도가 현저히 느리거나 미러가 작동하지 않는 경우, 미러 정보 및 속도를 알려주시면 문제 해결에 큰 도움이 됩니다. 다음과 같이 `wget`을 사용하여 다운로드 속도를 측정할 수 있습니다. Windows 사용자의 경우 웹 브라우저에서 속도를 확인하거나 [Windows용 wget](https://medium.com/nerd-for-tech/using-wget-command-in-windows-10-environment-d766b8f526e9)을 설치할 수 있습니다.
 
 ```console
-kali@kali:~$ wget https://kali.download/base-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
---2025-06-18 10:53:17--  https://kali.download/base-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
+kali@kali:~$ wget https://kali.download/base-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
+--2025-06-18 10:53:17--  https://kali.download/base-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
 Resolving kali.download (kali.download)... 2606:4700::6811:fdef, 2606:4700::6811:feef, 104.17.254.239, ...
 Connecting to kali.download (kali.download)|2606:4700::6811:fdef|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 4478939136 (4.2G) [application/octet-stream]
-Saving to: ‘kali-linux-2025.2-installer-amd64.iso’
+Saving to: ‘kali-linux-2025.3-installer-amd64.iso’
 
-kali-linux-2025.2-installer-amd64.iso   6%[====>                                                                     ] 196.46M  31.6MB/s    eta 81s
+kali-linux-2025.3-installer-amd64.iso   6%[====>                                                                     ] 196.46M  31.6MB/s    eta 81s
 
 kali@kali:~$
 ```
@@ -66,7 +66,7 @@ kali@kali:~$
 프랑스에서의 또 다른 예시를 살펴봅시다:
 
 ```console
-kali@kali:~$ curl -i https://cdimage.kali.org/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
+kali@kali:~$ curl -i https://cdimage.kali.org/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
 HTTP/1.1 302 Found
 Server: nginx
 Date: Wed, 18 Jun 2025 10:55:33 GMT
@@ -74,18 +74,18 @@ Content-Type: text/html; charset=utf-8
 Content-Length: 0
 Connection: keep-alive
 Cache-Control: private, no-cache
-Link: <https://kali.download/base-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso>; rel=duplicate; pri=1; geo=ae
-Location: https://archive-4.kali.org/kali-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
+Link: <https://kali.download/base-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso>; rel=duplicate; pri=1; geo=ae
+Location: https://archive-4.kali.org/kali-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
 
-kali@kali:~$ wget https://archive-4.kali.org/kali-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
---2025-06-18 10:56:00--  https://archive-4.kali.org/kali-images/kali-2025.2/kali-linux-2025.2-installer-amd64.iso
+kali@kali:~$ wget https://archive-4.kali.org/kali-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
+--2025-06-18 10:56:00--  https://archive-4.kali.org/kali-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso
 Resolving archive-4.kali.org (archive-4.kali.org)... 2001:41d0:2:f566::, 176.31.228.102
 Connecting to archive-4.kali.org (archive-4.kali.org)|2001:41d0:2:f566::|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 4478939136 (4.2G) [application/octet-stream]
-Saving to: ‘kali-linux-2025.2-installer-amd64.iso’
+Saving to: ‘kali-linux-2025.3-installer-amd64.iso’
 
-kali-linux-2025.2-installer-amd64.iso   0%[                                                                          ] 615.75K   610KB/s
+kali-linux-2025.3-installer-amd64.iso   0%[                                                                          ] 615.75K   610KB/s
 
 kali@kali:~$
 ```
@@ -94,4 +94,4 @@ kali@kali:~$
 
 ### 다른 미러 사용하기
 
-[커뮤니티 미러 목록](/docs/community/kali-linux-mirrors/)에서 원하는 미러의 링크를 복사한 뒤, URL 중 **README** 부분을 `kali-2025.2/kali-linux-2025.2-installer-amd64.iso`(또는 사용 중인 ISO 경로)로 변경하여 사용하면 됩니다. 앞서 `curl` 예제에서 `kali-images/` 뒤에 나오는 부분을 참고하세요.
+[커뮤니티 미러 목록](/docs/community/kali-linux-mirrors/)에서 원하는 미러의 링크를 복사한 뒤, URL 중 **README** 부분을 `kali-2025.3/kali-linux-2025.3-installer-amd64.iso`(또는 사용 중인 ISO 경로)로 변경하여 사용하면 됩니다. 앞서 `curl` 예제에서 `kali-images/` 뒤에 나오는 부분을 참고하세요.
