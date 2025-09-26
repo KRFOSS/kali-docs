@@ -133,7 +133,7 @@ certutil을 사용할 수 있다면 다음을 실행할 수 있습니다:
 certutil -hashfile kali-linux-2025.2-live-amd64.iso sha256
 ```
 
-다운로드를 확인하기 위해 사용합니다. 일부 Windows 버전에서는 SHA256 체크섬을 계산하는 기본 기능이 없습니다. `certutil`이 설치되어 있지 않다면 [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533)나 [Hashtab](http://implbits.com/products/hashtab/) 같은 유틸리티를 사용하여 다운로드를 확인할 수 있습니다.
+다운로드를 확인하기 위해 사용합니다. 일부 Windows 버전에서는 SHA256 체크섬을 계산하는 기본 기능이 없습니다. `certutil`이 설치되어 있지 않다면 [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) 같은 유틸리티를 사용하여 다운로드를 확인할 수 있습니다.
 
 결과 SHA256 서명:
 
