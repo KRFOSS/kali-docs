@@ -178,6 +178,12 @@ Cloudflare의 콘텐츠 전송 네트워크(CDN, Content Delivery Network)를 �
 
 이미지 전용으로 사용되는 비트토렌트(BitTorrent) 트래커예요.
 
+- - -
+
+**[artifacts.kali.org](https://artifacts.kali.org/)**
+
+CI 작업에서 나온 큰 파일/결과물들 이에요.
+
 ## 외부
 
 **[gitlab.com/kalilinux](https://gitlab.com/kalilinux/)**
