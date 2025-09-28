@@ -81,7 +81,7 @@ Setting up gitleaks (7.4.0+git20210412.1.6f5ad9d-0kali1~jan+nus1) ...
 Processing triggers for kali-menu (2021.1.4) ...
 ```
 
-버전 체계가 약간 특이하다는 점을 주목하세요. 마지막 업스트림 릴리스 버전으로 시작하고 `+git<date>.<number>.<commit>`이 뒤따라요(여기서 `<date>`는 마지막 업스트림 커밋 날짜, `<number>`는 같은 날 여러 버전을 위한 단순 증분, `<commit>`은 짧은 커밋 식별자). Debian 수정 버전에는 `~jan+nus<X>`가 포함되어 있어요. 이는 [Janitor Bot](https://salsa.debian.org/jelmer/debian-janitor)([Kali Bot](https://janitor.kali.org/)을 구동하는)에 의해 생성된 "새 업스트림 스냅샷"(`nus`)임을 나타내요. 물결표(~)는 이것이 동일한 버전의 후속 수동 릴리스보다 낮게 정렬되도록 해요.
+버전 체계가 약간 특이하다는 점을 주목하세요. 마지막 업스트림 릴리스 버전으로 시작하고 `+git<date>.<number>.<commit>`이 뒤따라요(여기서 `<date>`는 마지막 업스트림 커밋 날짜, `<number>`는 같은 날 여러 버전을 위한 단순 증분, `<commit>`은 짧은 커밋 식별자). Debian 수정 버전에는 `~jan+nus<X>`가 포함되어 있어요. 이는 [Janitor Bot](https://salsa.debian.org/jelmer/debian-janitor)(예전에 **칼리 봇**을 구동하던)에 의해 생성된 "새 업스트림 스냅샷"(`nus`)임을 나타내요. 물결표(~)는 이것이 동일한 버전의 후속 수동 릴리스보다 낮게 정렬되도록 해요.
 
 kali-bleeding-edge에서 패키지를 설치하면, kali-bleeding-edge 버전이 kali-rolling 버전보다 새로운 한 `apt`가 계속해서 이 저장소에서 해당 패키지 업데이트를 가져온다는 점을 알아두세요.
 

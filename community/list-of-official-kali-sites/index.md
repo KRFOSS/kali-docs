@@ -150,11 +150,13 @@ Cloudflare의 콘텐츠 전송 네트워크(CDN, Content Delivery Network)를 �
 
 - - -
 
-**[janitor.kali.org](https://janitor.kali.org/)**
+<!--
+칼리 봇 - **[janitor.kali.org](https://janitor.kali.org/)**
 
 [최신 실험 브랜치](/docs/general-use/kali-bleeding-edge/)용 패키지를 빌드하는 곳이에요.
 
 - - -
+-->
 
 **qa.kali.org**
 
