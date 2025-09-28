@@ -204,6 +204,7 @@ Cloudflare의 콘텐츠 전송 네트워크(CDN, Content Delivery Network)를 �
 - [페이스북](https://www.facebook.com/KaliLinux/)
 - [인스타그램](https://www.instagram.com/kalilinux/)
 - [Mastodon](https://infosec.exchange/@kalilinux)
+- [Substack](https://kalilinux.substack.com/)
 - [X](https://X.com/kalilinux) _(구 트위터)_
 
 ## 마켓플레이스 및 스토어
