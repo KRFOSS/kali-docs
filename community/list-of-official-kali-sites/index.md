@@ -213,6 +213,6 @@ Cloudflare의 콘텐츠 전송 네트워크(CDN, Content Delivery Network)를 �
 - [Akamai Marketplace](https://www.linode.com/marketplace/apps/kali-linux/kali-linux/) _(구 Linode Marketplace)_
 - [Amazon AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-fznsw3f7mq7to)
 - [Docker Hub](https://hub.docker.com/r/kalilinux/kali-rolling)
-- [Hashicorp Vagrant](https://portal.cloud.hashicorp.com/vagrant/discover/kalilinux)
+- [Hashicorp Vagrant Registry](https://portal.cloud.hashicorp.com/vagrant/discover/kalilinux)
 - [Microsoft App Store (WSL)](https://apps.microsoft.com/store/detail/kali-linux/9PKR34TNCV07?hl=en-us&gl=us)
 - [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/kali-linux.kali?tab=Reviews)
