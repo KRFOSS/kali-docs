@@ -156,7 +156,7 @@ Cloudflare의 콘텐츠 전송 네트워크(CDN, Content Delivery Network)를 �
 
 - - -
 
-**[qa.kali.org](https://qa.kali.org/)**
+**qa.kali.org**
 
 품질 보증 과정을 위해 칼리를 수동으로 테스트하는데 도움이 되는 연구소예요.
 
