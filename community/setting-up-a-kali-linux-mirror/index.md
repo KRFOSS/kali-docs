@@ -199,7 +199,7 @@ ROKFOSS 프로젝트에서는 칼리 이미지처럼 변동이 자주 있지 않
 사설 미러를 설정하고 싶다면, 다음과 같은 차이점을 제외하고 공개 미러와 동일한 도구를 사용할 수 있어요:
 
 - 패키지 저장소에 SSH 푸시 미러링을 사용할 수 없어요. 대신 미러 소유 사용자(위 설명에서는 `archvsync`)의 crontab에 `~/bin/ftpsync sync:archive:kali`를 추가해야 해요.
-- kali.org가 아닌 미러를 소스 미러로 사용해야 해요. 국내에서는 `mirror.jeonnam.school`을 추천해요.
+- kali.org가 아닌 미러를 소스 미러로 사용해야 해요. 국내에서는 `mirror.keiminem.com`을 추천해요.
 
 ## 문제 해결
 
