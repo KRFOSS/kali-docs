@@ -156,13 +156,13 @@ ftpsync.tar.gz를 홈 디렉토리에 풀지 않았다면, `.ssh/authorized_keys
 
 ### 초기 동기화
 
-archive.kali.org에서 첫 번째 푸시를 기다리는 대신, 국내 미러를 사용하여 초기 동기화를 수행할 수 있어요. 예를 들어, `mirror.jeonnam.school`을 사용할 수 있어요. 이 미러는 한국에 위치하고 있으며, 빠른 속도를 제공해요. 다음 명령어를 사용하여 초기 동기화를 수행할 수 있어요:
+archive.kali.org에서 첫 번째 푸시를 기다리는 대신, 국내 미러를 사용하여 초기 동기화를 수행할 수 있어요. 예를 들어, `mirror.keiminem.com`을 사용할 수 있어요. 이 미러는 한국에 위치하고 있으며, 빠른 속도를 제공해요. 다음 명령어를 사용하여 초기 동기화를 수행할 수 있어요:
 
 ```console
 $ whoami
 archvsync
-$ rsync -qaH mirror.jeonnam.school::kali /srv/mirrors/kali/ &
-$ rsync -qaH mirror.jeonnam.school::kali-images /srv/mirrors/kali-images/ &
+$ rsync -qaH mirror.keiminem.com::kali /srv/mirrors/kali/ &
+$ rsync -qaH mirror.keiminem.com::kali-images /srv/mirrors/kali-images/ &
 ```
 
 ### 방화벽 규칙
@@ -192,7 +192,7 @@ $ crontab -l
 
 중요한 건 archive.kali.org에 너무 많은 미러가 동시에 몰리지 않게 조정해주세요. 예를 들어, 매일 오전 3시 39분에 실행되도록 설정했어요. 
 
-ROKFOSS 프로젝트에서는 칼리 이미지처럼 변동이 자주 있지 않은 저장소의 경우 국내 미러를 통해서 업데이트 하는 걸 권장해요. 이는 원본 서버에 대한 부담을 줄여줄 수 있고 국내 미러를 통해서 동기화하므로 속도도 빠를 거예요! 우리는 그중에서 mirror.jeonnam.school를 추천해요.
+ROKFOSS 프로젝트에서는 칼리 이미지처럼 변동이 자주 있지 않은 저장소의 경우 국내 미러를 통해서 업데이트 하는 걸 권장해요. 이는 원본 서버에 대한 부담을 줄여줄 수 있고 국내 미러를 통해서 동기화하므로 속도도 빠를 거예요! 우리는 그중에서 mirror.keiminem.com를 추천해요.
 
 ## 사설 칼리 리눅스 미러 설정 방법
 
