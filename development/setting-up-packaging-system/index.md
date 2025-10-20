@@ -23,7 +23,7 @@ author: ["gamb1t", "Funeoz",]
 kali@kali:~$ sudo apt update
 [...]
 kali@kali:~$
-kali@kali:~$ sudo apt install -y sbuild apt-file gitk git-lfs myrepos debhelper devscripts dput lintian quilt schroot
+kali@kali:~$ sudo apt install -y sbuild mmdebstrap uidmap apt-file gitk git-lfs myrepos debhelper devscripts dput lintian quilt
 [...]
 kali@kali:~$
 ```
@@ -118,6 +118,19 @@ kali@kali:~$
 
 ## 파일 설정하기
 
+먼저, 환경에서 `DEBFULLNAME`과 `DEBMAIL`을 설정해야 해요:
+
+```console
+kali@kali:~$ grep -q DEBFULLNAME ~/.profile \
+  || echo "export DEBFULLNAME='First Last'" >> ~/.aliases
+kali@kali:~$
+kali@kali:~$ grep -q DEBEMAIL ~/.profile \
+  || echo export DEBEMAIL=email@domain.com >> ~/.aliases
+kali@kali:~$
+```
+
+**`email@domain.com`을 본인의 이메일로 변경하세요, 그리고 해당 설정이 완료된 경우 GPG 키와 동일한 키인지 확인하세요.**
+
 이제 git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html)를 설정해야 해요:
 
 ```console
@@ -127,31 +140,25 @@ pristine-tar = True
 cleaner = /bin/true
 
 [buildpackage]
-sign-tags = True
 export-dir = $HOME/kali/build-area/
 ignore-branch = True
 ignore-new = True
 
+sign-tags = True
+
+[dch]
+ignore-branch = True
+multimaint-merge = True
+
 [import-orig]
 filter-pristine-tar = True
+sign-tags = True
 
 [pq]
 patch-numbers = False
-
-[dch]
-multimaint-merge = True
-ignore-branch = True
 EOF
 kali@kali:~$
-kali@kali:~$ grep -q DEBFULLNAME ~/.profile \
-  || echo "export DEBFULLNAME='First Last'" >> ~/.aliases
-kali@kali:~$
-kali@kali:~$ grep -q DEBEMAIL ~/.profile \
-  || echo export DEBEMAIL=email@domain.com >> ~/.aliases
-kali@kali:~$
 ```
-
-**`email@domain.com`을 여러분의 이메일로 바꿔야 하고, GPG 키를 설정했다면 GPG 키와 같은 이메일인지 확인하세요**.
 
 우리는 기본적으로 `pristine-tar`를 활성화해요. 이 도구를 사용해서 Git 저장소에 업스트림 tarball의 복사본을 (효율적으로) 저장할 거거든요. 또한 패키지 빌드가 git 체크아웃 디렉토리 외부에서 일어나도록 `export-dir`을 설정해요.
 
@@ -166,14 +173,18 @@ uid           [ultimate] First Last <email@domain.com>
 sub   rsa2048 2019-01-01 [E] [expires: 2021-12-21]
 kali@kali:~$
 kali@kali:~$ cat <<EOF > ~/.devscripts
-DEBRELEASE_UPLOADER=dput
 DEBRELEASE_DEBS_DIR=$HOME/kali/build-area/
-DEBCHANGE_RELEASE_HEURISTIC=changelog
+DEBRELEASE_UPLOADER=dput
+
+DEBCHANGE_AUTO_NMU=no
 DEBCHANGE_MULTIMAINT_MERGE=yes
 DEBCHANGE_PRESERVE=yes
-DEBUILD_LINTIAN_OPTS="--color always -I"
-DEBCHANGE_AUTO_NMU=no
+DEBCHANGE_RELEASE_HEURISTIC=changelog
+
 DEBSIGN_KEYID=ABC123DE45678F90123G4567HIJK890LM12345N6
+
+DEBUILD_LINTIAN_OPTS="--color always -I"
+
 USCAN_DESTDIR=$HOME/kali/upstream/
 EOF
 kali@kali:~$
@@ -219,65 +230,69 @@ kali@kali:~$ grep mergechangelogs ~/.config/git/attributes \
   || echo "debian/changelog merge=dpkg-mergechangelogs" >> ~/.config/git/attributes
 kali@kali:~$
 ```
-
-## sbuild
-
-sbuild도 설정해야 해요. 너무 어렵지는 않지만, 약간의 추가 설정이 필요해요:
+마지막으로, 패치 관리 도구인 `quilt`를 구성할 수 있어요:
 
 ```console
-kali@kali:~$ sudo mkdir -pv /srv/chroots/
-kali@kali:~$
-kali@kali:~$ cd /srv/chroots/
-kali@kali:/srv/chroots$ sudo sbuild-createchroot \
-  --merged-usr \
-  --keyring=/usr/share/keyrings/kali-archive-keyring.gpg \
-  --arch=amd64 \
-  --components=main,contrib,non-free,non-free-firmware \
-  --include=kali-archive-keyring \
-  kali-dev \
-  kali-dev-amd64-sbuild \
-  http://http.kali.org/kali
-kali@kali:/srv/chroots$
-kali@kali:/srv/chroots$ cd ~/
-kali@kali:~$
-```
-
-완료되면 `/etc/schroot/chroot.d/kali-dev-amd64-sbuild*`를 편집해야 해요. "\*"는 마지막 부분을 무작위로 생성하므로 사용된다는 점을 참고하세요.
-_또는 TAB 자동 완성을 사용하세요_:
-
-```console
-kali@kali:~$ echo "source-root-groups=root,sbuild" | sudo tee -a /etc/schroot/chroot.d/kali-dev-amd64-sbuild*
-kali@kali:~$
-kali@kali:~$ cat /etc/schroot/chroot.d/kali-dev-amd64-sbuild*
-[kali-dev-amd64-sbuild]
-description=Debian kali-dev/amd64 autobuilder
-groups=root,sbuild
-root-groups=root,sbuild
-profile=sbuild
-type=directory
-directory=/srv/chroots/kali-dev-amd64-sbuild
-union-type=overlay
-source-root-groups=root,sbuild
-kali@kali:~$
-```
-
-마지막으로 우리 사용자를 그룹에 추가하고 마지막 변경을 하면 돼요:
-
-```console
-kali@kali:~$ sudo sbuild-adduser $USER
-kali@kali:~$
-kali@kali:~$ cat <<'EOF' > ~/.config/sbuild/config.pl
-$build_arch_all = 1;
-$build_source = 1;
-$run_lintian = 1;
-$lintian_opts = ['-I'];
+kali@kali:~$ cat << EOF > ~/.quiltrc
+export QUILT_PATCHES=debian/patches
+QUILT_PUSH_ARGS="--color=auto"
+QUILT_DIFF_ARGS="--no-timestamps --no-index -p ab --color=auto"
+QUILT_REFRESH_ARGS="--no-timestamps --no-index -p ab"
+QUILT_DIFF_OPTS='-p'
 EOF
 kali@kali:~$
 ```
 
-_재부팅_
+## sbuild
 
-## Approx
+`sbuild`는 격리된 빌드 환경에서 패키지를 빌드하는 데 사용되는 도구에요.
+
+```
+cat <<'EOF' > ~/.config/sbuild/config.pl
+
+# '아키텍처: 전체' 패키지 빌드
+$build_arch_all = 1;
+# 소스 패키지 빌드
+$build_source = 1;
+# 호스트에서 clean 타겟 실행 방지
+$clean_source = 0;
+# litian 실행, 정보성 태그 표시
+$run_lintian = 1;
+$lintian_opts = ['-I'];
+
+# 빌드 중 네트워크 접근 허용
+$enable_network = 1;
+
+# unshare 백엔드 사용
+$chroot_mode = "unshare";
+# chroot tarball을 일주일 동안 보관
+$unshare_mmdebstrap_auto_create = 1;
+$unshare_mmdebstrap_keep_tarball = 1;
+$unshare_mmdebstrap_max_age = 604800;
+# /var/tmp/ 디렉토리에서 빌드 수행
+$unshare_tmpdir_template = "/var/tmp/sbuild.XXXXXXXXXX";
+
+# 칼리용 chroot 조정
+push @{$unshare_mmdebstrap_extra_args}, "kali-*", [
+  '--mirror=http://http.kali.org/kali',
+  '--components=main contrib non-free non-free-firmware',
+  '--include=kali-archive-keyring'
+];
+```
+위 설정은 필요에 따라 약간 조정할 수 있으며, 아래에 몇 가지 팁을 제공해요.
+
+빌드 속도를 높이려면 `$unshare_tmpdir_template = ...` 줄을 주석 처리하세요. 이 경우 sbuild는 `/tmp/` 디렉토리에서 빌드를 수행하며, 이 디렉토리는 전적으로 RAM에 존재하므로 디스크를 사용하지 않아요. 빌드 시간을 단축할 수 있지만, 한 가지 심각한 주의사항이 있어요.: **대용량 패키지의 경우 RAM을 모두 차지하여 실패할 수 있으며**, 이는 SWAP 영역의 크기를 늘려 완화할 수 있어요.
+
+빌드가 실패할 때 빌드 환경에서 쉘을 실행하는 것이 유용할 수 있어요. `~/.config/sbuild/config.pl`에 다음 코드 조각을 추가하면 자동으로 수행돼요:
+
+```
+# 빌드 실패시 쉘 획득
+$external_commands = {
+  "build-failed-commands" => [ [ '%SBUILD_SHELL' ] ],
+};
+```
+
+## Approx (캐싱 프록시)
 
 sbuild로 패키지를 빌드할 때 빌드 의존성을 다운로드하는 데 많은 시간(및 대역폭)이 소요돼요. 이 단계를 가속화하기 위해 `approx` 같은 캐싱 프록시를 사용할 수 있어요:
 
@@ -293,25 +308,15 @@ debian-security	http://security.debian.org/debian-security
 kali            http://kali.download/kali
 ```
 
-마지막으로 apt가 프록시를 사용하도록 구성되도록 chroot 내부에 구성 라인을 추가하기만 하면 돼요:
+**http://http.kali.org/kali는 캐싱 프록시의 백엔드로 사용하기에 적합하지 않으며, 일시적인 오류(해시 합치 불일치)를 유발할 수 있으므로 사용하지 마세요. kali.download 또는 주변 지역에 위치한 미러를 사용하세요.**
 
-```console
-kali@kali:~$ sudo sbuild-shell source:kali-dev-amd64-sbuild
-I: /bin/sh
-# echo 'Acquire::HTTP::Proxy "http://localhost:9999";' > /etc/apt/apt.conf.d/01proxy
-# exit
-kali@kali:~$
+마지막으로, 캐싱 프록시를 사용하도록 sbuild를 구성해야 해요. 이는 `~/.config/sbuild/config.pl` 파일에 다음 코드 조각을 추가하여 수행돼요:
+
+```
+# 캐싱 프록시 사용
+push @{$unshare_mmdebstrap_extra_args}, "*", [
+  '--aptopt=Acquire::HTTP::Proxy "http://localhost:9999";',
+];
 ```
 
-## Quilt (패치 관리)
-
-```console
-kali@kali:~$ cat << EOF > ~/.quiltrc
-export QUILT_PATCHES=debian/patches
-QUILT_PUSH_ARGS="--color=auto"
-QUILT_DIFF_ARGS="--no-timestamps --no-index -p ab --color=auto"
-QUILT_REFRESH_ARGS="--no-timestamps --no-index -p ab"
-QUILT_DIFF_OPTS='-p'
-EOF
-kali@kali:~$
-```
+변경 사항을 즉시 적용하려면 빌드 환경을 제거하세요 (`rm ~/.cache/sbuild/*`), 그러면 sbuild가 이 새로운 구성 옵션으로 환경을 재구성할 수 있어요.
