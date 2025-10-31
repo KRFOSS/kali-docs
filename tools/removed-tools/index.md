@@ -21,6 +21,7 @@ author: ["g0tmi1k",]
 | [creddump](https://pkg.kali.org/pkg/creddump) | 2019-10-02] | Python 2 ([#1](https://gitlab.com/kalilinux/packages/creddump/-/issues/1)) |
 | [cuckoo](https://pkg.kali.org/pkg/cuckoo) | 2020-04-07 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/cuckoo/-/issues/1)) |
 | [datasploit](https://pkg.kali.org/pkg/datasploit) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/datasploit/-/issues/1)) |
+| [de4dot](https://pkg.kali.org/pkg/de4dot) | 2025-10-16 | Unmaintained and broken tool ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1114088)) |
 | [deblaze](https://pkg.kali.org/pkg/deblaze) | 2021-05-14 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/deblaze/-/issues/1)) |
 | [fimap](https://pkg.kali.org/pkg/fimap) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/fimap/-/issues/1)) |
 | [findmyhash](https://pkg.kali.org/pkg/findmyhash) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/findmyhash/-/issues/1)) |
