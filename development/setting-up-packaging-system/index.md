@@ -125,13 +125,13 @@ kali@kali:~$ grep -q DEBFULLNAME ~/.profile \
   || echo "export DEBFULLNAME='First Last'" >> ~/.aliases
 kali@kali:~$
 kali@kali:~$ grep -q DEBEMAIL ~/.profile \
-  || echo export DEBEMAIL=email@domain.com >> ~/.aliases
+  || echo "export DEBEMAIL=email@domain.com" >> ~/.aliases
 kali@kali:~$
 ```
 
 **`email@domain.com`을 본인의 이메일로 변경하세요, 그리고 해당 설정이 완료된 경우 GPG 키와 동일한 키인지 확인하세요.**
 
-이제 git-buildpackage/[`gbp buildpackage`](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html)를 설정해야 해요:
+이제 `gbp`(즉, [git-buildpackage](https://manpages.debian.org/testing/git-buildpackage/gbp-buildpackage.1.en.html))를 설정해야 해요:
 
 ```console
 kali@kali:~$ cat <<EOF > ~/.gbp.conf
@@ -235,20 +235,20 @@ kali@kali:~$
 ```console
 kali@kali:~$ cat << EOF > ~/.quiltrc
 export QUILT_PATCHES=debian/patches
-QUILT_PUSH_ARGS="--color=auto"
 QUILT_DIFF_ARGS="--no-timestamps --no-index -p ab --color=auto"
-QUILT_REFRESH_ARGS="--no-timestamps --no-index -p ab"
 QUILT_DIFF_OPTS='-p'
+QUILT_PUSH_ARGS="--color=auto"
+QUILT_REFRESH_ARGS="--no-timestamps --no-index -p ab"
 EOF
 kali@kali:~$
 ```
 
-## sbuild
+## Sbuild
 
 `sbuild`는 격리된 빌드 환경에서 패키지를 빌드하는 데 사용되는 도구에요.
 
 ```
-cat <<'EOF' > ~/.config/sbuild/config.pl
+kali@kali:~$ cat <<'EOF' > ~/.config/sbuild/config.pl
 
 # '아키텍처: 전체' 패키지 빌드
 $build_arch_all = 1;
@@ -279,14 +279,16 @@ push @{$unshare_mmdebstrap_extra_args}, "kali-*", [
   '--include=kali-archive-keyring',
   '--setup-hook=sed -i s/https/http/ "$1"/etc/apt/sources.list',
 ];
+EOF
+kali@kali:~$
 ```
 위 설정은 필요에 따라 약간 조정할 수 있으며, 아래에 몇 가지 팁을 제공해요.
 
-빌드 속도를 높이려면 `$unshare_tmpdir_template = ...` 줄을 주석 처리하세요. 이 경우 sbuild는 `/tmp/` 디렉토리에서 빌드를 수행하며, 이 디렉토리는 전적으로 메모리 (RAM + SWAP)에 존재하므로 디스크를 사용하지 않아요. 빌드 시간을 단축할 수 있지만, 한 가지 심각한 주의사항이 있어요.: **대용량 패키지의 경우 RAM을 모두 차지하여 실패할 수 있으며**, 이는 SWAP 영역의 크기를 늘려 완화할 수 있어요.
+빌드 속도를 높이려면 `$unshare_tmpdir_template = ...` 줄을 주석 처리하세요. 이 경우 sbuild는 `/tmp/` 디렉토리에서 빌드를 수행하며, 이 디렉토리는 전적으로 메모리 (RAM + SWAP)에 존재하므로 디스크를 사용하지 않아요. 빌드 시간을 단축할 수 있지만, 한 가지 심각한 주의사항이 있어요: **대용량 패키지의 경우 RAM을 모두 차지하여 실패할 수 있어요!**, 이는 SWAP 영역의 크기를 늘리면 완화돼요.
 
 빌드가 실패할 때 빌드 환경에서 쉘을 실행하는 것이 유용할 수 있어요. `~/.config/sbuild/config.pl`에 다음 코드 조각을 추가하면 자동으로 수행돼요:
 
-```
+```perl
 # 빌드 실패시 쉘 획득
 $external_commands = {
   "build-failed-commands" => [ [ '%SBUILD_SHELL' ] ],
@@ -313,7 +315,7 @@ kali            http://kali.download/kali
 
 마지막으로, 캐싱 프록시를 사용하도록 sbuild를 구성해야 해요. 이는 `~/.config/sbuild/config.pl` 파일에 다음 코드 조각을 추가하여 수행돼요:
 
-```
+```perl
 # 캐싱 프록시 사용
 push @{$unshare_mmdebstrap_extra_args}, "*", [
   '--aptopt=Acquire::HTTP::Proxy "http://localhost:9999";',
