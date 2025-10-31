@@ -274,14 +274,15 @@ $unshare_tmpdir_template = "/var/tmp/sbuild.XXXXXXXXXX";
 
 # 칼리용 chroot 조정
 push @{$unshare_mmdebstrap_extra_args}, "kali-*", [
-  '--mirror=http://http.kali.org/kali',
   '--components=main contrib non-free non-free-firmware',
-  '--include=kali-archive-keyring'
+  '--mirror=http://http.kali.org/kali',
+  '--include=kali-archive-keyring',
+  '--setup-hook=sed -i s/https/http/ "$1"/etc/apt/sources.list',
 ];
 ```
 위 설정은 필요에 따라 약간 조정할 수 있으며, 아래에 몇 가지 팁을 제공해요.
 
-빌드 속도를 높이려면 `$unshare_tmpdir_template = ...` 줄을 주석 처리하세요. 이 경우 sbuild는 `/tmp/` 디렉토리에서 빌드를 수행하며, 이 디렉토리는 전적으로 RAM에 존재하므로 디스크를 사용하지 않아요. 빌드 시간을 단축할 수 있지만, 한 가지 심각한 주의사항이 있어요.: **대용량 패키지의 경우 RAM을 모두 차지하여 실패할 수 있으며**, 이는 SWAP 영역의 크기를 늘려 완화할 수 있어요.
+빌드 속도를 높이려면 `$unshare_tmpdir_template = ...` 줄을 주석 처리하세요. 이 경우 sbuild는 `/tmp/` 디렉토리에서 빌드를 수행하며, 이 디렉토리는 전적으로 메모리 (RAM + SWAP)에 존재하므로 디스크를 사용하지 않아요. 빌드 시간을 단축할 수 있지만, 한 가지 심각한 주의사항이 있어요.: **대용량 패키지의 경우 RAM을 모두 차지하여 실패할 수 있으며**, 이는 SWAP 영역의 크기를 늘려 완화할 수 있어요.
 
 빌드가 실패할 때 빌드 환경에서 쉘을 실행하는 것이 유용할 수 있어요. `~/.config/sbuild/config.pl`에 다음 코드 조각을 추가하면 자동으로 수행돼요:
 
