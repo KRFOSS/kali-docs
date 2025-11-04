@@ -3,7 +3,7 @@ title: 삼성 갤럭시 S10에 넷헌터 설치하기
 description:
 icon:
 weight:
-author: ["v0lk3n",]
+author: ["v0lk3n","yesimxev",]
 번역: ["xenix4845"]
 ---
 
@@ -54,7 +54,9 @@ author: ["v0lk3n",]
 - 최종 조정 및 문제 해결
 
 ## 순정 롬 플래시
-순정 상태로 되돌리거나 설치를 처음부터 다시 깨끗하게 하고싶으면 여기에서 맞는 펌웨어를 받으세요 (권장) :
+순정 상태로 되돌리거나 설치를 처음부터 다시 깨끗하게 하고싶으면 여기에서 맞는 펌웨어를 받으세요. (권장)
+
+만약 최신 업데이트를 설치한 상태에서 깨끗하게 플래시 하는 것을 원치 않는다면 다음 단계로 건너뛰세요:
 
 https://www.sammobile.com/samsung/galaxy-s10/firmware/SM-G973F/
 
@@ -86,11 +88,11 @@ OEM 잠금을 해제하려면 먼저 개발자 모드를 활성화해야 해요.
 
 ## USB 디버깅
 
-기기를 부팅하고 설정하세요. 개발자 모드를 다시 활성화하세요.
+기기를 부팅하고 초기 설정을 진행한 뒤, 개발자 모드를 다시 활성화하고 와이파이를 연결하세요.
 
 "설정 > 휴대전화 정보 > 소프트웨어 정보"를 열고, 개발자 모드가 활성화될 때까지 "빌드 번호"를 연속으로 탭하세요.
 
-개발자 모드에서 USB 디버깅을 활성화하세요.
+개발자 모드에서 OEM 잠금 해제 항목 아래에 "부트로더 잠금 해제됨"이라고 표시되는지 확인하고 USB 디버깅을 활성화하세요.
 
 ## ROM 플래시
 
@@ -106,7 +108,7 @@ MindTheGapps : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung
 
 ### 리커버리 플래시
 
-기기를 다운로드 모드로 부팅하세요. Heimdall을 사용하여 리커버리를 플래시하세요. 이 부분은 [LineageOS 설치 가이드](https://wiki.lineageos.org/devices/beyond1lte/install/#preparing-for-installation)를 따라할 수 있어요.
+USB 케이블을 PC에 연결한 상태에서 "볼륨 다운 키와 빅스비 키"를 동시에 눌러 기기를 다운로드 모드로 부팅하세요. Heimdall을 사용하여 리커버리를 플래시하세요. 이 부분은 [LineageOS 설치 가이드](https://wiki.lineageos.org/devices/beyond1lte/install/#preparing-for-installation)를 따라할 수 있어요.
 
 ```bash
  heimdall flash --RECOVERY recovery.img --VBMETA vbmeta.img --no-reboot
@@ -114,7 +116,7 @@ MindTheGapps : [다운로드](https://github.com/V0lk3n/nethunter_kernel_samsung
 
 ### LineageOS ROM 플래시
 
-리커버리가 플래시되면, "볼륨- + 전원 키"를 7초간 눌러 기기를 종료하고, 바로 "볼륨+ + 빅스비 + 전원 키"를 눌러 리커버리로 부팅하세요.
+리커버리가 플래시되면, "볼륨- + 전원 키"를 7초간 눌러 기기를 재시작하고, 바로 "볼륨+ + 빅스비 + 전원 키"를 눌러 리커버리로 부팅하면 초기화되지 않아요.
 
 리커버리로 부팅되면, "Factory reset"으로 이동하여 모든 것을 포맷하세요.
 
@@ -132,7 +134,7 @@ adb -d sideload MindTheGapps-15.0.0-arm64-20250214_082511.zip
 
 휴대폰에 "Signature verification failed Install anyway?" 경고가 나타나면 "Yes"를 누르고, MindTheGapps 플래시가 완료될 때까지 기다리세요.
 
-완료되면 "Reboot System Now"를 누르고 기기를 설정하세요. WiFi에 연결하세요 (루팅 단계에 필요해요).
+완료되면 "Reboot System Now"를 누르고 초기 설정을 다시한 뒤, 와이파이에 연결하세요 (루팅 단계에 필요해요).
 
 개발자 모드를 다시 활성화하세요.
 
@@ -168,6 +170,8 @@ adb -d sideload Magisk-v28.1.zip
 ## 넷헌터
 
 제가 선호하는 방법은 설치 프로그램을 직접 빌드하는 거예요. 하지만 원한다면 [다운로드](https://kali.download/nethunter-images/kali-2025.3/kali-nethunter-2025.3-beyond1lte-los-fifteen-full.zip)할 수도 있어요.
+
+자신만의 설치 프로그램을 만들고 싶지 않다면 다음 단계로 건너뛰세요.
 
 먼저 소스에서 빌드해봅시다.
 
@@ -222,7 +226,7 @@ adb -d sideload kernel-nethunter-20250629_173026-beyond1lte-los-fifteen.zip
 
 플래시가 완료되면 시스템으로 재부팅하세요.
 
-## Magisk 모듈
+## Magisk 모듈 (선택)
 
 Magisk Overlayfs 모듈을 다운로드하세요.
 
@@ -265,15 +269,15 @@ Magisk를 열고 "Modules > Install from Storage"로 이동하여 Nexmon S10 모
 
 ### Nexmon 사용법
 
-모니터 모드 시작
+안드로이드 터미널에서 모니터 모드 시작하세요.
 
 ```bash
 $ svc wifi disable
 $ ifconfig wlan0 up
-$ nexutil -g0x613 -i -v2
+$ nexutil -s0x613 -i -v2
 ```
 
-설정을 더 쉽게 하기 위해 사용자 정의 명령어를 만들 수 있어요.
+설정을 더 쉽게 하기 위해 넷헌터 앱에서 사용자 정의 명령어를 만들 수 있어요.
 
 <img src="custom_nexutil_command.jpg" width="300">
 
@@ -284,19 +288,32 @@ $ nexutil -m0
 $ svc wifi enable
 ```
 
-### Hijacker 설정
+칼리 터미널에서 airodump를 실행하세요 (새 터미널 창마다 export가 필요해요)
 
-Hijacker 앱을 열기 전에 WiFi를 꺼야 해요.
+```bash
+$ export LD_PRELOAD=/lib/kalilibnexmon.so
+$ airodump-ng wlan0
+```
+
+kalilibnexmon.so : <a href="https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels/-/raw/main/ten/angler-los/system/lib64/kalilibnexmon.so">다운로드</a>
+
+chroot 환경에 /lib/kalilibnexmon.so로 복사하세요.
+
+### Hijacker 설정
 
 Hijacker 앱을 열고 다음 설정을 구성하세요.
 
 | 설정  | 값 |
 | :--------------- | -----:|
 | Prefix | LD_PRELOAD=/data/user/0/com.hijacker/files/lib/libnexmon.so |
-| Enable Monitor Mode | ifconfig wlan0 up; nexutil -g0x613 -i -v2 |
-| Disable Monitor Mode | nexutil -m0 |
+| Enable Monitor Mode | if [ `dumpsys wifi | grep "Wi-Fi is" | cut -d" " -f3` == "enabled" ]; then svc wifi disable; sleep 2; ifconfig wlan0 up; fi; nexutil -s0x613 -i -v2 |
+| Disable Monitor Mode | nexutil -m0; svc wifi enable |
 | Start Monitor Mode on Airodump Start | ✅ |
 | Band | Both |
+
+만약 와이파이가 5Ghz에 연결되어 있었다면, 시작 시 해당 채널만 표시될 수 있어요. 중지 + 시작 아이콘을 눌러 다시 스캔하면 모든 2.4Ghz 채널을 확인할 수 있어요.
+
+5Ghz가 지원되지만, 안드로이드 단말기에서 채널을 수동으로 변경하려면 채널 36의 경우 `nexutil -k36/80`, 채널 40의 경우 `nexutil -k40/80` 등을 사용해야 해요. 이 기능은 Hijacker 앱에 추가될 예정이에요.
 
 # 보너스: 스플래시 스크린 플래시
 
@@ -314,49 +331,12 @@ Hijacker 앱을 열고 다음 설정을 구성하세요.
 adb -d sideload G97X_Splash_Screen_Changer_by_SoLdieR9312_splash.zip
 ```
 
-플래시가 완료될 때까지 기다리고 휴대폰을 재부팅하세요.
-
-# 문제 해결
-
-## 모듈 수정
-
-모듈을 수동으로 전송해야 할 수도 있어요.
-
-넷헌터 설치 프로그램 zip 내부에서 모듈을 찾을 수 있어요.
-
-```bash
-nethunter-20250629_171321-beyond1lte-los-fifteen-kalifs_full.zip/kernel-nethunter.zip/modules/system/lib/modules
-```
-
-"modules" 폴더를 컴퓨터로 추출하고 /sdcard/에 전송하세요.
-
-```bash
-# ADB를 사용하여 컴퓨터에서
-adb push modules /sdcard/
-```
-
-휴대폰에서 넷헌터 터미널을 열고, 점 세 개 "New Session... > New Root Shell"을 누르세요.
-
-> adb shell이 아닌 넷헌터 안드로이드 루트 터미널에서 마운트하세요. overlayfs는 다른 곳에서의 마운트를 허용하지 않아요.
-
-/system/lib 마운트
-
-```bash
-# NH 안드로이드 루트 터미널에서
-mount -o rw,remount /system/lib
-```
-
-모듈을 /sdcard에서 /system/lib로 이동하세요.
-
-```bash
-# NH 안드로이드 루트 터미널에서
-mv /sdcard/modules /system/lib
-```
+플래싱이 완료될 때까지 기다리면 휴대폰이 자동으로 재시작돼요.
 
 # 크레딧
 
 도와주신 분들 :
-- 갤럭시 S10에 도움과 지원을 준 <a href="https://gitlab.com/yesimxev">Yesimxev</a>
+- 갤럭시 S10에 도움과 지원을 준 <a href="https://gitlab.com/yesimxev">yzesimxev</a>
 - 갤럭시 S10에 도움과 지원을 준 Arti
 - <a href="https://github.com/seemoo-lab/nexmon">Nexmon</a>
 - Nexmon의 <a href="https://x.com/MarkusTieger">MarkusTieger</a>
