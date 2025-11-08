@@ -17,7 +17,7 @@ VMware의 VMX에서 OVA로 변환하려면 다음과 같이 하면돼요, 우리
 
 ---
 
-우리는 [공식 Kali Linux VMware 이미지](/get-kali/#kali-virtual-machines)를 변환하는 데 사용할 거에요. 시작하려면 압축을 풀고 그 안에 있는 vmx 파일에 접근하세요:
+우리는 [공식 칼리 리눅스 VMware 이미지](/get-kali/#kali-virtual-machines)를 변환하는 데 사용할 거에요. 시작하려면 압축을 풀고 그 안에 있는 vmx 파일에 접근하세요:
 
 ```console
 kali@kali:~$ 7z x kali-linux-2025.3-vmware-amd64.7z

@@ -1,5 +1,5 @@
 ---
-title: Parallels 안의 Kali (게스트 VM)
+title: Parallels 안의 칼리 (게스트 VM)
 description:
 icon:
 weight: 195
@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["kmw0410"]
 ---
 
-이 가이드는 가상화 Parallels 안에서 Kali Linux를 가상화하고 Kali VM을 보유하는 방법에 대해 설명해요. 이는 호스트와 완전히 분리되어 있고, 다른 VM(호스트나 네트워크에 있는 다른 머신)과 상호작용 할 수 있고 스냅샷으로 되돌릴 수 있기 때문에 Kali를 사용하기에 좋은 방법이에요.
+이 가이드는 가상화 Parallels 안에서 칼리 리눅스를 가상화하고 칼리 VM을 보유하는 방법에 대해 설명해요. 이는 호스트와 완전히 분리되어 있고, 다른 VM(호스트나 네트워크에 있는 다른 머신)과 상호작용 할 수 있고 스냅샷으로 되돌릴 수 있기 때문에 칼리를 사용하기에 좋은 방법이에요.
 
 ### 마법사
 
@@ -29,7 +29,7 @@ Parallels를 시작할 때, **더하기(+)** 마크를 선택하세요.
 
 ---
 
-이 화면에서 설치에 사용할 Kali Linux 이미지를 선택하세요. "**수동 선택**"을 선택하고, [다운로드된](/docs/introduction/download-official-kali-linux-images/) ISO의 위치로 이동하세요. 더 많은 정보는 [다운로드할 이미지에 대해 가이드를 작성했어요](/docs/introduction/what-image-to-download/)
+이 화면에서 설치에 사용할 칼리 리눅스 이미지를 선택하세요. "**수동 선택**"을 선택하고, [다운로드된](/docs/introduction/download-official-kali-linux-images/) ISO의 위치로 이동하세요. 더 많은 정보는 [다운로드할 이미지에 대해 가이드를 작성했어요](/docs/introduction/what-image-to-download/)
 
 ![](parallels-04.png)
 
@@ -60,7 +60,7 @@ Parallels는 ISO로 OS를 인식하지 못해요, 따라서 **계속**을 선택
 
 또한 **설치 전 설정 사용자 정의** 체크박스를 선택하세요
 
-이 가이드에서는 **Kali Linux**라는 일반적인 용어를 사용해요 (Kali Linux는 [롤링 배포판](/docs/general-use/kali-branches/)이기에 우리는 [Kali Linux를 업데이트](/docs/general-use/updating-kali/)해요).
+이 가이드에서는 **Kali Linux**라는 일반적인 용어를 사용해요 (칼리 리눅스는 [롤링 배포판](/docs/general-use/kali-branches/)이기에 우리는 [칼리 리눅스를 업데이트](/docs/general-use/updating-kali/)해요).
 
 ![](parallels-11.png)
 
@@ -94,10 +94,10 @@ Parallels는 ISO로 OS를 인식하지 못해요, 따라서 **계속**을 선택
 
 ---
 
-이제 **Kali Linux 구성** 창을 닫고, **설치 도우미** 창으로 돌아올 수 있어요.
+이제 **칼리 리눅스 구성** 창을 닫고, **설치 도우미** 창으로 돌아올 수 있어요.
 
 ![](parallels-18.png)
 
 ---
 
-모두 마쳤으면 저장하고 VM을 시작하세요, 그런 다음 일반적인 [베어 메탈 설치](/docs/installation/hard-disk-install/) 처럼 Kali Linux 설치를 계속하세요. 
+모두 마쳤으면 저장하고 VM을 시작하세요, 그런 다음 일반적인 [베어 메탈 설치](/docs/installation/hard-disk-install/) 처럼 칼리 리눅스 설치를 계속하세요. 

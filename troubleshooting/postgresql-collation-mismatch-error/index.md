@@ -18,7 +18,7 @@ HINT:  Rebuild all objects in this database that use the default collation and r
 
 ![](images/postgresql-collation-mismatch-errors.png)
 
-이 오류는 Kali의 터미널에서 다음 명령어를 실행하여 해결할 수 있어요:
+이 오류는 칼리의 터미널에서 다음 명령어를 실행하여 해결할 수 있어요:
 
 ```console
 ┌──(kali㉿kali)-[~]

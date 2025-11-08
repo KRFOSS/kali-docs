@@ -12,7 +12,7 @@ author: ["arnaudr", "gamb1t",]
 먼저 Hyper-V 이미지를 추출해야 해요. 이를 위해 [공식 7z 앱](https://www.7-zip.org/)을 사용해야 해요. 
 
 {{% notice info %}}
-참고로 Windows 11을 사용 중이라면 "추가 옵션 표시" 컨텍스트 메뉴에 이 옵션이 숨겨져 있어요.
+참고로 윈도우 11을 사용 중이라면 "추가 옵션 표시" 컨텍스트 메뉴에 이 옵션이 숨겨져 있어요.
 {{% /notice %}}
 
 ![](import-hyperv-1.png)

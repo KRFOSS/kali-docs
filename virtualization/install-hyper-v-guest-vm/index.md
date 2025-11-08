@@ -1,5 +1,5 @@
 ---
-title: Hyper-V 안의 Kali (게스트 VM)
+title: Hyper-V 안의 칼리 (게스트 VM)
 description:
 icon:
 weight: 215
@@ -7,10 +7,10 @@ author: ["gamb1t","serval123"]
 번역: ["kmw0410"]
 ---
 
-대부분의 Windows 사용자들은 Hyper-V가 이미 활성화되어 있어요. 하지만, 시스템에서 활성화되어 있지 않은 경우 Microsoft의 문서 페이지를 따르세요:
+대부분의 윈도우 사용자들은 Hyper-V가 이미 활성화되어 있어요. 하지만, 시스템에서 활성화되어 있지 않은 경우 마이크로소프트의 문서 페이지를 따르세요:
 
-- [Windows 8, 8.1](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))용
-- [Windows 10, 11](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)용
+- [윈도우 8, 8.1](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))용
+- [윈도우 10, 11](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v)용
 
 Hyper-V가 활성화 되었다면 새로운 VM을 매우 쉽게 생성할 수 있어요. 우선 우리는 설치 iso [다운로드](/get-kali/)가 필요해요. 그런 다음 Hyper-V를 부팅할 수 있어요:
 

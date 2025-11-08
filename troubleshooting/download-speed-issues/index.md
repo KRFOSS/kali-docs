@@ -9,7 +9,7 @@ author: ["gamb1t"]
 
 ### 다운로드 작동 방식
 
-Kali Linux는 커뮤니티 및 공식 미러 네트워크를 통해 배포됩니다. 즉, Kali Linux를 [다운로드](/get-kali/)할 때 실제 다운로드가 시작되기 전에 다음과 같은 단계가 수행됩니다.
+칼리 리눅스는 커뮤니티 및 공식 미러 네트워크를 통해 배포됩니다. 즉, 칼리 리눅스를 [다운로드](/get-kali/)할 때 실제 다운로드가 시작되기 전에 다음과 같은 단계가 수행됩니다.
 
 1. [cdimage.kali.org](http://cdimage.kali.org/README?mirrorlist)에 요청이 전송됩니다.
 2. 사용자의 위치 등을 파악하여 가장 적합한 미러로 리디렉션합니다. 예를 들어, 미국에서는 버클리 대학교 미러로 연결될 수 있습니다.
@@ -43,7 +43,7 @@ kali@kali:~$
 
 ### 버그 제출
 
-다운로드 속도가 현저히 느리거나 미러가 작동하지 않는 경우, 미러 정보 및 속도를 알려주시면 문제 해결에 큰 도움이 됩니다. 다음과 같이 `wget`을 사용하여 다운로드 속도를 측정할 수 있습니다. Windows 사용자의 경우 웹 브라우저에서 속도를 확인하거나 [Windows용 wget](https://medium.com/nerd-for-tech/using-wget-command-in-windows-10-environment-d766b8f526e9)을 설치할 수 있습니다.
+다운로드 속도가 현저히 느리거나 미러가 작동하지 않는 경우, 미러 정보 및 속도를 알려주시면 문제 해결에 큰 도움이 됩니다. 다음과 같이 `wget`을 사용하여 다운로드 속도를 측정할 수 있습니다. 윈도우 사용자의 경우 웹 브라우저에서 속도를 확인하거나 [윈도우용 wget](https://medium.com/nerd-for-tech/using-wget-command-in-windows-10-environment-d766b8f526e9)을 설치할 수 있습니다.
 
 ```console
 kali@kali:~$ wget https://kali.download/base-images/kali-2025.3/kali-linux-2025.3-installer-amd64.iso

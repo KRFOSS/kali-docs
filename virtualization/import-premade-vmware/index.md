@@ -17,7 +17,7 @@ kali@kali:~$ 7z x kali-linux-2025.3-vmware-amd64.7z
 kali@kali:~$
 ```
 
-Windows를 사용하고 있다면 대신 [공식 7z 앱](https://www.7-zip.org/)을 사용할 수 있어요. 참고로 Windows 11을 사용 중이라면 "추가 옵션 표시" 컨텍스트 메뉴에 이 옵션이 숨겨져 있어요.
+윈도우를 사용하고 있다면 대신 [공식 7z 앱](https://www.7-zip.org/)을 사용할 수 있어요. 참고로 Windows 11을 사용 중이라면 "추가 옵션 표시" 컨텍스트 메뉴에 이 옵션이 숨겨져 있어요.
 
 그런 다음 VMware를 실행해요:
 

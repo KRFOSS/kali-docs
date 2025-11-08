@@ -1,5 +1,5 @@
 ---
-title: Windows 안티바이러스 경고
+title: 윈도우 안티바이러스 경고
 description:
 icon:
 weight:
@@ -7,7 +7,7 @@ author: ["gamb1t","xenix4845"]
 번역: ["xenix4845"]
 ---
 
-[공식 소스](/get-kali/)에서 Kali Linux를 다운로드할 때 Windows 기기에서 안티바이러스 경고가 발생할 수 있어요. 이 경고는 Kali Linux가 Windows가 악성으로 표시하는 많은 침투 테스트(pentesting) 도구를 포함하고 있기 때문에 발생해요. 이는 가끔씩 발생할 수 있는 예상된 동작이에요. 이런 일이 발생하면 다운로드에 대한 [예외 설정](https://support.microsoft.com/ko-kr/windows/windows-%EB%B3%B4%EC%95%88-%EC%95%B1%EC%9D%98-%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4-%EB%B0%8F-%EC%9C%84%ED%98%91-%EB%B0%A9%EC%A7%80-1362f4cd-d71a-b52a-0b66-c2820032b65e)을 만들 수 있어요. 다운로드가 완료되면 [체크섬 확인](/introduction/download-official-kali-linux-images/#ISO%EC%9D%98-%EC%84%9C%EB%AA%85-%EC%88%98%EB%8F%99-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0(%EC%A7%81%EC%A0%91-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C))을 해서 다운로드한 파일이 Kali Linux에서 제공하는 올바른 파일인지 확인하는 것이 좋아요.
+[공식 소스](/get-kali/)에서 칼리 리눅스를 다운로드할 때 윈도우 기기에서 안티바이러스 경고가 발생할 수 있어요. 이 경고는 칼리 리눅스가 Windows에서 악성으로 표시하는 많은 침투 테스트(pentesting) 도구를 포함하고 있기 때문에 발생해요. 이는 가끔씩 발생할 수 있는 예상된 동작이에요. 이런 일이 발생하면 다운로드에 대한 [예외 설정](https://support.microsoft.com/ko-kr/windows/windows-%EB%B3%B4%EC%95%88-%EC%95%B1%EC%9D%98-%EB%B0%94%EC%9D%B4%EB%9F%AC%EC%8A%A4-%EB%B0%8F-%EC%9C%84%ED%98%91-%EB%B0%A9%EC%A7%80-1362f4cd-d71a-b52a-0b66-c2820032b65e)을 만들 수 있어요. 다운로드가 완료되면 [체크섬 확인](/introduction/download-official-kali-linux-images/#ISO%EC%9D%98-%EC%84%9C%EB%AA%85-%EC%88%98%EB%8F%99-%ED%99%95%EC%9D%B8%ED%95%98%EA%B8%B0(%EC%A7%81%EC%A0%91-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C))을 해서 다운로드한 파일이 칼리 리눅스에서 제공하는 올바른 파일인지 확인하는 것이 좋아요.
 
 이는 윈도우 디펜더(`Windows 보안`이라고도 함) 뿐만 아니라 Bitdefender 및 ESET 등에서도 같은 반응을 보일 수 있어요. 각 백신 프로그램별로 예외를 설정하는 방법은 각 백신의 공식 문서를 읽어주세요. 이곳에 없는 백신이 있을 수도 있어요. 그럴 땐 구글에서 검색하면 찾을 수 있어요.
 

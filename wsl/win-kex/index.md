@@ -7,7 +7,7 @@ author: ["Re4son","xenix4845"]
 번역: ["xenix4845"]
 ---
 
-Win-KeX는 리눅스용 윈도우 하위 시스템 (WSL 2)에서 Kali Linux의 GUI 데스크톱 환경을 다음과 같은 기능으로 제공합니다.
+Win-KeX는 리눅스용 윈도우 하위 시스템 (WSL 2)에서 칼리 리눅스의 GUI 데스크톱 환경을 다음과 같은 기능으로 제공합니다.
 
 - [윈도우 모드](/docs/wsl/win-kex-win/): 전용 창에서 Kali Linux 데스크톱 실행 <!-- VNC/tigervncserver -->
 - [심리스 모드](/docs/wsl/win-kex-sl/): Windows와 Kali 애플리케이션 및 메뉴 간에 Windows 데스크톱 공유 <!-- VcXsrv/xfdesktop -->

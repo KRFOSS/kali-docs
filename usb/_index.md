@@ -1,6 +1,6 @@
 ---
 title: USB 부팅
-description: Portable Kali on a USB drive/key/stick
+description: USB 드라이브/키/스틱에 설치된 휴대용 칼리
 icon: ti-widget
 weight: 25
 author: ["xenix4845",]
@@ -11,11 +11,11 @@ author: ["xenix4845",]
 
 [> VirtualBox에서 USB 부팅하기](https://kali.krfoss.org/usb/boot-usb-in-virtualbox/)
 
-[> Linux에서 칼리 부팅 USB 만들기](https://kali.krfoss.org/usb/live-usb-install-with-linux/)
+[> 리눅스에서 칼리 부팅 USB 만들기](https://kali.krfoss.org/usb/live-usb-install-with-linux/)
 
 [> Mac에서 칼리 부팅 USB 만들기](https://kali.krfoss.org/usb/live-usb-install-with-mac/)
 
-[> Windows에서 칼리 부팅 USB 드라이브 만들기](https://kali.krfoss.org/usb/live-usb-install-with-windows/)
+[> 윈도우에서 칼리 부팅 USB 드라이브 만들기](https://kali.krfoss.org/usb/live-usb-install-with-windows/)
 
 [> USB에서 칼리 리눅스 업데이트하기](https://kali.krfoss.org/usb/updating-kali-on-usb/)
 
