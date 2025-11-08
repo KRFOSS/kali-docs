@@ -1,6 +1,6 @@
 ---
 title: 일반 사용
-description: Misc. Everything else. Post install.
+description: 기타. 그 외의 모든 것. 설치 후.
 icon: ti-panel
 weight: 50
 author: ["xenix4845",]

@@ -1,5 +1,5 @@
 ---
-title: Metasploit 프레임워크
+title: 메타스플로잇 프레임워크
 description:
 icon:
 weight:
@@ -7,7 +7,7 @@ author: ["g0tmi1k",]
 번역: ["xjnkr","xenix4845"]
 ---
 
-[칼리 리눅스 네트워크 서비스 정책](/policy/kali-linux-network-service-policy/)에 따라, 데이터베이스 서비스를 포함한 모든 네트워크 서비스는 기본적으로 부팅 시 실행되지 않습니다. 따라서 [Metasploit](https://www.metasploit.com/)을 데이터베이스 지원과 함께 실행하기 위해서는 몇 가지 단계를 거쳐야 합니다.
+[칼리 리눅스 네트워크 서비스 정책](/policy/kali-linux-network-service-policy/)에 따라, 데이터베이스 서비스를 포함한 모든 네트워크 서비스는 기본적으로 부팅 시 실행되지 않습니다. 따라서 [메타스플로잇](https://www.metasploit.com/)을 데이터베이스 지원과 함께 실행하기 위해서는 몇 가지 단계를 거쳐야 합니다.
 
 ## 빠른 방법
 
@@ -28,7 +28,7 @@ _더 나아가 `sudo msfdb run`을 실행하면 위의 작업을 수행하고 �
 
 ## MSFDB
 
-Metasploit 설정의 다양한 부분을 상호 작용하는 데 도움이 되는 `msfdb` 명령어가 있습니다:
+메타스플로잇 설정의 다양한 부분을 상호 작용하는 데 도움이 되는 `msfdb` 명령어가 있습니다:
 
 ```console
 kali@kali:~$ sudo msfdb
@@ -48,10 +48,10 @@ kali@kali:~$
 
 _참고: 이것은 기본 프로젝트와 함께 제공되는 [다른 버전](https://github.com/rapid7/metasploit-framework/issues/11369)의 `msfdb`입니다_
 
-## Kali PostgreSQL 서비스 시작
-Kali PostgreSQL 서비스 시작하기
+## 칼리 PostgreSQL 서비스 시작
+칼리 PostgreSQL 서비스 시작하기
 
-Metasploit은 데이터베이스로 **[PostgreSQL](https://www.postgresql.org/)**을 사용하므로 먼저 시작해야 합니다:
+메타스플로잇은 데이터베이스로 **[PostgreSQL](https://www.postgresql.org/)**을 사용하므로 먼저 시작해야 합니다:
 
 ```console
 kali@kali:~$ sudo msfdb start
@@ -84,7 +84,7 @@ postgres  157071       1  1 02:15 ?        Ss     0:00 /usr/lib/postgresql/13/bi
 kali@kali:~$
 ```
 
-## Metasploit PostgreSQL 데이터베이스 초기화
+## 메타스플로잇 PostgreSQL 데이터베이스 초기화
 
 **PostgreSQL**이 실행 중이면, 다음으로 **msf** 데이터베이스를 생성하고 초기화해야 합니다:
 

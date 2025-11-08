@@ -1,5 +1,5 @@
 ---
-title: NetHunter Pro - SDM845(OnePlus6/6T, POCO F1)에서 OTG 켜기
+title: 넷헌터 프로 - SDM845(OnePlus6/6T, POCO F1)에서 OTG 켜기
 description:
 icon:
 weight:
@@ -8,7 +8,7 @@ author: ["ShubhamVis98",]
 ---
 
 {{% notice info %}}
-OTG(On-The-Go)는 스마트폰이나 태블릿이 호스트 역할을 하여 USB 장치(키보드, 마우스, 저장장치 등)를 직접 연결할 수 있게 해주는 기능이예요. NetHunter에서는 이 기능이 해킹 도구를 연결하는 데 중요해요.
+OTG(On-The-Go)는 스마트폰이나 태블릿이 호스트 역할을 하여 USB 장치(키보드, 마우스, 저장장치 등)를 직접 연결할 수 있게 해주는 기능이예요. 넷헌터에서는 이 기능이 해킹 도구를 연결하는 데 중요해요.
 {{% /notice %}}
 
 ### 영상 가이드

@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 드라이버 설치
+title: 엔비디아 GPU 드라이버 설치
 description:
 icon:
 weight: 50
@@ -11,15 +11,15 @@ author: ["g0tmi1k",]
 라이브 부팅은 현재 지원되지 않아요. 다음 문서는 VM이든 베어메탈이든 설치된 버전의 칼리 리눅스를 가정하고 있어요.
 {{% /notice %}}
 
-이 문서는 NVIDIA GPU 드라이버와 CUDA 지원을 설치하는 방법을 설명하며, 이를 통해 많이 사용되는 침투 테스트 도구와의 통합을 가능하게 해요. 우리는 NVIDIA용 오픈소스 드라이버인 **nouveau**를 사용하지 **않고**, 대신 NVIDIA에서 제공하는 비공개 소스를 설치할 거예요.
+이 문서는 엔비디아 GPU 드라이버와 CUDA 지원을 설치하는 방법을 설명하며, 이를 통해 많이 사용되는 침투 테스트 도구와의 통합을 가능하게 해요. 우리는 엔비디아용 오픈소스 드라이버인 **nouveau**를 사용하지 **않고**, 대신 NVIDIA에서 제공하는 비공개 소스를 설치할 거예요.
 
 이 가이드는 **[독립 그래픽 카드(데스크톱 사용자)](#dedicated-cards)**와 **[옵티머스(랩톱과 노트북 사용자)](#optimus-cards)**를 다룰 거예요.
 
-가상 머신에서 이 작업을 시도하지 **않는** 것을 권장해요. [가능하긴](https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/) 하지만 간단하지 않으며, Linux에 대한 깊은 이해가 있는 경우에만 수행해야 해요. 이 가이드에서는 모든 환경과 설정에 대해 다룰 수 없는 항목이 너무 많기 때문에 다루지 않아요.
+가상 머신에서 이 작업을 시도하지 **않는** 것을 권장해요. [가능하긴](https://mathiashueber.com/windows-virtual-machine-gpu-passthrough-ubuntu/) 하지만 간단하지 않으며, 리눅스에 대한 깊은 이해가 있는 경우에만 수행해야 해요. 이 가이드에서는 모든 환경과 설정에 대해 다룰 수 없는 항목이 너무 많기 때문에 다루지 않아요.
 
 ## 선행 조건
 
-먼저, NVIDIA 카드가 [CUDA](https://developer.nvidia.com/cuda-gpus)를 지원하는지 확인해야 해요.
+먼저, 엔비디아 카드가 [CUDA](https://developer.nvidia.com/cuda-gpus)를 지원하는지 확인해야 해요.
 
 {{% notice info %}}
 <a href="https://developer.nvidia.com/cuda-gpus">CUDA 컴퓨팅 기능</a> > 5.0을 가진 GPU가 권장되지만, 더 낮은 버전의 GPU도 작동해요.
@@ -71,7 +71,7 @@ kali@kali:~$
 
 ## 옵티머스 카드
 
-옵티머스(랩톱 및 노트북)의 경우, 기본 카드로 NVIDIA가 표시되지 않아요. NVIDIA가 전혀 나열되지 않을 수도 있어요. 다음과 같이 기본 카드가 무엇인지 확인할 수 있어요:
+옵티머스(랩톱 및 노트북)의 경우, 기본 카드로 엔비디아가 표시되지 않아요. 엔비디아가 전혀 나열되지 않을 수도 있어요. 다음과 같이 기본 카드가 무엇인지 확인할 수 있어요:
 
 ```console
 kali@kali:~$ lspci | grep -i vga
@@ -81,7 +81,7 @@ kali@kali:~$
 
 - - -
 
-NVIDIA 카드를 감지하려면 `nvidia-detect`를 설치해야 해요:
+엔비디아 카드를 감지하려면 `nvidia-detect`를 설치해야 해요:
 
 ```console
 kali@kali:~$ sudo apt install -y nvidia-detect
@@ -109,12 +109,12 @@ kali@kali:~$
 ```
 
 {{% notice info %}}
-`nvidia-detect` 패키지는 Kali가 [롤링 배포판](/docs/general-use/kali-branches/)이기 때문에 일부 지점에서 실패할 수 있어요. 이 패키지는 안정적인 릴리스를 필요로 해요.
+`nvidia-detect` 패키지는 칼리가 [롤링 배포판](/docs/general-use/kali-branches/)이기 때문에 일부 지점에서 실패할 수 있어요. 이 패키지는 안정적인 릴리스를 필요로 해요.
 {{% /notice %}}
 
 ## 설치
 
-`lspci`의 `Kernel driver in use` 및 `Kernel modules`가 어떻게 **nouveau**를 사용하고 있는지 보세요. 이는 NVIDIA 카드용 오픈소스 드라이버를 의미해요. 이제 비공개 소스 **드라이버**와 **CUDA 툴킷**(GPU를 활용할 수 있는 도구)으로 전환할 거예요.
+`lspci`의 `Kernel driver in use` 및 `Kernel modules`가 어떻게 **nouveau**를 사용하고 있는지 보세요. 이는 엔비디아 카드용 오픈소스 드라이버를 의미해요. 이제 비공개 소스 **드라이버**와 **CUDA 툴킷**(GPU를 활용할 수 있는 도구)으로 전환할 거예요.
 
 {{% notice info %}}
 빠른 강의: 커널 모듈, 의존성 및 kbuild 이해하기
@@ -153,7 +153,7 @@ kali@kali:~$
 
 ## Dots Per Inch (DPI) 및 Pixels Per Inch (PPI)
 
-Kali가 다시 시작된 후, 특정 요소들이 예상과 다르게 보일 수 있어요:
+칼리가 다시 시작된 후, 특정 요소들이 예상과 다르게 보일 수 있어요:
 
 - 특정 요소가 **작게** 보이면, 이는 [HiDPI](/docs/general-use/hidpi/) 때문일 수 있어요
 - 그러나 특정 요소가 **크게** 보이면, 이는 [DPI](/docs/general-use/fixing-dpi/)가 올바르지 않기 때문일 수 있어요
@@ -312,7 +312,7 @@ kali@kali:~$
 
 #### OpenCL 로더
 
-설정과 충돌하는 추가 패키지가 있는지 확인해야 할 수 있어요. 먼저 설치된 **OpenCL 로더**가 무엇인지 확인해 보세요. NVIDIA OpenCL 로더와 일반 OpenCL 로더 모두 우리 시스템에서 작동해요:
+설정과 충돌하는 추가 패키지가 있는지 확인해야 할 수 있어요. 먼저 설치된 **OpenCL 로더**가 무엇인지 확인해 보세요. 엔비디아 OpenCL 로더와 일반 OpenCL 로더 모두 우리 시스템에서 작동해요:
 
 ```console
 kali@kali:~$ dpkg -l |  grep -i icd
@@ -416,8 +416,8 @@ kali@kali:~$
 
 1. https://www.nvidia.com/Download/index.aspx?lang=en-us 에 가서 설치할 적절한 GPU 드라이버를 선택하세요.
 2. `sudo su -`를 실행하세요.
-3. `init 3`을 실행하세요(Linux 데스크톱을 비활성화하고 텍스트 인터페이스로 전환).
-4. 이미 `apt`, `nala` 등과 같은 패키지 관리자를 사용하여 Nvidia 드라이버를 설치한 경우 먼저 제거해야 해요. `sudo apt remove nvidia*`를 수행하면 이전에 설치된 모든 Nvidia 드라이버가 제거돼요. 그렇지 않으면 다음 단계를 실행할 때 경고가 표시되고 설치가 중단돼요.
+3. `init 3`을 실행하세요(리눅스 데스크톱을 비활성화하고 텍스트 인터페이스로 전환).
+4. 이미 `apt`, `nala` 등과 같은 패키지 관리자를 사용하여 엔비디아 드라이버를 설치한 경우 먼저 제거해야 해요. `sudo apt remove nvidia*`를 수행하면 이전에 설치된 모든 엔비디아 드라이버가 제거돼요. 그렇지 않으면 다음 단계를 실행할 때 경고가 표시되고 설치가 중단돼요.
 5. `sudo ./Nvidia-<your version>.run`으로 드라이버 파일을 설치하세요. 설치 과정을 따르고 적절한 옵션을 선택하세요.
 6. 설치가 성공하면 `sudo reboot`를 입력하여 재부팅하세요.
 
@@ -444,7 +444,7 @@ OpenCL Platform ID #1
 [...]
 ```
 
-아직 끝나지 않았어요. 이 방법을 따르고 나면 랩톱 디스플레이가 어두워지고 외부 모니터 디스플레이만 보일 수 있어요. 이는 새로 업데이트된 드라이버로 인해 시스템이 주 그래픽 드라이버로 `전용 GPU`, 즉 `Nvidia`를 사용하기 때문에 예상된 결과예요. Discord의 `hackterr` 덕분에 이 문제를 해결하기 위해 `랩톱 디스플레이`의 랩톱 디스플레이 카드를 `Nvidia` 또는 `통합 AMD` GPU로 설정하고 외부 디스플레이에는 `Nvidia`를 유지할 수 있어요. 저는 후자를 선택했어요.
+아직 끝나지 않았어요. 이 방법을 따르고 나면 랩톱 디스플레이가 어두워지고 외부 모니터 디스플레이만 보일 수 있어요. 이는 새로 업데이트된 드라이버로 인해 시스템이 주 그래픽 드라이버로 `전용 GPU`, 즉 `Nvidia`를 사용하기 때문에 예상된 결과예요. 디스코드의 `hackterr` 덕분에 이 문제를 해결하기 위해 `랩톱 디스플레이`의 랩톱 디스플레이 카드를 `Nvidia` 또는 `통합 AMD` GPU로 설정하고 외부 디스플레이에는 `Nvidia`를 유지할 수 있어요. 저는 후자를 선택했어요.
 - `/etc/X11/xorg.conf` 파일에 다음을 추가하세요. (이 작업에는 `sudo`가 필요해요)
 
 ```sh

@@ -21,7 +21,7 @@ kali@kali:~$ sudo flatpak remote-add --if-not-exists flathub https://flathub.org
 
 #### GUI 소프트웨어 스토어
 
-GNOME 소프트웨어용 Flatpak 플러그인을 설치하는 것도 좋습니다. 이것을 하기 위해선 아래의 명령어를 실행하세요.:
+그놈 소프트웨어용 Flatpak 플러그인을 설치하는 것도 좋습니다. 이것을 하기 위해선 아래의 명령어를 실행하세요.:
 
 ```console
 kali@kali:~$ sudo apt install gnome-software-plugin-flatpak
@@ -44,4 +44,4 @@ kali@kali:~$ sudo flatpak override --filesystem=~/.themes/
 ###### 참고
 
 - [Flatpak](https://flatpak.org/)
-- [Debian Quick Setup](https://flatpak.org/setup/Debian/)
+- [데비안 빠른 설정](https://flatpak.org/setup/Debian/)

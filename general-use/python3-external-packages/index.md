@@ -1,5 +1,5 @@
 ---
-title: pipx를 통한 Python 애플리케이션 설치하기
+title: pipx를 통한 파이썬 애플리케이션 설치하기
 description:
 icon:
 weight: 16
@@ -43,17 +43,17 @@ at the risk of breaking your Python installation or OS, by passing
 hint: See PEP 668 for the detailed specification.
 ```
 
-간단히 말해, 이 변경의 이유는 Kali 시스템에서 Python 패키지를 설치하기 위해 `apt`(Kali의 패키지 관리자)와 `pip`를 함께 사용하는 것이 실제로 지원되지 않았기 때문이에요. `apt`와 `pip` 모두 동일한 환경에 Python 패키지를 설치하기 때문에, 기본적으로 서로 충돌하여 빠르게 망가질 수 있어요. [pipx](https://pipx.pypa.io/)는 이 문제에 대한 해결책이니 사용해 주세요.
+간단히 말해, 이 변경의 이유는 칼리 시스템에서 파이썬 패키지를 설치하기 위해 `apt`(칼리의 패키지 관리자)와 `pip`를 함께 사용하는 것이 실제로 지원되지 않았기 때문이에요. `apt`와 `pip` 모두 동일한 환경에 Python 패키지를 설치하기 때문에, 기본적으로 서로 충돌하여 빠르게 망가질 수 있어요. [pipx](https://pipx.pypa.io/)는 이 문제에 대한 해결책이니 사용해 주세요.
 
-더 길고 공식적인 설명은 [PEP 668 – 외부 관리되는 Python 기본 환경 표시](https://peps.python.org/pep-0668/)를 참조하거나, 더 간단한 설명은 블로그 포스트 [Pip install과 Python의 외부 관리](/blog/python-externally-managed/)를 참조하세요.
+더 길고 공식적인 설명은 [PEP 668 – 외부 관리되는 파이썬 기본 환경 표시](https://peps.python.org/pep-0668/)를 참조하거나, 더 간단한 설명은 블로그 포스트 [Pip install과 파이썬의 외부 관리](/blog/python-externally-managed/)를 참조하세요.
 
 아래에서는 위의 오류 메시지에서 제안한 내용을 따라 구체적인 예제를 제공할게요.
 
 ## APT를 통한 패키지 및 프로그램 설치 선호하기
 
-찾고 있는 Python 프로그램이 이미 칼리 리눅스에 패키지로 제공되는지 항상 확인하고, 제공된다면 APT로 설치하세요.
+찾고 있는 파이썬 프로그램이 이미 칼리 리눅스에 패키지로 제공되는지 항상 확인하고, 제공된다면 APT로 설치하세요.
 
-예를 들어, [Faraday의 README](https://github.com/infobyte/faraday)를 확인해 보세요. 이 페이지에는 Docker 이미지, PyPi 패키지(`pip`로 설치), 또는 Faraday가 직접 게시한 배포판 패키지를 포함한 여러 설치 방법이 언급되어 있어요.
+예를 들어, [Faraday의 README](https://github.com/infobyte/faraday)를 확인해 보세요. 이 페이지에는 도커 이미지, PyPi 패키지(`pip`로 설치), 또는 Faraday가 직접 게시한 배포판 패키지를 포함한 여러 설치 방법이 언급되어 있어요.
 
 그 어떤 것도 하기 전에, Faraday가 이미 칼리 리눅스에 패키지로 제공되는지 확인할 수 있어요:
 
@@ -95,7 +95,7 @@ Description: Collaborative Penetration Test IDE
 
 완료됐어요!
 
-## Kali에 패키지가 없거나 너무 오래됐나요? pipx로 설치하세요
+## 칼리에 패키지가 없거나 너무 오래됐나요? pipx로 설치하세요
 
 이 예시에서는 [XSStrike](https://github.com/s0md3v/XSStrike)를 설치해 볼게요. 이번에는 APT가 아무 결과도 반환하지 않아요:
 
@@ -104,7 +104,7 @@ Description: Collaborative Penetration Test IDE
 └─$ apt search xsstrike
 ```
 
-그래서 `pipx`로 설치할 거예요. 이 방법은 프로젝트가 Python 패키지 인덱스에 게시되어 있다고 가정하며, [실제로 그렇습니다](https://pypi.org/project/xsstrike/).
+그래서 `pipx`로 설치할 거예요. 이 방법은 프로젝트가 파이썬 패키지 인덱스에 게시되어 있다고 가정하며, [실제로 그렇습니다](https://pypi.org/project/xsstrike/).
 
 설치는 매우 간단해요:
 
@@ -149,7 +149,7 @@ usage: xsstrike [-h] [-u target] [--data paramdata] [-e encode] [--fuzzer]
 
 ### `~/.local/bin`을 경로에 추가하기
 
-`~/.local/bin`은 `pipx`가 Python 애플리케이션을 설치하는 디렉토리예요. 이 디렉토리는 `PATH` 환경 변수에 포함되어야 하므로, pipx를 통해 예를 들어 `xyz`라는 애플리케이션을 설치하면 터미널에서 간단히 `xyz`를 입력하여 실행할 수 있어요.
+`~/.local/bin`은 `pipx`가 파이썬 애플리케이션을 설치하는 디렉토리예요. 이 디렉토리는 `PATH` 환경 변수에 포함되어야 하므로, pipx를 통해 예를 들어 `xyz`라는 애플리케이션을 설치하면 터미널에서 간단히 `xyz`를 입력하여 실행할 수 있어요.
 
 [칼리 리눅스 2024.4](https://www.kali.org/blog/kali-linux-2024-4-release/)부터 `~/.local/bin`은 이미 `PATH`에 포함되어 있어야 해요. 터미널을 열고 다음 명령을 실행하여 확인할 수 있어요:
 

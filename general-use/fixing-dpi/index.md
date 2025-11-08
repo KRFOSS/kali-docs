@@ -70,7 +70,7 @@ kali@kali:~$ grep DPI /var/log/Xorg.0.log
 kali@kali:~$
 ```
 
-이는 `xrandr`가 보고한 DPI 값과 매우 가까워요 _(1만큼 차이가 있어요)_. 해당 그래픽 드라이버가 **NVIDIA**이고, `EDID`에서 DPI 값을 가져오려고 하고 있어요 _(GPU가 모니터에서 데이터를 읽으려고 하는 거예요)_
+이는 `xrandr`가 보고한 DPI 값과 매우 가까워요 _(1만큼 차이가 있어요)_. 해당 그래픽 드라이버가 **엔비디아**이고, `EDID`에서 DPI 값을 가져오려고 하고 있어요 _(GPU가 모니터에서 데이터를 읽으려고 하는 거예요)_
 
 원한다면 [edid-decode](https://manpages.debian.org/buster/edid-decode/edid-decode.1.en.html)를 사용하여 **EDID** 값을 확인할 수 있어요:
 
@@ -152,7 +152,7 @@ kali@kali:~$
 
 - `~/.Xresources` 편집 _(X 구성 **권장 방법**)_
 - `~/.xsessionrc` 편집 _(X 시작 스크립트)_
-- NVIDIA 드라이버 설정
+- 엔비디아 드라이버 설정
 - Xfce GUI 설정 _(데스크톱 환경 구성)_
 
 #### Xresources
@@ -187,9 +187,9 @@ kali@kali:~$
 
 로그아웃했다가 다시 로그인한 후, 문제가 있던 프로그램을 열면 글꼴이 "정상"으로 보일 거예요.
 
-#### NVIDIA 드라이버 설정
+#### 엔비디아 드라이버 설정
 
-또 다른 방법은 NVIDIA 드라이버가 DPI를 처리하도록 하는 거예요.
+또 다른 방법은 엔비디아 드라이버가 DPI를 처리하도록 하는 거예요.
 
 X용 구성 파일이 없다면, 하나를 생성한 다음 이동시켜야 해요:
 

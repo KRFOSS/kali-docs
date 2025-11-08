@@ -1,5 +1,5 @@
 ---
-title: 칼리 리눅스에서 지원 종료된 Python 버전 사용하기
+title: 칼리 리눅스에서 지원 종료된 파이썬 버전 사용하기
 description:
 icon:
 weight: 15
@@ -7,11 +7,11 @@ author: ["gamb1t",]
 번역: ["xenix4845"]
 ---
 
-2019년 12월에 우리는 Python 2의 지원 종료(End-of-Life)에 어떻게 대응할 것인지에 대한 [블로그 포스트](/blog/python-2-end-of-life/)를 발표했어요. 그 이후로 사용자들이 사용하는 많은 도구들이 Python 3로 포팅되지 않아 사용할 때 문제가 발생하고 있어요. 이 페이지에서는 더 이상 지원되지 않는 버전을 안전하게 사용하는 방법을 다룰 거예요.
+2019년 12월에 우리는 파이썬 2의 지원 종료(End-of-Life)에 어떻게 대응할 것인지에 대한 [블로그 포스트](/blog/python-2-end-of-life/)를 발표했어요. 그 이후로 사용자들이 사용하는 많은 도구들이 파이썬 3로 포팅되지 않아 사용할 때 문제가 발생하고 있어요. 이 페이지에서는 더 이상 지원되지 않는 버전을 안전하게 사용하는 방법을 다룰 거예요.
 
 # pyenv
 
-Python 2는 더 이상 Debian 저장소에서 유지 관리되지 않아요. 이는 우리가 이 문제를 해결할 방법을 찾아야 한다는 것을 의미해요. `pyenv`는 서로 충돌하지 않는 여러 Python 버전을 설치할 수 있게 해줌으로써 이 문제를 해결해요. 현재 Debian이나 Kali 저장소에는 없기 때문에 소스에서 설치해야 해요. 다행히도 개발자들이 편리한 [설치 스크립트](https://github.com/pyenv/pyenv-installer)를 제공했어요. 함께 설치와 설정을 진행해 봐요:
+파이썬 2는 더 이상 데비안 저장소에서 유지 관리되지 않아요. 이는 우리가 이 문제를 해결할 방법을 찾아야 한다는 것을 의미해요. `pyenv`는 서로 충돌하지 않는 여러 파이썬 버전을 설치할 수 있게 해줌으로써 이 문제를 해결해요. 현재 데비안이나 칼리 저장소에는 없기 때문에 소스에서 설치해야 해요. 다행히도 개발자들이 편리한 [설치 스크립트](https://github.com/pyenv/pyenv-installer)를 제공했어요. 함께 설치와 설정을 진행해 봐요:
 
 ```console
 kali@kali:~$ sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
@@ -87,7 +87,7 @@ For full documentation, see: https://github.com/pyenv/pyenv#readme
 kali@kali:~$
 ```
 
-이제 Python 2를 설치하고 기본 Python 버전으로 설정할 수 있어요:
+이제 파이썬 2를 설치하고 기본 파이썬 버전으로 설정할 수 있어요:
 
 ```console
 kali@kali:~$ pyenv install 2.7.18
@@ -113,13 +113,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 kali@kali:~$
 ```
 
-이제 우리가 사용하는 도구에 필요한 의존성을 필요에 따라 설치할 수 있어요. Python 3로 다시 전환하고 싶을 때는 전역을 시스템으로 설정하기만 하면 돼요.
+이제 우리가 사용하는 도구에 필요한 의존성을 필요에 따라 설치할 수 있어요. 파이썬 3로 다시 전환하고 싶을 때는 전역을 시스템으로 설정하기만 하면 돼요.
 
 기억해야 할 한 가지는 `pip`를 통해 의존성을 설치하는 것을 고수하는 것이에요. `apt`를 통해 그리고 pip를 통해 Python 2 의존성을 설치하려고 하면 친절하지 않을 거예요. 따라서 이 경우에는 pip만 사용하는 것이 좋아요.
 
 # Get Pip
 
-또 다른 사용 가능한 옵션은 [get-pip](https://pip.pypa.io/en/stable/installation/)이에요. git-pip를 사용하면 간단히 파이썬 스크립트를 실행하고 사용 중인 버전에 pip를 설치할 수 있어요. 이 경우에는 Python 2예요. 다음과 같이 할 수 있어요:
+또 다른 사용 가능한 옵션은 [get-pip](https://pip.pypa.io/en/stable/installation/)이에요. git-pip를 사용하면 간단히 파이썬 스크립트를 실행하고 사용 중인 버전에 pip를 설치할 수 있어요. 이 경우에는 파이썬 2예요. 다음과 같이 할 수 있어요:
 
 ```console
 kali@kali:~$ curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py

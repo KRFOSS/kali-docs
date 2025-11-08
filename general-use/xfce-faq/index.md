@@ -28,7 +28,7 @@ author: ["re4son",]
 
 **A:** 터미널 세션에서 `sudo apt update && sudo apt install -y kali-desktop-xfce`를 실행하여 새로운 칼리 리눅스 Xfce 환경을 설치하세요. "*기본 디스플레이 관리자*"를 선택하라는 메시지가 표시되면 `lightdm`을 선택하세요.
 
-다음으로, `update-alternatives --config x-session-manager`를 실행하고 Xfce 옵션을 선택하세요. Gnome 윈도우 매니저도 제거하고 싶다면(준비가 되었다고 확신하기 전까지는 권장하지 않음), `apt purge --autoremove kali-desktop-gnome`을 실행하세요. 이 작업은 Xfce 설정 *이후에* 실행해야 해요.
+다음으로, `update-alternatives --config x-session-manager`를 실행하고 Xfce 옵션을 선택하세요. GNOME 윈도우 매니저도 제거하고 싶다면(준비가 되었다고 확신하기 전까지는 권장하지 않음), `apt purge --autoremove kali-desktop-gnome`을 실행하세요. 이 작업은 Xfce 설정 *이후에* 실행해야 해요.
 
 재부팅 후 다음 로그인 시 Xfce 테마가 적용될 거예요. `update-alternatives` 명령을 실행하지 않았다면, 로그인 화면의 오른쪽 상단 모서리에 있는 세션 선택기에서 "Xfce"를 선택할 수 있어요.
 
@@ -44,7 +44,7 @@ author: ["re4son",]
 
 **Q:** Xfce 대신 GNOME이 있는 칼리 리눅스 이미지를 어떻게 얻을 수 있나요?
 
-**A:** [kali.org/get-kali/](/get-kali/)에서 Kali GNOME 이미지를 다운로드하면 돼요.
+**A:** [kali.org/get-kali/](/get-kali/)에서 칼리 GNOME 이미지를 다운로드하면 돼요.
 
 &nbsp;
 &nbsp;
@@ -164,7 +164,7 @@ https://en.wikipedia.org/w/index.php?title=Intelligent_Input_Bus#Available_input
 
 **Q:** 질문이 있는데 어떻게 연락할 수 있나요?
 
-**A:** [Kali 포럼](https://forums.kali.org/)에 가입하세요. 활발한 커뮤니티의 본거지이며 칼리 리눅스에 관한 모든 것을 논의하기 위한 최적의 장소예요.
+**A:** [칼리 포럼](https://forums.kali.org/)에 가입하세요. 활발한 커뮤니티의 본거지이며 칼리 리눅스에 관한 모든 것을 논의하기 위한 최적의 장소예요.
 
 &nbsp;
 &nbsp;

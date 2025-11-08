@@ -1,5 +1,5 @@
 ---
-title: NetHunter Pro에서 Waydroid 사용하기
+title: 넷헌터 프로에서 Waydroid 사용하기
 description:
 icon:
 weight:

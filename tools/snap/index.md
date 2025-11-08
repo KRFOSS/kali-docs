@@ -27,4 +27,4 @@ snap의 경로가 올바르게 업데이트되도록 하려면, 시스템에서 
 
 ###### 참고
 
-- [Installing snap on Kali Linux](https://snapcraft.io/docs/installing-snap-on-kali)
+- [칼리 리눅스에서 snap 설치하기](https://snapcraft.io/docs/installing-snap-on-kali)

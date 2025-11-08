@@ -1,5 +1,5 @@
 ---
-title: 칼리 리눅스에 Tor 브라우저 설치하기
+title: 칼리 리눅스에 토르 브라우저 설치하기
 description:
 icon:
 weight:
@@ -24,10 +24,10 @@ kali@kali:~$
 kali@kali:~$ torbrowser-launcher
 ```
 
-처음 명령어를 실행하면 Tor 브라우저를 다운로드하고 설치하며, 서명 검증도 포함됩니다.
+처음 명령어를 실행하면 토르 브라우저를 다운로드하고 설치하며, 서명 검증도 포함됩니다.
 
-그 이후부터는 Tor 브라우저를 업데이트하고 실행하는데 사용됩니다
+그 이후부터는 토르 브라우저를 업데이트하고 실행하는데 사용됩니다
 
 ###### 참고
 
-- [Debian Wiki: TorBrowser](https://wiki.debian.org/TorBrowser)
+- [데비안 위키: 토르 브라우저](https://wiki.debian.org/TorBrowser)
