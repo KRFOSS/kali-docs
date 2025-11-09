@@ -7,7 +7,7 @@ author: ["gamb1t", "elreydetoda", "gad3r",]
 번역: ["xjnkr",]
 ---
 
-칼리에 Docker를 설치하려면 이미 “docker”라는 이름의 패키지가 있으므로 다른 이름으로 Docker를 설치해야 합니다. 도커를 설치하면 컨테이너 버전으로 끝나지 않습니다. 설치할 버전의 이름은 `docker.io`입니다. 그러나 모든 명령은 동일하므로 명령줄에서 docker를 실행하면 적절한 명령어가 됩니다:
+칼리에 도커를 설치하려면 이미 “docker”라는 이름의 패키지가 있으므로 다른 이름으로 도커를 설치해야 합니다. 도커를 설치하면 컨테이너 버전으로 끝나지 않습니다. 설치할 버전의 이름은 `docker.io`입니다. 그러나 모든 명령은 동일하므로 명령줄에서 도커를 실행하면 적절한 명령어가 됩니다:
 
 ```console
 kali@kali:~$ sudo apt update
@@ -20,7 +20,7 @@ kali@kali:~$ docker
 kali@kali:~$
 ```
 
-이제 `sudo`를 사용하여 Docker를 사용할 수 있습니다. 만약 `sudo` 없이 `docker` 명령어를 사용하고 싶다면, 자신을 `docker` 그룹에 추가하는 추가 단계가 필요합니다:
+이제 `sudo`를 사용하여 도커를 사용할 수 있습니다. 만약 `sudo` 없이 `docker` 명령어를 사용하고 싶다면, 자신을 `docker` 그룹에 추가하는 추가 단계가 필요합니다:
 
 ```console
 kali@kali:~$ sudo usermod -aG docker $USER
@@ -33,7 +33,7 @@ kali@kali:~$
 
 ##### 칼리 리눅스에 docker-ce 설치하기
 
-`docker-ce`는 Docker 공식 저장소에서 설치할 수 있습니다. 이때 주의할 점은, [칼리 리눅스는 Debian을 기반으로 하고 있다는 것](/policy/kali-linux-relationship-with-debian/)입니다. 따라서 칼리 리눅스가 [롤링 릴리스 배포판](/general-use/kali-branches/)이긴 하지만, 설치 시에는 [데비안의 현재 안정(stable) 버전](https://www.debian.org/releases/stable/)을 기준으로 해야 합니다.  
+`docker-ce`는 도커 공식 저장소에서 설치할 수 있습니다. 이때 주의할 점은, [칼리 리눅스는 데비안을 기반으로 하고 있다는 것](/policy/kali-linux-relationship-with-debian/)입니다. 따라서 칼리 리눅스가 [롤링 릴리스 배포판](/general-use/kali-branches/)이긴 하지만, 설치 시에는 [데비안의 현재 안정(stable) 버전](https://www.debian.org/releases/stable/)을 기준으로 해야 합니다.  
 작성 시점(2023년 12월) 기준으로는 "bookworm"이 해당 버전입니다.
 
 ```console

@@ -8,7 +8,7 @@ author: ["gamb1t",]
 ---
 
 {{% notice info %}}
-2023년 2월 기준으로 다음은 AWS Kali 인스턴스를 설정하는 방법입니다. AWS 인터페이스는 지속적으로 업데이트되므로 미래에는 100% 정확하지 않을 수 있어요. 이런 경우가 발생하면 [GitLab에 이슈를 제출](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues)하고 [Amazon의 튜토리얼](https://aws.amazon.com/ec2/getting-started/)을 참고해 주세요.
+2023년 2월 기준으로 다음은 AWS 칼리 인스턴스를 설정하는 방법입니다. AWS 인터페이스는 지속적으로 업데이트되므로 미래에는 100% 정확하지 않을 수 있어요. 이런 경우가 발생하면 [깃랩에 이슈를 제출](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues)하고 [아마존의 튜토리얼](https://aws.amazon.com/ec2/getting-started/)을 참고해 주세요.
 {{% /notice %}}
 
 {{% notice info %}}
@@ -114,7 +114,7 @@ kali@kali:~$ ssh -i "keys.pem" kali@ip
 
 ### 메타패키지
 
-연결 후 이미지가 꽤 기본적인 것만 갖춰져 있다는 것을 알 수 있습니다. 이는 사용자 정의와 이미지 크기 축소를 위한 것입니다. 기본 Kali 도구 세트를 얻으려면 [Kali의 메타패키지](/docs/general-use/metapackages/)를 활용할 수 있습니다. 또는 필요에 따라 특정 도구를 설치할 수도 있습니다. 다음 명령은 `kali-linux-headless` 메타패키지를 사용해 빠르고 편리한 설정을 제공합니다:
+연결 후 이미지가 꽤 기본적인 것만 갖춰져 있다는 것을 알 수 있습니다. 이는 사용자 정의와 이미지 크기 축소를 위한 것입니다. 기본 칼리 도구 세트를 얻으려면 [칼리의 메타패키지](/docs/general-use/metapackages/)를 활용할 수 있습니다. 또는 필요에 따라 특정 도구를 설치할 수도 있습니다. 다음 명령은 `kali-linux-headless` 메타패키지를 사용해 빠르고 편리한 설정을 제공합니다:
 
 ```console
 kali@kali:~$ sudo apt update && sudo apt install -y kali-linux-headless
@@ -124,7 +124,7 @@ kali@kali:~$ sudo apt update && sudo apt install -y kali-linux-headless
 
 GUI를 사용하고 싶다면 SSH 포워딩을 통해 가능합니다. 두 가지 옵션이 있는데, 하나는 `ssh -X`를 사용해 X11을 포워딩하고 GUI 애플리케이션을 한 번에 하나씩 사용하는 방법이고, 다른 하나는 RDP를 사용하고 SSH를 통해 트래픽을 포워딩하는 방법입니다. RDP를 설정하려면 WSL용 [Xfce와 RDP](/docs/general-use/xfce-with-rdp/) 스크립트를 실행합니다. 그런 다음 `ssh -N -L 3390:127.0.0.1:3390` 명령으로 터널링하고 원격 데스크톱 클라이언트로 `127.0.0.1:3390`에 연결할 수 있습니다.
 
-### NVIDIA 드라이버
+### 엔비디아 드라이버
 
 또 다른 일반적인 용도는 크래킹에 GPU를 사용하는 것입니다. AWS 인스턴스에서도 이 작업을 수행할 수 있지만, 모든 것이 [최신 상태](/docs/general-use/updating-kali/)이고 적절한 Linux 헤더가 설치된 후에 NVIDIA 패키지를 설치해야 합니다:
 
@@ -148,4 +148,4 @@ kali@kali:~$ sudo reboot -f
 
 다시 연결해주세요.
 
-[NVIDIA 드라이버에 대한 자세한 정보는 여기를 확인하세요](/docs/general-use/install-nvidia-drivers-on-kali-linux/).
+[엔비디아 드라이버에 대한 자세한 정보는 여기를 확인하세요](/docs/general-use/install-nvidia-drivers-on-kali-linux/).

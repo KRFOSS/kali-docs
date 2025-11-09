@@ -48,7 +48,7 @@ If you want to customize the Kali Banana Pi image, including changes to the [pac
 
 ## 바나나 파이용 칼리 - 빌드 스크립트 안내
 
-칼리는 미리 빌드된 이미지를 다운로드용으로 제공하지 않지만, [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 GitLab에서 클론하여 _README.md_ 파일의 지침에 따라 이미지를 직접 생성할 수 있습니다. 사용해야 할 스크립트는 `banana-pi.sh`입니다.
+칼리는 미리 빌드된 이미지를 다운로드용으로 제공하지 않지만, [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 깃랩에서 클론하여 _README.md_ 파일의 지침에 따라 이미지를 직접 생성할 수 있습니다. 사용해야 할 스크립트는 `banana-pi.sh`입니다.
 
 빌드 스크립트 실행이 완료되면, 스크립트를 실행한 경로의 `images` 디렉토리에 "img.xz" 파일이 생성됩니다. 이 시점부터는 미리 빌드된 이미지를 다운로드했을 때와 동일한 방식으로 진행하시면 됩니다.
 

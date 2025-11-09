@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-이 저장소에는 Kali 공식 사이트에서 내려받을 수 있는 [미리 만든 ARM 이미지](/get-kali/)를 만드는 데 쓰는 **그대로의** 스크립트가 담겨 있어요.
+이 저장소에는 칼리 공식 사이트에서 내려받을 수 있는 [미리 만든 ARM 이미지](/get-kali/)를 만드는 데 쓰는 **그대로의** 스크립트가 담겨 있어요.
 
 공식 이미지로 배포하지 않는 **추가 디바이스용 스크립트**와, 예전 기록을 위해 남겨 둔 **아카이브 스크립트**도 함께 있으니 필요하면 살펴보세요.
 
@@ -21,7 +21,7 @@ author: ["steev",]
 * 이미지를 만들기 전에 **반드시** `./common.d/build_deps.sh`를 실행해 의존 패키지를 먼저 깔아주세요.
 * **8 GB RAM** 이상이 필요해요. 부족하면 스왑(SWAP)을 만들어야 해요.
 
-예를 들어, `[Raspberry Pi 4](/docs/arm/raspberry-pi-4/)` 이미지를 만드는 과정은 아래와 같아요.
+예를 들어, `[라즈베리 파이 4](/docs/arm/raspberry-pi-4/)` 이미지를 만드는 과정은 아래와 같아요.
 
 ```console
 $ cd ~/
@@ -82,7 +82,7 @@ $ echo 'mirror="http://192.168.1.100/kali"' > ./builder.txt
 바꿀 수 있는 항목은 아래와 같아요. 필요할 때 `#` 주석을 풀어서 써보세요.
 
 ```plaintext
-# Kali 릴리스 버전
+# 칼리 릴리스 버전
 #version=${version:-$(cat .release)}
 
 # 호스트 이름
@@ -135,8 +135,8 @@ $ echo 'mirror="http://192.168.1.100/kali"' > ./builder.txt
 #replace_suite="kali-rolling"
 
 # 기본 파일명 예시
-# Raspberry Pi 스크립트라면
+# 라즈베리 파이 스크립트라면
 #   "kali-linux-202X-WXX-raspberry-pi-arm64"
-# Kali 공식 릴리스 요건: 이름은 kali-linux 로 시작, 아키텍처로 끝나야 해요.
+# 칼리 공식 릴리스 요건: 이름은 kali-linux 로 시작, 아키텍처로 끝나야 해요.
 #image_name="kali-linux-$(date +%Y)-W$(date +%U)-${hw_model}-${variant}"
 ```

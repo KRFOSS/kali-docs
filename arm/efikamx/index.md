@@ -50,4 +50,4 @@ _dd_ 작업이 완료되면, 마이크로SD 카드를 EfikaMX에 삽입하고 �
 
 ## EfikaMX용 칼리 - 이미지 커스터마이징
 
-칼리 BeagleBone Black 이미지를 커스터마이징하고 싶으시다면, [패키지](/docs/general-use/metapackages/) 설치 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 전환, 이미지 파일 크기 조정 또는 더 폭넓은 실험을 원하신다면, GitLab의 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용해야 할 스크립트는 `efikamx.sh`입니다.
+칼리 BeagleBone Black 이미지를 커스터마이징하고 싶으시다면, [패키지](/docs/general-use/metapackages/) 설치 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 전환, 이미지 파일 크기 조정 또는 더 폭넓은 실험을 원하신다면, 깃랩의 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 지침을 따르세요. 사용해야 할 스크립트는 `efikamx.sh`입니다.

@@ -19,7 +19,7 @@ _이 이미지는 "Marvell" 기반(원본)이 아닌 "Freescale" 기반 모델�
 
 ## 큐박스-i4프로용 칼리 - 빌드 스크립트 안내
 
-칼리에서는 미리 빌드된 이미지를 다운로드용으로 제공하지 않지만, GitLab의 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성하실 수 있습니다. 사용하실 스크립트는 `cubox-i4pro.sh`입니다.
+칼리에서는 미리 빌드된 이미지를 다운로드용으로 제공하지 않지만, 깃랩의 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 클론하여 _README.md_ 파일의 지침에 따라 직접 이미지를 생성하실 수 있습니다. 사용하실 스크립트는 `cubox-i4pro.sh`입니다.
 
 빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이후 과정은 미리 빌드된 이미지를 다운로드한 경우와 동일하게 진행하시면 됩니다.
 

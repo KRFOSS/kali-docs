@@ -102,9 +102,9 @@ components:
 kali@kali:~$ kaboxer build hello-cli
 ```
 
-위에서 언급했듯이 Kaboxer는 Docker를 사용하는 데 권한이 필요하므로, `docker` 또는 `kaboxer` 그룹의 일부가 아니라면 이 명령어는 실패할 거예요.
+위에서 언급했듯이 Kaboxer는 도커를 사용하는 데 권한이 필요하므로, `docker` 또는 `kaboxer` 그룹의 일부가 아니라면 이 명령어는 실패할 거예요.
 
-빌드가 실패하면 Kaboxer는 무엇이 잘못되었는지 알아내는 데 많은 정보를 제공하지 않는다는 점을 주의하세요. 그런 경우에는 정확한 오류 메시지를 볼 수 있도록 `docker build`로 직접 Docker 이미지를 빌드해봐야 해요. 다음과 같이 할 수 있어요(`docker` 그룹 멤버십이나 루트 권한이 필요해요):
+빌드가 실패하면 Kaboxer는 무엇이 잘못되었는지 알아내는 데 많은 정보를 제공하지 않는다는 점을 주의하세요. 그런 경우에는 정확한 오류 메시지를 볼 수 있도록 `docker build`로 직접 도커 이미지를 빌드해봐야 해요. 다음과 같이 할 수 있어요(`docker` 그룹 멤버십이나 루트 권한이 필요해요):
 
 ```console
 kali@kali:~$ docker build -f hello-cli.Dockerfile -t kaboxer/hello-cli .
@@ -264,9 +264,9 @@ application:
 
 ## GitLab CI로 빌드 자동화하기
 
-Kaboxer 애플리케이션을 매우 쉽게 유지 관리하기 위해, Git 저장소에 Kaboxer 파일들을 저장하고 변경사항을 푸시할 때마다 GitLab CI가 Docker 이미지를 다시 빌드하도록 하고 있어요.
+Kaboxer 애플리케이션을 매우 쉽게 유지 관리하기 위해, Git 저장소에 Kaboxer 파일들을 저장하고 변경사항을 푸시할 때마다 GitLab CI가 도커 이미지를 다시 빌드하도록 하고 있어요.
 
-Kaboxer 프로젝트는 프로젝트에서 원격으로 포함할 수 있는 [일반적인 GitLab CI 파일](https://gitlab.com/kalilinux/tools/kaboxer/-/blob/master/gitlab-ci/build-docker-image.yml)을 포함하고 있어요([여기 예시](https://gitlab.com/kalilinux/packages/covenant-kbx/-/blob/kali/master/debian/kali-ci.yml)). 이는 이미지를 빌드하고 GitLab에서 제공하는 프로젝트의 Docker 레지스트리에 업로드할 거예요. `kaboxer.yaml` 파일은 해당 Docker 레지스트리의 URL을 참조하도록 업데이트되어야 하고, Kaboxer는 필요할 때 해당 위치에서 이미지를 다운로드할 거예요.
+Kaboxer 프로젝트는 프로젝트에서 원격으로 포함할 수 있는 [일반적인 GitLab CI 파일](https://gitlab.com/kalilinux/tools/kaboxer/-/blob/master/gitlab-ci/build-docker-image.yml)을 포함하고 있어요([여기 예시](https://gitlab.com/kalilinux/packages/covenant-kbx/-/blob/kali/master/debian/kali-ci.yml)). 이는 이미지를 빌드하고 GitLab에서 제공하는 프로젝트의 도커 레지스트리에 업로드할 거예요. `kaboxer.yaml` 파일은 해당 도커 레지스트리의 URL을 참조하도록 업데이트되어야 하고, Kaboxer는 필요할 때 해당 위치에서 이미지를 다운로드할 거예요.
 
 저장소에는 다른 일반적인 애플리케이션처럼 칼리 패키지를 빌드할 수 있도록 데비안 패키징 파일도 포함되어 있어요.
 

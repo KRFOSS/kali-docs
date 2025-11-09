@@ -32,7 +32,7 @@ FinalRecon은 [태그된 릴리스가 없어서](https://github.com/thewhiteh4t/
 
 ### 라이선스
 
-이 패키지는 **[GitHub](https://github.com/thewhiteh4t/FinalRecon)**에서 **[MIT](https://opensource.org/licenses/MIT)** 라이선스를 사용한다고 확인됐어요. [라이선스 파일](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE)을 살펴보면 복사할 내용이 많지 않아서 그대로 복사하면 돼요. 아쉽게도 관리자는 찾았지만 연락처 정보는 아직 찾지 못했네요. 계속해서 연락처 정보를 찾아야 할 거예요.
+이 패키지는 **[깃허브](https://github.com/thewhiteh4t/FinalRecon)**에서 **[MIT](https://opensource.org/licenses/MIT)** 라이선스를 사용한다고 확인됐어요. [라이선스 파일](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/LICENSE)을 살펴보면 복사할 내용이 많지 않아서 그대로 복사하면 돼요. 아쉽게도 관리자는 찾았지만 연락처 정보는 아직 찾지 못했네요. 계속해서 연락처 정보를 찾아야 할 거예요.
 
 ### 의존성
 
@@ -40,7 +40,7 @@ FinalRecon은 [태그된 릴리스가 없어서](https://github.com/thewhiteh4t/
 
 ### 설명
 
-다시 한번 [FinalRecon의 GitHub](https://github.com/thewhiteh4t/FinalRecon)에서 설명을 가져올게요.
+다시 한번 [FinalRecon의 깃허브](https://github.com/thewhiteh4t/FinalRecon)에서 설명을 가져올게요.
 
 **짧은 설명**으로는 [README](https://github.com/thewhiteh4t/FinalRecon/blob/0d41eb61a023c1ae467ede8653d37cc847695f01/README.md)의 첫 줄을 수정해서 사용할 거예요: "웹 정찰을 위한 빠르고 간단한 파이썬 스크립트"
 
@@ -48,7 +48,7 @@ FinalRecon은 [태그된 릴리스가 없어서](https://github.com/thewhiteh4t/
 
 ### 관리자
 
-GitHub 전체를 살펴봐도 이메일 주소를 찾을 수 없어요. `git log`에서 관련 이메일 주소를 볼 수 있지만, "thewhiteh4t"에 대한 여러 이메일(최소 3개)이 있어서 확실하지 않네요. 대신 더 깊이 조사해봤어요. `README.md`에 YouTube 데모 비디오 링크가 있다는 것을 발견했고, YouTube 채널의 [소개 페이지](https://www.youtube.com/c/thewhiteh4t/about)에서 비즈니스 문의용 **이메일 주소**를 볼 수 있었어요(git log의 어떤 이메일과도 일치하지 않음). 이 이메일이 연락처 정보로 사용하기 좋은 선택이 될 것 같아요.
+깃허브 전체를 살펴봐도 이메일 주소를 찾을 수 없어요. `git log`에서 관련 이메일 주소를 볼 수 있지만, "thewhiteh4t"에 대한 여러 이메일(최소 3개)이 있어서 확실하지 않네요. 대신 더 깊이 조사해봤어요. `README.md`에 YouTube 데모 비디오 링크가 있다는 것을 발견했고, YouTube 채널의 [소개 페이지](https://www.youtube.com/c/thewhiteh4t/about)에서 비즈니스 문의용 **이메일 주소**를 볼 수 있었어요(git log의 어떤 이메일과도 일치하지 않음). 이 이메일이 연락처 정보로 사용하기 좋은 선택이 될 것 같아요.
 그렇지만, 연락처 정보가 없어도 패키징을 계속할 수 있으니 필수적인 부분은 아니에요.
 
 ## 환경 설정하기
@@ -226,7 +226,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 - - -
 
-이제 `debian/` 폴더 안의 파일들을 **정확한 정보**로 채우기 위해 편집을 시작할 거예요. 앞서 [FinalRecon GitHub](https://github.com/thewhiteh4t/FinalRecon)에서 찾은 내용을 참고해서 아래 네 가지 정보를 확실히 확인해 주세요:
+이제 `debian/` 폴더 안의 파일들을 **정확한 정보**로 채우기 위해 편집을 시작할 거예요. 앞서 [FinalRecon 깃허브](https://github.com/thewhiteh4t/FinalRecon)에서 찾은 내용을 참고해서 아래 네 가지 정보를 확실히 확인해 주세요:
 
 * **의존성(Dependencies)**
 * **설명(Description)**
@@ -312,7 +312,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 안타깝게도 칼리 리눅스에는 현재 이 의존성(Python의 icmplib)이 저장소에 없는 것 같아요. 이는 FinalRecon을 완전히 패키징할 수 있도록 icmplib도 패키징하기 위해 **패키징 프로세스를 확장**해야 한다는 의미예요.
 
-먼저 **[pypi.org](https://pypi.org/) 저장소**에서 `icmplib`를 찾아볼게요. [PyPI의 icmplib](https://pypi.org/project/icmplib/)와 함께 [GitHub 페이지](https://github.com/ValentinBELYN/icmplib) 링크를 쉽게 찾을 수 있어요. FinalRecon과 마찬가지로 icmplib의 GitHub 페이지를 살펴보면 **icmplib에는 추가 의존성이 필요하지 않을 것**이라는 것을 알 수 있어요(`requirements.txt` 파일이 없고 `setup.py`에는 [`install_requires`](https://packaging.python.org/discussions/install-requires-vs-requirements/)용으로 나열된 것이 없음). 따라서 비교적 간단한 파이썬 패키지가 될 거예요.
+먼저 **[pypi.org](https://pypi.org/) 저장소**에서 `icmplib`를 찾아볼게요. [PyPI의 icmplib](https://pypi.org/project/icmplib/)와 함께 [깃허브 페이지](https://github.com/ValentinBELYN/icmplib) 링크를 쉽게 찾을 수 있어요. FinalRecon과 마찬가지로 icmplib의 깃허브 페이지를 살펴보면 **icmplib에는 추가 의존성이 필요하지 않을 것**이라는 것을 알 수 있어요(`requirements.txt` 파일이 없고 `setup.py`에는 [`install_requires`](https://packaging.python.org/discussions/install-requires-vs-requirements/)용으로 나열된 것이 없음). 따라서 비교적 간단한 파이썬 패키지가 될 거예요.
 
 이제 두 가지 선택지가 있어요:
 
@@ -349,7 +349,7 @@ kali@kali:~/kali/packages/finalrecon$
 
 ### 컨트롤
 
-GitHub과 소스 코드에서 이미 수집한 정보를 바탕으로, 이전 패키징 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/)와 [#2 (Photon)](/docs/development/intermediate-packaging-example/))와 유사하게 작업할 거예요. 이제 무엇을 변경해야 하는지 잘 이해하고 있을 거예요.
+깃허브과 소스 코드에서 이미 수집한 정보를 바탕으로, 이전 패키징 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/)와 [#2 (Photon)](/docs/development/intermediate-packaging-example/))와 유사하게 작업할 거예요. 이제 무엇을 변경해야 하는지 잘 이해하고 있을 거예요.
 
 컴파일할 코드가 없으므로 `Architecture: all`로 설정할 수 있어요. 이는 대부분의 파이썬 스크립트에 해당하는데, 파이썬 "확장"을 제공하지 않기 때문이에요. 그렇지 않으면 컴파일된 `.so` 파일(예: [psycopg2](https://pkg.kali.org/pkg/psycopg2))을 생성해요.
 
@@ -478,7 +478,7 @@ Beware that the "dh" line needs to be indented by a single tabulation character,
 
 watch 파일은 이 예제의 시작 부분에서 이미 다루었으며, 메인 브랜치의 최신 Git 커밋을 추적하도록 구성되어 있어요.
 
-**[GitHub용 공통 구성](https://wiki.debian.org/debian/watch)**도 추가할 수 있지만, 주석 처리해 두세요. 그러면 업스트림이 릴리스를 발표할 때 watch 파일에 모든 것이 준비되어 있고 주석 처리만 해제하면 돼요:
+**[깃허브용 공통 구성](https://wiki.debian.org/debian/watch)**도 추가할 수 있지만, 주석 처리해 두세요. 그러면 업스트림이 릴리스를 발표할 때 watch 파일에 모든 것이 준비되어 있고 주석 처리만 해제하면 돼요:
 
 ```console
 kali@kali:~/kali/packages/finalrecon$ vim debian/watch
@@ -811,7 +811,7 @@ kali@kali:~/kali/packages/python-icmplib$
 
 #### Watch
 
-간단하게, 다른 모든 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/))와 마찬가지로, **[GitHub용 표준 데비안 watch 파일](https://wiki.debian.org/debian/watch)**을 사용해요:
+간단하게, 다른 모든 가이드([#1 (Instaloader)](/docs/development/intro-to-packaging-example/) & [#2 (Photon)](/docs/development/intermediate-packaging-example/))와 마찬가지로, **[깃허브용 표준 데비안 watch 파일](https://wiki.debian.org/debian/watch)**을 사용해요:
 
 ```console
 kali@kali:~/kali/packages/python-icmplib$ cat debian/watch

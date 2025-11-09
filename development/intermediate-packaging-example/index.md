@@ -9,11 +9,11 @@ author: ["gamb1t",]
 
 # Photon
 
-[Photon](https://github.com/s0md3v/Photon)은 여러 의존성을 가진 **Python3** 애플리케이션이에요. 이는 [Instaloader](/docs/development/intro-to-packaging-example/)보다 더 흥미로운 패키지로, 잠재적으로 더 많은 작업이 필요해요.
+[Photon](https://github.com/s0md3v/Photon)은 여러 의존성을 가진 **파이썬3** 애플리케이션이에요. 이는 [Instaloader](/docs/development/intro-to-packaging-example/)보다 더 흥미로운 패키지로, 잠재적으로 더 많은 작업이 필요해요.
 
 ## Photon 코드 개요
 
-[Instaloader](/docs/development/intro-to-packaging-example/)처럼, 우선 [GitHub 페이지](https://github.com/s0md3v/photon)를 살펴보고 어떤 정보를 얻을 수 있는지 확인해보세요. 이 경우 다음을 확인할 수 있어요:
+[Instaloader](/docs/development/intro-to-packaging-example/)처럼, 우선 [깃허브 페이지](https://github.com/s0md3v/photon)를 살펴보고 어떤 정보를 얻을 수 있는지 확인해보세요. 이 경우 다음을 확인할 수 있어요:
 
 - `setup.py`는 없지만, `requirements.txt`([파일](https://github.com/s0md3v/Photon/blob/master/requirements.txt))가 있어요
 - [라이선스는 GPL-3](https://github.com/s0md3v/Photon/blob/master/LICENSE.md)이에요
@@ -34,7 +34,7 @@ kali@kali:~$
 
 ## 태그 릴리스 다운로드하기
 
-이 패키지는 [Instaloader](/docs/development/intro-to-packaging-example/)처럼 태그 릴리스가 있으므로, 동일한 과정을 따르세요. Photon의 [GitHub 릴리스 페이지](https://github.com/s0md3v/photon/releases)로 가서 최신 버전이 **1.3.0**임을 확인해요.
+이 패키지는 [Instaloader](/docs/development/intro-to-packaging-example/)처럼 태그 릴리스가 있으므로, 동일한 과정을 따르세요. Photon의 [깃허브 릴리스 페이지](https://github.com/s0md3v/photon/releases)로 가서 최신 버전이 **1.3.0**임을 확인해요.
 그런 다음 `[이름]_[버전].orig.tar.gz` 형식으로 **다운로드**하세요:
 
 ```console
@@ -136,7 +136,7 @@ kali@kali:~/kali/packages/photon$ git commit -m "Initial packaging files"
 kali@kali:~/kali/packages/photon$
 ```
 
-이제 각 파일을 편집하여 정보가 정확한지 확인해야 해요. [GitHub](https://github.com/s0md3v/photon)에서 찾은 내용을 활용하여 `debian/` 파일에 올바른 정보를 제공할 수 있어요:
+이제 각 파일을 편집하여 정보가 정확한지 확인해야 해요. [깃허브](https://github.com/s0md3v/photon)에서 찾은 내용을 활용하여 `debian/` 파일에 올바른 정보를 제공할 수 있어요:
 
 - 라이선스
 - 의존성
@@ -147,13 +147,13 @@ kali@kali:~/kali/packages/photon$
 
 ### 라이선스/관리자
 
-이 패키지는 [Instaloader](/docs/development/intro-to-packaging-example/)처럼 매우 간단하고, **[GitHub](https://github.com/s0md3v/photon)에서 이미 [라이선스](https://github.com/s0md3v/photon/blob/master/LICENSE.md)를 감지**했어요. 라이선스는 **[GPL-3](https://www.gnu.org/licenses/gpl-3.0.html)**이에요.
+이 패키지는 [Instaloader](/docs/development/intro-to-packaging-example/)처럼 매우 간단하고, **[깃허브](https://github.com/s0md3v/photon)에서 이미 [라이선스](https://github.com/s0md3v/photon/blob/master/LICENSE.md)를 감지**했어요. 라이선스는 **[GPL-3](https://www.gnu.org/licenses/gpl-3.0.html)**이에요.
 
-GPL-3 라이선스의 경우 업스트림 라이선스 파일 그대로 전체를 복사할 필요는 없어요. `/usr/share/common-licenses/`를 보면 이미 여러 라이선스가 전체 형태로 로컬에서 사용 가능해요. [Debian의 GPL-3 페이지](https://ftp-master.debian.org/licenses/good/gpl3/)를 보면 허용되는 축약된 버전의 라이선스를 사용할 수 있어요.
+GPL-3 라이선스의 경우 업스트림 라이선스 파일 그대로 전체를 복사할 필요는 없어요. `/usr/share/common-licenses/`를 보면 이미 여러 라이선스가 전체 형태로 로컬에서 사용 가능해요. [데비안의 GPL-3 페이지](https://ftp-master.debian.org/licenses/good/gpl3/)를 보면 허용되는 축약된 버전의 라이선스를 사용할 수 있어요.
 
 불행히도 업스트림의 라이선스 파일을 보면 연락처 정보나 이름을 볼 수 없어요. 다른 곳에서 찾아봐야 해요.
 
-**[README.md](https://github.com/s0md3v/Photon/blob/master/README.md)**와 [Photon의 GitHub 페이지](https://github.com/s0md3v/Photon/blob/master/README.md)를 살펴보면, [X(구 트위터)](https://twitter.com/s0md3v)가 링크되어 있고 다른 관리자는 보이지 않기 때문에 `s0md3v`가 유일한 관리자로 보여요. [s0md3v의 GitHub 프로필 페이지](https://github.com/s0md3v)를 보면 이메일이 표시되어 있어요_(로그인한 경우)_! 이를 통해 계속 진행하는 데 필요한 **관리자 이름**과 **이메일 주소**를 알 수 있어요.
+**[README.md](https://github.com/s0md3v/Photon/blob/master/README.md)**와 [Photon의 깃허브 페이지](https://github.com/s0md3v/Photon/blob/master/README.md)를 살펴보면, [X(구 트위터)](https://twitter.com/s0md3v)가 링크되어 있고 다른 관리자는 보이지 않기 때문에 `s0md3v`가 유일한 관리자로 보여요. [s0md3v의 깃허브 프로필 페이지](https://github.com/s0md3v)를 보면 이메일이 표시되어 있어요_(로그인한 경우)_! 이를 통해 계속 진행하는 데 필요한 **관리자 이름**과 **이메일 주소**를 알 수 있어요.
 
 ### 의존성/관리자
 
@@ -242,7 +242,7 @@ kali@kali:~/kali/packages/photon$
 
 ### 설명
 
-[Instaloader](/docs/development/intro-to-packaging-example/)와 유사하게 [GitHub 페이지](https://github.com/s0md3v/photon)에서 설명을 가져올 거예요. 짧은 설명과 긴 설명, 두 가지 설명 값이 필요하다는 것을 기억하세요.
+[Instaloader](/docs/development/intro-to-packaging-example/)와 유사하게 [깃허브 페이지](https://github.com/s0md3v/photon)에서 설명을 가져올 거예요. 짧은 설명과 긴 설명, 두 가지 설명 값이 필요하다는 것을 기억하세요.
 
 첫 번째 설명은 **짧은 설명**이에요. 이것을 위해 GitHub의 소개 섹션에서 요약을 가져와서 "OSINT"를 "Open Source INTelligence"로 확장하여 "OSINT"가 무엇인지 모르는 사람들을 위해 설명해요.
 
@@ -257,7 +257,7 @@ kali@kali:~/kali/packages/photon$
 여기서 다음을 변경해야 해요:
 
 - **배포판**을 `unstable`에서 `kali-dev`로
-    - unstable은 Debian의 개발 배포판이고, kali-dev는 Kali에서 사용하는 것이에요.
+    - unstable은 데비안의 개발 배포판이고, kali-dev는 칼리에서 사용하는 것이에요.
 - **버전**(from `1.3.0-1`에서 `1.3.0-0kali1`로)
     - 형식은 `[소프트웨어버전]-0kali[릴리스]`예요. 이 패키지가 Debian에 들어갈 경우 버전 충돌을 방지하고 Debian 버전으로 적절히 업그레이드되도록 `0kali`를 사용해요.
 - **로그 항목** - `Initial release`로 간단하게 유지해요
@@ -336,7 +336,7 @@ kali@kali:~/kali/packages/photon$
 
 그러나 이 패키지는 **setup.py** 파일이 없으므로 [Instaloader](/docs/development/intro-to-packaging-example/)와 비교하여 약간의 변경이 필요해요. 변경 사항은 `python3-setuptools` 빌드 의존성을 포함하지 않는다는 것이에요. `python3-all`은 여전히 포함시킬 것이며, 이는 다른 이유 때문이에요. 또한 패키지의 모든 의존성을 포함할 것이에요. 이렇게 하면 테스트 스위트가 있는 경우 실행할 수 있어요.
 
-앞서 언급했듯이, `python3-all`은 여전히 포함되어 있어요. 이는 컴파일된 바이너리 확장이 필요한 Python 모듈에 의존하기 때문이에요. 다음과 같이 찾을 수 있어요:
+앞서 언급했듯이, `python3-all`은 여전히 포함되어 있어요. 이는 컴파일된 바이너리 확장이 필요한 파이썬 모듈에 의존하기 때문이에요. 다음과 같이 찾을 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/photon$ find /usr/lib/python3.8/ -name '*.so'

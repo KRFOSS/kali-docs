@@ -10,18 +10,18 @@ og_description:
 번역: ["xenix4845"]
 ---
 
-## Kali가 여러분의 도움을 필요로 하는 이유
+## 칼리가 여러분의 도움을 필요로 하는 이유
 
 칼리 리눅스는 롤링 배포판(계속 업데이트되는 배포판)이기 때문에 의존성 변화로 인해 간혹 패키지가 작동하지 않는 경우가 있어요. 이를 최대한 방지하기 위해 [자동화된 런타임 테스트](https://autopkgtest.kali.org/)를 설정해서 패키지가 [kali-rolling](/docs/general-use/kali-branches/) 브랜치로 이동하기 전에 통과해야 하도록 했어요. 하지만 현재 대부분의 패키지에는 포괄적인 autopkgtest(자동 패키지 테스트)가 없어서 이 프로세스가 완전한 잠재력을 발휘하지 못하고 있어요. 커뮤니티가 테스트가 부족한 패키지에 테스트를 기여해 주시면 큰 도움이 돼요.
 
 ### autopkgtest 배경 지식
 
-autopkgtest는 실제 Debian 시스템에서 패키지를 가능한 정확하게 테스트하기 위해 만들어졌어요. 이 방법은 가상화와 컨테이너를 활용해 정확하고 재사용 가능한 테스트 환경을 만들 수 있어요. 이 주제에 대한 정보는 훨씬 더 많아요. 여기서 다루는 것보다 더 깊이 알고 싶다면 다음 자료들을 참고하세요(이 글을 작성할 때도 정보 출처로 사용했어요):
+autopkgtest는 실제 데비안 시스템에서 패키지를 가능한 정확하게 테스트하기 위해 만들어졌어요. 이 방법은 가상화와 컨테이너를 활용해 정확하고 재사용 가능한 테스트 환경을 만들 수 있어요. 이 주제에 대한 정보는 훨씬 더 많아요. 여기서 다루는 것보다 더 깊이 알고 싶다면 다음 자료들을 참고하세요(이 글을 작성할 때도 정보 출처로 사용했어요):
 
-* [Debian CI 공식 문서 페이지](https://ci.debian.net/doc/file.TUTORIAL.html)
+* [데비안 CI 공식 문서 페이지](https://ci.debian.net/doc/file.TUTORIAL.html)
 * [autopkgtest에 관한 좋은 강연](http://meetings-archive.debian.net/pub/debian-meetings/2015/debconf15/Tutorial_functional_testing_of_Debian_packages.webm)
 * [설치 후 테스트 작성에 관한 심층 논문](https://gitlab.com/terceiro/installed-tests-patterns/raw/pdf/final/installed-tests-patterns.pdf)
-* [Debian 위키의 모범 사례 페이지](https://wiki.debian.org/ContinuousIntegration/AutopkgtestBestPractices)
+* [데비안 위키의 모범 사례 페이지](https://wiki.debian.org/ContinuousIntegration/AutopkgtestBestPractices)
 
 이 문서를 다 읽은 후에는 위 자료들도 한번 살펴보시길 권해요. 여기서는 이 방대한 주제의 작은 부분만 다룰 거예요.
 
@@ -166,9 +166,9 @@ done
 
 도구에 대해 테스트할 수 있는 것을 배우고 기록한 후에는, 앞서 제공된 모범 사례와 팁을 사용하여 테스트 작성을 시작해야 해요. 이러한 리소스에서 파생된 많은 가용 리소스가 있고, 필요하다면 예제로 배울 수 있는 많은 패키지가 있어요.
 
-Kali는 GitLab을 사용하므로, [소스 패키지](https://gitlab.com/kalilinux/packages)를 포크하고 새 브랜치에 테스트를 추가해야 해요. GitLab CI 설정이 autopkgtest를 실행하므로, 파이프라인 출력을 확인하여 테스트가 올바르게 실행되었고 성공했는지 확인할 수 있어요. 작동하지 않는다면 테스트 스크립트에 만족할 때까지 반복(더 많은 커밋 추가)할 수 있어요.
+칼리는 깃랩을 사용하므로, [소스 패키지](https://gitlab.com/kalilinux/packages)를 포크하고 새 브랜치에 테스트를 추가해야 해요. 깃랩 CI 설정이 autopkgtest를 실행하므로, 파이프라인 출력을 확인하여 테스트가 올바르게 실행되었고 성공했는지 확인할 수 있어요. 작동하지 않는다면 테스트 스크립트에 만족할 때까지 반복(더 많은 커밋 추가)할 수 있어요.
 
-완성된 성공적인 테스트를 얻었다면, 이미 GitLab에 작업이 있으니 머지 리퀘스트를 제출해야 해요. 패키지에 기여하는 [저장 및 공유](/docs/development/intro-to-packaging-example/#save--share) 섹션에서 좋은 예를 확인할 수 있어요.
+완성된 성공적인 테스트를 얻었다면, 이미 깃랩에 작업이 있으니 머지 리퀘스트를 제출해야 해요. 패키지에 기여하는 [저장 및 공유](/docs/development/intro-to-packaging-example/#save--share) 섹션에서 좋은 예를 확인할 수 있어요.
 
 환경 자체에 대한 자세한 정보는 `autopkgtest-build-qemu`와 `autopkgtest-virt-qemu` 맨 페이지가 유용해요. `/usr/share/doc/autopkgtest/`에 있는 문서도 도움이 돼요.
 
@@ -196,4 +196,4 @@ kali@kali:~$ sudo autopkgtest-build-qemu kali-rolling /srv/autopkgtest-images/ka
 
 이제 테스트를 실행하려면 다음 명령어를 실행하기만 하면 돼요: `autopkgtest ~/packages/mytest/ -- qemu /srv/autopkgtest-images/kali-rolling.img`. 이 명령어는 테스트하려는 패키지가 있는 디렉토리를 가리켜요.
 
-필요할 수도 있는 다른 많은 변형들이 있으며, /usr/share/doc/autopkgtest/README.running-tests.html에서 찾을 수 있어요. 그러나 로컬 테스트에서는 여러 가지 문제가 발생할 수 있고, GitLab을 사용하는 경우 필요한 도움을 받기가 더 쉽기 때문에 GitLab CI를 사용하는 것이 좋아요.
+필요할 수도 있는 다른 많은 변형들이 있으며, /usr/share/doc/autopkgtest/README.running-tests.html에서 찾을 수 있어요. 그러나 로컬 테스트에서는 여러 가지 문제가 발생할 수 있고, 깃랩을 사용하는 경우 필요한 도움을 받기가 더 쉽기 때문에 깃랩 CI를 사용하는 것이 좋아요.

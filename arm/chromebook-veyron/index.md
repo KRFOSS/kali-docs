@@ -17,7 +17,7 @@ Veyron 기반 크롬북용 빌드 스크립트는 아직 새로운 방식으로 
 
 ## 에이수스 크롬북 플립용 칼리 - 빌드 스크립트 가이드
 
-칼리에서는 미리 빌드된 이미지를 다운로드용으로 제공하지 않지만, [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) GitLab 저장소를 클론하고 _README.md_ 파일의 지침을 따라 직접 이미지를 생성할 수 있습니다. 사용해야 할 스크립트는 바로 `chromebook-veyron.sh`입니다.
+칼리에서는 미리 빌드된 이미지를 다운로드용으로 제공하지 않지만, [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 깃랩 저장소를 클론하고 _README.md_ 파일의 지침을 따라 직접 이미지를 생성할 수 있습니다. 사용해야 할 스크립트는 바로 `chromebook-veyron.sh`입니다.
 
 빌드 스크립트 실행이 완료되면 스크립트를 실행한 디렉토리에 "img" 파일이 생성됩니다. 이 시점부터는 마치 미리 빌드된 이미지를 다운로드한 것처럼 동일한 방식으로 진행하시면 됩니다.
 
@@ -48,4 +48,4 @@ _dd_ 작업이 완벽하게 완료되면, 마이크로SD 카드나 USB 드라이
 
 ## 에이수스 크롬북 플립용 칼리 - 이미지 커스터마이징 완전정복
 
-칼리 에이수스 크롬북 플립 이미지를 여러분만의 방식으로 맞춤 설정하고 싶으신가요? [패키지](/docs/general-use/metapackages/) 설치 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 전환, 이미지 파일 크기 조정 또는 더 폭넓은 실험을 원하신다면, GitLab의 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 명확한 지침을 따르세요. 사용해야 할 스크립트는 바로 `chromebook-veyron.sh`입니다.
+칼리 에이수스 크롬북 플립 이미지를 여러분만의 방식으로 맞춤 설정하고 싶으신가요? [패키지](/docs/general-use/metapackages/) 설치 변경, [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 전환, 이미지 파일 크기 조정 또는 더 폭넓은 실험을 원하신다면, 깃랩의 [칼리-ARM 빌드 스크립트](https://gitlab.com/kalilinux/build-scripts/kali-arm) 저장소를 확인하고 _README.md_ 파일의 명확한 지침을 따르세요. 사용해야 할 스크립트는 바로 `chromebook-veyron.sh`입니다.

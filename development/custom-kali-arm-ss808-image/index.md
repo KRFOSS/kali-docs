@@ -7,15 +7,15 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-이 문서는 **커스텀 칼리 리눅스 MK/SS808 ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 칼리 이미지를 설치하고 싶다면, [MK/SS808에 Kali 설치하기](/docs/arm/ss808-mk808/) 문서를 참고하세요.
+이 문서는 **커스텀 칼리 리눅스 MK/SS808 ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 칼리 이미지를 설치하고 싶다면, [MK/SS808에 칼리 설치하기](/docs/arm/ss808-mk808/) 문서를 참고하세요.
 
 {{% notice info %}}
 이 과정을 수행하려면 루트 권한이 필요하거나, "sudo su" 명령어로 권한을 상승시킬 수 있어야 해요.
 {{% /notice %}}
 
-### 01. Kali rootfs 만들기
+### 01. 칼리 rootfs 만들기
 
-Kali 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [Kali rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
+칼리 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [칼리 rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
 
 ### 02. 이미지 파일 만들기
 
@@ -46,7 +46,7 @@ kali@kali:~$ mkdir -p root/
 kali@kali:~$ mount $rootp root
 ```
 
-### 04. Kali rootfs 복사 및 수정하기
+### 04. 칼리 rootfs 복사 및 수정하기
 
 ```console
 kali@kali:~$ rsync -HPavz /root/arm-stuff/rootfs/kali-armhf-xfce4/ root

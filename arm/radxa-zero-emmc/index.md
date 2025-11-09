@@ -113,11 +113,11 @@ Linux(SD 카드로 부팅, eMMC에 쓰기):
 락사 제로 **sdcard** 이미지를 eMMC에 사용할 수 없으며, 그 반대의 경우도 마찬가지입니다. 부트로더는 eMMC와 SD 카드에 따라 다른 위치에 기록되며, 이들은 **서로 호환되지 않습니다**.
 {{% /notice %}}
 
-이 방법에서는 먼저 microSD 카드에서 락사 제로를 부팅한 다음, **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 eMMC에 이미지를 기록합니다.
+이 방법에서는 먼저 마이크로 SD 카드에서 락사 제로를 부팅한 다음, **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 eMMC에 이미지를 기록합니다.
 
 1. [락사 제로(sdcard)](/docs/arm/radxa-zero-sdcard/) 지침을 따르세요
 2. 락사 제로를 무선 네트워크에 연결하세요
-3. 사용하려는 이미지 파일을 microSD 카드에 복사하세요. microSD 카드에 충분한 여유 공간이 있어야 합니다
+3. 사용하려는 이미지 파일을 마이크로 SD 카드에 복사하세요. 마이크로 SD 카드에 충분한 여유 공간이 있어야 합니다
 4. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 eMMC 장치에 이 파일을 이미징하세요 ([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
 아래 예시에서는 저장 장치가 `/dev/mmcblk0`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
@@ -130,8 +130,8 @@ Linux(SD 카드로 부팅, eMMC에 쓰기):
 $ xzcat kali-linux-2025.3-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
 ```
 
-이 과정은 microSD 카드, 락사 제로의 저장 장치 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 마이크로 SD 카드, 락사 제로의 저장 장치 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-_dd_ 작업이 완료되면, 락사 제로의 전원을 끄고 microSD 카드를 분리한 다음, 락사 제로를 부팅하세요.
+_dd_ 작업이 완료되면, 락사 제로의 전원을 끄고 마이크로 SD 카드를 분리한 다음, 락사 제로를 부팅하세요.
 
 [칼리에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.

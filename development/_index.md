@@ -1,6 +1,6 @@
 ---
 title: 개발 참여
-description: How to get involved with Kali
+description: 칼리에 참여하는 방법
 icon: ti-package
 weight: 65
 author: ["xenix4845",]

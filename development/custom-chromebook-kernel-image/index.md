@@ -1,5 +1,5 @@
 ---
-title: 커스텀 Chromebook 이미지
+title: 커스텀 크롬북 이미지
 description:
 icon:
 weight:
@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-이 문서는 **커스텀 칼리 리눅스 Samsung Chromebook ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 칼리 이미지를 설치하고 싶다면, [Samsung Chromebook에 Kali 설치하기](/docs/arm/chromebook-exynos/) 문서를 참고하세요.
+이 문서는 **커스텀 칼리 리눅스 삼성 크롬북 ARM 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 칼리 이미지를 설치하고 싶다면, [삼성 크롬북에 칼리 설치하기](/docs/arm/chromebook-exynos/) 문서를 참고하세요.
 
 {{% notice info %}}
 이 가이드에서는 두 개의 부트 파티션이 있는 이미지를 만들어요 - 하나는 SD 카드에서 부팅하도록 하드코딩된 커널을 포함하고, 다른 하나는 USB에서 부팅하도록 하드코딩된 커널을 포함해요. USB 저장 장치 유형에 따라 이 가이드의 마지막 단계에서 설명하는 대로 이미지를 USB 장치에 dd로 복사한 후 관련 부트 파티션에 더 높은 우선순위를 표시해야 해요.
@@ -17,13 +17,13 @@ author: ["steev",]
 이 절차를 수행하려면 루트 권한이 필요하거나, "sudo su" 명령어로 권한을 상승시킬 수 있어야 해요.
 {{% /notice %}}
 
-#### 01. Kali rootfs 만들기
+#### 01. 칼리 rootfs 만들기
 
-칼리 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [Kali rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하는 것부터 시작하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
+칼리 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [칼리 rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하는 것부터 시작하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
 
 #### 02. 이미지 파일 만들기
 
-다음으로, Chromebook rootfs와 부팅 이미지를 담을 물리적 이미지 파일을 만들어요:
+다음으로, 크롬북 rootfs와 부팅 이미지를 담을 물리적 이미지 파일을 만들어요:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils gdisk uboot-mkimage u-boot-tools vboot-kernel-utils vboot-utils cgpt
@@ -73,9 +73,9 @@ kali@kali:~$ mkdir -p root
 kali@kali:~$ mount $rootp root
 ```
 
-#### 04. Kali rootfs 복사 및 수정하기
+#### 04. 칼리 rootfs 복사 및 수정하기
 
-이전에 부트스트랩한 Kali rootfs를 **[rsync](https://packages.debian.org/testing/rsync)**를 사용하여 마운트된 이미지로 복사하세요:
+이전에 부트스트랩한 칼리 rootfs를 **[rsync](https://packages.debian.org/testing/rsync)**를 사용하여 마운트된 이미지로 복사하세요:
 
 ```console
 kali@kali:~$ cd ~/arm-stuff/images/
@@ -183,7 +183,7 @@ kali@kali:~$ cp ./scripts/dtc/dtc /usr/bin/
 kali@kali:~$ mkimage -f kernel.its kernel.itb
 kali@kali:~$ make modules_install INSTALL_MOD_PATH=~/arm-stuff/images/root/
 
-# 펌웨어 복사. Chromebook의 원래 펌웨어(/lib/firmware)를 사용하는 것이 이상적입니다.
+# 펌웨어 복사. 크롬북의 원래 펌웨어(/lib/firmware)를 사용하는 것이 이상적입니다.
 kali@kali:~$ git clone git://git.kernel.org/pub/scm/linux/kernel/git/dwmw2/linux-firmware.git
 kali@kali:~$ cp -rf linux-firmware/* ~/arm-stuff/images/root/lib/firmware/
 kali@kali:~$ rm -rf linux-firmware
@@ -253,4 +253,4 @@ UUID: E9E67EE1-C02E-481C-BA3F-18E721515DBB
 kali@kali:~$
 ```
 
-이 작업이 완료되면 SD/USB 장치가 연결된 상태에서 Samsung Chromebook을 부팅하세요. 개발자 모드 부팅 화면에서 CTRL+u를 눌러 USB 저장 장치에서 부팅하세요. 그런 다음 Kali에 로그인(`root` / `toor`)하고 `startx`를 실행하세요.
+이 작업이 완료되면 SD/USB 장치가 연결된 상태에서 삼성 크롬북을 부팅하세요. 개발자 모드 부팅 화면에서 CTRL+u를 눌러 USB 저장 장치에서 부팅하세요. 그런 다음 Kali에 로그인(`root` / `toor`)하고 `startx`를 실행하세요.

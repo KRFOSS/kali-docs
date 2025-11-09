@@ -46,7 +46,7 @@ archived: "true"
 
 칼리 봇은 모니터링해야 할 패키지가 많아서 git 저장소에 변경사항을 푸시했다는 것을 알아차리는 데 시간이 걸릴 수 있어요. 봇이 즉시 저장소를 확인하기를 원한다면 푸시 이벤트를 `https://janitor.kali.org/`에 알리는 웹훅을 구성하세요.
 
-GitHub의 경우 "Settings" 탭의 "Webhooks" 섹션에서 할 수 있어요. 아래와 같이 양식을 작성하고 "Add webhook"을 클릭하세요:
+깃허브의 경우 "Settings" 탭의 "Webhooks" 섹션에서 할 수 있어요. 아래와 같이 양식을 작성하고 "Add webhook"을 클릭하세요:
 
 ![](github-webhook.png)
 

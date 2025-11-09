@@ -9,11 +9,11 @@ author: ["gamb1t",]
 
 # Instaloader
 
-[Instaloader](https://github.com/instaloader/instaloader/)는 하나의 의존성(Python의 `requests`)만 가진 **Python 3** 애플리케이션이에요. 이것은 비교적 간단한 패키지지만, 단순히 쉘 스크립트만 패키징하는 것보다는 복잡해요. 학습 기회와 단순함 때문에 이는 좋은 입문용 패키지가 돼요.
+[Instaloader](https://github.com/instaloader/instaloader/)는 하나의 의존성(파이썬의 `requests`)만 가진 **파이썬 3** 애플리케이션이에요. 이것은 비교적 간단한 패키지지만, 단순히 쉘 스크립트만 패키징하는 것보다는 복잡해요. 학습 기회와 단순함 때문에 이는 좋은 입문용 패키지가 돼요.
 
 ## Instaloader 코드 개요
 
-우선 애플리케이션의 [GitHub 페이지](https://github.com/instaloader/instaloader/)를 살펴봐요. 몇 가지 눈에 띄는 사항들이 있어요:
+우선 애플리케이션의 [깃허브 페이지](https://github.com/instaloader/instaloader/)를 살펴봐요. 몇 가지 눈에 띄는 사항들이 있어요:
 
 ![](instaloader-00.png)
 
@@ -45,7 +45,7 @@ kali@kali:~$
 
 처음부터 새 패키지를 만들고 있기 때문에 패키징하려는 도구의 버전을 수동으로 다운로드할 거예요. 만약 패키지를 업데이트하는 중이라면(그리고 올바르게 패키징되었다면), 이 과정을 더 빠르게 해주는 방법이 있어요. 하지만 이 내용은 [다른 가이드](/docs/development/advanced-packaging-example/)에서 다룰 거예요.
 
-[GitHub 릴리스 페이지](https://github.com/instaloader/instaloader/releases)로 가면 최신 버전(이 글을 쓰는 시점에서는 `4.4.4`)을 볼 수 있어요. 여기에는 `instaloader-v4.4.4-windows-standalone.zip`, `Source Code (zip)`, `Source Code (tar.gz)` 다운로드 옵션이 있어요. 우리는 `tar.gz` 옵션에 관심이 있어요.
+[깃허브 릴리스 페이지](https://github.com/instaloader/instaloader/releases)로 가면 최신 버전(이 글을 쓰는 시점에서는 `4.4.4`)을 볼 수 있어요. 여기에는 `instaloader-v4.4.4-windows-standalone.zip`, `Source Code (zip)`, `Source Code (tar.gz)` 다운로드 옵션이 있어요. 우리는 `tar.gz` 옵션에 관심이 있어요.
 
 `wget`을 사용해서 Debian 표준에 따라 소스 패키지의 이름을 적절하게 지정할 거예요(`.orig.tar.gz`에 주목하세요):
 
@@ -145,7 +145,7 @@ kali@kali:~/kali/packages/instaloader$ git branch -v
 kali@kali:~/kali/packages/instaloader$
 ```
 
-이제 Debian 기반 패키지를 빌드하는 데 필요한 파일을 생성하고, 생성된 예제 파일들을 제거할 수 있어요. 이 과정에서 다음과 같은 옵션 중에서 선택하라는 메시지가 표시돼요:
+이제 데비안 기반 패키지를 빌드하는 데 필요한 파일을 생성하고, 생성된 예제 파일들을 제거할 수 있어요. 이 과정에서 다음과 같은 옵션 중에서 선택하라는 메시지가 표시돼요:
 
 - `Single binary` (단일 바이너리)
 - `Arch-Independent` (아키텍처 독립적)
@@ -236,7 +236,7 @@ kali@kali:~/kali/packages/instaloader$
 
 ### 라이선스/관리자
 
-이 패키지의 경우 매우 간단해요. GitHub가 도움을 주었고, [라이선스](https://github.com/instaloader/instaloader/blob/master/LICENSE)를 MIT로 감지했어요. 또한 라이선스 파일도 있다는 것을 확인할 수 있어요:
+이 패키지의 경우 매우 간단해요. 깃허브가 도움을 주었고, [라이선스](https://github.com/instaloader/instaloader/blob/master/LICENSE)를 MIT로 감지했어요. 또한 라이선스 파일도 있다는 것을 확인할 수 있어요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ cat LICENSE
@@ -286,7 +286,7 @@ Instaloader is written by
 kali@kali:~/kali/packages/instaloader$
 ```
 
-이메일 주소가 아니라 사용자 이름인 것 같아요(GitHub용일 수도 있고, 일반적인 인터넷 핸들일 수도 있어요). 이것만으로도 계속 진행할 수 있어요(이상적이진 않지만).
+이메일 주소가 아니라 사용자 이름인 것 같아요(깃허브용일 수도 있고, 일반적인 인터넷 핸들일 수도 있어요). 이것만으로도 계속 진행할 수 있어요(이상적이진 않지만).
 
 시도해볼 수 있는 또 다른 방법은 그들이 git에서 "정당한" 이메일 주소를 사용했는지 확인하는 거예요:
 
@@ -359,10 +359,10 @@ kali@kali:~/kali/packages/instaloader$
 
 이 파일에서 다음과 같은 정보를 얻을 수 있었어요:
 
-- 셔뱅(shebang)을 통해 이것이 Python 3임을 알 수 있어요 (`#!/usr/bin/env python3`).
-- Python 3.5 이상이 필요하다는 것을 알 수 있어요
+- 셔뱅(shebang)을 통해 이것이 파이썬 3임을 알 수 있어요 (`#!/usr/bin/env python3`).
+- 파이썬 3.5 이상이 필요하다는 것을 알 수 있어요
 - `requests`가 필요하고 `v2.4` 이상이어야 한다는 것을 알 수 있어요
-- Windows에서는 다른 의존성이 필요하지만, 우리는 Linux이므로 해당 사항이 없어요
+- 윈도우에서는 다른 의존성이 필요하지만, 우리는 리눅스이므로 해당 사항이 없어요
 - 프로그램의 홈 URL을 볼 수 있어요
 - 라이선스(MIT)를 볼 수 있어요
 - 저자와 그들의 이메일 주소를 볼 수 있어요
@@ -370,7 +370,7 @@ kali@kali:~/kali/packages/instaloader$
 
 유용하네요!
 
-패키징을 할 때, 오프라인에서도 설치할 수 있는 독립형 패키지를 만들고 있어요. 또한 Python의 pip나 Ruby의 gems와 같은 다른 시스템 패키지 관리 시스템도 염두에 두어야 해요. 이러한 모든 의존성도 주 OS 패키지 관리에 있어야 해요. 우리의 경우 Python의 `requests`가 필요해요.
+패키징을 할 때, 오프라인에서도 설치할 수 있는 독립형 패키지를 만들고 있어요. 또한 파이썬의 pip나 Ruby의 gems와 같은 다른 시스템 패키지 관리 시스템도 염두에 두어야 해요. 이러한 모든 의존성도 주 OS 패키지 관리에 있어야 해요. 우리의 경우 파이썬의 `requests`가 필요해요.
 
 이것을 검색하는 두 가지 방법이 있어요:
 
@@ -447,7 +447,7 @@ kali@kali:~/kali/packages/instaloader$
 
 ### 설명
 
-우리는 두 가지 설명을 제공해야 해요: 긴 설명과 짧은 설명. GitHub 페이지를 보면 짧은 설명에 사용할 수 있는 정보 섹션이 있어요. 긴 설명에는 README에 있는 설명을 사용할 수 있어요.
+우리는 두 가지 설명을 제공해야 해요: 긴 설명과 짧은 설명. 깃허브 페이지를 보면 짧은 설명에 사용할 수 있는 정보 섹션이 있어요. 긴 설명에는 README에 있는 설명을 사용할 수 있어요.
 
 ![](instaloader-01.png)
 
@@ -486,7 +486,7 @@ kali@kali:~/kali/packages/instaloader$
 
 이 파일은 패키지의 메타데이터이며, 많은 정보를 포함하고 있어요.
 
-이 주제에 대한 자세한 정보는 [Debian 문서](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html)에서 찾을 수 있어요.
+이 주제에 대한 자세한 정보는 [데비안 문서](https://www.debian.org/doc/manuals/maint-guide/dreq.en.html)에서 찾을 수 있어요.
 
 기본적으로, 이 파일은 다음과 같이 생겼어요:
 
@@ -516,8 +516,8 @@ kali@kali:~/kali/packages/instaloader$
 
 여기서 업데이트가 필요한 몇 가지 사항을 확인할 수 있어요:
 
-- `Section` - misc로 설정하거나, [Debian testing](https://packages.debian.org/testing/)의 섹션을 기반으로 다른 섹션이라고 확실히 알고 있다면 해당 섹션으로 설정할 수 있어요
-- `Maintainer` - 개인이 아닌 Kali 팀으로 변경해요
+- `Section` - misc로 설정하거나, [데비안 테스팅](https://packages.debian.org/testing/)의 섹션을 기반으로 다른 섹션이라고 확실히 알고 있다면 해당 섹션으로 설정할 수 있어요
+- `Maintainer` - 개인이 아닌 칼리 팀으로 변경해요
 - `Uploaders` - 애플리케이션 패키징을 담당하는 개인(들)이에요
 - `Build-Depends` - 패키지를 빌드하는 데 필요한 패키지들이에요
 - `Homepage` - 인터넷에서 도구가 위치한 곳이에요
@@ -527,7 +527,7 @@ kali@kali:~/kali/packages/instaloader$
 - `Depends` - 이 패키지가 작동하는 데 필요한 다른 패키지들이에요
 - `Description` - 짧은 설명과 긴 설명이에요
 
-이전에 이미 대부분을 파악했으므로 이제 쉽게 채워넣을 수 있어요. GitLab 계정에 빈 원격 git 저장소를 만들었어요. 우리 예제에서는 결과가 다음과 같아요:
+이전에 이미 대부분을 파악했으므로 이제 쉽게 채워넣을 수 있어요. 깃랩 계정에 빈 원격 git 저장소를 만들었어요. 우리 예제에서는 결과가 다음과 같아요:
 
 ```console
 kali@kali:~/kali/packages/instaloader$ vim debian/control
@@ -566,26 +566,26 @@ Description: Download media along with their metadata from Instagram
    downloaded media
 kali@kali:~/kali/packages/instaloader$
 ```
-NOTE: `Build-Depends`와 `Depends`는 한 칸 들여쓰기(그리고 쉼표로 끝남)되어 있어요. `Description`도 한 칸 들여쓰기되어 있어요.
+참고: `Build-Depends`와 `Depends`는 한 칸 들여쓰기(그리고 쉼표로 끝남)되어 있어요. `Description`도 한 칸 들여쓰기되어 있어요.
 
 여기에는 많은 내용이 있으니, 몇 가지 사항을 짚어볼게요.
 
 **긴 설명**의 서식을 지정할 때 명심해야 할 점은, 약 70자마다(가장 가까운 단어 기준으로) 새 줄을 삽입해야 한다는 거예요. 이렇게 하면 서식을 깔끔하게 유지할 수 있어요.
 
-이제 의존성으로 넘어가볼게요. 여기에는 **빌드**와 **패키지** 의존성이 있어요. Python 3의 빌드 의존성은 네 가지가 필요해요:
+이제 의존성으로 넘어가볼게요. 여기에는 **빌드**와 **패키지** 의존성이 있어요. 파이썬 3의 빌드 의존성은 네 가지가 필요해요:
 
 - `debhelper-compat`
 - `dh-python`
 - `python3-all`
 - `python3-setuptools`
 
-별도의 가이드에서 이들이 포함되는 이유에 대한 설명이 있을 거예요. 하지만 앞의 두 가지만 Python 3 패키징의 기본 요소이고, 나머지 두 가지는 더 특정한 경우에 사용돼요.
+별도의 가이드에서 이들이 포함되는 이유에 대한 설명이 있을 거예요. 하지만 앞의 두 가지만 파이썬 3 패키징의 기본 요소이고, 나머지 두 가지는 더 특정한 경우에 사용돼요.
 
 우리 애플리케이션에는 `setup.py`에서 가져온 또 다른 의존성인 `python3-requests`가 있어요. 이는 애플리케이션에서 요구하는 사항이에요. 일반적으로 `setup.py` 파일이 없다면 "Build-Depends"에 `python3-requests`를 포함할 필요가 없어요. 그러나 `setup.py` 파일이 있기 때문에, "Build-Depends"와 패키지 "Depends" 모두에 `python3-requests`를 포함해야 해요. 이렇게 하면 패키지를 설치할 때 이러한 패키지들이 항상 시스템에 존재하게 돼요(특히 "sbuild"를 사용할 때 편리해요).
 
 `debhelper-compat` 수준은 패키지가 빌드되는 방식을 결정해요. 호환성 수준이 높을수록 더 새로운 버전이에요. 새 버전은 일부 단순 작업을 자동으로 처리하므로, 이 값을 낮추지 않는 것이 좋아요.
 
-패키지 의존성은 비교적 간단해요. Python 도구를 패키징하고 있으므로 `${shlibs:Depends}`를 제거하고, 대신 Python3 의존성 버전인 `${python3:Depends}`로 대체해요. 또한 도구에 필요하므로 `python3-requests`도 포함시켜요. 이 도구에는 다른 의존성이 필요하지 않으므로 이것으로 충분해요.
+패키지 의존성은 비교적 간단해요. Python 도구를 패키징하고 있으므로 `${shlibs:Depends}`를 제거하고, 대신 파이썬3 의존성 버전인 `${python3:Depends}`로 대체해요. 또한 도구에 필요하므로 `python3-requests`도 포함시켜요. 이 도구에는 다른 의존성이 필요하지 않으므로 이것으로 충분해요.
 
 마지막으로 아키텍처를 **any**에서 **all**로 변경해야 해요. 이 도구는 모든 아키텍처에 설치될 수 있기 때문이에요.
 
@@ -763,8 +763,8 @@ NOTE: It uses TAB for indentation, as its a Makefile.
 
 추가로 포함하는 것을 강력히 권장하는 파일은 `watch` 파일이에요. 이 파일은 업스트림을 가리키며, 패키징된 것보다 더 최신 버전의 애플리케이션이 있는지 감지하는 데 사용돼요. 이는 패키지 업데이트 시에 유용해요.
 
-자세한 정보와 예제 형식은 [Debian wiki](https://wiki.debian.org/debian/watch)를 참조하세요.
-이 위키를 통해 GitHub에 대한 예제를 볼 수 있는데, 우리 프로젝트가 저장된 곳이 바로 [github.com/instaloader/instaloader/](https://github.com/instaloader/instaloader/)예요:
+자세한 정보와 예제 형식은 [데비안 위키](https://wiki.debian.org/debian/watch)를 참조하세요.
+이 위키를 통해 깃허브에 대한 예제를 볼 수 있는데, 우리 프로젝트가 저장된 곳이 바로 [github.com/instaloader/instaloader/](https://github.com/instaloader/instaloader/)예요:
 
 ```plaintext
 version=4
@@ -812,7 +812,7 @@ kali@kali:~/kali/packages/instaloader$
 
 ![](instaloader-02.png)
 
-[Debian wiki](https://wiki.debian.org/debian/watch)를 다시 살펴보면 [일반적인 실수](https://wiki.debian.org/debian/watch#Common_mistakes)라는 섹션이 있어요:
+[데비안 위키](https://wiki.debian.org/debian/watch)를 다시 살펴보면 [일반적인 실수](https://wiki.debian.org/debian/watch#Common_mistakes)라는 섹션이 있어요:
 
 > 알파, 베타 또는 릴리스 후보 버전을 최종 릴리스보다 먼저 정렬되도록 수정하지 않는 문제. 해결책은 다음과 같이 "uversionmangle"을 사용하는 것입니다:
 
@@ -1020,7 +1020,7 @@ kali@kali:~/kali/packages/instaloader$
 
 ## Lintian 만족시키기
 
-더 자세한 정보는 [Debian 문서](https://www.debian.org/doc/manuals/maint-guide/checkit.en.html)를 참조하세요.
+더 자세한 정보는 [데비안 문서](https://www.debian.org/doc/manuals/maint-guide/checkit.en.html)를 참조하세요.
 
 오류 `E: instaloader source: source-is-missing [docs/_static/bootstrap-4.1.3.bundle.min.js]`를 이해해 보겠습니다:
 
@@ -1232,4 +1232,4 @@ To gitlab.com:kalilinux/packages/instaloader.git
 kali@kali:~/kali/packages/instaloader$
 ```
 
-이 시점에서 [Kali Linux 버그 트래커](https://bugs.kali.org/)에 티켓을 열어서 여러분이 만든 도구와 패키지를 제안할 수 있고, 우리 도구 팀이 그곳에서 처리할 거예요.
+이 시점에서 [칼리 리눅스 버그 트래커](https://bugs.kali.org/)에 티켓을 열어서 여러분이 만든 도구와 패키지를 제안할 수 있고, 우리 도구 팀이 그곳에서 처리할 거예요.

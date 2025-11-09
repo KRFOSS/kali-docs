@@ -1,5 +1,5 @@
 ---
-title: 커스텀 ODROID X2 U2 이미지
+title: 커스텀 오드로이드 X2 U2 이미지
 description:
 icon:
 weight:
@@ -7,19 +7,19 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-이 문서는 **커스텀 칼리 리눅스 ODROID 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 칼리 ODROID 이미지를 설치하고 싶다면, [ODROID에 Kali 설치하기](/docs/arm/odroid-u/) 문서를 참고하세요.
+이 문서는 **커스텀 칼리 리눅스 오드로이드 이미지**를 만드는 우리만의 방법을 설명하며 개발자를 대상으로 해요. 미리 만들어진 칼리 오드로이드 이미지를 설치하고 싶다면, [오드로이드에 칼리 설치하기](/docs/arm/odroid-u/) 문서를 참고하세요.
 
 {{% notice info %}}
 이 과정을 수행하려면 루트 권한이 필요하거나, "sudo su" 명령어로 권한을 상승시킬 수 있어야 해요.
 {{% /notice %}}
 
-#### 01. Kali rootfs 만들기
+#### 01. 칼리 rootfs 만들기
 
-Kali 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [Kali rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하는 것부터 시작하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
+칼리 문서에 설명된 대로 **armhf** 아키텍처를 사용하여 [칼리 rootfs(루트 파일 시스템)](/docs/development/kali-linux-arm-chroot/)를 빌드하는 것부터 시작하세요. 이 과정이 끝나면 `~/arm-stuff/rootfs/kali-armhf`에 필요한 파일이 채워진 rootfs 디렉토리가 있어야 해요.
 
 #### 02. 이미지 파일 만들기
 
-다음으로, ODROID rootfs와 부팅 이미지를 담을 물리적 이미지 파일을 만들어요:
+다음으로, 오드로이드rootfs와 부팅 이미지를 담을 물리적 이미지 파일을 만들어요:
 
 ```console
 kali@kali:~$ sudo apt install -y kpartx xz-utils uboot-mkimage
@@ -47,9 +47,9 @@ kali@kali:~$ mount $bootp boot
 kali@kali:~$ mount $rootp root
 ```
 
-#### 04. Kali rootfs 복사 및 수정하기
+#### 04. 칼리 rootfs 복사 및 수정하기
 
-이전에 부트스트랩한 Kali rootfs를 **rsync**를 사용하여 마운트된 이미지에 복사하세요:
+이전에 부트스트랩한 칼리 rootfs를 **rsync**를 사용하여 마운트된 이미지에 복사하세요:
 
 ```console
 kali@kali:~$ cd ~/arm-stuff/images/
@@ -135,11 +135,11 @@ kali@kali:~$ cd ~/arm-stuff/images/root/
 kali@kali:~$ ln -s /sbin/init init
 ```
 
-#### 05. ODROID 커널 및 모듈 컴파일하기
+#### 05. 오드로이드 커널 및 모듈 컴파일하기
 
 개발 환경으로 ARM 하드웨어를 사용하지 않는 경우, ARM 커널 및 모듈을 빌드하려면 [ARM 크로스 컴파일 환경](/docs/development/arm-cross-compilation-environment/)을 설정해야 해요. 완료되면 다음 지침을 따르세요.
 
-다음으로 ODROID 커널 소스를 가져와 개발 트리 구조에 배치해야 해요:
+다음으로 오드로이드 커널 소스를 가져와 개발 트리 구조에 배치해야 해요:
 
 ```console
 kali@kali:~$ mkdir -p ~/arm-stuff/kernel/
@@ -149,7 +149,7 @@ kali@kali:~$ cd odroid/
 kali@kali:~$ touch .scmversion
 ```
 
-ODROID 커널을 설정하고 크로스 컴파일하세요:
+오드로이드 커널을 설정하고 크로스 컴파일하세요:
 
 ```console
 kali@kali:~$ export ARCH=arm
@@ -178,7 +178,7 @@ rootfs로 chroot하고 [initrd](https://en.wikipedia.org/wiki/Initrd)(초기 램
 kali@kali:~$ LANG=C chroot ~/arm-stuff/images/root/
 kali@kali:~$ sudo apt install -y initramfs-tools uboot-mkimage
 kali@kali:~$ cd /
-kali@kali:~$ # 예제의 "3.8.13"을 현재 odroid 커널 버전으로 변경하세요
+kali@kali:~$ # 예제의 "3.8.13"을 현재 오드로이드 커널 버전으로 변경하세요
 kali@kali:~$ mkinitramfs -c lzma -o ./initramfs 3.8.13
 kali@kali:~$ mkimage -A arm -O linux -T ramdisk -C none -a 0 -e 0 -n initramfs -d ./initramfs ./uInitrd
 kali@kali:~$ rm initramfs
@@ -206,7 +206,7 @@ boot
 EOF
 ```
 
-ODROID 부팅에 필요한 `boot.scr` 파일을 생성하세요:
+오드로이드 부팅에 필요한 `boot.scr` 파일을 생성하세요:
 
 ```console
 kali@kali:~$ mkimage -A arm -T script -C none -n "Boot.scr for ODROID" -d ~/arm-stuff/images/boot/boot.txt ~/arm-stuff/images/boot/boot.scr
@@ -253,7 +253,7 @@ EOF
 
 #### 08. Mali 그래픽 드라이버 설치하기 (선택 사항)
 
-이 단계는 실험적이며 아직 완전히 테스트되지 않았어요. Kali rootfs 내부에서 수행해야 해요:
+이 단계는 실험적이며 아직 완전히 테스트되지 않았어요. 칼리 rootfs 내부에서 수행해야 해요:
 
 ```console
 kali@kali:~$ # http://malideveloper.arm.com/develop-for-mali/drivers/open-source-mali-gpus-linux-exadri2-and-x11-display-drivers/

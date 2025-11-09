@@ -22,19 +22,19 @@ P4wnP1 A.L.O.A 소프트웨어는 플러그 앤 플레이 USB 장치 에뮬레�
 
 1. [다운로드](/get-kali/#kali-arm) 영역에서 `칼리 리눅스 라즈베리 파이 제로 W P4wnP1 ALOA` 이미지를 다운로드 _및 검증_하세요. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에서 더 자세히 설명합니다.
 
-2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 쓰세요. 예시에서는 `/dev/sdX`에 위치한 microSD를 사용합니다. **_필요에 따라 변경하세요._**
+2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 마이크로 SD 카드에 쓰세요. 예시에서는 `/dev/sdX`에 위치한 마이크로 SD를 사용합니다. **_필요에 따라 변경하세요._**
 
 {{% notice info %}}
-이 과정은 microSD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
+이 과정은 마이크로 SD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.3-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC 성능, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있습니다.
+이 과정은 PC 성능, 마이크로 SD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있습니다.
 
-3. _dd_ 작업이 완료되면 microSD 카드를 라즈베리 파이 제로 W에 삽입하세요.
+3. _dd_ 작업이 완료되면 마이크로 SD 카드를 라즈베리 파이 제로 W에 삽입하세요.
 
 4. 다른 컴퓨터에서 P4wnP1 A.L.O.A.의 기본 무선 네트워크 `💥🖥💥 Ⓟ➃ⓌⓃ🅟❶`에 비밀번호 `MaMe82-P4wnP1`로 연결하세요.
 

@@ -19,23 +19,23 @@ author: ["steev",]
 
 라즈베리 파이 2에 표준 칼리 리눅스의 사전 빌드된 이미지를 설치하려면 다음 지침을 따르세요:
 
-1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장해요.
+1. 최소 16GB 용량의 빠른 마이크로 SD 카드를 준비하세요. Class 10 카드를 강력히 권장해요.
 2. [다운로드](/get-kali/) 영역에서 `Kali RaspberryPi 2, 3, 4 및 400 (img.xz)` 이미지를 다운로드하고 _검증_하세요. 이미지 검증 과정은 [칼리 리눅스 다운로드](/docs/introduction/download-official-kali-linux-images/)에 더 자세히 설명되어 있어요.
-3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
+3. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 마이크로 SD 카드에 이미징하세요([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정해요. 이 값을 그대로 복사하지 _말고_, **올바른 드라이브 경로로 변경**하세요.
 
 {{% notice info %}}
-이 과정은 microSD 카드의 모든 내용을 지워요. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있어요.
+이 과정은 마이크로 SD 카드의 모든 내용을 지워요. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있어요.
 {{% /notice %}}
 
 ```console
 $ xzcat kali-linux-2025.3-raspberry-pi-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 속도, 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있어요.
+이 과정은 PC, 마이크로 SD 카드 속도, 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있어요.
 
-_dd_ 작업이 완료되면 microSD를 꽂은 상태로 라즈베리 파이 2를 부팅하세요.
+_dd_ 작업이 완료되면 마이크로 SD를 꽂은 상태로 라즈베리 파이 2를 부팅하세요.
 
 이제 [칼리에 로그인](/docs/introduction/default-credentials/)할 수 있어야 해요.
 

@@ -196,7 +196,7 @@ CI 작업에서 나온 큰 파일/결과물들 이에요.
 
 **[kali.training](https://kali.training/)**
 
-칼리의 새로운 또는 경험 있는 사용자가 더 많은 지식을 얻고 싶을 때 이 사이트를 활용할 수 있어요. 칼리 트레이닝에서는 Kali Linux Revealed 책을 통해 학습하고 각 챕터의 내용과 관련된 연습 테스트를 완료할 수 있어요. 이 모든 것은 KLCP(Kali Linux Certified Professional) 시험을 준비하기 위한 거예요.
+칼리의 새로운 또는 경험 있는 사용자가 더 많은 지식을 얻고 싶을 때 이 사이트를 활용할 수 있어요. 칼리 트레이닝에서는 칼리 리눅스 완벽 가이드(Kali Linux Revealed) 책을 통해 학습하고 각 챕터의 내용과 관련된 연습 테스트를 완료할 수 있어요. 이 모든 것은 KLCP(Kali Linux Certified Professional) 시험을 준비하기 위한 거예요.
 
 - - -
 

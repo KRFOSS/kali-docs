@@ -7,9 +7,9 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-[다운로드 영역](/get-kali/)에서 미리 빌드된 Kali ARM 이미지를 다운로드할 수 있지만, ARM을 위한 자신만의 커스텀 부트스트랩된 Kali rootfs를 빌드해야 하는 경우가 있을 수 있어요.
+[다운로드 영역](/get-kali/)에서 미리 빌드된 칼리 RM 이미지를 다운로드할 수 있지만, ARM을 위한 자신만의 커스텀 부트스트랩된 칼리 rootfs를 빌드해야 하는 경우가 있을 수 있어요.
 
-다음 절차는 꽤 일반적인 Kali **armhf** rootfs를 빌드하는 예시를 보여줘요. **armel**용으로 빌드하려면 **architecture** 환경 변수를 내보낼 때 "armhf" 대신 해당 값을 사용하세요.
+다음 절차는 꽤 일반적인 칼리 **armhf** rootfs를 빌드하는 예시를 보여줘요. **armel**용으로 빌드하려면 **architecture** 환경 변수를 내보낼 때 "armhf" 대신 해당 값을 사용하세요.
 
 {{% notice info %}}
 이 절차를 수행하려면 root 권한이 필요하거나 "sudo su" 명령으로 권한을 상승시킬 수 있어야 해요.
@@ -96,7 +96,7 @@ kali@kali:~$ export packages="xfce4 kali-menu wpasupplicant kali-defaults initra
 kali@kali:~$ export architecture="armhf"
 ```
 
-### Kali rootfs 빌드하기
+### 칼리 rootfs 빌드하기
 
 #### 기본 rootfs 설정하기
 
@@ -141,7 +141,7 @@ EOF
 
 #### 3단계 chroot
 
-여기서 특정 맞춤 설정이 이루어져요. **$packages** 목록과 키맵이 설치되고, "kali"라는 기본 kali 사용자 비밀번호가 설정되며, 기타 구성 변경 및 수정이 적용돼요:
+여기서 특정 맞춤 설정이 이루어져요. **$packages** 목록과 키맵이 설치되고, "kali"라는 기본 칼리 사용자 비밀번호가 설정되며, 기타 구성 변경 및 수정이 적용돼요:
 
 ```console
 kali@kali:~$ export MALLOC_CHECK_=0 # LP: #520465의 해결 방법
@@ -232,7 +232,7 @@ kali@kali:~$
 kali@kali:~$ cd ../
 ```
 
-축하해요! 커스텀 Kali ARM rootfs가 `~/arm-stuff/rootfs/kali-$architecture` 디렉토리에 위치해 있어요. 이제 이 디렉토리를 tar로 압축하거나 이미지 파일로 변환하여 추가 작업을 할 수 있어요.
+축하해요! 커스텀 칼리 ARM rootfs가 `~/arm-stuff/rootfs/kali-$architecture` 디렉토리에 위치해 있어요. 이제 이 디렉토리를 tar로 압축하거나 이미지 파일로 변환하여 추가 작업을 할 수 있어요.
 
 {{% notice info %}}
 ARM 기기에서 칼리 리눅스를 실행하면 표준 x86 시스템에 비해 일부 성능 제한이 있을 수 있지만, 많은 취약점 테스트 도구를 휴대성 있게 사용할 수 있다는 장점이 있습니다.

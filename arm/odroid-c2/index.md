@@ -7,7 +7,7 @@ author: ["steev",]
 번역: ["xenix4845"]
 ---
 
-[오드로이드-C2](https://wiki.odroid.com/odroid-c2/odroid-c2)는 Amlogic S905, 쿼드 코어 Cortex™-A53(ARMv8 64비트) 프로세서와 트리플 코어 Mali-450 GPU 및 2GB DDR3(32비트/912Mhz) RAM을 탑재하고 있습니다. 칼리 리눅스는 외장 microSD 카드 또는 eMMC 모듈에서 실행할 수 있습니다.
+[오드로이드-C2](https://wiki.odroid.com/odroid-c2/odroid-c2)는 Amlogic S905, 쿼드 코어 Cortex™-A53(ARMv8 64비트) 프로세서와 트리플 코어 Mali-450 GPU 및 2GB DDR3(32비트/912Mhz) RAM을 탑재하고 있습니다. 칼리 리눅스는 외장 마이크로 SD 카드 또는 eMMC 모듈에서 실행할 수 있습니다.
 
 기본적으로 칼리 리눅스 오드로이드-C2 이미지는 다른 대부분의 플랫폼과 유사하게 [**kali-linux-default** 메타패키지](/docs/general-use/metapackages/)를 포함합니다. 추가 도구를 설치하려면 [메타패키지 페이지](/docs/general-use/metapackages/)를 참조하세요.
 
@@ -89,24 +89,24 @@ If you want to customize the Kali ODROID-C2 image, including changes to the [pac
 
 오드로이드-C2에 칼리를 설치하려면 다음 지침을 따르세요:
 
-1. 최소 16GB 용량의 빠른 microSD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
-2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 microSD 카드에 이미징하세요 ([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
+1. 최소 16GB 용량의 빠른 마이크로 SD 카드를 준비하세요. Class 10 카드를 강력히 권장합니다.
+2. **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** 유틸리티를 사용하여 이 파일을 마이크로 SD 카드에 이미징하세요 ([칼리 USB 만들기](/docs/usb/live-usb-install-with-windows/)와 동일한 과정).
 
 아래 예시에서는 저장 장치가 `/dev/sdX`에 위치한다고 가정합니다. 이 값을 단순히 복사하지 마시고, **올바른 드라이브 경로로 변경하세요**.
 
 {{% notice info %}}
-이 과정은 microSD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
+이 과정은 마이크로 SD 카드의 모든 데이터를 지웁니다. 잘못된 저장 장치를 선택하면 컴퓨터의 하드 디스크가 지워질 수 있습니다.
 {{% /notice %}}
 
 ```console
 $ xzcat images/kali-linux-2025.2-odroid-c2-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-이 과정은 PC, microSD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
+이 과정은 PC, 마이크로 SD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
 
-_dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 오드로이드-C2를 부팅하세요.
+_dd_ 작업이 완료되면, 마이크로 SD 카드를 꽂은 상태로 오드로이드-C2를 부팅하세요.
 
-동일한 이미지 파일은 eMMC 또는 microSD 카드 모두에 사용할 수 있습니다.
+동일한 이미지 파일은 eMMC 또는 마이크로 SD 카드 모두에 사용할 수 있습니다.
 
 [칼리에 로그인](/docs/introduction/default-credentials/)할 수 있어야 합니다.
 
@@ -116,4 +116,4 @@ _dd_ 작업이 완료되면, microSD 카드를 꽂은 상태로 오드로이드-
 
 오드로이드-C2에서는 부팅 시 USB 포트에 아무것도 연결되어 있지 않으면 USB가 자동으로 절전 모드로 전환됩니다. 따라서 오드로이드-C2가 부팅된 **후에** USB 장치를 연결하고 싶다면, `usbcore.autosuspend=-1` 옵션을 추가하는 것이 좋습니다.
 
-microSD 카드와 eMMC가 모두 연결되어 있을 경우, 오드로이드-C2는 먼저 microSD 카드에서 부팅을 시도합니다.
+마이크로 SD 카드와 eMMC가 모두 연결되어 있을 경우, 오드로이드-C2는 먼저 마이크로 SD 카드에서 부팅을 시도합니다.
