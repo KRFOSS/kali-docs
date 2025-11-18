@@ -36,34 +36,7 @@ Xfce 데스크톱은 X11을 사용하며, 가까운 미래에 이것이 바뀔 �
 
 ### GNOME
 
-칼리 리눅스에서 GNOME 데스크톱은 기본적으로 X11 디스플레이 서버를 사용해요.
-
-이 점에서 칼리 리눅스는 다른 리눅스 배포판보다 보수적이에요: Wayland는 페도라 25(2016년 11월 출시), 데비안 10(2019년 7월), 우분투 21.04(2021년 4월)에서 기본값이 되었어요.
-
-위의 타임라인을 보면, 칼리 리눅스도 GNOME 데스크톱에서 언젠가 Wayland로 전환할 것으로 예상할 수 있어요. 하지만 현재로서는 로드맵에 없어요.
-
-#### Wayland로 전환하기
-
-{{% notice info %}}
-이 부분은 경험 있는 사용자만을 위한 것이에요. 이 단계를 따른다면, 발생할 수 있는 문제를 스스로 해결할 수 있을 것으로 예상해요.
-{{% /notice %}}
-
-X11 대신 Wayland를 사용하려면, 터미널을 열고 다음 명령어를 입력하세요:
-
-```console
-kali@kali:~$ sudo mkdir -p /etc/systemd/system/gdm.service.d
-kali@kali:~$ sudo ln -sf /dev/null /etc/systemd/system/gdm.service.d/disable-wayland.conf
-```
-
-그런 다음 재부팅하고 로그인하면 이제 Wayland를 사용하고 있어요. X11로 다시 전환하고 싶다면, `disable-wayland.conf` 파일을 제거하고 재부팅하세요:
-
-```console
-kali@kali:~$ sudo rm /etc/systemd/system/gdm.service.d/disable-wayland.conf
-```
-
-Wayland로 전환한 후에는 로그인 화면에서 Wayland와 X11 중에서 선택할 수 있는 옵션이 생겨요: 화면 오른쪽 하단에서 _설정_ 아이콘을 클릭하고, X11을 사용하고 싶다면 _GNOME on Xorg_를 선택하세요.
-
-![](images/gnome-login.png)
+[칼리 리눅스 2025.4](/blog/kali-linux-2025.4-release/)<!-- ie. gnome-shell 49.1-1kali1 --> 이후부터, Wayland가 GNOME 데스크톱 환경의 기본이자 유일한 디스플레이 서버가 되었어요.
 
 ### KDE
 
