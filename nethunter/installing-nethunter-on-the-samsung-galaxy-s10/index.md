@@ -9,7 +9,7 @@ author: ["v0lk3n","yesimxev",]
 
 # 정보
 
-> 이 설치 가이드와 사용된 파일들은 삼성 갤럭시 S10 Exynos9820 버전용이에요.
+> 이 설치 가이드와 사용된 파일들은 삼성 갤럭시 S10 엑시노스9820 버전용이에요.
 
 ## 기능
 
@@ -22,9 +22,13 @@ author: ["v0lk3n","yesimxev",]
 | Injection | ✅ |
 | ATH9K_HTC | ✅ |
 | RTL88XX | ✅ |
-| RTL8188EUS (Module) | ✅ |
+| RTL8812AU | ✅ |
+| RTL8821AU | ✅ |
+| RTL8814AU | ✅ |
+| RTL8188EUS (모듈) | ✅ |
+| RTL88x2BU | ✅ |
 | NFS | ✅ |
-| CAN (optional modules included) | ✅ |
+| CAN (선택적 모듈 포함) | ✅ |
 | Nexmon Monitor | ✅ |
 | Nexmon Injection | ✅ |
 | 와이파이 5Ghz | ✅ |
@@ -37,9 +41,10 @@ author: ["v0lk3n","yesimxev",]
 | :--------------- | -----:|
 | [LineageOS 21 (A14)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-21) | 구 버전 |
 | [LineageOS 22.1 (A15)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-22.1) | 구 버전 |
-| [LineageOS 22.2 (A15)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-22.2) | 권장 |
+| <a href="https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-22.2">LineageOS 22.2 (A15)</a> | 구 버전 |
+| <a href="https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-23.0">LineageOS 23.0 (A16)</a> | 새 버전 |
 
-> 이 가이드는 LineageOS 22.2를 사용해요
+> 이 가이드는 LineageOS 22.2를 사용하지만 다른 버전과 동일한 설치 과정을 거쳐요
 
 # 설치
 
@@ -188,18 +193,10 @@ Cloning into 'kernels'...
 # 전체 설치 프로그램 빌드
 ## LOS 21
 $ ./build.py -k beyond1lte-los -14 -fs full
-## LOS 22.1
+## LOS 22.2
 $ ./build.py -k beyond1lte-los -15 -fs full
-## LOS 22.2
-$ ./build.py -k beyond1lte-los-22.2 -15 -fs full
-
-# 커널만 빌드
-## LOS 21
-$ ./build.py -k beyond1lte-los -14 -i
-## LOS 22.1
-$ ./build.py -k beyond1lte-los -15 -i
-## LOS 22.2
-$ ./build.py -k beyond1lte-los-22.2 -15 -i
+## LOS 23.0
+$ ./build.py -k beyond1lte-los -16 -fs full
 ```
 
 설치 프로그램을 기기에 전송하세요.
@@ -211,20 +208,6 @@ adb push nethunter-20250629_171321-beyond1lte-los-fifteen-kalifs_full.zip /sdcar
 Magisk를 열고 "Modules > Install from Storage"로 이동하여 넷헌터 설치 프로그램을 선택하고 설치하세요.
 
 넷헌터 설치가 완료될 때까지 기다리고, 메시지가 나타나면 재부팅하세요.
-
-### 리커버리에서 커널 플래시 - 선택사항이지만 권장
-
-리커버리로 재부팅하여 커널만 플래시하는 것도 권장해요.
-
-리커버리로 재부팅하고 "Apply update > Apply from ADB"로 이동하여 넷헌터 커널을 플래시하세요.
-
-```bash
-adb -d sideload kernel-nethunter-20250629_173026-beyond1lte-los-fifteen.zip
-```
-
-휴대폰에 "Signature verification failed Install anyway?" 경고가 나타나면 "Yes"를 누르고, 넷헌터 커널 플래시가 완료될 때까지 기다리세요.
-
-플래시가 완료되면 시스템으로 재부팅하세요.
 
 ## Magisk 모듈 (선택)
 
@@ -277,10 +260,6 @@ $ ifconfig wlan0 up
 $ nexutil -s0x613 -i -v2
 ```
 
-설정을 더 쉽게 하기 위해 넷헌터 앱에서 사용자 정의 명령어를 만들 수 있어요.
-
-<img src="custom_nexutil_command.jpg" width="300">
-
 모니터 모드 중지
 
 ```bash
@@ -305,11 +284,11 @@ Hijacker 앱을 열고 다음 설정을 구성하세요.
 
 | 설정  | 값 |
 | :--------------- | -----:|
-| Prefix | LD_PRELOAD=/data/user/0/com.hijacker/files/lib/libnexmon.so |
-| Enable Monitor Mode | if [ `dumpsys wifi | grep "Wi-Fi is" | cut -d" " -f3` == "enabled" ]; then svc wifi disable; sleep 2; ifconfig wlan0 up; fi; nexutil -s0x613 -i -v2 |
-| Disable Monitor Mode | nexutil -m0; svc wifi enable |
-| Start Monitor Mode on Airodump Start | ✅ |
-| Band | Both |
+| 접두사 | LD_PRELOAD=/data/user/0/com.hijacker/files/lib/libnexmon.so |
+| 모니터 모드 활성화 | if [ \`dumpsys wifi \| grep "Wi-Fi is" \| cut -d" " -f3\` == "enabled" ]; then svc wifi disable; sleep 2; ifconfig wlan0 up; fi; nexutil -s0x613 -i -v2 |
+| 모니터 모드 비활성화 | nexutil -m0; svc wifi enable |
+| Airodump 시작 시 모니터 모드 시작 | ✅ |
+| 밴드 | 둘 다 |
 
 만약 와이파이가 5Ghz에 연결되어 있었다면, 시작 시 해당 채널만 표시될 수 있어요. 중지 + 시작 아이콘을 눌러 다시 스캔하면 모든 2.4Ghz 채널을 확인할 수 있어요.
 
@@ -335,8 +314,12 @@ adb -d sideload G97X_Splash_Screen_Changer_by_SoLdieR9312_splash.zip
 
 # 크레딧
 
+<a href="https://linktr.ee/v0lk3n">V0lk3n</a>에 의해 커널 및 문서가 관리됨
+
+<a href="https://gitlab.com/yesimxev">yesimxev</a> Nexmon 모듈 제작
+
 도와주신 분들 :
-- 갤럭시 S10에 도움과 지원을 준 <a href="https://gitlab.com/yesimxev">yzesimxev</a>
-- 갤럭시 S10에 도움과 지원을 준 Arti
+- 갤럭시 S10에 도움과 지원을 준 **Arti**
+- 최신 RTL 드라이버 제공 및 도움을 준 <a href="https://github.com/akabul0us">Akabulous</a>
 - <a href="https://github.com/seemoo-lab/nexmon">Nexmon</a>
 - Nexmon의 <a href="https://x.com/MarkusTieger">MarkusTieger</a>
