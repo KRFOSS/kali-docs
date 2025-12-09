@@ -27,13 +27,21 @@ deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmwa
 kali@kali:~$
 ```
 
-그 다음 아래 명령어들을 실행하면 최신 칼리 리눅스 버전으로 업그레이드할 수 있어요:
+그 다음 아래 명령어들을 실행하면 최신 칼리 리눅스 버전으로 안전하게 업그레이드할 수 있어요:
 
 ```console
 kali@kali:~$ sudo apt update
 [...]
 kali@kali:~$
-kali@kali:~$ sudo apt full-upgrade -y
+kali@kali:~$ sudo apt dist-upgrade -y
+[...]
+kali@kali:~$
+```
+
+위의 명령어가 작동하지 않았다면, 아래 명령어를 사용하여 최신 커널로 강제 업데이트할 수 있어요. (시스템이 손상될 수 있어 권장하지는 않아요):
+
+```console
+kali@kali:~$ sudo apt update && sudo apt full-upgrade -y
 [...]
 kali@kali:~$
 ```
