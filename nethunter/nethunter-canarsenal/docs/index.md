@@ -37,7 +37,7 @@ CARsenal은 자동차 보안 도구 세트를 제공하는 데 사용돼요.
 
 
 ***가이드***
-* <a href="https://www.offsec.com/blog/introduction-to-car-hacking-the-can-bus" target="_blank">자동차 해킹에 대한 소개: CAN 버스</a>
+* <a href="https://www.offsec.com/blog/introduction-to-car-hacking-the-can-bus/" target="_blank">자동차 해킹에 대한 소개: CAN 버스</a>
 
 
 ## 크레딧
