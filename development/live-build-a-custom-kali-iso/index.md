@@ -185,7 +185,7 @@ kali@kali:~/live-build-config$ ./build.sh --variant kde --verbose
 
 빌드에 포함된 패키지 목록은 해당 `kali-config/` 디렉토리에 있을 거예요. 예를 들어, 편집하고 싶다면:
 
-- 기본 인스톨러 ISO는 다음 패키지 목록 파일을 사용해요 - `kali-config/installer-default/packages`
+- 기본 인스톨러 ISO는 다음 패키지 목록 파일을 사용해요 - `kali-config/installer-default/packages` - 이 파일은 인스톨러 ISO의 풀에 패키지를 추가해요. 아마 인스톨러가 대상 시스템에 해당 패키지들을 _설치_하도록 하고 싶을 텐데, 그러려면 `simple-cdd/profiles/kali.postinst` 파일을 편집하고 파일 하단에 설치 명령어를 추가하면 돼요. 예: `apt install -y 여기에 패키지 이름`
 - 기본 라이브 ISO는 다음 패키지 목록 파일을 사용해요 - `kali-config/variant-default/package-lists/kali.list.chroot`
 - Gnome과 같은 기본이 아닌 라이브 ISO 데스크톱 환경 - `kali-config/variant-gnome/package-lists/kali.list.chroot` _(Gnome을 지원되는 데스크톱 환경으로 바꿀 수 있어요)_
 
