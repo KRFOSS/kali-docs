@@ -20,6 +20,7 @@ author: ["g0tmi1k",]
 | [clusterd](https://pkg.kali.org/pkg/clusterd) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/clusterd/-/issues/1)) |
 | [creddump](https://pkg.kali.org/pkg/creddump) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/creddump/-/issues/1)) |
 | [cuckoo](https://pkg.kali.org/pkg/cuckoo) | 2020-04-07 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/cuckoo/-/issues/1)) |
+| [curlftpfs](https://pkg.kali.org/pkg/curlftpfs) | 2025-12-11 | 유지보수되지 않는 도구 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1084477)) |
 | [datasploit](https://pkg.kali.org/pkg/datasploit) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/datasploit/-/issues/1)) |
 | [de4dot](https://pkg.kali.org/pkg/de4dot) | 2025-10-16 | 유지보수가 중단되어 고장난 도구 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=1114088)) |
 | [deblaze](https://pkg.kali.org/pkg/deblaze) | 2021-05-14 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/deblaze/-/issues/1)) |
