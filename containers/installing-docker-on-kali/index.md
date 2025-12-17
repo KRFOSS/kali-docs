@@ -34,7 +34,7 @@ kali@kali:~$
 ##### 칼리 리눅스에 docker-ce 설치하기
 
 `docker-ce`는 도커 공식 저장소에서 설치할 수 있습니다. 이때 주의할 점은, [칼리 리눅스는 데비안을 기반으로 하고 있다는 것](/policy/kali-linux-relationship-with-debian/)입니다. 따라서 칼리 리눅스가 [롤링 릴리스 배포판](/general-use/kali-branches/)이긴 하지만, 설치 시에는 [데비안의 현재 안정(stable) 버전](https://www.debian.org/releases/stable/)을 기준으로 해야 합니다.  
-작성 시점(2023년 12월) 기준으로는 "trixie"이 해당 버전입니다.
+작성 시점(2025년 12월) 기준으로는 "trixie"이 해당 버전입니다.
 
 ```console
 kali@kali:~$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian trixie stable" | \
