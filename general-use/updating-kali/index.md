@@ -3,7 +3,7 @@ title: 칼리 리눅스 업데이트하기
 description:
 icon:
 weight:
-author: ["gamb1t",]
+author: ["gamb1t","soroush nekoozadeh"]
 번역: ["xenix4845"]
 ---
 
