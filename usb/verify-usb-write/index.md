@@ -35,7 +35,7 @@ kali@kali:~$ lsblk
 ### 리눅스/MacOS에서
 
 ```console
-kali@kali:~$ shasum -a 256 kali-linux-2025.3-live-amd64.iso 
+kali@kali:~$ shasum -a 256 kali-linux-2025.4-live-amd64.iso 
 ```
 ISO 파일 이름을 다운로드한 것으로 바꿔주세요. 체크섬을 ISO를 다운로드한 페이지에서 제공하는 값과 비교해 확인하세요.
 
@@ -44,7 +44,7 @@ ISO 파일 이름을 다운로드한 것으로 바꿔주세요. 체크섬을 ISO
 certutil을 사용할 수 있다면 다음을 실행하세요:
 
 ```console
-certutil -hashfile kali-linux-2025.3-live-amd64.iso sha256
+certutil -hashfile kali-linux-2025.4-live-amd64.iso sha256
 ```
 
 다운로드를 확인하세요. 특정 윈도우 버전에서는 SHA256 체크섬을 계산하는 기본 기능이 없을 수 있어요. certutil이 설치되어 있지 않다면 Microsoft File Checksum Integrity Verifier 또는 Hashtab과 같은 유틸리티를 사용하여 다운로드를 확인할 수 있어요.

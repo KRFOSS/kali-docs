@@ -49,8 +49,8 @@ author: ["ShubhamVis98",]
 ##### 파인폰/프로 기기용 설치 단계
 
 ```console
-$ xz -d kali-nethunterpro-2025.3-pinephone-phosh.img.xz
-$ dd if=kali-nethunterpro-2025.3-pinephone-phosh.img of=/dev/mmcblkX bs=1M oflag=sync status=progress
+$ xz -d kali-nethunterpro-2025.4-pinephone-phosh.img.xz
+$ dd if=kali-nethunterpro-2025.4-pinephone-phosh.img of=/dev/mmcblkX bs=1M oflag=sync status=progress
 ```
 
 ##### 퀄컴 안드로이드 기기용 설치 단계
@@ -59,14 +59,14 @@ $ dd if=kali-nethunterpro-2025.3-pinephone-phosh.img of=/dev/mmcblkX bs=1M oflag
 
 ```console
 # SD카드에 설치하기:
-$ xz -d kali-nethunterpro-2025.3-sdm845.img.xz
+$ xz -d kali-nethunterpro-2025.4-sdm845.img.xz
 $ simg2img flash userdata nethunterpro-*-sdm845*rootfs.img rootfs_ext4.img
 $ dd if=rootfs_ext4.img of={sdcard_block_device} bs=1M oflag=sync status=progress
 $ fastboot flash boot nethunterpro*boot-{model}-{variant}.img
 $ fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우
 
 # 내장 메모리(EMMC)에 설치하기 (fastboot 방식):
-$ xz -d kali-nethunterpro-2025.3-sdm845.img.xz
+$ xz -d kali-nethunterpro-2025.4-sdm845.img.xz
 $ fastboot flash userdata nethunterpro-*-sdm845*rootfs.img
 $ fastboot flash boot nethunterpro*boot-{model}-{variant}.img
 $ fastboot erase dtbo # 기기에 dtbo 파티션이 있는 경우

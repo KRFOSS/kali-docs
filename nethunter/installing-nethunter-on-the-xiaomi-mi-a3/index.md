@@ -81,9 +81,9 @@ kali@kali:~/Downloads$
 
 ## 4. 넷헌터 설치
 
-1. [kali-nethunter-2025.3-laurel-sprout-los-fifteen-full.zip](https://kali.download/nethunter-images/kali-2025.3/kali-nethunter-2025.3-laurel-sprout-los-fifteen-full.zip)을 다운로드해요
+1. [kali-nethunter-2025.4-laurel-sprout-los-fifteen-full.zip](https://kali.download/nethunter-images/kali-2025.4/kali-nethunter-2025.4-laurel-sprout-los-fifteen-full.zip)을 다운로드해요
 2. PC에서 기기로 복사해요
-3. Magisk 앱을 열고, 모듈 → 저장소에서 설치를 선택한 후 "kali-nethunter-2025.3-laurel-sprout-los-fifteen-full.zip"을 선택해요
+3. Magisk 앱을 열고, 모듈 → 저장소에서 설치를 선택한 후 "kali-nethunter-2025.4-laurel-sprout-los-fifteen-full.zip"을 선택해요
 4. 설치가 끝날 때까지 기다린 후 "Reboot System"을 탭해요
 5. 폰이 시작되면 칼리 부트 애니메이션을 볼 수 있어요
 

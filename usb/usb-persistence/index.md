@@ -33,7 +33,7 @@ author: ["g0tmi1k", "daniruiz",]
 
 - - -
 
-1. 먼저 [이 글](/docs/usb/live-usb-install-with-linux/)에 설명된 대로 최신 칼리 리눅스 라이브 ISO(현재 [2025.2](/get-kali/))를 USB 드라이브에 이미징하는 것으로 시작해요.
+1. 먼저 [이 글](/docs/usb/live-usb-install-with-linux/)에 설명된 대로 최신 칼리 리눅스 라이브 ISO(현재 [2025.4](/get-kali/))를 USB 드라이브에 이미징하는 것으로 시작해요.
 
 {{% notice info %}}
 이 페이지 전체에서 '/dev/sdX'를 사용하고 있지만, '/dev/sdX'는 적절한 장치 라벨로 대체되어야 해요. '/dev/sdX'는 실수로 덮어쓰는 것을 방지하기 위해 문서에 안전하게 사용될 수 있어요. 올바른 장치 라벨을 사용하세요.

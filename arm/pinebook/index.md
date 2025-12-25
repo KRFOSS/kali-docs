@@ -32,7 +32,7 @@ author: ["steev",]
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.3-pinebook-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.4-pinebook-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, 마이크로 SD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
@@ -54,7 +54,7 @@ eMMC 모듈용 USB 어댑터가 없다면, 부팅 가능한 마이크로 SD 카�
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.3-pinebook-arm64.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
+$ xzcat kali-linux-2025.4-pinebook-arm64.img.xz | sudo dd of=/dev/mmcblk1 bs=4M status=progress
 ```
 
 이 과정은 PC, eMMC 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

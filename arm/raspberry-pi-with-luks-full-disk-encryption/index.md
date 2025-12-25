@@ -24,10 +24,10 @@ author: ["steev",]
 
 ### 실제 작업하기
 
-항상 그렇듯이, 모든 ARM 개발은 칼리 amd64 머신에서 수행되며 필요한 모든 [종속성](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/main/build-deps.sh)이 설치되어 있는지 확인했습니다. [최신 칼리 RPi3 이미지](/get-kali/)(2025.3)를 다운로드하고, 압축을 풀고, **dd** 명령어를 사용하여 SD 카드에 기록합니다. 우리의 경우 SD 카드는 /dev/sdb2로 인식되었습니다 - 필요에 따라 조정하세요!
+항상 그렇듯이, 모든 ARM 개발은 칼리 amd64 머신에서 수행되며 필요한 모든 [종속성](https://gitlab.com/kalilinux/build-scripts/kali-arm/blob/main/build-deps.sh)이 설치되어 있는지 확인했습니다. [최신 칼리 RPi3 이미지](/get-kali/) (칼리 2025.4)를 다운로드하고, 압축을 풀고, **dd** 명령어를 사용하여 SD 카드에 기록합니다. 우리의 경우 SD 카드는 /dev/sdb2로 인식되었습니다 - 필요에 따라 조정하세요!
 
 ```console
-$ dd if=kali-linux-2025.3-rpi3-nexmon.img of=/dev/sdb conv=fsync bs=4M
+$ dd if=kali-linux-2025.4-rpi3-nexmon.img of=/dev/sdb conv=fsync bs=4M
 ```
 
 dd 작업이 완료되면, 각 파티션을 마운트하고 칼리 RPi3 이미지로 chroot합니다:

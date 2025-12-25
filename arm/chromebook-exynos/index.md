@@ -50,7 +50,7 @@ ChromiumOS 코드명은 다음과 같습니다:
 {{% /notice %}}
 
 ```console
-$ xzcat images/kali-linux-2025.3-chromebook-exynos-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat images/kali-linux-2025.4-chromebook-exynos-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC 성능, microSD 카드나 USB 드라이브의 속도, 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.

@@ -41,7 +41,7 @@ author: ["g0tmi1k",]
 저희는 /dev/sdX를 사용했어요:
 
 ```console
-kali@kali:~$ sudo dd if=kali-linux-2025.3-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
+kali@kali:~$ sudo dd if=kali-linux-2025.4-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 ```
 
 작업이 끝나면 `parted /dev/sdX print` 명령으로 USB 파티션 구조를 확인할 수 있어요.

@@ -12,7 +12,7 @@ author: ["gamb1t", "arnaudr"]
 먼저 VirtualBox 이미지를 추출해야 해요:
 
 ```console
-kali@kali:~$ 7z x kali-linux-2025.3-virtualbox-amd64.7z
+kali@kali:~$ 7z x kali-linux-2025.4-virtualbox-amd64.7z
 [...]
 kali@kali:~$
 ```

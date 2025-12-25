@@ -32,7 +32,7 @@ author: ["steev",]
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.3-raspberry-pi1-armel.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.4-raspberry-pi1-armel.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, 풀 사이즈 SD 카드 속도, 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있어요.

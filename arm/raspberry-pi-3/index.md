@@ -35,13 +35,13 @@ author: ["steev",]
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.3-raspberry-pi-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.4-raspberry-pi-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 **또는**
 
 ```console
-$ xzcat kali-linux-2025.3-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.4-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, 마이크로 SD 카드 속도, 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있어요.

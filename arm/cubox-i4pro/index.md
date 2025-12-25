@@ -39,7 +39,7 @@ _이 이미지는 "Marvell" 기반(원본)이 아닌 "Freescale" 기반 모델�
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.3-cubox-i4pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2025.4-cubox-i4pro-armhf.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 작업은 여러분의 PC 성능, 마이크로SD 카드 속도, 그리고 칼리 리눅스 이미지 크기에 따라 다소 시간이 소요될 수 있습니다.

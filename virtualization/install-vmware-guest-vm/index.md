@@ -55,7 +55,7 @@ VMware Workstation을 시작하면 "**Create a New Virtual Machine**"(새 가상
 다음 화면은 "Virtual Machine Name"(가상 머신 이름)으로 VM의 이름을 지정하는 곳이에요. 이 이름은 파일명(구성, 하드 디스크 및 스냅샷 같은 - 이 시점부터 변경되지 않음)으로도 사용돼요.
 
 "**Kali Linux**"를 사용하여 이 가이드에서는 일반적으로 유지하고 있어요(칼리 리눅스는 [롤링 배포판](/docs/general-use/kali-branches/)이고 우리가 [칼리 리눅스를 업데이트](/docs/general-use/updating-kali/)하기 때문에).
-하지만 우리 릴리스의 경우 고정 릴리스이므로 이름에 버전 번호를 사용해요 _(`kali-linux-YYYY.N-vmware-ARCH`. 예시: `kali-linux-2025.3-vmware-amd64`)_.
+하지만 우리 릴리스의 경우 고정 릴리스이므로 이름에 버전 번호를 사용해요 _(`kali-linux-YYYY.N-vmware-ARCH`. 예시: `kali-linux-2025.4-vmware-amd64`)_.
 
 ![](vm-06.png)
 

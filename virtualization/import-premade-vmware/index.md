@@ -12,7 +12,7 @@ author: ["gamb1t",]
 먼저 VMware 이미지를 추출해야 해요:
 
 ```console
-kali@kali:~$ 7z x kali-linux-2025.3-vmware-amd64.7z
+kali@kali:~$ 7z x kali-linux-2025.4-vmware-amd64.7z
 [...]
 kali@kali:~$
 ```
