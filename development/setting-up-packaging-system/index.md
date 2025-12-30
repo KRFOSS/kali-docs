@@ -247,7 +247,9 @@ kali@kali:~$
 
 `sbuild`는 격리된 빌드 환경에서 패키지를 빌드하는 데 사용되는 도구에요.
 
-```
+```console
+kali@kali:~$ mkdir -p ~/.config/sbuild/
+kali@kali:~$
 kali@kali:~$ cat <<'EOF' > ~/.config/sbuild/config.pl
 
 # '아키텍처: 전체' 패키지 빌드
@@ -305,7 +307,7 @@ kali@kali:~$ sudo apt install -y approx
 
 패키지가 설치된 후, 칼리에 사용할 원격 저장소를 정의하기 위해 구성 파일 `/etc/approx/approx.conf`의 한 줄만 편집하면 돼요. 데비안에 이미 정의된 매핑 바로 아래에 추가하여 구성 파일 `/etc/approx/approx.conf`가 다음과 같이 보이도록 하세요:
 
-```
+```plaintext
 debian          http://ftp.debian.org/debian
 debian-security	http://security.debian.org/debian-security
 kali            http://kali.download/kali
