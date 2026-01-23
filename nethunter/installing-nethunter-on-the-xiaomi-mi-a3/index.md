@@ -37,7 +37,7 @@ kali@kali:~$
 
 1. [boot_los22.img](https://thebiggestboi.skyblueborb.workers.dev/0:/boot_los22.img)를 다운로드해요
 2. 볼륨 다운을 누르며 기기를 재부팅해 "FASTBOOT" 화면이 나오면 PC에 연결해요
-3. 터미널에서 boot_los22.img가 있는 디렉토리로 이동해 아래처럼 리커버리를 플래시해요
+3. 터미널에서 `boot_los22.img`가 있는 디렉토리로 이동해 아래처럼 리커버리를 플래시해요
 ```console
 kali@kali:~$ cd Downloads/
 [...]
@@ -83,7 +83,7 @@ kali@kali:~/Downloads$
 
 1. [kali-nethunter-2025.4-laurel-sprout-los-fifteen-full.zip](https://kali.download/nethunter-images/kali-2025.4/kali-nethunter-2025.4-laurel-sprout-los-fifteen-full.zip)을 다운로드해요
 2. PC에서 기기로 복사해요
-3. Magisk 앱을 열고, 모듈 → 저장소에서 설치를 선택한 후 "kali-nethunter-2025.4-laurel-sprout-los-fifteen-full.zip"을 선택해요
+3. Magisk 앱을 열고, 모듈 → 저장소에서 설치를 선택한 후 `kali-nethunter-2025.4-laurel-sprout-los-fifteen-full.zip`을 선택해요
 4. 설치가 끝날 때까지 기다린 후 "Reboot System"을 탭해요
 5. 폰이 시작되면 칼리 부트 애니메이션을 볼 수 있어요
 
