@@ -38,6 +38,10 @@ author: ["g0tmi1k",]
 | [keimpx](https://pkg.kali.org/pkg/keimpx) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/keimpx/-/issues/1)) |
 | [killerbee](https://pkg.kali.org/pkg/killerbee) | 2020-09-03 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/killerbee/-/issues/1)) |
 | [king-phisher](https://pkg.kali.org/pkg/king-phisher) | 2023-07-03 | 유지보수되지 않음 ([#1](https://gitlab.com/kalilinux/packages/king-phisher/-/issues/2)) |
+| [libnfc](https://pkg.kali.org/pkg/libnfc) | 2026-01-21 | libusb 0.1 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=810438)) |
+| [libnfc-bin](https://pkg.kali.org/pkg/libnfc) | 2026-01-21 | libusb 0.1 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=810438)) |
+| [libfreefare-bin](https://pkg.kali.org/pkg/libfreefare-bin) | 2026-01-21 | libusb 0.1 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=810438)) |
+
 | [mana-toolkit](https://pkg.kali.org/pkg/mana-toolkit) | 2019-10-10 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/mana-toolkit/-/issues/1)) |
 | [miranda](https://pkg.kali.org/pkg/miranda) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/miranda/-/issues/1)) |
 | [mitmf](https://pkg.kali.org/pkg/mitmf) | 2019-08-23 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/mitmf/-/issues/1)) |
@@ -57,6 +61,7 @@ author: ["g0tmi1k",]
 | [sandi](https://pkg.kali.org/pkg/sandi) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sandi/-/issues/1)) |
 | [sandsifter](https://pkg.kali.org/pkg/sandsifter) | 2020-07-20 | Python 2 |
 | [sparta](https://pkg.kali.org/pkg/sparta) | 2020-01-06 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sparta/-/issues/1)) |
+| [spectools](https://pkg.kali.org/pkg/spectools) | 2026-01-21 | libusb 0.1 ([#1](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=810459)) |
 | [sslcaudit](https://pkg.kali.org/pkg/sslcaudit) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sslcaudit/-/issues/1)) |
 | [sslstrip](https://pkg.kali.org/pkg/sslstrip) | 2020-03-10 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/sslstrip/-/issues/1)) |
 | [starkiller](https://pkg.kali.org/pkg/starkiller) | 2023-03-03 | powershell-empire에 포함됨 ([#1](https://github.com/BC-SECURITY/Starkiller#getting-started)) |
