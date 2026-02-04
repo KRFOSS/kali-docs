@@ -1,4 +1,4 @@
- ---
+---
 title: 미리 만들어진 칼리 VirtualBox VM 가져오기
 description:
 icon:
