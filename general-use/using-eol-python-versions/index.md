@@ -90,10 +90,11 @@ kali@kali:~$
 이제 파이썬 2를 설치하고 기본 파이썬 버전으로 설정할 수 있어요:
 
 ```console
-kali@kali:~$ pyenv install 2.7.18
+kali@kali:~$ CFLAGS='-std=c11' pyenv install 2.7.18
 Downloading Python-2.7.18.tar.xz...
 -> https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
 Installing Python-2.7.18...
+[...]
 Installed Python-2.7.18 to /home/kali/.pyenv/versions/2.7.18
 
 kali@kali:~$
