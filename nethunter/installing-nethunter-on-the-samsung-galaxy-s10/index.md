@@ -42,7 +42,8 @@ author: ["v0lk3n","yesimxev",]
 | [LineageOS 21 (A14)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-21) | 구 버전 |
 | [LineageOS 22.1 (A15)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-22.1) | 구 버전 |
 | [LineageOS 22.2 (A15)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-22.2) | 구 버전 |
-| [LineageOS 23.0 (A16)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-23.0) | 새 버전 |
+| [LineageOS 23.0 (A16)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-23.0) | 구 버전 |
+| [LineageOS 23.2 (A16)](https://github.com/V0lk3n/nethunter_kernel_samsung_exynos9820/tree/nethunter-lineage-23.2) | 새 버전 |
 
 
 > 이 가이드는 LineageOS 22.2를 사용하지만 다른 버전과 동일한 설치 과정을 거쳐요
@@ -174,7 +175,7 @@ adb -d sideload Magisk-v28.1.zip
 
 ## 넷헌터
 
-제가 선호하는 방법은 설치 프로그램을 직접 빌드하는 거예요. 하지만 원한다면 [다운로드](https://kali.download/nethunter-images/kali-2025.3/kali-nethunter-2025.3-beyond1lte-los-fifteen-full.zip)할 수도 있어요.
+제가 선호하는 방법은 설치 프로그램을 직접 빌드하는 거예요. 하지만 원한다면 [다운로드](https://www.kali.org/get-kali/#kali-mobile)할 수도 있어요.
 
 자신만의 설치 프로그램을 만들고 싶지 않다면 다음 단계로 건너뛰세요.
 
@@ -195,7 +196,7 @@ Cloning into 'kernels'...
 $ ./build.py -k beyond1lte-los -14 -fs full
 ## LOS 22.2
 $ ./build.py -k beyond1lte-los -15 -fs full
-## LOS 23.0
+## LOS 23.2
 $ ./build.py -k beyond1lte-los -16 -fs full
 ```
 
