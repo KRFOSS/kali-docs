@@ -8,7 +8,7 @@ author: ["gamb1t",]
 ---
 
 {{% notice info %}}
-2023년 2월 기준으로 다음은 AWS 칼리 인스턴스를 설정하는 방법입니다. AWS 인터페이스는 지속적으로 업데이트되므로 미래에는 100% 정확하지 않을 수 있어요. 이런 경우가 발생하면 [깃랩에 이슈를 제출](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues)하고 [아마존의 튜토리얼](https://aws.amazon.com/ec2/getting-started/)을 참고해 주세요.
+2023년 2월 기준으로 다음은 AWS 칼리 인스턴스를 설정하는 방법입니다. AWS 인터페이스는 지속적으로 업데이트되므로 미래에는 100% 정확하지 않을 수 있어요. 이런 경우가 발생하면 [깃랩에 이슈를 제출](https://gitlab.com/kalilinux/documentation/kali-docs/-/work_items)하고 [아마존의 튜토리얼](https://aws.amazon.com/ec2/getting-started/)을 참고해 주세요.
 {{% /notice %}}
 
 {{% notice info %}}

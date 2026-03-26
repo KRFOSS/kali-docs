@@ -7,7 +7,7 @@ author: ["gamb1t", "rhertzog",]
 번역: ["xenix4845"]
 ---
 
-이 페이지는 앞으로 더 많은 내용이 추가될 예정이에요. 만약 여기서 다루지 않은 APT 관련 문제가 있다면, 문제 해결 방법이나 관련 내용을 [머지 리퀘스트](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests)로 제안해주시거나, 해결 방법을 모르겠다면 [이슈](https://gitlab.com/kalilinux/documentation/kali-docs/-/issues)를 남겨주세요. 여러분의 경험이 다른 사용자들에게 큰 도움이 될 수 있어요!
+이 페이지는 앞으로 더 많은 내용이 추가될 예정이에요. 만약 여기서 다루지 않은 APT 관련 문제가 있다면, 문제 해결 방법이나 관련 내용을 [머지 리퀘스트](https://gitlab.com/kalilinux/documentation/kali-docs/-/merge_requests)로 제안해주시거나, 해결 방법을 모르겠다면 [이슈](https://gitlab.com/kalilinux/documentation/kali-docs/-/work_items)를 남겨주세요. 여러분의 경험이 다른 사용자들에게 큰 도움이 될 수 있어요!
 
 ## 먼저 꼭 해야 할 것: 'apt update' 실행하기
 

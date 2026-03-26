@@ -71,6 +71,6 @@ kali@kali:~$ kali-tweaks
 
 ## 추가 참고사항
 
-더 자세한 내용과 문제 해결은 다음 [GitLab 대화](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/issues/32#note_650129582)에서 찾을 수 있어요.
+더 자세한 내용과 문제 해결은 다음 [GitLab 대화](https://gitlab.com/kalilinux/build-scripts/live-build-config/-/work_items/32#note_650129582)에서 찾을 수 있어요.
 
 이 기능은 스크립트를 (처음에는 우분투용) 칼리 리눅스로 포팅한 [Satoshi Mimura](https://github.com/mimura1133/linux-vm-tools)의 작업과, `kali-tweaks`용으로 재작업하는 데 도움을 주고 이 문서의 대부분의 자료를 제공한 Shane Bennett 덕분에 가능했어요. 감사합니다!

@@ -108,4 +108,6 @@ kali@kali:~/Downloads$
 ### APT 오류
 - `echo 'APT::Sandbox::User "root";' > /etc/apt/apt.conf.d/01-android-nosandbox`를 넷헌터 터미널에서 실행하세요
 - `groupadd -g 3003 aid_inet && usermod -G nogroup -g aid_inet _apt`를 넷헌터 터미널에서 실행하세요
-크레딧: [yesimxev](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/issues/1528#note_1423179988)
+크레딧: [yesimxev](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-project/-/work_items/1528#note_1423179988)
+### Ctrl+C 오류
+최신 Magisk 버전에서 발생하므로 27 버전을 사용하세요
