@@ -28,6 +28,9 @@ author: ["g0tmi1k",]
   # size *before* a release, in order to get the upper bound. It's the upper
   # bound that mirror operators want to know.
   #
+  # On Mar 2026 there was a case of a mirror with a 1TB disk that went out of
+  # space. 1TB IS NOT ENOUGH!
+  #
   ## /kali, aka. the main package repository
   - 2025.3     : 567 GB
   - Pre-2024.3 : 653 GB
@@ -57,7 +60,7 @@ author: ["g0tmi1k",]
   - 2015       :  50 GB
 -->
 
-공식 칼리 리눅스 미러가 되기 위해서는 웹으로 접근 가능한 서버(HTTP 필수, 가능하면 HTTPS도 지원)가 필요하고, **충분한 디스크 공간, 좋은 대역폭, rsync, 그리고 SSH 접속이 활성화**되어 있어야 해요. 서버는 **반드시 고정 IP 주소**를 가지고 있어야 해요. 2025년 9월 기준으로 메인 패키지 저장소는 약 650GB이고 이미지 저장소는 약 140GB인데, 이 수치는 변동될 수 있고 시간이 지남에 따라 천천히 증가할 거예요. 그래서 서버는 최소 1TB의 저장 공간을 확보해야 해요.
+공식 칼리 리눅스 미러가 되기 위해서는 웹으로 접근 가능한 서버(HTTP 필수, 가능하면 HTTPS도 지원)가 필요하고, **충분한 디스크 공간, 좋은 대역폭, rsync, 그리고 SSH 접속이 활성화**되어 있어야 해요. 서버는 **반드시 고정 IP 주소**를 가지고 있어야 해요. 2026년 3월 기준으로 메인 패키지 저장소는 약 750GB이고 이미지 저장소는 약 175GB인데, 이 수치는 변동될 수 있고 시간이 지남에 따라 천천히 증가할 거예요. 그래서 서버는 최소 **1.5TB의 저장 공간을 확보해야 해요**.
 
 미러 사이트는 HTTP와 RSYNC를 통해 파일을 제공해야 하니 이 서비스들이 활성화되어 있어야 해요. HTTPS는 선택 사항이에요. HTTP는 HTTPS로 리다이렉트되지 않아야 해요. FTP 액세스는 선택 사항이에요.
 
