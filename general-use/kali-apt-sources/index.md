@@ -6,7 +6,7 @@ weight: 61
 author: ["g0tmi1k",]
 번역: ["xenix4845"]
 aliases:
-  - "/docs/general-use/kali-apt-sources/"
+  - "/docs/general-use/kali-linux-sources-list-repositories/"
 ---
 
 저장소(repositories)라는 주제는 항상 크고 자주 대두되는 주제예요. 사람들이 자주 잘못 이해하고 혼동하는 항목이기도 해요. 어떤 조치를 취하기 전에 아래 정보와 연결된 참조를 읽어 주세요.
