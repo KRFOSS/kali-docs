@@ -44,7 +44,7 @@ kali@kali:~$ sudo apt update
 kali@kali:~$ sudo apt full-upgrade -y
 ```
 
-`sudo apt update` 중에 미러를 통해 진행되는 것이 보이지 않는다면, 설치 중에 네트워크 미러 추가를 잊었을 수 있습니다. [이 칼리 문서 페이지](/docs/general-use/kali-linux-sources-list-repositories/)의 지침에 따라 문제를 해결하고 두 명령을 다시 실행하세요.
+`sudo apt update` 중에 미러를 통해 진행되는 것이 보이지 않는다면, 설치 중에 네트워크 미러 추가를 잊었을 수 있습니다. [이 칼리 문서 페이지](/docs/general-use/kali-apt-sources/)의 지침에 따라 문제를 해결하고 두 명령을 다시 실행하세요.
 
 ### 필수 패키지 설치하기
 

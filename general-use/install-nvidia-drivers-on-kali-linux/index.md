@@ -27,7 +27,7 @@ author: ["g0tmi1k",]
 
 - - -
 
-그 다음, 네트워크 저장소에서 [`contrib` 및 `non-free*` 구성 요소가 활성화](/docs/general-use/kali-linux-sources-list-repositories/)되어 있고 시스템이 [완전히 최신 상태](/docs/general-use/updating-kali/)인지 확인하세요.
+그 다음, 네트워크 저장소에서 [`contrib` 및 `non-free*` 구성 요소가 활성화](/docs/general-use/kali-apt-sources/)되어 있고 시스템이 [완전히 최신 상태](/docs/general-use/updating-kali/)인지 확인하세요.
 또한 시스템에 적절한 커널 헤더가 설치되어 있는지 확인하세요:
 
 ```console

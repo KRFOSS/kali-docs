@@ -15,11 +15,11 @@ author: ["gamb1t","soroush nekoozadeh"]
 
 ## 칼리 리눅스를 어떻게 업데이트하나요?
 
-칼리 리눅스를 업데이트하려면, 먼저 `/etc/apt/sources.list` 파일이 [올바르게 설정](/docs/general-use/kali-linux-sources-list-repositories/)되어 있는지 확인해보세요:
+칼리 리눅스를 업데이트하려면, 먼저 `/etc/apt/sources.list` 파일이 [올바르게 설정](/docs/general-use/kali-apt-sources/)되어 있는지 확인해보세요:
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
-# See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/
+# See https://www.kali.org/docs/general-use/kali-apt-sources/
 deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 
 # Additional line for source packages
