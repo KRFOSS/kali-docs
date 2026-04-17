@@ -5,7 +5,7 @@ icon:
 weight: 216
 author: ["arnaudr", "gamb1t",]
 aliases:
-    -  "/docs/virtualization/import-premade-hyperv"
+  - "/docs/virtualization/import-premade-hyperv/"
 번역: ["xenix4845"]
 ---
 
