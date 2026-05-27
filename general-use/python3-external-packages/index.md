@@ -26,7 +26,7 @@ error: externally-managed-environment
     If you wish to install a non-Kali-packaged Python package,
     create a virtual environment using python3 -m venv path/to/venv.
     Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
-    sure you have pypy3-venv installed.
+    sure you have python3-full installed.
     
     If you wish to install a non-Kali-packaged Python application,
     it may be easiest to use pipx install xyz, which will manage a
