@@ -110,29 +110,25 @@ deb   http://http.kali.org/kali   kali-rolling   main contrib non-free non-free-
 
 ```console
 kali@kali:~$ cat /etc/apt/sources.list
-#
+#deb cdrom:[Kali GNU/Linux 2026.2 _Kali-last-snapshot_ - Official amd64 BD Binary-1 with firmware 20260518-11:06]/ kali-rolling contrib main non-free non-free-firmware
 
-# deb cdrom:[Kali GNU/Linux 2020.1a _Kali-last-snapshot_ - Official amd64 DVD Binary-1 with firmware 20200213-14:56]/ kali-rolling main non-free
-
-#deb cdrom:[Kali GNU/Linux 2020.1a _Kali-last-snapshot_ - Official amd64 DVD Binary-1 with firmware 20200213-14:56]/ kali-rolling main non-free
-
-# This system was installed using small removable media
-# (e.g. netinst, live or single CD). The matching "deb cdrom"
-# entries were disabled at the end of the installation process.
+# This system was installed using removable media.
+# The matching "deb cdrom" entries were disabled at the end
+# of the installation process by preseed.
 # For information about how to configure apt package sources,
 # see the sources.list(5) manual.
 kali@kali:~$
 kali@kali:~$ sudo apt-cdrom add
 Using CD-ROM mount point /media/cdrom/
-Identifying... [ea19ff4bedaa6c8f4662c0e8c58ed44c-2]
+Identifying... [214de01a423e6435d1e89953fd88dbd0-2]
 Scanning disc for index files...
-Found 2 package indexes, 0 source indexes, 0 translation indexes and 0 signatures
+Found 4 package indexes, 0 source indexes, 0 translation indexes and 0 signatures
 This disc is called:
-'Kali GNU/Linux 2020.1a _Kali-last-snapshot_ - Official amd64 DVD Binary-1 with firmware 20200213-14:56'
+'Kali GNU/Linux 2026.2 _Kali-last-snapshot_ - Official amd64 BD Binary-1 with firmware 20260518-11:06'
 Reading Package Indexes... Done
 Writing new source list
 Source list entries for this disc are:
-deb cdrom:[Kali GNU/Linux 2020.1a _Kali-last-snapshot_ - Official amd64 DVD Binary-1 with firmware 20200213-14:56]/ kali-rolling main non-free
+deb cdrom:[Kali GNU/Linux 2026.2 _Kali-last-snapshot_ - Official amd64 BD Binary-1 with firmware 20260518-11:06]/ kali-rolling contrib main non-free non-free-firmware
 Repeat this process for the rest of the CDs in your set.
 kali@kali:~$
 ```
