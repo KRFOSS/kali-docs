@@ -49,9 +49,9 @@ author: ["g0tmi1k",]
     - 비밀번호: `postgres`
     - 설정 파일: `/usr/share/metasploit-framework/config/database.yml`
 
-- PowerShell-Empire/Starkiller
-    - 사용자 이름: `empireadmin`
-    - 비밀번호: `password123`
+- [PowerShell-Empire/Starkiller](/tools/powershell-empire/)
+    - 사용자 이름: `admin`
+    - 비밀번호: `admin`
 
 - - -
 
