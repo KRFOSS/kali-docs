@@ -3,7 +3,7 @@ title: 칼리 리눅스 업데이트하기
 description:
 icon:
 weight:
-author: ["gamb1t","soroush nekoozadeh"]
+author: ["gamb1t"]
 번역: ["xenix4845"]
 ---
 
@@ -33,15 +33,7 @@ kali@kali:~$
 kali@kali:~$ sudo apt update
 [...]
 kali@kali:~$
-kali@kali:~$ sudo apt dist-upgrade -y
-[...]
-kali@kali:~$
-```
-
-위의 명령어가 작동하지 않았다면, 아래 명령어를 사용하여 최신 커널로 강제 업데이트할 수 있어요. (시스템이 손상될 수 있어 권장하지는 않아요):
-
-```console
-kali@kali:~$ sudo apt update && sudo apt full-upgrade -y
+kali@kali:~$ sudo apt full-upgrade -y
 [...]
 kali@kali:~$
 ```
