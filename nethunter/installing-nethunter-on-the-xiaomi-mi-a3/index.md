@@ -27,11 +27,12 @@ kali@kali:~$
 
 ## 2. 부트로더 잠금 해제
 
-1. 설정 → 휴대전화 정보로 이동한 후 "빌드 번호"를 7번 탭하여 "개발자 옵션"을 활성화해요
-2. 설정 → 시스템 → 개발자 옵션으로 이동하여 "OEM 잠금 해제"를 탭한 후 기기를 종료해요
-3. 볼륨 다운 + 전원 버튼을 눌러 "FASTBOOT" 화면이 나올 때까지 기다리고, PC에 연결해요
-4. 터미널에서 `fastboot flashing unlock` 실행 후 볼륨 다운을 누르고 "FASTBOOT"가 다시 나타나면 `fastboot flashing unlock_critical`를 실행하세요, 만약 첫 번째 명령어 실행 후 FASTBOOT 화면이 나타나지 않으면, 휴대폰 부팅 후 3단계를 반복하고 `fastboot flashing_unlock_critical`을 사용하세요
-5. 재부팅 후 부팅 화면에 "Unlocked"가 보여야 해요
+1. 설정 → 휴대전화 정보로 이동한 후 "빌드 번호"를 7번 탭하여 "개발자 옵션"을 활성화하세요
+2. 설정 → 시스템 → 개발자 옵션으로 이동하여 "OEM 잠금 해제"를 탭한 후 기기를 종료하세요
+3. 볼륨 다운 + 전원 버튼을 눌러 "FASTBOOT" 화면이 나올 때까지 기다리고, PC에 연결하세요
+4. 터미널을 열고 `fastboot flashing unlock`을 실행한 후 기기가 부팅될 때까지 기다린 뒤 기기의 전원을 끕니다
+5. 3단계를 다시 수행한 후 `fastboot flashing unlock_critical`을 실행하면 기기가 재부팅돼요
+6. 재부팅 후 부팅 화면에서 "Unlocked"가 표시된 것을 확인할 수 있어요
 
 ## 3. LineageOS 리커버리와 LineageOS 22, Magisk 플래시
 
