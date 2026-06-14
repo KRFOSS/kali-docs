@@ -31,8 +31,9 @@ kali@kali:~$
 1. 설정 → 휴대전화 정보로 이동한 후 "빌드 번호"를 7번 탭하여 "개발자 옵션"을 활성화해요
 2. 설정 → 시스템 → 개발자 옵션으로 이동하여 "OEM 잠금 해제"를 탭한 후 기기를 종료해요
 3. 볼륨 다운 + 전원 버튼을 눌러 "FASTBOOT" 화면이 나올 때까지 기다리고, PC에 연결해요
-4. 터미널에서 `fastboot flashing unlock` 실행 후 볼륨 다운을 누르고 "FASTBOOT"가 다시 나타나면 `fastboot flashing unlock_critical`를 실행하세요, 만약 첫 번째 명령어 실행 후 FASTBOOT 화면이 나타나지 않으면, 휴대폰 부팅 후 3단계를 반복하고 `fastboot flashing_unlock_critical`을 사용하세요
-5. 재부팅 후 부팅 화면에 "Unlocked"가 보여야 해요
+4. 터미널을 열고 `fastboot flashing unlock`을 실행한 후, 기기가 부팅될 때까지 기다리세요. 부팅이 완료되면 기기의 전원을 끕니다
+5. 3단계를 다시 수행한 후 `fastboot flashing unlock_critical`을 실행하면 기기가 재부팅돼요
+6. 재부팅 후 부팅 화면에 "Unlocked"가 표시되는 것을 확인할 수 있어요
 
 ## 3. LineageOS 설정을 위한 PixelExperience 리커버리 플래시
 
@@ -74,12 +75,13 @@ kali@kali:~/Downloads$ adb sideload LineageOS-22.1-jasmine-sprout.zip
 kali@kali:~/Downloads$
 ```
 4. 이제 LineageOS가 설치될 때까지 기다리세요. 오류가 발생하면 "예"를 탭하세요
-5. 설치가 완료되면 "Reboot system now"를 탭하세요
-6. 이제 일반 안드로이드 폰과 마찬가지로 기기를 설정하세요
-7. 기기 설정이 완료되면 볼륨 업 키를 누른 상태로 재부팅하세요
-8. "RECOVERY"가 화면에 보이면 "Apply update" -> "Apply from ADB"를 탭하세요
-9. [Magisk-v27.apk](https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk)를 다운로드하세요
-10. Magisk를 플래시하세요
+5. 설치가 완료되면 복구 모드의 메인 메뉴로 돌아가 "Factory reset"을 선택하세요
+6. "Reboot System now"를 선택하면 기기가 재부팅돼요
+7. 이제 일반적인 Android 휴대전화와 동일하게 기기를 설정하세요
+8. 기기 설정을 완료한 후 기기를 다시 시작하고, 볼륨 업 버튼을 길게 누르세요
+9. "RECOVERY" 화면이 표시되면 "Apply update" → "Apply from ADB"를 선택하세요
+10. [Magisk-v27.apk](https://github.com/topjohnwu/Magisk/releases/download/v27.0/Magisk-v27.0.apk)를 다운로드하세요
+11. Magisk를 플래시하세요
 ```console
 kali@kali:~/Downloads$ adb devices
 dea044c9    sideload
