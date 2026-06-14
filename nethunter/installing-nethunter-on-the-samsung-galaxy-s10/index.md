@@ -56,7 +56,7 @@ author: ["v0lk3n","yesimxev",]
 - LineageOS와 리커버리 플래시
 - 기기 루팅
 - Magisk 모듈 설치
-- 칼리 넷헌터와 커널 플래시
+- 칼리 넷헌터 플래시
 - 부팅 시 경고 제거용 부트로더 플래시
 - 최종 조정 및 문제 해결
 
@@ -255,6 +255,7 @@ Magisk를 열고 "Modules > Install from Storage"로 이동하여 Nexmon S10 모
 
 ```bash
 $ svc wifi disable
+$ sleep 2
 $ ifconfig wlan0 up
 $ nexutil -s0x613 -i -v2
 ```
