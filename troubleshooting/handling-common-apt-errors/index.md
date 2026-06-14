@@ -90,3 +90,22 @@ Do you want to continue? [Y/n] n
 패키지 간에 파일이 이동되었는데, 패키지 메타데이터에 제대로 표시가 안 되어 있을 때 이런 일이 생길 수 있어요. 대부분은 설치나 업그레이드를 다시 시도하면 해결돼요. 그래도 안 된다면, APT 명령어에 `-o dpkg::options::="--force-overwrite"` 옵션을 추가해서 dpkg(패키지 관리자)에게 덮어쓰기 오류를 무시하라고 지시할 수 있어요.
 
 이 오류에 대해 더 자세히 알고 싶다면 [여기](https://raphaelhertzog.com/2011/08/01/understanding-dpkgs-file-overwrite-error/)에서 추가 정보를 확인할 수 있어요.
+
+## EXPKEYSIG / "Missing key" / 저장소 서명 오류
+만약 `apt update`가 다음과 같은 메시지와 함께 실패하는 경우:
+
+```console
+Err:1 http://http.kali.org/kali kali-rolling InRelease
+  The following signatures were invalid: EXPKEYSIG ED444FF07D8D0BF6 Kali Linux Repository <devel@kali.org>
+```
+
+또는 최신 칼리 설치에서 `sqv`를 사용하는 경우:
+
+```console
+Err:1 https://http.kali.org/kali kali-rolling InRelease
+  Sub-process /usr/bin/sqv returned an error code (1), error message is: Missing key 827C8569F2518CC677FECA1AED65462EC8D5E4C5, which is needed to verify signature.
+```
+
+이는 일반적으로 로컬에 저장된 칼리 아카이브 서명 키가 오래되었음을 의미해요. 이 키는 2~3년마다 교체되며, 시스템에 설치된 `kali-archive-keyring` 패키지가 오랫동안 업데이트되지 않은 경우 포함된 키가 만료되거나 올바르지 않은 키가 되어 `apt`가 저장소를 신뢰하지 않게 돼요.
+
+자세한 내용은 [만료된 칼리 리눅스 서명 키로 인해 발생한 API 오류 해결하기](/docs/general-use/gpgkey-expiry/) 문서를 참고하세요. 이 문서에서는 `kali-archive-keyring`을 최신 상태로 유지하는 예방 방법과 `archive.kali.org`에서 최신 키를 가져와 `/etc/apt/trusted.gpg.d/`에 추가하는 복구 방법을 모두 설명해요.
