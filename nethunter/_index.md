@@ -13,7 +13,7 @@ author: ["Re4son", "yesimxev",]
 
 ## 개요
 
-칼리 넷헌터는 루팅되지 않은 기기(넷헌터 루트리스), 커스텀 리커버리가 있는 루팅된 기기(넷헌터 라이트), 그리고 넷헌터 전용 커널이 사용 가능한 커스텀 리커버리가 있는 루팅된 기기(넷헌터)에서 사용할 수 있어요.
+칼리 넷헌터는 루팅되지 않은 기기(넷헌터 루트리스), 커스텀 리커버리가 있는 루팅된 기기(넷헌터 라이트), 그리고 넷헌터 전용 커널이 사용 가능한 루팅된 기기(넷헌터)에서 사용할 수 있어요.
 
 세 가지 에디션 모두에 포함된 칼리 넷헌터의 핵심 구성 요소는 다음과 같아요:
 
@@ -30,6 +30,8 @@ author: ["Re4son", "yesimxev",]
 
 칼리 넷헌터 앱 스토어는 전용 클라이언트 앱이나 웹 인터페이스를 통해 접근할 수 있어요.
 
+**2026년 3월 31일 기준으로 스토어는 오래된 상태이며, 유지보수가 제대로 이루어지지 않고 있습니다. 현재 처음부터 새로운 스토어를 새로 개발할 계획이며, 곧 작업을 시작할 예정입니다. 사용 중 "privileged extension" 관련 문제가 발생할 수 있어요. 이 경우 NH Store 설정으로 이동한 후, 고급 설정(Advanced Settings)을 활성화하고 "privileged extension" 옵션의 체크를 해제하세요.**
+
 ![](nethunter-store-02.png)
 그림 3: 칼리 넷헌터 앱 스토어
 
@@ -37,7 +39,7 @@ author: ["Re4son", "yesimxev",]
 커스텀 커널은 추가 네트워크 및 USB 가젯 드라이버와 선택된 Wi-Fi 칩에 대한 Wi-Fi 인젝션(injection, 패킷 주입) 지원을 추가하여 기능을 확장할 수 있어요.
 
 ![](NetHunter-App.png)
-그림 3: 칼리 넷헌터 앱은 루팅된 두 에디션(넷헌터 라이트 & 넷헌터)에서 사용할 수 있어요.
+그림 4: 칼리 넷헌터 앱은 루팅된 두 에디션(넷헌터 라이트 & 넷헌터)에서 사용할 수 있어요.
 
 칼리 리눅스에 포함된 [침투 테스트 도구](/tools/) 외에도, 넷헌터는 **HID 키보드 공격**, **BadUSB 공격**, **Evil AP MANA 공격** 등 여러 추가 클래스를 지원해요.
 
@@ -64,7 +66,6 @@ author: ["Re4son", "yesimxev",]
 | Metasploit(DB 없음)  |        예         |      예       |    예    |
 | Metasploit(DB 포함) |         아니오         |      예       |    예    |
 |   넷헌터 앱    |         아니오         |      예       |    예    |
-|   TWRP 필요    |         아니오         |      예       |    예    |
 |   루트 필요    |         아니오         |      예       |    예    |
 |   WiFi 인젝션   |         아니오         |       아니오       |    예    |
 |    HID 공격     |         아니오         |       아니오       |    예    |
@@ -80,9 +81,9 @@ author: ["Re4son", "yesimxev",]
 
 ## 2.0 넷헌터 지원 기기 및 ROM
 
-넷헌터 라이트는 루팅되고 커스텀 리커버리가 있는 모든 안드로이드 기기에 설치할 수 있어요.
-전체 넷헌터 경험을 위해서는 칼리 넷헌터용으로 특별히 제작된 기기별 커널이 필요해요.
-[넷헌터 GitLab 저장소](https://gitlab.com/kalilinux/nethunter)에는 100개 이상의 기기를 위한 230개 이상의 커널이 포함되어 있어요. 칼리 리눅스는 [넷헌터 다운로드 페이지](/get-kali/)에서 가장 인기 있는 기기용 이미지를 게시해요.
+넷헌터 라이트는 Magisk로 루팅된 모든 안드로이드 기기에 설치할 수 있습니다. (KSU에서도 동작할 수는 있지만, 공식적으로 지원되지는 않아요.)
+넷헌터의 모든 기능을 사용하려면 칼리 넷헌터용으로 특별히 제작된 기기별 커널이 필요합니다.
+[넷헌터 GitLab 저장소](https://gitlab.com/kalilinux/nethunter)에는 100개 이상의 기기를 위한 250개 이상의 커널이 포함되어 있어요. 칼리 리눅스는 [넷헌터 다운로드 페이지](/get-kali/)에서 가장 인기 있는 기기용 이미지를 게시해요.
 다음 실시간 보고서는 GitLab CI에 의해 자동으로 생성돼요:
 
 - [분기별로 게시되는 공식 넷헌터 이미지 목록](https://nethunter.kali.org/images.html)
@@ -102,29 +103,27 @@ zip 파일을 다운로드한 후에는 넷헌터 zip 이미지의 SHA256 합계
 ## 4.0 넷헌터 빌드
 
 GitLab 저장소에서 넷헌터 이미지를 빌드하고 싶은 분들은 Python 빌드 스크립트를 사용할 수 있어요. 자세한 정보는 [넷헌터 빌드](/docs/nethunter/building-nethunter/) 페이지를 확인해보세요.
-넷헌터 인스톨러 빌더 사용 또는 자신의 기기 추가에 대한 추가 지침은 [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-nethunter-installer) git 저장소에 있는 [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer/-/blob/main/README.md)에서 찾을 수 있어요.
+넷헌터 인스톨러 빌더 사용 또는 자신의 기기 추가에 대한 추가 지침은 [nethunter-installer](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer) git 저장소에 있는 [README](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-installer/-/blob/main/README.md)에서 찾을 수 있어요.
 
 ## 5.0 안드로이드에 넷헌터 설치하기
 
 넷헌터 이미지를 다운로드했거나 직접 빌드했다면, 다음 단계는 안드로이드 기기를 준비하고 이미지를 설치하는 거예요. "안드로이드 기기 준비"에는 다음이 포함돼요:
 
 - 기기 **잠금 해제** 및 **스톡** AOSP 또는 LineageOS(CM)로 **업데이트**. (지원되는 ROM은 [2.0](#id-20-넷헌터-지원-기기-및-rom) 참조).
-- 커스텀 리커버리로 **[Team Win Recovery Project](https://twrp.me/) 설치**.
 - 기기를 루팅하기 위해 **[Magisk](https://github.com/topjohnwu/Magisk) 설치**.
-- TWRP가 데이터 파티션에 접근할 수 없는 경우 강제 암호화 비활성화가 필요할 수 있어요.
-- 커스텀 리커버리가 있으면 안드로이드 기기에 넷헌터 인스톨러 zip 파일을 플래시하기만 하면 돼요.
-- **강제 암호화 비활성화를 사용할 수 없는 경우** Magisk를 플래시해요
+- Magisk에서 넷헌터를 플래시하면 완료됩니다!
 
 - [자세한 설치 방법](/docs/nethunter/installing-nethunter/)
 
 ## 6.0 설치 후 설정
 
-- 넷헌터 앱을 열고 칼리 Chroot 매니저를 시작해요.
-- 넷헌터 스토어 앱을 사용하여 넷헌터 스토어에서 해커 키보드를 설치해요.
-- 필요에 따라 넷헌터 스토어에서 다른 앱들을 설치해요.
-- SSH 같은 칼리 서비스를 구성해요.
-- 커스텀 명령어를 설정해요.
-- Exploit-Database를 초기화해요.
+- 넷헌터 앱을 열고 필요한 권한을 허용하세요.
+- 칼리 Chroot 매니저를 실행하세요.
+- 넷헌터 스토어 앱을 사용하여 넷헌터 스토어에서 해커 키보드를 설치하세요.
+- 필요에 따라 넷헌터 스토어에서 다른 앱들을 설치하세요.
+- SSH 같은 칼리 서비스를 구성하세요.
+- 커스텀 명령어를 설정하세요.
+- Exploit-Database를 초기화하세요.
 
 ## 7.0 칼리 넷헌터 애플리케이션
 
@@ -158,7 +157,6 @@ chroot가 실행되지 않으면 공격 메뉴들이 회색으로 표시돼요. 
 - [**WPS 공격**](/docs/nethunter/nethunter-wps/) - OneShot을 사용한 WPS 공격.
 - [**블루투스 아스날**](/docs/nethunter/nethunter-btarsenal/) - 다양한 블루투스 기기에 대한 정찰, 스푸핑, 청취 또는 오디오 주입.
 - [**소셜 엔지니어 툴킷**](/docs/nethunter/nethunter-set/) - 소셜 엔지니어 툴킷용 피싱 이메일 템플릿 구축.
-- [**MITM 프레임워크**](/docs/nethunter/nethunter-mitmf/) - 다운로드되는 실행 파일에 실시간으로 바이너리 백도어 주입.
 - [**NMap 스캔**](/docs/nethunter/nethunter-nmap/) - 빠른 Nmap 스캐너 인터페이스.
 - [**Metasploit 페이로드 생성기**](/docs/nethunter/nethunter-mpg/) - 실시간으로 Metasploit 페이로드 생성.
 - [**Searchsploit**](/docs/nethunter/nethunter-searchsploit/) - [Exploit-Database](https://www.exploit-db.com/)에서 익스플로잇 쉽게 검색.
@@ -172,15 +170,24 @@ chroot가 실행되지 않으면 공격 메뉴들이 회색으로 표시돼요. 
 
 1. [수동으로 시작하기](/docs/nethunter/porting-nethunter/)
 2. [커널 빌더로 시작하기](/docs/nethunter/porting-nethunter-kernel-builder/)
-2. [커널 패치하기](/docs/nethunter/nethunter-kernel-1-patching/)
-2. [커널 구성하기](/docs/nethunter/nethunter-kernel-2-config-1/)
-3. [기기 추가하기](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)
+3. [커널 패치하기](/docs/nethunter/nethunter-kernel-1-patching/)
+4. [커널 구성하기](/docs/nethunter/nethunter-kernel-2-config-1/)
+5. [기기 추가하기](https://gitlab.com/kalilinux/nethunter/build-scripts/kali-nethunter-kernels)
+
+넷헌터 팀에서 권장하는 기타 자료:
+
+1. [Yesimxev NetHunter 커널 포팅 가이드 YouTube 영상](https://www.youtube.com/watch?v=FwSHbZqY88k) - [커널 빌더 시작하기](/docs/nethunter/porting-nethunter-kernel-builder/)와 함께 시청하는 것을 권장합니다.
+2. [Akabulous의 심화 커널 포팅 가이드](https://gitlab.com/akabulous/So_You_Want_To_Build_A_Nethunter_Kernel)
+3. [R0ttenBeef 커널 포팅 가이드](https://r0ttenbeef.github.io/Port-Custom-Build-of-Kali-Nethunter-to-an-Unsupported-Phone-Walkthrough/)
 
 ## 9.0 동작 확인된 하드웨어
 
 1. [무선 카드](/docs/nethunter/wireless-cards/)
 2. SDR - RTL-SDR (RTL2832U 기반)
 3. 블루투스 어댑터 - Sena UD100, TP-Link UB500, 일반 CSR4.0 어댑터
+4. CARsenal - [CAN USB 분석기](https://www.seeedstudio.com/USB-CAN-Analyzer-p-2888.html?srsltid=AfmBOooenIruMfjueidDJ9TK8t6e8ihd3wuCCV0i7e2YQfTTSBDhfyYw), [CANable USB](https://openlightlabs.com/), [ELM327 어댑터](www.carscanner.info/choosing-obdii-adapter/), [MCP25XX CAN 모듈](https://www.seeedstudio.com/I2C-CAN-Bus-Module-p-5054.html?srsltid=AfmBOorQK745b5IMop1r_Gmledh6YLwc1VlqrpDMOnUxBGrA6iCpLiEb)
+
+CARsenal 어댑터에 대해 설명하자면, 권장하는 모든 하드웨어는 테스트를 거쳤으며 정상적으로 동작하는 것을 확인했어요. AliExpress의 클론 제품은 동작할 수도 있고, 동작하지 않을 수도 있어요. 개인적으로는 모든 제품의 클론을 구매했으며, ELM327을 제외한 모든 제품을 정상적으로 사용할 수 있었어요. ELM327은 feediag에서 클론 제품으로 감지되었고, 차량과의 연결도 성공적으로 이루어지지 않았으며, 어쨌든 가능하다면 공식 제품을 구매하는 것을 권장해요. 추후 다른 권장 제품이 추가될 수도 있어요.
 
 ## 10.0 넷헌터 앱
 
