@@ -13,10 +13,10 @@ author: ["g0tmi1k",]
 
 커스터마이징된 칼리 리눅스 이미지를 빌드하는 것은 생각하는 것만큼 복잡하지 않아요. 쉽고 재미있으며 보람 있는 일이에요! 칼리 리눅스는 전통적으로 **라이브 이미지**였지만, [칼리 2020.1](/blog/kali-linux-2020-1-release/)부터 **인스톨러 이미지**가 도입되었어요. 이 두 이미지는 [각기 다른 기능](/docs/introduction/what-image-to-download/)을 가지고 있으며, 빌드 방식도 다르답니다.
 
-- 라이브 이미지 - 시스템을 변경하지 않고 칼리를 시도해볼 수 있어요([USB](/docs/usb/)에 최적). [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html)를 사용하여 생성돼요
-- 인스톨러 이미지 - 설치 중 패키징을 선택하여 칼리를 커스터마이징할 수 있어요. [데스크톱 환경](/docs/general-use/switching-desktop-environments/) 선택은 물론 어떤 [메타패키지](/docs/general-use/metapackages/)를 설치할지도 정할 수 있어요. 이 이미지는 [simple-cdd](https://wiki.debian.org/Simple-CDD)로 구동돼요 _(`debian-cd`를 사용하여 `Debian-Installer`를 만들어요)_.
+- 라이브 이미지 - 시스템을 변경하지 않고 칼리를 시도해볼 수 있어요([USB](/docs/usb/)에 최적). [live-build](https://live-team.pages.debian.net/live-manual/html/live-manual/index.en.html)를 사용하여 생성되며, 빌드 스크립트는 [`kalilinux/build-scripts/kali-live`](https://gitlab.com/kalilinux/build-scripts/kali-live)에 있어요.
+- 인스톨러 이미지 - 설치 중 패키지를 선택하여 칼리를 커스터마이징할 수 있어요. [데스크톱 환경](/docs/general-use/switching-desktop-environments/)을 선택하는 것은 물론, 어떤 [메타패키지](/docs/general-use/metapackages/)를 설치할지도 정할 수 있어요. 이 이미지는 [simple-cdd](https://wiki.debian.org/Simple-CDD)로 구동돼요 _(이 과정에서는 `debian-cd`를 사용하여 `Debian-Installer`를 생성해요)_. 빌드 스크립트는 [`kalilinux/build-scripts/kali-installer`](https://gitlab.com/kalilinux/build-scripts/kali-installer)에 있어요.
 
-칼리 네트워크 저장소 외부의 패키지 추가, 무인 설치부터 기본 배경화면 변경까지 칼리 ISO 빌드의 거의 모든 측면을 구성할 수 있어요. 우리의 빌드 스크립트는 구성 세트를 사용하여 이미지 빌드의 모든 측면을 자동화하고 커스터마이징하는 프레임워크를 제공해요. 칼리 리눅스 개발팀은 공식 칼리 ISO 릴리스를 생산하기 위해 동일한 빌드 스크립트를 사용해요.
+이 두 이미지는 원래 하나의 저장소(`live-build-config`)를 공유했지만, 이후 프로젝트가 이미지 유형별로 각각 별도의 두 개의 병렬 저장소로 분리되었어요. 따라서 이 가이드의 나머지 부분에서는 이를 각각 따로 다뤄요. 기존 `live-build-config` URL은 현재 `kali-live`로 리디렉션돼요. 칼리 네트워크 저장소 외부의 패키지 추가, 무인 설치부터 기본 배경화면 변경까지 칼리 ISO 빌드의 거의 모든 측면을 구성할 수 있어요. 우리의 빌드 스크립트는 구성 세트를 사용하여 이미지 빌드의 모든 측면을 자동화하고 커스터마이징하는 프레임워크를 제공해요. 칼리 리눅스 개발팀은 공식 칼리 ISO 릴리스를 생산하기 위해 동일한 빌드 스크립트를 사용해요.
 
 ## ISO를 어디서 빌드해야 할까요?
 
@@ -26,22 +26,29 @@ author: ["g0tmi1k",]
 
 #### 준비하기 - 빌드 스크립트 칼리 시스템 설정
 
-먼저 다음 명령어로 필요한 패키지를 설치하고 설정하여 칼리 ISO 빌드 환경을 준비해야 해요:
+먼저 필요한 패키지를 설치하고 빌드 스크립트를 클론하여 칼리 ISO 빌드 환경을 준비해야 해요. 빌드하려는 이미지 유형에 맞는 저장소를 선택하세요:
 
 ```console
 kali@kali:~$ sudo apt update
-kali@kali:~$ sudo apt install -y git live-build simple-cdd cdebootstrap curl
 kali@kali:~$
-kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
+kali@kali:~$ # Live Image dependencies + repo:
+kali@kali:~$ sudo apt install -y git live-build cdebootstrap curl
+kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/kali-live.git
+kali@kali:~$
+kali@kali:~$ # Installer Image dependencies + repo:
+kali@kali:~$ sudo apt install -y git simple-cdd debian-cd curl
+kali@kali:~$ git clone https://gitlab.com/kalilinux/build-scripts/kali-installer.git
 ```
+
+빌드하려는 이미지 유형에 해당하는 의존성만 설치하면 되지만, 모든 의존성을 설치해도 문제는 없어요.
 
 #### 업데이트된 라이브 이미지 빌드하기
 
-이제 `live-build-config/` 디렉토리에 들어가서 우리의 `build.sh` 래퍼 스크립트를 실행하여 업데이트된 칼리 ISO _(기본 구성 사용)_를 간단히 빌드할 수 있어요:
+이제 `kali-live/` 디렉토리에 들어가서 우리의 `build.sh` 래퍼 스크립트를 실행하여 업데이트된 칼리 라이브 ISO _(기본 구성 사용)_를 간단히 빌드할 수 있어요:
 
 ```console
-kali@kali:~$ cd live-build-config/
-kali@kali:~/live-build-config$ ./build.sh --verbose
+kali@kali:~$ cd kali-live/
+kali@kali:~/kali-live$ ./build.sh --verbose
 [...]
 ***
 GENERATED KALI IMAGE: ./images/kali-linux-rolling-live-amd64.iso
@@ -53,10 +60,11 @@ kali@kali:~$
 
 #### 업데이트된 인스톨러 이미지 빌드하기
 
-기본적으로 **라이브 이미지**를 생성해요. **인스톨러 이미지**를 원한다면 `--installer`를 추가하세요:
+인스톨러 이미지는 이제 별도의 저장소에서 빌드되며, 더 이상 `kali-live`에서 `--installer` 플래그를 사용하지 않아요. `kali-installer/` 디렉터리로 이동한 후 동일한 래퍼 스크립트를 실행하세요:
 
 ```console
-kali@kali:~/live-build-config$ ./build.sh --verbose --installer
+kali@kali:~$ cd kali-installer/
+kali@kali:~/kali-installer$ ./build.sh --verbose
 ```
 
 `--verbose`는 출력이 `build.log`에만 캡처되는 것보다 화면에 더 많이 출력되도록 하기 위해 사용되고 있어요. 더 많은 출력을 원한다면 `--debug`를 대신 사용할 수 있는데, 그러면 훨씬 더 많은 정보를 제공할 거예요.
@@ -90,7 +98,7 @@ $ sudo dpkg -i kali-archive-keyring_2022.1_all.deb
 $ sudo dpkg -i live-build_20230502+kali3_all.deb
 ```
 
-환경이 모두 준비되면 빌드 스크립트 프로필을 설정하고 빌드 구성을 복제하여 프로세스를 시작해요:
+환경이 모두 준비되면 빌드 스크립트 프로필을 설정하고 빌드 구성을 복제하여 프로세스를 시작하세요. 위에서와 마찬가지로, 빌드하려는 이미지 유형에 맞는 저장소를 선택하고 라이브 ISO는 `kali-live`, 인스톨러 ISO는 `kali-installer`를 사용하세요:
 
 ```console
 $ cd /usr/share/debootstrap/scripts/
@@ -99,9 +107,9 @@ $ sudo mv /tmp/kali .
 $ sudo ln -s kali kali-rolling
 $
 $ cd ~/
-$ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
+$ git clone https://gitlab.com/kalilinux/build-scripts/kali-live.git
 $
-$ cd live-build-config/
+$ cd kali-live/
 ```
 
 이 시점에서 호스트 OS와 버전에 따라 **debootstrap**의 버전 확인을 우회하기 위해 `build.sh`를 편집해야 할 수도 있어요. 아래의 `exit 1`을 주석 처리하여 이를 수행해요:
@@ -145,18 +153,20 @@ $ ./build.sh --verbose
 [Kali 브랜치](/docs/general-use/kali-branches/) 브랜치를 사용하면 최신 배포 이미지를 재생성할 수 있어요. `--distribution kali-last-snapshot`을 사용하여 이를 수행할 수 있어요:
 
 ```console
-kali@kali:~$ time ./build.sh \
+kali@kali:~$ cd kali-installer/
+kali@kali:~/kali-installer$ time ./build.sh \
   --verbose \
-  --installer \
   --distribution kali-last-snapshot \
-  --version 2025.4 \
-  --subdir kali-2025.4
+  --version 2026.1 \
+  --subdir kali-2026.1
 [...]
 ***
-GENERATED KALI IMAGE: ./images/kali-2025.4/kali-linux-2025.4-installer-amd64.iso
+GENERATED KALI IMAGE: ./images/kali-2026.1/kali-linux-2026.1-installer-amd64.iso
 ***
-kali@kali:~$
+kali@kali:~/kali-installer$
 ```
+
+동일한 플래그는 라이브 이미지를 다시 빌드하고 싶은 경우 `kali-live/`에서도 사용할 수 있어요.
 
 - - -
 
@@ -169,14 +179,14 @@ kali@kali:~$
 [칼리 2.0](/blog/kali-linux-2-0-release/)부터 Xfce _(기본)_, Gnome, KDE, E17, I3WM, LXDE, MATE를 포함한 다양한 [데스크톱 환경](/docs/general-use/switching-desktop-environments/)에 대한 내장 구성을 지원해요. 이들 중 하나를 빌드하려면 다음과 유사한 구문을 사용하면 돼요:
 
 ```console
-kali@kali:~/live-build-config$ # These are the different Desktop Environment build options:
-kali@kali:~/live-build-config$ #./build.sh --variant {xfce,gnome,kde,mate,e17,lxde,i3} --verbose
-kali@kali:~/live-build-config$
-kali@kali:~/live-build-config$ # To build a Gnome ISO:
-kali@kali:~/live-build-config$ ./build.sh --variant gnome --verbose
-kali@kali:~/live-build-config$
-kali@kali:~/live-build-config$ # To build a KDE ISO:
-kali@kali:~/live-build-config$ ./build.sh --variant kde --verbose
+kali@kali:~/kali-live$ # These are the different Desktop Environment build options:
+kali@kali:~/kali-live$ #./build.sh --variant {xfce,gnome,kde,mate,e17,lxde,i3} --verbose
+kali@kali:~/kali-live$
+kali@kali:~/kali-live$ # To build a Gnome ISO:
+kali@kali:~/kali-live$ ./build.sh --variant gnome --verbose
+kali@kali:~/kali-live$
+kali@kali:~/kali-live$ # To build a KDE ISO:
+kali@kali:~/kali-live$ ./build.sh --variant kde --verbose
 ```
 
 인스톨러 이미지에서는 기본적으로 Xfce, Gnome, KDE가 포함되어 있으므로 이것이 필요하지 않아요. 아래 섹션에서 설명하는 대로 패키지를 포함하여 다른 것들을 추가할 수 있어요.
@@ -224,6 +234,12 @@ kali@kali:~/live-build-config$ ./build.sh --variant kde --verbose
 
 여러 이미지를 빌드하면 `build.sh`가 완료되기를 자주 기다리게 될 거예요. 빌드 프로세스를 가속화하는 몇 가지 방법이 있어요:
 
+<!--
+$ time (cd kali-installer && ./build.sh >/dev/null) && time (cd kali-live && ./build.sh >/dev/null)
+kali-installer/build.sh >/dev/null  164.10s user 12.80s system 49% cpu 5:55.25 total
+kali-live/build.sh >/dev/null       728.35s user 67.41s system 90% cpu 14:41.27 total
+-->
+
 - 라이브 이미지보다 빠르게 빌드되는 경우가 많은 인스톨러 이미지 빌드
 - 포함된 패키지 수 줄이기 (`kali-linux-default`를 `kali-linux-top10`으로 전환하는 등)
 - 패키지 접근 개선
@@ -233,8 +249,8 @@ kali@kali:~/live-build-config$ ./build.sh --variant kde --verbose
 다음과 같이 하여 빌드 스크립트가 다른 미러를 사용하도록 지시할 수 있어요(네트워크 미러가 `http://192.168.0.101/kali`에 있다고 가정):
 
 ```console
-kali@kali:~/live-build-config$ echo "http://192.168.0.101/kali/" > .mirror
-kali@kali:~/live-build-config$ ./build.sh --verbose
+kali@kali:~/kali-live$ echo "http://192.168.0.101/kali/" > .mirror
+kali@kali:~/kali-live$ ./build.sh --verbose
 ```
 
 - - -
@@ -244,7 +260,7 @@ kali@kali:~/live-build-config$ ./build.sh --verbose
 `--help`를 사용하여 사용 가능한 모든 명령줄 옵션을 볼 수 있어요:
 
 ```console
-kali@kali:~/live-build-config$ ./build.sh --help
+kali@kali:~/kali-live$ ./build.sh --help
 Usage: ./build.sh [<option>...]
 
   --distribution <arg>
@@ -252,9 +268,6 @@ Usage: ./build.sh [<option>...]
   --arch <arg>
   --verbose
   --debug
-  --salt
-  --installer
-  --live
   --variant <arg>
   --version <arg>
   --subdir <arg>
@@ -264,8 +277,10 @@ Usage: ./build.sh [<option>...]
   --help
 
 More information: https://www.kali.org/docs/development/live-build-a-custom-kali-iso/
-kali@bDesktop:~/live-build-config$
+kali@kali:~/kali-live$
 ```
+
+`kali-installer/build.sh`의 `--help` 출력은 라이브 ISO에서만 사용하는 `--proposed-updates` 스위치를 제외하면 동일한 플래그 집합이에요.
 
 - - -
 
@@ -295,7 +310,7 @@ kali@kali:$ qemu-img create \
 kali@kali:$ qemu-system-x86_64 \
   -enable-kvm \
   -drive if=virtio,aio=threads,cache=unsafe,format=qcow2,file=/tmp/kali-test.hdd.img \
-  -cdrom /home/kali/live-build-config/images/kali-linux-rolling-live-amd64.iso \
+  -cdrom /home/kali/kali-live/images/kali-linux-rolling-live-amd64.iso \
   -boot once=d
 ```
 
@@ -307,7 +322,7 @@ kali@kali:$ qemu-system-x86_64 \
   -drive if=virtio,aio=threads,cache=unsafe,format=qcow2,file=/tmp/kali-test.hdd.img \
   -drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_CODE.fd \
   -drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_VARS.fd \
-  -cdrom /home/kali/live-build-config/images/kali-linux-rolling-live-amd64.iso \
+  -cdrom /home/kali/kali-live/images/kali-linux-rolling-live-amd64.iso \
   -boot once=d
 ```
 
