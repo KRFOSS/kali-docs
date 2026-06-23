@@ -185,7 +185,7 @@ chroot가 실행되지 않으면 공격 메뉴들이 회색으로 표시돼요. 
 1. [무선 카드](/docs/nethunter/wireless-cards/)
 2. SDR - RTL-SDR (RTL2832U 기반)
 3. 블루투스 어댑터 - Sena UD100, TP-Link UB500, 일반 CSR4.0 어댑터
-4. CARsenal - [CAN USB 분석기](https://www.seeedstudio.com/USB-CAN-Analyzer-p-2888.html?srsltid=AfmBOooenIruMfjueidDJ9TK8t6e8ihd3wuCCV0i7e2YQfTTSBDhfyYw), [CANable USB](https://openlightlabs.com/), [ELM327 어댑터](www.carscanner.info/choosing-obdii-adapter/), [MCP25XX CAN 모듈](https://www.seeedstudio.com/I2C-CAN-Bus-Module-p-5054.html?srsltid=AfmBOorQK745b5IMop1r_Gmledh6YLwc1VlqrpDMOnUxBGrA6iCpLiEb)
+4. CARsenal - [CAN USB 분석기](https://www.seeedstudio.com/USB-CAN-Analyzer-p-2888.html?srsltid=AfmBOooenIruMfjueidDJ9TK8t6e8ihd3wuCCV0i7e2YQfTTSBDhfyYw), [CANable USB](https://openlightlabs.com/), [ELM327 어댑터](https://www.carscanner.info/choosing-obdii-adapter/), [MCP25XX CAN 모듈](https://www.seeedstudio.com/I2C-CAN-Bus-Module-p-5054.html?srsltid=AfmBOorQK745b5IMop1r_Gmledh6YLwc1VlqrpDMOnUxBGrA6iCpLiEb)
 
 CARsenal 어댑터에 대해 설명하자면, 권장하는 모든 하드웨어는 테스트를 거쳤으며 정상적으로 동작하는 것을 확인했어요. AliExpress의 클론 제품은 동작할 수도 있고, 동작하지 않을 수도 있어요. 개인적으로는 모든 제품의 클론을 구매했으며, ELM327을 제외한 모든 제품을 정상적으로 사용할 수 있었어요. ELM327은 feediag에서 클론 제품으로 감지되었고, 차량과의 연결도 성공적으로 이루어지지 않았으며, 어쨌든 가능하다면 공식 제품을 구매하는 것을 권장해요. 추후 다른 권장 제품이 추가될 수도 있어요.
 
