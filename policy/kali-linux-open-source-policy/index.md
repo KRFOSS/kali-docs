@@ -17,7 +17,7 @@ Kali Linux는 메인 섹션에 수천 개의 자유 소프트웨어 [패키지](
 
 ### GNU GPL 적용 사항
 
-더 중요한 점으로, Kali Linux 인프라에서 별도로 개발된 요소나 포함된 소프트웨어와의 통합 작업은 모두 [GNU GPL](http://www.gnu.org/licenses/gpl.html) 라이선스 하에 배포됩니다.
+더 중요한 점으로, Kali Linux 인프라에서 별도로 개발된 요소나 포함된 소프트웨어와의 통합 작업은 모두 [GNU GPL v3](http://www.gnu.org/licenses/gpl.html) ([라이센스](/docs/LICENSE)). 라이선스 하에 배포됩니다.
 
 ### 라이선스 확인 방법
 
