@@ -94,7 +94,7 @@ cupboard라고 불리는 [다른 웹 인터페이스](https://janitor.kali.org/c
 
 이 작업은 `uscan`을 실행하여 git 패키징 저장소에 아직 없는 소프트웨어의 새로운 업스트림 버전이 있는지 확인해요. 새로운 버전을 찾으면 `gbp import-orig`로 가져오고 `gbp dch`로 변경로그를 업데이트해요.
 
-적절한 `deb-src` 라인이 APT의 sources.list에 있는 kali-rolling 시스템에서 `debian-svp new-upstream --debian-revision=0kali1 --require-uscan --refresh-patches --dry-run --skip-empty --diff <package>`를 실행하여 이 모든 것을 로컬에서 재현할 수 있어요(`silver-platter`가 설치된 상태에서).
+적절한 `deb-src` 유형이 APT의 kali.sources에 있는 kali-rolling 시스템에서 `debian-svp new-upstream --debian-revision=0kali1 --require-uscan --refresh-patches --dry-run --skip-empty --diff <package>`를 실행하여 이 모든 것을 로컬에서 재현할 수 있어요(`silver-platter`가 설치된 상태에서).
 
 칼리에서 구성된 게시 정책은 봇이 `upstream`과 `pristine-tar` 브랜치의 업데이트를 직접 푸시하도록 하지만, `kali/master` 브랜치의 변경사항은 병합 요청으로 제안될 거예요. 동시에 결과 패키지도 `kali-experimental`에 업로드될 거예요.
 
