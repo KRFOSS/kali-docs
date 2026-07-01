@@ -11,12 +11,25 @@ aliases:
 
 저장소(repositories)라는 주제는 항상 크고 자주 대두되는 주제예요. 사람들이 자주 잘못 이해하고 혼동하는 항목이기도 해요. 어떤 조치를 취하기 전에 아래 정보와 연결된 참조를 읽어 주세요.
 
-## 기본 네트워크 저장소 값
+## 기본 APT 네트워크 저장소 구성
 
-표준 클린 설치된 칼리 리눅스에서 네트워크 액세스가 있다면, `/etc/apt/sources.list`에 다음과 같은 항목이 있어야 해요:
+표준 클린 설치된 칼리 리눅스에서 네트워크 액세스가 있다면, `/etc/apt/sources.list.d/kali.sources`에 다음과 같은 내용이 있어야 해요:
 
 ```console
-kali@kali:~$ grep -v '#' /etc/apt/sources.list | sort -u
+kali@kali:~$ grep -v '^#' /etc/apt/sources.list.d/kali.sources
+Types: deb
+URIs: http://http.kali.org/kali/
+Suites: kali-rolling
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/kali-archive-keyring.gpg
+
+kali@kali:~$
+```
+
+[칼리 2026.2](/blog/kali-linux-2026-2-release/) 릴리즈 전에는 이 파일이 존재하지 않았으며, 대신 `/etc/apt/sources.list`에 다음 항목이 있어야 해요:
+
+```console
+kali@kali:~$ grep -v '^#' /etc/apt/sources.list | sort -u
 deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 
 kali@kali:~$
@@ -30,25 +43,60 @@ kali@kali:~$
 
 이를 변경하려면 "브랜치 전환하기" 섹션을 읽는 것이 좋아요.
 
-[칼리 2020.3](/blog/kali-linux-2020-3-release/) 이후부터는, 칼리 설정이 완료된 후에는 설치 중 네트워크 접속이 없었더라도 기본적으로 네트워크 저장소가 활성화돼요.
+시간이 지남며 변경된 주요 사항:
+
+- [칼리 2020.3](/blog/kali-linux-2020-3-release/)부터는 칼리 설정이 완료된 후, 설치 중 네트워크 액세스가 없었더라도 네트워크 저장소가 기본적으로 활성화돼요.
+- [칼리 2026.2](/blog/kali-linux-2026-2-release/)부터는 이제 네트워크 저장소가 `/etc/apt/sources.list.d/kali.sources` 파일에서 구성돼요.
+
+## APT 네트워크 저장소 구성 현대화
+
+`/etc/apt/sources.list.d/kali.sources` 파일이 없고 기존 방식의 `/etc/apt/sources.list` 파일만 있는 경우, 다음 명령어를 실행하여 한 형식에서 다른 형식으로 변환할 수 있어요:
+
+```
+kali@kali:~$ sudo apt update
+Get:1 http://http.kali.org/kali kali-rolling InRelease [34.0 kB]
+[...]
+Fetched 21.4 MB in 2s (10.8 MB/s)                       
+
+kali@kali:~$ sudo apt modernize-sources
+The following files need modernizing:
+  - /etc/apt/sources.list
+
+Modernizing will replace .list files with the new .sources format,
+add Signed-By values where they can be determined automatically,
+and save the old files into .list.bak files.
+
+This command supports the 'signed-by' and 'trusted' options. If you
+have specified other options inside [] brackets, please transfer them
+manually to the output files; see sources.list(5) for a mapping.
+
+For a simulation, respond N in the following prompt.
+Rewrite 1 sources? [Y/n] y
+Modernizing /etc/apt/sources.list...
+- Writing /etc/apt/sources.list.d/kali.sources
+
+kali@kali:~$
+```
+
+이 문서의 나머지 부분에는 APT 네트워크 저장소가 `/etc/apt/sources.list.d/kali.sources` 파일을 통해 구성되어 있다고 가정해요.
 
 ## 칼리 메인 브랜치 전환하기
 
 칼리에는 선택할 수 있는 두 가지 [메인 브랜치](/docs/general-use/kali-branches/)가 있어요(설정에 가장 적합한 옵션을 읽어보세요):
 
 - **kali-rolling** - 기본 & 자주 업데이트됨
-- **kali-last-snapshot** - 포인트 릴리스로 더 "안정적" & "가장 안전함"
+- **kali-last-snapshot** - 포인트 릴리스로 더 "안정적" & "가장 안전함" - 분기별로 업데이트됨
 
 `kali-rolling` 브랜치 활성화는 다음 명령어로 수행돼요:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-rolling/' /etc/apt/sources.list.d/kali.sources
 ```
 
 `kali-last-snapshot` 브랜치 활성화는 다음 명령어로 수행돼요:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-last-snapshot/' /etc/apt/sources.list.d/kali.sources
 ```
 
 이러한 변경은 `sudo apt update`를 실행한 후에만 적용된다는 점을 참고하세요.
@@ -64,43 +112,64 @@ kali@kali:~$ echo "deb http://http.kali.org/kali kali-last-snapshot main contrib
 
 ![](kali-tweaks-network-repositories.png)
 
-원하는 경우 명령줄에서 수동으로 이러한 브랜치를 활성화할 수도 있어요. 예를 들어, `kali-experimental`은 다음 명령어로 활성화돼요:
+원하는 경우 명령줄에서 수동으로 이러한 브랜치를 활성화할 수도 있어요. 예를 들어, `kali-rolling`에 더해 `kali-experimental`를 활성화하려면 다음 명령어로 활성화돼요:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-experimental main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/kali-experimental.list
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-rolling kali-experimental/' /etc/apt/sources.list.d/kali.sources
 ```
 
-위 명령어에서는 `/etc/apt/sources.list` 파일을 수정하지 않고 대신 새 파일 `/etc/apt/sources.list.d/kali-experimental.list`을 생성한다는 점에 유의하세요. 이는 하나의 관례예요: `/etc/apt/sources.list` 파일은 메인 브랜치만 포함해야 하며, 추가 브랜치는 `/etc/apt/sources.list.d/`에 있어야 하며, 파일 하나에 브랜치 하나씩이에요.
-
-이 관례를 따르면 `kali-experimental` 브랜치를 비활성화하는 것이 간단해요:
+`kali-experimental`을 비활성화하고 `kali-rolling`만 유지하려면 다음 명령어를 실행하세요:
 
 ```console
-kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-experimental.list
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-rolling/' /etc/apt/sources.list.d/kali.sources
 ```
 
 `kali-bleeding-edge` 브랜치는 비슷한 명령어로 활성화할 수 있으며, 브랜치 이름만 변경하면 돼요:
 
 ```console
-kali@kali:~$ echo "deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free non-free-firmware" | sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-rolling kali-bleeding-edge/' /etc/apt/sources.list.d/kali.sources
 ```
 
-`kali-bleeding-edge` 비활성화하기:
+`kali-bleeding-edge`를 비활성화하고 `kali-rolling`만 유지하려면:
 
 ```console
-kali@kali:~$ sudo rm /etc/apt/sources.list.d/kali-bleeding-edge.list
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-rolling/' /etc/apt/sources.list.d/kali.sources
 ```
 
-## Sources.list 형식
+## kali.sources 및 sources.list 파일 형식
+
+두 형식 모두 `sources.list` 메뉴얼 문서에 자세히 기록되어 있어요:
+
+```
+kali@kali:~$ man sources.list
+
+kali@kali:~$
+```
+
+`/etc/apt/sources.list.d/kali.sources` 파일은 **deb822-style** 형식이라고 하며, 기존 `/etc/apt/sources.list` 파일은 **one-line-style** 형식이라고 불러요.
+
+기본 `kali.sources` 파일을 자세히 살펴볼게요:
+
+```plaintext
+Types: deb
+URIs: http://http.kali.org/kali/
+Suites: kali-rolling
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/kali-archive-keyring.gpg
+```
+
+- **Types**는 `deb`(일반 바이너리)로 설정되지만, 패키지의 소스를 다운로드해야 하는 경우 `deb-src`(소스)를 추가할 수도 있어요.
+- **URIs**는 `http://http.kali.org/kali`여야 해요. 이는 로드 밸런서로, 가장 적합한 [미러](/docs/community/kali-linux-mirrors/)로 연결해 줘요.
+- **Suites**는 사용하려는 [칼리 버전](/docs/general-use/kali-branches/)을 의미해요. 이 페이지에서는 _Suite_ 대신 _Branch_라는 용어를 사용해요.
+- **Components**는 [데비안 자유 소프트웨어 지침(DFSG)](https://www.debian.org/social_contract#guidelines)을 기반으로 사용하고자 하는 패키지예요. 칼리는 기본적으로 모든 것을 포함해요.
+- **Signed-By**는 네트워크 저장소에서 다운로드한 메타데이터의 서명을 검증하는 데 사용되는 키링을 나타내요.
+
+기존 `sources.list` 파일도 거의 동일한 내용을 담고 있었지만, 단일 줄에 압축되어 있었으며 마지막 필드를 제외하고는 여러 값을 사용할 수 없었어요:
 
 ```plaintext
 deb   http://http.kali.org/kali   kali-rolling   main contrib non-free non-free-firmware
-<아카이브>   <미러>                <브랜치>                <구성 요소>
+<Type>   <URI>                    <Suite>        <Components>
 ```
-
-- **아카이브**는 패키지 또는 패키지의 소스를 원하는지에 따라 `deb`(일반 바이너리) 또는 `deb-src`(소스)가 될 거예요.
-- **미러**는 `http://http.kali.org/kali`이어야 해요. 이것은 가장 좋은 [미러](/docs/community/kali-linux-mirrors/)로 안내할 로드 밸런서예요.
-- **브랜치**는 사용하고자 하는 [칼리 버전](/docs/general-use/kali-branches/)이에요.
-- **구성 요소**는 [데비안 자유 소프트웨어 지침(DFSG)](https://www.debian.org/social_contract#guidelines)을 기반으로 사용하고자 하는 패키지예요. 칼리는 기본적으로 모든 것을 포함해요.
 
 ## 기본 오프라인 설치 값
 
@@ -139,11 +208,11 @@ kali@kali:~$
 
 ## 비-칼리 저장소
 
-칼리가 제공하는 것 외에 추가 도구와 소프트웨어(예: [signal](https://signal.org/))를 설치하려면 추가 저장소를 포함해야 할 수도 있어요. `/etc/apt/sources.list`를 수정하지 마세요. 이 파일은 칼리 리눅스 운영 체제용이에요. 추가 도구와 소프트웨어는 `/etc/apt/sources.list.d/` 디렉토리의 자체 파일에 배치되어야 해요(예: `/etc/apt/sources.list.d/repo-name.list`, `repo-name`을 미러 이름으로 대체). 각 미러는 자체 파일에 있는 것이 좋아요.
+칼리가 제공하는 것 외에 추가 도구와 소프트웨어(예: [signal](https://signal.org/))를 설치하려면 추가 저장소를 포함해야 할 수도 있어요. `/etc/apt/sources.list.d/kali.sources`는 칼리 리눅스 운영 체제에서 사용하는 파일이므로 수정하지 마세요. 추가 도구와 소프트웨어는 `/etc/apt/sources.list.d/` 디렉터리 안에 별도의 파일로 배치해야 해요(예: `/etc/apt/sources.list.d/repo-name.sources`, `repo-name`은 적절한 이름으로 변경). 각 저장소는 자체 파일로 분리하는 것을 강력히 권장해요.
 
 비-칼리 OS에 칼리 저장소를 추가하면(예: 우분투에 칼리 추가 시도), 시스템이 작동하지 않을 가능성이 크게 높아져요. 바로 발생하지 않을 수도 있지만, 경고 없이 손상될 수 있어요. 우리는 지원을 제공할 수 없을 거에요(수년 동안 보아온 바에 따르면, 대부분의 다른 OS도 도움이 되지 않을 거예요).
 
-마찬가지로, 다른 운영 체제의 저장소를 칼리에 추가하면(예: 칼리에 우분투를 넣으려는 시도), 설치가 손상될 거예요. 이것은 칼리 리눅스 시스템이 손상되는 가장 일반적인 이유예요.
+마찬가지로, 다른 운영 체제의 저장소를 칼리에 추가하면(예: 칼리에 우분투를 넣으려는 시도), 설치가 손상될 거예요. **이것은 칼리 리눅스 시스템이 손상되는 가장 일반적인 이유예요.**
 
 어떤 안내서에서 위와 다른 것을 하라고 한다면, 이는 비공식 조언이며 칼리 리눅스에서 전혀 지원되지 않아요. 대부분의 경우, 이 교훈을 배운 후 사용자들은 재설치를 하게 돼요.
 
@@ -153,10 +222,8 @@ kali@kali:~$
 
 ## 소스 저장소
 
-저장소에서 `deb`를 사용하면 바이너리 패키지를 다운로드할 수 있어요. 그러나 패키지의 소스가 필요한 경우(원하는 경우 패키지를 직접 컴파일하거나 패키지 문제를 디버깅하기 위해), 저장소에 `deb-src`를 추가 줄로 추가할 수 있어요:
+패키지의 소스가 필요한 경우(원하는 경우 패키지를 직접 컴파일하거나 패키지 문제를 디버깅하기 위해), 구성에 `deb-src` 유형을 추가할 수 있어요:
 
 ```console
-kali@kali:~$ echo "deb-src http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware" | sudo tee -a /etc/apt/sources.list
+kali@kali:~$ sudo sed -i 's/^Types: .*/Types: deb deb-src/' /etc/apt/sources.list.d/kali.sources
 ```
-
-위의 [브랜치](/docs/general-use/kali-branches/)에는 `kali-rolling`을 사용했지만, 원하는 값을 선택할 수 있어요.

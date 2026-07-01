@@ -31,8 +31,8 @@ author: ["g0tmi1k",]
 또한 시스템에 적절한 커널 헤더가 설치되어 있는지 확인하세요:
 
 ```console
-kali@kali:~$ grep "contrib non-free" /etc/apt/sources.list
-deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
+kali@kali:~$ grep "contrib non-free" /etc/apt/sources.list.d/kali.sources
+Components: main contrib non-free non-free-firmware
 kali@kali:~$
 kali@kali:~$ sudo apt update
 [...]

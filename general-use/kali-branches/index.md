@@ -13,7 +13,7 @@ author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
 
 한 번에 여러 브랜치를 활성화할 수 있어요. 그러나 브랜치를 전환하면 패키지가 다른 버전에 있거나 특정 상황에서 사용할 수 없거나 불안정할 수 있기 때문에 문제가 발생할 수 있어요.
 
-브랜치를 전환하는 방법은 [네트워크 소스](/docs/general-use/kali-linux-sources-list-repositories/) 페이지를 참조하세요. 여러 브랜치 사용 예제는 [엔비디아 GPU 드라이버](/docs/general-use/install-nvidia-drivers-on-kali-linux/) 가이드를 확인하세요.
+브랜치를 전환하는 방법은 [apt 네트워크 소스](/docs/general-use/kali-linux-sources-list-repositories/) 페이지를 참조하세요. 여러 브랜치 사용 예제는 [엔비디아 GPU 드라이버](/docs/general-use/install-nvidia-drivers-on-kali-linux/) 가이드를 확인하세요.
 
 ## 칼리 브랜치
 
@@ -32,6 +32,8 @@ author: ["gamb1t", "g0tmi1k", "LindirQuenya",]
 - **kali-bleeding-edge**는 [업스트림 git 저장소에서 자동으로 업데이트](/blog/bleeding-edge-kali-repositories/)되는 패키지를 포함해요. 이 브랜치는 매우 불안정할 가능성이 있어요.
 
 ### 개발
+
+이 브랜치들은 일반 사용자가 사용하도록 만들어진 것이 아니에요.
 
 - **kali-dev**는 칼리 리눅스의 개발 버전이에요. `kali-dev-only`, `kali-debian-picks` 및 `debian-testing` 세 가지 다른 브랜치를 결합하여 생성돼요. 주로 데비안의 업데이트와 칼리 리눅스에서 유지 관리하는 변경 사항을 병합하는 데 사용돼요.
 - **kali-dev-only**는 칼리 특화 패키지가 있는 개발 배포판이에요. 이 브랜치는 자동으로 `kali-dev`에 병합돼요.
@@ -78,7 +80,15 @@ kali-rolling-only --------------------------------------------------------|
 
 kali-dev와 달리, kali-rolling은 포함된 모든 패키지의 설치 가능성을 보장하는 도구로 관리되기 때문에 품질이 더 좋을 것으로 예상돼요. 이 도구는 kali-dev에서 업데이트된 패키지를 선택하고 설치 가능하다고 확인된 경우에만 kali-rolling에 복사해요. 그러나 이러한 검사에는 기능 테스트가 포함되지 않는다는 점에 유의하세요. 패키지 종속성으로 해결되지 않는 다른 문제로 인해 여전히 손상된 소프트웨어가 포함될 수 있어요. **Kali Rolling은 대부분의 사용자가 사용해야 하는 기본 저장소예요**. 또한 칼리 특화 패키지에 대한 문제를 [bugs.kali.org](https://bugs.kali.org/)에 보고할 수 있어요. "Product version"에서 "kali-dev" 버전을 선택해야 해요.
 
-Kali Rolling 사용자는 [/etc/apt/sources.list](/docs/general-use/kali-linux-sources-list-repositories/)에 다음 항목이 있어야 해요:
+칼리 롤링 사용자는 [/etc/apt/sources.list.d/kali.sources](/docs/general-use/kali-apt-sources/)에 다음 항목이 있어야 해요:
+
+```plaintext
+Types: deb
+URIs: http://http.kali.org/kali/
+Suites: kali-rolling
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/kali-archive-keyring.gpg
+```
 
 ```plaintext
 deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
