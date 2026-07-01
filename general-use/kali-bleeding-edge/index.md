@@ -39,22 +39,36 @@ author: ["rhertzog",]
 
 따라서 패키지를 kali-bleeding-edge 버전으로 업그레이드하기로 결정하기 전에 업스트림 git 저장소에 도착한 변경 사항을 살펴보는 것이 좋아요.
 
-## 저장소 활성화 방법
+## 저장소를 대화형으로 활성화하는 방법
 
-좋아요. 경고를 받았고 kali-bleeding-edge를 합리적인 방식으로 사용하겠다고 약속했어요. 이 저장소는 어떻게 활성화하나요? 간단해요:
+좋아요. 경고를 받았고 kali-bleeding-edge를 합리적인 방식으로 사용하겠다고 약속했어요. 이 저장소는 어떻게 활성화하나요?
+
+가장 쉬운 방법은 명령줄 도구인 `kali-tweaks`를 사용하는 것이에요:
 
 ```console
-kali@kali:~$ sudo tee /etc/apt/sources.list.d/kali-bleeding-edge.list <<EOF
-deb http://http.kali.org/kali kali-bleeding-edge main contrib non-free non-free-firmware
-EOF
-kali@kali:~$ sudo apt update
-[...]
+kali@kali:~$ kali-tweaks
 ```
 
-나중에 저장소를 비활성화하고 싶다면, 방금 생성한 파일을 제거하는 것만큼 간단해요:
+*Network Repositories* 섹션으로 이동하여 `bleeding-edge`를 선택한 뒤, 확인하고 종료하세요.
+
+나중에 저장소를 비활성화하려면 동일한 절차를 따라 `bleeding-edge` 선택을 해제하면 돼요.
+
+## 프로그래밍 방식으로 저장소 활성화하기
+
+터미널에서 한 줄 명령어로 `kali-bleeding-edge` 저장소를 프로그래밍 방식으로 활성화하려면 다음을 사용할 수 있어요:
 
 ```console
-kali@kali:~$ sudo rm -f /etc/apt/sources.list.d/kali-bleeding-edge.list
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-rolling kali-bleeding-edge/' /etc/apt/sources.list.d/kali.sources
+
+kali@kali:~$ sudo apt update
+```
+
+위 명령어는 시스템이 `kali-rolling`에서 업데이트를 받도록 구성되어 있다고 가정해요. 그렇지 않은 경우 그에 맞게 명령어를 조정하세요.
+
+나중에 kali-bleeding-edge 저장소를 비활성화 하고 kali-rolling 저장소만 유지하려면 다음을 사용하세요:
+
+```console
+kali@kali:~$ sudo sed -i 's/^Suites: .*/Suites: kali-rolling/' /etc/apt/sources.list.d/kali.sources
 ```
 
 ## kali-bleeding-edge에서 패키지 설치
