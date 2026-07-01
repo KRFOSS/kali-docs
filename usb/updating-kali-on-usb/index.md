@@ -15,11 +15,16 @@ USB에서 칼리 리눅스를 적절하게 [업데이트](/docs/general-use/upda
 
 USB에서 칼리를 업데이트하는 가장 좋은 방법은 전체 설치에서와 동일한 방식을 따르는 거예요.
 
-먼저 `etc/apt/sources.list`가 올바르게 채워져 있는지 확인하세요:
+먼저 `etc/apt/sources.list.d/kali.sources`가 올바르게 채워져 있는지 확인하세요:
 
 ```console
-kali@kali:~$ cat /etc/apt/sources.list
-deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
+kali@kali:~$ cat /etc/apt/sources.list.d/kali.sources# See https://www.kali.org/docs/general-use/kali-apt-sources/
+Types: deb
+URIs: http://http.kali.org/kali/
+Suites: kali-rolling
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/kali-archive-keyring.gpg
+
 kali@kali:~$
 ```
 
