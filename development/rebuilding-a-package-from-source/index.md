@@ -17,7 +17,13 @@ author: ["g0tmi1k",]
 
 이 예시에서는 mifare-format 도구에 몇 가지 추가 하드코딩된 Mifare 액세스 키를 추가하기 위해 [libfreefare](https://github.com/nfc-tools/libfreefare) 패키지를 재빌드할 거예요.
 
-무엇보다도 먼저 `/etc/apt/sources.list`의 `deb-src` 라인이 주석 처리되지 않았는지 확인하세요.
+무엇보다도 먼저 `/etc/apt/sources.list.d/kali.sources`의 `deb-src` 유형이 활성화되었는지 확인하세요:
+
+```console
+kali@kali:~$ grep ^Types: /etc/apt/sources.list.d/kali.sources
+Types: deb deb-src
+kali@kali:~$
+```
 
 ## 패키지 소스 다운로드하기
 
