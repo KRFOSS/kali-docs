@@ -94,9 +94,9 @@ kali@kali:~/Downloads$
 
 ## 5. 넷헌터 설치
 
-1. [kali-nethunter-2026.2-jasmine-sprout-los-fifteen-full.zip](https://kali.download/nethunter-images/kali-2026.1/kali-nethunter-2026.1-jasmine-sprout-los-fifteen-full.zip)를 다운로드하세요
+1. [kali-nethunter-2026.2-jasmine-sprout-los-fifteen-full.zip](https://kali.download/nethunter-images/kali-2026.2/kali-nethunter-2026.2-jasmine-sprout-los-fifteen-full.zip)를 다운로드하세요
 2. PC에서 기기로 복사하세요
-3. Magisk 앱을 열고, Modules -> Install from storage에서 "kali-nethunter-2026.1-jasmine-sprout-los-fifteen-full.zip"를 선택하세요
+3. Magisk 앱을 열고, Modules -> Install from storage에서 "kali-nethunter-2026.2-jasmine-sprout-los-fifteen-full.zip"를 선택하세요
 4. 설치가 끝날 때까지 기다린 다음, "Reboot System"을 탭하세요
 5. 기기가 시작될 때 칼리 부트 애니메이션이 표시돼요
 ### 샤오미 미 A2에서 칼리 넷헌터를 즐기세요

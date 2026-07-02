@@ -90,6 +90,8 @@ Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/kali-archive-keyring.gpg
 ```
 
+시스템이 [칼리 2026.2](/blog/kali-linux-2026-2-release/) 릴리스 전에 설치되었다면 이 파일이 없을 수 있어요. 그런 경우에는 대신 `/etc/apt/sources.list`에 다음 항목이 있어야 해요:
+
 ```plaintext
 deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
 ```

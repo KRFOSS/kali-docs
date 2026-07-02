@@ -147,7 +147,7 @@ certutil -hashfile kali-linux-2026.2-live-amd64.iso sha256
 
 ##### 포함된 서명 파일을 사용하여 ISO의 서명 확인하기(토렌트 다운로드)
 
-토렌트를 통해 칼리 리눅스 ISO 이미지를 다운로드한 경우, ISO 파일(예: kali-linux-2026.1-live-amd64.iso) 외에도 확장자가 ".txt.sha256sum"인 ISO의 계산된 SHA256 서명이 포함된 두 번째 파일(예: kali-linux-2026.2-live-amd64.txt.sha256sum)이 있을 것입니다.
+토렌트를 통해 칼리 리눅스 ISO 이미지를 다운로드한 경우, ISO 파일(예: kali-linux-2026.2-live-amd64.iso) 외에도 확장자가 ".txt.sha256sum"인 ISO의 계산된 SHA256 서명이 포함된 두 번째 파일(예: kali-linux-2026.2-live-amd64.txt.sha256sum)이 있을 거예요.
 
 리눅스나 macOS에서 다음 명령어를 사용하여 이 파일로 다운로드의 신뢰성을 확인할 수 있습니다:
 

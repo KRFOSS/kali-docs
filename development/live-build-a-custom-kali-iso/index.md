@@ -161,7 +161,7 @@ kali@kali:~/kali-installer$ time ./build.sh \
   --subdir kali-2026.2
 [...]
 ***
-GENERATED KALI IMAGE: ./images/kali-2026.1/kali-linux-2026.2-installer-amd64.iso
+GENERATED KALI IMAGE: ./images/kali-2026.2/kali-linux-2026.2-installer-amd64.iso
 ***
 kali@kali:~/kali-installer$
 ```

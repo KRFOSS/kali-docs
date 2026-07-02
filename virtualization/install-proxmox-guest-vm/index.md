@@ -20,7 +20,7 @@ Proxmox에서는 중첩 환경에 접근하는 두 가지 방법이 있어요. �
 - [칼리 이미지](/get-kali/#kali-installer-images)로 가서 "Pre-built Virtual Machines(미리 빌드된 가상 머신)"를 선택하세요
 - 적절한 이미지(Qemu64 또는 Qemu32)를 다운로드하세요
 - 다운로드한 파일에서 이미지를 압축 해제하세요([7Zip](https://www.7-zip.org/) 형식이에요)
-- 파일 확장자를 *.iso로 변경하세요(즉, qcow2에서 iso로 바꿔요). 파일 이름을 기억해두세요(예: ```kali-linux-2025.4-qemu-amd64.iso```)
+- 파일 확장자를 *.iso로 변경하세요(즉, qcow2에서 iso로 바꿔요). 파일 이름을 기억해두세요(예: ```kali-linux-2026.2-qemu-amd64.iso```)
 - Proxmox를 열어주세요
 - 왼쪽 창에서 사용할 저장소를 선택하세요(예: 올바른 노드를 찾고 local 선택)
 - 중앙 창에서 ISO 이미지를 선택하고 업로드를 클릭하세요
