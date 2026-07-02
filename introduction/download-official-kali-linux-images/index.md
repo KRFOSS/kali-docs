@@ -109,16 +109,16 @@ uid           [ unknown] Kali Linux Archive Automatic Signing Key (2025) <devel@
 
 다운로드 페이지에서 ISO를 직접 다운로드한 경우 다음 절차로 확인하세요.
 
-리눅스나 macOS에서는 다운로드한 ISO 이미지의 SHA256 체크섬을 다음 명령어로 생성할 수 있습니다(ISO 이미지 이름이 "kali-linux-2025.4-live-amd64.iso"이고 현재 디렉토리에 있다고 가정):
+리눅스나 macOS에서는 다운로드한 ISO 이미지의 SHA256 체크섬을 다음 명령어로 생성할 수 있습니다(ISO 이미지 이름이 "kali-linux-2026.2-live-amd64.iso"이고 현재 디렉토리에 있다고 가정):
 
 ```console
-$ shasum -a 256 kali-linux-2025.4-live-amd64.iso
+$ shasum -a 256 kali-linux-2026.2-live-amd64.iso
 ```
 
 출력은 다음과 같아야 합니다:
 
 ```plaintext
-21e87900f8464b8ba99ed0b4161388f896fc13cf9af976c0bfd692ffe62931c2  kali-linux-2025.4-live-amd64.iso
+49e90e694d1b3dedd47f94afbe99dfdd5afb41c8462b638bbd332929769c773a  kali-linux-2026.2-live-amd64.iso
 ```
 
 윈도우에서는 명령 프롬프트를 열고 다음을 실행하세요:
@@ -130,7 +130,7 @@ certutil -?
 certutil을 사용할 수 있다면 다음을 실행할 수 있습니다:
 
 ```console 
-certutil -hashfile kali-linux-2025.4-live-amd64.iso sha256
+certutil -hashfile kali-linux-2026.2-live-amd64.iso sha256
 ```
 
 다운로드를 확인하기 위해 사용합니다. 일부 윈도우 버전에서는 SHA256 체크섬을 계산하는 기본 기능이 없습니다. `certutil`이 설치되어 있지 않다면 [Microsoft File Checksum Integrity Verifier](http://www.microsoft.com/en-us/download/details.aspx?id=11533) 같은 유틸리티를 사용하여 다운로드를 확인할 수 있습니다.
@@ -138,27 +138,27 @@ certutil -hashfile kali-linux-2025.4-live-amd64.iso sha256
 결과 SHA256 서명:
 
 ```plaintext 
-21e87900f8464b8ba99ed0b4161388f896fc13cf9af976c0bfd692ffe62931c2
+49e90e694d1b3dedd47f94afbe99dfdd5afb41c8462b638bbd332929769c773a
 ```
 
-이 서명은 64비트 Intel 아키텍처 칼리 리눅스 2025.4 ISO 이미지의 공식 다운로드 페이지의 "sha256sum" 섹션에 표시된 서명과 일치하는 것을 확인할 수 있습니다:
+이 서명은 64비트 Intel 아키텍처 칼리 리눅스 2026.2 ISO 이미지의 공식 다운로드 페이지의 "sha256sum" 섹션에 표시된 서명과 일치하는 것을 확인할 수 있습니다:
 
-![](kali-download-iso-2025-4.png)
+![](kali-download-iso-2026-2.png)
 
 ##### 포함된 서명 파일을 사용하여 ISO의 서명 확인하기(토렌트 다운로드)
 
-토렌트를 통해 칼리 리눅스 ISO 이미지를 다운로드한 경우, ISO 파일(예: kali-linux-2025.23live-amd64.iso) 외에도 확장자가 ".txt.sha256sum"인 ISO의 계산된 SHA256 서명이 포함된 두 번째 파일(예: kali-linux-2025.4-live-amd64.txt.sha256sum)이 있을 것입니다.
+토렌트를 통해 칼리 리눅스 ISO 이미지를 다운로드한 경우, ISO 파일(예: kali-linux-2026.1-live-amd64.iso) 외에도 확장자가 ".txt.sha256sum"인 ISO의 계산된 SHA256 서명이 포함된 두 번째 파일(예: kali-linux-2026.2-live-amd64.txt.sha256sum)이 있을 것입니다.
 
 리눅스나 macOS에서 다음 명령어를 사용하여 이 파일로 다운로드의 신뢰성을 확인할 수 있습니다:
 
 ```console
-$ grep kali-linux-2025.4-live-amd64.iso kali-linux-2025.4-live-amd64.txt.sha256sum | shasum -a 256 -c
+$ grep kali-linux-2026.2-live-amd64.iso kali-linux-2026.2-live-amd64.txt.sha256sum | shasum -a 256 -c
 ```
 
 이미지가 성공적으로 인증되면 응답은 다음과 같을 것입니다:
 
 ```plaintext
-kali-linux-2025.4-live-amd64.iso: OK
+kali-linux-2026.2-live-amd64.iso: OK
 ```
 
 윈도우에서는 `certutil`이 있다면 위 명령을 사용한 다음 txt 파일의 내용을 수동으로 확인하여 두 SHA256 합계가 일치하는지 확인할 수 있습니다. `certutil`을 사용할 수 없다면 위에서 언급한 도구를 사용하여 다운로드의 SHA256 합계를 확인할 수 있습니다.
@@ -175,7 +175,7 @@ kali-linux-2025.4-live-amd64.iso: OK
 
 이것은 더 복잡한 절차이지만 더 높은 수준의 검증을 제공합니다: 이미지를 다운로드한 웹사이트의 무결성에 의존하지 않고, 독립적으로 설치한 공식 칼리 리눅스 개발 팀 키에만 의존합니다. Intel 아키텍처 버전의 Kali에 대해 이 방법으로 이미지를 확인하려면 [현재 릴리스용 칼리 "라이브 CD 이미지" 사이트](http://cdimage.kali.org/current/)(이 글 작성 시점에는 v2025.4)에서 세 파일을 다운로드해야 합니다:
 
-- ISO 이미지 자체(예: kali-linux-2025.4-live-amd64.iso)
+- ISO 이미지 자체(예: kali-linux-2026.2-live-amd64.iso)
 - ISO의 계산된 SHA256 해시가 포함된 파일, SHA256SUMS
 - 해당 파일의 서명된 버전, SHA256SUMS.gpg
 
@@ -226,16 +226,16 @@ gpg: Good signature from "Kali Linux Archive Automatic Signing Key (2025) <devel
 "Good signature" 메시지가 나타나지 않거나 키 ID가 일치하지 않으면, 중단하고 정상적인 칼리 리눅스 미러에서 이미지를 다운로드했는지 검토해야 합니다. 확인 실패는 가지고 있는 이미지가 변조되었을 가능성이 높다는 것을 강력히 시사합니다.
 {{% /notice %}}
 
-"Good signature" 응답을 받았다면, 이제 SHA256SUMS 파일의 체크섬이 실제로 칼리 리눅스 개발팀에서 제공한 것임을 확인할 수 있습니다. 검증을 완료하기 위해 남은 작업은 다운로드한 ISO에서 계산한 서명이 SHA256SUMS 파일의 서명과 일치하는지 확인하는 것입니다. 리눅스나 macOS에서는 다음 명령어로 이 작업을 수행할 수 있습니다(ISO 이름이 "kali-linux-2025.4-live-amd64.iso"이고 작업 디렉토리에 있다고 가정):
+"Good signature" 응답을 받았다면, 이제 SHA256SUMS 파일의 체크섬이 실제로 칼리 리눅스 개발팀에서 제공한 것임을 확인할 수 있습니다. 검증을 완료하기 위해 남은 작업은 다운로드한 ISO에서 계산한 서명이 SHA256SUMS 파일의 서명과 일치하는지 확인하는 것입니다. 리눅스나 macOS에서는 다음 명령어로 이 작업을 수행할 수 있습니다(ISO 이름이 "kali-linux-2026.2-live-amd64.iso"이고 작업 디렉토리에 있다고 가정):
 
 ```console
-$ grep kali-linux-2025.4-live-amd64.iso SHA256SUMS | shasum -a 256 -c
+$ grep kali-linux-2026.2-live-amd64.iso SHA256SUMS | shasum -a 256 -c
 ```
 
 이미지가 성공적으로 인증되면 응답은 다음과 같을 것입니다:
 
 ```plaintext
-kali-linux-2025.4-live-amd64.iso: OK
+kali-linux-2026.2-live-amd64.iso: OK
 ```
 
 {{% notice info %}}

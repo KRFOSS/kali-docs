@@ -29,7 +29,7 @@ P4wnP1 A.L.O.A 소프트웨어는 플러그 앤 플레이 USB 장치 에뮬레�
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.4-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2026.2-raspberry-pi-zero-w-p4wnp1-aloa-armel.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC 성능, 마이크로 SD 카드 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 걸릴 수 있습니다.

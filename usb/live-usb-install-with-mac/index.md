@@ -130,11 +130,11 @@ user@mbp ~ %
 
 - - -
 
-5. (조심스럽게!) USB 장치에 칼리 ISO 파일을 이미징하세요. 작성하고 있는 ISO 이미지의 이름이 "kali-linux-2025.4-live-amd64.iso"이고 현재 작업 디렉토리에 있다고 가정할 거예요.
+5. (조심스럽게!) USB 장치에 칼리 ISO 파일을 이미징하세요. 작성하고 있는 ISO 이미지의 이름이 "kali-linux-2026.2-live-amd64.iso"이고 현재 작업 디렉토리에 있다고 가정할 거예요.
 
 ```console
-user@mbp ~ % file kali-linux-2025.4-live-amd64.iso
-kali-linux-2025.4-live-amd64.iso: ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Kali Linux amd64' (bootable)
+user@mbp ~ % file kali-linux-2026.2-live-amd64.iso
+kali-linux-2026.2-live-amd64.iso: ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Kali Linux amd64' (bootable)
 user@mbp ~ %
 ```
 
@@ -149,7 +149,7 @@ DD의 블록크기 매개변수는 증가할 수 있으며, dd 명령어의 작�
 **쓰기 속도를 향상시키기 위해** "/dev/diskX"를 "/dev/**r**diskX" _(추가 `r`)_ 로 바꿀 거예요.
 
 ```console
-$ sudo dd if=kali-linux-2025.4-live-amd64.iso of=/dev/rdiskX bs=4M status=progress
+$ sudo dd if=kali-linux-2026.2-live-amd64.iso of=/dev/rdiskX bs=4M status=progress
 ```
 
 {{% notice info %}}

@@ -44,8 +44,8 @@ author: ["gamb1t", "steev"]
 우리는 4GB 이상의 RAM을 가지고 있고 [HATs](https://www.raspberrypi.com/news/introducing-raspberry-pi-hats/)(Hardware Attached on Top)를 사용하지 않기 때문에 64비트 이미지를 선택했습니다. 32비트의 경우 파일 이름을 조정한 후 동일한 단계를 따릅니다:
 
 ```console
-$ wget https://kali.download/arm-images/kali-2025.4/kali-linux-2025.4-raspberry-pi-arm64.img.xz
-$ xzcat kali-linux-2025.4-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
+$ wget https://kali.download/arm-images/kali-2025.4/kali-linux-2026.2-raspberry-pi-arm64.img.xz
+$ xzcat kali-linux-2026.2-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512k status=progress
 ```
 
 - - -
@@ -648,7 +648,7 @@ export _LUKSEXTRA=""
 
 
 # 리눅스 이미지 파일 ------------------------------------------------------------
-export _IMAGEURL=https://kali.download/arm-images/kali-linux-2025.4/kali-linux-2025.4-raspberry-pi-arm64.img.xz
+export _IMAGEURL=https://kali.download/arm-images/kali-linux-2026.2/kali-linux-2026.2-raspberry-pi-arm64.img.xz
 export _IMAGESHA="9ef1a0c011c274a81baaa626206ec985e1caa9494dab2b88ecec0a2473d6cf1f"
 
 # 패키지 작업 -------------------------------------------------------------

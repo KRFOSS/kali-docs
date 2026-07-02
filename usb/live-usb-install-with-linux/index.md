@@ -103,11 +103,11 @@ user@mint:~$
 
 - - -
 
-3. (조심스럽게!) USB 장치에 칼리 ISO 파일을 이미징하세요. 작성하고 있는 ISO 이미지의 이름이 "kali-linux-2025.4-live-amd64.iso"이고 현재 작업 디렉토리에 있다고 가정할 거예요.
+3. (조심스럽게!) USB 장치에 칼리 ISO 파일을 이미징하세요. 작성하고 있는 ISO 이미지의 이름이 "kali-linux-2026.2-live-amd64.iso"이고 현재 작업 디렉토리에 있다고 가정할 거예요.
 
 ```console
-user@mint:~$ file kali-linux-2025.4-live-amd64.iso
-kali-linux-2025.4-live-amd64.iso: ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Kali Linux amd64' (bootable)
+user@mint:~$ file kali-linux-2026.2-live-amd64.iso
+kali-linux-2026.2-live-amd64.iso: ISO 9660 CD-ROM filesystem data (DOS/MBR boot sector) 'Kali Linux amd64' (bootable)
 user@mint:~$
 ```
 
@@ -126,7 +126,7 @@ DD의 블록크기 매개변수는 증가할 수 있으며, dd 명령어의 작�
 이를 위해 간단히 `status` 플래그를 추가해요:
 
 ```console
-user@mint:~$ sudo dd if=kali-linux-2025.4-live-amd64.iso of=/dev/sdX conv=fsync bs=4M status=progress
+user@mint:~$ sudo dd if=kali-linux-2026.2-live-amd64.iso of=/dev/sdX conv=fsync bs=4M status=progress
 ```
 
 - - -
@@ -134,7 +134,7 @@ user@mint:~$ sudo dd if=kali-linux-2025.4-live-amd64.iso of=/dev/sdX conv=fsync 
 그렇지 않으면, 구형 시스템의 경우:
 
 ```console
-user@mint:~$ sudo dd if=kali-linux-2025.4-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
+user@mint:~$ sudo dd if=kali-linux-2026.2-live-amd64.iso of=/dev/sdX conv=fsync bs=4M
 ```
 
 USB 드라이브 이미징은 시간이 꽤 걸릴 수 있어요. 아래 샘플 출력에서 볼 수 있듯이, 10분 이상 걸리는 것은 드문 일이 아니니 참을성을 가지세요!

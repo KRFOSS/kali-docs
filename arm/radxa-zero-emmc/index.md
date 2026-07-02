@@ -18,12 +18,12 @@ author: ["steev",]
 <!-- 2022.2 didn't have an image, 2022.3 will 
 ## Kali on Radxa Zero - User Instructions
 
-If you're unfamiliar with the details of [downloading and validating a 칼리 리눅스 image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
+If you're unfamiliar with the details of [downloading and validating a Kali Linux image](/docs/introduction/download-official-kali-linux-images/), or for [using that image to create a bootable device](/docs/usb/live-usb-install-with-windows/), it's strongly recommended that you refer to the more detailed procedures described in the specific articles on those subjects.
 
-To install a pre-built image of the standard build of 칼리 리눅스 on your Raspberry Pi Zero 2 W, follow these instructions:
+To install a pre-built image of the standard build of Kali Linux on your Raspberry Pi Zero 2 W, follow these instructions:
 
 1. Get a fast microSD card with at least 16GB capacity. Class 10 cards are highly recommended.
-2. Download _and validate_ the `Kali Radxa Zero` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading 칼리 리눅스](/docs/introduction/download-official-kali-linux-images/).
+2. Download _and validate_ the `Kali Radxa Zero` image from the [downloads](/get-kali/) area. The process for validating an image is described in more detail on [Downloading Kali Linux](/docs/introduction/download-official-kali-linux-images/).
 3. Use the **[dd](https://manpages.debian.org/testing/coreutils/dd.1.en.html)** utility to image this file to your microSD card (same process as [making a Kali USB](/docs/usb/live-usb-install-with-windows/).
 
 In our example, we assume the storage device is located at `/dev/sdX`. Do _not_ simply copy these value, **change this to the correct drive path**.
@@ -33,10 +33,10 @@ This process will wipe out your microSD card. If you choose the wrong storage de
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.1-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2026.2-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
-This process can take a while, depending on your PC, your microSD card's speed, and the size of the 칼리 리눅스 image.
+This process can take a while, depending on your PC, your microSD card's speed, and the size of the Kali Linux image.
 
 Once the _dd_ operation is complete, boot up the Radxa Zero with the microSD card plugged in.
 
@@ -98,7 +98,7 @@ Bus 001 Device 048: ID 1b8e:c003 Amlogic, Inc. GX-CHIP
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.4-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
+$ xzcat kali-linux-2026.2-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/sdX bs=4M status=progress
 ```
 
 이 과정은 PC, 락사 제로의 저장 장치 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
@@ -127,7 +127,7 @@ Linux(SD 카드로 부팅, eMMC에 쓰기):
 {{% /notice %}}
 
 ```console
-$ xzcat kali-linux-2025.4-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
+$ xzcat kali-linux-2026.2-radxa-zero-emmc-arm64.img.xz | sudo dd of=/dev/mmcblk0 bs=4M status=progress
 ```
 
 이 과정은 마이크로 SD 카드, 락사 제로의 저장 장치 속도 및 칼리 리눅스 이미지 크기에 따라 시간이 소요될 수 있습니다.
