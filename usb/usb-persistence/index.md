@@ -119,3 +119,171 @@ kali@kali:~$ reboot
 ```
 
 ![](kali-live-usb-persistence.jpg)
+
+## 여러 영구 저장소 사용하기
+
+이 시점에서는 다음과 같은 파티션 구조가 만들어져 있어야 해요:
+
+```console
+kali@kali:~$ sudo parted /dev/sdX print
+Model: SanDisk Extreme (scsi)
+Disk /dev/sdX: 62.7GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start   End     Size    Type     File system  Flags
+ 1      32.8kB  4927MB  4927MB  primary               boot, hidden
+ 2      4927MB  4932MB  4194kB  primary
+ 3      4933MB  62.7GB  57.8GB  primary
+
+kali@kali:~$
+```
+
+USB 드라이브에는 암호화 여부와 관계없이 여러 개의 영구 저장소를 만들 수 있으며, 부팅할 때 사용할 영구 저장소를 선택할 수 있어요.
+
+영구 저장소 파티션을 변경하거나 제거하기 전에는 영구 저장 기능을 사용하지 않는 라이브 모드로 USB 드라이브를 부팅하세요. 현재 영구 저장 세션에서 사용 중인 파티션을 해당 세션 안에서 수정해서는 안 돼요.
+
+이 예제에서는 드라이브의 남은 공간 전체를 차지하고 있는 기존의 큰 파티션을 삭제한 다음, 암호화되지 않은 영구 저장소 두 개를 새로 만들 거예요. 각각 `work`와 `ctf`라는 라벨을 지정할게요.
+
+이 예제에서 만드는 각 저장소는 부팅 시 선택할 수 있도록 별도의 파티션, 파일 시스템 라벨, `persistence.conf` 파일을 가지고 있어야 해요.
+
+- - -
+
+**0x00 - 파티션 관리하기**.
+
+```console
+kali@kali:~$ sudo parted /dev/sdX
+GNU Parted 3.6
+Using /dev/sdX
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted)
+(parted) unit MiB
+(parted)
+(parted) print
+Model: SanDisk Extreme (scsi)
+Disk /dev/sdX: 59840MiB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start    End       Size      Type     File system  Flags
+ 1      0.03MiB  4699MiB   4699MiB   primary               boot, hidden
+ 2      4699MiB  4703MiB   4.00MiB   primary
+ 3      4704MiB  59840MiB  55136MiB  primary
+
+(parted)
+(parted) rm 3
+(parted)
+```
+
+- - -
+
+**0x01 - 추가 파티션 만들기**.
+
+각각 5GB(`5000 MiB`) 크기의 파티션 두 개를 만들 거예요:
+
+- 파티션 3: `4704 MiB` + `5000 MiB` = `9704 MiB` (`work` 데이터를 저장할 파티션)
+- 파티션 4: `9704 MiB` + `5000 MiB` = `14704 MiB` (`ctf` 데이터를 저장할 파티션)
+
+```console
+(parted) mkpart primary ext4 4704MiB 9704MiB
+(parted)
+(parted) mkpart primary ext4 9704MiB 14704MiB
+(parted)
+(parted) print
+Model: SanDisk Extreme (scsi)
+Disk /dev/sdX: 59840MiB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags:
+
+Number  Start    End       Size     Type     File system  Flags
+ 1      0.03MiB  4699MiB   4699MiB  primary               boot, hidden
+ 2      4699MiB  4703MiB   4.00MiB  primary
+ 3      4704MiB  9704MiB   5000MiB  primary  ext4
+ 4      9704MiB  14704MiB  5000MiB  primary  ext4
+
+(parted) quit
+Information: You may need to update /etc/fstab.
+
+kali@kali:~$
+```
+
+- - -
+
+**0x02 - 파티션 포맷 및 라벨 지정하기**:
+
+여기서 지정한 파일 시스템 라벨은 나중에 `persistence-label` 부팅 매개변수를 통해 불러올 영구 저장소를 선택할 때 사용돼요.
+
+```console
+kali@kali:~$ sudo mkfs.ext4 /dev/sdX3
+mke2fs 1.47.2 (1-Jan-2025)
+Creating filesystem with 1280000 4k blocks and 320000 inodes
+Filesystem UUID: 9920a7b3-7abf-4cfe-9368-02b73edf2c1d
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+kali@kali:~$
+kali@kali:~$ sudo e2label /dev/sdX3 work
+kali@kali:~$
+
+
+kali@kali:~$ sudo mkfs.ext4 -L ctf /dev/sdX4
+mke2fs 1.47.2 (1-Jan-2025)
+Creating filesystem with 1280000 4k blocks and 320000 inodes
+Filesystem UUID: 1ba72717-1485-4e8b-ae7d-ff5b9d81c4b9
+Superblock backups stored on blocks:
+	32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+kali@kali:~$
+```
+
+- - -
+
+**0x03 - 새 파티션을 마운트하고 `persistence.conf` 만들기**:
+
+각 영구 저장소 파티션의 루트에는 올바른 `persistence.conf` 파일이 있어야 해요.
+
+```console
+kali@kali:~$ sudo mkdir -pv /mnt/my_usb{3,4}
+mkdir: created directory '/mnt/my_usb3'
+mkdir: created directory '/mnt/my_usb4'
+kali@kali:~$
+kali@kali:~$ sudo mount -v /dev/sdX3 /mnt/my_usb3
+mount: /dev/sdX3 mounted on /mnt/my_usb3.
+kali@kali:~$
+kali@kali:~$ sudo mount -v /dev/sdX4 /mnt/my_usb4
+mount: /dev/sdX4 mounted on /mnt/my_usb4.
+kali@kali:~$
+kali@kali:~$ echo "/ union" | sudo tee /mnt/my_usb{3,4}/persistence.conf
+/ union
+kali@kali:~$ sudo umount -v /mnt/my_usb3 /mnt/my_usb4
+umount: /mnt/my_usb3 unmounted
+umount: /mnt/my_usb4 unmounted
+kali@kali:~$
+```
+
+- - -
+
+이제 원하는 시스템을 USB에서 부팅하도록 설정할 수 있어요. 부팅 메뉴가 나타나면 `Tab` 키를 누른 다음, `persistence-label` 매개변수가 원하는 영구 저장소를 가리키도록 수정하세요. 여기서는 `work` 파티션을 선택할게요:
+
+```console
+kali@kali:~$ reboot
+```
+
+<!-- ![](kali-live-usb-persistence.jpg) -->
+
+<!-- ![](kali-live-usb-multi-persistence-default.png) -->
+
+![](kali-live-usb-multi-persistence-edited.png)
