@@ -17,6 +17,7 @@ author: ["g0tmi1k",]
 | [bbqsql](https://pkg.kali.org/pkg/bbqsql) | 2020-03-30 | Python 2 |
 | [bdfproxy](https://pkg.kali.org/pkg/bdfproxy) | 2019-10-10| Python 2 ([#1](https://gitlab.com/kalilinux/packages/bdfproxy/-/work_items/1)) |
 | [blindelephant](https://pkg.kali.org/pkg/blindelephant) | 2019-09-19 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/blindelephant/-/work_items/1)) |
+| [bluez-hcidump](https://pkg.kali.org/pkg/bluez) | 2026-07-31 | 업스트림에서 제거됨 ([#1](https://github.com/bluez/bluez/commit/a035be775703bba1fa92b25769191ffb37ae4c76)) |
 | [clusterd](https://pkg.kali.org/pkg/clusterd) | 2020-03-30 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/clusterd/-/work_items/1)) |
 | [creddump](https://pkg.kali.org/pkg/creddump) | 2019-10-02 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/creddump/-/work_items/1)) |
 | [cuckoo](https://pkg.kali.org/pkg/cuckoo) | 2020-04-07 | Python 2 ([#1](https://gitlab.com/kalilinux/packages/cuckoo/-/work_items/1)) |
