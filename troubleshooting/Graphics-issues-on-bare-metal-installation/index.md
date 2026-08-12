@@ -136,13 +136,19 @@ kali@kali:~$ sudo grep -r "Wayland" /etc/gdm3/
 kali@kali:~$
 ```
 
-NVIDIA 드라이버, 특히 버전 550.163.01 미만의 드라이버는 Wayland에서 GNOME을 로드할 때 여러 문제가 발생해요. 드라이버 문제를 해결하는 가장 빠른 방법은 `/etc/default/grub` 파일에 아래 옵션을 추가하는 거에요:
+NVIDIA 드라이버, 특히 버전 550.163.01 미만의 드라이버는 Wayland에서 GNOME을 불러올 때 여러 문제를 일으킬 수 있어요. 그동안 사용자들이 여러 해결 방법을 보고하고 제안했지만, 대부분 특정 그래픽 카드, 드라이버 버전, 커널 버전 등에 따라 결과가 달라질 수 있어요. 모든 환경에 통하는 단일 해결책을 제공하기는 어렵지만, 사용자들에게 도움이 된 것으로 알려진 옵션은 다음과 같아요:
+
+* `nvidia_drm.modeset=1`은 부팅 초기 단계나 시스템이 절전 모드에서 복귀할 때 NVIDIA 드라이버가 디스플레이를 관리할 수 있도록 해요.
+
+* `nvidia_drm.fbdev=1`은 NVIDIA 드라이버가 프레임버퍼(화면 출력)를 관리하도록 강제할 때 사용할 수 있어요. 사용자 보고에 따르면 540.x.x보다 오래된 NVIDIA 드라이버에서 도움이 될 수 있어요.
+
+* `nvidia.NVreg_PreserveVideoMemoryAllocations=1`은 시스템이 절전 모드에 들어갈 때 GPU 메모리가 지워지는 것을 방지해요. 이 옵션이 없으면 NVIDIA 드라이버는 기본적으로 절전 진입 시 모든 비디오 메모리 할당을 지워요. 시스템이 복귀할 때 Wayland와 GPU 가속 애플리케이션은 그래픽 데이터가 GPU 메모리에 그대로 남아 있을 것으로 예상하지만, 데이터가 지워졌기 때문에 일부 요소를 불러오지 못할 수 있어요. 이 매개변수는 절전과 복귀 과정에서 비디오 메모리 할당을 보존해 문제를 해결해요.
+
+이 옵션들을 활성화하려면 `/etc/default/grub` 파일을 편집하고 필요한 옵션을 `GRUB_CMDLINE_LINUX_DEFAULT` 변수에 추가하세요. 예시는 다음과 같아요:
 
 ```bash
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi=strict loglevel=3 nvidia_drm.modeset=1"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi=strict loglevel=3 nvidia_drm.modeset=1 nvidia.NVreg_PreserveVideoMemoryAllocations=1"
 ```
-
-위 해결책이 효과가 없고 NVIDIA 드라이버 버전이 540.x.x보다 오래된 경우, `nvidia_drm.fbdev=1` 옵션을 추가하세요. 이는 데비안(및 기타 리눅스 배포판)에서 NVIDIA 드라이버와 함께 사용되는 커널 부팅 매개변수로, NVIDIA 드라이버가 프레임버퍼(화면 출력)를 관리하도록 강제해요.
 
 `/etc/default/grub` 파일을 수정한 후에는 다음 명령어를 실행하는 것을 잊지 마세요:
 
