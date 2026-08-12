@@ -34,13 +34,15 @@ author: ["yesimxev",]
 **이 단계는 워치가 WearOS 3가 설치된 경우에만 진행하세요.**
 
 - 위에서 설명한 방법 중 하나를 사용하요 부트로더로 다시 재부팅하세요.
-- 순정 WearOS 2 ZIP 파일의 압축을 푸세요. (`ROVER_STOCK_PMRL.220111.001.zip` - LTE/Ultra LTE, `RUBYFISH_STOCK_PMRB.220703.001.zip` - GPS/Ultra GPS)
-- Windows를 사용하는 경우 `flat_all.bat`을, 그 외 운영체제에서는 `flash_all.sh`를 실행하세요.
+- 순정 WearOS 2 ZIP 파일의 압축을 푸세요. (`ROVER_STOCK_FASTBOOT_PMRL.220704.001.zip` - LTE/Ultra LTE, `RUBYFISH_STOCK_FASTBOOT_PMRB.220703.001.zip` - GPS/Ultra GPS)
+- Windows를 사용하는 경우 `flash_all.bat`을, 그 외 운영체제에서는 `flash_all.sh`를 실행하세요.
 - 워치를 재부팅한 후, 데이터 포맷을 **필요한 경우에만** 승인하세요.
 
 ## 3. TWRP, OneOS 이미지, Magisk, dm-verify disabler 플래시
 
 Magisk **24.3**이 권장돼요.
+**OneOS**는 무선 인젝션을 사용할 때 권장돼요. 순정 WearOS에서는 재부팅 후 Nexmon 펌웨어나 라이브러리처럼 추가한 시스템 파일이 교체될 수 있어요.
+**업데이트:** [apk0mix5900](https://github.com/apk0mix5900)의 Nexmon Magisk 모듈 덕분에 이제 순정 WearOS2도 지원돼요.
 
 - ADB를 다시 활성화하고, `adb reboot bootloader`를 사용하여 부트로더로 재부팅하세요
 - vbmeta 인증 비활성화: `fastboot --disable-verity --disable-verification flash vbmeta vbmeta.img`
@@ -49,8 +51,9 @@ Magisk **24.3**이 권장돼요.
 - Wipe -> 다음 페이지 -> Advanced Wipe -> Format Data를 선택하세요
 - 리커버리로 재부팅하세요
 - "Install -> ADB Sideload"을 선택하세요
-- `adb sideload`로 OneOS를 플래시하세요
-- Mobvoi 앱 패키지를 `adb sideload`로 플래시하세요
+- 순정 WearOS를 유지하려면 다음 두 단계를 건너뛰세요
+  - `adb sideload`로 OneOS를 플래시하세요
+  - Mobvoi 앱 패키지를 `adb sideload`로 플래시하세요
 - 울트라를 사용하는 경우, 울트라 애드온 패키지를 `adb sideload`로 설치하세요 (TWRP-OEM_FOR_TICWATCH_PRO_3_ULTRA(rover).zipf - Ultra LTE, TWRP-OEM_FOR_TICWATCH_PRO_3_ULTRA_GPS(rubyfish).zip - Ultra GPS)
 - `adb sideload Magisk-v24.3.apk`를 사용하여 Magisk를 플래시하세요
 
@@ -63,7 +66,7 @@ Magisk **24.3**이 권장돼요.
 - OneOS에서 앱 메뉴 버튼에 손이 닿을 수 있도록 `adb shell wm density 300`으로 밀도를 설정하세요
 - Magisk 설치를 마치려면 `adb install Magisk-v24.3.apk`로 설치하세요
 - Magisk 매니저를 여세요
-- 오른쪽 상단 모서리에 있는 설정을 찾으세요 (찾기 조금 까다로워요)
+- 오른쪽 상단 모서리에 있는 설정 버튼을 찾으세요 (찾기 조금 까다로워요)
 - 자동 업데이트 비활성화를 원하면 자동 응답에서 권한을 설정하고, 향후 더 쉬운 탐색을 위해 토스트 알림을 비활성화할 수 있습니다
 
 ## 5. 넷헌터 설치
@@ -75,9 +78,6 @@ Magisk **24.3**이 권장돼요.
 - 재부팅
 - 넷헌터 앱 & chroot를 시작하세요 (첫 실행 후 재부팅될 수 있어요)
 - 재부팅
-
-Hijakcer와 Nexmon 무선 인젝션 설치 가이드는 [칼리 포럼](https://forums.kali.org/t/hijacker-on-ticwatch-pro-3-with-wireless-injection/6242/7)
-에서 찾을 수 있어요.
 
 ## 6. 넷헌터 워치페이스 설정 (선택)
 
@@ -96,13 +96,14 @@ Hijakcer와 Nexmon 무선 인젝션 설치 가이드는 [칼리 포럼](https://
   - [vbmeta 이미지](https://kali.download/nethunter-images/devices/rubyfish/vbmeta.img)
   - [dm-verity disabler](https://kali.download/nethunter-images/devices/rubyfish/Disable-DM-Verity_ForceEncrypt.zip)
   - [OneOS, Stock ROMs, Ultra addon and Mobvoi packages](https://kali.download/nethunter-images/devices/rubyfish/) _(선택)_
-  - [틱워치 프로 3 넷헌터 zip](https://www.kali.org/get-kali/#kali-mobile) - Get the latest update under TicWatch section
+  - [틱워치 프로 3 넷헌터 zip](https://drive.google.com/file/d/19zTKPTbrBKFMH_pA0sWpD_7UK1zBJKjc/view?usp=sharing) - 패치된 systemd와 udev, 최신 안정 버전 NetHunter 앱(2026.1)이 포함된 Daily 2026.2 kalifs
   - [Facer app for WearOS 2](https://kali.download/nethunter-images/devices/rubyfish/facer_wearos.zip)
 
 ## 추가 추천 앱
 
 - [TotalCommander](https://www.totalcommander.ch/android/tcandroid323-armeabi.apk): Ducky script와 같은 항목을 선택할 때 유용하며, "adb install" 방법을 사용합니다
 다운로드 링크: https://www.totalcommander.ch/android/tcandroid323-armeabi.apk
+- [Hijacker & Nexmon](https://github.com/apk0mix5900/nexmon-twp3-magisk/releases/download/1.0/nexmon-magisk-twp3.zip): Magisk를 통해 설치하세요
 
 ## 지원되는 기능
 - 인젝션 기능이 있는 모니터 모드
