@@ -71,6 +71,7 @@ author: ["Re4son", "yesimxev",]
 |    HID 공격     |         아니오         |       아니오       |    예    |
 |    BT 아스날      |         아니오         |       아니오       |    예    |
 |    CARsenal        |         아니오         |       아니오       |    예    |
+|    EvilTwin        |         아니오         |       아니오       |    예    |
 
 넷헌터 루트리스의 설치는 여기에 문서화되어 있어요:
 [넷헌터-루트리스](/docs/nethunter/nethunter-rootless/)
@@ -153,6 +154,7 @@ chroot가 실행되지 않으면 공격 메뉴들이 회색으로 표시돼요. 
 - [**HID 공격**](/docs/nethunter/nethunter-hid-attacks/) - Teensy 스타일의 다양한 HID 공격.
 - [**덕헌터 HID**](/docs/nethunter/nethunter-duckhunter/) - Rubber Ducky 스타일의 HID 공격.
 - [**BadUSB MITM 공격**](/docs/nethunter/nethunter-badusb/) - 말 그대로예요.
+- [**EvilTwin**](/docs/nethunter/nethunter-eviltwin/) - 캡티브 포털이 있는 가짜 AP를 만들어 비밀번호를 수집하고, 캡처한 WPA 핸드셰이크와 대조해 확인해요.
 - [**Wifipumpkin**](/docs/nethunter/nethunter-wifipumpkin/) - 버튼 클릭으로 캡티브 포털이 있는 악성 액세스 포인트 설정.
 - [**WPS 공격**](/docs/nethunter/nethunter-wps/) - OneShot을 사용한 WPS 공격.
 - [**블루투스 아스날**](/docs/nethunter/nethunter-btarsenal/) - 다양한 블루투스 기기에 대한 정찰, 스푸핑, 청취 또는 오디오 주입.
