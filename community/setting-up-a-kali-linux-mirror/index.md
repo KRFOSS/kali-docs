@@ -90,7 +90,7 @@ $ sudo chown archvsync:archvsync /srv/mirrors/kali{,-images}
 
 ### rsync 설정하기
 
-다음으로, rsync 데몬을 설정해서(필요하면 활성화) 해당 디렉토리를 내보내도록 해요:
+다음으로, rsync 데몬을 설정해서 해당 디렉토리를 내보내도록 해요:
 
 ```console
 $ sudo sed -i -e "s/RSYNC_ENABLE=false/RSYNC_ENABLE=true/" /etc/default/rsync
@@ -110,8 +110,18 @@ read only = true
 path = /srv/mirrors/kali-images
 comment = The Kali ISO images
 read only = true
-$ sudo service rsync start
-Starting rsync daemon: rsync.
+```
+
+이제 rsync 서비스를 시작해요:
+
+```console
+$ sudo systemctl start rsync
+```
+
+마지막으로, 부팅할 때 자동으로 시작하도록 활성화해요:
+
+```console
+$ sudo systemctl enable rsync
 ```
 
 ### 미러 설정하기
