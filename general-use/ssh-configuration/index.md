@@ -48,24 +48,27 @@ kali@kali:~$
 
 ## SSH 클라이언트: GSS-API 지원
 
-{{% notice info %}}
-이것은 시스템을 업그레이드하여 이 기능을 잃은 칼리 리눅스 사용자를 위한 것이에요. 이 패키지는 [2024.4](https://www.kali.org/blog/kali-linux-2024-4-release/)부터 칼리 리눅스에 사전 설치되어 있어요.
+칼리 리눅스 2026.3부터 SSH 클라이언트에는 GSS-API 키 교환 지원이 포함되지 않아요.
 
-2024년 9월 23일 현재, 이 패키지는 현재 변경 로그만 포함하고 있어요. 이 패키지는 OpenSSH 패키지에서 GSS-API 변경이 발생할 때를 위한 자리 표시자예요.
-{{% /notice %}}
+이 기능이 필요한 경우 대체 패키지인 `openssh-client-gssapi`를 설치하면 다시 사용할 수 있어요. 이 패키지는 기본 OpenSSH 패키지와 거의 동일하지만 GSS-API 패치가 적용되어 있어요. 자세한 내용은 <https://lists.debian.org/debian-devel/2024/04/msg00044.html>의 발표에서 확인할 수 있어요.
 
-가까운 미래의 어느 시점에, GSS-API에 대한 지원은 표준 SSH 패키지의 공격 표면을 줄이기 위해 별도의 패키지로 분리될 거예요. 따라서 `openssh-client` 패키지는 GSS-API 지원 없이 제공되며, 필요한 사용자를 위해 별도의 패키지인 `openssh-client-gssapi`를 설치해야 할 거예요.
-
-칼리 롤링을 실행 중이고 GSS-API 지원이 미래에 제거되지 않도록 하고 싶은 사용자는 사전에 패키지를 설치할 수 있어요:
+SSH 클라이언트에서 GSS-API 지원을 다시 사용하려면 다음 명령을 실행하세요:
 
 ```console
 kali@kali:~$ sudo apt update
 [...]
 kali@kali:~$
 kali@kali:~$ sudo apt install -y openssh-client-gssapi
+Installing:
+  openssh-client-gssapi
 [...]
-kali@kali:~$
+REMOVING:
+  openssh-client
+[...]
+Continue? [Y/n]
 ```
+
+`openssh-client-gssapi` 패키지는 `openssh-client`를 _대체_하며, 반대의 경우도 마찬가지예요. 두 패키지는 동시에 설치할 수 없어요.
 
 ## SSH 서버: 자동 호스트 키 생성
 
