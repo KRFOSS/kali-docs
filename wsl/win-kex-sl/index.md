@@ -12,7 +12,7 @@ Win-KeX의 심리스 모드(SL)는 윈도우 데스크톱 화면 상단에 칼�
 
 심리스 모드는 리눅스와 윈도우 앱 사이의 시각적 분리를 제거하여, 칼리 리눅스에서 침투 테스트를 실행하고 그 결과를 윈도우 앱으로 바로 복사하여 최종 보고서를 작성할 수 있는 훌륭한 플랫폼을 제공합니다.
 
-Win-KeX는 심리스 데스크톱 통합을 위해 [VcXsrv 윈도우 X 서버](https://sourceforge.net/projects/vcxsrv/)를 활용합니다.
+Win-KeX는 심리스 데스크톱 통합을 위해 [VcXsrv 윈도우 X 서버](https://github.com/marchaesen/vcxsrv)를 활용합니다.
 
 ![](../win-kex/win-kex-sl.png)
 
