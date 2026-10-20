@@ -29,3 +29,5 @@ author: ["yesimxev",]
   (CONFIG_NFSD_V4=y)
 
 ![](nh-kernel-280-nfs-1.png)
+
+## 종료, 저장 및 빌드
