@@ -50,16 +50,21 @@ $ xzcat kali-linux-2026.2-raspberry-pi-arm64.img.xz | sudo dd of=/dev/sdX bs=512
 
 - - -
 
+{{% notice info %}}
+최신 Kali Raspberry Pi 이미지에는 cloud-init/NoCloud 데이터가 포함됩니다. Kali Raspberry Pi 64비트 FDE 환경(`VERSION_ID="2026.2"`)에서 테스트했을 때 cloud-init은 암호화된 루트 파일시스템의 잠금 해제와 부팅을 방해하지 않았습니다. 초기 설정 후 `cloud-init status --long`에 `disabled-by-marker-file`이 표시될 수 있습니다.
+{{% /notice %}}
+
 ## 시스템 준비하기
 
 ### chroot 준비
 
-이제 chroot를 위한 준비를 할 것입니다. 마이크로SD 카드를 마운트할 디렉토리를 만들고 마운트합니다:
+이제 chroot를 위한 준비를 할 것입니다. 마이크로SD 카드를 마운트할 디렉터리를 만듭니다. 최신 Raspberry Pi 이미지의 펌웨어 부팅 파티션은 `/boot/firmware`에 마운트합니다:
 
 ```console
 $ sudo mkdir -vp /mnt/chroot/
 $ sudo mount /dev/sdX2 /mnt/chroot/
-$ sudo mount /dev/sdX1 /mnt/chroot/boot/
+$ sudo mkdir -vp /mnt/chroot/boot/firmware/
+$ sudo mount /dev/sdX1 /mnt/chroot/boot/firmware/
 $ sudo mount -t proc none /mnt/chroot/proc
 $ sudo mount -t sysfs none /mnt/chroot/sys
 $ sudo mount -o bind /dev /mnt/chroot/dev
@@ -87,27 +92,28 @@ $ sudo env LANG=C chroot /mnt/chroot/
 
 - - -
 
-시작하기 전에 최신 커널을 사용하고 있는지 확인하고 싶으므로 다음 패키지가 설치되어 있는지 확인합니다:
+현재 Raspberry Pi 이미지에는 필요한 커널 및 펌웨어 패키지가 이미 포함되어 있습니다. 커널 모듈 이름은 이전 Re4son 방식이 아니라 `rpt-rpi-v8` 또는 `rpt-rpi-2712` 등의 이름을 사용합니다. chroot에서 버전을 확인합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
-└─# apt install -y kalipi-kernel kalipi-bootloader kalipi-re4son-firmware
+└─# ls /lib/modules/
 ```
 
 - - -
 
+이후 `mkinitramfs` 단계에서는 이미지에 설치된 커널 버전을 사용하세요.
+
 ### 부팅 옵션
 
-다음으로 `/boot/cmdline.txt` 파일을 편집하여 루트 경로를 변경할 것입니다. 루트 경로를 `/dev/mapper/crypt`로 변경한 다음, 바로 뒤에 `cryptdevice=PARTUUID=$partuuid:crypt`를 추가합니다. 이는 커널이 루트 파일시스템의 위치를 알아야 마운트하고 사용할 수 있기 때문입니다. 나중에 루트 파일시스템을 암호화하므로, 부팅 시 암호화로 인해 암호화되지 않은 장치를 볼 수 없습니다! 여기서 이름을 "crypt"로 변경하지만, 실제로는 원하는 이름으로 지정할 수 있습니다. 라즈베리 파이 장치에서 `/boot/cmdline.txt` 파일은 커널 명령줄 옵션을 전달하는 데 사용됩니다.
-최종 결과는 다음과 같아야 합니다:
+다음으로 `/boot/firmware/cmdline.txt`에서 루트 경로를 `/dev/mapper/crypt`로 바꾸고 `cryptdevice=PARTUUID=$partuuid:crypt`를 추가합니다. 커널이 암호화된 루트 파일시스템을 찾도록 하기 위한 설정입니다. 커널 명령줄은 한 줄로 유지해야 합니다. `ds=nocloud`와 같은 기존 옵션은 의도적으로 변경하지 않는 한 보존하고, `PARTUUID`는 실제 장치에 맞게 수정하세요:
 
 ```console
 ┌──(root㉿kali)-[/]
-└─# vim /boot/cmdline.txt
+└─# vim /boot/firmware/cmdline.txt
 
 ┌──(root㉿kali)-[/]
-└─# cat /boot/cmdline.txt
-dwc_otg.fiq_fix_enable=2 console=serial0,115200 kgdboc=serial0,115200 console=tty1 root=/dev/mapper/crypt cryptdevice=PARTUUID=ed889dad-02:crypt rootfstype=ext4 fsck.repair=yes rootwait net.ifnames=0
+└─# cat /boot/firmware/cmdline.txt
+console=serial0,115200 console=tty1 root=/dev/mapper/crypt cryptdevice=PARTUUID=ed889dad-02:crypt rootfstype=ext4 fsck.repair=yes rootwait net.ifnames=0 ds=nocloud
 ```
 
 - - -
@@ -129,7 +135,7 @@ proc            /proc           proc    defaults          0       0
 
 /dev/mapper/crypt /               ext4 errors=remount-ro 0       0
 #UUID=747bfa7c-edd2-471f-8fff-0ecafc2d3791 /               ext4 errors=remount-ro 0       1
-LABEL=BOOT      /boot           vfat    defaults          0       2
+LABEL=BOOT      /boot/firmware  vfat    defaults          0       2
 ```
 
 - - -
@@ -369,56 +375,53 @@ CRYPTSETUP=y
 
 ### 커널
 
-다음 단계는 이 과정을 따라하는 분들에게 중요합니다. 사용 중인 RPi 장치에 따라 선택해야 할 커널 이름/에디션/플레이버는 다음과 같습니다 _(주의해주세요!)_:
+사용할 커널 버전은 Raspberry Pi 이미지와 Kali 릴리스에 따라 달라집니다. 현재 이미지에서는 이전 Re4son 대신 `rpt-rpi-v8` 또는 `rpt-rpi-2712` 등의 커널을 사용합니다.
 
-- `Re4son+`     - 32비트 ARMEL armv6 장치용 - RPi1, RPi0 또는 RPi0w
-- `Re4son-v7+`  - 32비트 ARMHF armv7 장치용 - RPi2 v1.2, RPi3 또는 RPi02w
-- `Re4son-v8+`  - 64비트 ARM64 armv8 장치용 - RPi2 v1.2, RPi3 또는 RPi02w
-- `Re4son-v7l+` - 32비트 ARMHF armv7 장치용 - RPi4 또는 RPi400 장치
-- `Re4son-v8l+` - 64비트 ARM64 armv8 장치용 - RPi4 또는 RPi400 장치
-
-{{% notice info %}}
-이름의 `l`은 lpae - [Large Physical Address Extension](https://wikipedia.org/wiki/ARM_architecture_family#LPAE)를 의미합니다
-{{% /notice %}}
-
-참고로, 우리는 RPi4, 64비트 이미지를 사용하므로 `Re4son-v8l+`가 필요합니다. 자신의 장치에 맞게 조정하세요.
-이제 사용할 커널 이름을 알았으니 커널 버전을 찾아야 합니다. 이는 장치마다 다를 수 있으며 칼리가 업데이트됨에 따라 변경됩니다. 현재 RPi에서는 `5.15.44`입니다:
-
-커널 버전은 변경될 수 있지만 이름은 변경되지 않습니다:
+chroot 안에서 설치된 버전을 확인합니다:
 
 ```console
 ┌──(root㉿kali)-[/]
-└─# ls -l /lib/modules/ | awk -F" " '{print $9}'
-5.15.44-Re4son+
-5.15.44-Re4son-v7+
-5.15.44-Re4son-v7l+
-5.15.44-Re4son-v8+
-5.15.44-Re4son-v8l+
+└─# ls /lib/modules/
+6.12.34+rpt-rpi-2712
+6.12.34+rpt-rpi-v8
+```
+
+64비트 Raspberry Pi 이미지에서는 별도 커널이 필요한 경우를 제외하고 설치된 `rpt-rpi-v8` 버전을 사용합니다. 커널 버전을 변수에 저장합니다:
+
+```console
+┌──(root㉿kali)-[/]
+└─# KERNEL_VERSION="$(ls /lib/modules | grep 'rpt-rpi-v8' | sort -V | tail -n1)"
 
 ┌──(root㉿kali)-[/]
-└─# echo "initramfs initramfs.gz followkernel" >> /boot/config.txt
+└─# echo "$KERNEL_VERSION"
+6.12.34+rpt-rpi-v8
+```
+
+현재 Raspberry Pi 이미지의 부팅 구성 파일은 `/boot/firmware/config.txt`입니다. initramfs 항목을 추가합니다:
+
+```console
+┌──(root㉿kali)-[/]
+└─# echo "initramfs initramfs.gz followkernel" >> /boot/firmware/config.txt
+```
+
+선택한 커널 버전으로 initramfs를 생성합니다:
+
+```console
+┌──(root㉿kali)-[/]
+└─# mkinitramfs -o /boot/firmware/initramfs.gz "$KERNEL_VERSION"
 ```
 
 {{% notice info %}}
-커널 버전(`5.15.44`)은 변경될 수 있지만 커널 이름(`Re4son-v8l+`)은 변경되지 않습니다.
+커널 버전은 Kali 릴리스와 Raspberry Pi 이미지에 따라 달라집니다. 사용 중인 이미지의 `/lib/modules`에 실제로 설치된 버전을 선택하세요.
 {{% /notice %}}
 
 - - -
 
-이제 `initramfs`를 만들어야 합니다. 이는 커널 버전이 중요한 부분입니다:
+initramfs가 정상적으로 생성됐는지 확인합니다. 결과가 없으면 문제가 발생한 것입니다:
 
 ```console
 ┌──(root㉿kali)-[/]
-└─# mkinitramfs -o /boot/initramfs.gz 5.15.44-Re4son-v8l+
-```
-
-- - -
-
-이제 `initramfs`가 올바르게 생성되었는지 확인합니다. 결과가 없으면 문제가 발생한 것입니다:
-
-```console
-┌──(root㉿kali)-[/]
-└─# lsinitramfs /boot/initramfs.gz | grep cryptsetup
+└─# lsinitramfs /boot/firmware/initramfs.gz | grep cryptsetup
 usr/lib/aarch64-linux-gnu/libcryptsetup.so.12
 usr/lib/aarch64-linux-gnu/libcryptsetup.so.12.7.0
 usr/lib/cryptsetup
@@ -430,11 +433,11 @@ usr/lib/cryptsetup/functions
 usr/sbin/cryptsetup
 
 ┌──(root㉿kali)-[/]
-└─# lsinitramfs /boot/initramfs.gz | grep authorized
+└─# lsinitramfs /boot/firmware/initramfs.gz | grep authorized
 root-Q2iWOODUwk/.ssh/authorized_keys
 
 ┌──(root㉿kali)-[/]
-└─# lsinitramfs /boot/initramfs.gz | grep unlock.sh
+└─# lsinitramfs /boot/firmware/initramfs.gz | grep unlock.sh
 etc/unlock.sh
 ```
 
@@ -459,7 +462,7 @@ etc/unlock.sh
 
 ┌──(root㉿kali)-[/]
 └─# exit
-$ sudo umount /mnt/chroot/{boot,sys,proc,dev/pts,dev}
+$ sudo umount /mnt/chroot/{boot/firmware,sys,proc,dev/pts,dev}
 $ sudo mkdir -vp /mnt/{backup,encrypted}
 $ sudo rsync -avh /mnt/chroot/* /mnt/backup/
 $ sudo cryptsetup luksClose crypt
@@ -499,7 +502,8 @@ $ sync
 마지막 단계로, 새 LUKS UUID에 맞게 `/etc/fstab` 파일을 수정하거나, `/dev/mapper/crypt`로 두고 unlock 스크립트의 UUID를 교체하고 initramfs 파일을 다시 만들어야 합니다. 이 단계는 중요합니다. 암호화된 파일시스템을 사용하는 정보가 없으면 제대로 부팅되지 않습니다! **여러분의** 시스템 정보를 입력하세요. UUID는 모든 시스템마다 다릅니다:
 
 ```console
-$ sudo mount /dev/sdX1 /mnt/encrypted/boot/
+$ sudo mkdir -vp /mnt/encrypted/boot/firmware/
+$ sudo mount /dev/sdX1 /mnt/encrypted/boot/firmware/
 $ sudo mount -t proc none /mnt/encrypted/proc
 $ sudo mount -t sysfs none /mnt/encrypted/sys
 $ sudo mount -o bind /dev /mnt/encrypted/dev
@@ -515,7 +519,7 @@ $ sudo env LANG=C chroot /mnt/encrypted
 proc            /proc           proc    defaults          0       0
 
 UUID=173e2de4-0501-4d8e-9039-a4923bfa5ee7 /               ext4 errors=remount-ro 0       1
-LABEL=BOOT      /boot           vfat    defaults          0       2
+LABEL=BOOT      /boot/firmware  vfat    defaults          0       2
 
 ┌──(root㉿kali)-[/]
 └─# vim /etc/initramfs-tools/unlock.sh
@@ -545,7 +549,10 @@ exit 0
 crypt	PARTUUID=e1750e08-02	none	luks
 
 ┌──(root㉿kali)-[/]
-└─# mkinitramfs -o /boot/initramfs.gz 5.15.44-Re4son-v8+
+└─# KERNEL_VERSION="$(ls /lib/modules | grep 'rpt-rpi-v8' | sort -V | tail -n1)"
+
+┌──(root㉿kali)-[/]
+└─# mkinitramfs -o /boot/firmware/initramfs.gz "$KERNEL_VERSION"
 ```
 
 {{% notice info %}}
@@ -559,7 +566,7 @@ crypt	PARTUUID=e1750e08-02	none	luks
 ```console
 ┌──(root㉿kali)-[/]
 └─# exit
-$ sudo umount /mnt/encrypted/{boot,sys,proc,dev/pts,dev}
+$ sudo umount /mnt/encrypted/{boot/firmware,sys,proc,dev/pts,dev}
 $ sudo umount /mnt/encrypted
 $ sudo cryptsetup luksClose crypt
 ```
@@ -620,7 +627,7 @@ kali@kali:~$ cat kali-encrypted-basic/cryptmypi.conf
 #   - Re4son+ : armv6 장치용(RPi1, RPi0, RPi0w)
 #   - v7+, v8+ 접미사는 32/64비트 armv7 장치용(RPi 3 등)
 #   - l+ 접미사는 RPi4용
-export _KERNEL_VERSION_FILTER="v8+"
+export _KERNEL_VERSION_FILTER="rpt-rpi-v8"
 
 # HOSTNAME
 #   각 호스트네임 요소는 1~63자, 전체는 253자 이하, 영문 소문자/숫자/하이픈만 허용
